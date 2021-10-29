@@ -1,0 +1,854 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CP24Team02Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BACSI">
+          <Key>
+            <PropertyRef Name="ID_BACSI" />
+          </Key>
+          <Property Name="ID_BACSI" Type="int" Nullable="false" />
+          <Property Name="TEN_BACSI" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="SDT_BACSI" Type="int" />
+          <Property Name="NGAYSINH_BACSI" Type="date" />
+          <Property Name="TUOI" Type="int" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="256" />
+          <Property Name="GIOI_TINH" Type="bit" />
+          <Property Name="CHUC_VU" Type="nvarchar" MaxLength="256" />
+          <Property Name="KINH_NGHIEM" Type="nvarchar" MaxLength="256" />
+          <Property Name="NGAY_TRUC" Type="nvarchar" MaxLength="256" />
+          <Property Name="BHYT" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="BENH_AN">
+          <Key>
+            <PropertyRef Name="ID_BENH_AN" />
+          </Key>
+          <Property Name="ID_KHOA" Type="int" Nullable="false" />
+          <Property Name="ID_BENH_AN" Type="int" Nullable="false" />
+          <Property Name="CHIEU_CAO" Type="int" Nullable="false" />
+          <Property Name="CAN_NANG" Type="int" Nullable="false" />
+          <Property Name="KET_QUA" Type="nvarchar(max)" />
+          <Property Name="CHUAN_DOAN" Type="nvarchar(max)" />
+          <Property Name="TIEN_SU_BENH" Type="nvarchar(max)" />
+          <Property Name="DIA_CHI_HIEN_TAI" Type="nvarchar" MaxLength="256" />
+          <Property Name="GHI_CHU" Type="nvarchar(max)" />
+          <Property Name="ID_BENH_NHAN" Type="int" Nullable="false" />
+          <Property Name="ID_DON_THUOC" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BENH_NHAN">
+          <Key>
+            <PropertyRef Name="ID_BENH_NHAN" />
+          </Key>
+          <Property Name="ID_BENH_NHAN" Type="int" Nullable="false" />
+          <Property Name="TEN_BN" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="TUOI" Type="int" Nullable="false" />
+          <Property Name="NGAY_SINH" Type="date" Nullable="false" />
+          <Property Name="EMAIL" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="SDT" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="GIOI_TINH" Type="bit" Nullable="false" />
+          <Property Name="CHUAN_DOAN" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="NGHE_NGHIEP" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="BHYT" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID_BACSI" Type="int" Nullable="false" />
+          <Property Name="ID_BENH_AN" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DON_THUOC">
+          <Key>
+            <PropertyRef Name="ID_DON_THUOC" />
+          </Key>
+          <Property Name="ID_DON_THUOC" Type="int" Nullable="false" />
+          <Property Name="CHUAN_DOAN" Type="nvarchar(max)" />
+          <Property Name="CHI_DINH" Type="nvarchar(max)" />
+          <Property Name="LOI_DAN" Type="nvarchar(max)" />
+          <Property Name="NGAY_LAP" Type="date" />
+          <Property Name="ID_THUOC" Type="int" Nullable="false" />
+          <Property Name="ID_BENH_NHAN" Type="int" Nullable="false" />
+          <Property Name="ID_BACSI" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KHOA">
+          <Key>
+            <PropertyRef Name="ID_KHOA" />
+          </Key>
+          <Property Name="ID_KHOA" Type="int" Nullable="false" />
+          <Property Name="TEN_KHOA" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="THUOC">
+          <Key>
+            <PropertyRef Name="ID_THUOC" />
+          </Key>
+          <Property Name="ID_THUOC" Type="int" Nullable="false" />
+          <Property Name="TEN_THUOC" Type="nvarchar" MaxLength="50" />
+          <Property Name="LIEU_LUONG" Type="int" Nullable="false" />
+          <Property Name="HANG_SX" Type="nvarchar" MaxLength="20" />
+          <Property Name="DANH_MUC" Type="nvarchar" MaxLength="50" />
+          <Property Name="MO_TA" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="TIN_TUC">
+          <Key>
+            <PropertyRef Name="ID_TIN_TUC" />
+          </Key>
+          <Property Name="ID_TIN_TUC" Type="int" Nullable="false" />
+          <Property Name="TEN_BAI_VIET" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="NGAY_DANG" Type="datetime" Nullable="false" />
+          <Property Name="NOI_DUNG" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="TAC_GIA" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="SEO_TITLE" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__BENH_NHAN__ID_BE__4BAC3F29">
+          <End Role="BENH_AN" Type="Self.BENH_AN" Multiplicity="1" />
+          <End Role="BENH_NHAN" Type="Self.BENH_NHAN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BENH_AN">
+              <PropertyRef Name="ID_BENH_AN" />
+            </Principal>
+            <Dependent Role="BENH_NHAN">
+              <PropertyRef Name="ID_BENH_AN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DON_THUOC__ID_BA__5070F446">
+          <End Role="BACSI" Type="Self.BACSI" Multiplicity="1" />
+          <End Role="DON_THUOC" Type="Self.DON_THUOC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BACSI">
+              <PropertyRef Name="ID_BACSI" />
+            </Principal>
+            <Dependent Role="DON_THUOC">
+              <PropertyRef Name="ID_BACSI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DON_THUOC__ID_BE__4F7CD00D">
+          <End Role="BENH_NHAN" Type="Self.BENH_NHAN" Multiplicity="1" />
+          <End Role="DON_THUOC" Type="Self.DON_THUOC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BENH_NHAN">
+              <PropertyRef Name="ID_BENH_NHAN" />
+            </Principal>
+            <Dependent Role="DON_THUOC">
+              <PropertyRef Name="ID_BENH_NHAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BA_ID_KHOA">
+          <End Role="KHOA" Type="Self.KHOA" Multiplicity="1" />
+          <End Role="BENH_AN" Type="Self.BENH_AN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHOA">
+              <PropertyRef Name="ID_KHOA" />
+            </Principal>
+            <Dependent Role="BENH_AN">
+              <PropertyRef Name="ID_KHOA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BN_ID_DT_BS_BA">
+          <End Role="BACSI" Type="Self.BACSI" Multiplicity="1" />
+          <End Role="BENH_NHAN" Type="Self.BENH_NHAN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BACSI">
+              <PropertyRef Name="ID_BACSI" />
+            </Principal>
+            <Dependent Role="BENH_NHAN">
+              <PropertyRef Name="ID_BACSI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DT_T_BN_BS">
+          <End Role="THUOC" Type="Self.THUOC" Multiplicity="1" />
+          <End Role="DON_THUOC" Type="Self.DON_THUOC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="THUOC">
+              <PropertyRef Name="ID_THUOC" />
+            </Principal>
+            <Dependent Role="DON_THUOC">
+              <PropertyRef Name="ID_THUOC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CP24Team02ModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BACSI" EntityType="Self.BACSI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BENH_AN" EntityType="Self.BENH_AN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BENH_NHAN" EntityType="Self.BENH_NHAN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DON_THUOC" EntityType="Self.DON_THUOC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KHOA" EntityType="Self.KHOA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="THUOC" EntityType="Self.THUOC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TIN_TUC" EntityType="Self.TIN_TUC" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__BENH_NHAN__ID_BE__4BAC3F29" Association="Self.FK__BENH_NHAN__ID_BE__4BAC3F29">
+            <End Role="BENH_AN" EntitySet="BENH_AN" />
+            <End Role="BENH_NHAN" EntitySet="BENH_NHAN" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DON_THUOC__ID_BA__5070F446" Association="Self.FK__DON_THUOC__ID_BA__5070F446">
+            <End Role="BACSI" EntitySet="BACSI" />
+            <End Role="DON_THUOC" EntitySet="DON_THUOC" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DON_THUOC__ID_BE__4F7CD00D" Association="Self.FK__DON_THUOC__ID_BE__4F7CD00D">
+            <End Role="BENH_NHAN" EntitySet="BENH_NHAN" />
+            <End Role="DON_THUOC" EntitySet="DON_THUOC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BA_ID_KHOA" Association="Self.FK_BA_ID_KHOA">
+            <End Role="KHOA" EntitySet="KHOA" />
+            <End Role="BENH_AN" EntitySet="BENH_AN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BN_ID_DT_BS_BA" Association="Self.FK_BN_ID_DT_BS_BA">
+            <End Role="BACSI" EntitySet="BACSI" />
+            <End Role="BENH_NHAN" EntitySet="BENH_NHAN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DT_T_BN_BS" Association="Self.FK_DT_T_BN_BS">
+            <End Role="THUOC" EntitySet="THUOC" />
+            <End Role="DON_THUOC" EntitySet="DON_THUOC" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CP24Team02Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="BACSI">
+          <Key>
+            <PropertyRef Name="ID_BACSI" />
+          </Key>
+          <Property Name="ID_BACSI" Type="Int32" Nullable="false" />
+          <Property Name="TEN_BACSI" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SDT_BACSI" Type="Int32" />
+          <Property Name="NGAYSINH_BACSI" Type="DateTime" Precision="0" />
+          <Property Name="TUOI" Type="Int32" />
+          <Property Name="EMAIL" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="GIOI_TINH" Type="Boolean" />
+          <Property Name="CHUC_VU" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="KINH_NGHIEM" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="NGAY_TRUC" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="BHYT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DON_THUOC" Relationship="Self.FK__DON_THUOC__ID_BA__5070F446" FromRole="BACSI" ToRole="DON_THUOC" />
+          <NavigationProperty Name="BENH_NHAN" Relationship="Self.FK_BN_ID_DT_BS_BA" FromRole="BACSI" ToRole="BENH_NHAN" />
+        </EntityType>
+        <EntityType Name="BENH_AN">
+          <Key>
+            <PropertyRef Name="ID_BENH_AN" />
+          </Key>
+          <Property Name="ID_KHOA" Type="Int32" Nullable="false" />
+          <Property Name="ID_BENH_AN" Type="Int32" Nullable="false" />
+          <Property Name="CHIEU_CAO" Type="Int32" Nullable="false" />
+          <Property Name="CAN_NANG" Type="Int32" Nullable="false" />
+          <Property Name="KET_QUA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CHUAN_DOAN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TIEN_SU_BENH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DIA_CHI_HIEN_TAI" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="GHI_CHU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ID_BENH_NHAN" Type="Int32" Nullable="false" />
+          <Property Name="ID_DON_THUOC" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BENH_NHAN" Relationship="Self.FK__BENH_NHAN__ID_BE__4BAC3F29" FromRole="BENH_AN" ToRole="BENH_NHAN" />
+          <NavigationProperty Name="KHOA" Relationship="Self.FK_BA_ID_KHOA" FromRole="BENH_AN" ToRole="KHOA" />
+        </EntityType>
+        <EntityType Name="BENH_NHAN">
+          <Key>
+            <PropertyRef Name="ID_BENH_NHAN" />
+          </Key>
+          <Property Name="ID_BENH_NHAN" Type="Int32" Nullable="false" />
+          <Property Name="TEN_BN" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TUOI" Type="Int32" Nullable="false" />
+          <Property Name="NGAY_SINH" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="EMAIL" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SDT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GIOI_TINH" Type="Boolean" Nullable="false" />
+          <Property Name="CHUAN_DOAN" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NGHE_NGHIEP" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BHYT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID_BACSI" Type="Int32" Nullable="false" />
+          <Property Name="ID_BENH_AN" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BACSI" Relationship="Self.FK_BN_ID_DT_BS_BA" FromRole="BENH_NHAN" ToRole="BACSI" />
+          <NavigationProperty Name="BENH_AN" Relationship="Self.FK__BENH_NHAN__ID_BE__4BAC3F29" FromRole="BENH_NHAN" ToRole="BENH_AN" />
+          <NavigationProperty Name="DON_THUOC" Relationship="Self.FK__DON_THUOC__ID_BE__4F7CD00D" FromRole="BENH_NHAN" ToRole="DON_THUOC" />
+        </EntityType>
+        <EntityType Name="DON_THUOC">
+          <Key>
+            <PropertyRef Name="ID_DON_THUOC" />
+          </Key>
+          <Property Name="ID_DON_THUOC" Type="Int32" Nullable="false" />
+          <Property Name="CHUAN_DOAN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CHI_DINH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LOI_DAN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NGAY_LAP" Type="DateTime" Precision="0" />
+          <Property Name="ID_THUOC" Type="Int32" Nullable="false" />
+          <Property Name="ID_BENH_NHAN" Type="Int32" Nullable="false" />
+          <Property Name="ID_BACSI" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BACSI" Relationship="Self.FK__DON_THUOC__ID_BA__5070F446" FromRole="DON_THUOC" ToRole="BACSI" />
+          <NavigationProperty Name="BENH_NHAN" Relationship="Self.FK__DON_THUOC__ID_BE__4F7CD00D" FromRole="DON_THUOC" ToRole="BENH_NHAN" />
+          <NavigationProperty Name="THUOC" Relationship="Self.FK_DT_T_BN_BS" FromRole="DON_THUOC" ToRole="THUOC" />
+        </EntityType>
+        <EntityType Name="KHOA">
+          <Key>
+            <PropertyRef Name="ID_KHOA" />
+          </Key>
+          <Property Name="ID_KHOA" Type="Int32" Nullable="false" />
+          <Property Name="TEN_KHOA" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BENH_AN" Relationship="Self.FK_BA_ID_KHOA" FromRole="KHOA" ToRole="BENH_AN" />
+        </EntityType>
+        <EntityType Name="THUOC">
+          <Key>
+            <PropertyRef Name="ID_THUOC" />
+          </Key>
+          <Property Name="ID_THUOC" Type="Int32" Nullable="false" />
+          <Property Name="TEN_THUOC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LIEU_LUONG" Type="Int32" Nullable="false" />
+          <Property Name="HANG_SX" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DANH_MUC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MO_TA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DON_THUOC" Relationship="Self.FK_DT_T_BN_BS" FromRole="THUOC" ToRole="DON_THUOC" />
+        </EntityType>
+        <EntityType Name="TIN_TUC">
+          <Key>
+            <PropertyRef Name="ID_TIN_TUC" />
+          </Key>
+          <Property Name="ID_TIN_TUC" Type="Int32" Nullable="false" />
+          <Property Name="TEN_BAI_VIET" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NGAY_DANG" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="NOI_DUNG" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TAC_GIA" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SEO_TITLE" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DON_THUOC__ID_BA__5070F446">
+          <End Role="BACSI" Type="Self.BACSI" Multiplicity="1" />
+          <End Role="DON_THUOC" Type="Self.DON_THUOC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BACSI">
+              <PropertyRef Name="ID_BACSI" />
+            </Principal>
+            <Dependent Role="DON_THUOC">
+              <PropertyRef Name="ID_BACSI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BN_ID_DT_BS_BA">
+          <End Role="BACSI" Type="Self.BACSI" Multiplicity="1" />
+          <End Role="BENH_NHAN" Type="Self.BENH_NHAN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BACSI">
+              <PropertyRef Name="ID_BACSI" />
+            </Principal>
+            <Dependent Role="BENH_NHAN">
+              <PropertyRef Name="ID_BACSI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BENH_NHAN__ID_BE__4BAC3F29">
+          <End Role="BENH_AN" Type="Self.BENH_AN" Multiplicity="1" />
+          <End Role="BENH_NHAN" Type="Self.BENH_NHAN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BENH_AN">
+              <PropertyRef Name="ID_BENH_AN" />
+            </Principal>
+            <Dependent Role="BENH_NHAN">
+              <PropertyRef Name="ID_BENH_AN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BA_ID_KHOA">
+          <End Role="KHOA" Type="Self.KHOA" Multiplicity="1" />
+          <End Role="BENH_AN" Type="Self.BENH_AN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHOA">
+              <PropertyRef Name="ID_KHOA" />
+            </Principal>
+            <Dependent Role="BENH_AN">
+              <PropertyRef Name="ID_KHOA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DON_THUOC__ID_BE__4F7CD00D">
+          <End Role="BENH_NHAN" Type="Self.BENH_NHAN" Multiplicity="1" />
+          <End Role="DON_THUOC" Type="Self.DON_THUOC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BENH_NHAN">
+              <PropertyRef Name="ID_BENH_NHAN" />
+            </Principal>
+            <Dependent Role="DON_THUOC">
+              <PropertyRef Name="ID_BENH_NHAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DT_T_BN_BS">
+          <End Role="THUOC" Type="Self.THUOC" Multiplicity="1" />
+          <End Role="DON_THUOC" Type="Self.DON_THUOC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="THUOC">
+              <PropertyRef Name="ID_THUOC" />
+            </Principal>
+            <Dependent Role="DON_THUOC">
+              <PropertyRef Name="ID_THUOC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="CP24Team02Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="BACSIs" EntityType="Self.BACSI" />
+          <EntitySet Name="BENH_AN" EntityType="Self.BENH_AN" />
+          <EntitySet Name="BENH_NHAN" EntityType="Self.BENH_NHAN" />
+          <EntitySet Name="DON_THUOC" EntityType="Self.DON_THUOC" />
+          <EntitySet Name="KHOAs" EntityType="Self.KHOA" />
+          <EntitySet Name="THUOCs" EntityType="Self.THUOC" />
+          <EntitySet Name="TIN_TUC" EntityType="Self.TIN_TUC" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DON_THUOC__ID_BA__5070F446" Association="Self.FK__DON_THUOC__ID_BA__5070F446">
+            <End Role="BACSI" EntitySet="BACSIs" />
+            <End Role="DON_THUOC" EntitySet="DON_THUOC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BN_ID_DT_BS_BA" Association="Self.FK_BN_ID_DT_BS_BA">
+            <End Role="BACSI" EntitySet="BACSIs" />
+            <End Role="BENH_NHAN" EntitySet="BENH_NHAN" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BENH_NHAN__ID_BE__4BAC3F29" Association="Self.FK__BENH_NHAN__ID_BE__4BAC3F29">
+            <End Role="BENH_AN" EntitySet="BENH_AN" />
+            <End Role="BENH_NHAN" EntitySet="BENH_NHAN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BA_ID_KHOA" Association="Self.FK_BA_ID_KHOA">
+            <End Role="KHOA" EntitySet="KHOAs" />
+            <End Role="BENH_AN" EntitySet="BENH_AN" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DON_THUOC__ID_BE__4F7CD00D" Association="Self.FK__DON_THUOC__ID_BE__4F7CD00D">
+            <End Role="BENH_NHAN" EntitySet="BENH_NHAN" />
+            <End Role="DON_THUOC" EntitySet="DON_THUOC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DT_T_BN_BS" Association="Self.FK_DT_T_BN_BS">
+            <End Role="THUOC" EntitySet="THUOCs" />
+            <End Role="DON_THUOC" EntitySet="DON_THUOC" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CP24Team02ModelStoreContainer" CdmEntityContainer="CP24Team02Entities">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="CP24Team02Model.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="CP24Team02Model.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="CP24Team02Model.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="CP24Team02Model.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="CP24Team02Model.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BACSIs">
+            <EntityTypeMapping TypeName="CP24Team02Model.BACSI">
+              <MappingFragment StoreEntitySet="BACSI">
+                <ScalarProperty Name="ID_BACSI" ColumnName="ID_BACSI" />
+                <ScalarProperty Name="TEN_BACSI" ColumnName="TEN_BACSI" />
+                <ScalarProperty Name="SDT_BACSI" ColumnName="SDT_BACSI" />
+                <ScalarProperty Name="NGAYSINH_BACSI" ColumnName="NGAYSINH_BACSI" />
+                <ScalarProperty Name="TUOI" ColumnName="TUOI" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="GIOI_TINH" ColumnName="GIOI_TINH" />
+                <ScalarProperty Name="CHUC_VU" ColumnName="CHUC_VU" />
+                <ScalarProperty Name="KINH_NGHIEM" ColumnName="KINH_NGHIEM" />
+                <ScalarProperty Name="NGAY_TRUC" ColumnName="NGAY_TRUC" />
+                <ScalarProperty Name="BHYT" ColumnName="BHYT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BENH_AN">
+            <EntityTypeMapping TypeName="CP24Team02Model.BENH_AN">
+              <MappingFragment StoreEntitySet="BENH_AN">
+                <ScalarProperty Name="ID_KHOA" ColumnName="ID_KHOA" />
+                <ScalarProperty Name="ID_BENH_AN" ColumnName="ID_BENH_AN" />
+                <ScalarProperty Name="CHIEU_CAO" ColumnName="CHIEU_CAO" />
+                <ScalarProperty Name="CAN_NANG" ColumnName="CAN_NANG" />
+                <ScalarProperty Name="KET_QUA" ColumnName="KET_QUA" />
+                <ScalarProperty Name="CHUAN_DOAN" ColumnName="CHUAN_DOAN" />
+                <ScalarProperty Name="TIEN_SU_BENH" ColumnName="TIEN_SU_BENH" />
+                <ScalarProperty Name="DIA_CHI_HIEN_TAI" ColumnName="DIA_CHI_HIEN_TAI" />
+                <ScalarProperty Name="GHI_CHU" ColumnName="GHI_CHU" />
+                <ScalarProperty Name="ID_BENH_NHAN" ColumnName="ID_BENH_NHAN" />
+                <ScalarProperty Name="ID_DON_THUOC" ColumnName="ID_DON_THUOC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BENH_NHAN">
+            <EntityTypeMapping TypeName="CP24Team02Model.BENH_NHAN">
+              <MappingFragment StoreEntitySet="BENH_NHAN">
+                <ScalarProperty Name="ID_BENH_NHAN" ColumnName="ID_BENH_NHAN" />
+                <ScalarProperty Name="TEN_BN" ColumnName="TEN_BN" />
+                <ScalarProperty Name="TUOI" ColumnName="TUOI" />
+                <ScalarProperty Name="NGAY_SINH" ColumnName="NGAY_SINH" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="GIOI_TINH" ColumnName="GIOI_TINH" />
+                <ScalarProperty Name="CHUAN_DOAN" ColumnName="CHUAN_DOAN" />
+                <ScalarProperty Name="NGHE_NGHIEP" ColumnName="NGHE_NGHIEP" />
+                <ScalarProperty Name="BHYT" ColumnName="BHYT" />
+                <ScalarProperty Name="ID_BACSI" ColumnName="ID_BACSI" />
+                <ScalarProperty Name="ID_BENH_AN" ColumnName="ID_BENH_AN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DON_THUOC">
+            <EntityTypeMapping TypeName="CP24Team02Model.DON_THUOC">
+              <MappingFragment StoreEntitySet="DON_THUOC">
+                <ScalarProperty Name="ID_DON_THUOC" ColumnName="ID_DON_THUOC" />
+                <ScalarProperty Name="CHUAN_DOAN" ColumnName="CHUAN_DOAN" />
+                <ScalarProperty Name="CHI_DINH" ColumnName="CHI_DINH" />
+                <ScalarProperty Name="LOI_DAN" ColumnName="LOI_DAN" />
+                <ScalarProperty Name="NGAY_LAP" ColumnName="NGAY_LAP" />
+                <ScalarProperty Name="ID_THUOC" ColumnName="ID_THUOC" />
+                <ScalarProperty Name="ID_BENH_NHAN" ColumnName="ID_BENH_NHAN" />
+                <ScalarProperty Name="ID_BACSI" ColumnName="ID_BACSI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KHOAs">
+            <EntityTypeMapping TypeName="CP24Team02Model.KHOA">
+              <MappingFragment StoreEntitySet="KHOA">
+                <ScalarProperty Name="ID_KHOA" ColumnName="ID_KHOA" />
+                <ScalarProperty Name="TEN_KHOA" ColumnName="TEN_KHOA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="THUOCs">
+            <EntityTypeMapping TypeName="CP24Team02Model.THUOC">
+              <MappingFragment StoreEntitySet="THUOC">
+                <ScalarProperty Name="ID_THUOC" ColumnName="ID_THUOC" />
+                <ScalarProperty Name="TEN_THUOC" ColumnName="TEN_THUOC" />
+                <ScalarProperty Name="LIEU_LUONG" ColumnName="LIEU_LUONG" />
+                <ScalarProperty Name="HANG_SX" ColumnName="HANG_SX" />
+                <ScalarProperty Name="DANH_MUC" ColumnName="DANH_MUC" />
+                <ScalarProperty Name="MO_TA" ColumnName="MO_TA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIN_TUC">
+            <EntityTypeMapping TypeName="CP24Team02Model.TIN_TUC">
+              <MappingFragment StoreEntitySet="TIN_TUC">
+                <ScalarProperty Name="ID_TIN_TUC" ColumnName="ID_TIN_TUC" />
+                <ScalarProperty Name="TEN_BAI_VIET" ColumnName="TEN_BAI_VIET" />
+                <ScalarProperty Name="NGAY_DANG" ColumnName="NGAY_DANG" />
+                <ScalarProperty Name="NOI_DUNG" ColumnName="NOI_DUNG" />
+                <ScalarProperty Name="TAC_GIA" ColumnName="TAC_GIA" />
+                <ScalarProperty Name="SEO_TITLE" ColumnName="SEO_TITLE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="CP24Team02Model.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
