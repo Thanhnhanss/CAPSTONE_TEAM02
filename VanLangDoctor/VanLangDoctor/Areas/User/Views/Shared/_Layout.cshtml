@@ -1,145 +1,455 @@
 ﻿<!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
-    <!-- ===============================================-->
-    <!--    Document Title-->
-    <!-- ===============================================-->
-    <title>VanLangDoctor &amp; Home</title>
-    <!-- ===============================================-->
-    <!--    Favicons-->
-    <!-- ===============================================-->
-    <link rel="apple-touch-icon" sizes="180x180" href="@Url.Content("~/Content/assets/img/favicons/apple-touch-icon.png")">
-    <link rel="icon" type="image/png" sizes="32x32" href="@Url.Content("~/Content/assets/img/favicons/favicon-32x32.png")">
-    <link rel="icon" type="image/png" sizes="16x16" href="@Url.Content("~/Content/assets/img/favicons/favicon-16x16.png")">
-    <link rel="shortcut icon" type="image/x-icon" href="@Url.Content("/assets/img/favicons/favicon.ico")">
-    <link rel="manifest" href="@Url.Content("~/Content/assets/img/favicons/manifest.json")">
-    <meta name="msapplication-TileImage" content="@Url.Content("~/Content/assets/img/favicons/mstile-150x150.png")">
-    <meta name="theme-color" content="#ffffff">
-
-
-    <!-- ===============================================-->
-    <!--    Stylesheets-->
-    <!-- ===============================================-->
-    <link href="@Url.Content("~/Content/assets/css/theme.css")" rel="stylesheet" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets-ff/css/bootstrap.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets-ff/css/style.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets-ff/vendor/owl-slider.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets-ff/vendor/settings.css")" />
+    <link rel="shortcut icon" href="@Url.Content("~/Content/assets-ff/images/favicon.png")" />
+    <script type="text/javascript" src="@Url.Content("~/Content/assets-ff/js/jquery-3.2.0.min.js")"></script>
+    <title>Home Version 2</title>
 </head>
+
 <body>
+    <div class="awe-page-loading">
+        <div class="awe-loading-wrapper">
+            <div class="awe-loading-icon">
+                <img src="@Url.Content("~/Content/assets-ff/images/logo.png")" alt="images">
+            </div>
+            <div class="progress">
+                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+        </div>
     </div>
-    <!-- ===============================================-->
-    <!--    Main Content-->
-    <!-- ===============================================-->
-    <header>
-        <main class="main" id="top">
-            <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" data-navbar-on-scroll="data-navbar-on-scroll">
-                <div class="container">
-                    <a class="navbar-brand d-flex align-items-center fw-bold fs-2" href="#"><img class="d-inline-block me-3" src="@Url.Content("~/Content/assets/img/icons/vlunoo.png")" height="48" width="40" alt="" />VanLangDoctor</a>
-                    <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                    <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto pt-2 pt-lg-0">
-                            <li class="nav-item"><a class="nav-link fw-bold active" aria-current="page" href="#">Trang chủ</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">Tin Tức</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">Thuốc</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">Bác Sĩ</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">Bệnh Án</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-            <section class="py-0">
-                <div class="bg-holder" style="background-image:@Url.Content("~/Content/assets/img/illustrations/dot.png)")" ;background-position:left;background-size:auto;margin-top:-105px;">
-                </div>
-                <!--/.bg-holder-->
 
-                <div class="container position-relative">
-                    <div class="row align-items-center">
-                        <div class="col-md-5 col-lg-6 order-md-1 pt-8"><img class="img-fluid" src="@Url.Content("~/Content/assets/img/illustrations/hero-header.png")" alt="" /></div>
-                        <div class="col-md-7 col-lg-6 text-center text-md-start pt-5 pt-md-9">
-                            <h1 class="mb-4 display-3 fw-bold">VanLangDoctor<br class="d-block d-lg-none d-xl-block" />Trang tư vấn sức khỏe online dành cho bạn.</h1>
-                            <p class="mt-3 mb-4 fs-1">VanLangDoctor là website tư vấn online về sức khỏe, <br class="d-none d-lg-block" />tin tức cũng như thông tin thuốc <br class="d-none d-lg-block" />dành cho tất cả mọi người</p><a class="btn btn-lg btn-primary rounded-pill hover-top" href="#" role="button">ĐI ĐẾN TIN TỨC</a>
+    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content popup-search">
+                <button type="button" class="close" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i></button>
+                <div class="modal-body">
+                    <div class="input-group">
+                        <input type="text" class="form-control control-search" placeholder="Search and hit enter...">
+                        <button class="button_search" type="button">Search</button>
+                    </div><!-- /input-group -->
+
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+    <!-- End pushmenu -->
+    <div class="wrappage">
+        <!-- <div id="rtl">RTL</div> -->
+        <header id="header" class="header-v3 header-v2">
+            <div id="topbar" class="topbar-ver2">
+                <div class="container container-ver2">
+                    <div class="inner-topbar box">
+                        <div class="float-left">
+                            <p><img src="@Url.Content("~/Content/assets-ff/images/icon-phone-header.png.png")" alt="icon"> Call us <span> 070-7782-9137</span></p>
+                        </div>
+                        <div class="float-right align-right">
+                            <div class="hover-menu">
+                                <a class="acc" href="#" title="USD"><img src="@Url.Content("~/Content/assets-ff/images/icon-user-header.png")" alt="icon">MY ACCOUNT</a>
+                                <ul class="list-menu">
+                                    <li><a href="#" title="USD">LOGIN</a></li>
+                                    <li><a href="#" title="VND">REGISTER</a></li>
+                                </ul>
+                            </div>
+                            <!-- End hover-menu -->
                         </div>
                     </div>
                 </div>
-            </section>
-    </header>
+                <!-- End container -->
+            </div>
+            <!-- End topbar -->
+            <div class="header-top">
+                <div class="container container-ver2">
+                    <div class="box">
+                        <p class="icon-menu-mobile"><i class="fa fa-bars"></i></p>
+                        <div class="logo">
+                            <a href="#" title="Uno">
+                                <img src="@Url.Content("~/Content/assets-ff/images/logo-v2.png")" alt="images">
+                            </a>
+                        </div>
+                        <div class="logo-mobile"><a href="#" title="Xanadu"><img src="@Url.Content("~/Content/assets-ff/images/logo-v2.png")" alt="Xanadu-Logo"></a></div>
 
-    <footer>
-        <section class="py-6 pt-7 bg-primary-gradient">
-            <div class="bg-holder" style="background-image:@Url.Content("~/Content/assets/img/illustrations/dot.png");background-position:left bottom;background-size:auto;filter:contrast(1.5);">
-            </div>
-            <!--/.bg-holder-->
-            <div class="bg-holder" style="background-image:@Url.Content("~/Content/assets/img/illustrations/dot-2.png");background-position:right top;background-size:auto;margin-top:-75px;">
-            </div>
-            <!--/.bg-holder-->
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 col-lg-4 order-0 order-sm-0 pe-6">
-                        <a class="text-decoration-none" href="#"><img class="img-fluid me-2" src="@Url.Content("~/Content/assets/img/icons/vlunoo.png")" height="30" width="25" /><span class="fw-bold fs-1 text-light">VanLangDoctor</span></a>
-                        <p class="mt-3 text-white">VanLangDoctor cung cấp dịch vụ chăm sóc sức khỏe tiến bộ có thể truy cập trên thiết bị di động và trực tuyến cho mọi người.</p>
-                    </div>
-                    <div class="col-4 col-md-4 col-lg mb-3 order-2 order-sm-1">
-                        <h6 class="lh-lg fw-bold text-light">Website</h6>
-                        <ul class="list-unstyled mb-md-4 mb-lg-0">
-                            <li class="lh-lg"><a class="text-light fs--1 text-decoration-none" href="#!">Tin Tức</a></li>
-                            <li class="lh-lg"><a class="text-light fs--1 text-decoration-none" href="#!">Thuốc</a></li>
-                            <li class="lh-lg"><a class="text-light fs--1 text-decoration-none" href="#!">Bác Sĩ</a></li>
-                            <li class="lh-lg"><a class="text-light fs--1 text-decoration-none" href="#!">Trang Chủ</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-4 col-md-4 col-lg mb-3 order-3 order-sm-2">
-                        <h6 class="lh-lg fw-bold text-light"> Region </h6>
-                        <ul class="list-unstyled mb-md-4 mb-lg-0">
-                            <li class="lh-lg"><a class="text-light fs--1 text-decoration-none" href="#!">Indonesia</a></li>
-                            <li class="lh-lg"><a class="text-light fs--1 text-decoration-none" href="#!">Singapore</a></li>
-                            <li class="lh-lg"><a class="text-light fs--1 text-decoration-none" href="#!">Guide</a></li>
-                            <li class="lh-lg"><a class="text-light fs--1 text-decoration-none" href="#!">Hongkong</a></li>
-                            <li class="lh-lg"><a class="text-light fs--1 text-decoration-none" href="#!">Canada</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-4 col-md-4 col-lg mb-3 order-1 order-sm-3">
-                        <h6 class="lh-lg fw-bold text-light">Help </h6>
-                        <ul class="list-unstyled mb-md-4 mb-lg-0">
-                            <li class="lh-lg"><a class="text-light fs--1 text-decoration-none" href="#!">Help center</a></li>
-                            <li class="lh-lg"><a class="text-light fs--1 text-decoration-none" href="#!">Contact support</a></li>
-                            <li class="lh-lg"><a class="text-light fs--1 text-decoration-none" href="#!">Guide</a></li>
-                            <li class="lh-lg"><a class="text-light fs--1 text-decoration-none" href="#!">Instructions</a></li>
-                            <li class="lh-lg"><a class="text-light fs--1 text-decoration-none" href="#!">How it works</a></li>
-                        </ul>
+                        <div class="box-right">
+                            <div class="cart hover-menu">
+                                <p class="icon-cart" title="Add to cart">
+                                    <i class="icon"></i>
+                                    <span class="cart-count">2</span>
+                                </p>
+                                <div class="cart-list list-menu">
+                                    <ul class="list">
+                                        <li>
+                                            <a href="#" title="" class="cart-product-image"><img src="@Url.Content("~/Content/assets-ff/images/products/1.jpg")" alt="Product"></a>
+                                            <div class="text">
+                                                <p class="product-name">Union Bed</p>
+                                                <p class="product-price"><span class="price-old">$700.00</span><span class="price">$350.00</span></p>
+                                                <p class="qty">QTY:01</p>
+                                            </div>
+                                            <a class="close" href="#" title="close"><i class="fa fa-times-circle"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="" class="cart-product-image"><img src="@Url.Content("~/Content/assets-ff/images/products/1.jpg")" alt="Product"></a>
+                                            <div class="text">
+                                                <p class="product-name">Union Bed</p>
+                                                <p class="product-price"><span class="price-old">$700.00</span><span class="price">$350.00</span></p>
+                                                <p class="qty">QTY:01</p>
+                                            </div>
+                                            <a class="close" href="#" title="close"><i class="fa fa-times-circle"></i></a>
+                                        </li>
+                                    </ul>
+                                    <p class="total"><span class="left">Total:</span> <span class="right">$1121.98</span></p>
+                                    <div class="bottom">
+                                        <a class="link-v1" href="#" title="viewcart">View Cart</a>
+                                        <a class="link-v1 rt" href="#" title="checkout">Check out</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="search dropdown" data-toggle="modal" data-target=".bs-example-modal-lg">
+                                <i class="icon"></i>
+                            </div>
+                        </div>
+                        <nav class="mega-menu">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <ul class="nav navbar-nav" id="navbar">
+                                <li class="level1 active dropdown">
+                                    <a href="#" title="Home">Home</a>
+                                    <ul class="menu-level-1 dropdown-menu">
+                                        <li class="level2"><a href="home_v1.html" title="Home 1">Home 1</a></li>
+                                        <li class="level2"><a href="home_v2.html" title="Home 2">Home 2</a></li>
+                                        <li class="level2"><a href="home_v3.html" title="Home 3">Home 3</a></li>
+                                        <li class="level2"><a href="home_v4.html" title="Home 4">Home 4</a></li>
+                                    </ul>
+                                </li>
+                                <li class="level1"><a href="about.html" title="About us">About us</a></li>
+                                <li class="level1 dropdown">
+                                    <a href="#" title="men">Store</a>
+                                    <div class="sub-menu sub-menu-v2 dropdown-menu">
+                                        <div class="top-sub-menu">
+                                            <img src="@Url.Content("~/Content/assets/images/top-submenu1.jpg")" alt="images">
+                                        </div>
+                                        <ul class="menu-level-1">
+                                            <li class="level2">
+                                                <a href="#">Living Room</a>
+                                                <ul class="menu-level-2">
+                                                    <li class="level3"><a href="#" title="Seatings">Seatings</a></li>
+                                                    <li class="level3"><a href="#" title="Tables">Tables</a></li>
+                                                    <li class="level3"><a href="#" title="Accessories">Accessories</a></li>
+                                                    <li class="level3"><a href="#" title="Series">Series</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="level2">
+                                                <a href="#">BATH Room</a>
+                                                <ul class="menu-level-2">
+                                                    <li class="level3"><a href="#" title="Lighting">Lighting</a></li>
+                                                    <li class="level3"><a href="#" title="Storage">Storage</a></li>
+                                                    <li class="level3"><a href="#" title="Accessories">Accessories</a></li>
+                                                    <li class="level3"><a href="#" title="Beds">Beds</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="level2">
+                                                <a href="#">KITCHEN Room</a>
+                                                <ul class="menu-level-2">
+                                                    <li class="level3"><a href="#" title="Cleaning Tools">Cleaning Tools</a></li>
+                                                    <li class="level3"><a href="#" title="Waste Bins">Waste Bins</a></li>
+                                                    <li class="level3"><a href="#" title="Pots & Pans">Pots & Pans</a></li>
+                                                    <li class="level3"><a href="#" title="Beds">Beds</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="level2">
+                                                <a href="#">Living Room</a>
+                                                <ul class="menu-level-2">
+                                                    <li class="level3"><a href="#" title="Seatings">Seatings</a></li>
+                                                    <li class="level3"><a href="#" title="Tables">Tables</a></li>
+                                                    <li class="level3"><a href="#" title="Accessories">Accessories</a></li>
+                                                    <li class="level3"><a href="#" title="Series">Series</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                        <!-- End RightSubMenu -->
+                                    </div>
+                                    <!-- End Dropdow Menu -->
+                                </li>
+                                <li class="level1 dropdown">
+                                    <a href="#" title="Page">Page</a>
+                                    <div class="sub-menu dropdown-menu">
+                                        <ul class="menu-level-1">
+                                            <li class="level2">
+                                                <a href="#">Shop Page</a>
+                                                <ul class="menu-level-2">
+                                                    <li class="level3"><a href="order.html" title="Order">Order</a></li>
+                                                    <li class="level3"><a href="shopping_cart.html" title="Shopping Cart">Shopping Cart</a></li>
+                                                    <li class="level3"><a href="checkout.html" title="Check Out">Check Out</a></li>
+                                                    <li class="level3"><a href="wishlist.html" title="Wish List">Wish List</a></li>
+                                                    <li class="level3"><a href="checkout.html" title="Check Out">Check Out</a></li>
+                                                    <li class="level3"><a href="catalog_fullwidth.html" title="Shop Grid Full">Shop Full</a></li>
+                                                    <li class="level3"><a href="catalog_sidebar.html" title="Shop Left Sidebar">Shop Left Sidebar </a></li>
+                                                    <li class="level3"><a href="catalog_sidebar_right.html" title="Shop Right Sidebar">Shop Right Sidebar</a></li>
+
+                                                </ul>
+                                            </li>
+                                            <li class="level2">
+                                                <a href="#">Other Page</a>
+                                                <ul class="menu-level-2">
+                                                    <li class="level3"><a href="FAQ.html" title="FAQ">FAQ</a></li>
+                                                    <li class="level3"><a href="page_404.html" title="Page 404">Page 404</a></li>
+                                                    <li class="level3"><a href="popup.html" title="Newsletter">Newsletter</a></li>
+                                                    <li class="level3"><a href="quick_view.html" title="Quick View">Quick View</a></li>
+                                                    <li class="level3"><a href="login_register.html" title="Login Registers">Login Register</a></li>
+                                                    <li class="level3"><a href="tracking.html" title="Tracking">Tracking</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="level2">
+                                                <a href="#">Blog Page</a>
+                                                <ul class="menu-level-2">
+                                                    <li class="level3"><a href="blog_2_columns.html" title="Blog 2 Columns">Blog 2 Columns</a></li>
+                                                    <li class="level3"><a href="blog_3_columns.html" title="Blog 3 Columns">Blog 3 Columns</a></li>
+                                                    <li class="level3"><a href="blog_3_columns_masonry.html" title="Blog 3 Columns Masonry">Blog 3 Columns Masonry</a></li>
+                                                    <li class="level3"><a href="blog_details.html" title="Blog Details">Blog Details</a></li>
+                                                    <li class="level3"><a href="blog_list_width.html" title="Blog List Width">Blog List Width</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="level2">
+                                                <a href="#">Signle Page</a>
+                                                <ul class="menu-level-2">
+                                                    <li class="level3"><a href="product_detail.html" title="Version 1">Product Detail Version 1</a></li>
+                                                    <li class="level3"><a href="product_detail2.html" title="Version 2">Product Detail Version 2</a></li>
+                                                    <li class="level3"><a href="product_detail3.html" title="Version 3">Product Detail Version 3</a></li>
+                                                    <li class="level3"><a href="product_detail4.html" title="Version 4">Product Detail Version 4</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                        <!-- End RightSubMenu -->
+                                    </div>
+                                    <!-- End Dropdow Menu -->
+                                </li>
+                                <li class="level1"><a href="blog_details.html" title="collections">Blog</a></li>
+                                <li class="level1"><a href="contact.html" title="Contact us">Contact us</a></li>
+                            </ul>
+                        </nav>
                     </div>
                 </div>
+                <!-- End container -->
             </div>
-        </section>
+            <!-- End header-top -->
+        </header><!-- /header -->
+        <div class="tp-banner-container hidden-dot ver1">
+            <div class="tp-banner">
+                <ul>
+                    <!-- SLIDE  -->
+                    <!-- SLIDE  -->
+                    <li data-transition="random" data-slotamount="6" data-masterspeed="1000">
+                        <!-- MAIN IMAGE -->
+                        <img src="@Url.Content("~/Content/assets/images/home1-slideshow1.jpg")" alt="Futurelife-home2-slideshow" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
 
+                        <!-- LAYER NR. 9 -->
+                        <div class="tp-caption color-white customin randomrotateout font-ros tp-resizeme size-60 text-shadow"
+                             data-x="650"
+                             data-y="305"
+                             data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
+                             data-speed="500"
+                             data-start="2000"
+                             data-easing="Power4.easeOut"
+                             data-splitin="chars"
+                             data-splitout="none"
+                             data-elementdelay="0.1"
+                             data-endelementdelay="0.1"
+                             style="z-index: 3">
+                            Fresh Organic Food
+                        </div>
 
-        <!-- ============================================-->
-        <!-- <section> begin ============================-->
-        <section class="py-2">
+                        <!-- LAYER NR. 3 -->
+                        <div class="tp-caption color-white font-ros weight-300 skewfromleft customout size-20 letter-spacing-2 text-shadow"
+                             data-x="505"
+                             data-y="390"
+                             data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                             data-speed="800"
+                             data-start="1600"
+                             data-easing="Power4.easeOut"
+                             data-endspeed="300"
+                             data-endeasing="Power1.easeIn"
+                             data-captionhidden="on"
+                             style="z-index: 4">
+                            We Deliver Organic Fruits And Vegetables Fresh From Our Fields To Your Home
+                        </div>
 
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="text-center">
-                            <p class="mb-0">
-                                &copy; Website make by&nbsp;
-                                <svg class="bi bi-suit-heart-fill" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#458FF6" viewBox="0 0 16 16">
-                                    <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z"></path>
-                                </svg>&nbsp;by&nbsp;<a class="text-black" href="https://themewagon.com/" target="_blank">PinkPanther </a>
-                            </p>
+                        <!-- LAYER NR. 7 -->
+                        <div class="tp-caption skewfromleft customout font-roc link-1 height-40 size-16"
+                             data-x="865"
+                             data-y="460"
+                             data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                             data-speed="800"
+                             data-start="1500"
+                             data-easing="Power4.easeOut"
+                             data-endspeed="300"
+                             data-endeasing="Power1.easeIn"
+                             data-captionhidden="on"
+                             style="z-index: 5">
+                            <a href="#" title="View Shop" class="">View Details</a>
+                        </div>
+                        <!-- LAYER NR. 8s -->
+                    </li>
+                    <!-- SLIDER -->
+                    <!-- SLIDE  -->
+                    <li data-transition="random" data-slotamount="6" data-masterspeed="1000">
+                        <!-- MAIN IMAGE -->
+                        <img src="@Url.Content("Content/assets/images/home1-slideshow1.jpg")" alt="Futurelife-home2-slideshow" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+
+                        <!-- LAYER NR. 9 -->
+                        <div class="tp-caption color-ea8800 customin randomrotateout font-ro tp-resizeme size-130 weight-300 uppercase"
+                             data-x="585"
+                             data-y="245"
+                             data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
+                             data-speed="500"
+                             data-start="2000"
+                             data-easing="Power4.easeOut"
+                             data-splitin="chars"
+                             data-splitout="none"
+                             data-elementdelay="0.1"
+                             data-endelementdelay="0.1"
+                             style="z-index: 3">
+                            Fresh Food
+                        </div>
+
+                        <!-- LAYER NR. 3 -->
+                        <div class="tp-caption color-2b2b2b font-ros weight-400 skewfromleft customout size-20 letter-spacing-2"
+                             data-x="505"
+                             data-y="403"
+                             data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                             data-speed="800"
+                             data-start="1600"
+                             data-easing="Power4.easeOut"
+                             data-endspeed="300"
+                             data-endeasing="Power1.easeIn"
+                             data-captionhidden="on"
+                             style="z-index: 4">
+                            We Deliver Organic Fruits And Vegetables Fresh From Our Fields To Your Home
+                        </div>
+
+                        <!-- LAYER NR. 7 -->
+                        <div class="tp-caption skewfromleft customout font-roc link-1 height-40 size-16"
+                             data-x="865"
+                             data-y="460"
+                             data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                             data-speed="800"
+                             data-start="1500"
+                             data-easing="Power4.easeOut"
+                             data-endspeed="300"
+                             data-endeasing="Power1.easeIn"
+                             data-captionhidden="on"
+                             style="z-index: 5">
+                            <a href="#" title="View Shop" class="">View Details</a>
+                        </div>
+                        <!-- LAYER NR. 8s -->
+                    </li>
+                    <!-- SLIDER -->
+                </ul>
+                <div class="tp-bannertimer"></div>
+            </div>
+        </div>
+
+        @RenderBody()
+        <footer id="footer" class="footer-v3 align-left">
+            <div class="container container-ver2">
+                <div class="footer-inner">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6">
+                            <h3 class="title-footer">About Us</h3>
+                            <p>With more than 15 years of experience we can proudly say that we are one of the best in business, a trusted supplier for more than 1000 companies...</p>
+                            <a class="link-footer" href="#" title="footer">Read more <i class="fa fa-long-arrow-right"></i></a>
+                        </div>
+                        <div class="col-md-2 col-sm-6">
+                            <h3 class="title-footer">Infomation</h3>
+                            <ul class="list-footer">
+                                <li><a href="#" title="title">Delivery</a></li>
+                                <li><a href="#" title="title">Legal Notice</a></li>
+                                <li><a href="#" title="title">Terms & Conditions</a></li>
+                                <li><a href="#" title="title">About Us</a></li>
+                                <li><a href="#" title="title">Secure Payment</a></li>
+                                <li><a href="#" title="title">Our Stores</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <h3 class="title-footer">Get It Touch</h3>
+                            <div class="social space-30">
+                                <a href="#" title="t"><i class="fa fa-twitter"></i></a>
+                                <a href="#" title="f"><i class="fa fa-facebook"></i></a>
+                                <a href="#" title="y"><i class="fa fa-youtube-play"></i></a>
+                                <a href="#" title="g"><i class="fa fa-google"></i></a>
+                            </div>
+                            <h3 class="title-footer">Payment Accept</h3>
+                            <a href="#" title="paypal"><img src="assets/images/paypal-footer.png" alt="images"></a>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <h3 class="title-footer">Get Newsletter</h3>
+                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium</p>
+                            <div class="subscribe">
+                                <form action="#" method="get" accept-charset="utf-8">
+                                    <input type="text" onblur="if (this.value == '') {this.value = 'Enter Your Email Address';}" onfocus="if(this.value != '') {this.value = '';}" value="Enter Your Email Address" class="input-text required-entry validate-email" title="Sign up for our newsletter" id="newsletter" name="email">
+                                    <button class="button button1 hover-white" title="Subscribe" type="submit">Subscribe<i class="fa fa-long-arrow-right"></i></button>
+                                </form>
+                            </div>
+                            <!-- End subscribe -->
+                        </div>
+                    </div>
+                    <!-- End row -->
+                </div>
+                <!-- End footer-inner -->
+            </div>
+            <!-- End container -->
+            <div class="footer-bottom box">
+                <div class="container container-ver2">
+                    <div class="box bottom">
+                        <p class="float-left">Copyright &copy;2016 Fresh Food - All Rights Reserved.</p>
+                        <div class="float-right">
+                            <ul class="menu-bottom-footer">
+                                <li><a href="#" title="Contact Us">Contact Us</a></li>
+                                <li><a href="#" title="Term of Use">Term of Use</a></li>
+                                <li><a href="#" title="Privacy Policy">Privacy Policy</a></li>
+                                <li><a href="#" title="Site Map">Site Map</a></li>
+                            </ul>
+                            <div class="language">
+                                <span>Language:</span>
+                                <div class="hover-menu">
+                                    <p>EN <i class="fa fa-angle-down"></i></p>
+                                    <div class="list-menu">
+                                        <ul>
+                                            <li><a href="#" title="EN">EN</a></li>
+                                            <li><a href="#" title="VN">VN</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <span>Price:</span>
+                                <div class="hover-menu">
+                                    <p>USD <i class="fa fa-angle-down"></i></p>
+                                    <div class="list-menu">
+                                        <ul>
+                                            <li><a href="#" title="USD">USD</a></li>
+                                            <li><a href="#" title="VND">VND</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End language -->
                         </div>
                     </div>
                 </div>
-            </div><!-- end of .container-->
+                <!-- End container -->
+            </div>
+        </footer>
+    </div>
+    <!-- End wrappage -->
+    <script type="text/javascript" src="@Url.Content("~/Content/assets-ff/js/bootstrap.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/assets-ff/js/owl.carousel.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/assets-ff/js/jquery.themepunch.revolution.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/assets-ff/js/jquery.themepunch.plugins.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/assets-ff/js/engo-plugins.js")"></script>
 
-        </section>
-    </footer>
-    <!-- <section> close ============================-->
-    </main>
-    @RenderBody()
-    <script src="@Url.Content("~/Content/vendors/@popperjs/popper.min.js")"></script>
-    <script src="@Url.Content("~/Content/vendors/bootstrap/bootstrap.min.js")"></script>
-    <script src="@Url.Content("~/Content/vendors/is/is.min.js")"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
-    <script src="@Url.Content("~/Content/assets/js/theme.js")"></script>
-
-    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500&amp;display=swap" rel="stylesheet">
-
+    <script type="text/javascript" src="@Url.Content("~/Content/assets-ff/js/slick.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/assets-ff/js/store.js")"></script>
 </body>
 </html>

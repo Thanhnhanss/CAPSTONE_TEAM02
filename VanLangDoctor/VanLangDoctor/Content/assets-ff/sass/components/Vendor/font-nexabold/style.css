@@ -1,0 +1,6 @@
+@font-face {
+	font-family: 'NexaBold';
+	src: url('./NexaFreeBoldwebfont.eot');
+	src: local('NexaFreeBoldwebfont'), url('./NexaFreeBoldwebfont.woff') format('woff'), url('./NexaFreeBoldwebfont.ttf') format('truetype');
+}
+/* Font downloaded from FontsForWeb.com */

@@ -1,0 +1,110 @@
+/** 2.1. Reset **/
+html {
+
+}
+	body
+{	
+	margin: 0;
+	padding: 0;
+	font-family: 'Oswald', sans-serif;
+	font-size: 14px;
+	display: inline-block;
+	width: 100%;
+	color: #161616;
+	position: relative;	
+	font-weight:400;
+}
+body.ver-1{
+	background: url("../images/Futurelife-bg-body.png") repeat scroll 0 0;
+}
+input[type=text]::-ms-clear {  display: none; width : 0; height: 0; }
+input[type=text]::-ms-reveal {  display: none; width : 0; height: 0; }
+	a, p, strong, ul, h1, h2, h3, h4, h5, h6
+{
+	margin: 0;
+	padding: 0
+}
+	h1
+{
+	font-size: 24px
+}
+	h3
+{
+	font-size: 18px
+}
+	h4
+{
+
+	font-size: 16px
+}
+	li
+{
+	list-style: none;
+	outline: none;
+}
+	a:focus, input:focus
+{
+	outline: none;
+	text-decoration:none;
+}
+	a:hover
+{
+	text-decoration: none
+}
+body {
+  overflow-x: hidden;
+  position: relative;
+  right: 0;
+  left:0px;
+}
+.pushmenu { /*this is the nav*/
+  background: #fff;
+  text-align: center;
+  width: 364px;
+  height: 100%;
+  top: 0;
+  z-index: 1000;
+  position: fixed;
+  padding: 0px 25px;
+  @media(min-width:1500px){
+	width: 445px;
+	padding:0 70px;
+}
+}
+.pushmenu-left {
+	right: -364px;
+	@media(min-width:1500px){
+		right: 445px;
+	}
+}
+.pushmenu-left.pushmenu-open { right: 0; }
+.pushmenu-push-toright { 
+	right: 364px;
+	left:inherit;
+	@media(min-width:1500px){
+		right: 445px;
+	}
+}
+/*Transition*/
+.pushmenu, body {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.pushmenu-push-toright .wrappage{
+  position: relative;
+}
+.pushmenu-push-toright .wrappage:after{
+  position: absolute;
+  background: rgba(29, 29, 31, 0.6) none repeat scroll 0 0;
+  content: "";
+  height: 100%;
+  width: 100%;
+  left: 0px;
+  top: 0px;
+  z-index: 9999;
+  cursor: pointer;
+}
+.center{
+	text-align:center;
+}

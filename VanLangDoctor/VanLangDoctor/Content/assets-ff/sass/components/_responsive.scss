@@ -1,0 +1,28 @@
+// 1.Full HD
+@include fullHd{
+	@import "Responsive/fullHd";
+}
+// 2.Desktop
+@include desktop{
+	@import "Responsive/desktop";
+}
+// 3.Max Desktop
+@include maxDesktop{
+	@import "Responsive/maxDesktop";
+}
+// 4.tablet
+@include tablet{
+	@import "Responsive/tablet";
+}
+// 5.max tablet
+@include maxtable{
+	@import "Responsive/maxtable";
+}
+// 6.smallMobile
+@include smallMobile{
+	@import "Responsive/smallMobile";
+}
+// 7.Max Mobile
+@include maxmobile{
+	@import "Responsive/maxmobile";
+}	

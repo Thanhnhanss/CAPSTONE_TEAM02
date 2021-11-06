@@ -1,0 +1,509 @@
+%style_link{
+	color: #666;
+	font:400 18px "Roboto Slab";
+	text-transform:capitalize;
+	&:hover{
+		color: $brand-primary;
+	}	
+}
+.widget{
+	color: #666;
+	margin-bottom: 30px;
+	border-bottom:1px solid #d6d6d6;
+	float:left;
+	width:100%;
+	&.bottom-home1{
+		padding: 0px;
+	}
+	&.border-bottom{
+		.widget-title{
+			&:after{
+				@include size(0px,0px);
+			}
+			border-bottom:1px solid $gray-lighter;
+		}
+	}
+	.widget-title{
+		color: #333;
+		text-transform: uppercase;
+		font-style: normal;
+		padding-bottom: 10px;
+		margin-bottom: 20px;
+		position: relative;
+		font:700 24px "Roboto Slab";
+		&:after{
+			position: absolute;
+			content: "";
+			bottom:0px;
+			left: 0;
+			width: 70px;
+			height: 2px;
+			background:$brand-primary;
+		}
+	}
+	ul.product-categories{
+		margin-bottom: 30px;
+		li{
+			line-height: 30px;
+			display: block;
+			position: relative;
+			margin-bottom: 10px;
+			padding-bottom:0px;
+			padding-top:0px;
+			&.hassub{
+				ul{
+					padding-top:12px;
+					margin-top:12px; 
+					border-top:1px dashed #eeeeee;
+					li{
+						padding-left:20px;
+					}
+				}
+			}
+			i{
+				position: absolute;
+				right: 0;
+				top: 0;
+				padding: 9px;
+				cursor: pointer;
+				color: #000;
+				&.active::before{
+					content: "\f0d7";
+				}
+			}
+			a{
+				text-transform: uppercase;
+				color: #000;
+				font:400 18px "Roboto Slab";
+				&:hover{
+					color: $brand-primary;
+					&:before{
+						background:$brand-primary;
+					}
+				}
+				&:before{
+					content: "";
+					display: inline-block;
+					width: 5px;
+					height: 5px;
+					background:#2b2b2b;
+					margin-right:10px; 
+					margin-bottom: 4px;					
+				}
+			}
+		}
+		ul{
+			display: none;
+			margin: 0px;
+			padding: 6px 0px;
+			li{
+				border-bottom: none;
+				margin-bottom: 0px;				
+				a{
+					@extend %style_link;
+					transition: all 0.3s ease-out 0s;
+					&:hover{
+						margin-left: 15px;
+					}
+				}
+				i{
+					display: none;
+				}
+			}
+		}
+	}
+	&.widget_color{
+		i{
+			display: inline-block;
+			width:12px;
+			height: 12px;
+			margin-right:5px;
+			background:#fff;
+			border:1px solid #e2e1e1;
+		}
+		
+		.color1{
+			background:#3e7bc5;
+		}
+		.color2{
+			background:#70684f;
+		}
+		.color3{
+			background:#c0c0c0;
+		}
+		.color4{
+			background:#4cbc99;
+		}
+		.color5{
+			background:#d39b17;
+		}
+		.color6{
+			background:#fff;
+		}
+
+	}
+	&.widget_feature{
+		li{
+			display: block;
+			float: left;
+			width: 100%;
+		}
+		.images{
+			float: left;
+			width: 140px;
+			margin-right:10px; 
+		}
+		.text{
+			h2{
+				a{
+					font:400 16px/20px "Roboto Slab";
+					color: #2b2b2b;
+					&:hover{
+						color:$brand-primary;
+					}
+				}
+			}
+		}
+		.rating{
+			i{
+				font-size:16px;
+				color: #e4ba4a;
+			}
+		}
+		span{
+			position: static;
+		}
+		.text{
+			padding-top:18px;
+		}
+		p{
+			span{
+			font:400 18px "Roboto Condensed";
+			color:$brand-primary;
+			vertical-align: bottom;
+				&.price-old{
+					margin-right:10px; 
+					color:#979797;
+					font-size: 16px;
+					text-decoration: line-through;
+					line-height: 23px;
+				}
+			}
+		}
+		&.blog{
+			.text{
+				padding-top:0px;
+			}
+		}
+	}
+	&.widget_link{
+		ul{
+			li{
+				&:last-child{
+					border:none;
+				}
+			}
+		}
+	}
+	&.sidebar-newsletter{
+		background: $brand-home3;
+		padding: 20px;
+		h3{	
+			color: #fff;
+			font-size: 20px;
+			text-transform: uppercase;
+			padding-bottom: 20px;
+			border-bottom: 1px solid #aedaee;
+			margin-bottom:20px; 
+			margin-top:10px; 
+		}
+		p{
+			color: #fff;
+			font-size: 13px;
+			line-height: 15px;
+			margin-bottom:20px; 
+		}
+		form{
+			position: relative;
+			input{
+				background: #fff;
+				border:none;
+				font-size: 12px;
+				height: 35px;
+				width: 100%;
+				padding: 0px 35px 0 20px;
+			}
+			button{
+				position: absolute;
+				top: 0px;
+				right: 0px;
+				@include size(35px,35px);
+				background: #fff;
+				border:#fff;
+				i{
+					font-size: 18px;
+					color: $gray-light;
+				}
+			}
+		}
+	}
+	ul{
+		margin-bottom: 15px;
+		li{
+			position: relative;
+			line-height: 30px;
+			padding:5px 0px;
+			a{
+				@extend %style_link;
+			}
+			span{
+				position: absolute;
+				right: 0px;
+				top: 15px;
+				font:400 14px "Roboto Condensed";
+				color: #d6d6d6;
+			}
+		}
+	}
+	h4{
+		font-style: normal;
+		border-bottom: 1px solid $gray-lighter;
+		padding-bottom: 10px;
+		margin-bottom: 10px;
+		text-transform: uppercase;
+		font-size: 13px;
+		color: #333;
+		font-weight: 700;
+	}
+	.social{
+		padding:30px 0px;
+		a{
+			margin-right:30px; 
+			margin-left:10px; 
+			&:last-child{
+				margin-right: 0px;
+			}
+			i{
+				color: #000;
+				font-size: 20px;
+			}
+		}
+	}
+	.newsletter-content-widget{
+		height: 280px;
+		form{
+			height: 105px;
+			input,button{
+				height: 50px;
+				width:100%;
+			}
+			input{
+				bottom:50px;
+				padding: 0px 20px !important;
+			}
+			button{
+				color: #fff;
+				background:#000;
+				border-left:none;
+				border-top:2px solid #000;
+			}
+		}
+	}
+	.related-post{
+		.images{
+			display: inline-block;
+			max-width:70px;
+			float: left;
+			margin-right:10px; 
+			margin-top:7px; 
+			img{
+				width: 100%;
+			}		
+		}
+		h3{
+			a{
+				text-transform: uppercase;
+				font:300 12px/20px "Oswald";
+				letter-spacing: 3px;
+				color: #000;
+				display: inline-block;
+				margin-bottom: 4px;
+			}
+		}
+		p{
+			font:300 12px/15px "Poppins";
+			color: #c4c4c4;
+		}
+		.items{
+			display: inline-block;
+			width:100%;
+			margin-bottom: 13px;
+			padding-bottom:20px;
+			border-bottom:1px solid #e6e6e6;
+			&:last-child{
+				border: none;
+			}
+		}
+	}
+	.wrap-instag{
+		display: inline-block;
+		width: 100%;
+		position: relative;
+		&:before{
+			background: #fff;
+			width: 6px;
+			height:100%;
+			left: 66.66666%;
+			top:0px;
+			margin-left:-3px;
+			position: absolute;
+			content:"";
+		}
+		.instag{
+			&:after{
+				background: #fff;
+				height: 6px;
+				width:100%;
+				left: 0px;
+				top:50%;
+				margin-top:-3px;
+				position: absolute;
+				content:"";
+			}
+			&:before{
+				background: #fff;
+				width: 6px;
+				height:100%;
+				left: 33.33333%;
+				top:0px;
+				margin-left:-3px;
+				position: absolute;
+				content:"";
+			}
+			img{
+				width:100%;
+			}
+		}
+	}
+	&.tags-cloud{
+		a{
+			display: inline-block;
+			font:400 18px/40px "Roboto Slab";
+			height: 42px;
+			padding:0 12px;
+			color: #000;
+			text-transform:capitalize;	
+			border:1px solid #e6e6e6;
+			margin-right:10px;
+			margin-bottom:10px; 
+			&:hover{
+				background:$brand-primary;
+				border-color:$brand-primary;
+				color: #fff;
+			} 
+		}
+	}
+}
+.my-account{
+	margin-bottom: 50px;
+	.widget ul li{
+		margin-bottom: 20px;
+	}
+	.breadcrumb{
+		margin-bottom: 80px;
+	}
+	.contact-form{
+		.link-button{
+			float: right;
+		}
+	}
+}
+.connect-icon{
+	li{
+		display: inline-block;
+		i{
+			color: #666;
+			font-size: 20px;
+			background: #eaeaea;
+			height: 50px;
+			width: 50px;
+			padding:16px;
+			border-radius:50%;
+			text-align: center;
+			&:hover{
+				background: $brand-home4;
+				color: #fff;
+			}
+		}
+	}
+}
+.widget{
+	.newsletter-content form input{
+		font-size: 12px;
+		padding-left:10px;
+	}
+	.banner-col-left{
+		img{
+			width: 100%;
+			max-width: 330px;
+		}
+	}
+	&.blog-categories{
+		ul li{
+			a{
+				text-transform: uppercase;
+				position: relative;
+				&:before{
+					content: '';
+					height: 5px;
+					width: 5px;
+					background:#000;
+					margin-right:15px; 
+					display: inline-block;
+					margin-bottom:5px; 
+				}	
+			}
+			span{
+				font:400 18px "Roboto Condensed";
+				color:#d6d6d6;
+			}
+		}
+	}
+	&.recent-post{
+		ul li{
+			a{
+				font:400 16px/20px "Roboto Slab";
+				color: #2b2b2b;
+				&:hover{
+					color:$brand-primary;
+				}
+				&:before{
+					content: '';
+					height: 5px;
+					width: 5px;
+					background:#000;
+					margin-right:15px; 
+					display: inline-block;
+					margin-bottom:5px; 
+				}
+			}
+		}
+	}
+	&.flick-photo{
+		ul{
+			float: left;
+			width: 100%;
+			li{
+				float: left;
+				width: 33.333%;
+				padding: 0px;
+				a{
+					display: inline-block;
+				}
+				img{
+					width: 100%;
+				}
+			}
+		}
+	}
+}

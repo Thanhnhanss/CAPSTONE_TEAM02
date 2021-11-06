@@ -1,0 +1,174 @@
+.feature-box {
+	.fbox-icon{
+		@include rtl-float-left();
+		@include rtl-margin(10px, 20px, 0, 0);
+	}
+	.fbox-body{
+		overflow: hidden;
+		.fbox-icon{
+			margin-top: 0;
+		}
+	}
+	small{
+		font-size: 13px;
+		margin-bottom: 15px;
+		display: inline-block;
+	}
+	h4{
+		margin-bottom: 7px;
+		text-transform: uppercase;
+	}
+	.fbox-title{
+		margin: 10px 0;
+		font-weight: 600;
+		text-transform:  none;
+	}
+	&.light-style {
+		color: #dfdfdf;
+		a{
+			color: #fff;
+			&:hover{
+				color:#000;
+			}
+		}
+		.fbox-title,
+		h4{
+			color: #fff;
+		}
+	}
+	&.feature-box-right{
+		@include rtl-text-align-right();
+		.fbox-icon{
+			@include rtl-float-right();
+			@include rtl-margin(10px, 0, 0, 20px);
+		}
+	}
+	&.feature-box-center{
+		text-align: center;
+		.fbox-icon{
+			float: none;
+		}
+	}
+}
+[class*="feature-box-"]{
+	.fbox-icon{
+		float: none;
+		margin: 0;
+	}
+	h4 {
+		padding: 10px 0 20px;
+		position: relative;
+		font-weight: 700;
+		text-transform: capitalize;
+	}
+	p{
+		color: $gray-light;
+		line-height: 22px;
+		font-family: "Poppins";
+	}
+}
+
+.feature-box-v2{
+	.fbox-icon{
+		float: left;
+		margin-right: 30px;
+		.icons{
+			@include size(70px, 70px);
+			line-height: 70px;
+			font-size: 24px;
+		}
+	}
+	.fbox-body {
+		font-size: 18px;
+	}
+}
+.feature-box-v3{
+	.fbox-icon{
+		.icons{
+			@include size(70px, 70px);
+			line-height: 70px;
+			font-size: 40px;
+			color: $brand-primary;
+			&.icons-plain {
+				@include size(auto, auto);
+				line-height: 100%;
+			}
+		}
+	}
+	&.feature-box-right{
+		.fbox-icon{
+			float: none;
+			margin: 0;
+		}
+		 h4:before{
+		 	left: inherit;
+		 	right: 0;
+		 }
+	}
+	&.about-icon{
+		.icons{
+			font-size: 80px;
+		}
+		.fbox-icon{
+			margin-bottom: 40px;
+		}
+		h4{
+			text-transform: uppercase;
+			font-size: 15px;
+		}
+	}
+}
+.feature-box-v4{
+	position: relative;
+	border: 1px solid #333;
+	 padding: 35px 30px 20px;
+	 text-align: center;
+	.fbox-icon{
+		position: absolute;
+		content: "";
+		left: 0;
+		right: 0;
+		top: -36px;
+		margin: 0 auto;
+		.icons{
+			font-size: 24px;
+			@include size(70px, 70px);
+			line-height: 70px;
+			 background-color: #fff;
+			border: 1px solid #333;
+			color: #333;
+		}
+		&.fbox-bg{
+			.icons{
+				 background-color: $brand-primary;
+				border: 1px solid $brand-primary;
+				color: #fff;
+			}
+		}
+	}
+	h4 {
+		padding: 10px 0 20px;
+		&:before{			
+			@include size(0px, 0px);
+			background-color: transparent;
+		}
+	}
+	&[class*="bg-"]{
+		border:  none;
+	}
+
+}
+
+.feature-box-v5{
+	padding: 20px 30px ;
+	border: 1px solid #ddd;
+	border-bottom: 3px solid $brand-primary;
+	.fbox-icon{
+		.icons{
+			font-size: 40px;
+			@include size(70px, 70px);
+			line-height: 70px;
+			color: #333;
+		}
+	}
+}

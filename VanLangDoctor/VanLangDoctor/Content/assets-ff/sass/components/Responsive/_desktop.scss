@@ -1,0 +1,155 @@
+.container{
+	.col-md-5{
+		width: 39.5%;
+	}
+	.col-md-7{
+		width: 60.5%;
+	}
+}
+.related-products{
+	.product-details{
+		padding:30px;
+		h4{
+			font-size:12px;
+			margin-bottom:10px; 
+		}
+		h3{
+			font-size:35px;
+		}
+		.price{
+			margin: 15px 0 10px;
+			font-size: 35px;
+		}
+		.product-content{
+			font-size: 12px;
+			line-height: 20px;
+			margin-bottom:19px; 
+		}
+		a{
+			margin: 0px;
+		}
+	}
+}
+.product-img-box #image-view{
+	max-width:600px;
+}
+.banner-top-home3{
+	.items{
+		padding:40px 20px 15px;
+		.text{
+			padding:20px;
+		}
+	}
+} 
+#header{
+	&.header-v4{
+		#topbar{
+			.topbar-left{
+				.topbar-title{
+					width:300px;
+				}			
+				a{
+					width:300px;
+				}
+			}		
+		}		
+	}
+}   
+.best-selling .col-md-4 .product-images{
+	margin-left:10px;
+	margin-right:10px;
+}
+.slider-loobook2{
+	.slick-next{
+		right:195px;
+	}
+	.slick-prev{
+		left: 195px;
+	}
+}
+.slider-slick-home8 {
+	.slick-next{
+		right:320px;
+	}
+	.slick-prev{
+		left: 320px;
+	}
+}
+.slider-loobook2 .slick-list.draggable{
+	padding:0 285px;
+}
+.tab-product-all-mason{
+	.col-md-7{
+		.slider-one-item{
+			width: 750px;
+		}
+	}
+}
+.slider-full-screen2{
+	position: relative;
+	.col-md-2{
+		width: 270px;
+		position: absolute;
+		left: 0px;
+		top:0px;
+		z-index: 9;
+	}
+	.col-md-10{
+		width: 100%;
+		margin-bottom:30px; 
+		.slider-one-item{
+			height: 606px;
+		}
+		.owl-carousel .owl-item{
+			height: 606px;
+		}
+	}
+	.bx-viewport{
+		height: 571px;
+	}
+	.slide{
+		&:before{
+			width: 20px;
+		}
+		.text{
+			padding-left:30px;
+			h3{
+				font:300 10px/20px "Oswald";
+			}
+		}
+	}
+	.slider-one-item .product .text{
+		top:25%;
+		left:300px;
+	}
+	.slider-one-item{
+		.owl-dots{
+			padding-left:300px;
+			bottom:100px;
+		}
+	}
+	.products .product .product-images img{
+		float: right;
+		height: 606px;;
+		width:auto;
+	}
+}
+.wrap-googlemap{
+	.col-md-6{
+		&:nth-child(2n+1){
+			padding-right:15px;
+		}
+		&:nth-child(2n){
+			padding-left:15px;
+		}
+	}
+}
+.blog-masonry .inner-por-masonry .grid-item{
+	height:316px;
+	&.width-2x{
+		height: 632px;
+	}
+}
+.popup-content-wrapper{
+	margin-top:100px;
+}

@@ -1,0 +1,41 @@
+.pagination-container{
+	display:inline-block;
+	width: 100%;
+	
+}
+nav.pagination{
+	font-family:"TXGR";
+	font-size: 13px;
+	margin: 0px;
+	a,span{
+		display: inline-block;
+		width: 35px;
+		height: 35px;
+		line-height: 35px;
+		text-align: center;
+		background: $gray-lighter;
+		color: $gray-dark;
+		vertical-align: bottom;
+		&:hover{
+			background: $gray-dark;
+			color: $gray-lighter;
+		}
+	}
+	span{
+		background: $gray-dark;
+		color: $gray-lighter;
+	}
+	.next,.prev{
+		i{
+			font-size: 18px;	
+			color: #666;
+			margin-top: 8px;
+		}
+		&:hover{
+			background: $brand-primary;
+			i{
+				color: $gray-lighter;
+			}
+		}		
+	}
+}
