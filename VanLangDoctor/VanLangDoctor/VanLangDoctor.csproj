@@ -260,6 +260,7 @@
     <Content Include="Content\assets\img\gallery\user-3.png" />
     <Content Include="Content\assets\img\icons\footer-logo.png" />
     <Content Include="Content\assets\img\icons\logo.png" />
+    <Content Include="Content\assets\img\icons\vlunoo.png" />
     <Content Include="Content\assets\img\illustrations\about-1.png" />
     <Content Include="Content\assets\img\illustrations\about-2.png" />
     <Content Include="Content\assets\img\illustrations\article-bg.png" />
