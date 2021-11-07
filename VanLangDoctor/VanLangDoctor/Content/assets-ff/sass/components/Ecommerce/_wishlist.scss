@@ -1,0 +1,129 @@
+table.table.cart-table{
+	td{
+		padding: 30px 0px;
+		vertical-align: middle;
+	}
+}
+.caculate-shipping{
+	.form-group{
+		&:after,&:before{
+			display: inline;
+		}
+	}
+	button{
+		margin-top: 30px;
+	}
+}
+.coupon{
+	p{
+		color: $gray-light;
+		line-height: 20px;
+		margin-bottom: 30px;
+		padding-top:10px;
+	}
+	button{
+		margin-top: 40px;
+	}
+}
+.text-price{
+	ul{
+		li{
+			display: block;
+			padding: 10px 0px;
+			border-bottom: 1px solid $gray-lighter;
+			width: 100%;
+			float: left;
+			.text{
+				font-size: 13px;
+				color: $gray;
+				float: left;
+			}
+			.number{
+				float: right;
+				color: $gray;
+				font-size: 18px;
+				line-height: 20px;
+			}
+		}
+	}
+	a{
+		margin-top: 30px;
+	}
+}
+@include maxDesktop{
+	table.table{
+		&.cart-table{
+			td.add-cart{
+				.link-v1{
+					font-size: 0px;
+					padding:0 15px;
+					i{
+						font-size: 16px;
+						line-height: 45px;
+						margin-right:4px; 
+					}
+				}
+			}
+		}
+	}
+}
+@include maxtable{
+	table.table{
+		tr{
+			th{
+				&.description,&.product-avai,&.produc-price{
+					display: none;
+				}
+			}
+			td{
+				&.description,&.product-avai,&.produc-price{
+					display: none;
+				}
+				&:nth-child(5){
+					input{
+						width: 50px;
+					}
+				}
+			}
+		}
+		&.cart-table{
+			td.produc-name a{
+				font-size: 16px;
+			}
+			td.product-photo{
+				width: 150px;
+				img{
+					width: 150px;
+				}
+			}
+			td{
+				&.total-price{
+					width: 100px;
+					padding-left:10px;
+				}
+			}
+		}
+	}
+	.cart-container{
+		.float-right{
+			width: 100%;
+			text-align: left;
+		}
+	}
+}
+@include maxmobile{
+	table.table{
+		&.cart-table{
+			td.produc-name,th.produc-name{
+				display: none;
+			}
+			td.product-photo{
+				width: 100px;
+				img{
+					width: 100px;
+				}
+			}
+		}
+	}
+
+}

@@ -1,0 +1,12 @@
+.blog-post-container.blog-post-columns-2 .blog-post-item {
+  width: 50%;
+  float: left;
+}
+
+.blog-post-container.blog-post-columns-2 .blog-post-item:nth-child(2n+1) {
+  padding-right: 10px;
+}
+
+.blog-post-container.blog-post-columns-2 .blog-post-item:nth-child(2n) {
+  padding-left: 10px;
+}

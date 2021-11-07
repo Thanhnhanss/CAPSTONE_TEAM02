@@ -1,0 +1,18 @@
+.brand-content{
+	display:inline-block;
+	padding-bottom: 10px;
+	margin-top: 60px;
+	.owl-item{
+		border-left:none;
+		padding:2px;
+	}
+	&.owl-carousel .owl-item img{
+		width:auto;
+	}
+	&.no-border{
+		border:none;
+		.owl-item{
+			border:none;
+		}
+	}
+}

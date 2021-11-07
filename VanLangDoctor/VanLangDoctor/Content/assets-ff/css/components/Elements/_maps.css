@@ -1,0 +1,6 @@
+@charset "UTF-8";
+.map-icon-point-of-interest::before {
+  content: "";
+  font-family: "Simple-Line-Icons";
+  font-size: 22px;
+}

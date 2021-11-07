@@ -1,0 +1,168 @@
+/*Loading*/
+.awe-body-loading {
+  overflow: hidden;
+}
+
+.awe-page-loading {
+  position: fixed;
+  z-index: 9999999;
+  background: #fff;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.awe-loading-wrapper {
+  text-align: center;
+  width: 150px;
+  height: 100px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -100px;
+  margin-left: -75px;
+}
+
+.awe-loading-wrapper .awe-loading-icon {
+  font-size: 75px;
+  line-height: 1;
+  margin-bottom: 10px;
+  -webkit-animation-name: aweIcon;
+  animation-name: aweIcon;
+  -webkit-animation-duration: 4s;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+.awe-loading-wrapper .awe-loading-icon img{
+  width:100%;
+}
+.awe-loading-wrapper .awe-loading-icon .icon {
+  cursor: default;
+}
+
+.awe-loading-wrapper .progress {
+  background: #eee;
+  border-radius: 0;
+  box-shadow: none;
+  margin-bottom: 0;
+  height: 2px;
+}
+
+.awe-loading-wrapper .progress .progress-bar {
+  background: #80b435;
+  box-shadow: none;
+  width: 100%;
+  -webkit-animation-name: aweProgress;
+  animation-name: aweProgress;
+  -webkit-animation-duration: 3s;
+  animation-duration: 3s;
+}
+
+@-webkit-keyframes aweIcon {
+  0% {
+    color: #333;
+  }
+  50% {
+    color: #666;
+  }
+  100% {
+    color: #000;
+  }
+}
+
+@-moz-keyframes aweIcon {
+  0% {
+    color: #333;
+  }
+  50% {
+    color: #666;
+  }
+  100% {
+    color: #000;
+  }
+}
+
+@keyframes aweIcon {
+  0% {
+    color: #333;
+  }
+  50% {
+    color: #666;
+  }
+  100% {
+    color: #000;
+  }
+}
+
+@-webkit-keyframes aweProgress {
+  0% {
+    width: 0%;
+  }
+  15% {
+    width: 15%;
+  }
+  25% {
+    width: 35%;
+  }
+  35% {
+    width: 50%;
+  }
+  50% {
+    width: 75%;
+  }
+  65% {
+    width: 85%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@-moz-keyframes aweProgress {
+  0% {
+    width: 0%;
+  }
+  15% {
+    width: 15%;
+  }
+  25% {
+    width: 35%;
+  }
+  35% {
+    width: 50%;
+  }
+  50% {
+    width: 75%;
+  }
+  65% {
+    width: 85%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes aweProgress {
+  0% {
+    width: 0%;
+  }
+  15% {
+    width: 15%;
+  }
+  25% {
+    width: 35%;
+  }
+  35% {
+    width: 50%;
+  }
+  50% {
+    width: 75%;
+  }
+  65% {
+    width: 85%;
+  }
+  100% {
+    width: 100%;
+  }
+}

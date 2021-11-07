@@ -1,0 +1,1016 @@
+.newsletter{
+	margin-bottom:75px;
+	.col-md-5{
+		.col-md-6{
+			&:first-child{
+				background: #1c1c1c;
+				padding: 10px;
+				.border-free-shipping{
+					border:1px solid #353535;
+					display: inline-block;
+					width: 100%;
+					padding: 26px;
+				}
+				h3{
+					font-family: "Oswald";
+					color: #fff;
+					font-size: 18px;
+					text-transform: uppercase;
+					letter-spacing: 2px;
+					line-height: 30px;
+				}
+				a{
+					color: #4c4c4c;
+					font-family: "Oswald";
+					text-transform: uppercase;
+					font-weight: 700;
+					letter-spacing: 2px;
+					font-size: 10px;
+					display: inline-block;
+					margin-top:25px; 
+					border:2px solid #4c4c4c;
+					height: 32px;
+					line-height: 28px;
+					padding:0px 10px;
+				}
+			}
+			&:last-child{
+				background: #f4f4f4;
+				text-align: center;
+				padding:61px 0px;
+				i.icon{
+					font-size: 100px;
+				}	
+			}
+		}
+	}
+	.col-md-7{
+	}
+}
+
+.newsletter-content{
+	display: inline-block;
+	width: 100%;
+	background:url(../images/uno-bg-newsletter.jpg)no-repeat;
+	text-align: center;
+	border:2px solid #000;
+	position: relative;
+	height: 224px;
+	.icon{
+		font-size: 25px;
+		color: #000;
+		margin-top:25px; 
+		display: inline-block;
+		margin-bottom:20px; 
+	}
+	h3{
+		font-family: "Oswald";
+		letter-spacing: 2px;
+		text-transform:uppercase;
+		font-size: 18px;
+		color: #000;
+		position:relative;
+		padding-bottom:15px;
+		margin-bottom:15px; 
+		&:after{
+			position:absolute;
+			content: "";
+			left: 50%;
+			bottom:0px;
+			height: 1px;
+			background:#000;
+			width: 30px;
+			margin-left:-15px; 
+		}
+	}
+	p{
+		font-family: "Oswald";
+		font-size:12px;
+		text-transform: uppercase;
+		color: #9a9a9a;
+		letter-spacing: 2px;
+	}
+	form{
+		position:absolute;
+		bottom:0px;
+		left: 0px;
+		width: 100%;
+		height: 66px;
+		border-top:1px solid #e9e9e9;
+		input{
+			position:absolute;
+			left: 0px;
+			bottom:0px;
+			height: 66px;
+			border:none;
+			width: 100%;
+			background:transparent;
+			padding:0px 160px 0px 40px;
+			font-family: "Poppins";
+			color: #8d8c8c;
+		}
+		button{
+			position:absolute;
+			right: 0px;
+			bottom:0px;
+			width: 160px;
+			border:none;
+			border-left:1px solid #e9e9e9;
+			height: 66px;
+			background:transparent;
+		}
+	}
+}
+.newsletter-v2{
+	padding:30px 0px;
+	.col-md-6{
+		padding:0px;
+		text-align: center;
+		i{
+			&.icon-envelope-letter{
+				font-size: 40px;
+				color: #000;
+				display: inline-block;
+				width: auto;
+				margin-right:120px;
+				position: relative;
+				&:after{
+					position: absolute;
+					left: 58px;
+					top: 50%;
+					width: 80px;
+					height: 2px;
+					background:#000;
+					content:"";
+				}
+			}
+		}
+		.text{
+			display: inline-block;
+			text-align: left;
+			h3{
+				font-size: 16px;
+				text-transform: uppercase;
+				letter-spacing: 3px;
+				line-height: 25px;
+			}
+			p{
+				font-size: 12px;
+				font-weight: 300;
+				color: #9a9a9a;
+				letter-spacing: 3px;
+			}
+		}
+		&:last-child{
+			text-align: left;
+			form{
+				display: inline-block;
+				position:relative;
+				input{
+					width: 548px;
+					height: 48px;
+					background:#fff;
+					border:2px solid #000;
+					padding:0px 150px 0px 20px;
+					font-family: "Poppins";
+					color: #8d8c8c;
+					font-size: 12px;
+					@media (max-width: 767px){
+						width:100%;	
+					}
+				}
+				button{
+					position: absolute;
+					height: 44px;
+					width: 120px;
+					right: 2px;
+					top: 2px;
+					box-shadow:none;
+					border:none;
+					background:#000;
+					color: #fff;
+					border-left:2px solid #000;
+					&:hover{
+						border-left: 2px solid #000;
+					}
+				}
+			}
+		}
+	}
+}
+
+.special{
+	img{
+		max-width: 100%;
+	}
+}
+.newsletter-home4{
+	display:inline-block;
+	width:100%;
+	margin-bottom:60px;
+	height:215px;
+	background:url(../images/newsletter-home4-2.jpg) no-repeat;
+	@media(max-width:980px){
+		background-size:auto 100%;
+		background-position:center;
+		height: auto;
+	}
+	.wrap-center{
+	.items{
+		display: table;
+		width: 100%;
+		height: 215px;
+		.text,.wrap-form{
+			display: table-cell;
+			vertical-align: middle;
+			width: 50%;
+		}
+		.wrap-form{
+			padding-left:20px;
+			padding-right:20px;
+		}
+		@media(max-width:980px){
+			height: auto;
+			display: inline-block;
+			.text,.wrap-form{
+				display: inline-block;
+				width: 100%;
+			}
+		}
+	}
+	}
+	img{
+		width: 100%;
+	}
+	@media (max-width: 980px){
+		.col-md-6{
+			width: 100%;
+			margin-bottom:30px; 
+		}
+	}
+	.wrap-center{
+		.items{
+			.text{
+				width: 100%;
+				float: left;
+				position: relative;
+				top:inherit;
+				left: inherit;
+				i{
+					font-size: 22px;
+					margin-bottom:20px; 
+					display: inline-block;
+				}
+				h3{
+					font-size: 36px;
+					font-family: "Playfair Display";
+					font-weight: 400;
+					margin-top: 50px;
+					text-transform: capitalize;
+					&:after{
+						height: 2px;
+						width: 80px;
+						margin-left:-40px;
+					}
+				}
+				p{
+					max-width: 400px;
+					margin:auto;
+					margin-top: 20px;
+					font:300 12px/20px "Roboto Condensed";
+				}
+			}
+			form{
+				width: 100%;
+				height: 60px;
+				float: left;
+				padding:0px;
+				margin-top: 15px;
+				input{
+					width: 100%;
+					height: 100%;
+					background:none;
+					border:1px solid #fff;
+					box-shadow:none;
+					padding:0px 100px 0px 20px;
+					font-family: "Roboto Condensed";
+					font-size: 16px;
+					font-weight: 300;
+					color: #fff;
+					@media(max-width:479px){
+						padding-right: 60px;
+					}
+				}
+				button{
+					position:absolute;
+					top: 0px;
+					right: 0px;
+					box-shadow:none;
+					border:none;
+					background:none;
+					border-left:1px solid #fff;
+					height: 100%;
+					padding:0 40px;
+					color: #fff;
+					font:400 16px 'Roboto Condensed';
+					text-transform: uppercase;
+					letter-spacing: 0px;
+					i{
+						margin-left:5px;
+					}
+					&:hover{
+						border-color:#b7b7b7 !important;
+					}
+					@media(max-width:479px){
+						font-size: 0px;
+						i{
+							font-size: 14px;
+						}
+					}
+				}
+			}
+		}
+	}
+	.items{
+		position:relative;
+		.text{
+			position:absolute;
+			width: 100%;
+			height: 100%;
+			text-align: center;
+			color: #fff;
+			top:40%;
+			left: 0px;
+			h3{
+				font-family:"Playfair Display";
+				font-size: 34.87px;
+				position:relative;
+				padding-bottom:10px;
+				margin-bottom:10px;
+				&:after{
+					position:absolute;
+					content: "";
+					left: 50%;
+					bottom:0px;
+					width: 50px;
+					height: 2px;
+					background:#fff;
+					margin-left:-25px; 
+				}
+			}
+			p{
+				font-weight: 300;
+				font-size: 12px;
+				letter-spacing: 3px;
+				text-transform: uppercase;
+			}
+		}
+	}
+}
+// newsletter home6
+.newsletter-home6{
+	display:inline-block;
+	width:100%;
+	margin-bottom:30px;
+	.newsletter-content{
+		border:none;
+		background:url(../images/newsletter-home6.jpg)no-repeat;
+		height: 390px;
+		.icon,h3,p{
+			color: #fff;
+		}
+		p{
+			font-weight: 300;
+		}
+		h3{
+			&:after{
+				background:#fff;
+			}
+		}
+		form,input,button{
+			position:relative;
+			max-width: 555px;
+		}
+		.icon{
+			margin-top:50px;
+		}
+		form{
+			margin: 0 auto;
+			border-top:none;
+			border-bottom:2px solid #5e5e5e;
+			margin-top:20px;
+		}
+		input{
+			padding:0px 20px;
+			text-align: center;
+		}
+		button{
+			border:none;
+			height: 40px;
+			line-height: 40px;
+			margin-top:30px; 
+			background:#000;
+			color: #fff;
+		}
+	}
+	&.newsletter-home-8{
+		background:url(../images/newsletter-home8-bg.jpg)no-repeat;
+		margin-bottom:0px; 
+		.newsletter-content{
+			background:none;
+		}
+	}
+}
+.newsletter-bottom{
+	position: relative;
+	.text{
+		position: absolute;
+		left:0px;
+		right: 0px;
+		text-align: center;
+		top:50%;
+		transform: translateY(-50%);
+	}
+	h3{
+		font:400 30px/30px "Playfair Display";
+		color:#fff;
+		text-transform:capitalize;
+		margin-bottom: 10px;
+	}
+	p{
+		font:300 16px "Roboto";
+		color:$brand-primary;
+		margin-bottom: 25px;
+	}
+	form{
+		width:90%;
+		max-width: 700px;
+		position: relative;
+		margin:auto;
+		input{
+			font:300 16px/40px "Roboto";
+			color:#333;
+			width:100%;
+			padding:0 80px 0px 20px;
+		}
+		button{
+			position: absolute;
+			right: 0px;
+			top:0px;
+			border:none;
+			background:none;
+			color:$brand-primary;
+			font:700 18px/40px "Roboto";
+			text-transform: uppercase;
+			letter-spacing: 0px;
+		}
+	}
+}
+// End newsletter home6
+.best-selling{
+	display:inline-block;
+	width:100%;
+	.col-md-4{
+		padding:0px;
+		border-left:1px solid #e6e6e6;
+		position: relative;
+		.button{
+			display: inline-block;
+			width:100%;
+			text-align: center;
+			height: 65px;
+			line-height: 65px;
+			border-top:1px solid #e6e6e6;
+			border-bottom:1px solid #e6e6e6;
+		}
+		.title-text{
+			margin: 0px;
+			padding:20px 0px;
+			border-top:1px solid #e6e6e6;
+			border-bottom:1px solid #e6e6e6;
+			h3{
+				font-size: 16px;
+			}
+		}
+		&:last-child{
+			border-right:1px solid #e6e6e6;
+		}
+		.products{
+			display: inline-block;
+			width:100%;
+			padding:30px 0px;
+		}
+		.product{
+			text-align: left;
+			margin: 30px 0px;
+			width: 100%;
+			float: left;
+			.product-title{
+				font-family: "Poppins";
+				font-size: 18px;
+				color: #000;
+			}
+			.product-price{
+				font-family: "Poppins";
+				font-size: 18px;
+				color: #979797;
+				margin-bottom:0px; 
+			}
+			.wrap-star{
+				margin-bottom:30px; 
+				a{
+					i{
+						color: #e2e2e2;
+						font-size: 12px;
+					}
+					&.active{
+						i{
+							color: #eb5050;
+						}
+					}
+				}
+			}
+			.action{
+				position:relative;
+				left: 0px;
+				a{
+					display: inline-block;
+					text-align: center;
+					opacity: 1;
+					transform:translate(0px, 0px);
+					i{
+						background:#f1f1f1;
+					}
+					&:hover{
+						&:after{
+							width: auto;
+						}
+					}
+					&:after{
+						content: "";
+					}
+				}
+			}
+		}
+		.product-images{
+			max-width: 210px;
+			float: left;
+			margin-left:70px;
+			margin-right:40px;  
+		}
+	}
+}
+// End best-selling
+@media (width:1024px) {
+	.newsletter .col-md-5 .col-md-6:first-child .border-free-shipping{
+		padding:41px;
+	}
+}
+.popup-content{
+	position:fixed;
+	background:rgba(#000, 0.8);
+	z-index:10000;	
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
+	text-align:center;
+}
+.popup-content-wrapper{
+	background:#fff;
+	background-size:100% auto;
+	max-width:770px;
+	margin:200px auto 0px;
+	width:90%;
+	position:relative;
+	padding:0px;
+	.popup-container{
+		overflow: hidden;
+		position: relative;
+		.images{
+			float: left;
+			padding:0px;
+		}
+		.text{
+			float: left;
+			padding-left:30px;
+			padding-right:30px;
+			position: absolute;
+			left:0px;
+			right:0px;
+			transform: translate(0,-50%);
+			top:50%;
+		}
+		.logo{
+			margin-bottom: 30px;
+		}
+	}
+	.close-popup{
+		display: inline-block;
+		position:absolute;
+		height: 40px;
+		width: 40px;
+		border-radius: 50%;
+		top:10px;
+		right: 10px;
+		margin: 0 auto;
+		z-index:9;
+		background:url(../images/close-newsletter.png)no-repeat;
+	}
+	.col-md-offset-6{
+		text-align: left;
+	}
+	.abs-req{
+		display: none;
+	}
+	h3{
+		font:400 16px/20px "Roboto Condensed";
+		letter-spacing: 4px;
+		text-transform: uppercase;
+		color: #333;
+		margin-top:130px;
+		padding-bottom:15px; 
+		margin-bottom:25px; 
+		position: relative;
+		&:after{
+			position:absolute;
+			content:"";
+			width: 68px;
+			height: 3px;
+			left:0px;
+			right:0px;
+			bottom: 0px;
+			margin: 0 auto;
+			background:$brand-primary;
+		}
+	}
+	h4{
+		font:400 35px/40px "Playfair Display";
+		color: #000;
+		margin-bottom:15px; 
+	}
+	p{
+		font:400 16px/25px "Roboto Slab";
+		color: #717171;
+		max-width: 560px;
+		margin: auto;
+	}
+	.popup-content-text{
+		font-size: 13px;
+		line-height: 20px;
+		color: #666;
+		margin-bottom:30px;
+	}
+	input[type="text"]{
+		width: 100%;
+		max-width: 340px;
+		background:#fff;
+		line-height: 30px;
+		padding:12px 15px;
+		font-size: 14px;
+		font-weight: 400;
+		color: #666;
+		font-family: "Roboto Slab";
+		text-align: center;
+		border: none;
+		margin-bottom: 10px;
+		@include appearance();
+	}
+	button{
+		background: $brand-primary;
+		border:2px solid $brand-primary;
+		color: #fff;
+		font-size: 15px;
+		height: 46px;
+		line-height: 42px;
+		margin-top:25px;
+		padding:0px 30px;
+		font-family: "Roboto Slab";
+		font-weight: 400;
+		letter-spacing: 0px;
+	}
+	.not-again{
+		margin-top:20px; 
+		span{
+			color: #333;
+			margin-left:10px;
+			text-transform: uppercase;
+			font:700 10px/15px "Oswald";
+			letter-spacing: 2px;
+			text-decoration:underline; 
+			cursor: pointer;
+		}
+	}
+	&.popup-content-wrapper-v2{
+		width: 650px;
+		height: 650px;
+		border-radius:100%;
+		.popup-container{
+			max-width: 500px;
+			margin: 0 auto;
+		}
+		.close-popup{
+			left: inherit;
+			right: 10px;
+			height: 46px;
+			width: 46px;
+			background:url(../images/icon-close.png);
+			border-radius:100%;
+			border:none;
+			font-size: 0px;
+			box-shadow:0px 5px 20px 0px rgba(0, 0, 0, 0.33);
+
+		}
+		h4{
+			font:700 14px/20px "Oswald";
+			color: #000;
+			letter-spacing: 1px;
+		}
+		h3{
+			margin-top:20px; 
+			font-size: 20px;
+			font-weight: 400;
+			font-family: "Playfair Display";
+			letter-spacing: 0px;
+		}
+		h2{
+			font:400 35px/40px "Playfair Display";
+			color: #000;
+			text-transform: uppercase;
+			margin-top:85px; 
+		}
+		h1{
+			font-family: "Playfair Display";
+			font-style: italic;
+			font-size: 120px;
+			color: #000;
+			line-height: 80px;
+			span{
+				font-size: 80px;
+			}
+		}
+		p{
+			font:400 10px/10px "Oswald";
+			color: #a5a5a5;
+			text-transform: uppercase;
+			letter-spacing: 2px;
+		}
+		input[type="text"]{
+			background: #fff;
+			border:1px solid #000;
+		}
+	}
+}
+.home3-newsletter-content{
+	border:9px solid $brand-primary;
+	padding:70px;
+	h3{
+		font:400 36px "Playfair Display";
+		color:#333;
+		padding-bottom:15px;
+		margin-bottom:15px;
+		position: relative;
+		&:after{
+			position: absolute;
+			content:"";
+			left: 0px;
+			bottom:0px;
+			width: 50px;
+			height: 1px;
+			background:#000;
+			left: 0px;
+			right: 0px;
+			margin: auto;
+		}
+	}
+	p{
+		font:300 14px/20px "Roboto Condensed";
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		margin-bottom:30px; 
+	}
+	form{
+		input{
+			width: 100%;
+			text-align: center;
+			font:300 16px/40px "Roboto Condensed";
+			height: 40px;
+			padding:0px;
+			border:1px solid #000;
+			color: #a4a4a4;
+			margin-bottom:30px; 
+		}
+
+	}
+}
+.home3-newsletter{
+	.item{
+		.text{
+			.read-more{
+				&:hover{
+					color: #333;
+				}
+			}
+		}
+	}
+}
+.quickview-wrapper{
+	position:fixed;
+	left:0px;
+	top:0px;
+	width:100%;
+	height:100%;
+	background:rgba(#000, 0.8);
+	z-index:10000;
+	text-align:center;
+	.quick-modal{
+		max-width: 1140px;
+		width: 90%;
+		margin: 100px auto 0px;
+		background:#fff;
+		padding:20px;
+		text-align: left;
+		position: relative;
+	}
+	.product-details-content{
+		.product-name h1{
+			font:400 36px/40px "Roboto Slab";
+			margin-bottom:0px; 
+		}
+		.rating i{
+			font-size: 14px;
+		}
+	}
+	.product-details-content .box-detalis-v2{
+		.options{
+			padding:0px;
+		}
+		.wrap-price{
+			padding-top:20px;
+			border-top:1px solid #ebebeb;
+		}
+		p.price{
+			color: $brand-primary;
+			display: inline-block;
+			vertical-align: bottom;
+			font:400 36px/36px "Roboto Condensed";
+			margin: 0px;
+		}
+		p.price-old{
+			display: inline-block;
+			text-transform: line-through;
+			color:#979797;
+			vertical-align: bottom;
+			font:400 30px/36px "Roboto Condensed";
+			margin: 0px;
+			margin-right:20px; 
+		}
+	}
+	.product .action{
+		transform: translate(0px, 0px);
+		opacity: 1;
+		border-radius: 0px;
+		box-shadow: none;
+	}
+	#quickview-content .product{
+		float: left;
+		width: 100%;
+		.product-images{
+			float: left;
+			width: 40%;
+			padding-right:15px;
+			img{
+				width: 100%;
+			}
+		}
+		.product-info{
+			float: left;
+			width: 60%;
+			padding-left:30px;
+		}
+	}
+	.closeqv{
+		background:#fff;
+		border:2px solid #e6e6e6;
+		height: 40px;
+		width: 40px;
+		text-align:center;
+		border-radius:50%;
+		display: inline-block;
+		position:absolute;
+		top:20px;
+		right:20px;
+		cursor: pointer;
+		i{
+			color: #e6e6e6;
+			line-height: 36px;
+
+		}
+	}
+	#quickview-content{
+		overflow: hidden;
+	}
+	.quick-desc{
+		font:400 14px/25px "TXGR";
+		color: #333;
+		margin-bottom:20px;
+		padding-bottom:20px;
+		border-bottom:1px solid #ebebeb; 
+	}
+
+	.single_variation_wrap{
+		padding-bottom:20px;
+		margin-bottom:20px;
+		border-bottom:1px solid #ebebeb; 
+	}
+	.social-sharing{
+		.widget-title{
+			font-size: 12px;
+			display: inline-block;
+			margin-bottom:0px;
+			padding-bottom:10px; 
+			margin-right:10px; 
+		}
+		.social-icons{
+			display: inline-block;
+			li{
+				display: inline-block;
+				margin: 0px 8px;
+				i{
+					font-size: 16px;
+				}
+			}
+		}
+	}
+	.quick-thumbnails{
+		ul{
+			display: inline-block;
+			width: 100%;
+			margin-top:10px; 
+			li{
+				float: left;
+				width: 25%;
+				&:nth-child(4n+1){
+					padding-right:6px;
+				}
+				&:nth-child(4n+2){
+					padding-left:2px;
+					padding-right:4px;
+				}
+				&:nth-child(4n+3){
+					padding-left:4px;
+					padding-right:2px;
+				}
+				&:nth-child(4n){
+					padding-left:6px;
+				}
+			}
+		}
+	}
+	.product-details-content .options{
+		.add-cart{
+			margin: 0px 10px;
+		}
+		p{
+			font:400 14px/25px "Roboto Slab";
+			color:#6d6d6d;
+			margin-top: 20px;
+		}
+
+		.infomation p{
+			color: $brand-primary;
+			margin-bottom:0px;
+			font: 400 16px/25px "Roboto Condensed"; 
+			margin-bottom:10px; 
+			span{
+				color: #000;
+			}
+		}
+		form{
+			display: inline-block;
+		}
+		input{
+			width: 41px;
+			height: 58px;
+			border:none;
+			border-right:1px solid #d6d6d6;
+		}
+		.quantity{
+			height: 60px;
+			vertical-align: top;
+			border:1px solid #d6d6d6;
+		}
+		.quantity .plus i{
+			background:url(../images/icon-quanty-v2.png) no-repeat center 8px;
+			border-color:#d6d6d6;
+		}
+		.quantity .minus i{
+			background: url(../images/icon-quanty-v2.png) no-repeat center bottom 12px;
+		}
+		.action{
+			a,form{
+				vertical-align: top;
+			}
+		}
+	}
+}

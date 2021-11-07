@@ -1,0 +1,41 @@
+// Home version 2
+.banner-home2-top{
+	margin-top:30px;
+	.col-md-3{
+		width: 50%;
+	}
+	.col-md-6{
+		float: left;
+		width: 100%;
+		padding: 0px;
+		margin-top:25px; 
+	}
+}
+// Home page 3
+#primary{
+	float:left;
+	width:100%;
+	padding:0px;
+}
+#secondary{
+	padding:0px;
+	margin-top:30px;
+}
+.banner-home3-bottom{
+	.col-md-8{
+		padding:0px;
+		margin-bottom:30px; 
+	}
+	.col-md-4{
+		padding:0px;
+	}
+}
+// Page Checkout
+.col-md-6{
+	&.padding-left-0{
+		padding:0px;
+	}
+	&.padding-right-0{
+		padding:0px;
+	}
+}

@@ -1,0 +1,333 @@
+.checkout-header{
+	ul{
+		padding: 10px 0px 20px;
+		display: inline-block;
+		width: 100%;
+		margin-bottom: 50px;
+		border-bottom: 1px solid #e5e5e5;
+		li{
+			display: inline-block;
+			width: 33.33%;
+			float: left;
+			text-transform: uppercase;
+			color: $gray-dark;
+			font-size: 15px;
+			&:nth-child(2){
+				text-align: center;
+			}
+			&:nth-child(3){
+				text-align: right;
+			}
+			&.active{
+				span{
+					background: $brand-primary;
+					color: #fff;					
+				}
+			}
+			span{
+				display: inline-block;
+				margin-right: 10px;
+				padding:8px 13px;
+				border-radius: 50%;
+				background: #e5e5e5;
+				color: $gray-dark;
+				@include size(40px,40px);
+			}
+		}
+	}
+}
+.check-out{
+	.form-horizontal{
+		label.control-label{
+			font:700 16px/20px "Roboto Slab";
+			color: #2b2b2b;
+			text-transform: uppercase;
+			.color{
+				color:#fd0000;
+			}
+		}
+		.form-control{
+			border-color:#e5e5e5;
+			box-shadow:none;
+			font-size: 16px;
+			font-family: "Roboto Condensed";
+		}
+	}
+	.form-check{
+		display: inline-block;
+		font:400 14px/20px "Poppins";
+		color: #000000;
+		padding-left:25px;
+		background:url("../images/check-icon.png") no-repeat scroll 0 2px;
+		cursor: pointer;
+		margin-right:25px; 
+		&.size-12{
+			font-size: 12px;
+			padding-left:15px;
+		}
+		&.active{
+			background:url("../images/check-icon.png")no-repeat scroll left 0 bottom 2px;
+		}
+		span{
+			color: #e95252;
+			display: inline-block !important;
+		}
+	}
+	.text-price{
+		padding-bottom:95px; 
+	}
+}
+.cart-box-container .text-price ul li .text.text-cap{
+	letter-spacing:0px;
+	text-transform:capitalize;
+	font-family:"Poppins";
+	font-size:14px;
+}
+.account{
+	.col-md-6{
+		&:nth-child(2n+1){
+			padding-left: 0px;
+		}
+		&:nth-child(2n){
+			padding-right{
+				padding-right: 0px;
+			}
+		}
+	}
+	p{
+		font-family: "TXGR";
+		color: $gray-light;
+	}
+}
+.bold{
+	font-weight:700 !important;
+}
+.cart-review{
+	display:inline-block;
+	width: 100%;
+	table.table{
+		th{
+			&:nth-child(2){
+				width: 30%;
+			}
+			&:nth-child(3){
+				width: 15%;
+			}
+		}
+		td{
+			&:nth-child(2){
+				color: $gray-light;
+			}
+			&:nth-child(3),&:nth-child(5){
+				color: $gray;
+				font-style: normal;
+				font-size: 18px;
+				font-family: "TXGB";
+			}
+		}
+	}
+}
+.icon{
+	width:100%;
+	text-align:center;
+	.fa-shopping-basket{
+		font-size: 300px;
+		color: #ddd;
+		position: relative;
+	}
+	.fa-check{
+		position: absolute;
+		right: -33px;
+		bottom: -50px;
+		font-size: 160px;
+		color: #e11111;
+	}
+	h3,h4{
+		text-transform: uppercase;
+		color: $gray;
+		text-align: center;
+	}
+	h3{
+		font-size: 30px;
+		margin-top: 80px;
+	}
+	h4{
+		font-size: 18px;
+		margin: 10px 0px;
+	}
+}
+.order-details{
+	.col-md-6{
+		&:nth-of-type(2n+1){
+			padding-right:0px;
+		}
+		&:nth-of-type(2n){
+			padding-left:0px;
+		}
+		h4{
+			font-size: 15px;
+			color: $gray;
+			line-height: 20px;
+			text-transform: capitalize;
+			margin-bottom: 15px;
+		}
+		p{
+			font-family: "TXGR";
+			color: $gray-light;
+			margin: 4px 0px;
+			line-height: 20px;
+			b{
+				color: #222;
+				font-weight:400;
+			}
+			&.total{
+				text-transform: uppercase;
+				color: $brand-primary;
+				font-style: normal;
+				margin-top: 30px;
+				font-size: 15px;
+				font-family: "TXGB";
+				span{
+					color: $gray;
+				}
+			}
+		}
+	}
+}
+.payment-order{
+	ul.tabs{
+		li{
+			padding: 20px 0px 20px 20px;
+			position: relative;
+			h4{
+				font:600 18px/20px "Poppins";
+				color: #000;
+			}
+			p{
+				color: #9d9d9d;
+				font:400 12px/20px "Poppins";
+				margin-top:10px; 
+			}
+			i{
+				@include size(12px,12px);
+				content: "";
+				border-radius: 50%;
+				position: absolute;
+				left: 0px;
+				top: 23px;
+				background:rgba(0, 0, 0, 0) url("../images/select-radio.png") no-repeat scroll left top;
+			}
+			a{
+				font:400 12px/20px "Poppins";
+				color: #e95252;
+				margin-top:20px !important;
+				display: inline-block; 
+				height: auto !important;
+			}
+			&.active{
+				i{
+					background: rgba(0, 0, 0, 0) url("../images/select-radio.png") no-repeat scroll left bottom;
+				}
+			}
+			img{
+				margin-left:30px; 
+			}
+		}
+	}
+}
+.place-order-now{
+	text-align:center;
+	margin-top:30px;
+}
+.form-group{
+	margin-bottom:25px !important;
+}
+.check-billing{
+	.text-price ul li{
+		padding:20px 0;
+		.text{
+			font-family: "TXGB";
+		}
+		.number{
+			&.color{
+				color: #e11111;
+			}
+		}
+	}
+
+}
+.info-order{
+	ul{
+		li{
+			display: block;
+			float: left;
+			width: 100%;
+			line-height: 50px;
+		}
+	}
+	.product-name{
+		text-align: left;
+		.head{
+			border-bottom:1px solid  #e6e6e6;
+			.name{
+				font:700 16px/50px "Roboto Condensed";
+				color:#565656;
+				text-transform: uppercase;
+			}
+			.qty,.total{
+				font:400 16px/50px "Roboto Condensed";
+			}
+		}
+		.name{
+			float: left;
+			color:#a7a7a7;
+			font:400 16px/50px "Roboto Condensed";
+			width:300px;
+		}
+		.total{
+			float: right;
+			color:#a7a7a7;
+			font:400 16px/50px "Roboto Condensed";
+			text-align: right;
+		}
+		.qty{
+			color:#a7a7a7;
+			font:400 16px/50px "Roboto Condensed";
+		}
+		b{
+			color: #2b2b2b;
+		}
+
+	}
+	.product-order{
+		margin-bottom:30px;
+		padding-bottom: 30px;
+		width: 100%;
+		float: left; 
+		li{
+			border-top:1px solid #e6e6e6;
+		}
+		.left{
+			font:700 16px "Roboto Condensed";
+			color:#565656;
+			text-transform: uppercase;
+			float: left;
+			line-height: 50px;
+		}
+		.right{
+			float: right;
+			font:400 16px/50px "Roboto Condensed";
+			text-transform:uppercase;
+			&.brand{
+				color:$brand-primary;
+				font-weight: 700;
+			}
+		}
+	}
+}
+.order-complete{
+	p{
+		font: 300 30px "Roboto Condensed";
+		color:#333;
+	}
+}

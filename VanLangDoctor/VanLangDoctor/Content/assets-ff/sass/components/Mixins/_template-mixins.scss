@@ -1,0 +1,354 @@
+// Box Size
+// -------------------------
+@mixin box-size($background, $padding-top,$padding-bottom){
+    background: $background;
+    padding-top: $padding-top;
+    padding-bottom: $padding-bottom;
+}
+
+// Button
+// -------------------------
+@mixin button-outline($color, $background, $border, $background-hover, $color-hover, $border-hover, $border-radius) {
+    color: $color;
+    background-color: $background;
+    border: $border;
+    @include border-radius($border-radius);
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+        color: $color-hover;
+        background-color: $background-hover;
+        border: $border-hover;
+    }
+    .fa,.icon{
+        font-size: $icon-font-size-base;
+        margin: 0;
+    }
+}
+
+/** Loadding **/
+@mixin engo-loading($width,$height,$font-size,$border-width,$border-color1,$border-color2,$background-color) {
+    margin: auto;
+    font-size: $font-size;
+    text-indent: -9999em;
+    border-top: $border-width solid $border-color1;
+    border-right: $border-width solid $border-color1;
+    border-bottom: $border-width solid $border-color1;
+    border-left: $border-width solid $border-color2;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-animation: engoloaddingmini 1.1s infinite linear;
+    animation: engoloaddingmini 1.1s infinite linear;
+    border-radius: 50%;
+    width: $width;
+    height: $height;
+    background: none;
+    display: inline-block;
+    &:after {
+        border-radius: 50%;
+        width: $width;
+        height: $height;
+    }
+}
+@-webkit-keyframes engoloaddingmini {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+@keyframes engoloaddingmini {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+// Block
+// -------------------------
+@mixin block-variant($border, $heading-text-color, $heading-bg-color, $heading-border) {
+    border-color: $border;
+    background: $heading-bg-color;
+    & .#{$block-heading-selector} {
+        & span:before, & span:after{ background:$white; }
+        color: $heading-text-color;
+        background-color: $heading-bg-color;
+        border-color: $heading-border;
+        + .#{$block-prefix}-collapse .#{$block-content-selector} {
+            border-top-color: $border;
+        }
+    }
+    & > .#{$block-prefix}-footer {
+        + .#{$block-prefix}-collapse .#{$block-prefix}-body {
+            border-bottom-color: $border;
+        }
+    }
+}
+
+@mixin block-elements-styles($border, $heading-text-color, $heading-bg-color, $heading-border, $text-color, $text-color-primary){
+    border-color: $border;
+    background: $heading-bg-color;
+    & .#{$block-heading-selector} {
+        color: $heading-text-color;
+        background-color: $heading-bg-color;
+        border-color: $heading-border;
+        + .#{$block-prefix}-collapse .#{$block-content-selector} {
+            border-top-color: $border;
+        }
+    }
+    & > .#{$block-prefix}-footer {
+        + .#{$block-prefix}-collapse .#{$block-prefix}-body {
+            border-bottom-color: $border;
+        }
+    }
+}
+
+/****/
+@mixin container-layout-variant($color, $background, $linkcolor,  $topbar-link-color-hover ){
+    background: $background;
+    color: $color;
+    a{
+        color:$linkcolor;
+    }
+    a:hover{
+        color: $topbar-link-color-hover;
+    }
+}
+
+//== Inline block
+//==========================================
+@mixin inline-block ($haslayout : true){
+    display: inline-block;
+    vertical-align: middle;
+    @if $haslayout == true {
+        .lt-ie8 & {
+            display: inline;
+            zoom: 1;
+        }
+    }
+}
+
+//== vertical block
+//==========================================
+@mixin vertical-center( $width: 100px, $height: 100px) {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    width: $width;
+    height: $height;
+    position: absolute;
+}
+
+//== Translate X - Y - Z
+//==========================================
+@mixin translateX($x) {
+    -webkit-transform: translateX($x);
+    -ms-transform: translateX($x); // IE9 only
+    -o-transform: translateX($x);
+    transform: translateX($x);
+}
+
+@mixin translateY($y) {
+    -webkit-transform: translateY($y);
+    -ms-transform: translateY($y); // IE9 only
+    -o-transform: translateY($y);
+    transform: translateY($y);
+}
+
+@mixin translateZ($z) {
+    -webkit-transform: translateZ($z);
+    -ms-transform: translateZ($z); // IE9 only
+    -o-transform: translateZ($z);
+    transform: translateZ($z);
+}
+
+//== Transform
+//==========================================
+@mixin transform($argument){
+    -webkit-transform: ($argument);
+    -moz-transform: ($argument);
+    -ms-transform: ($argument);
+    -o-transform: ($argument);
+    transform: ($argument);
+}
+
+//== Transform
+//==========================================
+@mixin transition-delay($time1,$time2){
+    -webkit-transition-delay: ($time1,$time2);
+    -moz-transition-delay: ($time1,$time2);
+    -ms-transition-delay: ($time1,$time2);
+    -o-transition-delay: ($time1,$time2);
+    transition-delay: ($time1,$time2);
+}
+
+//== Background Size
+//==========================================
+@mixin background-size($size1,$size2) {
+    -webkit-background-size: ($size1,$size2);
+    -moz-background-size: ($size1,$size2);
+    -ms-background-size: ($size1,$size2);
+    -o-background-size: ($size1,$size2);
+    background-size: ($size1,$size2);
+}
+
+//== Background origin
+//==========================================
+@mixin background-origin($value1,$value2){
+    -webkit-background-origin: ($value1,$value2);
+    -moz-background-origin: ($value1,$value2);
+    -ms-background-origin: ($value1,$value2);
+    -o-background-origin: ($value1,$value2);
+    background-origin: ($value1,$value2);
+}
+
+//== Border radius
+//==========================================
+@mixin border-radius($radius) {
+    border-radius         : $radius;
+    -webkit-border-radius : $radius;
+    -moz-border-radius    : $radius;
+    -ms-border-radius     : $radius;
+    -o-border-radius      : $radius;
+}
+
+//== Text Shadow
+//==========================================
+@mixin text-shadow($shadow) {
+    text-shadow         : $shadow;
+    -webkit-text-shadow : $shadow;
+    -moz-text-shadow    : $shadow;
+    -ms-text-shadow     : $shadow;
+    -o-text-shadow      : $shadow;
+}
+
+//== Transform Origin
+//==========================================
+@mixin transform-origin($originX,$originY) {
+    -webkit-transform-origin : $originX $originY;
+    -moz-transform-origin    : $originX $originY;
+    -ms-transform-origin     : $originX $originY; // IE9 only
+    transform-origin         : $originX $originY;
+}
+
+//== appearance
+//==========================================
+@mixin appearance() {
+    -webkit-appearance : none;
+    -moz-appearance    : none;
+    -o-appearance      : none;
+    -ms-appearance     : none;
+    appearance         : none;
+}
+
+//== selection
+//==========================================
+$prefixes: ("-moz-", "");
+@mixin selection($color, $background) {
+    @each $prefix in $prefixes {
+        ::#{$prefix}selection {
+            color: $color;
+            background: $background;
+        }
+    }
+}
+
+//== Brand HomePage
+//==========================================
+@mixin brand-home-page($class_brand, $brand-home-page) {
+    .mega-menu.#{$class_brand}  ul.navbar-nav li.active a, .mega-menu.#{$class_brand} ul.navbar-nav li a:hover,.mega-menu.#{$class_brand} ul.navbar-nav ul.menu-level-1 li a:hover{color: $brand-home-page;}
+    .mega-menu.#{$class_brand} ul.navbar-nav .sub-menu .top-sub-menu .item .image{background:$brand-home-page;}
+    .#{$class_brand} .tp-bullets.simplebullets.round .bullet{border:2px solid $brand-home-page;}
+    .#{$class_brand} .owl-carousel .owl-controls .owl-nav .owl-prev:hover,.#{$class_brand} .owl-carousel .owl-controls .owl-nav .owl-next:hover{box-shadow: 0 0 0 30px $brand-home-page inset;}
+    .mega-menu.#{$class_brand} ul.navbar-nav .sub-menu .top-sub-menu{border-bottom:1px solid $brand-home-page;}
+    .mega-menu.#{$class_brand} ul.navbar-nav .sub-menu ul.menu-level-1 ul.menu-level-2::after{background:$brand-home-page;}
+    .mega-menu.#{$class_brand} ul.navbar-nav .sub-menu ul.menu-level-1 li.level3 a:hover{color:$brand-home-page;}
+    .mega-menu.#{$class_brand} ul.navbar-nav .sub-menu .bottom-sub-menu{border-top:1px solid $brand-home-page;}
+    .#{$class_brand}.tp-banner-container .tp-rightarrow:hover,.#{$class_brand}.tp-banner-container .tp-leftarrow:hover{box-shadow:0 0 0 30px $brand-home-page inset;}
+    #footer.#{$class_brand} h3::after{background:$brand-home-page;}
+    #footer.#{$class_brand} .footer-top .col-md-6 a{border:2px solid $brand-home-page;color:$brand-home-page;}
+    #footer.#{$class_brand} .footer-top ul li a:hover,#footer.#{$class_brand} .footer-bottom .col-md-6 span{color: $brand-home-page;}
+    #footer.#{$class_brand} .footer-top .col-md-6 a:hover{background:$brand-home-page;color:#fff;}
+    #footer.#{$class_brand} .footer-top-bottom a.color{color:$brand-home-page;}
+    .button1.#{$class_brand}{background:$brand-home-page;border:2px solid $brand-home-page;}
+    .button1.#{$class_brand}:hover{background:transparent;color:$brand-home-page;}
+    .#{$class_brand} .tp-bullets.simplebullets.round .bullet{border:2px solid $brand-home-page;}
+    .#{$class_brand} .tp-bullets.simplebullets.round .bullet.selected,.#{$class_brand} .tp-bullets.simplebullets.round .bullet:hover{background:$brand-home-page;border:2px solid $brand-home-page;}
+    .blog-post-container.#{$class_brand} .blog-post-item h3 a:hover{color: $brand-home-page;}
+    .blog-post-container.#{$class_brand} .blog-post-item .blog-post-image .action .icons{box-shadow:0 0 0 30px $brand-home-page inset;}
+    .blog-post-container.#{$class_brand} .blog-post-item .blog-post-image .action .icons:hover{box-shadow:0 0 0 2px $brand-home-page inset;color: $brand-home-page !important;}
+    .blog-post-container.#{$class_brand} .blog-post-item .blog-post-image .action .icons{background:$brand-home-page;}
+    #header.#{$class_brand} .cart .cart-count{background-color: $brand-home-page;}
+    .policy.#{$class_brand} ul li a:hover i{background:$brand-home-page;}
+    #topbar.#{$class_brand} .social a:hover i,#topbar.#{$class_brand} .social a.active i{color:$brand-home-page;}
+    #topbar.#{$class_brand} .topbar-right a:hover, #topbar.#{$class_brand} .topbar-right a.active,#topbar.#{$class_brand} .dropdown .btn:hover{color:$brand-home-page !important;}
+}
+
+//== animation fill mode
+//==========================================
+@mixin animation-fill-mode($fill) {
+    -webkit-animation-fill-mode: $fill;
+    -moz-animation-fill-mode: $fill;
+    -o-animation-fill-mode: $fill;
+    animation-fill-mode: $fill;
+}
+
+//== filter
+//==========================================
+@mixin filter($argument){
+    filter         : $argument;
+    -webkit-filter : $argument;
+    -moz-filter    : $argument;
+    -o-filter      : $argument;
+    -ms-filter     : $argument;
+}
+
+// Clear Lists
+// -------------------------
+@mixin clear-list(){
+    padding    : 0;
+    margin     : 0;
+    list-style : none;
+}
+
+// Formart lists widget
+// -------------------------
+@mixin lists-style() {
+    ul,ol{
+        @include clear-list();
+        li{
+            &:first-child{
+
+            }
+            &:last-child{
+                border-bottom: 0;
+                padding-bottom: 0;
+            }
+            .children{
+                > li{
+                    &:before{
+                        top: 24px;
+                    }
+                }
+            }
+        }
+        ul{
+            li:first-child{
+                padding-top: 14px;
+                background-position: 0 24px;
+            }
+        }
+    }
+}
+
+@import "functions";

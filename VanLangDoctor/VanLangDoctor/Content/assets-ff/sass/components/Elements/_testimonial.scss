@@ -1,0 +1,72 @@
+.testimonial{
+	display:inline-block;
+	width:100%;
+	text-align:center;
+	background: url(../images/testimo-home3-1.jpg)no-repeat;
+	padding:80px 0px 100px;
+	color:#fff;
+	h3{
+		font-size: 16px;
+		font-weight: 700;
+		letter-spacing: 2px;
+		text-transform: uppercase;
+		position: relative;
+		margin-bottom:40px;
+		padding-bottom:15px;
+		line-height: 20px;
+		&:after{
+			position:absolute;
+			content:"";
+			left:50%;
+			bottom:0px;
+			width: 50px;
+			margin-left:-25px;
+			background:$gray-lighter;
+			height: 2px; 
+		}
+	}
+	p{
+		font-family: "Playfair Display";
+		font-size: 22px;
+		font-style: italic;
+		font-weight: 400;
+		line-height: 30px;
+		max-width: 980px;
+		margin: 0 auto 30px;
+		&.user-name{
+			font-family: "Oswald";
+			font-weight: 400;
+			font-style: normal;
+			text-transform: uppercase;
+			font-size: 14px;
+			letter-spacing: 2px;
+		}
+	}
+	img{
+		width: auto;
+		border-radius: 50%;
+		border:3px solid #bababa;
+	}
+	.wrap-star{
+		display: inline-block;
+		width: 100%;
+		margin-bottom:30px; 
+		a{
+			color: #eed52e;
+			i{
+				font-size: 12.42px;
+			}
+		}
+	}
+	&.dots-show{
+		.owl-dots{
+			bottom:80px;
+			.owl-dot{
+				background:#bbb;
+				&.active{
+					background:#fff;
+				}
+			}
+		}
+	}
+}
