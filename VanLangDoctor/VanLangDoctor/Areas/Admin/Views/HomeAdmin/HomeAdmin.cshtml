@@ -1,7 +1,179 @@
-﻿
-@{
-    ViewBag.Title = "HomeAdmin";
+﻿@{
+ViewBag.Title = "Trang chủ quản lý";
 }
 
-<h2>HomeAdmin</h2>
+<div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+     data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
+    <!-- ============================================================== -->
+    <!-- Page wrapper  -->
+    <!-- ============================================================== -->
+    <div class="page-wrapper">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="page-breadcrumb">
+            <div class="row">
+                <div class="col-7 align-self-center">
+                    <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">Xin chào</h3>
+                    <div class="d-flex align-items-center">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb m-0 p-0">
+                                <li class="breadcrumb-item">
+                                    <a href="index.html">Trang chủ</a>
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-5 align-self-center">
+                    @*<div class="customize-input float-right">
+                        <select class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius">
+                            <option selected>Aug 19</option>
+                            <option value="1">July 19</option>
+                            <option value="2">Jun 19</option>
+                        </select>
+                    </div>*@
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
+            <!-- *************************************************************** -->
+            <!-- Start First Cards -->
+            <!-- *************************************************************** -->
 
+            <!-- *************************************************************** -->
+            <!-- End First Cards -->
+            <!-- *************************************************************** -->
+            <!-- *************************************************************** -->
+            <!-- Start Sales Charts Section -->
+            <!-- *************************************************************** -->
+
+            <!-- *************************************************************** -->
+            <!-- End Sales Charts Section -->
+            <!-- *************************************************************** -->
+            <!-- *************************************************************** -->
+            <!-- Start Location and Earnings Charts Section -->
+            <!-- *************************************************************** -->
+            <div class="row">
+                <div class="col-md-6 col-lg-8">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex align-items-start">
+                                <h4 class="card-title mb-0">Thống kê phản hồi</h4>
+                                <div class="ml-auto">
+                                    <div class="dropdown sub-dropdown">
+                                        <button class="btn btn-link text-muted dropdown-toggle" type="button"
+                                                id="dd1" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false">
+                                            <i data-feather="more-vertical"></i>
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dd1">
+                                            <a class="dropdown-item" href="#">Insert</a>
+                                            <a class="dropdown-item" href="#">Update</a>
+                                            <a class="dropdown-item" href="#">Delete</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pl-4 mb-5">
+                                <div class="stats ct-charts position-relative" style="height: 315px;"></div>
+                            </div>
+                            <ul class="list-inline text-center mt-4 mb-0">
+                                <li class="list-inline-item text-muted font-italic">Earnings for this month</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Hoạt động</h4>
+                            <div class="mt-4 activity">
+                                <div class="d-flex align-items-start border-left-line pb-3">
+                                    <div>
+                                        <a href="javascript:void(0)" class="btn btn-info btn-circle mb-2 btn-item">
+                                            <i data-feather="shopping-cart"></i>
+                                        </a>
+                                    </div>
+                                    <div class="ml-3 mt-2">
+                                        <h5 class="text-dark font-weight-medium mb-2">New Product Sold!</h5>
+                                        <p class="font-14 mb-2 text-muted">
+                                            John Musa just purchased <br> Cannon 5M
+                                            Camera.
+                                        </p>
+                                        <span class="font-weight-light font-14 text-muted">10 Minutes Ago</span>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-start border-left-line pb-3">
+                                    <div>
+                                        <a href="javascript:void(0)"
+                                           class="btn btn-danger btn-circle mb-2 btn-item">
+                                            <i data-feather="message-square"></i>
+                                        </a>
+                                    </div>
+                                    <div class="ml-3 mt-2">
+                                        <h5 class="text-dark font-weight-medium mb-2">New Support Ticket</h5>
+                                        <p class="font-14 mb-2 text-muted">
+                                            Richardson just create support <br>
+                                            ticket
+                                        </p>
+                                        <span class="font-weight-light font-14 text-muted">25 Minutes Ago</span>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-start border-left-line">
+                                    <div>
+                                        <a href="javascript:void(0)" class="btn btn-cyan btn-circle mb-2 btn-item">
+                                            <i data-feather="bell"></i>
+                                        </a>
+                                    </div>
+                                    <div class="ml-3 mt-2">
+                                        <h5 class="text-dark font-weight-medium mb-2">
+                                            Notification Pending Order!
+                                        </h5>
+                                        <p class="font-14 mb-2 text-muted">One Pending order from Ryne <br> Doe</p>
+                                        <span class="font-weight-light font-14 mb-1 d-block text-muted">
+                                            2 Hours
+                                            Ago
+                                        </span>
+                                        <a href="javascript:void(0)" class="font-14 border-bottom pb-1 border-info">Load More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- *************************************************************** -->
+            <!-- End Location and Earnings Charts Section -->
+            <!-- *************************************************************** -->
+            <!-- *************************************************************** -->
+            <!-- Start Top Leader Table -->
+            <!-- *************************************************************** -->
+     
+            <!-- *************************************************************** -->
+            <!-- End Top Leader Table -->
+            <!-- *************************************************************** -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Container fluid  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- footer -->
+        <!-- ============================================================== -->
+        <footer class="footer text-center text-muted">
+            All Rights Reserved by Adminmart. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
+        </footer>
+        <!-- ============================================================== -->
+        <!-- End footer -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Page wrapper  -->
+    <!-- ============================================================== -->
+</div>
