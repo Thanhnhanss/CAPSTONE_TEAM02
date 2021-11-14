@@ -46,6 +46,7 @@ namespace VanLangDoctor
             app.UseTwoFactorRememberBrowserCookie(DefaultAuthenticationTypes.TwoFactorRememberBrowserCookie);
 
             app.UseVanLangAuthentication("https://fitlogin.vanlanguni.edu.vn/LoginManagement");
+
             // Uncomment the following lines to enable logging in with third party login providers
             //app.UseMicrosoftAccountAuthentication(
             //    clientId: "",
@@ -56,8 +57,8 @@ namespace VanLangDoctor
             //   consumerSecret: "");
 
             //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            //   appId: "1044283879651089",
+            //   appSecret: "b2035e56d76cbfb9115843c4bfca2c3d");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
