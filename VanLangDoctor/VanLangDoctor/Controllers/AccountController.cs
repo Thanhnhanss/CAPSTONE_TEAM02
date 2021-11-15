@@ -343,7 +343,23 @@ namespace VanLangDoctor.Controllers
                     // If the user does not have an account, then prompt the user to create an account
                     ViewBag.ReturnUrl = returnUrl;
                     ViewBag.LoginProvider = loginInfo.Login.LoginProvider;
-                    return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { Email = loginInfo.Email });
+                    //return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { Email = loginInfo.Email });
+                    var info = await AuthenticationManager.GetExternalLoginInfoAsync();
+                    if (info == null)
+                    {
+                        return View("ExternalLoginFailure");
+                    }
+                    var user = new ApplicationUser { UserName = loginInfo.Email, Email = loginInfo.Email };
+                    var result2 = await UserManager.CreateAsync(user);
+                    if (result2.Succeeded)
+                    {
+                        result2 = await UserManager.AddLoginAsync(user.Id, info.Login);
+                        if (result2.Succeeded)
+                        {
+                            await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                        }
+                    }
+                    return RedirectToLocal(returnUrl);
             }
         }
 
