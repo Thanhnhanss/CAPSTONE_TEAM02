@@ -53,19 +53,35 @@
                         </div>
                         <div class="float-right align-right">
                             <div class="hover-menu">
-                                <a class="acc" href="#" title="USD"><img src="@Url.Content("~/Content/assets-ff/images/icon-user-header.png")" alt="icon">Tài Khoản</a>
+                                <a class="acc" href="#"><img src="@Url.Content("~/Content/assets-ff/images/icon-user-header.png")" alt="icon">Tài khoản</a>
                                 <ul class="list-menu">
                                     @if (!User.Identity.IsAuthenticated)
                                     {
                                         <li>
-                                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login</a>
+                                            <a id="btnLogin" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login</a>
 
-                                            <form action="@Url.Action("~/Account/ExternalLogin")" method="post" style="display: none">
+                                            <form id="VL" action="@Url.Action("Login", "Account", new { area = ""})" method="post" style="display: none">
                                                 @Html.AntiForgeryToken()
                                                 <button type="submit" id="VanLang" name="provider" value="VanLang">Login</button>
                                             </form>
                                         </li>
-                                        <li><a href="#">Đăng ký</a></li>
+                                        <li>
+                                            <a href="#">Register</a>
+                                        </li>
+                                    }
+                                    else
+                                    {
+                                        <li>
+                                            <a href="#" class="nav-link dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:#d9001b" data-bs-toggle="dropdown" id="user-dropdown">
+                                                @User.Identity.Name
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="nav-link" style="color:#d9001b" href="~/Account/Login" id="logoff">Đăng xuất</a>
+                                            <form style="display:none" action="~/account/logoff" id="form-logoff" method="post">
+                                                @Html.AntiForgeryToken()
+                                            </form>
+                                        </li>
                                     }
                                 </ul>
                             </div>
@@ -351,5 +367,13 @@
 
     <script type="text/javascript" src="@Url.Content("~/Content/assets-ff/js/slick.min.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Content/assets-ff/js/store.js")"></script>
+
+    <script>
+        $(document).ready(() => {
+            $("#btnLogin").click(() => {
+                $("#VanLang").click();
+            });
+        });
+    </script>
 </body>
 </html>

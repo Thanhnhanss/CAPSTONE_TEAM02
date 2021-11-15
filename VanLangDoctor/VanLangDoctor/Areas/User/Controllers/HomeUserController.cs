@@ -7,7 +7,6 @@ using VanLangDoctor.Models;
 
 namespace VanLangDoctor.Areas.User.Controllers
 {
-    [Authorize]
     public class HomeUserController : Controller
     {
         // GET: User/HomeUser

@@ -57,8 +57,8 @@ namespace VanLangDoctor
             //   consumerSecret: "");
 
             //app.UseFacebookAuthentication(
-            //   appId: "1044283879651089",
-            //   appSecret: "b2035e56d76cbfb9115843c4bfca2c3d");
+            //   appId: "",
+            //   appSecret: "");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
