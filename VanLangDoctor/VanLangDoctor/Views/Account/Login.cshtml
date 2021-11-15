@@ -1,72 +1,62 @@
 ﻿@using VanLangDoctor.Models
 @model LoginViewModel
 @{
-    ViewBag.Title = "Đăng nhập";
+    ViewBag.Title = "Log in";
 }
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login Template</title>
-    <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <link href="~/Content/assets-login/assets/css/login.css" rel="stylesheet" />
-</head>
-<body>
-    <main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
-        <div class="container">
-            <div class="card login-card">
-                <div class="row no-gutters">
-                    <div class="col-md-5">
-                        <img src="~/Content/assets-login/assets/images/login.jpg" alt="login" class="login-card-img" />
+<h2>@ViewBag.Title.</h2>
+<div class="row">
+    <div class="col-md-8">
+        <section id="loginForm">
+            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <h4>Use a local account to log in.</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
                     </div>
-                    <div class="col-md-7">
-                        <div class="card-body">
-                            <div class="brand-wrapper">
-                                <img src="~/Content/assets-ad/images/logoVLDnobrr.png" />
-                            </div>
-                            <p class="login-card-description">Bạn đã có tài khoản?</p>
-                            <form action="@Url.Action("Login","Account")" method="post">
-                                @Html.AntiForgeryToken()
-                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                                <div class="form-group">
-                                    <label for="email" class="sr-only">Email</label>
-                                    <input type="email" name="email" id="email" class="form-control" placeholder="Email address">
-                                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-                                </div>
-                                <div class="form-group mb-4">
-                                    <label for="password" class="sr-only">Password</label>
-                                    <input type="password" name="password" id="password" class="form-control" placeholder="***********">
-                                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-                                </div>
-                                <input name="login" id="login" class="btn btn-block login-btn mb-4" type="submit" value="Đăng nhập">
-                            </form>
-                            <p class="login-card-footer-text" style="margin-bottom: 5px">
-                                Bạn chưa có tài khoản ?
-                                <a class="text-reset">@Html.ActionLink("Đăng ký", "Register")</a>
-                                <hr />
-                                <h4>Đăng nhập bằng tài khoản khác</h4>
-                                @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
-                            </p>
-                            <nav class="login-card-footer-nav">
-                                <a href="#!">Terms of use.</a>
-                                <a href="#!">Privacy policy</a>
-                            </nav>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <div class="checkbox">
+                            @Html.CheckBoxFor(m => m.RememberMe)
+                            @Html.LabelFor(m => m.RememberMe)
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </main>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-</body>
-</html>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Log in" class="btn btn-default" />
+                    </div>
+                </div>
+                <p>
+                    @Html.ActionLink("Register as a new user", "Register")
+                </p>
+                @* Enable this once you have account confirmation enabled for password reset functionality
+                    <p>
+                        @Html.ActionLink("Forgot your password?", "ForgotPassword")
+                    </p>*@
+            }
+        </section>
+    </div>
+    <div class="col-md-4">
+        <section id="socialLoginForm">
+            @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+        </section>
+    </div>
+</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
