@@ -54,25 +54,25 @@
                             <div class="hover-menu">
                                 <a class="acc" href="#" title="USD"><img src="@Url.Content("~/Content/assets-ff/images/icon-user-header.png")" alt="icon">Tài Khoản</a>
 
-                                @if (Request.IsAuthenticated)
+                                @if (!User.Identity.IsAuthenticated)
+                                {
+                                    <ul class="list-menu" style="text-align: right; border: none; border-radius: 1em ">
+                                        <li>@Html.ActionLink("Đăng ký", "Register", "../Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                                        <li>@Html.ActionLink("Đăng nhập", "Login", "../Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+                                    </ul>
+                                }
+                                else
                                 {
                                     using (Html.BeginForm("LogOff", "../Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
                                     {
                                         @Html.AntiForgeryToken();
                                         <ul class="list-menu" style="text-align: right; border: none; border-radius: 1em; position:fixed ">
                                             <li>
-                                                @Html.ActionLink("Xin chào! " + User.Identity.GetUserName() , "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                                                @Html.ActionLink("Xin chào! " + User.Identity.GetUserName(), "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
                                             </li>
                                             <li><a href="javascript:document.getElementById('logoutForm').submit()">Đăng xuất</a></li>
                                         </ul>
                                     }
-                                }
-                                else
-                                {
-                                    <ul class="list-menu" style="text-align: right; border: none; border-radius: 1em ">
-                                        <li>@Html.ActionLink("Đăng ký", "Register", "../Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-                                        <li>@Html.ActionLink("Đăng nhập", "Login", "../Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
-                                    </ul>
                                 }
 
                             </div>
