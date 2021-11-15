@@ -71,17 +71,28 @@
                                     }
                                     else
                                     {
-                                        <li>
-                                            <a href="#" class="nav-link dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:#d9001b" data-bs-toggle="dropdown" id="user-dropdown">
-                                                @User.Identity.Name
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="nav-link" style="color:#d9001b" href="~/Account/Login" id="logoff">Đăng xuất</a>
-                                            <form style="display:none" action="~/account/logoff" id="form-logoff" method="post">
-                                                @Html.AntiForgeryToken()
-                                            </form>
-                                        </li>
+                                        @*<li>
+                                                <a href="#" class="nav-link dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:#d9001b" data-bs-toggle="dropdown" id="user-dropdown">
+                                                    @User.Identity.Name
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="nav-link" style="color:#d9001b" href="~/User/HomeUser/HomeUser" id="logoff">Logout</a>
+                                                <form style="display:none" action="~/account/logoff" id="form-logoff" method="post">
+                                                    @Html.AntiForgeryToken()
+                                                </form>
+                                            </li>*@
+
+                                        using (Html.BeginForm("LogOff", "../Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                                        {
+                                            @Html.AntiForgeryToken()
+                                            <li>
+                                                <a href="#" class="nav-link dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:#d9001b" data-bs-toggle="dropdown" id="user-dropdown">
+                                                    @User.Identity.Name
+                                                </a>
+                                            </li>
+                                            <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+                                        }
                                     }
                                 </ul>
                             </div>
@@ -374,6 +385,9 @@
                 $("#VanLang").click();
             });
         });
+        //$('#logoff').click(() => {
+        //    $('#form-logoff').click();
+        //});
     </script>
 </body>
 </html>

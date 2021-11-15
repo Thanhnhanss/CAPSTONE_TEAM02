@@ -175,6 +175,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
+    <Compile Include="Areas\User\Controllers\DoctorsController.cs" />
     <Compile Include="Areas\User\Controllers\HomeUserController.cs" />
     <Compile Include="Areas\User\UserAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -786,6 +787,8 @@
     <Content Include="Scripts\assets_Login\scss\bootstrap\_utilities.scss" />
     <Content Include="Scripts\assets_Login\scss\bootstrap\_variables.scss" />
     <Content Include="Scripts\assets_Login\scss\style.scss" />
+    <Content Include="Areas\User\Views\Doctors\Details.cshtml" />
+    <Content Include="Areas\User\Views\Doctors\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

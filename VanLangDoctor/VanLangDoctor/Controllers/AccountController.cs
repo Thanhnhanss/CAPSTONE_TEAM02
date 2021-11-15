@@ -5,6 +5,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
@@ -408,7 +409,12 @@ namespace VanLangDoctor.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("HomeUser", "HomeUser", null);
+            //FormsAuthentication.SignOut();
+            //Session.Clear();
+            //Session.RemoveAll();
+            //Session.Abandon();
+            //return RedirectToAction("HomeUser", "HomeUser");
+            return RedirectToAction("Index", "Home");
         }
 
         //
