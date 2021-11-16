@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-@using Microsoft.AspNet.Identity
+
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -53,7 +53,7 @@
                         <div class="float-right align-right">
                             <div class="hover-menu">
                                 <a class="acc" href="#" title="USD"><img src="@Url.Content("~/Content/assets-ff/images/icon-user-header.png")" alt="icon">Tài Khoản</a>
-
+                                @using Microsoft.AspNet.Identity
                                 @if (!User.Identity.IsAuthenticated)
                                 {
                                     <ul class="list-menu" style="text-align: right; border: none; border-radius: 1em ">
