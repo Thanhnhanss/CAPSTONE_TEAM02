@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets-ff/vendor/settings.css")" />
     <link rel="shortcut icon" href="@Url.Content("~/Content/assets-ff/images/favicon.png")" />
     <script type="text/javascript" src="@Url.Content("~/Content/assets-ff/js/jquery-3.2.0.min.js")"></script>
+
     <title>Trang chủ</title>
 </head>
 
@@ -71,18 +72,6 @@
                                     }
                                     else
                                     {
-                                        @*<li>
-                                                <a href="#" class="nav-link dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:#d9001b" data-bs-toggle="dropdown" id="user-dropdown">
-                                                    @User.Identity.Name
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="nav-link" style="color:#d9001b" href="~/User/HomeUser/HomeUser" id="logoff">Logout</a>
-                                                <form style="display:none" action="~/account/logoff" id="form-logoff" method="post">
-                                                    @Html.AntiForgeryToken()
-                                                </form>
-                                            </li>*@
-
                                         using (Html.BeginForm("LogOff", "../Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
                                         {
                                             @Html.AntiForgeryToken()
@@ -384,10 +373,11 @@
             $("#btnLogin").click(() => {
                 $("#VanLang").click();
             });
+            //$('#logoff').click(() => {
+            //    $('#form-logoff').click();
+            //});
         });
-        //$('#logoff').click(() => {
-        //    $('#form-logoff').click();
-        //});
+
     </script>
 </body>
 </html>
