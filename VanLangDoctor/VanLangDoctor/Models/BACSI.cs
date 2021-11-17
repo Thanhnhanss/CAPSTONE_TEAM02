@@ -28,14 +28,17 @@ namespace VanLangDoctor.Models
         public Nullable<int> TUOI { get; set; }
         public string EMAIL { get; set; }
         public Nullable<bool> GIOI_TINH { get; set; }
-        public string CHUC_VU { get; set; }
+        public string KHOA { get; set; }
         public string KINH_NGHIEM { get; set; }
         public string NGAY_TRUC { get; set; }
         public string BHYT { get; set; }
+        public string IMG_BACSI { get; set; }
+        public Nullable<int> CHUYENKHOA { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DON_THUOC> DON_THUOC { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BENH_NHAN> BENH_NHAN { get; set; }
+        public virtual KHOA KHOA1 { get; set; }
     }
 }

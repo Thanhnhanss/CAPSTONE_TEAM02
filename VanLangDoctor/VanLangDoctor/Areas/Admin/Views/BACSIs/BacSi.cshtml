@@ -1,0 +1,114 @@
+﻿@model IEnumerable<VanLangDoctor.Models.BACSI>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+     data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
+
+    <div class="page-wrapper">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="page-breadcrumb">
+            <div class="row">
+                <div class="col-7 align-self-center">
+                    <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">Xin chào</h3>
+                    <div class="d-flex align-items-center">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb m-0 p-0">
+                                <li class="breadcrumb-item">
+                                    <a href="#">Thông tin bệnh nhân</a>
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-5 align-self-center">
+                    @*<div class="customize-input float-right">
+                            <select class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius">
+                                <option selected>Aug 19</option>
+                                <option value="1">July 19</option>
+                                <option value="2">Jun 19</option>
+                            </select>
+                        </div>*@
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
+            <p>
+                @Html.ActionLink("Create New", "Create")
+            </p>
+            <table class="table">
+                <tr>
+                    <th>Hình ảnh</th>
+
+                    <th>Tên bác sĩ</th>
+
+                    <th>Tuổi</th>
+
+                    <th>SĐT</th>
+
+                    <th>Giới tính</th>
+
+                    <th>Chuyên khoa</th>
+
+                    <th>Kinh nghiệm</th>
+
+                    <th>Ngày trực</th>
+
+                    <th>Điều chỉnh</th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IMG_BACSI)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TEN_BACSI)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TUOI)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SDT_BACSI)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.GIOI_TINH)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CHUYENKHOA)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.KINH_NGHIEM)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NGAY_TRUC)
+                        </td>
+                        <td style="text-align:center">
+                            @Html.ActionLink("Cập nhật", "Edit", new { id = item.ID_BACSI }) <br /><hr />
+                            @Html.ActionLink("Chi tiết", "Details", new { id = item.ID_BACSI }) <br /><hr />
+                            @Html.ActionLink("Xoá", "Delete", new { id = item.ID_BACSI })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Page wrapper  -->
+    <!-- ============================================================== -->
+</div>
+
+

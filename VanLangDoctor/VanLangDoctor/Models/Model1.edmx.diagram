@@ -5,27 +5,29 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="98091af259314eb6b1cde9ad0fbffd38" Name="Diagram1">
-        <EntityTypeShape EntityType="CP24Team02Model.C__MigrationHistory" Width="1.5" PointX="5.75" PointY="10.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="CP24Team02Model.AspNetRole" Width="1.5" PointX="7.75" PointY="4.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="CP24Team02Model.AspNetUserClaim" Width="1.5" PointX="12.25" PointY="3.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CP24Team02Model.AspNetUserLogin" Width="1.5" PointX="12.25" PointY="6.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="CP24Team02Model.AspNetUser" Width="1.5" PointX="10" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CP24Team02Model.BACSI" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CP24Team02Model.BENH_AN" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CP24Team02Model.BENH_NHAN" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CP24Team02Model.DON_THUOC" Width="1.5" PointX="5.25" PointY="6" IsExpanded="true" />
-        <EntityTypeShape EntityType="CP24Team02Model.KHOA" Width="1.5" PointX="1.5" PointY="10.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="CP24Team02Model.THUOC" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="CP24Team02Model.TIN_TUC" Width="1.5" PointX="7.75" PointY="9.125" IsExpanded="true" />
-        <AssociationConnector Association="CP24Team02Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
-        <AssociationConnector Association="CP24Team02Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
-        <AssociationConnector Association="CP24Team02Model.FK__DON_THUOC__ID_BA__5070F446" ManuallyRouted="false" />
-        <AssociationConnector Association="CP24Team02Model.FK_BN_ID_DT_BS_BA" ManuallyRouted="false" />
-        <AssociationConnector Association="CP24Team02Model.FK__BENH_NHAN__ID_BE__4BAC3F29" ManuallyRouted="false" />
-        <AssociationConnector Association="CP24Team02Model.FK_BA_ID_KHOA" ManuallyRouted="false" />
-        <AssociationConnector Association="CP24Team02Model.FK__DON_THUOC__ID_BE__4F7CD00D" ManuallyRouted="false" />
-        <AssociationConnector Association="CP24Team02Model.FK_DT_T_BN_BS" ManuallyRouted="false" />
-        <AssociationConnector Association="CP24Team02Model.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CP24Team02Model.C__MigrationHistory" Width="1.5" PointX="9.75" PointY="6.75" />
+        <EntityTypeShape EntityType="CP24Team02Model.AspNetRole" Width="1.5" PointX="7.75" PointY="2.5" />
+        <EntityTypeShape EntityType="CP24Team02Model.AspNetUserClaim" Width="1.5" PointX="12.25" PointY="3.625" />
+        <EntityTypeShape EntityType="CP24Team02Model.AspNetUserLogin" Width="1.5" PointX="12.25" PointY="1" />
+        <EntityTypeShape EntityType="CP24Team02Model.AspNetUser" Width="1.5" PointX="10" PointY="1.375" />
+        <EntityTypeShape EntityType="CP24Team02Model.BACSI" Width="1.5" PointX="3" PointY="7.5" />
+        <EntityTypeShape EntityType="CP24Team02Model.BENH_AN" Width="1.5" PointX="3" PointY="3.25" />
+        <EntityTypeShape EntityType="CP24Team02Model.BENH_NHAN" Width="1.5" PointX="5.25" PointY="5.5" />
+        <EntityTypeShape EntityType="CP24Team02Model.DON_THUOC" Width="1.5" PointX="7.5" PointY="7" />
+        <EntityTypeShape EntityType="CP24Team02Model.KHOA" Width="1.5" PointX="0.75" PointY="6.5" />
+        <EntityTypeShape EntityType="CP24Team02Model.sysdiagram" Width="1.5" PointX="9.75" PointY="9.75" />
+        <EntityTypeShape EntityType="CP24Team02Model.THUOC" Width="1.5" PointX="5.25" PointY="10.375" />
+        <EntityTypeShape EntityType="CP24Team02Model.TIN_TUC" Width="1.5" PointX="11.75" PointY="6.75" />
+        <AssociationConnector Association="CP24Team02Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="CP24Team02Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="CP24Team02Model.FK__DON_THUOC__ID_BA__5070F446" />
+        <AssociationConnector Association="CP24Team02Model.FK_BN_ID_DT_BS_BA" />
+        <AssociationConnector Association="CP24Team02Model.FK_khoa" />
+        <AssociationConnector Association="CP24Team02Model.FK__BENH_NHAN__ID_BE__4BAC3F29" />
+        <AssociationConnector Association="CP24Team02Model.FK_BA_ID_KHOA" />
+        <AssociationConnector Association="CP24Team02Model.FK__DON_THUOC__ID_BE__4F7CD00D" />
+        <AssociationConnector Association="CP24Team02Model.FK_DT_T_BN_BS" />
+        <AssociationConnector Association="CP24Team02Model.AspNetUserRoles" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
