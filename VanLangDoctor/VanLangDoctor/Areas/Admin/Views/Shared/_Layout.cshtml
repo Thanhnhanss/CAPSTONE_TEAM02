@@ -302,7 +302,7 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link" href="~/Areas/Admin/Views/HomeAdmin/HomeAdmin.cshtml"
+                            <a class="sidebar-link sidebar-link" href="@Url.Action("HomeAdmin","HomeAdmin")"
                                aria-expanded="false">
                                 <i data-feather="home" class="feather-icon"></i><span class="hide-menu">Trang chủ</span>
                             </a>
@@ -370,9 +370,9 @@
                             </a>
                             <ul aria-expanded="false" class="collapse  first-level base-level-line">
                                 <li class="sidebar-item">
-                                    <a href="table-basic.html" class="sidebar-link">
+                                    <a href="@Url.Action("DanhSachBacsi", "BACSIs")" class="sidebar-link">
                                         <span class="hide-menu">
-                                            Basic Table
+                                            Danh sách bác sĩ
                                         </span>
                                     </a>
                                 </li>
@@ -675,6 +675,7 @@
             </div>
             <!-- End Sidebar scroll-->
         </aside>
+        @RenderBody()
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
@@ -684,7 +685,6 @@
     <!-- End Wrapper -->
     <!-- ============================================================== -->
     <!-- End Wrapper -->
-    @RenderBody()
     <!-- All Jquery -->
     <!-- ============================================================== -->
     @Scripts.Render("~/bundles/jquery")

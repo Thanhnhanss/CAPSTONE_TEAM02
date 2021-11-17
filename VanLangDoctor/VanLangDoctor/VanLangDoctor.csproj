@@ -173,8 +173,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\AspNetUsersController.cs" />
+    <Compile Include="Areas\Admin\Controllers\BACSIsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DstaikhoanController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PhanQuyenController.cs" />
     <Compile Include="Areas\User\Controllers\HomeUserController.cs" />
     <Compile Include="Areas\User\UserAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -230,6 +232,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\THUOC.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -992,6 +997,7 @@
     <Content Include="Content\dist-ad\js\pages\morris\morris-data.min.js" />
     <Content Include="Content\dist-ad\js\sidebarmenu.js" />
     <Content Include="Content\dist-ad\js\sidebarmenu.min.js" />
+    <Content Include="Content\formcreate.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -1409,11 +1415,14 @@
     <Content Include="Content\dist-ad\js\pages\datatable\data.json" />
     <Content Include="Content\assets-login\assets\css\login.css.map" />
     <Content Include="Content\assets-login\assets\scss\login.scss" />
-    <Content Include="Areas\Admin\Views\AspNetUsers\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\AspNetUsers\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\AspNetUsers\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\AspNetUsers\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\AspNetUsers\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\PhanQuyen\PhanQuyen.cshtml" />
+    <Content Include="Areas\Admin\Views\Dstaikhoan\Dstaikhoan.cshtml" />
+    <Content Include="Areas\Admin\Views\BACSIs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\BACSIs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\BACSIs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\BACSIs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\BACSIs\DanhSachBacsi.cshtml" />
+    <Content Include="fonts\BebasNeue-Regular.ttf" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
