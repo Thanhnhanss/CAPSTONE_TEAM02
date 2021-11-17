@@ -5,103 +5,182 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<style>
+    * {
+        box-sizing: border-box
+    }
 
-<div>
-    <h4>BENH_NHAN</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.TEN_BN)
-        </dt>
+    body {
+        font-family: 'Noto Sans JP', sans-serif;
+    }
 
-        <dd>
-            @Html.DisplayFor(model => model.TEN_BN)
-        </dd>
+    h1, label {
+        color: DodgerBlue;
+    }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TUOI)
-        </dt>
+    input[type=text], input[type=password] {
+        width: 100%;
+        padding: 15px;
+        margin: 5px 0 22px 0;
+        display: inline-block;
+        border: none;
+        width: 100%;
+        resize: vertical;
+        padding: 15px;
+        border-radius: 15px;
+        border: 0;
+        box-shadow: 4px 4px 10px rgba(0,0,0,0.2);
+    }
 
-        <dd>
-            @Html.DisplayFor(model => model.TUOI)
-        </dd>
+        input[type=text]:focus, input[type=password]:focus {
+            outline: none;
+        }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NGAY_SINH)
-        </dt>
+    hr {
+        border: 1px solid #f1f1f1;
+        margin-bottom: 25px;
+    }
 
-        <dd>
-            @Html.DisplayFor(model => model.NGAY_SINH)
-        </dd>
+    #delete {
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        opacity: 0.9;
+    }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.EMAIL)
-        </dt>
+    #back {
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        opacity: 0.9;
+    }
 
-        <dd>
-            @Html.DisplayFor(model => model.EMAIL)
-        </dd>
+    button:hover {
+        opacity: 1;
+    }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SDT)
-        </dt>
+    .cancelbtn {
+        padding: 14px 20px;
+        background-color: #f44336;
+    }
 
-        <dd>
-            @Html.DisplayFor(model => model.SDT)
-        </dd>
+    .signupbtn {
+        float: left;
+        width: 100%;
+        border-radius: 15px;
+        border: 0;
+        box-shadow: 4px 4px 10px rgba(0,0,0,0.2);
+    }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.GIOI_TINH)
-        </dt>
+    .container {
+        padding: 16px;
+    }
 
-        <dd>
-            @Html.DisplayFor(model => model.GIOI_TINH)
-        </dd>
+    .clearfix::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+</style>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CHUAN_DOAN)
-        </dt>
+<div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+     data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
 
-        <dd>
-            @Html.DisplayFor(model => model.CHUAN_DOAN)
-        </dd>
+    <div class="page-wrapper">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="page-breadcrumb">
+            <div class="row">
+                <div class="col-7 align-self-center">
+                    <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">Xin chào</h3>
+                    <div class="d-flex align-items-center">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb m-0 p-0">
+                                <li class="breadcrumb-item">
+                                    <a href="index.html">Thông tin bệnh nhân</a>
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-5 align-self-center">
+                    @*<div class="customize-input float-right">
+                            <select class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius">
+                                <option selected>Aug 19</option>
+                                <option value="1">July 19</option>
+                                <option value="2">Jun 19</option>
+                            </select>
+                        </div>*@
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
+            <form action="">
+                <div class="container">
+                    <h1>Bệnh nhân</h1>
+                    <p>Thông tin chi tiết của bệnh nhân</p>
+                    <hr>
+                    <label for="ten_bacsi"><b>Tên bệnh nhân</b></label>
+                    <input type="text" placeholder="@Html.DisplayFor(model => model.TEN_BN)" name="ten_bacsi" readonly required>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NGHE_NGHIEP)
-        </dt>
+                    <label for="ngay_sinh"><b>Ngày sinh</b></label>
+                    <input type="text" placeholder="@Html.DisplayFor(model => model.NGAY_SINH)" name="ngay_sinh" readonly required>
 
-        <dd>
-            @Html.DisplayFor(model => model.NGHE_NGHIEP)
-        </dd>
+                    <label for="tuoi"><b>Tuổi</b></label>
+                    <input type="text" placeholder="@Html.DisplayFor(model => model.TUOI)" name="tuoi" readonly required>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.BHYT)
-        </dt>
+                    <label for="gioi_tinh"><b>Giới tính</b></label>
+                    <input type="text" placeholder="#" name="gioi_tinh" readonly required>
 
-        <dd>
-            @Html.DisplayFor(model => model.BHYT)
-        </dd>
+                    <label for="sdt"><b>Số điện thoại</b></label>
+                    <input type="text" placeholder="@Html.DisplayFor(model => model.SDT)" name="sdt" readonly required>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.BACSI.TEN_BACSI)
-        </dt>
+                    <label for="email"><b>Email</b></label>
+                    <input type="text" placeholder="@Html.DisplayFor(model => model.EMAIL)" name="email" readonly required>
 
-        <dd>
-            @Html.DisplayFor(model => model.BACSI.TEN_BACSI)
-        </dd>
+                    <label for="nghe_nghiep"><b>Nghề nghiệp</b></label>
+                    <input type="text" placeholder="@Html.DisplayFor(model => model.NGHE_NGHIEP)" name="nghe_nghiep" readonly required>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.BENH_AN.KET_QUA)
-        </dt>
+                    <label for="ten_bac_si"><b>Tên bác sĩ</b></label>
+                    <input type="text" placeholder="@Html.DisplayFor(model => model.BACSI.TEN_BACSI)" name="ten_bac_si" readonly required>
 
-        <dd>
-            @Html.DisplayFor(model => model.BENH_AN.KET_QUA)
-        </dd>
+                    <label for="chan_doan"><b>Chẩn đoán</b></label>
+                    <input type="text" placeholder="@Html.DisplayFor(model => model.CHUAN_DOAN)" name="chan_doan" readonly required>
 
-    </dl>
+                    <label for="kq_benh"><b>Kết quả bệnh</b></label>
+                    <input type="text" placeholder="@Html.DisplayFor(model => model.BENH_AN.KET_QUA)" name="kq_benh" readonly required>
+
+                    <label for="bhyt"><b>BHYT</b></label>
+                    <input type="text" placeholder="@Html.DisplayFor(model => model.BHYT)" name="bhyt" readonly required>
+
+                    <div class="form-actions no-color">
+                        <a href="@Url.Action("Edit", "BENH_NHAN", new { id = Model.ID_BENH_NHAN})" style="text-align:center" id="update" class="signupbtn">
+                            Cập nhật
+                        </a>
+                        <br /><br />
+                        @Html.ActionLink("Quay lại", "Index")
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Page wrapper  -->
+    <!-- ============================================================== -->
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_BENH_NHAN }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
