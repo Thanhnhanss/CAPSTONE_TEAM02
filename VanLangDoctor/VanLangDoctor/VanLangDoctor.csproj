@@ -45,6 +45,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Owin.Security.VanLang, Version=2.0.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Capstone.Owin.Security.VanLang.2.0.0.1\lib\net452\Microsoft.Owin.Security.VanLang.dll</HintPath>
@@ -117,12 +123,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
@@ -173,6 +173,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AspNetRolesController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
     <Compile Include="Areas\User\Controllers\HomeUserController.cs" />
     <Compile Include="Areas\User\UserAreaRegistration.cs" />
@@ -240,6 +241,20 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\css\bootstrap.min.css" />
+    <Content Include="Areas\css\bootstrap\mixins\_border-radius.css" />
+    <Content Include="Areas\css\bootstrap\mixins\_reset-text.css" />
+    <Content Include="Areas\css\bootstrap\mixins\_screen-reader.css" />
+    <Content Include="Areas\css\bootstrap\mixins\_text-hide.css" />
+    <Content Include="Areas\css\bootstrap\mixins\_visibility.css" />
+    <Content Include="Areas\css\bootstrap\utilities\_stretched-link.css" />
+    <Content Include="Areas\css\bootstrap\_media.css" />
+    <Content Include="Areas\css\style.css" />
+    <Content Include="Areas\images\bg.jpg" />
+    <Content Include="Areas\js\bootstrap.min.js" />
+    <Content Include="Areas\js\jquery.min.js" />
+    <Content Include="Areas\js\main.js" />
+    <Content Include="Areas\js\popper.js" />
     <Content Include="Content\docs-ad\docs-custom-chart-chartjs.html" />
     <Content Include="Content\docs-ad\docs-custom-datatables.html" />
     <Content Include="Content\docs-ad\docs-custom-widgets.html" />
@@ -1403,6 +1418,109 @@
     <Content Include="Content\dist-ad\css\icons\themify-icons\fonts\themify.woff" />
     <Content Include="Content\dist-ad\css\icons\themify-icons\themify-icons.less" />
     <Content Include="Content\dist-ad\js\pages\datatable\data.json" />
+    <Content Include="Areas\css\.DS_Store" />
+    <Content Include="Areas\css\bootstrap\.DS_Store" />
+    <Content Include="Areas\css\bootstrap\mixins\.DS_Store" />
+    <Content Include="Areas\fonts\.DS_Store" />
+    <Content Include="Areas\images\.DS_Store" />
+    <Content Include="Areas\js\.DS_Store" />
+    <Content Include="Areas\scss\.DS_Store" />
+    <Content Include="Areas\scss\bootstrap\.DS_Store" />
+    <Content Include="Areas\scss\bootstrap\bootstrap-grid.scss" />
+    <Content Include="Areas\scss\bootstrap\bootstrap-reboot.scss" />
+    <Content Include="Areas\scss\bootstrap\bootstrap.scss" />
+    <Content Include="Areas\scss\bootstrap\mixins\_alert.scss" />
+    <Content Include="Areas\scss\bootstrap\mixins\_background-variant.scss" />
+    <Content Include="Areas\scss\bootstrap\mixins\_badge.scss" />
+    <Content Include="Areas\scss\bootstrap\mixins\_border-radius.scss" />
+    <Content Include="Areas\scss\bootstrap\mixins\_box-shadow.scss" />
+    <Content Include="Areas\scss\bootstrap\mixins\_breakpoints.scss" />
+    <Content Include="Areas\scss\bootstrap\mixins\_buttons.scss" />
+    <Content Include="Areas\scss\bootstrap\mixins\_caret.scss" />
+    <Content Include="Areas\scss\bootstrap\mixins\_clearfix.scss" />
+    <Content Include="Areas\scss\bootstrap\mixins\_deprecate.scss" />
+    <Content Include="Areas\scss\bootstrap\mixins\_float.scss" />
+    <Content Include="Areas\scss\bootstrap\mixins\_forms.scss" />
+    <Content Include="Areas\scss\bootstrap\mixins\_gradients.scss" />
+    <Content Include="Areas\scss\bootstrap\mixins\_grid-framework.scss" />
+    <Content Include="Areas\scss\bootstrap\mixins\_grid.scss" />
+    <Content Include="Areas\scss\bootstrap\mixins\_hover.scss" />
+    <Content Include="Areas\scss\bootstrap\mixins\_image.scss" />
+    <Content Include="Areas\scss\bootstrap\mixins\_list-group.scss" />
+    <Content Include="Areas\scss\bootstrap\mixins\_lists.scss" />
+    <Content Include="Areas\scss\bootstrap\mixins\_nav-divider.scss" />
+    <Content Include="Areas\scss\bootstrap\mixins\_pagination.scss" />
+    <Content Include="Areas\scss\bootstrap\mixins\_reset-text.scss" />
+    <Content Include="Areas\scss\bootstrap\mixins\_resize.scss" />
+    <Content Include="Areas\scss\bootstrap\mixins\_screen-reader.scss" />
+    <Content Include="Areas\scss\bootstrap\mixins\_size.scss" />
+    <Content Include="Areas\scss\bootstrap\mixins\_table-row.scss" />
+    <Content Include="Areas\scss\bootstrap\mixins\_text-emphasis.scss" />
+    <Content Include="Areas\scss\bootstrap\mixins\_text-hide.scss" />
+    <Content Include="Areas\scss\bootstrap\mixins\_text-truncate.scss" />
+    <Content Include="Areas\scss\bootstrap\mixins\_transition.scss" />
+    <Content Include="Areas\scss\bootstrap\mixins\_visibility.scss" />
+    <Content Include="Areas\scss\bootstrap\utilities\_align.scss" />
+    <Content Include="Areas\scss\bootstrap\utilities\_background.scss" />
+    <Content Include="Areas\scss\bootstrap\utilities\_borders.scss" />
+    <Content Include="Areas\scss\bootstrap\utilities\_clearfix.scss" />
+    <Content Include="Areas\scss\bootstrap\utilities\_display.scss" />
+    <Content Include="Areas\scss\bootstrap\utilities\_embed.scss" />
+    <Content Include="Areas\scss\bootstrap\utilities\_flex.scss" />
+    <Content Include="Areas\scss\bootstrap\utilities\_float.scss" />
+    <Content Include="Areas\scss\bootstrap\utilities\_overflow.scss" />
+    <Content Include="Areas\scss\bootstrap\utilities\_position.scss" />
+    <Content Include="Areas\scss\bootstrap\utilities\_screenreaders.scss" />
+    <Content Include="Areas\scss\bootstrap\utilities\_shadows.scss" />
+    <Content Include="Areas\scss\bootstrap\utilities\_sizing.scss" />
+    <Content Include="Areas\scss\bootstrap\utilities\_spacing.scss" />
+    <Content Include="Areas\scss\bootstrap\utilities\_stretched-link.scss" />
+    <Content Include="Areas\scss\bootstrap\utilities\_text.scss" />
+    <Content Include="Areas\scss\bootstrap\utilities\_visibility.scss" />
+    <Content Include="Areas\scss\bootstrap\vendor\_rfs.scss" />
+    <Content Include="Areas\scss\bootstrap\_alert.scss" />
+    <Content Include="Areas\scss\bootstrap\_badge.scss" />
+    <Content Include="Areas\scss\bootstrap\_breadcrumb.scss" />
+    <Content Include="Areas\scss\bootstrap\_button-group.scss" />
+    <Content Include="Areas\scss\bootstrap\_buttons.scss" />
+    <Content Include="Areas\scss\bootstrap\_card.scss" />
+    <Content Include="Areas\scss\bootstrap\_carousel.scss" />
+    <Content Include="Areas\scss\bootstrap\_close.scss" />
+    <Content Include="Areas\scss\bootstrap\_code.scss" />
+    <Content Include="Areas\scss\bootstrap\_custom-forms.scss" />
+    <Content Include="Areas\scss\bootstrap\_dropdown.scss" />
+    <Content Include="Areas\scss\bootstrap\_forms.scss" />
+    <Content Include="Areas\scss\bootstrap\_functions.scss" />
+    <Content Include="Areas\scss\bootstrap\_grid.scss" />
+    <Content Include="Areas\scss\bootstrap\_images.scss" />
+    <Content Include="Areas\scss\bootstrap\_input-group.scss" />
+    <Content Include="Areas\scss\bootstrap\_jumbotron.scss" />
+    <Content Include="Areas\scss\bootstrap\_list-group.scss" />
+    <Content Include="Areas\scss\bootstrap\_media.scss" />
+    <Content Include="Areas\scss\bootstrap\_mixins.scss" />
+    <Content Include="Areas\scss\bootstrap\_modal.scss" />
+    <Content Include="Areas\scss\bootstrap\_nav.scss" />
+    <Content Include="Areas\scss\bootstrap\_navbar.scss" />
+    <Content Include="Areas\scss\bootstrap\_pagination.scss" />
+    <Content Include="Areas\scss\bootstrap\_popover.scss" />
+    <Content Include="Areas\scss\bootstrap\_print.scss" />
+    <Content Include="Areas\scss\bootstrap\_progress.scss" />
+    <Content Include="Areas\scss\bootstrap\_reboot.scss" />
+    <Content Include="Areas\scss\bootstrap\_root.scss" />
+    <Content Include="Areas\scss\bootstrap\_spinners.scss" />
+    <Content Include="Areas\scss\bootstrap\_tables.scss" />
+    <Content Include="Areas\scss\bootstrap\_toasts.scss" />
+    <Content Include="Areas\scss\bootstrap\_tooltip.scss" />
+    <Content Include="Areas\scss\bootstrap\_transitions.scss" />
+    <Content Include="Areas\scss\bootstrap\_type.scss" />
+    <Content Include="Areas\scss\bootstrap\_utilities.scss" />
+    <Content Include="Areas\scss\bootstrap\_variables.scss" />
+    <Content Include="Areas\scss\style.scss" />
+    <Content Include="Areas\Admin\Views\AspNetRoles\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\AspNetRoles\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\AspNetRoles\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\AspNetRoles\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\AspNetRoles\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
