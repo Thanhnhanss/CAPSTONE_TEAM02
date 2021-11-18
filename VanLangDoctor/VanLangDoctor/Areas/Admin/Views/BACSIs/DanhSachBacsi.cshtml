@@ -5,7 +5,7 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<link href="~/Content/formcreate.css" rel="stylesheet" />
+<link href="~/Content/formcrud.css" rel="stylesheet" />
 <div class="page-wrapper" style="display: block">
     <!-- ============================================================== -->
     <!-- Bread crumb and right sidebar toggle -->
@@ -75,8 +75,30 @@
                                         <td>@Html.FormatValue(item.NGAYSINH_BACSI, "{0:d}")</td>
                                         <td>@item.TUOI</td>
                                         <td>@item.EMAIL</td>
-                                        <td>@item.GIOI_TINH</td>
-                                        <td>@item.KINH_NGHIEM</td>
+                                        <td>
+                                            @if (item.GIOI_TINH == true)
+                                            {
+                                                <span>Nữ</span>
+                                            }
+                                            else if (item.GIOI_TINH == false)
+                                            {
+                                                <span>Nam</span>
+                                            }
+                                            else
+                                            {
+                                                <span>@item.GIOI_TINH</span>
+                                            }
+                                        </td>
+                                        <td>
+                                            @if (item.KINH_NGHIEM != null)
+                                            {
+                                                <span>@item.KINH_NGHIEM năm</span>
+                                            }
+                                            else
+                                            {
+                                                <span>@item.KINH_NGHIEM</span>
+                                            }
+                                        </td>
                                         <td>@item.NGAY_TRUC</td>
                                         <td>@item.BHYT</td>
                                         <td>@item.IMG_BACSI</td>

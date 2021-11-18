@@ -1,0 +1,30 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/uploadavt.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <main>
+            <input type="file" name="image" id="image" accept="image/*" />
+            <div id="preview">
+                <div id="avatar"></div>
+                <button id="upload-button"
+                        aria-labelledby="image"
+                        aria-describedby="image">
+                    🙂
+                </button>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
+<script src="~/Scripts/uploadavt.js"></script>

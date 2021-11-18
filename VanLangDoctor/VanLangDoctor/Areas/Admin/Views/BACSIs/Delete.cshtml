@@ -1,7 +1,8 @@
 ﻿@model VanLangDoctor.Models.BACSI
 
 @{
-    Layout = null;
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Xác nhận xóa";
 }
 
 <!DOCTYPE html>
@@ -9,120 +10,94 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Delete</title>
+    <link href="~/Content/formcrud.css" rel="stylesheet" />
+    <link href="~/Content/up.css" rel="stylesheet" />
 </head>
 <body>
-    <h3>Are you sure you want to delete this?</h3>
-    <div>
-        <h4>BACSI</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.TEN_BACSI)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.TEN_BACSI)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.SDT_BACSI)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.SDT_BACSI)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.NGAYSINH_BACSI)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.NGAYSINH_BACSI)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.TUOI)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.TUOI)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.EMAIL)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.EMAIL)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.GIOI_TINH)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.GIOI_TINH)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.KHOA)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.KHOA)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.KINH_NGHIEM)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.KINH_NGHIEM)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.NGAY_TRUC)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.NGAY_TRUC)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.BHYT)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.BHYT)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.IMG_BACSI)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.IMG_BACSI)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.KHOA1.TEN_KHOA)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.KHOA1.TEN_KHOA)
-            </dd>
-    
-        </dl>
-    
-        @using (Html.BeginForm()) {
-            @Html.AntiForgeryToken()
-    
-            <div class="form-actions no-color">
-                <input type="submit" value="Delete" class="btn btn-default" /> |
-                @Html.ActionLink("Back to List", "Index")
+    <div class="page-wrapper" style="display: block;">
+        <div class="page-breadcrumb">
+            <div class="row">
+                <div class="col-7 align-self-center">
+                    <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">@ViewBag.Title</h4>
+                    <div class="d-flex align-items-center">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb m-0 p-0">
+                                <li class="breadcrumb-item"><a href="~/trang-chu-quan-ly" class="text-muted">Trang chủ</a></li>
+                                <li class="breadcrumb-item"><a href="~/trang-chu-quan-ly/bac-si/danh-sach" class="text-muted">Danh sách bác sĩ</a></li>
+                                <li class="breadcrumb-item text-muted active" aria-current="page">@ViewBag.Title</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-5 align-self-center">
+                    <div class="customize-input float-right">
+                        <a class="button-back" href="~/trang-chu-quan-ly/bac-si/danh-sach">
+                            <span-back>Trở về</span-back>
+                        </a>
+                    </div>
+                </div>
             </div>
-        }
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="card card-body">
+                    <h3 class="card-title">Bạn chắc chắn muốn xóa bác sĩ @Html.DisplayFor(model => model.TEN_BACSI) ?</h3>
+                    <p class="text-muted font-14 mb-3">
+                        Sau khi xác nhận xóa, bác sĩ @Model.TEN_BACSI sẽ không còn trên hệ thống!
+                    </p>
+                    <div class="alert alert-success">
+                        <div class="dl-horizontal">
+                            <div class="row">
+                                <h4 class="col-md-3">Số điện thoại: </h4>
+                                <span class="col-md-4">@Html.DisplayFor(model => model.SDT_BACSI)</span>
+                            </div>
+                            
+                            <div class="row">
+                                <h4 class="col-md-3">Ngày sinh: </h4>
+                                <span class="col-md-4">@Html.FormatValue(Model.NGAYSINH_BACSI, "{0:d}")</span>
+                            </div>
+
+                            <div class="row">
+                                <h4 class="col-md-3">Email: </h4>
+                                <span class="col-md-4">@Html.DisplayFor(model => model.EMAIL)</span>
+                            </div>
+
+                            <div class="row">
+                                <h4 class="col-md-3">Chuyên khoa: </h4>
+                                <span class="col-md-4">@Html.DisplayFor(model => model.KHOA1.TEN_KHOA)</span>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                            <button type="submit" class="button" style="position: relative; background-color: #FF0000 "><span>Xóa </span></button>
+                    }
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body" style="text-align:center">
+                            <h4 class="card-title">Hình đại diện</h4>
+                            <link href="~/Content/uploadavt.css" rel="stylesheet" />
+                            <main>
+                                <input type="file" name="image" id="image" accept="image/*" />
+                                <div id="preview">
+                                    <div id="avatar"></div>
+                                    <button class="circle" id="upload-button"
+                                            aria-labelledby="image"
+                                            aria-describedby="image">
+                                    </button>
+                                </div>
+                            </main>
+                            <script src="~/Scripts/uploadavt.js"></script>
+                        </div> <!-- end card-body-->
+                    </div> <!-- end card-->
+                </div>
+            </div>
+        </div>
+        
     </div>
 </body>
 </html>

@@ -177,6 +177,7 @@
     <Compile Include="Areas\Admin\Controllers\DstaikhoanController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\PhanQuyenController.cs" />
+    <Compile Include="Areas\User\Controllers\AvatarController.cs" />
     <Compile Include="Areas\User\Controllers\HomeUserController.cs" />
     <Compile Include="Areas\User\UserAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -997,7 +998,8 @@
     <Content Include="Content\dist-ad\js\pages\morris\morris-data.min.js" />
     <Content Include="Content\dist-ad\js\sidebarmenu.js" />
     <Content Include="Content\dist-ad\js\sidebarmenu.min.js" />
-    <Content Include="Content\formcreate.css" />
+    <Content Include="Content\uploadavt.css" />
+    <Content Include="Content\formcrud.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -1423,6 +1425,7 @@
     <Content Include="Areas\Admin\Views\BACSIs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\BACSIs\DanhSachBacsi.cshtml" />
     <Content Include="fonts\BebasNeue-Regular.ttf" />
+    <Content Include="Areas\User\Views\Avatar\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -1434,6 +1437,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\uploadavt.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

@@ -14,7 +14,7 @@
         .button{display: inline-block;border-radius: 4em;background-color: #f4511e;border: none;color: #FFFFFF;text-align: center;font-size: 13px;padding: 10px;width: 150px;transition: all 0.5s;cursor: pointer;margin: 5px}.button span{cursor: pointer;display: inline-block;position: relative;transition: 0.5s}.button span:after{content: '\00bb';position: absolute;opacity: 0;top: 0;right: -20px;transition: 0.5s}.button:hover span{padding-right: 25px}.button:hover span:after{opacity: 1;right: 0}
         .button-back{display: inline-block;border-radius: 4em;background-color: #f4511e;border: none;color: #ffffff;text-align: center;font-size: 13px;padding: 10px;width: 150px;transition: all 0.5s;cursor: pointer;margin: 5px}.button-back span-back{cursor: pointer;display: inline-block;position: relative;transition: 0.5s}.button-back span-back:after{content: "\00ab";position: absolute;opacity: 0;top: 0;right: -20px;transition: 0.5s}.button-back:hover span-back{padding-right: 25px}.button-back:hover span-back:after{opacity: 1;right: 0}
     </style>
-    <link href="~/Content/formcreate.css" rel="stylesheet" />
+    <link href="~/Content/formcrud.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -48,12 +48,12 @@
             @Html.AntiForgeryToken()
             <div class="container">
                 <div class="form-horizontal">
-
+                    <hr />
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                     <div class="form-group">
                         <label><b>Mã bác sĩ</b></label>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.ID_BACSI, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.ID_BACSI, new { htmlAttributes = new { @class = "form-control", @placeholder ="ví dụ: BS0001"} })
                             @Html.ValidationMessageFor(model => model.ID_BACSI, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -61,7 +61,7 @@
                     <div class="form-group">
                         <label><b>Số điện thoại</b></label>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.SDT_BACSI, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.SDT_BACSI, new { htmlAttributes = new { @class = "form-control", @placeholder ="ví dụ: 0905556***" } })
                             @Html.ValidationMessageFor(model => model.SDT_BACSI, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -69,7 +69,7 @@
                     <div class="form-group">
                         <label><b>Ngày sinh</b></label>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.NGAYSINH_BACSI, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.NGAYSINH_BACSI, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
                             @Html.ValidationMessageFor(model => model.NGAYSINH_BACSI, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -77,7 +77,7 @@
                     <div class="form-group">
                         <label><b>Tuổi</b></label>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.TUOI, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.TUOI, new { htmlAttributes = new { @class = "form-control", @placeholder = "ví dụ: 20" } })
                             @Html.ValidationMessageFor(model => model.TUOI, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -97,7 +97,7 @@
                     <div class="form-group">
                         <label><b>Tên bác sĩ</b></label>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.TEN_BACSI, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.TEN_BACSI, new { htmlAttributes = new { @class = "form-control", @placeholder = "ví dụ: Nguyễn Văn A " } })
                             @Html.ValidationMessageFor(model => model.TEN_BACSI, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -105,7 +105,7 @@
                     <div class="form-group">
                         <label><b>Email</b></label>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.EMAIL, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.EMAIL, new { htmlAttributes = new { @class = "form-control", @placeholder = "ví dụ: nguyenvana@gmail.com " } })
                             @Html.ValidationMessageFor(model => model.EMAIL, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -113,7 +113,7 @@
                     <div class="form-group">
                         <label><b>Khoa</b></label>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.KHOA, new { htmlAttributes = new { @class = "form-control " } })
+                            @Html.EditorFor(model => model.KHOA, new { htmlAttributes = new { @class = "form-control ", @placeholder = "ví dụ: điều dưỡng" } })
                             @Html.ValidationMessageFor(model => model.KHOA, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -121,7 +121,7 @@
                     <div class="form-group">
                         <label><b>Kinh nghiệm</b></label>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.KINH_NGHIEM, new { htmlAttributes = new { @class = "Textarea" } })
+                            @Html.EditorFor(model => model.KINH_NGHIEM, new { htmlAttributes = new { @class = "Textarea", @placeholder = "ví dụ: 5 năm " } })
                             @Html.ValidationMessageFor(model => model.KINH_NGHIEM, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -129,7 +129,7 @@
                     <div class="form-group">
                         <label><b>Ngày trực</b></label>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.NGAY_TRUC, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.NGAY_TRUC, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
                             @Html.ValidationMessageFor(model => model.NGAY_TRUC, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -137,7 +137,7 @@
                     <div class="form-group">
                         <label><b>Bảo hiểm y tế</b></label>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.BHYT, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.BHYT, new { htmlAttributes = new { @class = "form-control", @placeholder = "ví dụ: XD256562*******" } })
                             @Html.ValidationMessageFor(model => model.BHYT, "", new { @class = "text-danger" })
                         </div>
                     </div>
