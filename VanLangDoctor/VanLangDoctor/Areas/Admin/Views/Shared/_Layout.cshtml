@@ -304,7 +304,9 @@
                         <li class="sidebar-item">
                             <a class="sidebar-link" href="ticket-list.html"
                                aria-expanded="false">
-                                <i data-feather="tag" class="feather-icon"></i><span class="hide-menu">
+                                <i data-feather="tag" class="feather-icon"></i>
+                                
+                                <span class="hide-menu">
                                     Tin tức
                                 </span>
                             </a>
@@ -676,6 +678,7 @@
     <!-- ============================================================== -->
     <!-- End Wrapper -->
     @RenderBody()
+    @RenderSection("Script", false)
     <!-- All Jquery -->
     <!-- ============================================================== -->
     <script src="@Url.Content("~/Content/assets-ad/libs/jquery/dist/jquery.min.js")"></script>
