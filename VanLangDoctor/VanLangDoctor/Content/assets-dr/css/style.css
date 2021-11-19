@@ -100,11 +100,14 @@ address {
 }
 
 .popup-text {
+    font-size: 13px;
     visibility: hidden;
-    width: 120px;
-    color: #2f89fc;
-    text-align: left;
-    border-radius: 6px;
+    width: fit-content;
+    height: 1.3em;
+    color: white;
+    background: black;
+    text-align: center;
+    border-radius: 4px;
     margin: 1.5em -5em;
     /* Position the tooltip */
     position: absolute;

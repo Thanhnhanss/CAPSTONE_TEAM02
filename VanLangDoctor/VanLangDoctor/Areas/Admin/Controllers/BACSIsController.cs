@@ -17,38 +17,25 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         // GET: Admin/BACSIs
         public ActionResult DanhSachBacsi()
         {
-            var bACSIs = db.BACSIs.Include(b => b.KHOA1);
+            var bACSIs = db.BACSIs.Include(b => b.KHOA);
             return View(bACSIs.ToList());
         }
 
         // GET: Admin/BACSIs/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            BACSI bACSI = db.BACSIs.Find(id);
-            if (bACSI == null)
-            {
-                return HttpNotFound();
-            }
-            return View(bACSI);
-        }
 
         // GET: Admin/BACSIs/Create
         public ActionResult Create()
         {
-            ViewBag.CHUYENKHOA = new SelectList(db.KHOAs, "ID_KHOA", "TEN_KHOA");
+            ViewBag.ID_KHOA = new SelectList(db.KHOAs, "ID_KHOA", "TEN_KHOA");
             return View();
         }
 
-        // POST: Admin/BACSIs/Create
+        // POST: Admin/QLBacsi/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID_BACSI,TEN_BACSI,SDT_BACSI,NGAYSINH_BACSI,TUOI,EMAIL,GIOI_TINH,KHOA,KINH_NGHIEM,NGAY_TRUC,BHYT,IMG_BACSI,CHUYENKHOA")] BACSI bACSI)
+        public ActionResult Create([Bind(Include = "ID_BACSI,TEN_BACSI,NGAYSINH_BS,GIOI_TINH,SDT,EMAIL,HINH_ANH,NGHE_NGHIEP,ID_KHOA,KINH_NGHIEM,NGAY_TRUC")] BACSI bACSI)
         {
             if (ModelState.IsValid)
             {
@@ -57,11 +44,10 @@ namespace VanLangDoctor.Areas.Admin.Controllers
                 return RedirectToAction("DanhSachBacsi");
             }
 
-            ViewBag.CHUYENKHOA = new SelectList(db.KHOAs, "ID_KHOA", "TEN_KHOA", bACSI.CHUYENKHOA);
+            ViewBag.ID_KHOA = new SelectList(db.KHOAs, "ID_KHOA", "TEN_KHOA", bACSI.ID_KHOA);
             return View(bACSI);
         }
 
-        // GET: Admin/BACSIs/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -73,16 +59,16 @@ namespace VanLangDoctor.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.CHUYENKHOA = new SelectList(db.KHOAs, "ID_KHOA", "TEN_KHOA", bACSI.CHUYENKHOA);
+            ViewBag.ID_KHOA = new SelectList(db.KHOAs, "ID_KHOA", "TEN_KHOA", bACSI.ID_KHOA);
             return View(bACSI);
         }
 
-        // POST: Admin/BACSIs/Edit/5
+        // POST: Admin/QLBacsi/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID_BACSI,TEN_BACSI,SDT_BACSI,NGAYSINH_BACSI,TUOI,EMAIL,GIOI_TINH,KHOA,KINH_NGHIEM,NGAY_TRUC,BHYT,IMG_BACSI,CHUYENKHOA")] BACSI bACSI)
+        public ActionResult Edit([Bind(Include = "ID_BACSI,TEN_BACSI,NGAYSINH_BS,GIOI_TINH,SDT,EMAIL,HINH_ANH,NGHE_NGHIEP,ID_KHOA,KINH_NGHIEM,NGAY_TRUC")] BACSI bACSI)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +76,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("DanhSachBacsi");
             }
-            ViewBag.CHUYENKHOA = new SelectList(db.KHOAs, "ID_KHOA", "TEN_KHOA", bACSI.CHUYENKHOA);
+            ViewBag.ID_KHOA = new SelectList(db.KHOAs, "ID_KHOA", "TEN_KHOA", bACSI.ID_KHOA);
             return View(bACSI);
         }
 

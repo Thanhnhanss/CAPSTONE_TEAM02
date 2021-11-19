@@ -42,20 +42,24 @@
                     <div class="info text-center">
                         <h3><a href="@Url.Action("thongtinbacsi","ThongtinBacsi", new {id = item.ID_BACSI })">@item.TEN_BACSI</a></h3>
 
-                        <span class="position">@item.KHOA1.TEN_KHOA</span>
+                        <span class="position">@item.KHOA.TEN_KHOA</span>
                         <div class="text">
-                            <p><img src="https://img.icons8.com/ios/50/000000/lifecycle--v1.png" style="height: 20px" /> @item.TUOI tuổi</p>
-                            <p><i class="icon-mail_outline"></i> @item.EMAIL</p>
-                            <p><img src="https://img.icons8.com/dotty/80/000000/internship.png" style="height: 20px" /> @item.KINH_NGHIEM năm </p>
+                            <p><img src="https://img.icons8.com/external-icongeek26-outline-gradient-icongeek26/64/000000/external-doctor-pregnancy-amp-maternity-icongeek26-outline-gradient-icongeek26-1.png" style="height: 25px" />  @item.NGHE_NGHIEP</p>
+                            
+                            <p><img src="https://img.icons8.com/dotty/80/000000/internship.png" style="height: 20px" />  @item.KINH_NGHIEM năm </p>
                             <ul class="ftco-social">
                                 <li class="ftco-animate fadeInUp ftco-animated"><a href="#"><span class="icon-chat_bubble_outline"></span></a></li>
                                 <li class="ftco-animate fadeInUp ftco-animated ">
-                                    <a href="tel: +84 @item.SDT_BACSI">
+                                    <a href="tel:@item.SDT">
                                         <i class="icon-phone2 popup-point">
-                                            @if (item.SDT_BACSI == null)
-                                            {<span></span> }
-                                            else
-                                            { <span class="popup-text">(+84) @item.SDT_BACSI</span>}
+                                            <span class="popup-text" style="margin: 1.5em -3em">@item.SDT</span>
+                                        </i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="mailto:@item.EMAIL">
+                                        <i class="icon-mail_outline popup-point">
+                                            <span class="popup-text"> @item.EMAIL</span>
                                         </i>
                                     </a>
                                 </li>

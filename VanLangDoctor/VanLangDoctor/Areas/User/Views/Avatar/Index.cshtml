@@ -1,54 +1,52 @@
-﻿@{ 
-    Layout = null;
-}
-<link href="~/Content/info-dr.css" rel="stylesheet" />
-<div class="page-content page-container" id="page-content">
-    <div class="padding">
-        <div class="row container d-flex justify-content-center">
-            <div class="col-xl-6 col-md-12">
-                <div class="card user-card-full">
-                    <div class="row m-l-0 m-r-0">
-                        <div class="col-sm-4 bg-c-lite-green user-profile">
-                            <div class="card-block text-center text-white">
-                                <div class="m-b-25"> <img src="https://img.icons8.com/bubbles/100/000000/user.png" class="img-radius" alt="User-Profile-Image"> </div>
-                                <h6 class="f-w-600">Hembo Tingor</h6>
-                                <p>Web Designer</p> <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
-                            </div>
-                        </div>
-                        <div class="col-sm-8">
-                            <div class="card-block">
-                                <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Information</h6>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <p class="m-b-10 f-w-600">Email</p>
-                                        <h6 class="text-muted f-w-400">rntng@gmail.com</h6>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="m-b-10 f-w-600">Phone</p>
-                                        <h6 class="text-muted f-w-400">98979989898</h6>
-                                    </div>
-                                </div>
-                                <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Projects</h6>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <p class="m-b-10 f-w-600">Recent</p>
-                                        <h6 class="text-muted f-w-400">Sam Disuja</h6>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="m-b-10 f-w-600">Most Viewed</p>
-                                        <h6 class="text-muted f-w-400">Dinoter husainm</h6>
-                                    </div>
-                                </div>
-                                <ul class="social-link list-unstyled m-t-40 m-b-10">
-                                    <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="facebook" data-abc="true"><i class="mdi mdi-facebook feather icon-facebook facebook" aria-hidden="true"></i></a></li>
-                                    <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="twitter" data-abc="true"><i class="mdi mdi-twitter feather icon-twitter twitter" aria-hidden="true"></i></a></li>
-                                    <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="instagram" data-abc="true"><i class="mdi mdi-instagram feather icon-instagram instagram" aria-hidden="true"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+﻿<style>
+    .ih-item.circle.effect3 .info {
+        background: #333333;
+        opacity: 0;
+        pointer-events: none;
+        -webkit-transition: all 0.35s ease-in-out;
+        -moz-transition: all 0.35s ease-in-out;
+        transition: all 0.35s ease-in-out;
+    }
+
+    .ih-item.circle.effect3.bottom_to_top .info {
+        -webkit-transform: translateY(100%);
+        -moz-transform: translateY(100%);
+        -ms-transform: translateY(100%);
+        -o-transform: translateY(100%);
+        transform: translateY(100%);
+    }
+
+    .ih-item.circle.effect3.bottom_to_top a:hover .info {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+        transform: translateY(0);
+    }
+       
+</style>
+<!-- Bottom to top-->
+<div class="row">
+    <div class="col-sm-6">
+        <div class="ih-item circle effect3 bottom_to_top">
+            <a href="#">
+                hover me
+                <div class="info">
+                    <h3>Heading here</h3>
+                    <p>Description goes here</p>
                 </div>
-            </div>
+            </a>
         </div>
     </div>
 </div>
+
+<div class="ih-item circle effect3 bottom_to_top ">
+    <a href="tel:">aaaaaaaaaaaa
+        <i class="icon-phone2 info">
+            2312414
+        </i>
+    </a>
+</div>
+<!-- end Bottom to top-->
+@*<link href="~/Content/src/ihover.css" rel="stylesheet" />*@

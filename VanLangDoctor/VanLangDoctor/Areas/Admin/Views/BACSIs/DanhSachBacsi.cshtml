@@ -52,15 +52,13 @@
                                 <thead>
                                     <tr>
                                         <th>Tên bác sĩ</th>
-                                        <th>Khoa</th>
                                         <th>Số điện thoại</th>
                                         <th>Ngày sinh</th>
-                                        <th>Tuổi</th>
                                         <th>Email</th>
                                         <th>Giới tính</th>
+                                        <th>Nghề nghiệp</th>
                                         <th>Kinh nghiệm</th>
                                         <th>Ngày trực</th>
-                                        <th>Bảo hiểm y tế</th>
                                         <th>Hình đại diện</th>
                                         <th></th>
                                     </tr>
@@ -70,38 +68,14 @@
                                     {
                                     <tr>
                                         <td><a href="javascript:void(0)" class="font-weight-medium link">@item.TEN_BACSI</a></td>
-                                        <td>@item.KHOA</td>
-                                        <td class="font-bold link">(+84) @item.SDT_BACSI</td>
-                                        <td>@Html.FormatValue(item.NGAYSINH_BACSI, "{0:d}")</td>
-                                        <td>@item.TUOI</td>
+                                        <td>@item.SDT</td>
+                                        <td class="font-bold link">@Html.FormatValue(@item.NGAYSINH_BS, "{0:d}")</td>
                                         <td>@item.EMAIL</td>
-                                        <td>
-                                            @if (item.GIOI_TINH == true)
-                                            {
-                                                <span>Nữ</span>
-                                            }
-                                            else if (item.GIOI_TINH == false)
-                                            {
-                                                <span>Nam</span>
-                                            }
-                                            else
-                                            {
-                                                <span>@item.GIOI_TINH</span>
-                                            }
-                                        </td>
-                                        <td>
-                                            @if (item.KINH_NGHIEM != null)
-                                            {
-                                                <span>@item.KINH_NGHIEM năm</span>
-                                            }
-                                            else
-                                            {
-                                                <span>@item.KINH_NGHIEM</span>
-                                            }
-                                        </td>
-                                        <td>@item.NGAY_TRUC</td>
-                                        <td>@item.BHYT</td>
-                                        <td>@item.IMG_BACSI</td>
+                                        <td>@item.GIOI_TINH</td>
+                                        <td>@item.NGHE_NGHIEP</td>
+                                        <td>@item.KINH_NGHIEM Năm</td>
+                                        <td>@Html.FormatValue(@item.NGAY_TRUC, "{0:d}")</td>
+                                        <td>@item.HINH_ANH</td>
                                         <td>
                                             <a href="@Url.Action("Edit","BACSIs", new { id = item.ID_BACSI })"><i class="ti-settings"></i></a>
                                             <a href="@Url.Action("Details","BACSIs", new { id = item.ID_BACSI })"><i class="ti-eye"></i></a>
@@ -114,15 +88,13 @@
                                 <tfoot>
                                     <tr>
                                         <th>Tên bác sĩ</th>
-                                        <th>Khoa</th>
                                         <th>Số điện thoại</th>
                                         <th>Ngày sinh</th>
-                                        <th>Tuổi</th>
                                         <th>Email</th>
                                         <th>Giới tính</th>
+                                        <th>Nghề nghiệp</th>
                                         <th>Kinh nghiệm</th>
                                         <th>Ngày trực</th>
-                                        <th>Bảo hiểm y tế</th>
                                         <th>Hình đại diện</th>
                                         <th></th>
                                     </tr>
@@ -155,7 +127,7 @@
     <!-- ============================================================== -->
     <footer class="footer text-center text-muted">
         @Html.FormatValue(DateTime.Now, "{0:M}")
-        All Rights Reserved by Adminmart. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
+        All Rights Reserved by Adminmart. Designed and Developed by <a href="#">WrapPixel</a>.
     </footer>
     <!-- ============================================================== -->
     <!-- End footer -->

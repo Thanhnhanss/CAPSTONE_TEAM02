@@ -60,32 +60,18 @@
                     <div class="form-group">
                         <label><b>Số điện thoại</b></label>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.SDT_BACSI, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.SDT_BACSI, "", new { @class = "text-danger" })
+                            @Html.EditorFor(model => model.SDT, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.SDT, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label><b>Ngày sinh</b></label>
+                        <label><b>Giới tính</b></label>
                         <div class="col-md-10">
-                            @if (Model.NGAYSINH_BACSI == null)
-                            {
-
-                                @Html.EditorFor(model => model.NGAYSINH_BACSI, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
-                            }
-                            else
-                            {
-                                @Html.EditorFor(model => model.NGAYSINH_BACSI, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.NGAYSINH_BACSI, "", new { @class = "text-danger" })
-                            }
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label><b>Tuổi</b></label>
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.TUOI, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.TUOI, "", new { @class = "text-danger" })
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.GIOI_TINH)
+                                @Html.ValidationMessageFor(model => model.GIOI_TINH, "", new { @class = "text-danger" })
+                            </div>
                         </div>
                     </div>
 
@@ -98,21 +84,26 @@
                     </div>
 
                     <div class="form-group">
-                        <label><b>Giới tính</b></label>
+                        <label><b>Nghề nghiệp</b></label>
                         <div class="col-md-10">
-                            <div class="checkbox">
-
-                                @Html.EditorFor(model => model.GIOI_TINH)
-                                @Html.ValidationMessageFor(model => model.GIOI_TINH, "", new { @class = "text-danger" })
-                            </div>
+                            @Html.EditorFor(model => model.NGHE_NGHIEP, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.NGHE_NGHIEP, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label><b>Khoa</b></label>
+                        <label><b>Ngày sinh</b></label>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.KHOA, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.KHOA, "", new { @class = "text-danger" })
+                            @if (Model.NGAYSINH_BS == null)
+                            {
+
+                                @Html.EditorFor(model => model.NGAYSINH_BS, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+                            }
+                            else
+                            {
+                                @Html.EditorFor(model => model.NGAYSINH_BS, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.NGAYSINH_BS, "", new { @class = "text-danger" })
+                            }
                         </div>
                     </div>
 
@@ -141,37 +132,24 @@
                     </div>
 
                     <div class="form-group">
-                        <label><b>Bảo hiểm y tế</b></label>
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.BHYT, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.BHYT, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
                         <label><b>Hình đại diện</b></label>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.IMG_BACSI, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.IMG_BACSI, "", new { @class = "text-danger" })
+                            @Html.EditorFor(model => model.HINH_ANH, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.HINH_ANH, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label><b>Chuyên khoa</b></label>
                         <div class="col-md-10">
-                            @Html.DropDownList("CHUYENKHOA", null, htmlAttributes: new { @class = "form-control" })
-                            @Html.ValidationMessageFor(model => model.CHUYENKHOA, "", new { @class = "text-danger" })
+                            @Html.DropDownList("ID_KHOA", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.ID_KHOA, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
                     <div class="col-md-push-12 col-md-5">
                         <button type="submit" class="button" style="vertical-align:middle"><span>Xác nhận </span></button>
                     </div>
-                    @*<div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
-        </div>*@
                 </div>
             </div>
         }

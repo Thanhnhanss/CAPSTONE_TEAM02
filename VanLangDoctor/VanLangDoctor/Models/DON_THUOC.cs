@@ -18,13 +18,11 @@ namespace VanLangDoctor.Models
         public string CHUAN_DOAN { get; set; }
         public string CHI_DINH { get; set; }
         public string LOI_DAN { get; set; }
-        public Nullable<System.DateTime> NGAY_LAP { get; set; }
-        public int ID_THUOC { get; set; }
-        public int ID_BENH_NHAN { get; set; }
-        public int ID_BACSI { get; set; }
+        public System.DateTime NGAY_LAP { get; set; }
+        public Nullable<int> ID_BENH_NHAN { get; set; }
+        public Nullable<int> ID_BACSI { get; set; }
     
         public virtual BACSI BACSI { get; set; }
         public virtual BENH_NHAN BENH_NHAN { get; set; }
-        public virtual THUOC THUOC { get; set; }
     }
 }

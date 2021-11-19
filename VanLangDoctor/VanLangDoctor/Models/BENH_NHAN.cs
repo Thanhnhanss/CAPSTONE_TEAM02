@@ -20,18 +20,15 @@ namespace VanLangDoctor.Models
             this.DON_THUOC = new HashSet<DON_THUOC>();
         }
     
-        public int ID_BENH_NHAN { get; set; }
+        public int ID_BENHNHAN { get; set; }
         public string TEN_BN { get; set; }
-        public int TUOI { get; set; }
+        public string GIOI_TINH { get; set; }
+        public System.DateTime NGAY_SINH { get; set; }
         public string EMAIL { get; set; }
         public string SDT { get; set; }
-        public bool GIOI_TINH { get; set; }
         public string CHUAN_DOAN { get; set; }
-        public string NGHE_NGHIEP { get; set; }
-        public string BHYT { get; set; }
-        public int ID_BACSI { get; set; }
-        public int ID_BENH_AN { get; set; }
-        public Nullable<System.DateTime> NGAY_SINH { get; set; }
+        public Nullable<int> ID_BACSI { get; set; }
+        public Nullable<int> ID_BENH_AN { get; set; }
     
         public virtual BACSI BACSI { get; set; }
         public virtual BENH_AN BENH_AN { get; set; }

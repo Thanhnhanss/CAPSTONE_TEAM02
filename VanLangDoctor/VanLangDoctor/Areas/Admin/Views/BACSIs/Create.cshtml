@@ -51,54 +51,28 @@
                     <hr />
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                     <div class="form-group">
-                        <label><b>Mã bác sĩ</b></label>
+                        <label><b>Tên bác sĩ</b></label>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.ID_BACSI, new { htmlAttributes = new { @class = "form-control", @placeholder ="ví dụ: BS0001"} })
-                            @Html.ValidationMessageFor(model => model.ID_BACSI, "", new { @class = "text-danger" })
+                            @Html.EditorFor(model => model.TEN_BACSI, new { htmlAttributes = new { @class = "form-control", @placeholder = "ví dụ: Nguyễn Văn A " } })
+                            @Html.ValidationMessageFor(model => model.TEN_BACSI, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label><b>Số điện thoại</b></label>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.SDT_BACSI, new { htmlAttributes = new { @class = "form-control", @placeholder ="ví dụ: 0905556***" } })
-                            @Html.ValidationMessageFor(model => model.SDT_BACSI, "", new { @class = "text-danger" })
+                            @Html.EditorFor(model => model.SDT, new { htmlAttributes = new { @class = "form-control", @placeholder = "ví dụ: 0905556***" } })
+                            @Html.ValidationMessageFor(model => model.SDT, "", new { @class = "text-danger" })
                         </div>
                     </div>
-
-                    <div class="form-group">
-                        <label><b>Ngày sinh</b></label>
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.NGAYSINH_BACSI, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
-                            @Html.ValidationMessageFor(model => model.NGAYSINH_BACSI, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label><b>Tuổi</b></label>
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.TUOI, new { htmlAttributes = new { @class = "form-control", @placeholder = "ví dụ: 20" } })
-                            @Html.ValidationMessageFor(model => model.TUOI, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-
 
                     <div class="form-group">
                         <label><b>Giới tính</b></label>
                         <div class="col-md-10">
                             <div class="checkbox">
-                                @Html.EditorFor(model => model.GIOI_TINH)
+                                @Html.EditorFor(model => model.GIOI_TINH, new { htmlAttributes = new { @class = "form-control", @placeholder = "ví dụ: Nam" } })
                                 @Html.ValidationMessageFor(model => model.GIOI_TINH, "", new { @class = "text-danger" })
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label><b>Tên bác sĩ</b></label>
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.TEN_BACSI, new { htmlAttributes = new { @class = "form-control", @placeholder = "ví dụ: Nguyễn Văn A " } })
-                            @Html.ValidationMessageFor(model => model.TEN_BACSI, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
@@ -111,17 +85,25 @@
                     </div>
 
                     <div class="form-group">
-                        <label><b>Khoa</b></label>
+                        <label><b>Nghề nghiệp</b></label>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.KHOA, new { htmlAttributes = new { @class = "form-control ", @placeholder = "ví dụ: điều dưỡng" } })
-                            @Html.ValidationMessageFor(model => model.KHOA, "", new { @class = "text-danger" })
+                            @Html.EditorFor(model => model.NGHE_NGHIEP, new { htmlAttributes = new { @class = "form-control", @placeholder = "ví dụ: Dược sĩ" } })
+                            @Html.ValidationMessageFor(model => model.NGHE_NGHIEP, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label><b>Ngày sinh</b></label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.NGAYSINH_BS, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+                            @Html.ValidationMessageFor(model => model.NGAYSINH_BS, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label><b>Kinh nghiệm</b></label>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.KINH_NGHIEM, new { htmlAttributes = new { @class = "Textarea", @placeholder = "ví dụ: 5 năm " } })
+                            @Html.EditorFor(model => model.KINH_NGHIEM, new { htmlAttributes = new { @class = "form-control", @placeholder = "ví dụ: 5 năm " } })
                             @Html.ValidationMessageFor(model => model.KINH_NGHIEM, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -134,27 +116,20 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label><b>Bảo hiểm y tế</b></label>
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.BHYT, new { htmlAttributes = new { @class = "form-control", @placeholder = "ví dụ: XD256562*******" } })
-                            @Html.ValidationMessageFor(model => model.BHYT, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
 
                     <div class="form-group">
                         <label><b>Hình đại diện</b></label>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.IMG_BACSI, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.IMG_BACSI, "", new { @class = "text-danger" })
+                            @Html.EditorFor(model => model.HINH_ANH, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.HINH_ANH, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label><b>Chuyên khoa</b></label>
                         <div class="col-md-10">
-                            @Html.DropDownList("CHUYENKHOA", null, htmlAttributes: new { @class = "form-control" })
-                            @Html.ValidationMessageFor(model => model.CHUYENKHOA, "", new { @class = "text-danger" })
+                            @Html.DropDownList("ID_KHOA", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.ID_KHOA, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
