@@ -33,14 +33,14 @@
         @foreach (var item in Model)
         {
             <div class="col-lg-3 col-md-6 d-flex mb-sm-4 ftco-animate fadeInUp ftco-animated">
-                <div class="staff">
-                    <a href="@Url.Action("Details","ThongtinBacsi", new {id = item.ID_BACSI })">
+                <div class="staff" style="border-radius:2em">
+                    <a href="@Url.Action("thongtinbacsi","ThongtinBacsi", new {id = item.ID_BACSI })">
                         <div class="img mb-4" style="background-image: url(../images/person_7.jpg);">
                             <img src="~/Content/assets-dr/images/person_7.jpg" style="height: 180px; width: 180px; border-radius: 50%" />
                         </div>
                     </a>
                     <div class="info text-center">
-                        <h3><a href="teacher-single.html">@item.TEN_BACSI</a></h3>
+                        <h3><a href="@Url.Action("thongtinbacsi","ThongtinBacsi", new {id = item.ID_BACSI })">@item.TEN_BACSI</a></h3>
 
                         <span class="position">@item.KHOA1.TEN_KHOA</span>
                         <div class="text">
