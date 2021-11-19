@@ -21,6 +21,12 @@ namespace VanLangDoctor.Areas.User
             );
 
             context.MapRoute(
+                "bacsi",
+                "trang-chu/bac-si",
+                new { controller = "ThongtinBacsi", action = "DanhSachBacsi", id = UrlParameter.Optional }
+            );
+
+            context.MapRoute(
                 "User_default",
                 "User/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional }
