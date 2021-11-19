@@ -34,12 +34,12 @@ namespace VanLangDoctor.Areas.User.Controllers
             }
             return View(bACSI);
         }
-        public ActionResult thongtinbacsi(int? id)
+        public ActionResult thongtinbacsi(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+            //if (id == null)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
             BACSI bACSI = db.BACSIs.Find(id);
             if (bACSI == null)
             {
