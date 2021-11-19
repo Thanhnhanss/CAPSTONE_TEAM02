@@ -176,8 +176,8 @@
                         @Html.AntiForgeryToken()
 
                         <div class="form-actions no-color">
-                            <input onclick="functionDel()" id="delete" type="submit" value="Xoá" class="signupbtn" /> <br />
-                            @Html.ActionLink("Quay lại", "BacSi")
+                            <input id="delete" type="submit" value="Xoá" class="signupbtn" /> <br />
+                            @Html.ActionLink("Quay lại", "Bac_Si")
                         </div>
                     }
 
@@ -189,9 +189,3 @@
     <!-- End Page wrapper  -->
     <!-- ============================================================== -->
 </div>
-
-<script>
-    function functionDel() {
-        alert(`Bạn chắc chắn muốn xoá bác sĩ này?`);
-    }
-</script>

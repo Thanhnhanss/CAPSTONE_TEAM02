@@ -8,118 +8,114 @@ using System.Web;
 using System.Web.Mvc;
 using VanLangDoctor.Models;
 
-namespace VanLangDoctor.Areas.Admin.Controllers
+namespace VanLangDoctor.Areas.User.Controllers
 {
-    public class BENH_NHANController : Controller
+    public class BacSiController : Controller
     {
         private CP24Team02Entities db = new CP24Team02Entities();
 
-        // GET: Admin/BENH_NHAN
-        public ActionResult Index()
+        // GET: User/BacSi
+        public ActionResult Bac_Si()
         {
-            var bENH_NHAN = db.BENH_NHAN.ToList();
-            return View(bENH_NHAN);
+            var bACSIs = db.BACSIs.Include(b => b.KHOA1);
+            return View(bACSIs.ToList());
         }
 
-        // GET: Admin/BENH_NHAN/Details/5
+        // GET: User/BacSi/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BENH_NHAN bENH_NHAN = db.BENH_NHAN.Find(id);
-            if (bENH_NHAN == null)
+            BACSI bACSI = db.BACSIs.Find(id);
+            if (bACSI == null)
             {
                 return HttpNotFound();
             }
-            return View(bENH_NHAN);
+            return View(bACSI);
         }
 
-        // GET: Admin/BENH_NHAN/Create
+        // GET: User/BacSi/Create
         public ActionResult Create()
         {
-            ViewBag.ID_BACSI = new SelectList(db.BACSIs, "ID_BACSI", "TEN_BACSI");
-            ViewBag.ID_BENH_AN = new SelectList(db.BENH_AN, "ID_BENH_AN", "KET_QUA");
+            ViewBag.CHUYENKHOA = new SelectList(db.KHOAs, "ID_KHOA", "TEN_KHOA");
             return View();
         }
 
-        // POST: Admin/BENH_NHAN/Create
+        // POST: User/BacSi/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID_BENH_NHAN,TEN_BN,TUOI,NGAY_SINH,EMAIL,SDT,GIOI_TINH,CHUAN_DOAN,NGHE_NGHIEP,BHYT,ID_BACSI,ID_BENH_AN")] BENH_NHAN bENH_NHAN)
+        public ActionResult Create([Bind(Include = "ID_BACSI,TEN_BACSI,SDT_BACSI,NGAYSINH_BACSI,TUOI,EMAIL,GIOI_TINH,KHOA,KINH_NGHIEM,NGAY_TRUC,BHYT,IMG_BACSI,CHUYENKHOA")] BACSI bACSI)
         {
             if (ModelState.IsValid)
             {
-                db.BENH_NHAN.Add(bENH_NHAN);
+                db.BACSIs.Add(bACSI);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ID_BACSI = new SelectList(db.BACSIs, "ID_BACSI", "TEN_BACSI", bENH_NHAN.ID_BACSI);
-            ViewBag.ID_BENH_AN = new SelectList(db.BENH_AN, "ID_BENH_AN", "KET_QUA", bENH_NHAN.ID_BENH_AN);
-            return View(bENH_NHAN);
+            ViewBag.CHUYENKHOA = new SelectList(db.KHOAs, "ID_KHOA", "TEN_KHOA", bACSI.CHUYENKHOA);
+            return View(bACSI);
         }
 
-        // GET: Admin/BENH_NHAN/Edit/5
+        // GET: User/BacSi/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BENH_NHAN bENH_NHAN = db.BENH_NHAN.Find(id);
-            if (bENH_NHAN == null)
+            BACSI bACSI = db.BACSIs.Find(id);
+            if (bACSI == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.ID_BACSI = new SelectList(db.BACSIs, "ID_BACSI", "TEN_BACSI", bENH_NHAN.ID_BACSI);
-            ViewBag.ID_BENH_AN = new SelectList(db.BENH_AN, "ID_BENH_AN", "KET_QUA", bENH_NHAN.ID_BENH_AN);
-            return View(bENH_NHAN);
+            ViewBag.CHUYENKHOA = new SelectList(db.KHOAs, "ID_KHOA", "TEN_KHOA", bACSI.CHUYENKHOA);
+            return View(bACSI);
         }
 
-        // POST: Admin/BENH_NHAN/Edit/5
+        // POST: User/BacSi/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID_BENH_NHAN,TEN_BN,TUOI,NGAY_SINH,EMAIL,SDT,GIOI_TINH,CHUAN_DOAN,NGHE_NGHIEP,BHYT,ID_BACSI,ID_BENH_AN")] BENH_NHAN bENH_NHAN)
+        public ActionResult Edit([Bind(Include = "ID_BACSI,TEN_BACSI,SDT_BACSI,NGAYSINH_BACSI,TUOI,EMAIL,GIOI_TINH,KHOA,KINH_NGHIEM,NGAY_TRUC,BHYT,IMG_BACSI,CHUYENKHOA")] BACSI bACSI)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(bENH_NHAN).State = EntityState.Modified;
+                db.Entry(bACSI).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ID_BACSI = new SelectList(db.BACSIs, "ID_BACSI", "TEN_BACSI", bENH_NHAN.ID_BACSI);
-            ViewBag.ID_BENH_AN = new SelectList(db.BENH_AN, "ID_BENH_AN", "KET_QUA", bENH_NHAN.ID_BENH_AN);
-            return View(bENH_NHAN);
+            ViewBag.CHUYENKHOA = new SelectList(db.KHOAs, "ID_KHOA", "TEN_KHOA", bACSI.CHUYENKHOA);
+            return View(bACSI);
         }
 
-        // GET: Admin/BENH_NHAN/Delete/5
+        // GET: User/BacSi/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BENH_NHAN bENH_NHAN = db.BENH_NHAN.Find(id);
-            if (bENH_NHAN == null)
+            BACSI bACSI = db.BACSIs.Find(id);
+            if (bACSI == null)
             {
                 return HttpNotFound();
             }
-            return View(bENH_NHAN);
+            return View(bACSI);
         }
 
-        // POST: Admin/BENH_NHAN/Delete/5
+        // POST: User/BacSi/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            BENH_NHAN bENH_NHAN = db.BENH_NHAN.Find(id);
-            db.BENH_NHAN.Remove(bENH_NHAN);
+            BACSI bACSI = db.BACSIs.Find(id);
+            db.BACSIs.Remove(bACSI);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -73,16 +73,16 @@
           <Property Name="ID_BACSI" Type="int" Nullable="false" />
           <Property Name="TEN_BACSI" Type="nvarchar" MaxLength="256" Nullable="false" />
           <Property Name="SDT_BACSI" Type="int" />
-          <Property Name="NGAYSINH_BACSI" Type="date" />
           <Property Name="TUOI" Type="int" />
           <Property Name="EMAIL" Type="varchar" MaxLength="256" />
           <Property Name="GIOI_TINH" Type="bit" />
           <Property Name="KHOA" Type="nvarchar" MaxLength="256" />
-          <Property Name="KINH_NGHIEM" Type="nvarchar" MaxLength="256" />
           <Property Name="NGAY_TRUC" Type="nvarchar" MaxLength="256" />
           <Property Name="BHYT" Type="varchar" MaxLength="20" />
           <Property Name="IMG_BACSI" Type="varchar(max)" />
           <Property Name="CHUYENKHOA" Type="int" />
+          <Property Name="NGAYSINH_BACSI" Type="date" />
+          <Property Name="KINH_NGHIEM" Type="int" />
         </EntityType>
         <EntityType Name="BENH_AN">
           <Key>
@@ -107,7 +107,6 @@
           <Property Name="ID_BENH_NHAN" Type="int" Nullable="false" />
           <Property Name="TEN_BN" Type="nvarchar" MaxLength="256" Nullable="false" />
           <Property Name="TUOI" Type="int" Nullable="false" />
-          <Property Name="NGAY_SINH" Type="date" Nullable="false" />
           <Property Name="EMAIL" Type="nvarchar" MaxLength="256" Nullable="false" />
           <Property Name="SDT" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="GIOI_TINH" Type="bit" Nullable="false" />
@@ -116,6 +115,7 @@
           <Property Name="BHYT" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="ID_BACSI" Type="int" Nullable="false" />
           <Property Name="ID_BENH_AN" Type="int" Nullable="false" />
+          <Property Name="NGAY_SINH" Type="date" />
         </EntityType>
         <EntityType Name="DON_THUOC">
           <Key>
@@ -494,16 +494,16 @@
           <Property Name="ID_BACSI" Type="Int32" Nullable="false" />
           <Property Name="TEN_BACSI" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="SDT_BACSI" Type="Int32" />
-          <Property Name="NGAYSINH_BACSI" Type="DateTime" Precision="0" />
           <Property Name="TUOI" Type="Int32" />
           <Property Name="EMAIL" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
           <Property Name="GIOI_TINH" Type="Boolean" />
           <Property Name="KHOA" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="KINH_NGHIEM" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="NGAY_TRUC" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="BHYT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="IMG_BACSI" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="CHUYENKHOA" Type="Int32" />
+          <Property Name="NGAYSINH_BACSI" Type="DateTime" Precision="0" />
+          <Property Name="KINH_NGHIEM" Type="Int32" />
           <NavigationProperty Name="DON_THUOC" Relationship="CP24Team02Model.FK__DON_THUOC__ID_BA__5070F446" FromRole="BACSI" ToRole="DON_THUOC" />
           <NavigationProperty Name="BENH_NHAN" Relationship="CP24Team02Model.FK_BN_ID_DT_BS_BA" FromRole="BACSI" ToRole="BENH_NHAN" />
           <NavigationProperty Name="KHOA1" Relationship="CP24Team02Model.FK_khoa" FromRole="BACSI" ToRole="KHOA" />
@@ -533,7 +533,6 @@
           <Property Name="ID_BENH_NHAN" Type="Int32" Nullable="false" />
           <Property Name="TEN_BN" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="TUOI" Type="Int32" Nullable="false" />
-          <Property Name="NGAY_SINH" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="EMAIL" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="SDT" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="GIOI_TINH" Type="Boolean" Nullable="false" />
@@ -542,6 +541,7 @@
           <Property Name="BHYT" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ID_BACSI" Type="Int32" Nullable="false" />
           <Property Name="ID_BENH_AN" Type="Int32" Nullable="false" />
+          <Property Name="NGAY_SINH" Type="DateTime" Precision="0" />
           <NavigationProperty Name="BACSI" Relationship="CP24Team02Model.FK_BN_ID_DT_BS_BA" FromRole="BENH_NHAN" ToRole="BACSI" />
           <NavigationProperty Name="BENH_AN" Relationship="CP24Team02Model.FK__BENH_NHAN__ID_BE__4BAC3F29" FromRole="BENH_NHAN" ToRole="BENH_AN" />
           <NavigationProperty Name="DON_THUOC" Relationship="CP24Team02Model.FK__DON_THUOC__ID_BE__4F7CD00D" FromRole="BENH_NHAN" ToRole="DON_THUOC" />
@@ -720,7 +720,7 @@
           <End Type="CP24Team02Model.AspNetRole" Role="AspNetRole" Multiplicity="*" />
           <End Type="CP24Team02Model.AspNetUser" Role="AspNetUser" Multiplicity="*" />
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -784,16 +784,16 @@
           <EntitySetMapping Name="BACSIs">
             <EntityTypeMapping TypeName="CP24Team02Model.BACSI">
               <MappingFragment StoreEntitySet="BACSI">
+                <ScalarProperty Name="KINH_NGHIEM" ColumnName="KINH_NGHIEM" />
+                <ScalarProperty Name="NGAYSINH_BACSI" ColumnName="NGAYSINH_BACSI" />
                 <ScalarProperty Name="CHUYENKHOA" ColumnName="CHUYENKHOA" />
                 <ScalarProperty Name="IMG_BACSI" ColumnName="IMG_BACSI" />
                 <ScalarProperty Name="BHYT" ColumnName="BHYT" />
                 <ScalarProperty Name="NGAY_TRUC" ColumnName="NGAY_TRUC" />
-                <ScalarProperty Name="KINH_NGHIEM" ColumnName="KINH_NGHIEM" />
                 <ScalarProperty Name="KHOA" ColumnName="KHOA" />
                 <ScalarProperty Name="GIOI_TINH" ColumnName="GIOI_TINH" />
                 <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
                 <ScalarProperty Name="TUOI" ColumnName="TUOI" />
-                <ScalarProperty Name="NGAYSINH_BACSI" ColumnName="NGAYSINH_BACSI" />
                 <ScalarProperty Name="SDT_BACSI" ColumnName="SDT_BACSI" />
                 <ScalarProperty Name="TEN_BACSI" ColumnName="TEN_BACSI" />
                 <ScalarProperty Name="ID_BACSI" ColumnName="ID_BACSI" />
@@ -820,6 +820,7 @@
           <EntitySetMapping Name="BENH_NHAN">
             <EntityTypeMapping TypeName="CP24Team02Model.BENH_NHAN">
               <MappingFragment StoreEntitySet="BENH_NHAN">
+                <ScalarProperty Name="NGAY_SINH" ColumnName="NGAY_SINH" />
                 <ScalarProperty Name="ID_BENH_AN" ColumnName="ID_BENH_AN" />
                 <ScalarProperty Name="ID_BACSI" ColumnName="ID_BACSI" />
                 <ScalarProperty Name="BHYT" ColumnName="BHYT" />
@@ -828,7 +829,6 @@
                 <ScalarProperty Name="GIOI_TINH" ColumnName="GIOI_TINH" />
                 <ScalarProperty Name="SDT" ColumnName="SDT" />
                 <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
-                <ScalarProperty Name="NGAY_SINH" ColumnName="NGAY_SINH" />
                 <ScalarProperty Name="TUOI" ColumnName="TUOI" />
                 <ScalarProperty Name="TEN_BN" ColumnName="TEN_BN" />
                 <ScalarProperty Name="ID_BENH_NHAN" ColumnName="ID_BENH_NHAN" />

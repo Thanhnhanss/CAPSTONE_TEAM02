@@ -1,0 +1,180 @@
+﻿@model IEnumerable<VanLangDoctor.Models.BACSI>
+
+@{
+    ViewBag.Title = "Bac-si";
+    Layout = "~/Areas/User/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .profile {
+        margin: 20px 0;
+    }
+
+    .profile-sidebar {
+        padding: 20px 0 10px 0;
+        background: #fff;
+    }
+
+
+    .profile-userpic img {
+        float: none;
+        margin: 0 auto;
+        width: 50%;
+        height: 50%;
+        -webkit-border-radius: 50% !important;
+        -moz-border-radius: 50% !important;
+        border-radius: 50% !important;
+    }
+
+
+    .profile-usertitle {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+
+    .profile-usertitle-name {
+        color: #5a7391;
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 7px;
+    }
+
+
+    .profile-usertitle-job {
+        text-transform: uppercase;
+        color: #5b9bd1;
+        font-size: 12px;
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
+
+
+    .profile-userbuttons {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+
+        .profile-userbuttons .btn {
+            text-transform: uppercase;
+            font-size: 15px;
+            font-weight: 600;
+            padding: 6px 15px;
+            margin-right: 5px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+            .profile-userbuttons .btn:last-child {
+                margin-right: 0px;
+            }
+
+    .profile-usermenu {
+        margin-top: 30px;
+    }
+
+        .profile-usermenu ul li {
+            border-bottom: 1px solid #f0f4f7;
+        }
+
+            .profile-usermenu ul li:last-child {
+                border-bottom: none;
+            }
+
+            .profile-usermenu ul li a {
+                color: #93a3b5;
+                font-size: 14px;
+                font-weight: 400;
+            }
+
+                .profile-usermenu ul li a i {
+                    margin-right: 8px;
+                    font-size: 14px;
+                }
+
+                .profile-usermenu ul li a:hover {
+                    background-color: #fafcfd;
+                    color: #5b9bd1;
+                }
+
+
+            .profile-usermenu ul li.active {
+                border-bottom: none;
+            }
+
+                .profile-usermenu ul li.active a {
+                    color: #5b9bd1;
+                    background-color: #f6f9fb;
+                    border-left: 2px solid #5b9bd1;
+                    margin-left: -2px;
+                }
+</style>
+
+
+<!--<div class="container">
+    <div class="featured-products home_2 new-arrivals lastest">
+        <div class="tab-container space-10">
+            <div id="tab_1" class="tab-content">
+                <div class="products hover-shadow ver2 border-space-product border-space-product">
+                    <div class="product">
+                        <div class="product-images">
+                            <a href="#" title="product-images">
+                                <img class="primary_image" src="assets/images/products/featured/1.jpg" alt="" />
+                                <img class="secondary_image" src="assets/images/products/featured/1.jpg" alt="" />
+                            </a>-->
+<!-- End action -->
+<!--</div>
+    <a href="#" title="Union Bed"><p class="product-title">BlueBerry</p></a>
+    <p class="product-price-old">$700.00</p>
+    <p class="product-price">$350.00</p>
+
+</div>-->
+<!-- End item -->
+<!--</div>-->
+<!-- End product-tab-content products -->
+<!--</div>
+</div>-->
+<!-- End tab-content -->
+<!--</div>
+</div>-->
+
+<div class="container">
+    <div class="container">
+        <div class="row profile">
+            <div class="col-md-3">
+                @foreach (var item in Model)
+                {
+                    <div class="profile-sidebar">
+                        <div class="profile-userpic">
+                            <img src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/bootstrap_user_profile/images/profile_user.jpg" class="img-responsive" alt="Thông tin cá nhân">
+                        </div>
+                        <div class="profile-usertitle">
+                            <div class="profile-usertitle-name">@Html.DisplayFor(modelItem => item.TEN_BACSI)</div>
+                            <div class="profile-usertitle-job">@Html.DisplayFor(modelItem => item.KHOA1.TEN_KHOA)</div>
+                        </div>
+                        <div class="profile-userbuttons">
+                            <button type="button" class="btn btn-success btn-sm">@Html.ActionLink("Chi tiết", "Details", new { id = item.ID_BACSI })</button>
+                        </div>
+                        <div class="profile-usermenu">
+                            <ul class="nav">
+                                <li>
+                                    <a href="#"><i class="glyphicon glyphicon-heart"></i>@Html.DisplayFor(modelItem => item.TUOI) Tuổi</a>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank"><i class="glyphicon glyphicon-phone"></i>(+84) @Html.DisplayFor(modelItem => item.SDT_BACSI)</a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="glyphicon glyphicon-envelope"></i>@Html.DisplayFor(modelItem => item.EMAIL)</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@*@Html.DisplayFor(modelItem => item.IMG_BACSI)*@
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>

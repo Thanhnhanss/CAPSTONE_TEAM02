@@ -24,16 +24,16 @@ namespace VanLangDoctor.Models
         public int ID_BACSI { get; set; }
         public string TEN_BACSI { get; set; }
         public Nullable<int> SDT_BACSI { get; set; }
-        public Nullable<System.DateTime> NGAYSINH_BACSI { get; set; }
         public Nullable<int> TUOI { get; set; }
         public string EMAIL { get; set; }
         public Nullable<bool> GIOI_TINH { get; set; }
         public string KHOA { get; set; }
-        public string KINH_NGHIEM { get; set; }
         public string NGAY_TRUC { get; set; }
         public string BHYT { get; set; }
         public string IMG_BACSI { get; set; }
         public Nullable<int> CHUYENKHOA { get; set; }
+        public Nullable<System.DateTime> NGAYSINH_BACSI { get; set; }
+        public Nullable<int> KINH_NGHIEM { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DON_THUOC> DON_THUOC { get; set; }

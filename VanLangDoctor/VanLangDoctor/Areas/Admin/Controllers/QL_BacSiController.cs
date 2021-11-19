@@ -10,12 +10,12 @@ using VanLangDoctor.Models;
 
 namespace VanLangDoctor.Areas.Admin.Controllers
 {
-    public class BACSIsController : Controller
+    public class QL_BacSiController : Controller
     {
         private CP24Team02Entities db = new CP24Team02Entities();
 
         // GET: Admin/BACSIs
-        public ActionResult BacSi()
+        public ActionResult Bac_Si()
         {
             var bACSIs = db.BACSIs.Include(b => b.KHOA1);
             return View(bACSIs.ToList());
@@ -54,7 +54,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
             {
                 db.BACSIs.Add(bACSI);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Bac_Si");
             }
 
             ViewBag.CHUYENKHOA = new SelectList(db.KHOAs, "ID_KHOA", "TEN_KHOA", bACSI.CHUYENKHOA);
@@ -88,7 +88,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
             {
                 db.Entry(bACSI).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Bac_Si");
             }
             ViewBag.CHUYENKHOA = new SelectList(db.KHOAs, "ID_KHOA", "TEN_KHOA", bACSI.CHUYENKHOA);
             return View(bACSI);
@@ -117,7 +117,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
             BACSI bACSI = db.BACSIs.Find(id);
             db.BACSIs.Remove(bACSI);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Bac_Si");
         }
 
         protected override void Dispose(bool disposing)
