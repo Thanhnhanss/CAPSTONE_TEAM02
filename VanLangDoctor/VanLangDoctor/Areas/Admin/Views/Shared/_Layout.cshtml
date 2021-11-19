@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNet.Identity;
+<!DOCTYPE html>
 <html dir="ltr" lang="en">
 
 <head>
@@ -193,17 +194,17 @@
                             </div>
                         </li>
                         @*<li class="nav-item d-none d-md-block">
-                            <a class="nav-link" href="javascript:void(0)">
-                                <div class="customize-input">
-                                    <select class="custom-select form-control bg-white custom-radius custom-shadow border-0">
-                                        <option selected>VN</option>
-                                        <option value="1">EN</option>
-                                        <option value="2">AK</option>
-                                        <option value="3">BE</option>
-                                    </select>
-                                </div>
-                            </a>
-                        </li>*@
+                                <a class="nav-link" href="javascript:void(0)">
+                                    <div class="customize-input">
+                                        <select class="custom-select form-control bg-white custom-radius custom-shadow border-0">
+                                            <option selected>VN</option>
+                                            <option value="1">EN</option>
+                                            <option value="2">AK</option>
+                                            <option value="3">BE</option>
+                                        </select>
+                                    </div>
+                                </a>
+                            </li>*@
                     </ul>
                     <!-- ============================================================== -->
                     <!-- Right side toggle and nav items -->
@@ -226,53 +227,26 @@
                         <!-- ============================================================== -->
                         <!-- User profile and search -->
                         <!-- ============================================================== -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false">
-                                <img src="@Url.Content("~/Content/assets-ad/images/users/profile-pic.jpg")" alt="user" class="rounded-circle"
-                                     width="40">
-                                <span class="ml-2 d-none d-lg-inline-block">
-                                    <span>Hello,</span> <span class="text-dark">Jason Doe</span> <i data-feather="chevron-down"
-                                                                                                    class="svg-icon"></i>
-                                </span>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
-                                <a class="dropdown-item" href="javascript:void(0)">
-                                    <i data-feather="user"
-                                       class="svg-icon mr-2 ml-1"></i>
-                                    My Profile
-                                </a>
-                                <a class="dropdown-item" href="javascript:void(0)">
-                                    <i data-feather="credit-card"
-                                       class="svg-icon mr-2 ml-1"></i>
-                                    My Balance
-                                </a>
-                                <a class="dropdown-item" href="javascript:void(0)">
-                                    <i data-feather="mail"
-                                       class="svg-icon mr-2 ml-1"></i>
-                                    Inbox
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="javascript:void(0)">
-                                    <i data-feather="settings"
-                                       class="svg-icon mr-2 ml-1"></i>
-                                    Account Setting
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="javascript:void(0)">
-                                    <i data-feather="power"
-                                       class="svg-icon mr-2 ml-1"></i>
-                                    Logout
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <div class="pl-4 p-3">
-                                    <a href="javascript:void(0)" class="btn btn-sm btn-info">
-                                        View
-                                        Profile
-                                    </a>
-                                </div>
-                            </div>
-                        </li>
+                        @if (Request.IsAuthenticated)
+                        {
+                            using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <li class="nav navbar-nav navbar-right"></li>
+                                    <li>
+                                        @Html.ActionLink("Xin chào " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                                    </li>
+                                    <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+                                
+                            }
+                        }
+                        else
+                        {
+                                <template>@Html.ActionLink("Log in", "Login", "../Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</template>
+                           
+                        }
+
                         <!-- ============================================================== -->
                         <!-- User profile and search -->
                         <!-- ============================================================== -->
@@ -361,9 +335,9 @@
                             </a>
                             <ul aria-expanded="false" class="collapse  first-level base-level-line">
                                 <li class="sidebar-item">
-                                    <a href="table-basic.html" class="sidebar-link">
+                                    <a href="@Url.Content("~/Admin/BACSIsAdmin/Index")" class="sidebar-link">
                                         <span class="hide-menu">
-                                            Basic Table
+                                            Danh sách bác sĩ
                                         </span>
                                     </a>
                                 </li>
@@ -675,7 +649,10 @@
     <!-- End Wrapper -->
     <!-- ============================================================== -->
     <!-- End Wrapper -->
-    @RenderBody()
+    <div class="container">
+        @RenderBody()
+    </div>
+
     <!-- All Jquery -->
     <!-- ============================================================== -->
     <script src="@Url.Content("~/Content/assets-ad/libs/jquery/dist/jquery.min.js")"></script>
@@ -697,7 +674,7 @@
     <script src="@Url.Content("~/Content/assets-ad/extra-libs/jvector/jquery-jvectormap-2.0.2.min.js")"></script>
     <script src="@Url.Content("~/Content/assets-ad/extra-libs/jvector/jquery-jvectormap-world-mill-en.js")"></script>
     <script src="@Url.Content("~/Content/dist-ad/js/pages/dashboards/dashboard1.min.js")"></script>
-    
+
 </body>
 
 </html>

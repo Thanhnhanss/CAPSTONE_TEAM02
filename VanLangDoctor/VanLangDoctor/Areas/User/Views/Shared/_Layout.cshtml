@@ -1,4 +1,5 @@
-﻿@using Microsoft.AspNet.Identity
+﻿@using Microsoft.AspNet.Identity;
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
@@ -11,7 +12,8 @@
     <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets-ff/vendor/settings.css")" />
     <link rel="shortcut icon" href="@Url.Content("~/Content/assets-ff/images/favicon.png")" />
     <script type="text/javascript" src="@Url.Content("~/Content/assets-ff/js/jquery-3.2.0.min.js")"></script>
-    <title>@ViewBag.Title</title>
+
+    <title>Trang chủ</title>
 </head>
 
 <body>
@@ -52,9 +54,35 @@
                         </div>
                         <div class="float-right align-right">
                             <div class="hover-menu">
-                                <a class="acc" href="#" title="USD"><img src="@Url.Content("~/Content/assets-ff/images/icon-user-header.png")" alt="icon">Tài Khoản</a>
+                                <a class="acc" href="#"><img src="@Url.Content("~/Content/assets-ff/images/icon-user-header.png")" alt="icon">Tài khoản</a>
                                 <ul class="list-menu">
-                                   
+                                    @if (!User.Identity.IsAuthenticated)
+                                    {
+                                        <li>
+                                            <a id="btnLogin" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login</a>
+
+                                            <form id="VL" action="@Url.Action("Login", "Account", new { area = ""})" method="post" style="display: none">
+                                                @Html.AntiForgeryToken()
+                                                <button type="submit" id="VanLang" name="provider" value="VanLang">Login</button>
+                                            </form>
+                                        </li>
+                                        <li>
+                                            <a href="#">Register</a>
+                                        </li>
+                                    }
+                                    else
+                                    {
+                                        using (Html.BeginForm("LogOff", "../Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                                        {
+                                            @Html.AntiForgeryToken()
+                                            <li>
+                                                <a href="#" class="nav-link dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:#d9001b" data-bs-toggle="dropdown" id="user-dropdown">
+                                                    @User.Identity.Name
+                                                </a>
+                                            </li>
+                                            <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+                                        }
+                                    }
                                 </ul>
                             </div>
                             <!-- End hover-menu -->
@@ -236,9 +264,8 @@
                     </div>
                     <!-- End container -->
                 </div>
-                </div>
                 <!-- End header-top -->
-
+            </div>
         </header><!-- /header -->
 
         @RenderBody()
@@ -340,5 +367,7 @@
 
     <script type="text/javascript" src="@Url.Content("~/Content/assets-ff/js/slick.min.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Content/assets-ff/js/store.js")"></script>
+
+    
 </body>
 </html>

@@ -23,7 +23,6 @@ namespace VanLangDoctor.Models
         public int ID_BENH_NHAN { get; set; }
         public string TEN_BN { get; set; }
         public int TUOI { get; set; }
-        public System.DateTime NGAY_SINH { get; set; }
         public string EMAIL { get; set; }
         public string SDT { get; set; }
         public bool GIOI_TINH { get; set; }
@@ -32,6 +31,7 @@ namespace VanLangDoctor.Models
         public string BHYT { get; set; }
         public int ID_BACSI { get; set; }
         public int ID_BENH_AN { get; set; }
+        public Nullable<System.DateTime> NGAY_SINH { get; set; }
     
         public virtual BACSI BACSI { get; set; }
         public virtual BENH_AN BENH_AN { get; set; }

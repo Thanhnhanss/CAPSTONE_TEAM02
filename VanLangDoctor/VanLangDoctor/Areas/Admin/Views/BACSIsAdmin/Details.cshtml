@@ -1,0 +1,115 @@
+﻿@model VanLangDoctor.Models.BACSI
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BACSI</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TEN_BACSI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TEN_BACSI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SDT_BACSI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDT_BACSI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TUOI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TUOI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EMAIL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMAIL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GIOI_TINH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GIOI_TINH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KHOA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KHOA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAY_TRUC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAY_TRUC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BHYT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BHYT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IMG_BACSI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IMG_BACSI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAYSINH_BACSI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAYSINH_BACSI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KINH_NGHIEM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KINH_NGHIEM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KHOA1.TEN_KHOA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KHOA1.TEN_KHOA)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_BACSI }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
