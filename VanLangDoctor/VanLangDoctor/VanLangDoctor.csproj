@@ -173,9 +173,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\AspNetRolesController.cs" />
-    <Compile Include="Areas\Admin\Controllers\BACSIsAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
+    <Compile Include="Models\DANG_KY.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\ViewBACSI.cs" />
     <Compile Include="Areas\User\Controllers\HomeUserController.cs" />
     <Compile Include="Areas\User\UserAreaRegistration.cs" />
@@ -1527,16 +1528,6 @@
     <Content Include="Areas\scss\bootstrap\_utilities.scss" />
     <Content Include="Areas\scss\bootstrap\_variables.scss" />
     <Content Include="Areas\scss\style.scss" />
-    <Content Include="Areas\Admin\Views\AspNetRoles\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\AspNetRoles\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\AspNetRoles\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\AspNetRoles\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\AspNetRoles\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\BACSIsAdmin\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\BACSIsAdmin\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\BACSIsAdmin\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\BACSIsAdmin\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\BACSIsAdmin\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

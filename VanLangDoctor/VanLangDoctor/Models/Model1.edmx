@@ -70,65 +70,71 @@
           <Key>
             <PropertyRef Name="ID_BACSI" />
           </Key>
-          <Property Name="ID_BACSI" Type="int" Nullable="false" />
-          <Property Name="TEN_BACSI" Type="nvarchar" MaxLength="256" Nullable="false" />
-          <Property Name="SDT_BACSI" Type="int" />
-          <Property Name="TUOI" Type="int" />
-          <Property Name="EMAIL" Type="varchar" MaxLength="256" />
-          <Property Name="GIOI_TINH" Type="bit" />
-          <Property Name="KHOA" Type="nvarchar" MaxLength="256" />
-          <Property Name="NGAY_TRUC" Type="nvarchar" MaxLength="256" />
-          <Property Name="BHYT" Type="varchar" MaxLength="20" />
-          <Property Name="IMG_BACSI" Type="varchar(max)" />
-          <Property Name="CHUYENKHOA" Type="int" />
-          <Property Name="NGAYSINH_BACSI" Type="date" />
-          <Property Name="KINH_NGHIEM" Type="int" />
+          <Property Name="ID_BACSI" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TEN_BACSI" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="NGAYSINH_BS" Type="date" Nullable="false" />
+          <Property Name="GIOI_TINH" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="SDT" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="EMAIL" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="HINH_ANH" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="NGHE_NGHIEP" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ID_KHOA" Type="int" />
+          <Property Name="KINH_NGHIEM" Type="int" Nullable="false" />
+          <Property Name="NGAY_TRUC" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="BENH_AN">
           <Key>
-            <PropertyRef Name="ID_BENH_AN" />
+            <PropertyRef Name="ID_BENHAN" />
           </Key>
-          <Property Name="ID_KHOA" Type="int" Nullable="false" />
-          <Property Name="ID_BENH_AN" Type="int" Nullable="false" />
-          <Property Name="CHIEU_CAO" Type="int" Nullable="false" />
-          <Property Name="CAN_NANG" Type="int" Nullable="false" />
-          <Property Name="KET_QUA" Type="nvarchar(max)" />
-          <Property Name="CHUAN_DOAN" Type="nvarchar(max)" />
-          <Property Name="TIEN_SU_BENH" Type="nvarchar(max)" />
-          <Property Name="DIA_CHI_HIEN_TAI" Type="nvarchar" MaxLength="256" />
-          <Property Name="GHI_CHU" Type="nvarchar(max)" />
-          <Property Name="ID_BENH_NHAN" Type="int" Nullable="false" />
-          <Property Name="ID_DON_THUOC" Type="int" Nullable="false" />
+          <Property Name="ID_BENHAN" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KET_QUA" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CHUAN_DOAN" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TIEN_SU_BENH" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="GHI_CHU" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ID_BENH_NHAN" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ID_KHOA" Type="int" />
         </EntityType>
         <EntityType Name="BENH_NHAN">
           <Key>
-            <PropertyRef Name="ID_BENH_NHAN" />
+            <PropertyRef Name="ID_BENHNHAN" />
           </Key>
-          <Property Name="ID_BENH_NHAN" Type="int" Nullable="false" />
-          <Property Name="TEN_BN" Type="nvarchar" MaxLength="256" Nullable="false" />
-          <Property Name="TUOI" Type="int" Nullable="false" />
-          <Property Name="EMAIL" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="ID_BENHNHAN" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TEN_BN" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="GIOI_TINH" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="NGAY_SINH" Type="date" Nullable="false" />
+          <Property Name="EMAIL" Type="nvarchar(max)" Nullable="false" />
           <Property Name="SDT" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="GIOI_TINH" Type="bit" Nullable="false" />
-          <Property Name="CHUAN_DOAN" Type="nvarchar" MaxLength="256" Nullable="false" />
-          <Property Name="NGHE_NGHIEP" Type="nvarchar" MaxLength="256" Nullable="false" />
-          <Property Name="BHYT" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="ID_BACSI" Type="int" Nullable="false" />
-          <Property Name="ID_BENH_AN" Type="int" Nullable="false" />
-          <Property Name="NGAY_SINH" Type="date" />
+          <Property Name="CHUAN_DOAN" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ID_BACSI" Type="int" />
+          <Property Name="ID_BENH_AN" Type="int" />
+        </EntityType>
+        <EntityType Name="DANG_KY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HO_TEN" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="NGAY_SINH" Type="date" Nullable="false" />
+          <Property Name="GIOI_TINH" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="NGHE_NGHIEP" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="MUC_TIEU" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="HOC_VAN" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="EMAIL" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CHUNG_CHI" Type="nvarchar(max)" />
+          <Property Name="SDT" Type="varchar" MaxLength="10" />
+          <Property Name="ID_KHOA" Type="int" />
         </EntityType>
         <EntityType Name="DON_THUOC">
           <Key>
             <PropertyRef Name="ID_DON_THUOC" />
           </Key>
-          <Property Name="ID_DON_THUOC" Type="int" Nullable="false" />
-          <Property Name="CHUAN_DOAN" Type="nvarchar(max)" />
-          <Property Name="CHI_DINH" Type="nvarchar(max)" />
-          <Property Name="LOI_DAN" Type="nvarchar(max)" />
-          <Property Name="NGAY_LAP" Type="date" />
-          <Property Name="ID_THUOC" Type="int" Nullable="false" />
-          <Property Name="ID_BENH_NHAN" Type="int" Nullable="false" />
-          <Property Name="ID_BACSI" Type="int" Nullable="false" />
+          <Property Name="ID_DON_THUOC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CHUAN_DOAN" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CHI_DINH" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LOI_DAN" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="NGAY_LAP" Type="date" Nullable="false" />
+          <Property Name="ID_BENH_NHAN" Type="int" />
+          <Property Name="ID_BACSI" Type="int" />
         </EntityType>
         <EntityType Name="KHOA">
           <Key>
@@ -151,81 +157,68 @@
           <Key>
             <PropertyRef Name="ID_THUOC" />
           </Key>
-          <Property Name="ID_THUOC" Type="int" Nullable="false" />
-          <Property Name="TEN_THUOC" Type="nvarchar" MaxLength="50" />
-          <Property Name="LIEU_LUONG" Type="int" Nullable="false" />
-          <Property Name="HANG_SX" Type="nvarchar" MaxLength="20" />
-          <Property Name="DANH_MUC" Type="nvarchar" MaxLength="50" />
-          <Property Name="MO_TA" Type="nvarchar(max)" />
+          <Property Name="ID_THUOC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TEN_THUOC" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LIEU_LUONG" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="HANG_SX" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="MO_TA" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="TIN_TUC">
           <Key>
             <PropertyRef Name="ID_TIN_TUC" />
           </Key>
-          <Property Name="ID_TIN_TUC" Type="int" Nullable="false" />
-          <Property Name="TEN_BAI_VIET" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="ID_TIN_TUC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TEN_BAI_VIET" Type="nvarchar(max)" Nullable="false" />
           <Property Name="NGAY_DANG" Type="datetime" Nullable="false" />
-          <Property Name="NOI_DUNG" Type="nvarchar" MaxLength="256" Nullable="false" />
-          <Property Name="TAC_GIA" Type="nvarchar" MaxLength="256" Nullable="false" />
-          <Property Name="SEO_TITLE" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="NOI_DUNG" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TAC_GIA" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SEO_TITLE" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
-        <Association Name="FK__BENH_NHAN__ID_BE__4BAC3F29">
-          <End Role="BENH_AN" Type="Self.BENH_AN" Multiplicity="1" />
+        <Association Name="FK_BACSI">
+          <End Role="BACSI" Type="Self.BACSI" Multiplicity="0..1" />
+          <End Role="BENH_NHAN" Type="Self.BENH_NHAN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BACSI">
+              <PropertyRef Name="ID_BACSI" />
+            </Principal>
+            <Dependent Role="BENH_NHAN">
+              <PropertyRef Name="ID_BACSI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BACSI_DT">
+          <End Role="BACSI" Type="Self.BACSI" Multiplicity="0..1" />
+          <End Role="DON_THUOC" Type="Self.DON_THUOC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BACSI">
+              <PropertyRef Name="ID_BACSI" />
+            </Principal>
+            <Dependent Role="DON_THUOC">
+              <PropertyRef Name="ID_BACSI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BENH_AN">
+          <End Role="BENH_AN" Type="Self.BENH_AN" Multiplicity="0..1" />
           <End Role="BENH_NHAN" Type="Self.BENH_NHAN" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="BENH_AN">
-              <PropertyRef Name="ID_BENH_AN" />
+              <PropertyRef Name="ID_BENHAN" />
             </Principal>
             <Dependent Role="BENH_NHAN">
               <PropertyRef Name="ID_BENH_AN" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DON_THUOC__ID_BA__5070F446">
-          <End Role="BACSI" Type="Self.BACSI" Multiplicity="1" />
-          <End Role="DON_THUOC" Type="Self.DON_THUOC" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="BACSI">
-              <PropertyRef Name="ID_BACSI" />
-            </Principal>
-            <Dependent Role="DON_THUOC">
-              <PropertyRef Name="ID_BACSI" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__DON_THUOC__ID_BE__4F7CD00D">
-          <End Role="BENH_NHAN" Type="Self.BENH_NHAN" Multiplicity="1" />
+        <Association Name="FK_BENH_NHAN_DT">
+          <End Role="BENH_NHAN" Type="Self.BENH_NHAN" Multiplicity="0..1" />
           <End Role="DON_THUOC" Type="Self.DON_THUOC" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="BENH_NHAN">
-              <PropertyRef Name="ID_BENH_NHAN" />
+              <PropertyRef Name="ID_BENHNHAN" />
             </Principal>
             <Dependent Role="DON_THUOC">
               <PropertyRef Name="ID_BENH_NHAN" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_BA_ID_KHOA">
-          <End Role="KHOA" Type="Self.KHOA" Multiplicity="1" />
-          <End Role="BENH_AN" Type="Self.BENH_AN" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="KHOA">
-              <PropertyRef Name="ID_KHOA" />
-            </Principal>
-            <Dependent Role="BENH_AN">
-              <PropertyRef Name="ID_KHOA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_BN_ID_DT_BS_BA">
-          <End Role="BACSI" Type="Self.BACSI" Multiplicity="1" />
-          <End Role="BENH_NHAN" Type="Self.BENH_NHAN" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="BACSI">
-              <PropertyRef Name="ID_BACSI" />
-            </Principal>
-            <Dependent Role="BENH_NHAN">
-              <PropertyRef Name="ID_BACSI" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -285,19 +278,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_DT_T_BN_BS">
-          <End Role="THUOC" Type="Self.THUOC" Multiplicity="1" />
-          <End Role="DON_THUOC" Type="Self.DON_THUOC" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="THUOC">
-              <PropertyRef Name="ID_THUOC" />
-            </Principal>
-            <Dependent Role="DON_THUOC">
-              <PropertyRef Name="ID_THUOC" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_khoa">
+        <Association Name="FK_KHOA">
           <End Role="KHOA" Type="Self.KHOA" Multiplicity="0..1" />
           <End Role="BACSI" Type="Self.BACSI" Multiplicity="*" />
           <ReferentialConstraint>
@@ -305,7 +286,31 @@
               <PropertyRef Name="ID_KHOA" />
             </Principal>
             <Dependent Role="BACSI">
-              <PropertyRef Name="CHUYENKHOA" />
+              <PropertyRef Name="ID_KHOA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KHOA_BA">
+          <End Role="KHOA" Type="Self.KHOA" Multiplicity="0..1" />
+          <End Role="BENH_AN" Type="Self.BENH_AN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHOA">
+              <PropertyRef Name="ID_KHOA" />
+            </Principal>
+            <Dependent Role="BENH_AN">
+              <PropertyRef Name="ID_KHOA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KHOA_DK">
+          <End Role="KHOA" Type="Self.KHOA" Multiplicity="0..1" />
+          <End Role="DANG_KY" Type="Self.DANG_KY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHOA">
+              <PropertyRef Name="ID_KHOA" />
+            </Principal>
+            <Dependent Role="DANG_KY">
+              <PropertyRef Name="ID_KHOA" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -319,30 +324,27 @@
           <EntitySet Name="BACSI" EntityType="Self.BACSI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BENH_AN" EntityType="Self.BENH_AN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BENH_NHAN" EntityType="Self.BENH_NHAN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DANG_KY" EntityType="Self.DANG_KY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DON_THUOC" EntityType="Self.DON_THUOC" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="KHOA" EntityType="Self.KHOA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="THUOC" EntityType="Self.THUOC" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TIN_TUC" EntityType="Self.TIN_TUC" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__BENH_NHAN__ID_BE__4BAC3F29" Association="Self.FK__BENH_NHAN__ID_BE__4BAC3F29">
-            <End Role="BENH_AN" EntitySet="BENH_AN" />
+          <AssociationSet Name="FK_BACSI" Association="Self.FK_BACSI">
+            <End Role="BACSI" EntitySet="BACSI" />
             <End Role="BENH_NHAN" EntitySet="BENH_NHAN" />
           </AssociationSet>
-          <AssociationSet Name="FK__DON_THUOC__ID_BA__5070F446" Association="Self.FK__DON_THUOC__ID_BA__5070F446">
+          <AssociationSet Name="FK_BACSI_DT" Association="Self.FK_BACSI_DT">
             <End Role="BACSI" EntitySet="BACSI" />
             <End Role="DON_THUOC" EntitySet="DON_THUOC" />
           </AssociationSet>
-          <AssociationSet Name="FK__DON_THUOC__ID_BE__4F7CD00D" Association="Self.FK__DON_THUOC__ID_BE__4F7CD00D">
+          <AssociationSet Name="FK_BENH_AN" Association="Self.FK_BENH_AN">
+            <End Role="BENH_AN" EntitySet="BENH_AN" />
+            <End Role="BENH_NHAN" EntitySet="BENH_NHAN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BENH_NHAN_DT" Association="Self.FK_BENH_NHAN_DT">
             <End Role="BENH_NHAN" EntitySet="BENH_NHAN" />
             <End Role="DON_THUOC" EntitySet="DON_THUOC" />
-          </AssociationSet>
-          <AssociationSet Name="FK_BA_ID_KHOA" Association="Self.FK_BA_ID_KHOA">
-            <End Role="KHOA" EntitySet="KHOA" />
-            <End Role="BENH_AN" EntitySet="BENH_AN" />
-          </AssociationSet>
-          <AssociationSet Name="FK_BN_ID_DT_BS_BA" Association="Self.FK_BN_ID_DT_BS_BA">
-            <End Role="BACSI" EntitySet="BACSI" />
-            <End Role="BENH_NHAN" EntitySet="BENH_NHAN" />
           </AssociationSet>
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
@@ -360,13 +362,17 @@
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
           </AssociationSet>
-          <AssociationSet Name="FK_DT_T_BN_BS" Association="Self.FK_DT_T_BN_BS">
-            <End Role="THUOC" EntitySet="THUOC" />
-            <End Role="DON_THUOC" EntitySet="DON_THUOC" />
-          </AssociationSet>
-          <AssociationSet Name="FK_khoa" Association="Self.FK_khoa">
+          <AssociationSet Name="FK_KHOA" Association="Self.FK_KHOA">
             <End Role="KHOA" EntitySet="KHOA" />
             <End Role="BACSI" EntitySet="BACSI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KHOA_BA" Association="Self.FK_KHOA_BA">
+            <End Role="KHOA" EntitySet="KHOA" />
+            <End Role="BENH_AN" EntitySet="BENH_AN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KHOA_DK" Association="Self.FK_KHOA_DK">
+            <End Role="KHOA" EntitySet="KHOA" />
+            <End Role="DANG_KY" EntitySet="DANG_KY" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -382,6 +388,7 @@
           <EntitySet Name="BACSIs" EntityType="CP24Team02Model.BACSI" />
           <EntitySet Name="BENH_AN" EntityType="CP24Team02Model.BENH_AN" />
           <EntitySet Name="BENH_NHAN" EntityType="CP24Team02Model.BENH_NHAN" />
+          <EntitySet Name="DANG_KY" EntityType="CP24Team02Model.DANG_KY" />
           <EntitySet Name="DON_THUOC" EntityType="CP24Team02Model.DON_THUOC" />
           <EntitySet Name="KHOAs" EntityType="CP24Team02Model.KHOA" />
           <EntitySet Name="sysdiagrams" EntityType="CP24Team02Model.sysdiagram" />
@@ -395,33 +402,33 @@
             <End Role="AspNetUser" EntitySet="AspNetUsers" />
             <End Role="AspNetUserLogin" EntitySet="AspNetUserLogins" />
           </AssociationSet>
-          <AssociationSet Name="FK__DON_THUOC__ID_BA__5070F446" Association="CP24Team02Model.FK__DON_THUOC__ID_BA__5070F446">
-            <End Role="BACSI" EntitySet="BACSIs" />
-            <End Role="DON_THUOC" EntitySet="DON_THUOC" />
-          </AssociationSet>
-          <AssociationSet Name="FK_BN_ID_DT_BS_BA" Association="CP24Team02Model.FK_BN_ID_DT_BS_BA">
+          <AssociationSet Name="FK_BACSI" Association="CP24Team02Model.FK_BACSI">
             <End Role="BACSI" EntitySet="BACSIs" />
             <End Role="BENH_NHAN" EntitySet="BENH_NHAN" />
           </AssociationSet>
-          <AssociationSet Name="FK_khoa" Association="CP24Team02Model.FK_khoa">
+          <AssociationSet Name="FK_BACSI_DT" Association="CP24Team02Model.FK_BACSI_DT">
+            <End Role="BACSI" EntitySet="BACSIs" />
+            <End Role="DON_THUOC" EntitySet="DON_THUOC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KHOA" Association="CP24Team02Model.FK_KHOA">
             <End Role="KHOA" EntitySet="KHOAs" />
             <End Role="BACSI" EntitySet="BACSIs" />
           </AssociationSet>
-          <AssociationSet Name="FK__BENH_NHAN__ID_BE__4BAC3F29" Association="CP24Team02Model.FK__BENH_NHAN__ID_BE__4BAC3F29">
+          <AssociationSet Name="FK_BENH_AN" Association="CP24Team02Model.FK_BENH_AN">
             <End Role="BENH_AN" EntitySet="BENH_AN" />
             <End Role="BENH_NHAN" EntitySet="BENH_NHAN" />
           </AssociationSet>
-          <AssociationSet Name="FK_BA_ID_KHOA" Association="CP24Team02Model.FK_BA_ID_KHOA">
+          <AssociationSet Name="FK_KHOA_BA" Association="CP24Team02Model.FK_KHOA_BA">
             <End Role="KHOA" EntitySet="KHOAs" />
             <End Role="BENH_AN" EntitySet="BENH_AN" />
           </AssociationSet>
-          <AssociationSet Name="FK__DON_THUOC__ID_BE__4F7CD00D" Association="CP24Team02Model.FK__DON_THUOC__ID_BE__4F7CD00D">
+          <AssociationSet Name="FK_BENH_NHAN_DT" Association="CP24Team02Model.FK_BENH_NHAN_DT">
             <End Role="BENH_NHAN" EntitySet="BENH_NHAN" />
             <End Role="DON_THUOC" EntitySet="DON_THUOC" />
           </AssociationSet>
-          <AssociationSet Name="FK_DT_T_BN_BS" Association="CP24Team02Model.FK_DT_T_BN_BS">
-            <End Role="THUOC" EntitySet="THUOCs" />
-            <End Role="DON_THUOC" EntitySet="DON_THUOC" />
+          <AssociationSet Name="FK_KHOA_DK" Association="CP24Team02Model.FK_KHOA_DK">
+            <End Role="KHOA" EntitySet="KHOAs" />
+            <End Role="DANG_KY" EntitySet="DANG_KY" />
           </AssociationSet>
           <AssociationSet Name="AspNetUserRoles" Association="CP24Team02Model.AspNetUserRoles">
             <End Role="AspNetRole" EntitySet="AspNetRoles" />
@@ -491,76 +498,82 @@
           <Key>
             <PropertyRef Name="ID_BACSI" />
           </Key>
-          <Property Name="ID_BACSI" Type="Int32" Nullable="false" />
-          <Property Name="TEN_BACSI" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="SDT_BACSI" Type="Int32" />
-          <Property Name="TUOI" Type="Int32" />
-          <Property Name="EMAIL" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
-          <Property Name="GIOI_TINH" Type="Boolean" />
-          <Property Name="KHOA" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="NGAY_TRUC" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="BHYT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="IMG_BACSI" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="CHUYENKHOA" Type="Int32" />
-          <Property Name="NGAYSINH_BACSI" Type="DateTime" />
-          <Property Name="KINH_NGHIEM" Type="Int32" />
-          <NavigationProperty Name="DON_THUOC" Relationship="CP24Team02Model.FK__DON_THUOC__ID_BA__5070F446" FromRole="BACSI" ToRole="DON_THUOC" />
-          <NavigationProperty Name="BENH_NHAN" Relationship="CP24Team02Model.FK_BN_ID_DT_BS_BA" FromRole="BACSI" ToRole="BENH_NHAN" />
-          <NavigationProperty Name="KHOA1" Relationship="CP24Team02Model.FK_khoa" FromRole="BACSI" ToRole="KHOA" />
+          <Property Name="ID_BACSI" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TEN_BACSI" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NGAYSINH_BS" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="GIOI_TINH" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="SDT" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HINH_ANH" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NGHE_NGHIEP" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ID_KHOA" Type="Int32" />
+          <Property Name="KINH_NGHIEM" Type="Int32" Nullable="false" />
+          <Property Name="NGAY_TRUC" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="BENH_NHAN" Relationship="CP24Team02Model.FK_BACSI" FromRole="BACSI" ToRole="BENH_NHAN" />
+          <NavigationProperty Name="DON_THUOC" Relationship="CP24Team02Model.FK_BACSI_DT" FromRole="BACSI" ToRole="DON_THUOC" />
+          <NavigationProperty Name="KHOA" Relationship="CP24Team02Model.FK_KHOA" FromRole="BACSI" ToRole="KHOA" />
         </EntityType>
         <EntityType Name="BENH_AN">
           <Key>
-            <PropertyRef Name="ID_BENH_AN" />
+            <PropertyRef Name="ID_BENHAN" />
           </Key>
-          <Property Name="ID_KHOA" Type="Int32" Nullable="false" />
-          <Property Name="ID_BENH_AN" Type="Int32" Nullable="false" />
-          <Property Name="CHIEU_CAO" Type="Int32" Nullable="false" />
-          <Property Name="CAN_NANG" Type="Int32" Nullable="false" />
-          <Property Name="KET_QUA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="CHUAN_DOAN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="TIEN_SU_BENH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="DIA_CHI_HIEN_TAI" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="GHI_CHU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="ID_BENH_NHAN" Type="Int32" Nullable="false" />
-          <Property Name="ID_DON_THUOC" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="BENH_NHAN" Relationship="CP24Team02Model.FK__BENH_NHAN__ID_BE__4BAC3F29" FromRole="BENH_AN" ToRole="BENH_NHAN" />
-          <NavigationProperty Name="KHOA" Relationship="CP24Team02Model.FK_BA_ID_KHOA" FromRole="BENH_AN" ToRole="KHOA" />
+          <Property Name="ID_BENHAN" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KET_QUA" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CHUAN_DOAN" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TIEN_SU_BENH" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GHI_CHU" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ID_BENH_NHAN" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ID_KHOA" Type="Int32" />
+          <NavigationProperty Name="BENH_NHAN" Relationship="CP24Team02Model.FK_BENH_AN" FromRole="BENH_AN" ToRole="BENH_NHAN" />
+          <NavigationProperty Name="KHOA" Relationship="CP24Team02Model.FK_KHOA_BA" FromRole="BENH_AN" ToRole="KHOA" />
         </EntityType>
         <EntityType Name="BENH_NHAN">
           <Key>
-            <PropertyRef Name="ID_BENH_NHAN" />
+            <PropertyRef Name="ID_BENHNHAN" />
           </Key>
-          <Property Name="ID_BENH_NHAN" Type="Int32" Nullable="false" />
-          <Property Name="TEN_BN" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="TUOI" Type="Int32" Nullable="false" />
-          <Property Name="EMAIL" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="ID_BENHNHAN" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TEN_BN" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GIOI_TINH" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="NGAY_SINH" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="EMAIL" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="SDT" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="GIOI_TINH" Type="Boolean" Nullable="false" />
-          <Property Name="CHUAN_DOAN" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="NGHE_NGHIEP" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="BHYT" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ID_BACSI" Type="Int32" Nullable="false" />
-          <Property Name="ID_BENH_AN" Type="Int32" Nullable="false" />
-          <Property Name="NGAY_SINH" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="BACSI" Relationship="CP24Team02Model.FK_BN_ID_DT_BS_BA" FromRole="BENH_NHAN" ToRole="BACSI" />
-          <NavigationProperty Name="BENH_AN" Relationship="CP24Team02Model.FK__BENH_NHAN__ID_BE__4BAC3F29" FromRole="BENH_NHAN" ToRole="BENH_AN" />
-          <NavigationProperty Name="DON_THUOC" Relationship="CP24Team02Model.FK__DON_THUOC__ID_BE__4F7CD00D" FromRole="BENH_NHAN" ToRole="DON_THUOC" />
+          <Property Name="CHUAN_DOAN" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ID_BACSI" Type="Int32" />
+          <Property Name="ID_BENH_AN" Type="Int32" />
+          <NavigationProperty Name="BACSI" Relationship="CP24Team02Model.FK_BACSI" FromRole="BENH_NHAN" ToRole="BACSI" />
+          <NavigationProperty Name="BENH_AN" Relationship="CP24Team02Model.FK_BENH_AN" FromRole="BENH_NHAN" ToRole="BENH_AN" />
+          <NavigationProperty Name="DON_THUOC" Relationship="CP24Team02Model.FK_BENH_NHAN_DT" FromRole="BENH_NHAN" ToRole="DON_THUOC" />
+        </EntityType>
+        <EntityType Name="DANG_KY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HO_TEN" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NGAY_SINH" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="GIOI_TINH" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NGHE_NGHIEP" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MUC_TIEU" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HOC_VAN" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="EMAIL" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CHUNG_CHI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SDT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ID_KHOA" Type="Int32" />
+          <NavigationProperty Name="KHOA" Relationship="CP24Team02Model.FK_KHOA_DK" FromRole="DANG_KY" ToRole="KHOA" />
         </EntityType>
         <EntityType Name="DON_THUOC">
           <Key>
             <PropertyRef Name="ID_DON_THUOC" />
           </Key>
-          <Property Name="ID_DON_THUOC" Type="Int32" Nullable="false" />
-          <Property Name="CHUAN_DOAN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="CHI_DINH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="LOI_DAN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="NGAY_LAP" Type="DateTime" Precision="0" />
-          <Property Name="ID_THUOC" Type="Int32" Nullable="false" />
-          <Property Name="ID_BENH_NHAN" Type="Int32" Nullable="false" />
-          <Property Name="ID_BACSI" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="BACSI" Relationship="CP24Team02Model.FK__DON_THUOC__ID_BA__5070F446" FromRole="DON_THUOC" ToRole="BACSI" />
-          <NavigationProperty Name="BENH_NHAN" Relationship="CP24Team02Model.FK__DON_THUOC__ID_BE__4F7CD00D" FromRole="DON_THUOC" ToRole="BENH_NHAN" />
-          <NavigationProperty Name="THUOC" Relationship="CP24Team02Model.FK_DT_T_BN_BS" FromRole="DON_THUOC" ToRole="THUOC" />
+          <Property Name="ID_DON_THUOC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CHUAN_DOAN" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CHI_DINH" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LOI_DAN" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NGAY_LAP" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ID_BENH_NHAN" Type="Int32" />
+          <Property Name="ID_BACSI" Type="Int32" />
+          <NavigationProperty Name="BACSI" Relationship="CP24Team02Model.FK_BACSI_DT" FromRole="DON_THUOC" ToRole="BACSI" />
+          <NavigationProperty Name="BENH_NHAN" Relationship="CP24Team02Model.FK_BENH_NHAN_DT" FromRole="DON_THUOC" ToRole="BENH_NHAN" />
         </EntityType>
         <EntityType Name="KHOA">
           <Key>
@@ -568,8 +581,9 @@
           </Key>
           <Property Name="ID_KHOA" Type="Int32" Nullable="false" />
           <Property Name="TEN_KHOA" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="BACSIs" Relationship="CP24Team02Model.FK_khoa" FromRole="KHOA" ToRole="BACSI" />
-          <NavigationProperty Name="BENH_AN" Relationship="CP24Team02Model.FK_BA_ID_KHOA" FromRole="KHOA" ToRole="BENH_AN" />
+          <NavigationProperty Name="BACSIs" Relationship="CP24Team02Model.FK_KHOA" FromRole="KHOA" ToRole="BACSI" />
+          <NavigationProperty Name="BENH_AN" Relationship="CP24Team02Model.FK_KHOA_BA" FromRole="KHOA" ToRole="BENH_AN" />
+          <NavigationProperty Name="DANG_KY" Relationship="CP24Team02Model.FK_KHOA_DK" FromRole="KHOA" ToRole="DANG_KY" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -585,24 +599,22 @@
           <Key>
             <PropertyRef Name="ID_THUOC" />
           </Key>
-          <Property Name="ID_THUOC" Type="Int32" Nullable="false" />
-          <Property Name="TEN_THUOC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LIEU_LUONG" Type="Int32" Nullable="false" />
-          <Property Name="HANG_SX" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="DANH_MUC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MO_TA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="DON_THUOC" Relationship="CP24Team02Model.FK_DT_T_BN_BS" FromRole="THUOC" ToRole="DON_THUOC" />
+          <Property Name="ID_THUOC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TEN_THUOC" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LIEU_LUONG" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HANG_SX" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MO_TA" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="TIN_TUC">
           <Key>
             <PropertyRef Name="ID_TIN_TUC" />
           </Key>
-          <Property Name="ID_TIN_TUC" Type="Int32" Nullable="false" />
-          <Property Name="TEN_BAI_VIET" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="ID_TIN_TUC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TEN_BAI_VIET" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="NGAY_DANG" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="NOI_DUNG" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="TAC_GIA" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="SEO_TITLE" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="NOI_DUNG" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TAC_GIA" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SEO_TITLE" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Type="CP24Team02Model.AspNetUser" Role="AspNetUser" Multiplicity="1">
@@ -632,8 +644,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DON_THUOC__ID_BA__5070F446">
-          <End Type="CP24Team02Model.BACSI" Role="BACSI" Multiplicity="1" />
+        <Association Name="FK_BACSI">
+          <End Type="CP24Team02Model.BACSI" Role="BACSI" Multiplicity="0..1" />
+          <End Type="CP24Team02Model.BENH_NHAN" Role="BENH_NHAN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BACSI">
+              <PropertyRef Name="ID_BACSI" />
+            </Principal>
+            <Dependent Role="BENH_NHAN">
+              <PropertyRef Name="ID_BACSI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BACSI_DT">
+          <End Type="CP24Team02Model.BACSI" Role="BACSI" Multiplicity="0..1" />
           <End Type="CP24Team02Model.DON_THUOC" Role="DON_THUOC" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="BACSI">
@@ -644,19 +668,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_BN_ID_DT_BS_BA">
-          <End Type="CP24Team02Model.BACSI" Role="BACSI" Multiplicity="1" />
-          <End Type="CP24Team02Model.BENH_NHAN" Role="BENH_NHAN" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="BACSI">
-              <PropertyRef Name="ID_BACSI" />
-            </Principal>
-            <Dependent Role="BENH_NHAN">
-              <PropertyRef Name="ID_BACSI" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_khoa">
+        <Association Name="FK_KHOA">
           <End Type="CP24Team02Model.KHOA" Role="KHOA" Multiplicity="0..1" />
           <End Type="CP24Team02Model.BACSI" Role="BACSI" Multiplicity="*" />
           <ReferentialConstraint>
@@ -664,24 +676,24 @@
               <PropertyRef Name="ID_KHOA" />
             </Principal>
             <Dependent Role="BACSI">
-              <PropertyRef Name="CHUYENKHOA" />
+              <PropertyRef Name="ID_KHOA" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__BENH_NHAN__ID_BE__4BAC3F29">
-          <End Type="CP24Team02Model.BENH_AN" Role="BENH_AN" Multiplicity="1" />
+        <Association Name="FK_BENH_AN">
+          <End Type="CP24Team02Model.BENH_AN" Role="BENH_AN" Multiplicity="0..1" />
           <End Type="CP24Team02Model.BENH_NHAN" Role="BENH_NHAN" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="BENH_AN">
-              <PropertyRef Name="ID_BENH_AN" />
+              <PropertyRef Name="ID_BENHAN" />
             </Principal>
             <Dependent Role="BENH_NHAN">
               <PropertyRef Name="ID_BENH_AN" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_BA_ID_KHOA">
-          <End Type="CP24Team02Model.KHOA" Role="KHOA" Multiplicity="1" />
+        <Association Name="FK_KHOA_BA">
+          <End Type="CP24Team02Model.KHOA" Role="KHOA" Multiplicity="0..1" />
           <End Type="CP24Team02Model.BENH_AN" Role="BENH_AN" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="KHOA">
@@ -692,27 +704,27 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DON_THUOC__ID_BE__4F7CD00D">
-          <End Type="CP24Team02Model.BENH_NHAN" Role="BENH_NHAN" Multiplicity="1" />
+        <Association Name="FK_BENH_NHAN_DT">
+          <End Type="CP24Team02Model.BENH_NHAN" Role="BENH_NHAN" Multiplicity="0..1" />
           <End Type="CP24Team02Model.DON_THUOC" Role="DON_THUOC" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="BENH_NHAN">
-              <PropertyRef Name="ID_BENH_NHAN" />
+              <PropertyRef Name="ID_BENHNHAN" />
             </Principal>
             <Dependent Role="DON_THUOC">
               <PropertyRef Name="ID_BENH_NHAN" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_DT_T_BN_BS">
-          <End Type="CP24Team02Model.THUOC" Role="THUOC" Multiplicity="1" />
-          <End Type="CP24Team02Model.DON_THUOC" Role="DON_THUOC" Multiplicity="*" />
+        <Association Name="FK_KHOA_DK">
+          <End Type="CP24Team02Model.KHOA" Role="KHOA" Multiplicity="0..1" />
+          <End Type="CP24Team02Model.DANG_KY" Role="DANG_KY" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="THUOC">
-              <PropertyRef Name="ID_THUOC" />
+            <Principal Role="KHOA">
+              <PropertyRef Name="ID_KHOA" />
             </Principal>
-            <Dependent Role="DON_THUOC">
-              <PropertyRef Name="ID_THUOC" />
+            <Dependent Role="DANG_KY">
+              <PropertyRef Name="ID_KHOA" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -784,17 +796,15 @@
           <EntitySetMapping Name="BACSIs">
             <EntityTypeMapping TypeName="CP24Team02Model.BACSI">
               <MappingFragment StoreEntitySet="BACSI">
-                <ScalarProperty Name="KINH_NGHIEM" ColumnName="KINH_NGHIEM" />
-                <ScalarProperty Name="NGAYSINH_BACSI" ColumnName="NGAYSINH_BACSI" />
-                <ScalarProperty Name="CHUYENKHOA" ColumnName="CHUYENKHOA" />
-                <ScalarProperty Name="IMG_BACSI" ColumnName="IMG_BACSI" />
-                <ScalarProperty Name="BHYT" ColumnName="BHYT" />
                 <ScalarProperty Name="NGAY_TRUC" ColumnName="NGAY_TRUC" />
-                <ScalarProperty Name="KHOA" ColumnName="KHOA" />
-                <ScalarProperty Name="GIOI_TINH" ColumnName="GIOI_TINH" />
+                <ScalarProperty Name="KINH_NGHIEM" ColumnName="KINH_NGHIEM" />
+                <ScalarProperty Name="ID_KHOA" ColumnName="ID_KHOA" />
+                <ScalarProperty Name="NGHE_NGHIEP" ColumnName="NGHE_NGHIEP" />
+                <ScalarProperty Name="HINH_ANH" ColumnName="HINH_ANH" />
                 <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
-                <ScalarProperty Name="TUOI" ColumnName="TUOI" />
-                <ScalarProperty Name="SDT_BACSI" ColumnName="SDT_BACSI" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="GIOI_TINH" ColumnName="GIOI_TINH" />
+                <ScalarProperty Name="NGAYSINH_BS" ColumnName="NGAYSINH_BS" />
                 <ScalarProperty Name="TEN_BACSI" ColumnName="TEN_BACSI" />
                 <ScalarProperty Name="ID_BACSI" ColumnName="ID_BACSI" />
               </MappingFragment>
@@ -803,35 +813,45 @@
           <EntitySetMapping Name="BENH_AN">
             <EntityTypeMapping TypeName="CP24Team02Model.BENH_AN">
               <MappingFragment StoreEntitySet="BENH_AN">
-                <ScalarProperty Name="ID_DON_THUOC" ColumnName="ID_DON_THUOC" />
+                <ScalarProperty Name="ID_KHOA" ColumnName="ID_KHOA" />
                 <ScalarProperty Name="ID_BENH_NHAN" ColumnName="ID_BENH_NHAN" />
                 <ScalarProperty Name="GHI_CHU" ColumnName="GHI_CHU" />
-                <ScalarProperty Name="DIA_CHI_HIEN_TAI" ColumnName="DIA_CHI_HIEN_TAI" />
                 <ScalarProperty Name="TIEN_SU_BENH" ColumnName="TIEN_SU_BENH" />
                 <ScalarProperty Name="CHUAN_DOAN" ColumnName="CHUAN_DOAN" />
                 <ScalarProperty Name="KET_QUA" ColumnName="KET_QUA" />
-                <ScalarProperty Name="CAN_NANG" ColumnName="CAN_NANG" />
-                <ScalarProperty Name="CHIEU_CAO" ColumnName="CHIEU_CAO" />
-                <ScalarProperty Name="ID_BENH_AN" ColumnName="ID_BENH_AN" />
-                <ScalarProperty Name="ID_KHOA" ColumnName="ID_KHOA" />
+                <ScalarProperty Name="ID_BENHAN" ColumnName="ID_BENHAN" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="BENH_NHAN">
             <EntityTypeMapping TypeName="CP24Team02Model.BENH_NHAN">
               <MappingFragment StoreEntitySet="BENH_NHAN">
-                <ScalarProperty Name="NGAY_SINH" ColumnName="NGAY_SINH" />
                 <ScalarProperty Name="ID_BENH_AN" ColumnName="ID_BENH_AN" />
                 <ScalarProperty Name="ID_BACSI" ColumnName="ID_BACSI" />
-                <ScalarProperty Name="BHYT" ColumnName="BHYT" />
-                <ScalarProperty Name="NGHE_NGHIEP" ColumnName="NGHE_NGHIEP" />
                 <ScalarProperty Name="CHUAN_DOAN" ColumnName="CHUAN_DOAN" />
-                <ScalarProperty Name="GIOI_TINH" ColumnName="GIOI_TINH" />
                 <ScalarProperty Name="SDT" ColumnName="SDT" />
                 <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
-                <ScalarProperty Name="TUOI" ColumnName="TUOI" />
+                <ScalarProperty Name="NGAY_SINH" ColumnName="NGAY_SINH" />
+                <ScalarProperty Name="GIOI_TINH" ColumnName="GIOI_TINH" />
                 <ScalarProperty Name="TEN_BN" ColumnName="TEN_BN" />
-                <ScalarProperty Name="ID_BENH_NHAN" ColumnName="ID_BENH_NHAN" />
+                <ScalarProperty Name="ID_BENHNHAN" ColumnName="ID_BENHNHAN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DANG_KY">
+            <EntityTypeMapping TypeName="CP24Team02Model.DANG_KY">
+              <MappingFragment StoreEntitySet="DANG_KY">
+                <ScalarProperty Name="ID_KHOA" ColumnName="ID_KHOA" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="CHUNG_CHI" ColumnName="CHUNG_CHI" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="HOC_VAN" ColumnName="HOC_VAN" />
+                <ScalarProperty Name="MUC_TIEU" ColumnName="MUC_TIEU" />
+                <ScalarProperty Name="NGHE_NGHIEP" ColumnName="NGHE_NGHIEP" />
+                <ScalarProperty Name="GIOI_TINH" ColumnName="GIOI_TINH" />
+                <ScalarProperty Name="NGAY_SINH" ColumnName="NGAY_SINH" />
+                <ScalarProperty Name="HO_TEN" ColumnName="HO_TEN" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -840,7 +860,6 @@
               <MappingFragment StoreEntitySet="DON_THUOC">
                 <ScalarProperty Name="ID_BACSI" ColumnName="ID_BACSI" />
                 <ScalarProperty Name="ID_BENH_NHAN" ColumnName="ID_BENH_NHAN" />
-                <ScalarProperty Name="ID_THUOC" ColumnName="ID_THUOC" />
                 <ScalarProperty Name="NGAY_LAP" ColumnName="NGAY_LAP" />
                 <ScalarProperty Name="LOI_DAN" ColumnName="LOI_DAN" />
                 <ScalarProperty Name="CHI_DINH" ColumnName="CHI_DINH" />
@@ -872,7 +891,6 @@
             <EntityTypeMapping TypeName="CP24Team02Model.THUOC">
               <MappingFragment StoreEntitySet="THUOC">
                 <ScalarProperty Name="MO_TA" ColumnName="MO_TA" />
-                <ScalarProperty Name="DANH_MUC" ColumnName="DANH_MUC" />
                 <ScalarProperty Name="HANG_SX" ColumnName="HANG_SX" />
                 <ScalarProperty Name="LIEU_LUONG" ColumnName="LIEU_LUONG" />
                 <ScalarProperty Name="TEN_THUOC" ColumnName="TEN_THUOC" />
