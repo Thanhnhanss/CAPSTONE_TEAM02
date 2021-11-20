@@ -1,0 +1,105 @@
+﻿@model VanLangDoctor.Models.BACSI
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>BACSI</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TEN_BACSI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TEN_BACSI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAYSINH_BS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAYSINH_BS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GIOI_TINH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GIOI_TINH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EMAIL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMAIL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HINH_ANH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HINH_ANH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGHE_NGHIEP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGHE_NGHIEP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KINH_NGHIEM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KINH_NGHIEM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAY_TRUC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAY_TRUC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KHOA.TEN_KHOA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KHOA.TEN_KHOA)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
