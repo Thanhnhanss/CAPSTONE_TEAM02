@@ -108,49 +108,47 @@
                     border-left: 2px solid #5b9bd1;
                     margin-left: -2px;
                 }
+
+    #inf-doctor ul {
+        background-color: #E6E6FA;
+        list-style-type: none;
+        text-align: center;
+    }
+
+    #inf-doctor li {
+        color: #f1f1f1;
+        display: inline-block;
+        width: 120px;
+        height: 40px;
+        line-height: 40px;
+        margin-left: -5px;
+        font-size: larger;
+    }
 </style>
 
-
-<!--<div class="container">
-    <div class="featured-products home_2 new-arrivals lastest">
-        <div class="tab-container space-10">
-            <div id="tab_1" class="tab-content">
-                <div class="products hover-shadow ver2 border-space-product border-space-product">
-                    <div class="product">
-                        <div class="product-images">
-                            <a href="#" title="product-images">
-                                <img class="primary_image" src="assets/images/products/featured/1.jpg" alt="" />
-                                <img class="secondary_image" src="assets/images/products/featured/1.jpg" alt="" />
-                            </a>-->
-<!-- End action -->
-<!--</div>
-    <a href="#" title="Union Bed"><p class="product-title">BlueBerry</p></a>
-    <p class="product-price-old">$700.00</p>
-    <p class="product-price">$350.00</p>
-
-</div>-->
-<!-- End item -->
-<!--</div>-->
-<!-- End product-tab-content products -->
-<!--</div>
-</div>-->
-<!-- End tab-content -->
-<!--</div>
-</div>-->
+<div class="container">
+    <div class="banner-header banner-lbook3 space-30">
+        <img src="~/Content/assets-ff/images/banner/285867aaa8b681b.jpg" alt="Banner-header">
+        <div class="text">
+            <h3>Danh sách bác sĩ</h3>
+            <p><a href="#" title="Home">Home</a><i class="fa fa-caret-right"></i>Danh sách bác sĩ</p>
+        </div>
+    </div>
+</div>
 
 <div class="container">
     <div class="container">
         <div class="row profile">
-            <div class="col-md-3">
-                @foreach (var item in Model)
-                {
+            @foreach (var item in Model)
+            {
+                <div class="col-md-3">
                     <div class="profile-sidebar">
                         <div class="profile-userpic">
-                            <img src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/bootstrap_user_profile/images/profile_user.jpg" class="img-responsive" alt="Thông tin cá nhân">
+                            <img src="~/Content/assets-ff/images/d.jpg" class="img-responsive" alt="Thông tin cá nhân">
                         </div>
                         <div class="profile-usertitle">
                             <div class="profile-usertitle-name">@Html.DisplayFor(modelItem => item.TEN_BACSI)</div>
-                            <div class="profile-usertitle-job">@Html.DisplayFor(modelItem => item.KHOA1.TEN_KHOA)</div>
+                            <div class="profile-usertitle-job">@Html.DisplayFor(modelItem => item.KHOA.TEN_KHOA)</div>
                         </div>
                         <div class="profile-userbuttons">
                             <button type="button" class="btn btn-success btn-sm">@Html.ActionLink("Chi tiết", "Details", new { id = item.ID_BACSI })</button>
@@ -158,23 +156,37 @@
                         <div class="profile-usermenu">
                             <ul class="nav">
                                 <li>
-                                    <a href="#"><i class="glyphicon glyphicon-heart"></i>@Html.DisplayFor(modelItem => item.TUOI) Tuổi</a>
+                                    <a href="#" target="_blank"><i class="glyphicon glyphicon-heart"></i>Tuổi</a>
                                 </li>
                                 <li>
-                                    <a href="#" target="_blank"><i class="glyphicon glyphicon-phone"></i>(+84) @Html.DisplayFor(modelItem => item.SDT_BACSI)</a>
+                                    <a href="#" target="_blank"><i class="glyphicon glyphicon-education"></i>@Html.DisplayFor(modelItem => item.KINH_NGHIEM) kinh nghiệm</a>
                                 </li>
+                            </ul>
+                        </div>
+                        <div id="inf-doctor" class="col-1">
+                            <ul>
                                 <li>
-                                    <a href="#"><i class="glyphicon glyphicon-envelope"></i>@Html.DisplayFor(modelItem => item.EMAIL)</a>
+                                    <a href="#" data-toggle="tooltip" title="(+84) @Html.DisplayFor(modelItem => item.SDT)"><i class="glyphicon glyphicon-phone-alt"></i></a>
+                                </li>
+
+                                <li>
+                                    <a href="#" data-toggle="tooltip" title="@Html.DisplayFor(modelItem => item.EMAIL)"><i class="glyphicon glyphicon-comment"></i></a>
                                 </li>
                             </ul>
                         </div>
                     </div>
-                }
+                </div>
+            }
             </div>
-        </div>
     </div>
 </div>
 
 @*@Html.DisplayFor(modelItem => item.IMG_BACSI)*@
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>

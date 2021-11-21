@@ -61,6 +61,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -174,9 +175,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\QL_BacSiController.cs" />
     <Compile Include="Areas\Admin\Controllers\QL_BenhNhanController.cs" />
-    <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\QL_TinTucController.cs" />
     <Compile Include="Areas\User\Controllers\BacSiController.cs" />
     <Compile Include="Areas\User\Controllers\HomeUserController.cs" />
     <Compile Include="Areas\User\UserAreaRegistration.cs" />
@@ -209,6 +211,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\C__MigrationHistory.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DANG_KY.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DON_THUOC.cs">
@@ -706,6 +711,7 @@
     <Content Include="Content\assets-ff\images\banner-blog.jpg" />
     <Content Include="Content\assets-ff\images\banner-home3.jpg" />
     <Content Include="Content\assets-ff\images\banner\2.jpg" />
+    <Content Include="Content\assets-ff\images\banner\285867aaa8b681b.jpg" />
     <Content Include="Content\assets-ff\images\banner\3.jpg" />
     <Content Include="Content\assets-ff\images\banner\6.jpg" />
     <Content Include="Content\assets-ff\images\banner\7.jpg" />
@@ -992,6 +998,7 @@
     <Content Include="Content\docs-ad\docs.html" />
     <Content Include="Content\docs-ad\highlights\highlight.min.css" />
     <Content Include="Content\docs-ad\highlights\highlight.min.js" />
+    <Content Include="Content\main.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -1524,18 +1531,23 @@
     <Content Include="Content\scss-ad\fonts\landingpage_fonts.scss" />
     <Content Include="Content\scss-ad\icons\icons.scss" />
     <Content Include="Content\scss-ad\style.scss" />
-    <Content Include="Areas\Admin\Views\QL_BenhNhan\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\QL_BenhNhan\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\QL_BenhNhan\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\QL_BenhNhan\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\QL_BenhNhan\Benh_Nhan.cshtml" />
+    <Content Include="Areas\User\Views\BacSi\Details.cshtml" />
+    <Content Include="Areas\User\Views\BacSi\Bac_Si.cshtml" />
     <Content Include="Areas\Admin\Views\QL_BacSi\Create.cshtml" />
     <Content Include="Areas\Admin\Views\QL_BacSi\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\QL_BacSi\Details.cshtml" />
     <Content Include="Areas\Admin\Views\QL_BacSi\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\QL_BacSi\Bac_Si.cshtml" />
-    <Content Include="Areas\User\Views\BacSi\Details.cshtml" />
-    <Content Include="Areas\User\Views\BacSi\Bac_Si.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_BenhNhan\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_BenhNhan\Delete_BN.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_BenhNhan\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_BenhNhan\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_BenhNhan\Benh_Nhan.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_TinTuc\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_TinTuc\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_TinTuc\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_TinTuc\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_TinTuc\Tin_tuc.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -1587,6 +1599,7 @@
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\User\Models\" />
     <Folder Include="Content\assets-ff\css\components\Ecommerce\" />
+    <Folder Include="Content\IMG_DOCTOR\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -1,14 +1,14 @@
 ﻿@model IEnumerable<VanLangDoctor.Models.BACSI>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "QL_BacSi";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
 <div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
      data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
 
-    <div class="page-wrapper">
+    <div class="page-wrapper" style="display: block">
         <!-- ============================================================== -->
         <!-- Bread crumb and right sidebar toggle -->
         <!-- ============================================================== -->
@@ -20,7 +20,7 @@
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb m-0 p-0">
                                 <li class="breadcrumb-item">
-                                    <a href="#">Thông tin bệnh nhân</a>
+                                    <a href="@Url.Action("Bac_Si", "QL_BacSi")">Thông tin bác sĩ</a>
                                 </li>
                             </ol>
                         </nav>
@@ -36,70 +36,88 @@
         <!-- ============================================================== -->
         <div class="container-fluid">
             <p>
-                @Html.ActionLink("Thêm mới", "Create")
+                @Html.ActionLink("Thêm", "Create")
             </p>
-            <table class="table">
-                <tr>
-                    <th>Hình ảnh</th>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table id="zero_config" class="table table-striped table-bordered no-wrap">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Hình ảnh</th>
+                                            <th>Tên bác sĩ</th>
+                                            <th>Ngày sinh</th>
+                                            <th>Giới tính</th>
+                                            <th>Số điện thoại</th>
+                                            <th>Email</th>
+                                            <th>Nghề nghiệp</th>
+                                            <th>Kinh nghiệm</th>
+                                            <th>Ngày trực</th>
+                                            <th>Khoa</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var i in Model)
+                                        {
+                                            <tr>
+                                                <td>@Html.DisplayFor(modelItem => i.ID_BACSI)</td>
 
-                    <th>Tên bác sĩ</th>
+                                                <td>
+                                                    <img src="@Url.Action("Picture", new {i.ID_BACSI})" width="50" height="48" />
+                                                </td>
 
-                    <th>Tuổi</th>
+                                                <td>@Html.DisplayFor(modelItem => i.TEN_BACSI)</td>
 
-                    <th>SĐT</th>
+                                                <td>@Html.FormatValue(i.NGAYSINH_BS, "{0:d}")</td>
 
-                    <th>Giới tính</th>
+                                                <td>@Html.DisplayFor(modelItem => i.GIOI_TINH)</td>
 
-                    <th>Chuyên khoa</th>
+                                                <td>@Html.DisplayFor(modelItem => i.SDT)</td>
 
-                    <th>Kinh nghiệm</th>
+                                                <td>@Html.DisplayFor(modelItem => i.EMAIL)</td>
 
-                    <th>Ngày trực</th>
+                                                <td>@Html.DisplayFor(modelItem => i.NGHE_NGHIEP)</td>
 
-                    <th>Điều chỉnh</th>
-                </tr>
+                                                <td>@Html.DisplayFor(modelItem => i.KINH_NGHIEM)</td>
 
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.IMG_BACSI)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.TEN_BACSI)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.TUOI)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.SDT_BACSI)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.GIOI_TINH)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.CHUYENKHOA)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.KINH_NGHIEM)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.NGAY_TRUC)
-                        </td>
-                        <td style="text-align:center">
-                            @Html.ActionLink("Cập nhật", "Edit", new { id = item.ID_BACSI }) <br /><hr />
-                            @Html.ActionLink("Chi tiết", "Details", new { id = item.ID_BACSI }) <br /><hr />
-                            @Html.ActionLink("Xoá", "Delete", new { id = item.ID_BACSI })
-                        </td>
-                    </tr>
-                }
+                                                <td>@Html.FormatValue(i.NGAY_TRUC, "{0:d}")</td>
 
-            </table>
+                                                <td>@Html.DisplayFor(modelItem => i.KHOA.TEN_KHOA)</td>
+
+                                                <td>
+                                                    <a href="@Url.Action("Edit","QL_BacSi", new { id = i.ID_BACSI })"><i class="ti-settings"></i></a>
+                                                    <a href="@Url.Action("Details","QL_BacSi", new { id = i.ID_BACSI })"><i class="ti-eye"></i></a>
+                                                    <a href="@Url.Action("Delete","QL_BacSi", new { id = i.ID_BACSI })"><i class="ti-trash"></i></a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                                <ul class="pagination float-right">
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                    </li>
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">Next</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <!-- ============================================================== -->
     <!-- End Page wrapper  -->
     <!-- ============================================================== -->
 </div>
-
-

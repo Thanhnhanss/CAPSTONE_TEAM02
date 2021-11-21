@@ -16,7 +16,7 @@
         <h4>BENH_NHAN</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.ID_BENH_NHAN)
+        @Html.HiddenFor(model => model.ID_BENHNHAN)
 
         <div class="form-group">
             @Html.LabelFor(model => model.TEN_BN, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -27,10 +27,10 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.TUOI, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.GIOI_TINH, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.TUOI, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TUOI, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.GIOI_TINH, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.GIOI_TINH, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -59,36 +59,10 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.GIOI_TINH, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.GIOI_TINH)
-                    @Html.ValidationMessageFor(model => model.GIOI_TINH, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
             @Html.LabelFor(model => model.CHUAN_DOAN, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.CHUAN_DOAN, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.CHUAN_DOAN, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.NGHE_NGHIEP, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NGHE_NGHIEP, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NGHE_NGHIEP, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.BHYT, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.BHYT, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.BHYT, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -119,7 +93,3 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}

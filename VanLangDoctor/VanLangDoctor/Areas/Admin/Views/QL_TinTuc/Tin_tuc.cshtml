@@ -1,0 +1,58 @@
+﻿@model IEnumerable<VanLangDoctor.Models.TIN_TUC>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TEN_BAI_VIET)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NGAY_DANG)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NOI_DUNG)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TAC_GIA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SEO_TITLE)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TEN_BAI_VIET)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NGAY_DANG)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NOI_DUNG)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TAC_GIA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SEO_TITLE)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID_TIN_TUC }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID_TIN_TUC }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_TIN_TUC })
+        </td>
+    </tr>
+}
+
+</table>

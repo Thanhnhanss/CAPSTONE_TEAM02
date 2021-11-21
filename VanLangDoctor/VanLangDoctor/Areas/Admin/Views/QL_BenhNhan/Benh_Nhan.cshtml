@@ -5,11 +5,10 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-
 <div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
      data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
 
-    <div class="page-wrapper">
+    <div class="page-wrapper" style="display: block">
         <!-- ============================================================== -->
         <!-- Bread crumb and right sidebar toggle -->
         <!-- ============================================================== -->
@@ -21,20 +20,11 @@
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb m-0 p-0">
                                 <li class="breadcrumb-item">
-                                    <a href="index.html">Danh sách bệnh nhân</a>
+                                    <a href="@Url.Action("Benh_Nhan", "QL_BenhNhan")">Thông tin bệnh nhân</a>
                                 </li>
                             </ol>
                         </nav>
                     </div>
-                </div>
-                <div class="col-5 align-self-center">
-                    @*<div class="customize-input float-right">
-                            <select class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius">
-                                <option selected>Aug 19</option>
-                                <option value="1">July 19</option>
-                                <option value="2">Jun 19</option>
-                            </select>
-                        </div>*@
                 </div>
             </div>
         </div>
@@ -46,93 +36,75 @@
         <!-- ============================================================== -->
         <div class="container-fluid">
             <p>
-                @Html.ActionLink("Thêm mới bệnh nhân", "Create")
+                @Html.ActionLink("Thêm", "Create")
             </p>
-            <table class="table">
-                <tr>
-                    <th>
-                        Tên bệnh nhân
-                    </th>
-                    <th>
-                        Tuổi
-                    </th>
-                    <th>
-                        Ngày sinh
-                    </th>
-                    <th>
-                        Email
-                    </th>
-                    <th>
-                        SĐT
-                    </th>
-                    <th>
-                        Giới tính
-                    </th>
-                    <th>
-                        Chẩn đoán
-                    </th>
-                    <th>
-                        Nghề nghiệp
-                    </th>
-                    <th>
-                        BHYT
-                    </th>
-                    <th>
-                        Bác sĩ chữa bệnh
-                    </th>
-                    <th>
-                        Bệnh án
-                    </th>
-                    <th>
-                        Điều chỉnh
-                    </th>
-                </tr>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table id="zero_config" class="table table-striped table-bordered no-wrap">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Tên bệnh nhân</th>
+                                            <th>Giới tính</th>
+                                            <th>Ngày sinh</th>
+                                            <th>Email</th>
+                                            <th>Số điện thoại</th>
+                                            <th>Chuẩn đoán</th>
+                                            <th>Tên bác sĩ</th>
+                                            <th>Kết quản bệnh</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>@Html.DisplayFor(modelItem => item.TEN_BN)</td>
 
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.TEN_BN)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.TUOI)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.NGAY_SINH)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.EMAIL)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.SDT)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.GIOI_TINH)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.CHUAN_DOAN)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.NGHE_NGHIEP)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.BHYT)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.BACSI.TEN_BACSI)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.BENH_AN.KET_QUA)
-                        </td>
-                        <td>
-                            @Html.ActionLink("Cập nhật", "Edit", new { id = item.ID_BENH_NHAN }) |
-                            @Html.ActionLink("Chi tiết", "Details", new { id = item.ID_BENH_NHAN }) |
-                            @Html.ActionLink("Xoá", "Delete", new { id = item.ID_BENH_NHAN })
-                        </td>
-                    </tr>
-                }
+                                                <td>@Html.DisplayFor(modelItem => item.GIOI_TINH)</td>
 
-            </table>
+                                                <td>@Html.FormatValue(item.NGAY_SINH, "{0:d}")</td>
+
+                                                <td>@Html.DisplayFor(modelItem => item.EMAIL)</td>
+
+                                                <td>@Html.DisplayFor(modelItem => item.SDT)</td>
+
+                                                <td>@Html.DisplayFor(modelItem => item.CHUAN_DOAN)</td>
+
+                                                <td>@Html.DisplayFor(modelItem => item.BACSI.TEN_BACSI)</td>
+
+                                                <td>@Html.DisplayFor(modelItem => item.BENH_AN.KET_QUA)</td>
+
+                                                <td>
+                                                    <a href="@Url.Action("Edit","QL_BenhNhan", new { id = item.ID_BENHNHAN })"><i class="ti-settings"></i></a>
+                                                    <a href="@Url.Action("Details","QL_BenhNhan", new { id = item.ID_BENHNHAN })"><i class="ti-eye"></i></a>
+                                                    <a href="@Url.Action("Delete","QL_BenhNhan", new { id = item.ID_BENHNHAN })"><i class="ti-trash"></i></a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                                <ul class="pagination float-right">
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                    </li>
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">Next</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <!-- ============================================================== -->

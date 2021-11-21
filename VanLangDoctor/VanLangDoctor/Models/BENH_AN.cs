@@ -20,17 +20,13 @@ namespace VanLangDoctor.Models
             this.BENH_NHAN = new HashSet<BENH_NHAN>();
         }
     
-        public int ID_KHOA { get; set; }
-        public int ID_BENH_AN { get; set; }
-        public int CHIEU_CAO { get; set; }
-        public int CAN_NANG { get; set; }
+        public int ID_BENHAN { get; set; }
         public string KET_QUA { get; set; }
         public string CHUAN_DOAN { get; set; }
         public string TIEN_SU_BENH { get; set; }
-        public string DIA_CHI_HIEN_TAI { get; set; }
         public string GHI_CHU { get; set; }
-        public int ID_BENH_NHAN { get; set; }
-        public int ID_DON_THUOC { get; set; }
+        public string ID_BENH_NHAN { get; set; }
+        public Nullable<int> ID_KHOA { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BENH_NHAN> BENH_NHAN { get; set; }

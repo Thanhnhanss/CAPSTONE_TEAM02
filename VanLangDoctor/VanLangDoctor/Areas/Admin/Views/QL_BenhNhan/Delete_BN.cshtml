@@ -1,7 +1,7 @@
 ﻿@model VanLangDoctor.Models.BENH_NHAN
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Delete";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
@@ -64,12 +64,15 @@
                     <label for="ketqua"><b>Kết quả bệnh</b></label>
                     <input type="text" placeholder="@Html.DisplayFor(model => model.BENH_AN.KET_QUA)" name="ketqua" readonly required>
 
-                    <div class="form-actions no-color">
-                        <a href="@Url.Action("Edit", "QL_BanhNhan", new { id = Model.ID_BACSI})" style="text-align:center" id="update" class="btn">
-                            Cập nhật
-                        </a>
-                        @Html.ActionLink("Quay lại", "Benh_Nhan")
-                    </div>
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-actions no-color">
+                            <input id="delete" type="submit" value="Xoá" class="btn" /> <br />
+                            @Html.ActionLink("Quay lại", "Benh_Nhan")
+                        </div>
+                    }
                 </div>
             </form>
         </div>

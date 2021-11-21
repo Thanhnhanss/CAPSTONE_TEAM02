@@ -17,6 +17,8 @@
     <link href="@Url.Content("~/Content/assets-ad/extra-libs/jvector/jquery-jvectormap-2.0.2.css")" rel="stylesheet" />
     <!-- Custom CSS -->
     <link href="@Url.Content("~/Content/dist-ad/css/style.min.css")" rel="stylesheet">
+
+    <link href="@Url.Content("~/Content/main.css")" rel="stylesheet" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -55,7 +57,7 @@
                     <!-- ============================================================== -->
                     <div class="navbar-brand">
                         <!-- Logo icon -->
-                        <a href="index.html">
+                        <a href="@Url.Action("HomeAdmin", "HomeAdmin")">
                             <b class="logo-icon">
                                 <!-- Dark Logo icon -->
                                 <img src="@Url.Content("~/Content/assets-ad/images/logoVLDnobri.png")" alt="homepage" class="dark-logo" />
@@ -232,8 +234,8 @@
                                 <img src="@Url.Content("~/Content/assets-ad/images/users/profile-pic.jpg")" alt="user" class="rounded-circle"
                                      width="40">
                                 <span class="ml-2 d-none d-lg-inline-block">
-                                    <span>Hello,</span> <span class="text-dark">Jason Doe</span> <i data-feather="chevron-down"
-                                                                                                    class="svg-icon"></i>
+                                    <span>Hello,</span> <span class="text-dark">@User.Identity.Name</span> <i data-feather="chevron-down"
+                                                                                                              class="svg-icon"></i>
                                 </span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
@@ -259,11 +261,14 @@
                                     Account Setting
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="javascript:void(0)">
-                                    <i data-feather="power"
-                                       class="svg-icon mr-2 ml-1"></i>
-                                    Logout
-                                </a>
+                                @using (Html.BeginForm("LogOff", "../Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <a class="dropdown-item" href="javascript:document.getElementById('logoutForm').submit()">
+                                        <i data-feather="power" class="svg-icon mr-2 ml-1"></i>
+                                        Logout
+                                    </a>
+                                }
                                 <div class="dropdown-divider"></div>
                                 <div class="pl-4 p-3">
                                     <a href="javascript:void(0)" class="btn btn-sm btn-info">
@@ -293,28 +298,44 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link" href="~/Areas/Admin/Views/HomeAdmin/HomeAdmin.cshtml"
+                            <a class="sidebar-link sidebar-link" href="@Url.Action("HomeAdmin", "HomeAdmin")"
                                aria-expanded="false">
                                 <i data-feather="home" class="feather-icon"></i><span class="hide-menu">Trang chủ</span>
                             </a>
                         </li>
-                        <li class="list-divider"></li>
-                        <li class="nav-small-cap"><span class="hide-menu">Quản lý</span></li>
 
+                        <li class="list-divider"></li>
+                        <li class="nav-small-cap"><span class="hide-menu">Quản lý truyền thông</span></li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="ticket-list.html"
+                            <a class="sidebar-link has-arrow" href="ticket-list.html"
                                aria-expanded="false">
-                                <i data-feather="tag" class="feather-icon"></i><span class="hide-menu">
-                                    Tin tức
-                                </span>
+                                <i data-feather="tag" class="feather-icon"></i><span class="hide-menu">Tin tức</span>
                             </a>
+                            <ul aria-expanded="false" class="collapse  first-level base-level-line">
+                                <li class="sidebar-item">
+                                    <a href="@Url.Action("Tin_tuc", "QL_TinTuc")" class="sidebar-link">
+                                        <span class="hide-menu">
+                                            Danh sách tin tức
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="@Url.Action("Create", "QL_TinTuc")" class="sidebar-link">
+                                        <span class="hide-menu">
+                                            Thêm tin tức
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
+
                         <li class="sidebar-item">
                             <a class="sidebar-link sidebar-link" href="app-chat.html"
                                aria-expanded="false">
                                 <i data-feather="message-square" class="feather-icon"></i><span class="hide-menu">Chatbot</span>
                             </a>
                         </li>
+
                         <li class="sidebar-item">
                             <a class="sidebar-link sidebar-link" href="app-calendar.html"
                                aria-expanded="false">
@@ -323,7 +344,7 @@
                         </li>
 
                         <li class="list-divider"></li>
-                        <li class="nav-small-cap"><span class="hide-menu">Bệnh nhân</span></li>
+                        <li class="nav-small-cap"><span class="hide-menu">Quản lý bệnh nhân</span></li>
                         <li class="sidebar-item">
                             <a class="sidebar-link has-arrow" href="javascript:void(0)"
                                aria-expanded="false">
@@ -344,91 +365,36 @@
                                         </span>
                                     </a>
                                 </li>
-                                <li class="sidebar-item">
-                                    <a href="form-checkbox-radio.html" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            Checkboxes &
-                                            Radios
-                                        </span>
-                                    </a>
-                                </li>
                             </ul>
                         </li>
+
+                        <li class="list-divider"></li>
+                        <li class="nav-small-cap"><span class="hide-menu">Quản lý bác sĩ</span></li>
                         <li class="sidebar-item">
                             <a class="sidebar-link has-arrow" href="javascript:void(0)"
                                aria-expanded="false">
-                                <i data-feather="grid" class="feather-icon"></i><span class="hide-menu">Bác sĩ </span>
+                                <i data-feather="grid" class="feather-icon"></i><span class="hide-menu">Bác sĩ</span>
                             </a>
                             <ul aria-expanded="false" class="collapse  first-level base-level-line">
                                 <li class="sidebar-item">
-                                    <a href="@Url.Action("Bac_Si", "BACSIs")" class="sidebar-link">
+                                    <a href="@Url.Action("Bac_Si", "QL_BacSi")" class="sidebar-link">
                                         <span class="hide-menu">
                                             Danh sách bác sĩ
                                         </span>
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
-                                    <a href="table-dark-basic.html" class="sidebar-link">
+                                    <a href="@Url.Action("Create", "QL_BacSi")" class="sidebar-link">
                                         <span class="hide-menu">
-                                            Dark Basic Table
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="table-sizing.html" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            Sizing Table
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="table-layout-coloured.html" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            Coloured
-                                            Table Layout
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="table-datatable-basic.html" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            Basic
-                                            Datatables
-                                            Layout
+                                            Thêm bác sĩ
                                         </span>
                                     </a>
                                 </li>
                             </ul>
                         </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link has-arrow" href="javascript:void(0)"
-                               aria-expanded="false">
-                                <i data-feather="bar-chart" class="feather-icon"></i><span class="hide-menu">Thống kê </span>
-                            </a>
-                            <ul aria-expanded="false" class="collapse  first-level base-level-line">
-                                <li class="sidebar-item">
-                                    <a href="chart-morris.html" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            Morris Chart
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="chart-chart-js.html" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            ChartJs
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="chart-knob.html" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            Knob Chart
-                                        </span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
+
+                        <li class="list-divider"></li>
+                        <li class="nav-small-cap"><span class="hide-menu">Quản lý thuốc</span></li>
                         <li class="sidebar-item">
                             <a class="sidebar-link has-arrow" href="javascript:void(0)"
                                aria-expanded="false">
@@ -438,214 +404,77 @@
                                 <li class="sidebar-item">
                                     <a href="ui-buttons.html" class="sidebar-link">
                                         <span class="hide-menu">
-                                            Buttons
+                                            Danh sách thuốc
                                         </span>
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
                                     <a href="ui-modals.html" class="sidebar-link">
-                                        <span class="hide-menu"> Modals </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-tab.html" class="sidebar-link">
-                                        <span class="hide-menu"> Tabs </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-tooltip-popover.html" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            Tooltip &
-                                            Popover
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-notification.html" class="sidebar-link">
-                                        <span class="hide-menu">Notification</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-progressbar.html" class="sidebar-link">
-                                        <span class="hide-menu">Progressbar</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-typography.html" class="sidebar-link">
-                                        <span class="hide-menu">Typography</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-bootstrap.html" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            Bootstrap
-                                            UI
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-breadcrumb.html" class="sidebar-link">
-                                        <span class="hide-menu">Breadcrumb</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-list-media.html" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            List
-                                            Media
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-grid.html" class="sidebar-link">
-                                        <span class="hide-menu"> Grid </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-carousel.html" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            Carousel
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-scrollspy.html" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            Scrollspy
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-toasts.html" class="sidebar-link">
-                                        <span class="hide-menu"> Toasts</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-spinner.html" class="sidebar-link">
-                                        <span class="hide-menu"> Spinner </span>
+                                        <span class="hide-menu">Thêm thuốc</span>
                                     </a>
                                 </li>
                             </ul>
                         </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link" href="ui-cards.html"
-                               aria-expanded="false">
-                                <i data-feather="sidebar" class="feather-icon"></i><span class="hide-menu">
-                                    Cards
-                                </span>
-                            </a>
-                        </li>
+
                         <li class="list-divider"></li>
-                        <li class="nav-small-cap"><span class="hide-menu">Authentication</span></li>
-
-                        <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link" href="authentication-login1.html"
-                               aria-expanded="false">
-                                <i data-feather="lock" class="feather-icon"></i><span class="hide-menu">
-                                    Login
-                                </span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link"
-                               href="authentication-register1.html" aria-expanded="false">
-                                <i data-feather="lock"
-                                   class="feather-icon"></i><span class="hide-menu">
-                                    Register
-                                </span>
-                            </a>
-                        </li>
-
+                        <li class="nav-small-cap"><span class="hide-menu">Quản lý thống kê</span></li>
                         <li class="sidebar-item">
                             <a class="sidebar-link has-arrow" href="javascript:void(0)"
                                aria-expanded="false">
-                                <i data-feather="feather" class="feather-icon"></i><span class="hide-menu">
-                                    Icons
+                                <i data-feather="bar-chart" class="feather-icon"></i><span class="hide-menu">Thống kê</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse  first-level base-level-line">
+                                <li class="sidebar-item">
+                                    <a href="chart-morris.html" class="sidebar-link">
+                                        <span class="hide-menu">
+                                            Feedback
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="chart-chart-js.html" class="sidebar-link">
+                                        <span class="hide-menu">
+                                            Đơn thuốc
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="chart-knob.html" class="sidebar-link">
+                                        <span class="hide-menu">
+                                            Trò chuyện
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+
+                        <li class="list-divider"></li>
+                        <li class="nav-small-cap"><span class="hide-menu">Quản lý tài khoản</span></li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow" href="javascript:void(0)"
+                               aria-expanded="false">
+                                <i data-feather="lock" class="feather-icon"></i>
+                                <span class="hide-menu">
+                                    Tài khoản
                                 </span>
                             </a>
                             <ul aria-expanded="false" class="collapse first-level base-level-line">
                                 <li class="sidebar-item">
                                     <a href="icon-fontawesome.html" class="sidebar-link">
-                                        <span class="hide-menu"> Fontawesome Icons </span>
+                                        <span class="hide-menu">Danh sách tài khoản</span>
                                     </a>
                                 </li>
 
                                 <li class="sidebar-item">
                                     <a href="icon-simple-lineicon.html" class="sidebar-link">
-                                        <span class="hide-menu"> Simple Line Icons </span>
+                                        <span class="hide-menu">Thêm tài khoản</span>
                                     </a>
                                 </li>
                             </ul>
                         </li>
 
-                        <li class="sidebar-item">
-                            <a class="sidebar-link has-arrow" href="javascript:void(0)"
-                               aria-expanded="false">
-                                <i data-feather="crosshair" class="feather-icon"></i><span class="hide-menu">
-                                    Multi
-                                    level
-                                    dd
-                                </span>
-                            </a>
-                            <ul aria-expanded="false" class="collapse first-level base-level-line">
-                                <li class="sidebar-item">
-                                    <a href="javascript:void(0)" class="sidebar-link">
-                                        <span class="hide-menu"> item 1.1</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="javascript:void(0)" class="sidebar-link">
-                                        <span class="hide-menu"> item 1.2</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a class="has-arrow sidebar-link" href="javascript:void(0)"
-                                       aria-expanded="false"><span class="hide-menu">Menu 1.3</span></a>
-                                    <ul aria-expanded="false" class="collapse second-level base-level-line">
-                                        <li class="sidebar-item">
-                                            <a href="javascript:void(0)" class="sidebar-link">
-                                                <span class="hide-menu">
-                                                    item
-                                                    1.3.1
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li class="sidebar-item">
-                                            <a href="javascript:void(0)" class="sidebar-link">
-                                                <span class="hide-menu">
-                                                    item
-                                                    1.3.2
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li class="sidebar-item">
-                                            <a href="javascript:void(0)" class="sidebar-link">
-                                                <span class="hide-menu">
-                                                    item
-                                                    1.3.3
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li class="sidebar-item">
-                                            <a href="javascript:void(0)" class="sidebar-link">
-                                                <span class="hide-menu">
-                                                    item
-                                                    1.3.4
-                                                </span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="javascript:void(0)" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            item
-                                            1.4
-                                        </span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
+
                         <li class="list-divider"></li>
                         <li class="nav-small-cap"><span class="hide-menu">Extra</span></li>
                         <li class="sidebar-item">
@@ -664,7 +493,15 @@
                                 </a>
                             </li>
                         }
-
+                        <li class="sidebar-item">
+                            <a class="sidebar-link sidebar-link"
+                               href="authentication-register1.html" aria-expanded="false">
+                                <i data-feather="lock"
+                                   class="feather-icon"></i><span class="hide-menu">
+                                    Register
+                                </span>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
@@ -674,7 +511,6 @@
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
-
     </div>
     <!-- ============================================================== -->
     <!-- End Wrapper -->
