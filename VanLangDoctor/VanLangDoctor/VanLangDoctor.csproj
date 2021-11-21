@@ -60,6 +60,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -206,6 +207,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\C__MigrationHistory.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DANG_KY.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DON_THUOC.cs">
@@ -1185,11 +1189,11 @@
     <Content Include="Content\assets-ff\sass\components\_vendor.scss" />
     <Content Include="Content\assets-ff\sass\style.scss" />
     <Content Include="Content\assets-ff\sass\_bootstrap.scss" />
-    <Content Include="Areas\Admin\Views\BACSIs\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\BACSIs\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\BACSIs\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\BACSIs\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\BACSIs\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_Bacsi\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_Bacsi\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_Bacsi\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_Bacsi\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_Bacsi\Bac_Si.cshtml" />
     <Content Include="Content\dist-ad\css\fonts\Gilmer-Bold.eot" />
     <Content Include="Content\dist-ad\css\fonts\Gilmer-Bold.otf" />
     <Content Include="Content\dist-ad\css\fonts\Gilmer-Bold.ttf" />
@@ -1463,6 +1467,7 @@
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\User\Models\" />
     <Folder Include="Content\assets-ff\css\components\Ecommerce\" />
+    <Folder Include="Content\IMG_Doctor\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

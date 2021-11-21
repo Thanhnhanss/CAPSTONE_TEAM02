@@ -17,28 +17,26 @@ namespace VanLangDoctor.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public BACSI()
         {
-            this.DON_THUOC = new HashSet<DON_THUOC>();
             this.BENH_NHAN = new HashSet<BENH_NHAN>();
+            this.DON_THUOC = new HashSet<DON_THUOC>();
         }
     
         public int ID_BACSI { get; set; }
         public string TEN_BACSI { get; set; }
-        public Nullable<int> SDT_BACSI { get; set; }
-        public Nullable<int> TUOI { get; set; }
+        public System.DateTime NGAYSINH_BS { get; set; }
+        public string GIOI_TINH { get; set; }
+        public string SDT { get; set; }
         public string EMAIL { get; set; }
-        public Nullable<bool> GIOI_TINH { get; set; }
-        public string KHOA { get; set; }
-        public string NGAY_TRUC { get; set; }
-        public string BHYT { get; set; }
-        public string IMG_BACSI { get; set; }
-        public Nullable<int> CHUYENKHOA { get; set; }
-        public Nullable<System.DateTime> NGAYSINH_BACSI { get; set; }
-        public Nullable<int> KINH_NGHIEM { get; set; }
+        public string HINH_ANH { get; set; }
+        public string NGHE_NGHIEP { get; set; }
+        public Nullable<int> ID_KHOA { get; set; }
+        public int KINH_NGHIEM { get; set; }
+        public System.DateTime NGAY_TRUC { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DON_THUOC> DON_THUOC { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BENH_NHAN> BENH_NHAN { get; set; }
-        public virtual KHOA KHOA1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DON_THUOC> DON_THUOC { get; set; }
+        public virtual KHOA KHOA { get; set; }
     }
 }
