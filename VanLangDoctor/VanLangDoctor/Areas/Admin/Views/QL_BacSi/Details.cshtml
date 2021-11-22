@@ -44,7 +44,7 @@
         <!-- Container fluid  -->
         <!-- ============================================================== -->
         <div class="container-fluid">
-            <form action="@Url.Action("Delete", "QL_BacSi")" method="post">
+            <form action="@Url.Action("Details", "QL_BacSi")" method="get">
                 <div class="container">
                     <h1>Bác sĩ</h1>
                     <p>Thông tin chi tiết của bác sĩ</p>
@@ -56,7 +56,7 @@
                     <input type="text" placeholder="@Html.DisplayFor(model => model.NGAYSINH_BS)" name="ngay_sinh" readonly required>
 
                     <label for="gioi_tinh"><b>Giới tính</b></label>
-                    <input type="text" placeholder="#" name="gioi_tinh" readonly required>
+                    <input type="text" placeholder="@Html.DisplayFor(model => model.GIOI_TINH)" name="gioi_tinh" readonly required>
 
                     <label for="sdt"><b>Số điện thoại</b></label>
                     <input type="text" placeholder="@Html.DisplayFor(model => model.SDT)" name="sdt" readonly required>
@@ -77,7 +77,7 @@
                     <input type="text" placeholder="@Html.DisplayFor(model => model.NGAY_TRUC)" name="ngay_truc" readonly required>
 
                     <label for="hinh_anh"><b>Hình ảnh</b></label>
-                    <input type="image" placeholder="@Html.DisplayFor(model => model.HINH_ANH)" name="hinh_anh" readonly required>
+                    <img id="Picture" src="@Url.Action("Picture", new {Model.ID_BACSI})" width="300"/>
 
                     <div class="form-actions no-color">
                         <a href="@Url.Action("Edit", "QL_BacSi", new { id = Model.ID_BACSI})" style="text-align:center" id="update" class="btn">
