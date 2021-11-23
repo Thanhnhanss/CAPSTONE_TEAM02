@@ -18,6 +18,8 @@
     <link href="@Url.Content("~/Content/assets-ad/extra-libs/jvector/jquery-jvectormap-2.0.2.css")" rel="stylesheet" />
     <!-- Custom CSS -->
     <link href="@Url.Content("~/Content/dist-ad/css/style.min.css")" rel="stylesheet">
+    <link rel="stylesheet" href="@Url.Content("~/Area/js/style.css")" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -234,18 +236,20 @@
                                 @Html.AntiForgeryToken()
 
                                 <li class="nav navbar-nav navbar-right"></li>
-                                    <li>
-                                        @Html.ActionLink("Xin chào " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-                                    </li>
-                                    <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-                                
+                                <li>
+                                    @Html.ActionLink("Xin chào " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                                </li>
+                                <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+
                             }
                         }
                         else
                         {
-                                <template>@Html.ActionLink("Đăng nhập", "Login", "../Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</template>
-                           
-                        }
+                            <li>
+                                @Html.ActionLink("Đăng nhập", "Login", "../Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+                        </li>
+
+                    }
 
                         <!-- ============================================================== -->
                         <!-- User profile and search -->
@@ -674,7 +678,7 @@
     <script src="@Url.Content("~/Content/assets-ad/extra-libs/jvector/jquery-jvectormap-2.0.2.min.js")"></script>
     <script src="@Url.Content("~/Content/assets-ad/extra-libs/jvector/jquery-jvectormap-world-mill-en.js")"></script>
     <script src="@Url.Content("~/Content/dist-ad/js/pages/dashboards/dashboard1.min.js")"></script>
-
+    <script src="@Url.Content("~/js/app.js")"></script>
 </body>
 
 </html>

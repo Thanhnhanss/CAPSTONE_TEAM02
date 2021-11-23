@@ -260,6 +260,7 @@
     <Content Include="Areas\css\jquery.dataTables.min.css" />
     <Content Include="Areas\css\style.css" />
     <Content Include="Areas\images\bg.jpg" />
+    <Content Include="Areas\js\app.js" />
     <Content Include="Areas\js\bootstrap.min.js" />
     <Content Include="Areas\js\dataTables.bootstrap4.min.js" />
     <Content Include="Areas\js\jquery-3.4.1.min.js" />
@@ -268,6 +269,7 @@
     <Content Include="Areas\js\jquery.min.js" />
     <Content Include="Areas\js\main.js" />
     <Content Include="Areas\js\popper.js" />
+    <Content Include="Areas\js\style.css" />
     <Content Include="Content\docs-ad\docs-custom-chart-chartjs.html" />
     <Content Include="Content\docs-ad\docs-custom-datatables.html" />
     <Content Include="Content\docs-ad\docs-custom-widgets.html" />
