@@ -60,6 +60,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -173,6 +174,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AspNetRolesController.cs" />
     <Compile Include="Areas\Admin\Controllers\BACSIsController.cs" />
     <Compile Include="Areas\Admin\Controllers\DstaikhoanController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
@@ -1713,6 +1715,11 @@
     <Content Include="Content\asset-dr-inf\scss\_mixins.scss" />
     <Content Include="Content\asset-dr-inf\scss\_typography.scss" />
     <Content Include="Content\asset-dr-inf\scss\_variables.scss" />
+    <Content Include="Areas\Admin\Views\AspNetRoles\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\AspNetRoles\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\AspNetRoles\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\AspNetRoles\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\AspNetRoles\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -1765,6 +1772,7 @@
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\User\Models\" />
     <Folder Include="Content\assets-ff\css\components\Ecommerce\" />
+    <Folder Include="Content\IMG_DOCTOR\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

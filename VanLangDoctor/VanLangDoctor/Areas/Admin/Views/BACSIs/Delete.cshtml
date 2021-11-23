@@ -82,13 +82,8 @@
                             <h4 class="card-title">Hình đại diện</h4>
                             <link href="~/Content/uploadavt.css" rel="stylesheet" />
                             <main>
-                                <input type="file" name="image" id="image" accept="image/*" />
                                 <div id="preview">
-                                    <div id="avatar"></div>
-                                    <button class="circle" id="upload-button"
-                                            aria-labelledby="image"
-                                            aria-describedby="image">
-                                    </button>
+                                    <div id="view-img"><img src="@Url.Action("Picture", new {Model.ID_BACSI})" style="height: 200px; width: 200px; border-radius: 50%; border: 3px solid #0af;" /></div>
                                 </div>
                             </main>
                             <script src="~/Scripts/uploadavt.js"></script>

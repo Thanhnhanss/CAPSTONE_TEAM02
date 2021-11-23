@@ -11,8 +11,85 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <style>
-        .button{display: inline-block;border-radius: 4em;background-color: #f4511e;border: none;color: #FFFFFF;text-align: center;font-size: 13px;padding: 10px;width: 150px;transition: all 0.5s;cursor: pointer;margin: 5px}.button span{cursor: pointer;display: inline-block;position: relative;transition: 0.5s}.button span:after{content: '\00bb';position: absolute;opacity: 0;top: 0;right: -20px;transition: 0.5s}.button:hover span{padding-right: 25px}.button:hover span:after{opacity: 1;right: 0}
-        .button-back{display: inline-block;border-radius: 4em;background-color: #f4511e;border: none;color: #ffffff;text-align: center;font-size: 13px;padding: 10px;width: 150px;transition: all 0.5s;cursor: pointer;margin: 5px}.button-back span-back{cursor: pointer;display: inline-block;position: relative;transition: 0.5s}.button-back span-back:after{content: "\00ab";position: absolute;opacity: 0;top: 0;right: -20px;transition: 0.5s}.button-back:hover span-back{padding-right: 25px}.button-back:hover span-back:after{opacity: 1;right: 0}
+        .button {
+            display: inline-block;
+            border-radius: 4em;
+            background-color: #f4511e;
+            border: none;
+            color: #FFFFFF;
+            text-align: center;
+            font-size: 13px;
+            padding: 10px;
+            width: 150px;
+            transition: all 0.5s;
+            cursor: pointer;
+            margin: 5px
+        }
+
+            .button span {
+                cursor: pointer;
+                display: inline-block;
+                position: relative;
+                transition: 0.5s
+            }
+
+                .button span:after {
+                    content: '\00bb';
+                    position: absolute;
+                    opacity: 0;
+                    top: 0;
+                    right: -20px;
+                    transition: 0.5s
+                }
+
+            .button:hover span {
+                padding-right: 25px
+            }
+
+                .button:hover span:after {
+                    opacity: 1;
+                    right: 0
+                }
+
+        .button-back {
+            display: inline-block;
+            border-radius: 4em;
+            background-color: #f4511e;
+            border: none;
+            color: #ffffff;
+            text-align: center;
+            font-size: 13px;
+            padding: 10px;
+            width: 150px;
+            transition: all 0.5s;
+            cursor: pointer;
+            margin: 5px
+        }
+
+            .button-back span-back {
+                cursor: pointer;
+                display: inline-block;
+                position: relative;
+                transition: 0.5s
+            }
+
+                .button-back span-back:after {
+                    content: "\00ab";
+                    position: absolute;
+                    opacity: 0;
+                    top: 0;
+                    right: -20px;
+                    transition: 0.5s
+                }
+
+            .button-back:hover span-back {
+                padding-right: 25px
+            }
+
+                .button-back:hover span-back:after {
+                    opacity: 1;
+                    right: 0
+                }
     </style>
     <link href="~/Content/formcrud.css" rel="stylesheet" />
 </head>
@@ -42,45 +119,59 @@
                 </div>
             </div>
         </div>
+        <hr />
 
-        @using (Html.BeginForm())
+        @using (Html.BeginForm("Create", "BACSIs", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
             @Html.AntiForgeryToken()
             <div class="container">
                 <div class="form-horizontal">
-                    <hr />
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                    <div class="form-group">
-                        <label><b>Tên bác sĩ</b></label>
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.TEN_BACSI, new { htmlAttributes = new { @class = "form-control", @placeholder = "ví dụ: Nguyễn Văn A " } })
-                            @Html.ValidationMessageFor(model => model.TEN_BACSI, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
 
-                    <div class="form-group">
-                        <label><b>Số điện thoại</b></label>
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.SDT, new { htmlAttributes = new { @class = "form-control", @placeholder = "ví dụ: 0905556***" } })
-                            @Html.ValidationMessageFor(model => model.SDT, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
+                    <div class="row">
+                        <div class="col-7">
+                            <div class="form-group">
+                                <label><b>Tên bác sĩ</b></label>
+                                <div class="col-12">
+                                    @Html.EditorFor(model => model.TEN_BACSI, new { htmlAttributes = new { @class = "form-control", @placeholder = "ví dụ: Nguyễn Văn A " } })
+                                    @Html.ValidationMessageFor(model => model.TEN_BACSI, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
 
-                    <div class="form-group">
-                        <label><b>Giới tính</b></label>
-                        <div class="col-md-10">
-                            <div class="checkbox">
-                                @Html.EditorFor(model => model.GIOI_TINH, new { htmlAttributes = new { @class = "form-control", @placeholder = "ví dụ: Nam" } })
-                                @Html.ValidationMessageFor(model => model.GIOI_TINH, "", new { @class = "text-danger" })
+                            <div class="form-group">
+                                <label><b>Số điện thoại</b></label>
+                                <div class="col-10">
+                                    @Html.EditorFor(model => model.SDT, new { htmlAttributes = new { @class = "form-control", @placeholder = "ví dụ: 0905556***" } })
+                                    @Html.ValidationMessageFor(model => model.SDT, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label><b>Giới tính</b></label>
+                                <div class="col-10">
+                                    <div class="checkbox">
+                                        @Html.EditorFor(model => model.GIOI_TINH, new { htmlAttributes = new { @class = "form-control", @placeholder = "ví dụ: Nam" } })
+                                        @Html.ValidationMessageFor(model => model.GIOI_TINH, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label><b>Email</b></label>
+                                <div class="col-12">
+                                    @Html.EditorFor(model => model.EMAIL, new { htmlAttributes = new { @class = "form-control", @placeholder = "ví dụ: nguyenvana@gmail.com " } })
+                                    @Html.ValidationMessageFor(model => model.EMAIL, "", new { @class = "text-danger" })
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        <label><b>Email</b></label>
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.EMAIL, new { htmlAttributes = new { @class = "form-control", @placeholder = "ví dụ: nguyenvana@gmail.com " } })
-                            @Html.ValidationMessageFor(model => model.EMAIL, "", new { @class = "text-danger" })
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <h4 class="card-title">Hình đại diện</h4>
+                                <input class="form-control" type="file" name="Picture" id="IMG" onchange="readPicture(this)" accept="image/jpeg,image/gif,image/png" />
+                                <br/>
+                                <img id="Picture" style="height: 250px; width:250px; border-radius:50%; border:3px solid #0af; background-color: #b2b2b2" />
+                            </div>
                         </div>
                     </div>
 
@@ -116,15 +207,6 @@
                         </div>
                     </div>
 
-
-                    <div class="form-group">
-                        <label><b>Hình đại diện</b></label>
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.HINH_ANH, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.HINH_ANH, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
                     <div class="form-group">
                         <label><b>Chuyên khoa</b></label>
                         <div class="col-md-10">
@@ -132,8 +214,8 @@
                             @Html.ValidationMessageFor(model => model.ID_KHOA, "", new { @class = "text-danger" })
                         </div>
                     </div>
-
-                    <div class="col-md-push-12 col-md-5">
+                    <br />
+                    <div class="col-md-5">
                         <button type="submit" class="button" style="vertical-align:middle"><span>Thêm mới </span></button>
                     </div>
                 </div>
@@ -144,4 +226,17 @@
 @Scripts.Render("~/bundles/jquery")
 @Scripts.Render("~/bundles/jqueryval")
 </html>
-
+<script>
+    tinymce.init({
+        selector: 'textarea#MotaSP',
+        menubar: false
+    });
+    function readPicture(input) {
+        if (input.files && input.files[0])
+            var reader = new FileReader();
+        reader.onload = function (e) {
+            $('img#Picture').attr('src', e.target.result)
+        };
+        reader.readAsDataURL(input.files[0])
+    }
+</script>

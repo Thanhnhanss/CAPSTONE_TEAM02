@@ -75,10 +75,9 @@
                                         <td>@item.NGHE_NGHIEP</td>
                                         <td>@item.KINH_NGHIEM Năm</td>
                                         <td>@Html.FormatValue(@item.NGAY_TRUC, "{0:d}")</td>
-                                        <td>@item.HINH_ANH</td>
+                                        <td style="text-align:center"><img src="@Url.Action("Picture", new {item.ID_BACSI})" width="55" height="55" style="border-radius: 50%"/></td>
                                         <td>
                                             <a href="@Url.Action("Edit","BACSIs", new { id = item.ID_BACSI })"><i class="ti-settings"></i></a>
-                                            <a href="@Url.Action("Details","BACSIs", new { id = item.ID_BACSI })"><i class="ti-eye"></i></a>
                                             <a href="@Url.Action("Delete","BACSIs", new { id = item.ID_BACSI })"><i class="ti-trash"></i></a>
                                         </td>
                                     </tr>
