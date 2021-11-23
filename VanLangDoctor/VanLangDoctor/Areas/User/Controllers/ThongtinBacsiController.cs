@@ -13,6 +13,8 @@ namespace VanLangDoctor.Areas.User.Controllers
     public class ThongtinBacsiController : Controller
     {
         CP24Team02Entities db = new CP24Team02Entities();
+        private const string PICTURE_PATH = "~/Content/IMG_DOCTOR/";
+
         // GET: User/ThongtinBacsi
         public ActionResult DanhSachBacsi()
         {
@@ -35,6 +37,10 @@ namespace VanLangDoctor.Areas.User.Controllers
             }
             return View(bACSI);
         }
-        
+        public ActionResult Picture(int ID_BACSI)
+        {
+            var path = Server.MapPath(PICTURE_PATH);
+            return File(path + ID_BACSI, "images");
+        }
     }
 }

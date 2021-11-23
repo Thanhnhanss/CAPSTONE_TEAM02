@@ -37,10 +37,17 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="doctor-img-block">
-                    <img src="~/Content/assets-dr/images/person_7.jpg" alt="" class="img-fluid min-vw-100" style="height: 210px; width: 210px">
-
+                    <img src="@Url.Action("Picture", new {Model.ID_BACSI})" alt="" class="img-fluid min-vw-100" style="height: 210px; width: 210px; box-shadow: 0 5px 14px 0px black;">
+                    
                     <div class="info-block mt-4">
-                        <h4 class="mb-0">@Model.TEN_BACSI</h4>
+                        <br />
+                        @if (Model.GIOI_TINH.ToString().ToLower() == "nam")
+                        {
+                            <h3 class="mb-0">Ông. @Model.TEN_BACSI</h3>
+                        }
+                        else
+                        { <h3 class="mb-0">Bà. @Model.TEN_BACSI</h3>}
+
                         <p>@Model.KHOA.TEN_KHOA</p>
 
                         <ul class="list-inline mt-4 doctor-social-links">

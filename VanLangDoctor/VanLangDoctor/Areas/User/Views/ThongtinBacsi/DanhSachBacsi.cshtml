@@ -35,9 +35,7 @@
             <div class="col-lg-3 col-md-6 d-flex mb-sm-4 ftco-animate fadeInUp ftco-animated">
                 <div class="staff" style="border-radius:2em">
                     <a href="@Url.Action("thongtinbacsi","ThongtinBacsi", new {id = item.ID_BACSI })">
-                        <div class="img mb-4" style="background-image: url(../images/person_7.jpg);">
-                            <img src="~/Content/assets-dr/images/person_7.jpg" style="height: 180px; width: 180px; border-radius: 50%" />
-                        </div>
+                        <div class="img mb-4" style="background-image: url(@Url.Action("Picture", new {item.ID_BACSI}));"></div>
                     </a>
                     <div class="info text-center">
                         <h3><a href="@Url.Action("thongtinbacsi","ThongtinBacsi", new {id = item.ID_BACSI })">@item.TEN_BACSI</a></h3>

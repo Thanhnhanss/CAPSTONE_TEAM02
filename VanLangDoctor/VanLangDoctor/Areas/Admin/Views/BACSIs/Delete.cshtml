@@ -83,7 +83,7 @@
                             <link href="~/Content/uploadavt.css" rel="stylesheet" />
                             <main>
                                 <div id="preview">
-                                    <div id="view-img"><img src="@Url.Action("Picture", new {Model.ID_BACSI})" style="height: 200px; width: 200px; border-radius: 50%; border: 3px solid #0af;" /></div>
+                                    <div id="view-img"><img src="@Url.Action("Picture", new {Model.ID_BACSI})" style="height: 200px; width: 200px; object-fit:contain; border-radius: 50%; border: 3px solid #0af; background-color:#000000" /></div>
                                 </div>
                             </main>
                             <script src="~/Scripts/uploadavt.js"></script>
