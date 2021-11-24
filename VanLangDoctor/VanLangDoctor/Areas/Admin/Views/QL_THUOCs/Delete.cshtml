@@ -1,0 +1,57 @@
+﻿@model VanLangDoctor.Models.THUOC
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/HomeAdmin/HomeAdmin.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>THUOC</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TEN_THUOC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TEN_THUOC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LIEU_LUONG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LIEU_LUONG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HANG_SX)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HANG_SX)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MO_TA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MO_TA)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

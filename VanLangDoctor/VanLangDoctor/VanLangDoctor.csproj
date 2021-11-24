@@ -176,6 +176,8 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\BACSIsController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\QL_BENHNHANController.cs" />
+    <Compile Include="Areas\Admin\Controllers\QL_THUOCsController.cs" />
     <Compile Include="Areas\User\Controllers\HomeUserController.cs" />
     <Compile Include="Areas\User\UserAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -1416,6 +1418,16 @@
     <Content Include="Content\assets-ad\libs\bootstrap\dist\js\bootstrap.min.js.map" />
     <Content Include="Content\assets-ad\libs\morris.js\bower.travis.json" />
     <Content Include="Content\assets-ad\libs\popper.js\dist\umd\poppper.js.flow" />
+    <Content Include="Areas\Admin\Views\QL_BenhNhan\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_BenhNhan\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_BenhNhan\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_BenhNhan\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_BenhNhan\Benh_Nhan.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_THUOCs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_THUOCs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_THUOCs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_THUOCs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_THUOCs\Thuoc.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
