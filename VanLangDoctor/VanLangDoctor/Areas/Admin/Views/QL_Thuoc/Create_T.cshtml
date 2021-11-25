@@ -1,0 +1,116 @@
+﻿@model VanLangDoctor.Models.THUOC
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+     data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
+
+    <div class="page-wrapper">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="page-breadcrumb">
+            <div class="row">
+                <div class="col-7 align-self-center">
+                    <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">Xin chào</h3>
+                    <div class="d-flex align-items-center">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb m-0 p-0">
+                                <li class="breadcrumb-item">
+                                    <a href="@Url.Action("Index_Thuoc", "QL_Thuoc")">Thông tin thuốc</a>
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
+            <div class="container">
+                <h1>Thuốc</h1>
+                <p>Thông tin chi tiết của thuốc</p>
+                <hr>
+                @using (Html.BeginForm("Create_T", "QL_Thuoc", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            <label for="ten_thuoc"><b>Tên thuốc</b></label>
+                            <div class="form-actions no-color">
+                                @Html.EditorFor(model => model.TEN_THUOC, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.TEN_THUOC, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lieu_luong"><b>Liều lượng</b></label>
+                            <div class="form-actions no-color">
+                                @Html.EditorFor(model => model.LIEU_LUONG, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.LIEU_LUONG, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mo_ta"><b>Mô tả</b></label>
+                            <div class="form-actions no-color">
+                                @Html.EditorFor(model => model.MO_TA, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.MO_TA, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-2" for="IMG">Hình ảnh</label>
+                            <div class="col-md-4">
+                                <input class="form-control" type="file" name="Picture" id="IMG" onchange="readPicture(this)" accept="image/jpeg,image/gif,image/png" />
+                                <img id="Picture" />
+
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="nsx"><b>Nhà sản xuất</b></label>
+                            <div class="form-actions no-color">
+                                @Html.DropDownList("ID_NSX", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.ID_NSX, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="form-actions no-color">
+                                <input id="create" type="submit" value="Thêm" class="btn" />
+                                @Html.ActionLink("Quay lại", "Index_Thuoc")
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+    tinymce.init({
+        selector: 'textarea#MotaSP',
+        menubar: false
+    });
+    function readPicture(input) {
+        if (input.files && input.files[0])
+            var reader = new FileReader();
+        reader.onload = function (e) {
+            $('img#Picture').attr('src', e.target.result)
+        };
+        reader.readAsDataURL(input.files[0])
+    }
+</script>

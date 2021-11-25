@@ -20,7 +20,7 @@
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb m-0 p-0">
                                 <li class="breadcrumb-item">
-                                    <a href="@Url.Action("Thuốc", "QL_Thuoc")">Thông tin thuốc</a>
+                                    <a href="@Url.Action("Index_Thuoc", "QL_Thuoc")">Thông tin thuốc</a>
                                 </li>
                             </ol>
                         </nav>
@@ -35,7 +35,7 @@
         <!-- Container fluid  -->
         <!-- ============================================================== -->
         <div class="container-fluid">
-            <form action="@Url.Action("Delete", "QL_Thuoc")" method="post">
+            <form action="@Url.Action("Delete_T", "QL_Thuoc")" method="post">
                 <div class="container">
                     <h1>Thuốc</h1>
                     <p>Thông tin chi tiết của thuốc</p>
@@ -53,7 +53,7 @@
                     <input type="text" value="@Html.DisplayFor(model => model.NHA_SAN_XUAT.TEN_NSX)" name="nsx" readonly required>
 
                     <label for="hinh_anh"><b>Hình ảnh</b></label>
-                    <input type="image" value="@Html.DisplayFor(model => model.HINH_ANH)" name="hinh_anh" readonly required>
+                    <img src="@Url.Action("Picture","QL_Thuoc", new {Model.ID_THUOC})" width="300" alt="" />
 
                     @using (Html.BeginForm())
                     {
@@ -61,7 +61,7 @@
 
                         <div class="form-actions no-color">
                             <input id="delete" type="submit" value="Xoá" class="btn" /> <br />
-                            @Html.ActionLink("Quay lại", "Thuoc")
+                            @Html.ActionLink("Quay lại", "Index_Thuoc")
                         </div>
                     }
                 </div>

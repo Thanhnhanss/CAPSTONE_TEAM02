@@ -1,7 +1,7 @@
 ﻿@model VanLangDoctor.Models.THUOC
 
 @{
-    ViewBag.Title = "Cập nhật";
+    ViewBag.Title = "Details";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
@@ -20,7 +20,7 @@
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb m-0 p-0">
                                 <li class="breadcrumb-item">
-                                    <a href="@Url.Action("Thuốc", "QL_Thuoc")">Thông tin thuốc</a>
+                                    <a href="@Url.Action("Index_Thuoc", "QL_Thuoc")">Thông tin thuốc</a>
                                 </li>
                             </ol>
                         </nav>
@@ -35,56 +35,37 @@
         <!-- Container fluid  -->
         <!-- ============================================================== -->
         <div class="container-fluid">
-            <form action="@Url.Action("Edit", "QL_Thuoc")" method="post">
+            <form action="@Url.Action("Details_T", "QL_Thuoc")" method="get">
                 <div class="container">
-                    @Html.AntiForgeryToken()
-
                     <h1>Thuốc</h1>
                     <p>Thông tin chi tiết của thuốc</p>
                     <hr>
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                    @Html.HiddenFor(model => model.ID_THUOC)
-
                     <label for="ten_thuoc"><b>Tên thuốc</b></label>
-                    <input type="text" value="@Model.TEN_THUOC" name="ten_thuoc" required>
+                    <input type="text" value="@Html.DisplayFor(model => model.TEN_THUOC)" name="ten_thuoc" readonly required>
 
                     <label for="lieu_luong"><b>Liều lượng</b></label>
-                    <input type="text" value="@Model.LIEU_LUONG" name="lieu_luong" required>
+                    <input type="text" value="@Html.DisplayFor(model => model.LIEU_LUONG)" name="lieu_luong" readonly required>
 
                     <label for="mo_ta"><b>Mô tả</b></label>
-                    <input type="text" value="@Model.MO_TA" name="mo_ta" required>
+                    <input type="text" value="@Html.DisplayFor(model => model.MO_TA)" name="mo_ta" readonly required>
 
                     <label for="nsx"><b>Nhà sản xuất</b></label>
-                    <div class="form-actions no-color">
-                        @Html.DropDownList("ID_NSX", null, htmlAttributes: new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.ID_NSX, "", new { @class = "text-danger" })
-                    </div>
+                    <input type="text" value="@Html.DisplayFor(model => model.NHA_SAN_XUAT.TEN_NSX)" name="nsx" readonly required>
 
                     <label for="hinh_anh"><b>Hình ảnh</b></label>
-                    <div class="col-md-4">
-                        <input class="form-control" type="file" name="Picture" id="IMG" onchange="readPicture(this)" accept="image/jpeg,image/gif,image/png" />
-                        <img id="Picture" />
-                    </div>
+                    <img src="@Url.Action("Picture","QL_Thuoc", new {Model.ID_THUOC})" width="300" alt="" />
 
                     <div class="form-actions no-color">
-                        <input id="update" type="submit" value="Save" class="btn" />
-                        @Html.ActionLink("Quay lại", "Thuoc")
+                        <a href="@Url.Action("Edit_T", "QL_Thuoc", new { id = Model.ID_THUOC})" style="text-align:center" id="update" class="btn">
+                            Cập nhật
+                        </a>
+                        @Html.ActionLink("Quay lại", "Index_Thuoc")
                     </div>
                 </div>
             </form>
         </div>
     </div>
+    <!-- ============================================================== -->
+    <!-- End Page wrapper  -->
+    <!-- ============================================================== -->
 </div>
-
-<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-<script type="text/javascript">
-    function readPicture(input) {
-        if (input.files && input.files[0])
-            var reader = new FileReader();
-        reader.onload = function (e) {
-            $('img#Picture').attr('src', e.target.result)
-        };
-        reader.readAsDataURL(input.files[0])
-    }
-
-</script>

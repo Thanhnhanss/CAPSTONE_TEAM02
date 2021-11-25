@@ -144,14 +144,14 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         }
 
         // POST: Admin/QL_BacSi/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("Delete_BS")]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete_BSConfirmed(int id)
+        public ActionResult DeleteConfirmed(int id)
         {
             BACSI bACSI = db.BACSIs.Find(id);
             db.BACSIs.Remove(bACSI);
             db.SaveChanges();
-            return RedirectToAction("Bac_Si");
+            return RedirectToAction("Index_BS");
         }
 
         protected override void Dispose(bool disposing)

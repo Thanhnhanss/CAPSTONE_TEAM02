@@ -17,14 +17,14 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         private CP24Team02Entities db = new CP24Team02Entities();
 
         // GET: Admin/QL_Thuoc
-        public ActionResult Thuoc()
+        public ActionResult Index_Thuoc()
         {
             var tHUOCs = db.THUOCs.Include(t => t.NHA_SAN_XUAT);
             return View(tHUOCs.ToList());
         }
 
         // GET: Admin/QL_Thuoc/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details_T(int? id)
         {
             if (id == null)
             {
@@ -47,7 +47,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         }
 
         // GET: Admin/QL_Thuoc/Create
-        public ActionResult Create()
+        public ActionResult Create_T()
         {
             ViewBag.ID_NSX = new SelectList(db.NHA_SAN_XUAT, "ID", "TEN_NSX");
             return View();
@@ -58,7 +58,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID_THUOC,TEN_THUOC,LIEU_LUONG,MO_TA,HINH_ANH,ID_NSX")] THUOC tHUOC, HttpPostedFileBase picture)
+        public ActionResult Create_T([Bind(Include = "ID_THUOC,TEN_THUOC,LIEU_LUONG,MO_TA,HINH_ANH,ID_NSX")] THUOC tHUOC, HttpPostedFileBase picture)
         {
             if (ModelState.IsValid)
             {
@@ -85,11 +85,11 @@ namespace VanLangDoctor.Areas.Admin.Controllers
                 else ModelState.AddModelError("", "Hình ảnh không được tìm thấy.");
             }
             ViewBag.ID_NSX = new SelectList(db.NHA_SAN_XUAT, "ID", "TEN_NSX", tHUOC.ID_NSX);
-            return RedirectToAction("Thuoc");
+            return RedirectToAction("Index_Thuoc");
         }
 
         // GET: Admin/QL_Thuoc/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit_T(int? id)
         {
             if (id == null)
             {
@@ -109,20 +109,35 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID_THUOC,TEN_THUOC,LIEU_LUONG,MO_TA,HINH_ANH,ID_NSX")] THUOC tHUOC)
+        public ActionResult Edit_T([Bind(Include = "ID_THUOC,TEN_THUOC,LIEU_LUONG,MO_TA,HINH_ANH,ID_NSX")] THUOC tHUOC, HttpPostedFileBase picture)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(tHUOC).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Thuoc");
+                if (ModelState.IsValid)
+                {
+                    using (var scope = new TransactionScope())
+                    {
+                        db.Entry(tHUOC).State = EntityState.Modified;
+                        db.SaveChanges();
+
+                        if(picture != null)
+                        {
+                            var path = Server.MapPath(PICTURE_PATH);
+                            picture.SaveAs(path + tHUOC.ID_THUOC);
+                        }
+
+                        scope.Complete();
+                        return RedirectToAction("Index_Thuoc");
+                    }
+                }
+                db.Entry(tHUOC).State=EntityState.Modified;
             }
             ViewBag.ID_NSX = new SelectList(db.NHA_SAN_XUAT, "ID", "TEN_NSX", tHUOC.ID_NSX);
             return View(tHUOC);
         }
 
         // GET: Admin/QL_Thuoc/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete_T(int? id)
         {
             if (id == null)
             {
@@ -137,14 +152,14 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         }
 
         // POST: Admin/QL_Thuoc/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("Delete_T")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
             THUOC tHUOC = db.THUOCs.Find(id);
             db.THUOCs.Remove(tHUOC);
             db.SaveChanges();
-            return RedirectToAction("Thuoc");
+            return RedirectToAction("Index_Thuoc");
         }
 
         protected override void Dispose(bool disposing)

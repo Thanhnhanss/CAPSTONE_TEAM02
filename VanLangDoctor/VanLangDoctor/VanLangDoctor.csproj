@@ -1554,11 +1554,11 @@
     <Content Include="Areas\Admin\Views\QL_TaiKhoan\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\QL_TaiKhoan\Tai_Khoan.cshtml" />
     <Content Include="Areas\Admin\Views\QL_TaiKhoan\Phan_Quyen.cshtml" />
-    <Content Include="Areas\Admin\Views\QL_Thuoc\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\QL_Thuoc\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\QL_Thuoc\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\QL_Thuoc\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\QL_Thuoc\Thuoc.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_Thuoc\Create_T.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_Thuoc\Delete_T.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_Thuoc\Details_T.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_Thuoc\Edit_T.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_Thuoc\Index_Thuoc.cshtml" />
     <Content Include="Areas\Admin\Views\QL_BacSi\Create_BS.cshtml" />
     <Content Include="Areas\Admin\Views\QL_BacSi\Delete_BS.cshtml" />
     <Content Include="Areas\Admin\Views\QL_BacSi\Details_BS.cshtml" />
