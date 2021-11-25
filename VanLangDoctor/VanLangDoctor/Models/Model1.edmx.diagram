@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="98091af259314eb6b1cde9ad0fbffd38" Name="Diagram1" ZoomLevel="69">
+      <Diagram DiagramId="98091af259314eb6b1cde9ad0fbffd38" Name="Diagram1" ZoomLevel="80">
         <EntityTypeShape EntityType="CP24Team02Model.C__MigrationHistory" Width="1.5" PointX="9.75" PointY="6.75" />
         <EntityTypeShape EntityType="CP24Team02Model.AspNetRole" Width="1.5" PointX="7.75" PointY="2.5" />
         <EntityTypeShape EntityType="CP24Team02Model.AspNetUserClaim" Width="1.5" PointX="12.25" PointY="3.625" />
@@ -28,6 +28,11 @@
         <AssociationConnector Association="CP24Team02Model.FK__DON_THUOC__ID_BE__4F7CD00D" />
         <AssociationConnector Association="CP24Team02Model.FK_DT_T_BN_BS" />
         <AssociationConnector Association="CP24Team02Model.AspNetUserRoles" />
+        <EntityTypeShape EntityType="CP24Team02Model.DANG_KY" Width="1.5" PointX="5.25" PointY="0.5" />
+        <AssociationConnector Association="CP24Team02Model.FK_KHOA1" />
+        <AssociationConnector Association="CP24Team02Model.FK_BENH_AN" />
+        <AssociationConnector Association="CP24Team02Model.FK_BENH_NHAN_DT" />
+        <AssociationConnector Association="CP24Team02Model.FK_KHOA_DK" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
