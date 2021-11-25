@@ -20,7 +20,7 @@
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb m-0 p-0">
                                 <li class="breadcrumb-item">
-                                    <a href="@Url.Action("Benh_Nhan", "QL_BenhNhan")">Thông tin bệnh nhân</a>
+                                    <a href="@Url.Action("Index_BN", "QL_BenhNhan")">Thông tin bệnh nhân</a>
                                 </li>
                             </ol>
                         </nav>
@@ -41,28 +41,28 @@
                     <p>Thông tin chi tiết của bác sĩ</p>
                     <hr>
                     <label for="ten"><b>Tên bệnh nhân</b></label>
-                    <input type="text" placeholder="@Html.DisplayFor(model => model.TEN_BN)" name="ten" readonly required>
+                    <input type="text" value="@Html.DisplayFor(model => model.TEN_BN)" name="ten" readonly required>
 
                     <label for="gioitinh"><b>Giới tính</b></label>
-                    <input type="text" placeholder="@Html.DisplayFor(model => model.GIOI_TINH)" name="gioitinh" readonly required>
+                    <input type="text" value="@Html.DisplayFor(model => model.GIOI_TINH)" name="gioitinh" readonly required>
 
                     <label for="ngaysinh"><b>Ngày sinh</b></label>
-                    <input type="text" placeholder="@Html.DisplayFor(model => model.NGAY_SINH)" name="ngaysinh" readonly required>
+                    <input type="text" value="@Html.DisplayFor(model => model.NGAY_SINH)" name="ngaysinh" readonly required>
 
                     <label for="email"><b>Email</b></label>
-                    <input type="text" placeholder="@Html.DisplayFor(model => model.EMAIL)" name="email" readonly required>
+                    <input type="text" value="@Html.DisplayFor(model => model.EMAIL)" name="email" readonly required>
 
                     <label for="sdt"><b>SĐT</b></label>
-                    <input type="text" placeholder="@Html.DisplayFor(model => model.SDT)" name="sdt" readonly required>
+                    <input type="text" value="@Html.DisplayFor(model => model.SDT)" name="sdt" readonly required>
 
                     <label for="chuan_doan"><b>Chuẩn đoán</b></label>
-                    <input type="text" placeholder="@Html.DisplayFor(model => model.CHUAN_DOAN)" name="chuan_doan" readonly required>
+                    <input type="text" value="@Html.DisplayFor(model => model.CHUAN_DOAN)" name="chuan_doan" readonly required>
 
                     <label for="ten_bs"><b>Tên bác sĩ</b></label>
-                    <input type="text" placeholder="@Html.DisplayFor(model => model.BACSI.TEN_BACSI)" name="ten_bs" readonly required>
+                    <input type="text" value="@Html.DisplayFor(model => model.BACSI.TEN_BACSI)" name="ten_bs" readonly required>
 
                     <label for="ketqua"><b>Kết quả bệnh</b></label>
-                    <input type="text" placeholder="@Html.DisplayFor(model => model.BENH_AN.KET_QUA)" name="ketqua" readonly required>
+                    <input type="text" value="@Html.DisplayFor(model => model.BENH_AN.KET_QUA)" name="ketqua" readonly required>
 
                     @using (Html.BeginForm())
                     {
@@ -70,7 +70,7 @@
 
                         <div class="form-actions no-color">
                             <input id="delete" type="submit" value="Xoá" class="btn" /> <br />
-                            @Html.ActionLink("Quay lại", "Benh_Nhan")
+                            @Html.ActionLink("Quay lại", "Index_BN")
                         </div>
                     }
                 </div>

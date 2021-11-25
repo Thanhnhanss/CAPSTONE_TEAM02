@@ -1538,11 +1538,11 @@
     <Content Include="Content\scss-ad\style.scss" />
     <Content Include="Areas\User\Views\BacSi\Details.cshtml" />
     <Content Include="Areas\User\Views\BacSi\Bac_Si.cshtml" />
-    <Content Include="Areas\Admin\Views\QL_BenhNhan\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_BenhNhan\Create_BN.cshtml" />
     <Content Include="Areas\Admin\Views\QL_BenhNhan\Delete_BN.cshtml" />
-    <Content Include="Areas\Admin\Views\QL_BenhNhan\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\QL_BenhNhan\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\QL_BenhNhan\Benh_Nhan.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_BenhNhan\Details_BN.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_BenhNhan\Edit_BN.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_BenhNhan\Index_BN.cshtml" />
     <Content Include="Areas\Admin\Views\QL_TinTuc\Create.cshtml" />
     <Content Include="Areas\Admin\Views\QL_TinTuc\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\QL_TinTuc\Details.cshtml" />

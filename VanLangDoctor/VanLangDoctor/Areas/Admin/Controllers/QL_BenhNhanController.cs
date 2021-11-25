@@ -15,14 +15,14 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         private CP24Team02Entities db = new CP24Team02Entities();
 
         // GET: Admin/QL_BenhNhan
-        public ActionResult Benh_Nhan()
+        public ActionResult Index_BN()
         {
             var bENH_NHAN = db.BENH_NHAN.Include(b => b.BACSI).Include(b => b.BENH_AN);
             return View(bENH_NHAN.ToList());
         }
 
         // GET: Admin/QL_BenhNhan/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details_BN(int? id)
         {
             if (id == null)
             {
@@ -37,7 +37,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         }
 
         // GET: Admin/QL_BenhNhan/Create
-        public ActionResult Create()
+        public ActionResult Create_BN()
         {
             ViewBag.ID_BACSI = new SelectList(db.BACSIs, "ID_BACSI", "TEN_BACSI");
             ViewBag.ID_BENH_AN = new SelectList(db.BENH_AN, "ID_BENHAN", "KET_QUA");
@@ -49,13 +49,13 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID_BENHNHAN,TEN_BN,GIOI_TINH,NGAY_SINH,EMAIL,SDT,CHUAN_DOAN,ID_BACSI,ID_BENH_AN")] BENH_NHAN bENH_NHAN)
+        public ActionResult Create_BN([Bind(Include = "ID_BENHNHAN,TEN_BN,GIOI_TINH,NGAY_SINH,EMAIL,SDT,CHUAN_DOAN,ID_BACSI,ID_BENH_AN")] BENH_NHAN bENH_NHAN)
         {
             if (ModelState.IsValid)
             {
                 db.BENH_NHAN.Add(bENH_NHAN);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index_BN");
             }
 
             ViewBag.ID_BACSI = new SelectList(db.BACSIs, "ID_BACSI", "TEN_BACSI", bENH_NHAN.ID_BACSI);
@@ -64,7 +64,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         }
 
         // GET: Admin/QL_BenhNhan/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit_BN(int? id)
         {
             if (id == null)
             {
@@ -85,13 +85,13 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID_BENHNHAN,TEN_BN,GIOI_TINH,NGAY_SINH,EMAIL,SDT,CHUAN_DOAN,ID_BACSI,ID_BENH_AN")] BENH_NHAN bENH_NHAN)
+        public ActionResult Edit_BN([Bind(Include = "ID_BENHNHAN,TEN_BN,GIOI_TINH,NGAY_SINH,EMAIL,SDT,CHUAN_DOAN,ID_BACSI,ID_BENH_AN")] BENH_NHAN bENH_NHAN)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(bENH_NHAN).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index_BN");
             }
             ViewBag.ID_BACSI = new SelectList(db.BACSIs, "ID_BACSI", "TEN_BACSI", bENH_NHAN.ID_BACSI);
             ViewBag.ID_BENH_AN = new SelectList(db.BENH_AN, "ID_BENHAN", "KET_QUA", bENH_NHAN.ID_BENH_AN);
@@ -114,14 +114,14 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         }
 
         // POST: Admin/QL_BenhNhan/Delete/5
-        [HttpPost, ActionName("Delete_BN")]
+        [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult Delete_BNConfirmed(int id)
         {
             BENH_NHAN bENH_NHAN = db.BENH_NHAN.Find(id);
             db.BENH_NHAN.Remove(bENH_NHAN);
             db.SaveChanges();
-            return RedirectToAction("Benh_Nhan");
+            return RedirectToAction("Index_BN");
         }
 
         protected override void Dispose(bool disposing)
