@@ -1,0 +1,90 @@
+﻿@model VanLangDoctor.Models.THUOC
+
+@{
+    ViewBag.Title = "Cập nhật";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+     data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
+
+    <div class="page-wrapper">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="page-breadcrumb">
+            <div class="row">
+                <div class="col-7 align-self-center">
+                    <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">Xin chào</h3>
+                    <div class="d-flex align-items-center">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb m-0 p-0">
+                                <li class="breadcrumb-item">
+                                    <a href="@Url.Action("Thuốc", "QL_Thuoc")">Thông tin thuốc</a>
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
+            <form action="@Url.Action("Edit", "QL_Thuoc")" method="post">
+                <div class="container">
+                    @Html.AntiForgeryToken()
+
+                    <h1>Thuốc</h1>
+                    <p>Thông tin chi tiết của thuốc</p>
+                    <hr>
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model => model.ID_THUOC)
+
+                    <label for="ten_thuoc"><b>Tên thuốc</b></label>
+                    <input type="text" value="@Model.TEN_THUOC" name="ten_thuoc" required>
+
+                    <label for="lieu_luong"><b>Liều lượng</b></label>
+                    <input type="text" value="@Model.LIEU_LUONG" name="lieu_luong" required>
+
+                    <label for="mo_ta"><b>Mô tả</b></label>
+                    <input type="text" value="@Model.MO_TA" name="mo_ta" required>
+
+                    <label for="nsx"><b>Nhà sản xuất</b></label>
+                    <div class="form-actions no-color">
+                        @Html.DropDownList("ID_NSX", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ID_NSX, "", new { @class = "text-danger" })
+                    </div>
+
+                    <label for="hinh_anh"><b>Hình ảnh</b></label>
+                    <div class="col-md-4">
+                        <input class="form-control" type="file" name="Picture" id="IMG" onchange="readPicture(this)" accept="image/jpeg,image/gif,image/png" />
+                        <img id="Picture" />
+                    </div>
+
+                    <div class="form-actions no-color">
+                        <input id="update" type="submit" value="Save" class="btn" />
+                        @Html.ActionLink("Quay lại", "Thuoc")
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script type="text/javascript">
+    function readPicture(input) {
+        if (input.files && input.files[0])
+            var reader = new FileReader();
+        reader.onload = function (e) {
+            $('img#Picture').attr('src', e.target.result)
+        };
+        reader.readAsDataURL(input.files[0])
+    }
+
+</script>

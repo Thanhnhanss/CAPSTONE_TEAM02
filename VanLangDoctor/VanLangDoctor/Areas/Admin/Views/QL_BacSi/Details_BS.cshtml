@@ -20,7 +20,7 @@
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb m-0 p-0">
                                 <li class="breadcrumb-item">
-                                    <a href="index.html">Thông tin bác sĩ</a>
+                                    <a href="@Url.Action("Index_BS", "QL_BacSi")">Thông tin bác sĩ</a>
                                 </li>
                             </ol>
                         </nav>
@@ -44,7 +44,7 @@
         <!-- Container fluid  -->
         <!-- ============================================================== -->
         <div class="container-fluid">
-            <form action="@Url.Action("Details", "QL_BacSi")" method="get">
+            <form action="@Url.Action("Details_BS", "QL_BacSi")" method="get">
                 <div class="container">
                     <h1>Bác sĩ</h1>
                     <p>Thông tin chi tiết của bác sĩ</p>
@@ -77,13 +77,13 @@
                     <input type="text" placeholder="@Html.DisplayFor(model => model.NGAY_TRUC)" name="ngay_truc" readonly required>
 
                     <label for="hinh_anh"><b>Hình ảnh</b></label>
-                    <img id="Picture" src="@Url.Action("Picture", new {Model.ID_BACSI})" width="300"/>
+                    <img id="Picture" src="@Url.Action("Picture", new {Model.ID_BACSI})" width="300" />
 
                     <div class="form-actions no-color">
-                        <a href="@Url.Action("Edit", "QL_BacSi", new { id = Model.ID_BACSI})" style="text-align:center" id="update" class="btn">
+                        <a href="@Url.Action("Edit_BS", "QL_BacSi", new { id = Model.ID_BACSI})" style="text-align:center" id="update" class="btn">
                             Cập nhật
                         </a>
-                        @Html.ActionLink("Quay lại", "Bac_Si")
+                        @Html.ActionLink("Quay lại", "Index_BS")
                     </div>
                 </div>
             </form>

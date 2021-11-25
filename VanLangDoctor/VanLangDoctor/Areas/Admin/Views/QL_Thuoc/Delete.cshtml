@@ -1,4 +1,4 @@
-﻿@model VanLangDoctor.Models.BACSI
+﻿@model VanLangDoctor.Models.THUOC
 
 @{
     ViewBag.Title = "Delete";
@@ -20,7 +20,7 @@
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb m-0 p-0">
                                 <li class="breadcrumb-item">
-                                    <a href="index.html">Thông tin bác sĩ</a>
+                                    <a href="@Url.Action("Thuốc", "QL_Thuoc")">Thông tin thuốc</a>
                                 </li>
                             </ol>
                         </nav>
@@ -35,40 +35,25 @@
         <!-- Container fluid  -->
         <!-- ============================================================== -->
         <div class="container-fluid">
-            <form action="@Url.Action("Delete", "QL_BacSi")" method="post">
+            <form action="@Url.Action("Delete", "QL_Thuoc")" method="post">
                 <div class="container">
-                    <h1>Bác sĩ</h1>
-                    <p>Thông tin chi tiết của bác sĩ</p>
+                    <h1>Thuốc</h1>
+                    <p>Thông tin chi tiết của thuốc</p>
                     <hr>
-                    <label for="ten_bacsi"><b>Tên bác sĩ</b></label>
-                    <input type="text" placeholder="@Html.DisplayFor(model => model.TEN_BACSI)" name="ten_bacsi" readonly required>
+                    <label for="ten_thuoc"><b>Tên thuốc</b></label>
+                    <input type="text" value="@Html.DisplayFor(model => model.TEN_THUOC)" name="ten_thuoc" readonly required>
 
-                    <label for="ngay_sinh"><b>Ngày sinh</b></label>
-                    <input type="text" placeholder="@Html.DisplayFor(model => model.NGAYSINH_BS)" name="ngay_sinh" readonly required>
+                    <label for="lieu_luong"><b>Liều lượng</b></label>
+                    <input type="text" value="@Html.DisplayFor(model => model.LIEU_LUONG)" name="lieu_luong" readonly required>
 
-                    <label for="gioi_tinh"><b>Giới tính</b></label>
-                    <input type="text" placeholder="#" name="gioi_tinh" readonly required>
+                    <label for="mo_ta"><b>Mô tả</b></label>
+                    <input type="text" value="@Html.DisplayFor(model => model.MO_TA)" name="mo_ta" readonly required>
 
-                    <label for="sdt"><b>Số điện thoại</b></label>
-                    <input type="text" placeholder="@Html.DisplayFor(model => model.SDT)" name="sdt" readonly required>
-
-                    <label for="email"><b>Email</b></label>
-                    <input type="text" placeholder="@Html.DisplayFor(model => model.EMAIL)" name="email" readonly required>
-
-                    <label for="nghe_nghiep"><b>Nghề nghiệp</b></label>
-                    <input type="text" placeholder="@Html.DisplayFor(model => model.NGHE_NGHIEP)" name="nghe_nghiep" readonly required>
-
-                    <label for="ten_khoa"><b>Tên khoa</b></label>
-                    <input type="text" placeholder="@Html.DisplayFor(model => model.KHOA.TEN_KHOA)" name="ten_khoa" readonly required>
-
-                    <label for="kinh_nghiem"><b>Kinh nghiệm</b></label>
-                    <input type="text" placeholder="@Html.DisplayFor(model => model.KINH_NGHIEM)" name="kinh_nghiem" readonly required>
-
-                    <label for="ngay_truc"><b>Ngày trực</b></label>
-                    <input type="text" placeholder="@Html.DisplayFor(model => model.NGAY_TRUC)" name="ngay_truc" readonly required>
+                    <label for="nsx"><b>Nhà sản xuất</b></label>
+                    <input type="text" value="@Html.DisplayFor(model => model.NHA_SAN_XUAT.TEN_NSX)" name="nsx" readonly required>
 
                     <label for="hinh_anh"><b>Hình ảnh</b></label>
-                    <input type="image" placeholder="@Html.DisplayFor(model => model.HINH_ANH)" name="hinh_anh" readonly required>
+                    <input type="image" value="@Html.DisplayFor(model => model.HINH_ANH)" name="hinh_anh" readonly required>
 
                     @using (Html.BeginForm())
                     {
@@ -76,7 +61,7 @@
 
                         <div class="form-actions no-color">
                             <input id="delete" type="submit" value="Xoá" class="btn" /> <br />
-                            @Html.ActionLink("Quay lại", "Bac_Si")
+                            @Html.ActionLink("Quay lại", "Thuoc")
                         </div>
                     }
                 </div>

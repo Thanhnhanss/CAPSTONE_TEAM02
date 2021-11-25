@@ -4,27 +4,26 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Transactions;
 using System.Web;
 using System.Web.Mvc;
 using VanLangDoctor.Models;
+using System.Transactions;
 
 namespace VanLangDoctor.Areas.Admin.Controllers
 {
-    [Authorize]
     public class QL_BacSiController : Controller
     {
         private CP24Team02Entities db = new CP24Team02Entities();
 
         // GET: Admin/QL_BacSi
-        public ActionResult Bac_Si()
+        public ActionResult Index_BS()
         {
             var bACSIs = db.BACSIs.Include(b => b.KHOA);
             return View(bACSIs.ToList());
         }
 
         // GET: Admin/QL_BacSi/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details_BS(int? id)
         {
             if (id == null)
             {
@@ -47,7 +46,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         }
 
         // GET: Admin/QL_BacSi/Create
-        public ActionResult Create()
+        public ActionResult Create_BS()
         {
             ViewBag.ID_KHOA = new SelectList(db.KHOAs, "ID_KHOA", "TEN_KHOA");
             return View();
@@ -58,48 +57,31 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TEN_BACSI,NGAYSINH_BS,GIOI_TINH,SDT,EMAIL,NGHE_NGHIEP,ID_KHOA,KINH_NGHIEM,NGAY_TRUC")] BACSI bACSI, HttpPostedFileBase picture)
+        public ActionResult Create_BS([Bind(Include = "ID_BACSI,TEN_BACSI,NGAYSINH_BS,GIOI_TINH,SDT,EMAIL,HINH_ANH,NGHE_NGHIEP,ID_KHOA,KINH_NGHIEM,NGAY_TRUC")] BACSI bACSI, HttpPostedFileBase picture)
         {
             if (ModelState.IsValid)
             {
-                var doc_tor = new BACSI();
                 if (picture != null)
                 {
-                    var path = Server.MapPath(PICTURE_PATH);
-
                     using (var scope = new TransactionScope())
                     {
-                        doc_tor.ID_BACSI = bACSI.ID_BACSI;
-                        doc_tor.TEN_BACSI = bACSI.TEN_BACSI;
-                        doc_tor.NGAYSINH_BS = bACSI.NGAYSINH_BS;
-                        doc_tor.GIOI_TINH = bACSI.GIOI_TINH;
-                        doc_tor.SDT = bACSI.SDT;
-                        doc_tor.EMAIL = bACSI.EMAIL;
-                        doc_tor.NGHE_NGHIEP = bACSI.NGHE_NGHIEP;
-                        doc_tor.ID_KHOA = bACSI.ID_KHOA;
-                        doc_tor.KINH_NGHIEM = bACSI.KINH_NGHIEM;
-                        doc_tor.NGAY_TRUC = bACSI.NGAY_TRUC;
-                        doc_tor.HINH_ANH = "";
-
-                        db.BACSIs.Add(doc_tor);
+                        db.BACSIs.Add(bACSI);
                         db.SaveChanges();
 
-                        picture.SaveAs(path + doc_tor.ID_BACSI);
-                        doc_tor.HINH_ANH = path + doc_tor.ID_BACSI;
-                        db.Entry(doc_tor).State = EntityState.Modified;
-                        db.SaveChanges();
+                        var path = Server.MapPath(PICTURE_PATH);
+                        picture.SaveAs(path + bACSI.ID_BACSI);
 
                         scope.Complete();
                     }
                 }
-                else ModelState.AddModelError("", "Hình ảnh không được tìm thấy");
             }
+
             ViewBag.ID_KHOA = new SelectList(db.KHOAs, "ID_KHOA", "TEN_KHOA", bACSI.ID_KHOA);
-            return RedirectToAction("Bac_Si");
+            return RedirectToAction("Index_BS");
         }
 
         // GET: Admin/QL_BacSi/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit_BS(int? id)
         {
             if (id == null)
             {
@@ -119,20 +101,35 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID_BACSI,TEN_BACSI,NGAYSINH_BS,GIOI_TINH,SDT,EMAIL,HINH_ANH,NGHE_NGHIEP,ID_KHOA,KINH_NGHIEM,NGAY_TRUC")] BACSI bACSI)
+        public ActionResult Edit_BS([Bind(Include = "ID_BACSI,TEN_BACSI,NGAYSINH_BS,GIOI_TINH,SDT,EMAIL,HINH_ANH,NGHE_NGHIEP,ID_KHOA,KINH_NGHIEM,NGAY_TRUC")] BACSI bACSI, HttpPostedFileBase picture)
         {
             if (ModelState.IsValid)
             {
+                if (ModelState.IsValid)
+                {
+                    using (var scope = new TransactionScope())
+                    {
+                        db.Entry(bACSI).State = EntityState.Modified;
+                        db.SaveChanges();
+
+                        if (picture != null)
+                        {
+                            var path = Server.MapPath(PICTURE_PATH);
+                            picture.SaveAs(path + bACSI.ID_BACSI);
+                        }
+
+                        scope.Complete();
+                        return RedirectToAction("Index_BS");
+                    }
+                }
                 db.Entry(bACSI).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Bac_Si");
             }
             ViewBag.ID_KHOA = new SelectList(db.KHOAs, "ID_KHOA", "TEN_KHOA", bACSI.ID_KHOA);
             return View(bACSI);
         }
 
         // GET: Admin/QL_BacSi/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete_BS(int? id)
         {
             if (id == null)
             {
@@ -149,7 +146,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         // POST: Admin/QL_BacSi/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult Delete_BSConfirmed(int id)
         {
             BACSI bACSI = db.BACSIs.Find(id);
             db.BACSIs.Remove(bACSI);

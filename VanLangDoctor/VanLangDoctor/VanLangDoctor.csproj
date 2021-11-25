@@ -179,6 +179,7 @@
     <Compile Include="Areas\Admin\Controllers\QL_BacSiController.cs" />
     <Compile Include="Areas\Admin\Controllers\QL_BenhNhanController.cs" />
     <Compile Include="Areas\Admin\Controllers\QL_TaiKhoanController.cs" />
+    <Compile Include="Areas\Admin\Controllers\QL_ThuocController.cs" />
     <Compile Include="Areas\Admin\Controllers\QL_TinTucController.cs" />
     <Compile Include="Areas\User\Controllers\BacSiController.cs" />
     <Compile Include="Areas\User\Controllers\HomeUserController.cs" />
@@ -239,6 +240,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NHA_SAN_XUAT.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -1534,11 +1538,6 @@
     <Content Include="Content\scss-ad\style.scss" />
     <Content Include="Areas\User\Views\BacSi\Details.cshtml" />
     <Content Include="Areas\User\Views\BacSi\Bac_Si.cshtml" />
-    <Content Include="Areas\Admin\Views\QL_BacSi\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\QL_BacSi\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\QL_BacSi\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\QL_BacSi\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\QL_BacSi\Bac_Si.cshtml" />
     <Content Include="Areas\Admin\Views\QL_BenhNhan\Create.cshtml" />
     <Content Include="Areas\Admin\Views\QL_BenhNhan\Delete_BN.cshtml" />
     <Content Include="Areas\Admin\Views\QL_BenhNhan\Details.cshtml" />
@@ -1555,6 +1554,16 @@
     <Content Include="Areas\Admin\Views\QL_TaiKhoan\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\QL_TaiKhoan\Tai_Khoan.cshtml" />
     <Content Include="Areas\Admin\Views\QL_TaiKhoan\Phan_Quyen.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_Thuoc\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_Thuoc\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_Thuoc\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_Thuoc\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_Thuoc\Thuoc.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_BacSi\Create_BS.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_BacSi\Delete_BS.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_BacSi\Details_BS.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_BacSi\Edit_BS.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_BacSi\Index_BS.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -1607,6 +1616,7 @@
     <Folder Include="Areas\User\Models\" />
     <Folder Include="Content\assets-ff\css\components\Ecommerce\" />
     <Folder Include="Content\IMG_DOCTOR\" />
+    <Folder Include="Content\IMG_MEDICINE\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
