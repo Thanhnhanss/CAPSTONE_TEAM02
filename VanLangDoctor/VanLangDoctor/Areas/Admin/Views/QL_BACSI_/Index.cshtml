@@ -33,99 +33,95 @@
         <!-- ============================================================== -->
         <!-- Container fluid  -->
         <!-- ============================================================== -->
-       
         <div class="container-fluid">
+            <p>
+                @Html.ActionLink("Thêm", "Create_BS")
+            </p>
             <div class="row">
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table id="zero_config" class="table table-striped table-bordered no-wrap">
-                                    <p>
-                                        @Html.ActionLink("Create New", "Create")
-                                    </p>
-                                        <tbody>
-                                            <tr>
-                                                <th>
-                                                    @Html.DisplayNameFor(model => model.TEN_BACSI)
-                                                </th>
-                                                <th>
-                                                    @Html.DisplayNameFor(model => model.NGAYSINH_BS)
-                                                </th>
-                                                <th>
-                                                    @Html.DisplayNameFor(model => model.GIOI_TINH)
-                                                </th>
-                                                <th>
-                                                    @Html.DisplayNameFor(model => model.SDT)
-                                                </th>
-                                                <th>
-                                                    @Html.DisplayNameFor(model => model.EMAIL)
-                                                </th>
-                                                <th>
-                                                    @Html.DisplayNameFor(model => model.HINH_ANH)
-                                                </th>
-                                                <th>
-                                                    @Html.DisplayNameFor(model => model.NGHE_NGHIEP)
-                                                </th>
-                                                <th>
-                                                    @Html.DisplayNameFor(model => model.KINH_NGHIEM)
-                                                </th>
-                                                <th>
-                                                    @Html.DisplayNameFor(model => model.NGAY_TRUC)
-                                                </th>
-                                                <th>
-                                                    @Html.DisplayNameFor(model => model.KHOA.TEN_KHOA)
-                                                </th>
-                                                <th></th>
-                                            </tr>
+                                    <thead>
+                                        <tr>
+                                            <th>Hình ảnh</th>
+                                            <th>Tên bác sĩ</th>
+                                            <th>Ngày sinh</th>
+                                            <th>Giới tính</th>
+                                            <th>Số điện thoại</th>
+                                            <th>Email</th>
+                                            <th>Nghề nghiệp</th>
+                                            <th>Kinh nghiệm</th>
+                                            <th>Ngày trực</th>
+                                            <th>Khoa</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
 
-                                            @foreach (var item in Model)
-                                            {
-                                                <tr>
-                                                    <td>
-                                                        @Html.DisplayFor(modelItem => item.TEN_BACSI)
-                                                    </td>
-                                                    <td>
-                                                        @Html.DisplayFor(modelItem => item.NGAYSINH_BS)
-                                                    </td>
-                                                    <td>
-                                                        @Html.DisplayFor(modelItem => item.GIOI_TINH)
-                                                    </td>
-                                                    <td>
-                                                        @Html.DisplayFor(modelItem => item.SDT)
-                                                    </td>
-                                                    <td>
-                                                        @Html.DisplayFor(modelItem => item.EMAIL)
-                                                    </td>
-                                                    <td>
-                                                        @Html.DisplayFor(modelItem => item.HINH_ANH)
-                                                    </td>
-                                                    <td>
-                                                        @Html.DisplayFor(modelItem => item.NGHE_NGHIEP)
-                                                    </td>
-                                                    <td>
-                                                        @Html.DisplayFor(modelItem => item.KINH_NGHIEM)
-                                                    </td>
-                                                    <td>
-                                                        @Html.DisplayFor(modelItem => item.NGAY_TRUC)
-                                                    </td>
-                                                    <td>
-                                                        @Html.DisplayFor(modelItem => item.KHOA.TEN_KHOA)
-                                                    </td>
-                                                    <td>
-                                                        @Html.ActionLink("Edit", "Edit", new { id = item.ID_BACSI }) |
-                                                        @Html.ActionLink("Details", "Details", new { id = item.ID_BACSI }) |
-                                                        @Html.ActionLink("Delete", "Delete", new { id = item.ID_BACSI })
-                                                    </td>
-                                                </tr>
-                                            }
-                                        </tbody>
-                                   </table>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <img src="@Url.Action("Picture", new {item.ID_BACSI})" width="50" height="48" />
+                                            </td>
+                                            <td>
+                                                @item.TEN_BACSI
+                                            </td>
+                                            <td>
+                                                @Html.FormatValue(item.NGAYSINH_BS, "{0:d}")
+                                            </td>
+                                            <td>
+                                                @item.GIOI_TINH
+                                            </td>
+                                            <td>
+                                                @item.SDT
+                                            </td>
+                                            <td>
+                                                @item.EMAIL
+                                            </td>
+                                            <td>
+                                                @item.NGHE_NGHIEP
+                                            </td>
+                                            <td>
+                                                @item.KINH_NGHIEM
+                                            </td>
+                                            <td>
+                                                @Html.FormatValue(item.NGAY_TRUC, "{0:d}")
+                                            </td>
+                                            <td>
+                                                @item.KHOA.TEN_KHOA
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Action("Edit_BS","QL_BacSi", new { id = item.ID_BACSI })"><i class="ti-settings"></i></a>
+                                                <a href="@Url.Action("Details_BS","QL_BacSi", new { id = item.ID_BACSI })"><i class="ti-eye"></i></a>
+                                                <a href="@Url.Action("Delete_BS","QL_BacSi", new { id = item.ID_BACSI })"><i class="ti-trash"></i></a>
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </table>
+                                <ul class="pagination float-right">
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                    </li>
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">Next</a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-                    </div>
-</div>
-</div>
-</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Page wrapper  -->
+    <!-- ============================================================== -->
 </div>
