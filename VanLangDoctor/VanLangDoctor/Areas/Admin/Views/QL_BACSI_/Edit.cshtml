@@ -39,7 +39,7 @@
                 <h1>Bác sĩ</h1>
                 <p>Thông tin chi tiết của bác sĩ</p>
                 <hr>
-                @using (Html.BeginForm("Edit_BS", "QL_BacSi", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                @using (Html.BeginForm("Edit", "QL_BACSI_", FormMethod.Post, new { enctype = "multipart/form-data" }))
                 {
                     @Html.AntiForgeryToken()
 
@@ -99,7 +99,7 @@
                             <label for="hinh_anh"><b>Hình ảnh</b></label>
                             <div class="col-md-4">
                                 <input class="form-control" type="file" name="Picture" id="IMG" onchange="readPicture(this)" accept="image/jpeg,image/gif,image/png" />
-                                <img src="@Url.Action("Picture","QL_BacSi", new {Model.ID_BACSI})" id="Picture" />
+                                <img src="@Url.Action("Picture","QL_BACSI_", new {Model.ID_BACSI})" id="Picture" />
                             </div>
                         </div>
 
@@ -146,7 +146,7 @@
                         <div class="form-group">
                             <div class="form-actions no-color">
                                 <input id="update" type="submit" value="Lưu" class="btn" />
-                                @Html.ActionLink("Quay lại", "Index_BS")
+                                @Html.ActionLink("Quay lại", "Index")
                             </div>
                         </div>
                     </div>

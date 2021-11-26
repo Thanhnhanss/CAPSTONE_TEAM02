@@ -19,7 +19,7 @@
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb m-0 p-0">
                                 <li class="breadcrumb-item">
-                                    <a href="@Url.Action("Index_BS", "QL_BacSi")">Thông tin bệnh nhân</a>
+                                    <a href="@Url.Action("Index", "QL_BACSI_")">Thông tin bệnh nhân</a>
                                 </li>
                             </ol>
                         </nav>
@@ -35,7 +35,7 @@
         <!-- ============================================================== -->
         <div class="container-fluid">
             <p>
-                @Html.ActionLink("Thêm", "Create_BS")
+                @Html.ActionLink("Thêm", "Create")
             </p>
             <div class="row">
                 <div class="col-12">
@@ -93,9 +93,9 @@
                                                 @item.KHOA.TEN_KHOA
                                             </td>
                                             <td>
-                                                <a href="@Url.Action("Edit_BS","QL_BacSi", new { id = item.ID_BACSI })"><i class="ti-settings"></i></a>
-                                                <a href="@Url.Action("Details_BS","QL_BacSi", new { id = item.ID_BACSI })"><i class="ti-eye"></i></a>
-                                                <a href="@Url.Action("Delete_BS","QL_BacSi", new { id = item.ID_BACSI })"><i class="ti-trash"></i></a>
+                                                <a href="@Url.Action("Edit","QL_BACSI_", new { id = item.ID_BACSI })"><i class="ti-settings"></i></a>
+                                                <a href="@Url.Action("Details","QL_BACSI_", new { id = item.ID_BACSI })"><i class="ti-eye"></i></a>
+                                                <a href="@Url.Action("Delete","QL_BACSI_", new { id = item.ID_BACSI })"><i class="ti-trash"></i></a>
                                             </td>
                                         </tr>
                                     }
