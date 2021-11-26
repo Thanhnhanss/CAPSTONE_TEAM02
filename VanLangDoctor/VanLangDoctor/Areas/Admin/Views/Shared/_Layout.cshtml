@@ -289,12 +289,6 @@
                 </div>
             </nav>
         </header>
-        <!-- ============================================================== -->
-        <!-- End Topbar header -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
         <aside class="left-sidebar" data-sidebarbg="skin6">
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar" data-sidebarbg="skin6">
@@ -332,24 +326,24 @@
                         </li>
 
                         <li class="list-divider"></li>
-                        <li class="nav-small-cap"><span class="hide-menu">Bệnh nhân</span></li>
+                        <li class="nav-small-cap"><span class="hide-menu">Người dùng</span></li>
                         <li class="sidebar-item">
                             <a class="sidebar-link has-arrow" href="javascript:void(0)"
                                aria-expanded="false">
-                                <i data-feather="file-text" class="feather-icon"></i><span class="hide-menu">Forms </span>
+                                <i data-feather="file-text" class="feather-icon"></i><span class="hide-menu">Bệnh nhân </span>
                             </a>
                             <ul aria-expanded="false" class="collapse  first-level base-level-line">
                                 <li class="sidebar-item">
-                                    <a href="form-inputs.html" class="sidebar-link">
+                                    <a href="@Url.Action("DanhSachBN","BENH_NHAN")" class="sidebar-link">
                                         <span class="hide-menu">
-                                            Form Inputs
+                                            Danh sách bệnh nhân
                                         </span>
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
-                                    <a href="form-input-grid.html" class="sidebar-link">
+                                    <a href="@Url.Action("Create","BENH_NHAN")" class="sidebar-link">
                                         <span class="hide-menu">
-                                            Form Grids
+                                            Thêm bệnh nhân
                                         </span>
                                     </a>
                                 </li>
@@ -676,36 +670,20 @@
             <!-- End Sidebar scroll-->
         </aside>
         @RenderBody()
-        <!-- ============================================================== -->
-        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
-
     </div>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
     <script src="@Url.Content("~/Content/assets-ad/libs/jquery/dist/jquery.min.js")"></script>
-    <script src="@Url.Content("~/Content/assets-ad/assets/libs/popper.js/dist/umd/popper.min.js")"></script>
-    <script src="@Url.Content("~/Content/assets-ad/libs/bootstrap/dist/js/bootstrap.min.js")"></script>
-    <!-- apps -->
-    <!-- apps -->
-    <script src="@Url.Content("~/Content/dist-ad/js/app-style-switcher.js")"></script>
     <script src="@Url.Content("~/Content/dist-ad/js/feather.min.js")"></script>
+    @*<script src="@Url.Content("~/Content/assets-ad/assets/extra-libs/c3/d3.min.js")"></script>*@
+    @*<script src="@Url.Content("~/Content/assets-ad/libs/chartist/dist/chartist.min.js")"></script>*@
+    @*<script src="@Url.Content("~/Content/assets-ad/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js")"></script>*@
+    @*<script src="@Url.Content("~/Content/assets-ad/assets/libs/popper.js/dist/umd/popper.min.js")"></script>*@
+    <script src="@Url.Content("~/Content/assets-ad/libs/bootstrap/dist/js/bootstrap.min.js")"></script>
+    <script src="@Url.Content("~/Content/dist-ad/js/app-style-switcher.js")"></script>
     <script src="@Url.Content("~/Content/assets-ad/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js")"></script>
     <script src="@Url.Content("~/Content/dist-ad/js/sidebarmenu.js")"></script>
-    <!--Custom JavaScript -->
     <script src="@Url.Content("~/Content/dist-ad/js/custom.min.js")"></script>
-    <!--This page JavaScript -->
-    <script src="@Url.Content("~/Content/assets-ad/assets/extra-libs/c3/d3.min.js")"></script>
     <script src="@Url.Content("~/Content/assets-ad/extra-libs/c3/c3.min.js")"></script>
-    <script src="@Url.Content("~/Content/assets-ad/libs/chartist/dist/chartist.min.js")"></script>
-    <script src="@Url.Content("~/Content/assets-ad/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js")"></script>
     <script src="@Url.Content("~/Content/assets-ad/extra-libs/jvector/jquery-jvectormap-2.0.2.min.js")"></script>
     <script src="@Url.Content("~/Content/assets-ad/extra-libs/jvector/jquery-jvectormap-world-mill-en.js")"></script>
     <script src="@Url.Content("~/Content/dist-ad/js/pages/dashboards/dashboard1.min.js")"></script>

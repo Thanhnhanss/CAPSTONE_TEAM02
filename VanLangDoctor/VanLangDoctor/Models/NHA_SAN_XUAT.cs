@@ -12,15 +12,18 @@ namespace VanLangDoctor.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class THUOC
+    public partial class NHA_SAN_XUAT
     {
-        public int ID_THUOC { get; set; }
-        public string TEN_THUOC { get; set; }
-        public string LIEU_LUONG { get; set; }
-        public string MO_TA { get; set; }
-        public string HINH_ANH { get; set; }
-        public Nullable<int> ID_NSX { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public NHA_SAN_XUAT()
+        {
+            this.THUOCs = new HashSet<THUOC>();
+        }
     
-        public virtual NHA_SAN_XUAT NHA_SAN_XUAT { get; set; }
+        public int ID { get; set; }
+        public string TEN_NSX { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<THUOC> THUOCs { get; set; }
     }
 }

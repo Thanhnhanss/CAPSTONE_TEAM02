@@ -1,0 +1,83 @@
+﻿@model VanLangDoctor.Models.BENH_NHAN
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BENH_NHAN</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TEN_BN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TEN_BN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GIOI_TINH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GIOI_TINH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAY_SINH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAY_SINH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EMAIL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMAIL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CHUAN_DOAN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CHUAN_DOAN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BACSI.TEN_BACSI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BACSI.TEN_BACSI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BENH_AN.KET_QUA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BENH_AN.KET_QUA)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_BENHNHAN }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

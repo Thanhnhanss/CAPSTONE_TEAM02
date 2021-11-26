@@ -1,0 +1,204 @@
+﻿@model VanLangDoctor.Models.BENH_NHAN
+
+@{
+    ViewBag.Title = "Thêm mới bệnh nhân";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <style>
+        .button {
+            display: inline-block;
+            border-radius: 4em;
+            background-color: #f4511e;
+            border: none;
+            color: #FFFFFF;
+            text-align: center;
+            font-size: 13px;
+            padding: 10px;
+            width: 150px;
+            transition: all 0.5s;
+            cursor: pointer;
+            margin: 5px
+        }
+
+            .button span {
+                cursor: pointer;
+                display: inline-block;
+                position: relative;
+                transition: 0.5s
+            }
+
+                .button span:after {
+                    content: '\00bb';
+                    position: absolute;
+                    opacity: 0;
+                    top: 0;
+                    right: -20px;
+                    transition: 0.5s
+                }
+
+            .button:hover span {
+                padding-right: 25px
+            }
+
+                .button:hover span:after {
+                    opacity: 1;
+                    right: 0
+                }
+
+        .button-back {
+            display: inline-block;
+            border-radius: 4em;
+            background-color: #f4511e;
+            border: none;
+            color: #ffffff;
+            text-align: center;
+            font-size: 13px;
+            padding: 10px;
+            width: 150px;
+            transition: all 0.5s;
+            cursor: pointer;
+            margin: 5px
+        }
+
+            .button-back span-back {
+                cursor: pointer;
+                display: inline-block;
+                position: relative;
+                transition: 0.5s
+            }
+
+                .button-back span-back:after {
+                    content: "\00ab";
+                    position: absolute;
+                    opacity: 0;
+                    top: 0;
+                    right: -20px;
+                    transition: 0.5s
+                }
+
+            .button-back:hover span-back {
+                padding-right: 25px
+            }
+
+                .button-back:hover span-back:after {
+                    opacity: 1;
+                    right: 0
+                }
+    </style>
+    <link href="~/Content/formcrud.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="page-wrapper" style="display: block;">
+        <div class="page-breadcrumb">
+            <div class="row">
+                <div class="col-7 align-self-center">
+                    <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">@ViewBag.Title</h4>
+                    <div class="d-flex align-items-center">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb m-0 p-0">
+                                <li class="breadcrumb-item"><a href="~/trang-chu-quan-ly" class="text-muted">Trang chủ</a></li>
+                                <li class="breadcrumb-item"><a href="@Url.Action("DanhSachBN", "BENH_NHAN")" class="text-muted">Bệnh nhân</a></li>
+                                <li class="breadcrumb-item text-muted active" aria-current="page">@ViewBag.Title</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-5 align-self-center">
+                    <div class="customize-input float-right">
+                        <a class="button-back" href="@Url.Action("DanhSachBN", "BENH_NHAN")">
+                            <span-back>Trở về</span-back>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr />
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="container">
+                <div class="form-horizontal">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        <label><b>Tên bệnh nhân</b></label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.TEN_BN, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.TEN_BN, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label><b>Giới tính</b></label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.GIOI_TINH, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.GIOI_TINH, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label><b>Ngày sinh</b></label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.NGAY_SINH, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+                            @Html.ValidationMessageFor(model => model.NGAY_SINH, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label><b>Email</b></label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.EMAIL, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.EMAIL, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label><b>Số điện thoại</b></label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.SDT, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.SDT, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label><b>Chuẩn đoán</b></label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.CHUAN_DOAN, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.CHUAN_DOAN, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label><b>Bác sĩ đã khám</b></label>
+                        <div class="col-md-10">
+                            @Html.DropDownList("ID_BACSI", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.ID_BACSI, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label><b>Sổ bệnh án</b></label>
+                        <div class="col-md-10">
+                            @Html.DropDownList("ID_BENH_AN", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.ID_BENH_AN, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <br />
+                    <div class="col-md-5">
+                        <button type="submit" class="button" style="vertical-align:middle"><span>Thêm mới </span></button>
+                    </div>
+                </div>
+
+            </div>
+        }
+    </div>
+</body>
+</html>
+

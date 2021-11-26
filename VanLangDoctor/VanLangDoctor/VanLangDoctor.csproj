@@ -176,6 +176,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AspNetRolesController.cs" />
     <Compile Include="Areas\Admin\Controllers\BACSIsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\BENH_NHANController.cs" />
     <Compile Include="Areas\Admin\Controllers\DstaikhoanController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\PhanQuyenController.cs" />
@@ -239,6 +240,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NHA_SAN_XUAT.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -1720,6 +1724,11 @@
     <Content Include="Areas\Admin\Views\AspNetRoles\Details.cshtml" />
     <Content Include="Areas\Admin\Views\AspNetRoles\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\AspNetRoles\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\BENH_NHAN\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\BENH_NHAN\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\BENH_NHAN\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\BENH_NHAN\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\BENH_NHAN\DanhSachBN.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

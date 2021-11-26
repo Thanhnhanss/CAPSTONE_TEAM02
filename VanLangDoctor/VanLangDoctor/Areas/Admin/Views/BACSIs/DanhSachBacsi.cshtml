@@ -4,7 +4,10 @@
     ViewBag.Title = "Danh sách bác sĩ";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
-
+<!-- This page plugin CSS -->
+<link href="~/Content/assets-ad/extra-libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
+<!-- Custom CSS -->
+<link href="~/Content/dist-ad/css/style.min.css" rel="stylesheet">
 <link href="~/Content/formcrud.css" rel="stylesheet" />
 <div class="page-wrapper" style="display: block">
     <!-- ============================================================== -->
@@ -25,7 +28,7 @@
             </div>
             <div class="col-5 align-self-center">
                 <div class="customize-input float-right">
-                    <a class="button-plus" href="~/trang-chu-quan-ly/bac-si/them-moi" >
+                    <a class="button-plus" href="~/trang-chu-quan-ly/bac-si/them-moi">
                         <span>Thêm bác sĩ</span>
                     </a>
                 </div>
@@ -39,15 +42,12 @@
     <!-- Container fluid  -->
     <!-- ============================================================== -->
     <div class="container-fluid">
-        <!-- ============================================================== -->
-        <!-- Start Page Content -->
-        <!-- ============================================================== -->
-        <!-- basic table -->
         <div class="row">
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
                         <div class="table-responsive">
+
                             <table id="zero_config" class="table table-striped table-bordered no-wrap">
                                 <thead>
                                     <tr>
@@ -66,21 +66,21 @@
                                 <tbody>
                                     @foreach (var item in Model)
                                     {
-                                    <tr>
-                                        <td><a href="javascript:void(0)" class="font-weight-medium link">@item.TEN_BACSI</a></td>
-                                        <td>@item.SDT</td>
-                                        <td class="font-bold link">@Html.FormatValue(@item.NGAYSINH_BS, "{0:d}")</td>
-                                        <td>@item.EMAIL</td>
-                                        <td>@item.GIOI_TINH</td>
-                                        <td>@item.NGHE_NGHIEP</td>
-                                        <td>@item.KINH_NGHIEM Năm</td>
-                                        <td>@Html.FormatValue(@item.NGAY_TRUC, "{0:d}")</td>
-                                        <td style="text-align:center"><img src="@Url.Action("Picture", new {item.ID_BACSI})" width="55" height="55" style="border-radius: 50%"/></td>
-                                        <td>
-                                            <a href="@Url.Action("Edit","BACSIs", new { id = item.ID_BACSI })"><i class="ti-settings"></i></a>
-                                            <a href="@Url.Action("Delete","BACSIs", new { id = item.ID_BACSI })"><i class="ti-trash"></i></a>
-                                        </td>
-                                    </tr>
+                                        <tr>
+                                            <td><a href="javascript:void(0)" class="font-weight-medium link">@item.TEN_BACSI</a></td>
+                                            <td>@item.SDT</td>
+                                            <td class="font-bold link">@Html.FormatValue(@item.NGAYSINH_BS, "{0:d}")</td>
+                                            <td>@item.EMAIL</td>
+                                            <td>@item.GIOI_TINH</td>
+                                            <td>@item.NGHE_NGHIEP</td>
+                                            <td>@item.KINH_NGHIEM Năm</td>
+                                            <td>@Html.FormatValue(@item.NGAY_TRUC, "{0:d}")</td>
+                                            <td style="text-align:center"><img src="@Url.Action("Picture", new {item.ID_BACSI})" width="55" height="55" style="border-radius: 50%" /></td>
+                                            <td>
+                                                <a href="@Url.Action("Edit","BACSIs", new { id = item.ID_BACSI })"><i class="ti-settings"></i></a>
+                                                <a href="@Url.Action("Delete","BACSIs", new { id = item.ID_BACSI })"><i class="ti-trash"></i></a>
+                                            </td>
+                                        </tr>
                                     }
 
                                 </tbody>
@@ -99,38 +99,19 @@
                                     </tr>
                                 </tfoot>
                             </table>
-                            <ul class="pagination float-right">
-                                <li class="page-item disabled">
-                                    <a class="page-link" href="#" tabindex="-1">Previous</a>
-                                </li>
-                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">Next</a>
-                                </li>
-                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- ============================================================== -->
-    <!-- End Container fluid  -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- footer -->
-    <!-- ============================================================== -->
-    <footer class="footer text-center text-muted">
-        @Html.FormatValue(DateTime.Now, "{0:M}")
-        All Rights Reserved by Adminmart. Designed and Developed by <a href="#">WrapPixel</a>.
-    </footer>
-    <!-- ============================================================== -->
-    <!-- End footer -->
-    <!-- ============================================================== -->
 </div>
-
-
+<script src="~/Content/assets-ad/libs/jquery/dist/jquery.min.js"></script>
+<script src="~/Content/assets-ad/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="~/Content/dist-ad/js/app-style-switcher.js"></script>
+<script src="~/Content/dist-ad/js/feather.min.js"></script>
+<script src="~/Content/assets-ad/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+<script src="~/Content/assets-ad/extra-libs/sparkline/sparkline.js"></script>
+<script src="~/Content/dist-ad/js/custom.min.js"></script>
+<script src="~/Content/assets-ad/extra-libs/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="~/Content/dist-ad/js/pages/datatable/datatable-basic.init.js"></script>

@@ -30,8 +30,8 @@ namespace VanLangDoctor.Models
         public string HINH_ANH { get; set; }
         public string NGHE_NGHIEP { get; set; }
         public Nullable<int> ID_KHOA { get; set; }
-        public int KINH_NGHIEM { get; set; }
-        public System.DateTime NGAY_TRUC { get; set; }
+        public Nullable<int> KINH_NGHIEM { get; set; }
+        public Nullable<System.DateTime> NGAY_TRUC { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BENH_NHAN> BENH_NHAN { get; set; }

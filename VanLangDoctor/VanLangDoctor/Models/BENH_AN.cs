@@ -25,11 +25,12 @@ namespace VanLangDoctor.Models
         public string CHUAN_DOAN { get; set; }
         public string TIEN_SU_BENH { get; set; }
         public string GHI_CHU { get; set; }
-        public string ID_BENH_NHAN { get; set; }
+        public Nullable<int> ID_BENH_NHAN { get; set; }
         public Nullable<int> ID_KHOA { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BENH_NHAN> BENH_NHAN { get; set; }
+        public virtual BENH_NHAN BENH_NHAN1 { get; set; }
         public virtual KHOA KHOA { get; set; }
     }
 }
