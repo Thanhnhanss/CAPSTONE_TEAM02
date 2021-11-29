@@ -176,6 +176,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AspNetRolesController.cs" />
     <Compile Include="Areas\Admin\Controllers\BACSIsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\BENH_ANController.cs" />
     <Compile Include="Areas\Admin\Controllers\BENH_NHANController.cs" />
     <Compile Include="Areas\Admin\Controllers\DstaikhoanController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
@@ -1729,6 +1730,11 @@
     <Content Include="Areas\Admin\Views\BENH_NHAN\Details.cshtml" />
     <Content Include="Areas\Admin\Views\BENH_NHAN\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\BENH_NHAN\DanhSachBN.cshtml" />
+    <Content Include="Areas\Admin\Views\BENH_AN\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\BENH_AN\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\BENH_AN\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\BENH_AN\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\BENH_AN\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

@@ -142,6 +142,7 @@
           </Key>
           <Property Name="ID_KHOA" Type="int" Nullable="false" />
           <Property Name="TEN_KHOA" Type="nvarchar" MaxLength="256" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <EntityType Name="NHA_SAN_XUAT">
           <Key>
@@ -181,6 +182,7 @@
           <Property Name="NOI_DUNG" Type="nvarchar(max)" Nullable="false" />
           <Property Name="TAC_GIA" Type="nvarchar(max)" />
           <Property Name="SEO_TITLE" Type="nvarchar(max)" />
+          <Property Name="HINH_ANH" Type="nvarchar(max)" />
         </EntityType>
         <Association Name="FK_BACSI">
           <End Role="BACSI" Type="Self.BACSI" Multiplicity="0..1" />
@@ -633,6 +635,7 @@
           </Key>
           <Property Name="ID_KHOA" Type="Int32" Nullable="false" />
           <Property Name="TEN_KHOA" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="BACSIs" Relationship="CP24Team02Model.FK_KHOA" FromRole="KHOA" ToRole="BACSI" />
           <NavigationProperty Name="BENH_AN" Relationship="CP24Team02Model.FK_KHOA_BA" FromRole="KHOA" ToRole="BENH_AN" />
           <NavigationProperty Name="DANG_KY" Relationship="CP24Team02Model.FK_KHOA_DK" FromRole="KHOA" ToRole="DANG_KY" />
@@ -677,6 +680,7 @@
           <Property Name="NOI_DUNG" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="TAC_GIA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="SEO_TITLE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HINH_ANH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Type="CP24Team02Model.AspNetUser" Role="AspNetUser" Multiplicity="1">
@@ -957,6 +961,7 @@
           <EntitySetMapping Name="KHOAs">
             <EntityTypeMapping TypeName="CP24Team02Model.KHOA">
               <MappingFragment StoreEntitySet="KHOA">
+                <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="TEN_KHOA" ColumnName="TEN_KHOA" />
                 <ScalarProperty Name="ID_KHOA" ColumnName="ID_KHOA" />
               </MappingFragment>
@@ -996,6 +1001,7 @@
           <EntitySetMapping Name="TIN_TUC">
             <EntityTypeMapping TypeName="CP24Team02Model.TIN_TUC">
               <MappingFragment StoreEntitySet="TIN_TUC">
+                <ScalarProperty Name="HINH_ANH" ColumnName="HINH_ANH" />
                 <ScalarProperty Name="SEO_TITLE" ColumnName="SEO_TITLE" />
                 <ScalarProperty Name="TAC_GIA" ColumnName="TAC_GIA" />
                 <ScalarProperty Name="NOI_DUNG" ColumnName="NOI_DUNG" />
