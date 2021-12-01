@@ -70,7 +70,7 @@
                                             <td><a href="javascript:void(0)" class="font-weight-medium link">@item.TEN_BACSI</a></td>
                                             <td>@item.SDT</td>
                                             <td class="font-bold link">@Html.FormatValue(@item.NGAYSINH_BS, "{0:d}")</td>
-                                            <td>@item.EMAIL</td>
+                                            <td>@Html.DisplayFor(modelItem => item.AspNetUser.Email)</td>
                                             <td>@item.GIOI_TINH</td>
                                             <td>@item.NGHE_NGHIEP</td>
                                             <td>@item.KINH_NGHIEM Năm</td>

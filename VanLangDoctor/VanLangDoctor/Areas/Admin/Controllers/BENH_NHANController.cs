@@ -17,7 +17,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         // GET: Admin/BENH_NHAN
         public ActionResult DanhSachBN()
         {
-            var bENH_NHAN = db.BENH_NHAN.Include(b => b.BACSI).Include(b => b.BENH_AN);
+            var bENH_NHAN = db.BENH_NHAN.Include(b => b.BENH_AN);
             return View(bENH_NHAN.ToList());
         }
 
@@ -58,7 +58,6 @@ namespace VanLangDoctor.Areas.Admin.Controllers
                 return RedirectToAction("DanhSachBN");
             }
 
-            ViewBag.ID_BACSI = new SelectList(db.BACSIs, "ID_BACSI", "TEN_BACSI", bENH_NHAN.ID_BACSI);
             ViewBag.ID_BENH_AN = new SelectList(db.BENH_AN, "ID_BENHAN", "KET_QUA", bENH_NHAN.ID_BENH_AN);
             return View(bENH_NHAN);
         }
@@ -75,7 +74,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ID_BACSI = new SelectList(db.BACSIs, "ID_BACSI", "TEN_BACSI", bENH_NHAN.ID_BACSI);
+            ViewBag.ID_BACSI = new SelectList(db.BACSIs, "ID_BACSI", "TEN_BACSI");
             ViewBag.ID_BENH_AN = new SelectList(db.BENH_AN, "ID_BENHAN", "KET_QUA", bENH_NHAN.ID_BENH_AN);
             return View(bENH_NHAN);
         }
@@ -93,7 +92,6 @@ namespace VanLangDoctor.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("DanhSachBN");
             }
-            ViewBag.ID_BACSI = new SelectList(db.BACSIs, "ID_BACSI", "TEN_BACSI", bENH_NHAN.ID_BACSI);
             ViewBag.ID_BENH_AN = new SelectList(db.BENH_AN, "ID_BENHAN", "KET_QUA", bENH_NHAN.ID_BENH_AN);
             return View(bENH_NHAN);
         }

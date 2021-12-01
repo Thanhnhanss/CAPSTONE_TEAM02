@@ -4,70 +4,105 @@
     ViewBag.Title = "Delete";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
+<!DOCTYPE html>
 
-<h2>Delete</h2>
-
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>BENH_AN</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.KET_QUA)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.KET_QUA)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CHUAN_DOAN)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CHUAN_DOAN)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TIEN_SU_BENH)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TIEN_SU_BENH)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.GHI_CHU)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.GHI_CHU)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.BENH_NHAN1.TEN_BN)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.BENH_NHAN1.TEN_BN)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.KHOA.TEN_KHOA)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.KHOA.TEN_KHOA)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/formcrud.css" rel="stylesheet" />
+    <link href="~/Content/up.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="page-wrapper" style="display: block;">
+        <div class="page-breadcrumb">
+            <div class="row">
+                <div class="col-7 align-self-center">
+                    <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">@ViewBag.Title</h4>
+                    <div class="d-flex align-items-center">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb m-0 p-0">
+                                <li class="breadcrumb-item"><a href="~/trang-chu-quan-ly" class="text-muted">Trang chủ</a></li>
+                                <li class="breadcrumb-item"><a href="~/trang-chu-quan-ly/bac-si/danh-sach" class="text-muted">Danh sách bác sĩ</a></li>
+                                <li class="breadcrumb-item text-muted active" aria-current="page">@ViewBag.Title</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-5 align-self-center">
+                    <div class="customize-input float-right">
+                        <a class="button-back" href="~/trang-chu-quan-ly/bac-si/danh-sach">
+                            <span-back>Trở về</span-back>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-    }
-</div>
+        <h3>Are you sure you want to delete this?</h3>
+        <div>
+            <h4>BENH_AN</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.KET_QUA)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.KET_QUA)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.CHUAN_DOAN)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.CHUAN_DOAN)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.TIEN_SU_BENH)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.TIEN_SU_BENH)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.GHI_CHU)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.GHI_CHU)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.BENH_NHAN1.TEN_BN)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.BENH_NHAN1.TEN_BN)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.KHOA.TEN_KHOA)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.KHOA.TEN_KHOA)
+                </dd>
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Delete" class="btn btn-default" /> |
+                    @Html.ActionLink("Back to List", "Index")
+                </div>
+            }
+        </div>
+
+        </div>
+    </body>
+</html>

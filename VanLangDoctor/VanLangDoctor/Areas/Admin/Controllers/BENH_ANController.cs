@@ -17,8 +17,8 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         // GET: Admin/BENH_AN
         public ActionResult Index()
         {
-            var bENH_AN = db.BENH_AN.Include(b => b.BENH_NHAN1).Include(b => b.KHOA);
-            return View(bENH_AN.ToList());
+            
+            return View(db.BENH_AN.ToList());
         }
 
         // GET: Admin/BENH_AN/Details/5
@@ -58,8 +58,8 @@ namespace VanLangDoctor.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ID_BENH_NHAN = new SelectList(db.BENH_NHAN, "ID_BENHNHAN", "TEN_BN", bENH_AN.ID_BENH_NHAN);
-            ViewBag.ID_KHOA = new SelectList(db.KHOAs, "ID_KHOA", "TEN_KHOA", bENH_AN.ID_KHOA);
+            ViewBag.ID_BENH_NHAN = new SelectList(db.BENH_NHAN, "ID_BENHNHAN", "TEN_BN");
+            ViewBag.ID_KHOA = new SelectList(db.KHOAs, "ID_KHOA", "TEN_KHOA");
             return View(bENH_AN);
         }
 
@@ -75,8 +75,8 @@ namespace VanLangDoctor.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ID_BENH_NHAN = new SelectList(db.BENH_NHAN, "ID_BENHNHAN", "TEN_BN", bENH_AN.ID_BENH_NHAN);
-            ViewBag.ID_KHOA = new SelectList(db.KHOAs, "ID_KHOA", "TEN_KHOA", bENH_AN.ID_KHOA);
+            ViewBag.ID_BENH_NHAN = new SelectList(db.BENH_NHAN, "ID_BENHNHAN", "TEN_BN");
+            ViewBag.ID_KHOA = new SelectList(db.KHOAs, "ID_KHOA", "TEN_KHOA");
             return View(bENH_AN);
         }
 
@@ -93,8 +93,8 @@ namespace VanLangDoctor.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ID_BENH_NHAN = new SelectList(db.BENH_NHAN, "ID_BENHNHAN", "TEN_BN", bENH_AN.ID_BENH_NHAN);
-            ViewBag.ID_KHOA = new SelectList(db.KHOAs, "ID_KHOA", "TEN_KHOA", bENH_AN.ID_KHOA);
+            ViewBag.ID_BENH_NHAN = new SelectList(db.BENH_NHAN, "ID_BENHNHAN", "TEN_BN");
+            ViewBag.ID_KHOA = new SelectList(db.KHOAs, "ID_KHOA", "TEN_KHOA");
             return View(bENH_AN);
         }
 

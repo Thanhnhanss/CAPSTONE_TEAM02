@@ -18,8 +18,8 @@ namespace VanLangDoctor.Areas.User.Controllers
         // GET: User/ThongtinBacsi
         public ActionResult DanhSachBacsi()
         {
-            var bacsi = db.BACSIs.Include(b => b.KHOA);
-            return View(bacsi.ToList());
+            var bACSIs = db.BACSIs.Include(b => b.AspNetUser).Include(b => b.KHOA);
+            return View(bACSIs.ToList());
         }
 
         // GET: Admin/BACSIs/Details/5

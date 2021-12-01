@@ -37,7 +37,7 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="doctor-img-block">
-                    <img src="@Url.Action("Picture", new {Model.ID_BACSI})" alt="" class="img-fluid min-vw-100" style="height: 210px; width: 210px; box-shadow: 0 5px 14px 0px black;">
+                    <img src="@Url.Action("Picture", new {Model.ID_BACSI})" alt="" class="img-fluid min-vw-100" width="210" style="box-shadow: 0 5px 14px 0px black;">
                     
                     <div class="info-block mt-4">
                         <br />
@@ -61,7 +61,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-6">
+            <div class="col-lg-6" style="max-width: 47%">
                 <div class="doctor-details mt-4 mt-lg-0">
                     <h2 class="text-md">Tiêu chí</h2>
                     <div class="divider my-4"></div>
@@ -69,7 +69,7 @@
                     @*<a href="appoinment.html" class="btn btn-main-2 btn-round-full mt-3">Make an Appoinment<i class="icofont-simple-right ml-2  "></i></a>*@
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3" style="max-width: 30%">
                 <div class="sidebar-widget  gray-bg p-4">
                     <h5 class="mb-4" style="margin:0.5em; font-size: 16px">Thông tin chi tiết</h5>
 
@@ -98,8 +98,8 @@
                         <a href="tel:@Model.SDT">
                             <i class="icon-phone text-color-2">:@Model.SDT</i>
                         </a>
-                        <a href="mailto:@Model.EMAIL">
-                            <i class="icofont-send-mail" style="height: 15px; width: 15px">: @Model.EMAIL</i>
+                        <a href="mailto:@Model.AspNetUser.Email">
+                            <i class="icofont-send-mail" style="height: 15px; width: 15px">: @Model.AspNetUser.Email</i>
                         </a>
                     </div>
                     

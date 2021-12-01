@@ -1735,6 +1735,7 @@
     <Content Include="Areas\Admin\Views\BENH_AN\Details.cshtml" />
     <Content Include="Areas\Admin\Views\BENH_AN\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\BENH_AN\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
