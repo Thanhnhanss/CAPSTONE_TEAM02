@@ -1,52 +1,114 @@
 ﻿<style>
-    .ih-item.circle.effect3 .info {
-        background: #333333;
-        opacity: 0;
-        pointer-events: none;
-        -webkit-transition: all 0.35s ease-in-out;
-        -moz-transition: all 0.35s ease-in-out;
-        transition: all 0.35s ease-in-out;
+   
+    body {
+        margin: 20px 0;
+        font-family: 'Lato';
+        font-weight: 300;
+        font-size: 1.25rem;
+        width: 300px;
     }
 
-    .ih-item.circle.effect3.bottom_to_top .info {
-        -webkit-transform: translateY(100%);
-        -moz-transform: translateY(100%);
-        -ms-transform: translateY(100%);
-        -o-transform: translateY(100%);
-        transform: translateY(100%);
+    form, p {
+        margin: 20px;
     }
 
-    .ih-item.circle.effect3.bottom_to_top a:hover .info {
-        opacity: 1;
-        -webkit-transform: translateY(0);
-        -moz-transform: translateY(0);
-        -ms-transform: translateY(0);
-        -o-transform: translateY(0);
-        transform: translateY(0);
+        p.note {
+            font-size: 1rem;
+            color: red;
+        }
+
+    input, textarea {
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        padding: 4px;
+        font-family: 'Lato';
+        width: 300px;
+        margin-top: 10px;
     }
-       
+
+    label {
+        width: 300px;
+        font-weight: bold;
+        display: inline-block;
+        margin-top: 20px;
+    }
+
+        label span {
+            font-size: 1rem;
+        }
+
+        label.error {
+            color: red;
+            font-size: 1rem;
+            display: block;
+            margin-top: 5px;
+        }
+
+    input.error, textarea.error {
+        border: 1px dashed red;
+        font-weight: 300;
+        color: red;
+    }
 </style>
-<!-- Bottom to top-->
-<div class="row">
-    <div class="col-sm-6">
-        <div class="ih-item circle effect3 bottom_to_top">
-            <a href="#">
-                hover me
-                <div class="info">
-                    <h3>Heading here</h3>
-                    <p>Description goes here</p>
-                </div>
-            </a>
-        </div>
-    </div>
-</div>
-
-<div class="ih-item circle effect3 bottom_to_top ">
-    <a href="tel:">aaaaaaaaaaaa
-        <i class="icon-phone2 info">
-            2312414
-        </i>
-    </a>
-</div>
-<!-- end Bottom to top-->
-@*<link href="~/Content/src/ihover.css" rel="stylesheet" />*@
+<form id="basic-form" action="" method="post">
+    <p>
+        <label for="name">Name <span>(required, at least 3 characters)</span></label>
+        <input id="name" name="name" minlength="3" type="text" required>
+    </p>
+    <p>
+        <label for="email">E-Mail <span>(required)</span></label>
+        <input id="email" type="email" name="email" required>
+    </p>
+    <p>
+        <input class="submit" type="submit" value="SUBMIT">
+    </p>
+</form>
+<script>
+    $(document).ready(function () {
+        $("#basic-form").validate(
+            //{
+            //rules: {
+            //    name: {
+            //        required: true,
+            //        minlength: 3
+            //    },
+            //    age: {
+            //        required: true,
+            //        number: true,
+            //        min: 18
+            //    },
+            //    email: {
+            //        required: true,
+            //        email: true
+            //    },
+            //    weight: {
+            //        required: {
+            //            depends: function (elem) {
+            //                return $("#age").val() > 50
+            //            }
+            //        },
+            //        number: true,
+            //        min: 0
+            //    }
+            //},
+            //messages: {
+            //    name: {
+            //        minlength: "Name should be at least 2 characters"
+            //    },
+            //    age: {
+            //        required: "Please enter your age",
+            //        number: "Please enter your age as a numerical value",
+            //        min: "You must be at least 18 years old"
+            //    },
+            //    email: {
+            //        email: "The email should be in the format: abc@domain.tld"
+            //    },
+            //    weight: {
+            //        required: "People with age over 50 have to enter their weight",
+            //        number: "Please enter your weight as a numerical value"
+            //    }
+            //}
+            //}
+        );
+    });
+</script>

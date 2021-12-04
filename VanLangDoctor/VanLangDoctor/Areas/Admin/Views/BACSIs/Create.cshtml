@@ -10,87 +10,6 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <style>
-        .button {
-            display: inline-block;
-            border-radius: 4em;
-            background-color: #f4511e;
-            border: none;
-            color: #FFFFFF;
-            text-align: center;
-            font-size: 13px;
-            padding: 10px;
-            width: 150px;
-            transition: all 0.5s;
-            cursor: pointer;
-            margin: 5px
-        }
-
-            .button span {
-                cursor: pointer;
-                display: inline-block;
-                position: relative;
-                transition: 0.5s
-            }
-
-                .button span:after {
-                    content: '\00bb';
-                    position: absolute;
-                    opacity: 0;
-                    top: 0;
-                    right: -20px;
-                    transition: 0.5s
-                }
-
-            .button:hover span {
-                padding-right: 25px
-            }
-
-                .button:hover span:after {
-                    opacity: 1;
-                    right: 0
-                }
-
-        .button-back {
-            display: inline-block;
-            border-radius: 4em;
-            background-color: #f4511e;
-            border: none;
-            color: #ffffff;
-            text-align: center;
-            font-size: 13px;
-            padding: 10px;
-            width: 150px;
-            transition: all 0.5s;
-            cursor: pointer;
-            margin: 5px
-        }
-
-            .button-back span-back {
-                cursor: pointer;
-                display: inline-block;
-                position: relative;
-                transition: 0.5s
-            }
-
-                .button-back span-back:after {
-                    content: "\00ab";
-                    position: absolute;
-                    opacity: 0;
-                    top: 0;
-                    right: -20px;
-                    transition: 0.5s
-                }
-
-            .button-back:hover span-back {
-                padding-right: 25px
-            }
-
-                .button-back:hover span-back:after {
-                    opacity: 1;
-                    right: 0
-                }
-    </style>
     <link href="~/Content/formcrud.css" rel="stylesheet" />
 </head>
 
@@ -120,9 +39,7 @@
             </div>
         </div>
         <hr />
-
-        @using (Html.BeginForm("Create", "BACSIs", FormMethod.Post, new { enctype = "multipart/form-data" }))
-        {
+        <form action="@Url.Action("Create","BACSIs")" method="post" enctype="multipart/form-data" id="basic-form">
             @Html.AntiForgeryToken()
             <div class="container">
                 <div class="form-horizontal">
@@ -133,7 +50,10 @@
                             <div class="form-group">
                                 <label><b>Tên bác sĩ</b></label>
                                 <div class="col-12">
-                                    @Html.EditorFor(model => model.TEN_BACSI, new { htmlAttributes = new { @class = "form-control", @placeholder = "ví dụ: Nguyễn Văn A " } })
+                                    @Html.EditorFor(model => model.TEN_BACSI, new { htmlAttributes = new {
+                                   @class = "form-control",
+                                   @required = true,
+                                   @placeholder = "ví dụ: Nguyễn Văn A " } })
                                     @Html.ValidationMessageFor(model => model.TEN_BACSI, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -141,7 +61,10 @@
                             <div class="form-group">
                                 <label><b>Số điện thoại</b></label>
                                 <div class="col-10">
-                                    @Html.EditorFor(model => model.SDT, new { htmlAttributes = new { @class = "form-control", @placeholder = "ví dụ: 0905556***" } })
+                                    @Html.EditorFor(model => model.SDT, new { htmlAttributes = new {
+                                   @class = "form-control",
+                                   @required = true,
+                                   @placeholder = "ví dụ: 0905556***" }})
                                     @Html.ValidationMessageFor(model => model.SDT, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -150,7 +73,7 @@
                                 <label><b>Giới tính</b></label>
                                 <div class="col-10">
                                     <div class="checkbox">
-                                        @Html.EditorFor(model => model.GIOI_TINH, new { htmlAttributes = new { @class = "form-control", @placeholder = "ví dụ: Nam" } })
+                                        @Html.EditorFor(model => model.GIOI_TINH, new { htmlAttributes = new { @class = "form-control", @required = true, @placeholder = "ví dụ: Nam" } })
                                         @Html.ValidationMessageFor(model => model.GIOI_TINH, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -168,8 +91,8 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <h4 class="card-title">Hình đại diện</h4>
-                                <input class="form-control" type="file" name="Picture" id="IMG" onchange="readPicture(this)" accept="image/jpeg,image/gif,image/png" />
-                                <br/>
+                                <input class="form-control" type="file" name="Picture" id="IMG" onchange="readPicture(this)" accept="image/jpeg,image/gif,image/png" required />
+                                <br />
                                 <img id="Picture" style="height: 250px; width: 250px; object-fit: contain; border-radius: 50%; border: 3px solid #0af; background-color: #000000" />
                             </div>
                         </div>
@@ -178,7 +101,7 @@
                     <div class="form-group">
                         <label><b>Nghề nghiệp</b></label>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.NGHE_NGHIEP, new { htmlAttributes = new { @class = "form-control", @placeholder = "ví dụ: Dược sĩ" } })
+                            @Html.EditorFor(model => model.NGHE_NGHIEP, new { htmlAttributes = new { @class = "form-control", @required = true, @placeholder = "ví dụ: Dược sĩ" } })
                             @Html.ValidationMessageFor(model => model.NGHE_NGHIEP, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -186,7 +109,7 @@
                     <div class="form-group">
                         <label><b>Ngày sinh</b></label>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.NGAYSINH_BS, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+                            @Html.EditorFor(model => model.NGAYSINH_BS, new { htmlAttributes = new { @class = "form-control", @required = true, @type = "date" } })
                             @Html.ValidationMessageFor(model => model.NGAYSINH_BS, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -194,7 +117,7 @@
                     <div class="form-group">
                         <label><b>Kinh nghiệm</b></label>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.KINH_NGHIEM, new { htmlAttributes = new { @class = "form-control", @placeholder = "ví dụ: 5 năm " } })
+                            @Html.EditorFor(model => model.KINH_NGHIEM, new { htmlAttributes = new { @class = "form-control", @required = true, @placeholder = "ví dụ: 5 năm " } })
                             @Html.ValidationMessageFor(model => model.KINH_NGHIEM, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -220,7 +143,7 @@
                     </div>
                 </div>
             </div>
-        }
+        </form>
     </div>
 </body>
 @Scripts.Render("~/bundles/jquery")
@@ -239,4 +162,18 @@
         };
         reader.readAsDataURL(input.files[0])
     }
+    //$(document).ready(function () {
+    //    $("#basic-form").validate({
+    //        rules: {
+    //            IMG: {
+    //                required: true
+    //            }
+    //        },
+    //        messages: {
+    //            IMG: {
+    //                required: "Hình ảnh không được để trống!"
+    //            }
+    //        }
+    //    });
+    //});
 </script>

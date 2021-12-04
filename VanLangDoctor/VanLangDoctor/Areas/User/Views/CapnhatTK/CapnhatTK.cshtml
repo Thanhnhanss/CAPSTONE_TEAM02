@@ -1,0 +1,54 @@
+﻿@model VanLangDoctor.Models.BENH_NHAN
+@{
+    ViewBag.Title = "Cập nhật tài khoản";
+}
+<section class="hero-banner hero-banner-sm text-center">
+    <div class="container">
+        <h1>Cập nhật tài khoản</h1>
+        <nav aria-label="breadcrumb" class="banner-breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="~/">Trang chủ</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Cập nhật tài khoản</li>
+            </ol>
+        </nav>
+    </div>
+</section>
+<section style="margin: 40px 0" class="section-margin">
+    <div class="container">
+        <div class="d-none d-sm-block mb-5 pb-4">
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <form action="@Url.Action("Luu", "CapnhatTK")" method="post">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" value="@Model.ID_BENH_NHAN" name="id" />
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" disabled value="@Model.AspNetUser.Email">
+                            </div>
+                            <div class="mb-3">
+                                <label for="hovaten" class="form-label">Họ và tên</label>
+                                <input type="text" class="form-control" id="hovaten" value="@Model.TEN_BN" name="hovaten">
+                            </div>
+                            <div class="mb-3">
+                                <label for="sdt" class="form-label">Số điện thoại</label>
+                                <input type="tel" class="form-control" id="sdt" value="@Model.SDT" name="sdt">
+                            </div>
+
+                            @if (ViewBag.message != null)
+                            {
+                                <h3>@ViewBag.message</h3>
+                            }
+
+                            <div class="form-group mt-lg-3">
+                                <button style="color:#fff" type="submit" class="button button-contactForm">Lưu</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
