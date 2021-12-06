@@ -46,7 +46,7 @@
             <div class="container">
                 <div class="form-horizontal">
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                    @Html.HiddenFor(model => model.ID_BENHNHAN)
+                    @Html.HiddenFor(model => model.ID_BENH_NHAN)
 
                     <div class="form-group">
                         <label><b>Tên bệnh nhân</b></label>
@@ -67,18 +67,18 @@
                     <div class="form-group">
                         <label><b>Ngày sinh</b></label>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.NGAY_SINH, new { htmlAttributes = new { @class = "form-control"} })
+                            @Html.EditorFor(model => model.NGAY_SINH, new { htmlAttributes = new { @class = "form-control", @type="date"} })
                             @Html.ValidationMessageFor(model => model.NGAY_SINH, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
-                    <div class="form-group">
+                    @*<div class="form-group">
                         <label><b>Email</b></label>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.EMAIL, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.EMAIL, "", new { @class = "text-danger" })
+                            @Html.EditorFor(model => model.AspNetUser.Id, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.ID_EMAIL, "", new { @class = "text-danger" })
                         </div>
-                    </div>
+                    </div>*@
 
                     <div class="form-group">
                         <label><b>Số điện thoại</b></label>
@@ -95,23 +95,6 @@
                             @Html.ValidationMessageFor(model => model.CHUAN_DOAN, "", new { @class = "text-danger" })
                         </div>
                     </div>
-
-                    <div class="form-group">
-                        <label><b>Bác sĩ đã khám</b></label>
-                        <div class="col-md-10">
-                            @Html.DropDownList("ID_BACSI", null, htmlAttributes: new { @class = "form-control" })
-                            @Html.ValidationMessageFor(model => model.ID_BACSI, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label><b>Sổ bệnh án</b></label>
-                        <div class="col-md-10">
-                            @Html.DropDownList("ID_BENH_AN", null, htmlAttributes: new { @class = "form-control" })
-                            @Html.ValidationMessageFor(model => model.ID_BENH_AN, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
                     <div class="col-md-push-12 col-md-5">
                         <button type="submit" class="button" style="vertical-align:middle"><span>Xác nhận </span></button>
                     </div>

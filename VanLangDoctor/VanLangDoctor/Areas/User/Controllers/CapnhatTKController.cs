@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.AspNet.Identity;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using VanLangDoctor.Models;
 
@@ -11,15 +9,19 @@ namespace VanLangDoctor.Areas.User.Controllers
     public class CapnhatTKController : Controller
     {
         CP24Team02Entities db = new CP24Team02Entities();
+
         // GET: SinhVien/CapnhatTaiKhoan
         public ActionResult CapnhatTK(string id)
         {
-            var user = db.BENH_NHAN.Find(id) ?? new BENH_NHAN
+            if (string.IsNullOrEmpty(id))
+                return RedirectToAction("CapnhatTK", new { id = User.Identity.GetUserId() });
+            if (id != User.Identity.GetUserId())
+                return new HttpStatusCodeResult(403);
+            var user = db.BENH_NHAN.FirstOrDefault(benh_nhan => benh_nhan.AspNetUser.Id == id) ?? new BENH_NHAN
             {
-                ID_BENH_NHAN = int.Parse(id),
                 TEN_BN = "",
                 GIOI_TINH ="",
-                NGAY_SINH = DateTime.Parse(""),
+                NGAY_SINH = null,
                 SDT = "",
                 AspNetUser = db.AspNetUsers.Find(id)
             };
@@ -27,17 +29,18 @@ namespace VanLangDoctor.Areas.User.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public ActionResult Luu(string id, string hovaten, string sdt)
         {
-            var user = db.BENH_NHAN.Find(id);
+            var user = db.BENH_NHAN.FirstOrDefault(benhnhan => benhnhan.AspNetUser.Id == id);
             if (user == null)
             {
                 user = new BENH_NHAN
                 {
-                    ID_BENH_NHAN = int.Parse(id),
+                    //ID_BENH_NHAN = int.Parse(id),
                     TEN_BN = hovaten,
-                    SDT = sdt
+                    SDT = sdt,
+                    ID_EMAIL = id
                 };
                 db.BENH_NHAN.Add(user);
             }

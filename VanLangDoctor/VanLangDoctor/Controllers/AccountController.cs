@@ -333,6 +333,9 @@ namespace VanLangDoctor.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
+                    //var signedInUserId = (await UserManager.FindByEmailAsync(loginInfo.Email)).Id;
+                    //if (returnUrl.StartsWith("/User/CapnhatTK/CapnhatTK"))
+                    //    return RedirectToLocal($"/User/CapnhatTK/CapnhatTK/{signedInUserId}");
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
@@ -359,6 +362,8 @@ namespace VanLangDoctor.Controllers
                             await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                         }
                     }
+                    //if (returnUrl.StartsWith("/User/CapnhatTK/CapnhatTK"))
+                    //    return RedirectToLocal($"/User/CapnhatTK/CapnhatTK/{user.Id}");
                     return RedirectToLocal(returnUrl);
             }
         }

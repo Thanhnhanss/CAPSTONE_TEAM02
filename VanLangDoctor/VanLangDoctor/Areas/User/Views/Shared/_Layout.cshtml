@@ -68,9 +68,9 @@
                                         @Html.AntiForgeryToken();
                                         <ul class="list-menu" style="text-align: right; border: none; border-radius: 1em; position: fixed">
                                             <li>
-                                                @Html.ActionLink("Xin chào! " + User.Identity.GetUserName(), "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                                                @Html.ActionLink("Xin chào! " + User.Identity.GetUserName(), "CapnhatTK", "CapnhatTK", routeValues: null, htmlAttributes: new { title = "Cập nhật thông tin" })
                                             </li>
-                                            <li ><a href="javascript:document.getElementById('logoutForm').submit()">Đăng xuất</a></li>
+                                            <li><a href="javascript:document.getElementById('logoutForm').submit()">Đăng xuất</a></li>
                                         </ul>
                                     }
                                 }
@@ -256,7 +256,7 @@
                     <!-- End container -->
                 </div>
                 <!-- End header-top -->
-
+            </div>
         </header><!-- /header -->
 
         @RenderBody()
