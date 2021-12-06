@@ -37,10 +37,10 @@ namespace VanLangDoctor.Areas.User.Controllers
             {
                 user = new BENH_NHAN
                 {
-                    //ID_BENH_NHAN = int.Parse(id),
                     TEN_BN = hovaten,
                     SDT = sdt,
-                    ID_EMAIL = id
+                    ID_EMAIL = id,
+                    AspNetUser = db.AspNetUsers.Find(id)
                 };
                 db.BENH_NHAN.Add(user);
             }
@@ -48,7 +48,7 @@ namespace VanLangDoctor.Areas.User.Controllers
             {
                 user.TEN_BN = hovaten;
                 user.SDT = sdt;
-                db.Entry<BENH_NHAN>(user).State = System.Data.Entity.EntityState.Modified;
+                db.Entry(user).State = System.Data.Entity.EntityState.Modified;
             }
             db.SaveChanges();
             ViewBag.message = "Cập nhật thành công";

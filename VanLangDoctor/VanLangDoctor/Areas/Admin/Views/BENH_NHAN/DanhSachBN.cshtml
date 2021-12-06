@@ -57,12 +57,10 @@
                                     <thead>
                                         <tr>
                                             <th>Tên bệnh nhân</th>
-                                            <th>Giới tính</th>
-                                            <th>Ngày sinh</th>
                                             <th>Email</th>
                                             <th>Số điện thoại</th>
-                                            <th>Bác sĩ</th>
-                                            <th>Chuẩn đoán</th>
+                                            <th>Giới tính</th>
+                                            <th>Ngày sinh</th>
                                             <th>Sổ bệnh án</th>
                                             <th></th>
                                         </tr>
@@ -72,12 +70,14 @@
                                         {
                                             <tr>
                                                 <td><a href="@Url.Action("Edit","BENH_NHAN", new { id = item.ID_BENH_NHAN })">@item.TEN_BN</a></td>
-                                                <td>@item.GIOI_TINH</td>
-                                                <td>@item.NGAY_SINH</td>
-                                                @*<td>@item.AspNetUser.Email</td>*@
+                                                <td>@Html.DisplayFor(modelItem => item.AspNetUser.Email)</td>
                                                 <td>@item.SDT</td>
-                                                <td>@item.CHUAN_DOAN</td>
-                                                <td>@item.ID_BENH_AN</td>
+                                                <td>@item.GIOI_TINH</td>
+                                                <td>@Html.FormatValue(item.NGAY_SINH, "{0:d}")</td>
+                                                <td>
+                                                    @if(@item.ID_BENH_AN == null) {<span>Chưa có dữ liệu</span> }
+                                                    else {@item.ID_BENH_AN}
+                                                </td>
                                                 <td>
                                                     <a href="@Url.Action("Edit","BENH_NHAN", new { id = item.ID_BENH_NHAN })"><i class="ti-settings"></i></a>
                                                     <a href="@Url.Action("Delete","BENH_NHAN", new { id = item.ID_BENH_NHAN })"><i class="ti-trash"></i></a>
@@ -93,8 +93,6 @@
                                             <th>Ngày sinh</th>
                                             <th>Email</th>
                                             <th>Số điện thoại</th>
-                                            <th>Bác sĩ</th>
-                                            <th>Chuẩn đoán</th>
                                             <th>Sổ bệnh án</th>
                                             <th></th>
                                         </tr>
