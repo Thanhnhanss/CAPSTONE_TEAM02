@@ -1,7 +1,7 @@
-﻿@model VanLangDoctor.Models.THUOC
+﻿@model VanLangDoctor.Models.TIN_TUC
 
 @{
-    ViewBag.Title = "Cập nhật";
+    ViewBag.Title = "Cập nhật tin tức";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
@@ -20,7 +20,7 @@
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb m-0 p-0">
                                 <li class="breadcrumb-item">
-                                    <a href="@Url.Action("Index_Thuoc", "QL_Thuoc")">Thông tin thuốc</a>
+                                    <a href="@Url.Action("Index_TT", "QL_TinTuc")">Thông tin tin tức</a>
                                 </li>
                             </ol>
                         </nav>
@@ -36,59 +36,69 @@
         <!-- ============================================================== -->
         <div class="container-fluid">
             <div class="container">
-                <h1>Thuốc</h1>
-                <p>Thông tin chi tiết của thuốc</p>
+                <h1>Tin Tức</h1>
+                <p>Thông tin chi tiết của tin tức</p>
                 <hr>
-                @using (Html.BeginForm("Edit_T", "QL_Thuoc", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                @using (Html.BeginForm("Edit_TT", "QL_TinTuc", FormMethod.Post, new { enctype = "multipart/form-data" }))
                 {
                     @Html.AntiForgeryToken()
 
                     <div class="form-horizontal">
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                        @Html.HiddenFor(model => model.ID_THUOC)
+                        @Html.HiddenFor(model => model.ID_TIN_TUC)
 
                         <div class="form-group">
-                            <label for="ten_thuoc"><b>Tên thuốc</b></label>
+                            <label for="ten_bai_viet"><b>Tên bài viết</b></label>
                             <div class="form-actions no-color">
-                                @Html.EditorFor(model => model.TEN_THUOC, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.TEN_THUOC, "", new { @class = "text-danger" })
+                                @Html.EditorFor(model => model.TEN_BAI_VIET, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.TEN_BAI_VIET, "", new { @class = "text-danger" })
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="lieu_luong"><b>Liều lượng</b></label>
+                            <label for="ngay_dang"><b>Ngày đăng</b></label>
                             <div class="form-actions no-color">
-                                @Html.EditorFor(model => model.LIEU_LUONG, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.LIEU_LUONG, "", new { @class = "text-danger" })
+                                @Html.EditorFor(model => model.NGAY_DANG, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.NGAY_DANG, "", new { @class = "text-danger" })
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="mo_ta"><b>Mô tả</b></label>
+                            <label for="noi_dung"><b>Nội dung</b></label>
                             <div class="form-actions no-color">
-                                @Html.EditorFor(model => model.MO_TA, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.MO_TA, "", new { @class = "text-danger" })
+                                @Html.EditorFor(model => model.NOI_DUNG, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.NOI_DUNG, "", new { @class = "text-danger" })
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="nsx"><b>Nhà sản xuất</b></label>
+                            <label for="tac_gia"><b>Tác giả</b></label>
                             <div class="form-actions no-color">
-                                @Html.DropDownList("ID_NSX", null, htmlAttributes: new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.ID_NSX, "", new { @class = "text-danger" })
+                                @Html.EditorFor(model => model.TAC_GIA, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.TAC_GIA, "", new { @class = "text-danger" })
                             </div>
                         </div>
 
-                        <label for="hinh_anh"><b>Hình ảnh</b></label>
-                        <div class="col-md-4">
-                            <input class="form-control" type="file" name="Picture" id="IMG" onchange="readPicture(this)" accept="image/jpeg,image/gif,image/png" />
-                            <img src="@Url.Action("Picture","QL_Thuoc", new {Model.ID_THUOC})" id="Picture" />
+                        <div class="form-group">
+                            <label for="seo_title"><b>SEO TITLE</b></label>
+                            <div class="form-actions no-color">
+                                @Html.EditorFor(model => model.SEO_TITLE, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.SEO_TITLE, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="hinh_anh"><b>Hình ảnh</b></label>
+                            <div class="col-md-4">
+                                <input class="form-control" type="file" name="Picture" id="IMG" onchange="readPicture(this)" accept="image/jpeg,image/gif,image/png" />
+                                <img src="@Url.Action("Picture","QL_TinTuc", new {Model.ID_TIN_TUC})" width="300" id="Picture" />
+                            </div>
                         </div>
 
                         <div class="form-group">
                             <div class="form-actions no-color">
                                 <input id="update" type="submit" value="Lưu" class="btn" />
-                                @Html.ActionLink("Quay lại", "Index_Thuoc")
+                                @Html.ActionLink("Quay lại", "Index_TT")
                             </div>
                         </div>
                     </div>
@@ -96,10 +106,18 @@
             </div>
         </div>
     </div>
+    <!-- ============================================================== -->
+    <!-- End Page wrapper  -->
+    <!-- ============================================================== -->
 </div>
 
 <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-<script type="text/javascript">
+
+<script>
+    tinymce.init({
+        selector: 'textarea#MotaSP',
+        menubar: false
+    });
     function readPicture(input) {
         if (input.files && input.files[0])
             var reader = new FileReader();
@@ -108,5 +126,4 @@
         };
         reader.readAsDataURL(input.files[0])
     }
-
 </script>

@@ -1,7 +1,7 @@
-﻿@model List<VanLangDoctor.Models.AspNetRole>
+﻿@model VanLangDoctor.Models.KHOA
 
 @{
-    ViewBag.Title = "Phan_Quyen";
+    ViewBag.Title = "Cập nhật";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
@@ -20,7 +20,7 @@
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb m-0 p-0">
                                 <li class="breadcrumb-item">
-                                    <a href="index.html">Thông tin bác sĩ</a>
+                                    <a href="@Url.Action("KHOA", "QL_Khoa")">Thông tin tin tức</a>
                                 </li>
                             </ol>
                         </nav>
@@ -35,38 +35,38 @@
         <!-- Container fluid  -->
         <!-- ============================================================== -->
         <div class="container-fluid">
-            <form action="@Url.Action("Delete", "QL_BacSi")" method="post">
-                @Html.AntiForgeryToken()
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Email</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" placeholder="" readonly="" value="@ViewBag.user" name="username">
+            <div class="container">
+                <h1>KHOA</h1>
+                <p>Thông tin chi tiết khoa</p>
+                <hr>
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => model.ID_KHOA)
+
+                        <div class="form-group">
+                            <label for="ten_khoa"><b>Tên khoa</b></label>
+                            <div class="form-actions no-color">
+                                @Html.EditorFor(model => model.TEN_KHOA, new { htmlAttributes = new { @class = "form-control", @type = "text" } })
+                                @Html.ValidationMessageFor(model => model.TEN_KHOA, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="form-actions no-color">
+                                <input id="update" type="submit" value="Lưu" class="btn" />
+                                @Html.ActionLink("Quay lại", "KHOA")
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Quyền</label>
-                    <div class="col-sm-10">
-                        <select name="role" class="form-control fill">
-                            @foreach (var role in Model)
-                            {
-                                if (role.Id == ViewBag.role)
-                                {
-                                    <option value="@role.Id" selected>@role.Name</option>
-                                }
-                                else
-                                {
-                                    <option value="@role.Id">@role.Name</option>
-                                }
-                            }
-                        </select>
-                    </div>
-                </div>
-                <button class="btn btn-danger waves-effect waves-light right">Lưu</button>
-            </form>
+                }
+            </div>
         </div>
     </div>
     <!-- ============================================================== -->
     <!-- End Page wrapper  -->
     <!-- ============================================================== -->
 </div>
-

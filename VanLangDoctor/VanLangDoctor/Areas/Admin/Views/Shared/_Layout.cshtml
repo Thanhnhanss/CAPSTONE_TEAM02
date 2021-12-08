@@ -313,14 +313,14 @@
                             </a>
                             <ul aria-expanded="false" class="collapse  first-level base-level-line">
                                 <li class="sidebar-item">
-                                    <a href="@Url.Action("Tin_tuc", "QL_TinTuc")" class="sidebar-link">
+                                    <a href="@Url.Action("Index_TT", "QL_TinTuc")" class="sidebar-link">
                                         <span class="hide-menu">
                                             Danh sách tin tức
                                         </span>
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
-                                    <a href="@Url.Action("Create", "QL_TinTuc")" class="sidebar-link">
+                                    <a href="@Url.Action("Create_TT", "QL_TinTuc")" class="sidebar-link">
                                         <span class="hide-menu">
                                             Thêm tin tức
                                         </span>
@@ -387,6 +387,31 @@
                                     <a href="@Url.Action("Create_BS", "QL_BacSi")" class="sidebar-link">
                                         <span class="hide-menu">
                                             Thêm bác sĩ
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="list-divider"></li>
+                        <li class="nav-small-cap"><span class="hide-menu">Quản lý khoa</span></li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow" href="javascript:void(0)"
+                               aria-expanded="false">
+                                <i data-feather="grid" class="feather-icon"></i><span class="hide-menu">Khoa</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse  first-level base-level-line">
+                                <li class="sidebar-item">
+                                    <a href="@Url.Action("KHOA", "QL_Khoa")" class="sidebar-link">
+                                        <span class="hide-menu">
+                                            Danh sách khoa
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="@Url.Action("Create_K", "QL_Khoa")" class="sidebar-link">
+                                        <span class="hide-menu">
+                                            Thêm khoa
                                         </span>
                                     </a>
                                 </li>

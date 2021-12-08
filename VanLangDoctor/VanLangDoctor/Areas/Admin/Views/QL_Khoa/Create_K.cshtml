@@ -1,7 +1,7 @@
-﻿@model VanLangDoctor.Models.THUOC
+﻿@model VanLangDoctor.Models.KHOA
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Create";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
@@ -20,7 +20,7 @@
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb m-0 p-0">
                                 <li class="breadcrumb-item">
-                                    <a href="@Url.Action("Index_Thuoc", "QL_Thuoc")">Thông tin thuốc</a>
+                                    <a href="@Url.Action("KHOA", "QL_Khoa")">Thông tin tin tức</a>
                                 </li>
                             </ol>
                         </nav>
@@ -35,37 +35,34 @@
         <!-- Container fluid  -->
         <!-- ============================================================== -->
         <div class="container-fluid">
-            <form action="@Url.Action("Delete_T", "QL_Thuoc")" method="post">
-                <div class="container">
-                    <h1>Thuốc</h1>
-                    <p>Thông tin chi tiết của thuốc</p>
-                    <hr>
-                    <label for="ten_thuoc"><b>Tên thuốc</b></label>
-                    <input type="text" value="@Html.DisplayFor(model => model.TEN_THUOC)" name="ten_thuoc" readonly required>
+            <div class="container">
+                <h1>KHOA</h1>
+                <p>Thông tin chi tiết khoa</p>
+                <hr>
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
 
-                    <label for="lieu_luong"><b>Liều lượng</b></label>
-                    <input type="text" value="@Html.DisplayFor(model => model.LIEU_LUONG)" name="lieu_luong" readonly required>
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-                    <label for="mo_ta"><b>Mô tả</b></label>
-                    <input type="text" value="@Html.DisplayFor(model => model.MO_TA)" name="mo_ta" readonly required>
-
-                    <label for="nsx"><b>Nhà sản xuất</b></label>
-                    <input type="text" value="@Html.DisplayFor(model => model.NHA_SAN_XUAT.TEN_NSX)" name="nsx" readonly required>
-
-                    <label for="hinh_anh"><b>Hình ảnh</b></label>
-                    <img src="@Url.Action("Picture","QL_Thuoc", new {Model.ID_THUOC})" width="300" alt="" />
-
-                    @using (Html.BeginForm())
-                    {
-                        @Html.AntiForgeryToken()
-
-                        <div class="form-actions no-color">
-                            <input id="delete" type="submit" value="Xoá" class="btn" /> <br />
-                            @Html.ActionLink("Quay lại", "Index_Thuoc")
+                        <div class="form-group">
+                            <label for="ten_khoa"><b>Tên khoa</b></label>
+                            <div class="form-actions no-color">
+                                @Html.EditorFor(model => model.TEN_KHOA, new { htmlAttributes = new { @class = "form-control", @type = "text" } })
+                                @Html.ValidationMessageFor(model => model.TEN_KHOA, "", new { @class = "text-danger" })
+                            </div>
                         </div>
-                    }
-                </div>
-            </form>
+
+                        <div class="form-group">
+                            <div class="form-actions no-color">
+                                <input id="create" type="submit" value="Create" class="btn" />
+                                @Html.ActionLink("Quay lại", "KHOA")
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
         </div>
     </div>
     <!-- ============================================================== -->

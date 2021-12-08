@@ -18,7 +18,6 @@ namespace VanLangDoctor.Models
         public KHOA()
         {
             this.BACSIs = new HashSet<BACSI>();
-            this.BENH_AN = new HashSet<BENH_AN>();
             this.DANG_KY = new HashSet<DANG_KY>();
         }
     
@@ -27,8 +26,6 @@ namespace VanLangDoctor.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BACSI> BACSIs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BENH_AN> BENH_AN { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DANG_KY> DANG_KY { get; set; }
     }
