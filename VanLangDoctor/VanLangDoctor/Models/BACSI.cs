@@ -38,17 +38,15 @@ namespace VanLangDoctor.Models
         [Required(ErrorMessage = "Hãy nhập số điện thoại."),
             StringLength(maximumLength: 10, ErrorMessage = "Số điện thoại tối đa là 10 số."),
             MinLength(10, ErrorMessage = "Số điện thoại có ít nhất là 10 số."),
-            RegularExpression("^[0-9_]*$", ErrorMessage ="Dữ liệu nhập vào phải có dạng số (0-9)")]
+            RegularExpression("^[0-9_]*$", ErrorMessage = "Dữ liệu nhập vào phải có dạng số (0-9)")]
         public string SDT { get; set; }
-        [Required(ErrorMessage = "Hãy thêm ảnh đại diện")]
         public string HINH_ANH { get; set; }
         [Required(ErrorMessage = "Hãy nhập nghề nghiệp.")]
         public string NGHE_NGHIEP { get; set; }
         public Nullable<int> ID_KHOA { get; set; }
         //kinhnghiem//
         [Required(ErrorMessage = "Hãy nhập kinh nghiệm làm việc."),
-            MinLength(1, ErrorMessage ="Kinh nghiệm làm việc phải ít nhất 1 năm"),
-            RegularExpression("^[0-9_]*$", ErrorMessage = "Dữ liệu nhập vào phải có dạng số (0-9)")]
+            Range(minimum:1, maximum:60, ErrorMessage = "Kinh nghiệm chỉ từ {1} năm đến {2} năm.")]
         public Nullable<int> KINH_NGHIEM { get; set; }
         public Nullable<System.DateTime> NGAY_TRUC { get; set; }
         public string ID_Email { get; set; }

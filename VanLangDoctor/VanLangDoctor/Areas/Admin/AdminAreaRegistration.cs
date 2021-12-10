@@ -17,13 +17,13 @@ namespace VanLangDoctor.Areas.Admin
             context.MapRoute(
                 "thembs",
                 "trang-chu-quan-ly/bac-si/them-moi",
-                new { controller = "BACSIs", action = "Create", id = UrlParameter.Optional }
+                new { controller = "QL_BacSi", action = "Create", id = UrlParameter.Optional }
             );
 
             context.MapRoute(
                 "dsbs",
                 "trang-chu-quan-ly/bac-si/danh-sach",
-                new { controller = "BACSIs", action = "DanhSachBacsi", id = UrlParameter.Optional }
+                new { controller = "QL_BacSi", action = "DanhSach_BS", id = UrlParameter.Optional }
             );
 
             context.MapRoute(

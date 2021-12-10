@@ -11,12 +11,12 @@ using VanLangDoctor.Models;
 
 namespace VanLangDoctor.Areas.Admin.Controllers
 {
-    public class BACSIsController : Controller
+    public class QL_BacSiController : Controller
     {
         private CP24Team02Entities db = new CP24Team02Entities();
         private const string PICTURE_PATH = "~/Content/IMG_DOCTOR/";
         // GET: Admin/BACSIs
-        public ActionResult DanhSachBacsi()
+        public ActionResult DanhSach_BS()
         {
             var bACSIs = db.BACSIs.Include(b => b.AspNetUser).Include(b => b.KHOA);
             return View(bACSIs.ToList());
@@ -62,7 +62,8 @@ namespace VanLangDoctor.Areas.Admin.Controllers
 
             ViewBag.ID_Email = new SelectList(db.AspNetUsers, "Id", "Email", bACSI.ID_Email);
             ViewBag.ID_KHOA = new SelectList(db.KHOAs, "ID_KHOA", "TEN_KHOA", bACSI.ID_KHOA);
-            return RedirectToAction("DanhSachBacsi");
+            TempData["Success"] = "Thêm bác sĩ thành công";
+            return RedirectToAction("DanhSach_BS");
         }
 
         public ActionResult Edit(int? id)
@@ -104,14 +105,17 @@ namespace VanLangDoctor.Areas.Admin.Controllers
                         }
 
                         scope.Complete();
-                        return RedirectToAction("DanhSachBacsi");
+                        TempData["Success"] = "Cập nhật bác sĩ thành công";
+                        return RedirectToAction("DanhSach_BS");
 
                     }
                 }
                 db.Entry(bACSI).State = EntityState.Modified;
+                TempData["Success"] = "Cập nhật bác sĩ thành công";
             }
             ViewBag.ID_Email = new SelectList(db.AspNetUsers, "Id", "Email", bACSI.ID_Email);
             ViewBag.ID_KHOA = new SelectList(db.KHOAs, "ID_KHOA", "TEN_KHOA", bACSI.ID_KHOA);
+            TempData["Success"] = "Cập nhật bác sĩ thành công";
             return View(bACSI);
         }
 
@@ -138,7 +142,8 @@ namespace VanLangDoctor.Areas.Admin.Controllers
             BACSI bACSI = db.BACSIs.Find(id);
             db.BACSIs.Remove(bACSI);
             db.SaveChanges();
-            return RedirectToAction("DanhSachBacsi");
+            TempData["Success"] = "Xóa thành công";
+            return RedirectToAction("DanhSach_BS");
         }
 
         protected override void Dispose(bool disposing)

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Linq;
 using System.Web.Mvc;
 using VanLangDoctor.Models;
@@ -23,14 +24,15 @@ namespace VanLangDoctor.Areas.User.Controllers
                 GIOI_TINH ="",
                 NGAY_SINH = null,
                 SDT = "",
+                CHUAN_DOAN = "",
                 AspNetUser = db.AspNetUsers.Find(id)
             };
             return View(user);
         }
 
         [HttpPost]
-        //[ValidateAntiForgeryToken]
-        public ActionResult Luu(string id, string hovaten, string sdt)
+        [ValidateAntiForgeryToken]
+        public ActionResult Luu(string id, string hovaten, string sdt, string gioitinh, string ngaysinh, string diachi)
         {
             var user = db.BENH_NHAN.FirstOrDefault(benhnhan => benhnhan.AspNetUser.Id == id);
             if (user == null)
@@ -39,6 +41,9 @@ namespace VanLangDoctor.Areas.User.Controllers
                 {
                     TEN_BN = hovaten,
                     SDT = sdt,
+                    GIOI_TINH = gioitinh,
+                    NGAY_SINH = DateTime.Parse(ngaysinh),
+                    CHUAN_DOAN = diachi,
                     ID_EMAIL = id,
                     AspNetUser = db.AspNetUsers.Find(id)
                 };
@@ -48,6 +53,9 @@ namespace VanLangDoctor.Areas.User.Controllers
             {
                 user.TEN_BN = hovaten;
                 user.SDT = sdt;
+                user.GIOI_TINH = gioitinh;
+                user.NGAY_SINH = DateTime.Parse(ngaysinh);
+                user.CHUAN_DOAN = diachi;
                 db.Entry(user).State = System.Data.Entity.EntityState.Modified;
             }
             db.SaveChanges();

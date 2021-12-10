@@ -1,114 +1,19 @@
-﻿<style>
-   
-    body {
-        margin: 20px 0;
-        font-family: 'Lato';
-        font-weight: 300;
-        font-size: 1.25rem;
-        width: 300px;
-    }
-
-    form, p {
-        margin: 20px;
-    }
-
-        p.note {
-            font-size: 1rem;
-            color: red;
-        }
-
-    input, textarea {
-        border-radius: 5px;
-        border: 1px solid #ccc;
-        padding: 4px;
-        font-family: 'Lato';
-        width: 300px;
-        margin-top: 10px;
-    }
-
-    label {
-        width: 300px;
-        font-weight: bold;
-        display: inline-block;
-        margin-top: 20px;
-    }
-
-        label span {
-            font-size: 1rem;
-        }
-
-        label.error {
-            color: red;
-            font-size: 1rem;
-            display: block;
-            margin-top: 5px;
-        }
-
-    input.error, textarea.error {
-        border: 1px dashed red;
-        font-weight: 300;
-        color: red;
-    }
-</style>
-<form id="basic-form" action="" method="post">
-    <p>
-        <label for="name">Name <span>(required, at least 3 characters)</span></label>
-        <input id="name" name="name" minlength="3" type="text" required>
-    </p>
-    <p>
-        <label for="email">E-Mail <span>(required)</span></label>
-        <input id="email" type="email" name="email" required>
-    </p>
-    <p>
-        <input class="submit" type="submit" value="SUBMIT">
-    </p>
-</form>
-<script>
-    $(document).ready(function () {
-        $("#basic-form").validate(
-            //{
-            //rules: {
-            //    name: {
-            //        required: true,
-            //        minlength: 3
-            //    },
-            //    age: {
-            //        required: true,
-            //        number: true,
-            //        min: 18
-            //    },
-            //    email: {
-            //        required: true,
-            //        email: true
-            //    },
-            //    weight: {
-            //        required: {
-            //            depends: function (elem) {
-            //                return $("#age").val() > 50
-            //            }
-            //        },
-            //        number: true,
-            //        min: 0
-            //    }
-            //},
-            //messages: {
-            //    name: {
-            //        minlength: "Name should be at least 2 characters"
-            //    },
-            //    age: {
-            //        required: "Please enter your age",
-            //        number: "Please enter your age as a numerical value",
-            //        min: "You must be at least 18 years old"
-            //    },
-            //    email: {
-            //        email: "The email should be in the format: abc@domain.tld"
-            //    },
-            //    weight: {
-            //        required: "People with age over 50 have to enter their weight",
-            //        number: "Please enter your weight as a numerical value"
-            //    }
-            //}
-            //}
-        );
-    });
-</script>
+﻿<link href="~/Content/assets-dr/css/dropdown-acc.css" rel="stylesheet" />
+<div class="dots" onclick="this.classList.toggle('active');">
+    <div class="dot"></div>
+    <div class="shadow cut"></div>
+    <div class="container cut">
+        <div class="drop cut"></div>
+    </div>
+    <div class="list">
+        <ul>
+            <li>
+                Mark as read
+            </li>
+            <li>
+                Flag as important
+            </li>
+            
+        </ul>
+    </div>
+</div>
