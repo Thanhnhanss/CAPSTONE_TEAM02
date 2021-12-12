@@ -72,7 +72,7 @@
                                         @foreach (var item in Model)
                                         {
                                             <tr>
-                                                <td>@item.TEN_BN</td>
+                                                <td><a href="@Url.Action("ChiTiet_BN", "QL_BenhNhan", new { id = item.ID_BENH_NHAN})">@item.TEN_BN</a></td>
                                                 <td>@Html.DisplayFor(modelItem => item.AspNetUser.Email)</td>
                                                 <td>@item.SDT</td>
                                                 <td>@item.GIOI_TINH</td>

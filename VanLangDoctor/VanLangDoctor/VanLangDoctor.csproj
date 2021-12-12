@@ -186,7 +186,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\AspNetRolesController.cs" />
     <Compile Include="Areas\Admin\Controllers\QL_BacSiController.cs" />
     <Compile Include="Areas\Admin\Controllers\DstaikhoanController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
@@ -1736,11 +1735,6 @@
     <Content Include="Content\asset-dr-inf\scss\_mixins.scss" />
     <Content Include="Content\asset-dr-inf\scss\_typography.scss" />
     <Content Include="Content\asset-dr-inf\scss\_variables.scss" />
-    <Content Include="Areas\Admin\Views\AspNetRoles\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\AspNetRoles\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\AspNetRoles\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\AspNetRoles\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\AspNetRoles\Index.cshtml" />
     <Content Include="Areas\Admin\Views\HoSo_BenhAn\Create.cshtml" />
     <Content Include="Areas\Admin\Views\HoSo_BenhAn\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\HoSo_BenhAn\Details.cshtml" />
