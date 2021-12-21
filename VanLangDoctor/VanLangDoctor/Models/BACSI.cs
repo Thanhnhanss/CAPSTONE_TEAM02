@@ -20,21 +20,16 @@ namespace VanLangDoctor.Models
         {
             this.DON_THUOC = new HashSet<DON_THUOC>();
         }
-
+    
         public int ID_BACSI { get; set; }
-
         //Tenbacsi//
         [Required(ErrorMessage = "Hãy nhập tên bác sĩ.")]
         public string TEN_BACSI { get; set; }
         //ngaysinh//
         [Required(ErrorMessage = "Hãy nhập ngày sinh.")]
         public Nullable<System.DateTime> NGAYSINH_BS { get; set; }
-
-        //Gioitinh//
         [Required(ErrorMessage = "Hãy nhập giới tính.")]
         public string GIOI_TINH { get; set; }
-
-        //SDT//
         [Required(ErrorMessage = "Hãy nhập số điện thoại."),
             StringLength(maximumLength: 10, ErrorMessage = "Số điện thoại tối đa là 10 số."),
             MinLength(10, ErrorMessage = "Số điện thoại có ít nhất là 10 số."),
@@ -42,11 +37,11 @@ namespace VanLangDoctor.Models
         public string SDT { get; set; }
         public string HINH_ANH { get; set; }
         [Required(ErrorMessage = "Hãy nhập nghề nghiệp.")]
+
         public string NGHE_NGHIEP { get; set; }
         public Nullable<int> ID_KHOA { get; set; }
-        //kinhnghiem//
         [Required(ErrorMessage = "Hãy nhập kinh nghiệm làm việc."),
-            Range(minimum:1, maximum:60, ErrorMessage = "Kinh nghiệm chỉ từ {1} năm đến {2} năm.")]
+            Range(minimum: 1, maximum: 60, ErrorMessage = "Kinh nghiệm chỉ từ {1} năm đến {2} năm.")]
         public Nullable<int> KINH_NGHIEM { get; set; }
         public Nullable<System.DateTime> NGAY_TRUC { get; set; }
         public string ID_Email { get; set; }

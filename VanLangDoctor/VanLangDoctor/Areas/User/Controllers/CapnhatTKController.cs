@@ -24,7 +24,7 @@ namespace VanLangDoctor.Areas.User.Controllers
                 GIOI_TINH ="",
                 NGAY_SINH = null,
                 SDT = "",
-                CHUAN_DOAN = "",
+                DIA_CHI = "",
                 AspNetUser = db.AspNetUsers.Find(id)
             };
             return View(user);
@@ -43,7 +43,7 @@ namespace VanLangDoctor.Areas.User.Controllers
                     SDT = sdt,
                     GIOI_TINH = gioitinh,
                     NGAY_SINH = DateTime.Parse(ngaysinh),
-                    CHUAN_DOAN = diachi,
+                    DIA_CHI = diachi,
                     ID_EMAIL = id,
                     AspNetUser = db.AspNetUsers.Find(id)
                 };
@@ -55,7 +55,7 @@ namespace VanLangDoctor.Areas.User.Controllers
                 user.SDT = sdt;
                 user.GIOI_TINH = gioitinh;
                 user.NGAY_SINH = DateTime.Parse(ngaysinh);
-                user.CHUAN_DOAN = diachi;
+                user.DIA_CHI = diachi;
                 db.Entry(user).State = System.Data.Entity.EntityState.Modified;
             }
             db.SaveChanges();
