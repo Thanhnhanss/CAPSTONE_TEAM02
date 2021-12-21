@@ -187,7 +187,6 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\QL_BacSiController.cs" />
-    <Compile Include="Areas\Admin\Controllers\DstaikhoanController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\HoSo_BenhAnController.cs" />
     <Compile Include="Areas\Admin\Controllers\PhanQuyenController.cs" />
@@ -1578,7 +1577,6 @@
     <Content Include="Content\assets-login\assets\css\login.css.map" />
     <Content Include="Content\assets-login\assets\scss\login.scss" />
     <Content Include="Areas\Admin\Views\PhanQuyen\PhanQuyen.cshtml" />
-    <Content Include="Areas\Admin\Views\Dstaikhoan\Dstaikhoan.cshtml" />
     <Content Include="Areas\Admin\Views\QL_BacSi\Create.cshtml" />
     <Content Include="Areas\Admin\Views\QL_BacSi\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\QL_BacSi\Edit.cshtml" />
@@ -1744,6 +1742,10 @@
     <Content Include="Areas\Admin\Views\QL_BenhNhan\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\QL_BenhNhan\ChiTiet_BN.cshtml" />
     <Content Include="Areas\Admin\Views\QL_BenhNhan\DanhSach_BN.cshtml" />
+    <Content Include="Areas\Admin\Views\PhanQuyen\phanQuyenTK.cshtml" />
+    <Content Include="Areas\Admin\Views\PhanQuyen\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\PhanQuyen\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\PhanQuyen\XoaQuyen.cshtml" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
