@@ -1,5 +1,4 @@
 ﻿@model IEnumerable<VanLangDoctor.Models.BACSI>
-
 @using Microsoft.AspNet.Identity
 
 
@@ -12,8 +11,6 @@
 <br />
 <br />
 <br />
-<br />
-
 
 <h1>
     Danh sách bác sĩ
@@ -69,17 +66,17 @@
             },
             "columns": [
 
+                { "data": "IDBS", "name": "IDBS" },
                 { "data": "TENBACSI", "name": "TENBACSI" },
                 { "data": "SDT", "name": "SDT" },
                 { "data": "EMAIL", "name": "EMAIL" },
                 { "data": "GIOI_TINH", "name": "GIOI_TINH" },
+                { "data": "IDKHOA", "name": "IDKHOA" },
                 { "data": "NGHENGHIEP", "name": "NGHENGHIEP" },
                 { "data": "NGAYTRUC", "name": "NGAYTRUC" },
-                { "data": "ANH", "name": "ANH" },
-               
+                { "data": "IMG_BACSI", "name": "IMG_BACSI" },
                 { "data": "NGAYSINH", "name": "NGAYSINH" },
                 { "data": "KINHNGHIEM", "name": "KINHNGHIEM" }
-
                  @{ @*if (User.IsInRole("Admin"))*@
                      {
 
@@ -103,6 +100,7 @@
         height: 600px;
         white-space: nowrap;
         overflow-x: scroll;
+        
     }
 
         .scrollable table thead th {
@@ -127,7 +125,7 @@
 
             <div class="col-5 text-right">
                 <div class="input-group">
-                    Chuyên Khoa :  @Html.DropDownList("tk", (IEnumerable<SelectListItem>)ViewBag.ID_KHOAs, new { @Class = "form-control" })
+                    Chuyên Khoa :  @Html.DropDownList("tk", (IEnumerable<SelectListItem>)ViewBag.ID_KHOA, new { @Class = "form-control" })
                 </div>
             </div>
         </div>
@@ -135,10 +133,12 @@
             <table class="table table-striped table-bordered " id="tbBacSi" width="100%" cellspacing="0">
                 <thead>
                     <tr>
+                        <th>STT</th>
                         <th>TÊN BÁC SĨ</th>
-                        <th>SỐ ĐIỆN THOẠI</th>
+                        <th>SĐT</th>
                         <th>EMAIL</th>
                         <th>GIỚI TÍNH</th>
+                        <th>KHOA</th>
                         <th>NGHỀ NGHIỆP</th>
                         <th>NGÀY TRỰC</th>
                         <th>ẢNH</th>

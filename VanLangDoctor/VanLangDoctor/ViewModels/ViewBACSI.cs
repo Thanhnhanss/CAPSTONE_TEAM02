@@ -1,17 +1,15 @@
 ﻿using System;
-using System.Web;
 
 namespace VanLangDoctor.Areas.Admin.Controllers
 {
     public class ViewBACSI
     {
-        
 
         public string TENBACSI { get; set; }
         public string SDT { get; set; }
 
         public string EMAIL { get; set; }
-        public string NGHENGHIEP { get; set; }
+        public String NGHENGHIEP { get; set; }
 
         public string GIOI_TINH { get; set; }
         public string NGAYTRUC { get; set; }
@@ -21,7 +19,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         public string ANH { get; set; }
         public int IDBS { get; set; }
         public string NGAYSINH { get; set; }
-        public HttpPostedFileBase ImageUpdate { get; set; }
-        
+
+
     }
 }
