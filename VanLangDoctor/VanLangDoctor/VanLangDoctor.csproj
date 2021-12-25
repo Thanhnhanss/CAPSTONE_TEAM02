@@ -174,10 +174,18 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\BACSIsAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DON_THUOCSsAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\NHA_SAN_XUATsAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\THUOCsAdminController.cs" />
+    <Compile Include="ViewModels\ViewDONTHUOC.cs" />
     <Compile Include="Models\DANG_KY.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\NHA_SAN_XUAT.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\ViewTHUOC.cs" />
     <Compile Include="ViewModels\ViewBACSI.cs" />
     <Compile Include="Areas\User\Controllers\HomeUserController.cs" />
     <Compile Include="Areas\User\UserAreaRegistration.cs" />
@@ -263,6 +271,7 @@
     <Content Include="Areas\js\app.js" />
     <Content Include="Areas\js\bootstrap.min.js" />
     <Content Include="Areas\js\dataTables.bootstrap4.min.js" />
+    <Content Include="Areas\js\jquery-3.3.1.min.js" />
     <Content Include="Areas\js\jquery-3.4.1.min.js" />
     <Content Include="Areas\js\jquery-3.5.1.js" />
     <Content Include="Areas\js\jquery.dataTables.min.js" />
@@ -1536,12 +1545,29 @@
     <Content Include="Areas\Admin\Views\BACSIsAdmin\Details.cshtml" />
     <Content Include="Areas\Admin\Views\BACSIsAdmin\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\BACSIsAdmin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\NHA_SAN_XUATsAdmin\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\NHA_SAN_XUATsAdmin\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\NHA_SAN_XUATsAdmin\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\NHA_SAN_XUATsAdmin\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\NHA_SAN_XUATsAdmin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\THUOCsAdmin\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\THUOCsAdmin\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\THUOCsAdmin\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\THUOCsAdmin\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\THUOCsAdmin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\DON_THUOCSsAdmin\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\DON_THUOCSsAdmin\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\DON_THUOCSsAdmin\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\DON_THUOCSsAdmin\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\DON_THUOCSsAdmin\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\dataTables.bootstrap4.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.dataTables.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
