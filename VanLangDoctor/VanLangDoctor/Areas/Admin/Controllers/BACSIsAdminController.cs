@@ -12,7 +12,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
 {
     public class BACSIsAdminController : Controller
     {
-        
+
         private CP24Team02Entities db;
         private List<int> BacSi;
         public BACSIsAdminController()
@@ -30,18 +30,19 @@ namespace VanLangDoctor.Areas.Admin.Controllers
             {
                 idtk.Add(new SelectListItem { Value = item.ID_KHOA.ToString(), Text = item.TEN_KHOA.ToString() });
             }
-            ViewBag.ID_KHOA = idtk;
+            ViewBag.ID_KHOAs = idtk;
             return View();
         }
         public JsonResult jsonBS(int? tk)
         {
-            var data = (from objBS in db.BACSIs
+            var data = (from objBS in db.BACSIs 
                         select new ViewBACSI()
                         {
+
                             IDBS = objBS.ID_BACSI,
                             TENBACSI = objBS.TEN_BACSI,
                             SDT = objBS.SDT,
-                            EMAIL = objBS.EMAIL,
+                            EMAIL = objBS.ID_Email,
                             GIOI_TINH = objBS.GIOI_TINH,
                             IDKHOA = (int)objBS.ID_KHOA,
                             NGAYTRUC = objBS.NGAY_TRUC.ToString(),
@@ -61,7 +62,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
                 data = data.Where(m => m.TENBACSI.ToLower().Contains(sText) && m.IDKHOA == tk).ToList();
             else if (!string.IsNullOrEmpty(sText) && tk == null)
                 data = data.Where(m => m.TENBACSI.ToLower().Contains(sText)).ToList();
-            else if (string.IsNullOrEmpty(sText) && tk != null)
+            else if (!string.IsNullOrEmpty(sText) && tk != null)
                 data = data.Where(m => m.IDKHOA == tk).ToList();
             int rowfilter = data.Count();
             data = data.Skip(start).Take(length).ToList();
@@ -82,7 +83,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
             }
             return View(bACSI);
         }
-
+        
         // GET: Admin/BACSIsAdmin/Create
         public ActionResult Create()
         {
