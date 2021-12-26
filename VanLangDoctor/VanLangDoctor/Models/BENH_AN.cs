@@ -14,6 +14,12 @@ namespace VanLangDoctor.Models
     
     public partial class BENH_AN
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public BENH_AN()
+        {
+            this.BENH_NHAN1 = new HashSet<BENH_NHAN>();
+        }
+    
         public int ID_BENH_AN { get; set; }
         public string KET_QUA { get; set; }
         public string CHUAN_DOAN { get; set; }
@@ -24,5 +30,7 @@ namespace VanLangDoctor.Models
     
         public virtual DON_THUOC DON_THUOC { get; set; }
         public virtual BENH_NHAN BENH_NHAN { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BENH_NHAN> BENH_NHAN1 { get; set; }
     }
 }

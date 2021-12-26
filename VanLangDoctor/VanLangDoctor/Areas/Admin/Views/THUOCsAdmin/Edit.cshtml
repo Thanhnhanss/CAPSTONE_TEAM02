@@ -1,75 +1,115 @@
 ﻿@model VanLangDoctor.Models.THUOC
 
 @{
-    ViewBag.Title = "Edit";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Cập nhật thuốc";
 }
+<br />
+<br />
+<br />
+<!DOCTYPE html>
 
-<h2>Edit</h2>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/formcrud.css" rel="stylesheet" />
 
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>THUOC</h4>
+</head>
+<body>
+    <div class="page-wrapper" >
+        <div class="page-breadcrumb">
+            <div class="row">
+                <div class="col-7 align-self-center">
+                    <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">@ViewBag.Title</h4>
+                    <div class="d-flex align-items-center">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb m-0 p-0">
+                                <li class="breadcrumb-item">Trang chủ</li>
+                                <li class="breadcrumb-item">Danh sách thuốc</li>
+                                <li class="breadcrumb-item text-muted active" aria-current="page">@ViewBag.Title</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-5 align-self-center">
+                    <div class="customize-input float-right">
+                        <a class="button-back" href="~/Admin/THUOCsAdmin/Index">
+                            <span-back>Trở về</span-back>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
         <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.ID_THUOC)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.TEN_THUOC, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.TEN_THUOC, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TEN_THUOC, "", new { @class = "text-danger" })
-            </div>
-        </div>
+        @using (Html.BeginForm("Edit", "THUOCsAdmin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="container">
+                <div class="form-horizontal">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model => model.ID_THUOC)
+                    <div class="row">
+                        <div class="col-7">
+                            <div class="form-group">
+                                <label><b>Tên Thuốc</b></label>
+                                <div class="col-12">
+                                    @Html.EditorFor(model => model.TEN_THUOC, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.TEN_THUOC, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.LIEU_LUONG, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.LIEU_LUONG, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.LIEU_LUONG, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                            <div class="form-group">
+                                <label><b>Liều Lượng</b></label>
+                                <div class="col-10">
+                                    @Html.EditorFor(model => model.LIEU_LUONG, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.LIEU_LUONG, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.MO_TA, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.MO_TA, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.MO_TA, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                            <div class="form-group">
+                                <label><b>Mô Tả</b></label>
+                                <div class="col-10">
+                                    @Html.EditorFor(model => model.MO_TA, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.MO_TA, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label><b>Thuốc</b></label>
+                                <div class="col-md-10">
+                                    @Html.DropDownList("ID_NSX", null, htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.ID_NSX, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label><b>Hình Ảnh Thuốc</b></label>
+                                    <input class="form-control" type="file" name="Picture" id="IMG" onchange="readPicture(this)" accept="image/jpeg,image/gif,image/png" />
+                                    <br />
+                                    <img id="Picture" style="height: 250px; width: 250px; object-fit: contain; border-radius: 50%; border: 3px solid #0af; background-color: #000000"
+                                         src="@Url.Action("Picture", new {Model.ID_THUOC})" />
+                                </div>
+                            </div>
+                            <div class="col-md-push-12 col-md-5">
+                                <button type="submit" class="button" style="vertical-align:middle"><span>Xác nhận </span></button>
+                            </div>
+                        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.HINH_ANH, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.HINH_ANH, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.HINH_ANH, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                    </div>
+                </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.ID_NSX, "ID_NSX", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("ID_NSX", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.ID_NSX, "", new { @class = "text-danger" })
             </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
-        </div>
+        }
     </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+</body>
+</html>
+<script>
+    function readPicture(input) {
+        if (input.files && input.files[0])
+            var reader = new FileReader();
+        reader.onload = function (e) {
+            $('img#Picture').attr('src', e.target.result)
+        };
+        reader.readAsDataURL(input.files[0])
+    }
+</script>

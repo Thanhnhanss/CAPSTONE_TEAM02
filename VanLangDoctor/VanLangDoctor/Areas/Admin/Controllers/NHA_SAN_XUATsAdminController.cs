@@ -84,6 +84,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
             {
                 db.Entry(nHA_SAN_XUAT).State = EntityState.Modified;
                 db.SaveChanges();
+                TempData["Success"] = "Cập nhật nhà sản xuất thành công";
                 return RedirectToAction("Index");
             }
             return View(nHA_SAN_XUAT);
@@ -112,6 +113,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
             NHA_SAN_XUAT nHA_SAN_XUAT = db.NHA_SAN_XUAT.Find(id);
             db.NHA_SAN_XUAT.Remove(nHA_SAN_XUAT);
             db.SaveChanges();
+            TempData["Success"] = "Xóa thành công";
             return RedirectToAction("Index");
         }
 

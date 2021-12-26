@@ -10,57 +10,18 @@ using VanLangDoctor.Models;
 
 namespace VanLangDoctor.Areas.Admin.Controllers
 {
-    public class DON_THUOCSsAdminController : Controller
+    public class DON_THUOCsAdminController : Controller
     {
         private CP24Team02Entities db = new CP24Team02Entities();
-        private List<int> DONTHUOC = new List<int>();
-        // GET: Admin/DON_THUOCSsAdmin
+
+        // GET: Admin/DON_THUOCsAdmin
         public ActionResult Index()
         {
-            var dltbs = db.BACSIs.ToList();
-            List<SelectListItem> idbs = new List<SelectListItem>();
-            idbs.Add(new SelectListItem { Value = "", Text = "------------------Tất cả------------------", Selected = true });
-            foreach (var item in dltbs)
-            {
-                idbs.Add(new SelectListItem { Value = item.ID_BACSI.ToString(), Text = item.TEN_BACSI.ToString() });
-            }
-            ViewBag.ID_DONTHUOC = idbs;
-            return View();
+            var dON_THUOC = db.DON_THUOC.Include(d => d.BACSI).Include(d => d.THUOC);
+            return View(dON_THUOC.ToList());
         }
-        //public JsonResult jsonDT(int? dt)
-        //{
-        //    var data = (from objDT in db.DON_THUOC
-        //                select new ViewDONTHUOC()
-        //                {
 
-        //                    IDDT = objDT.ID_DON_THUOC,
-        //                    CHUANDOAN = objDT.CHUAN_DOAN,
-        //                    CHIDINH = objDT.CHI_DINH,
-        //                    LOIDAN = objDT.LOI_DAN,
-        //                    NGAYLAP = objDT.NGAY_LAP,
-        //                    IDTHUOC = (int)objDT.ID_THUOC,
-        //                    ID_BACSI = objDT.ID_BACSI.ToString(),
-
-
-
-        //                }).ToList();
-
-        //    int start = Convert.ToInt32(Request["start"]);
-        //    int length = Convert.ToInt32(Request["length"]);
-        //    string sText = Request["search[value]"].ToLower();
-        //    int row = data.Count();
-        //    if (!string.IsNullOrEmpty(sText) && dt != null)
-        //        data = data.Where(m => m.ID_BACSI.ToLower().Contains(sText) && m.ID_BACSI == dt).ToList();
-        //    else if (!string.IsNullOrEmpty(sText) && dt == null)
-        //        data = data.Where(m => m.TENBACSI.ToLower().Contains(sText)).ToList();
-        //    else if (string.IsNullOrEmpty(sText) && dt != null)
-        //        data = data.Where(m => m.IDKHOA == dt).ToList();
-        //    int rowfilter = data.Count();
-        //    data = data.Skip(start).Take(length).ToList();
-        //    return Json(new { data = data, draw = Request["draw"], recordsTotal = row, recordsFiltered = rowfilter }, JsonRequestBehavior.AllowGet);
-        //}
-
-        // GET: Admin/DON_THUOCSsAdmin/Details/5
+        // GET: Admin/DON_THUOCsAdmin/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -75,7 +36,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
             return View(dON_THUOC);
         }
 
-        // GET: Admin/DON_THUOCSsAdmin/Create
+        // GET: Admin/DON_THUOCsAdmin/Create
         public ActionResult Create()
         {
             ViewBag.ID_BACSI = new SelectList(db.BACSIs, "ID_BACSI", "TEN_BACSI");
@@ -83,7 +44,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
             return View();
         }
 
-        // POST: Admin/DON_THUOCSsAdmin/Create
+        // POST: Admin/DON_THUOCsAdmin/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -102,7 +63,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
             return View(dON_THUOC);
         }
 
-        // GET: Admin/DON_THUOCSsAdmin/Edit/5
+        // GET: Admin/DON_THUOCsAdmin/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -119,7 +80,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
             return View(dON_THUOC);
         }
 
-        // POST: Admin/DON_THUOCSsAdmin/Edit/5
+        // POST: Admin/DON_THUOCsAdmin/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -130,14 +91,16 @@ namespace VanLangDoctor.Areas.Admin.Controllers
             {
                 db.Entry(dON_THUOC).State = EntityState.Modified;
                 db.SaveChanges();
+                TempData["Success"] = "Cập nhật thuốc thành công";
                 return RedirectToAction("Index");
             }
             ViewBag.ID_BACSI = new SelectList(db.BACSIs, "ID_BACSI", "TEN_BACSI", dON_THUOC.ID_BACSI);
             ViewBag.ID_THUOC = new SelectList(db.THUOCs, "ID_THUOC", "TEN_THUOC", dON_THUOC.ID_THUOC);
+            TempData["Success"] = "Cập nhật thuốc thành công";
             return View(dON_THUOC);
         }
 
-        // GET: Admin/DON_THUOCSsAdmin/Delete/5
+        // GET: Admin/DON_THUOCsAdmin/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -152,7 +115,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
             return View(dON_THUOC);
         }
 
-        // POST: Admin/DON_THUOCSsAdmin/Delete/5
+        // POST: Admin/DON_THUOCsAdmin/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -160,6 +123,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
             DON_THUOC dON_THUOC = db.DON_THUOC.Find(id);
             db.DON_THUOC.Remove(dON_THUOC);
             db.SaveChanges();
+            TempData["Success"] = "Xóa đơn thuốc thành công";
             return RedirectToAction("Index");
         }
 

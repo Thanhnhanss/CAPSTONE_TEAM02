@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Transactions;
 using System.Web;
 using System.Web.Mvc;
 using VanLangDoctor.Models;
@@ -12,54 +13,19 @@ namespace VanLangDoctor.Areas.Admin.Controllers
 {
     public class THUOCsAdminController : Controller
     {
-        private CP24Team02Entities db;
-        private List<int> nsx;
-        public THUOCsAdminController()
-        {
-            db = new CP24Team02Entities();
-            nsx = new List<int>();
-        }
+        private CP24Team02Entities db = new CP24Team02Entities();
+        private const string PICTURE_PATH = "~/Content/hinhanh/";
+
         // GET: Admin/THUOCsAdmin
         public ActionResult Index()
         {
-            var dlnsx = db.NHA_SAN_XUAT.ToList();
-            List<SelectListItem> idnsx = new List<SelectListItem>();
-            idnsx.Add(new SelectListItem { Value = "", Text = "------------------Tất cả------------------", Selected = true });
-            foreach (var item in dlnsx)
-            {
-                idnsx.Add(new SelectListItem { Value = item.ID.ToString(), Text = item.TEN_NSX.ToString() });
-            }
-            ViewBag.ID_NSX = idnsx;
-            return View();
+            var tHUOCs = db.THUOCs.Include(t => t.NHA_SAN_XUAT);
+            return View(tHUOCs.ToList());
         }
-        public JsonResult jsonThuoc(int? nsx)
+        public ActionResult Picture(int ID_THUOC)
         {
-            var data = (from objthuoc in db.THUOCs
-                        select new ViewTHUOC()
-                        {
-                            IDTHUOC = objthuoc.ID_THUOC,
-                            LIEULUONG = objthuoc.LIEU_LUONG,
-                            MOTA = objthuoc.MO_TA,
-                            TENTHUOC = objthuoc.TEN_THUOC,
-                            IDNSX = (int)objthuoc.ID_NSX,
-                            HINHANH =objthuoc.HINH_ANH
-
-
-                        }).ToList();
-
-            int start = Convert.ToInt32(Request["start"]);
-            int length = Convert.ToInt32(Request["length"]);
-            string sText = Request["search[value]"].ToLower();
-            int row = data.Count();
-            if (!string.IsNullOrEmpty(sText) && nsx != null)
-                data = data.Where(m => m.TENTHUOC.ToLower().Contains(sText) && m.IDNSX == nsx).ToList();
-            else if (!string.IsNullOrEmpty(sText) && nsx == null)
-                data = data.Where(m => m.TENTHUOC.ToLower().Contains(sText)).ToList();
-            else if (!string.IsNullOrEmpty(sText) && nsx != null)
-                data = data.Where(m => m.IDNSX == nsx).ToList();
-            int rowfilter = data.Count();
-            data = data.Skip(start).Take(length).ToList();
-            return Json(new { data = data, draw = Request["draw"], recordsTotal = row, recordsFiltered = rowfilter }, JsonRequestBehavior.AllowGet);
+            var path = Server.MapPath(PICTURE_PATH);
+            return File(path + ID_THUOC, "images");
         }
 
         // GET: Admin/THUOCsAdmin/Details/5
@@ -89,17 +55,30 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID_THUOC,TEN_THUOC,LIEU_LUONG,MO_TA,HINH_ANH,ID_NSX")] THUOC tHUOC)
+        public ActionResult Create([Bind(Include = "ID_THUOC,TEN_THUOC,LIEU_LUONG,MO_TA,HINH_ANH,ID_NSX")] THUOC tHUOC, HttpPostedFileBase picture)
         {
             if (ModelState.IsValid)
             {
-                db.THUOCs.Add(tHUOC);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                var bs = new BACSI();
+                if (picture != null)
+                {
+                    using (var scope = new TransactionScope())
+                    {
+                        db.THUOCs.Add(tHUOC);
+                        db.SaveChanges();
+
+                        var path = Server.MapPath(PICTURE_PATH);
+                        picture.SaveAs(path + tHUOC.HINH_ANH);
+
+                        scope.Complete();
+                    }
+                }
+                else ModelState.AddModelError("", "Hình ảnh không được tìm thấy");
             }
 
-            ViewBag.ID_NSX = new SelectList(db.NHA_SAN_XUAT, "ID", "TEN_NSX", tHUOC.ID_NSX);
-            return View(tHUOC);
+            ViewBag.ID_NSX = new SelectList(db.NHA_SAN_XUAT, "ID", "TEN_NSX");
+            TempData["Success"] = "Thêm bác sĩ thành công";
+            return RedirectToAction("index");
         }
 
         // GET: Admin/THUOCsAdmin/Edit/5
@@ -123,15 +102,34 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID_THUOC,TEN_THUOC,LIEU_LUONG,MO_TA,HINH_ANH,ID_NSX")] THUOC tHUOC)
+        public ActionResult Edit([Bind(Include = "ID_THUOC,TEN_THUOC,LIEU_LUONG,MO_TA,HINH_ANH,ID_NSX")] THUOC tHUOC, HttpPostedFileBase picture)
         {
             if (ModelState.IsValid)
             {
+                if (ModelState.IsValid)
+                {
+                    using (var scope = new TransactionScope())
+                    {
+                        db.Entry(tHUOC).State = EntityState.Modified;
+                        db.SaveChanges();
+
+                        if (picture != null)
+                        {
+                            var path = Server.MapPath(PICTURE_PATH);
+                            picture.SaveAs(path + tHUOC.HINH_ANH);
+                        }
+
+                        scope.Complete();
+                        TempData["Success"] = "Cập nhật thuốc thành công";
+                        return RedirectToAction("index");
+
+                    }
+                }
                 db.Entry(tHUOC).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                TempData["Success"] = "Cập nhật thuốc thành công";
             }
             ViewBag.ID_NSX = new SelectList(db.NHA_SAN_XUAT, "ID", "TEN_NSX", tHUOC.ID_NSX);
+            TempData["Success"] = "Cập nhật thuốc thành công";
             return View(tHUOC);
         }
 
@@ -158,6 +156,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
             THUOC tHUOC = db.THUOCs.Find(id);
             db.THUOCs.Remove(tHUOC);
             db.SaveChanges();
+            TempData["Success"] = "Xóa thành công";
             return RedirectToAction("Index");
         }
 

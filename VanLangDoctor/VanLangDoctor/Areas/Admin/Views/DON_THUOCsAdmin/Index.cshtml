@@ -1,4 +1,4 @@
-﻿@model IEnumerable<VanLangDoctor.Models.NHA_SAN_XUAT>
+﻿@model IEnumerable<VanLangDoctor.Models.DON_THUOC>
 
 @{
     ViewBag.Title = "Danh sách đơn thuốc";
@@ -31,8 +31,8 @@
             </div>
             <div class="col-5 align-self-center">
                 <div class="customize-input float-right">
-                    <a class="button-plus" href="~/Admin/NHA_SAN_XUATsAdmin/Create">
-                        <span>Thêm nhà sản xuất</span>
+                    <a class="button-plus" href="~/Admin/DON_THUOCsAdmin/Create">
+                        <span>Thêm đơn thuốc</span>
                     </a>
                 </div>
             </div>
@@ -62,8 +62,11 @@
                             <table id="zero_config" class="table table-striped table-bordered no-wrap">
                                 <thead>
                                     <tr>
-                                        <th>Tên nhà sản xuất</th>
                                         
+                                        <th>Lời dẫn</th>
+                                        <th>Ngày Lập</th>
+                                        <th>Chỉ định</th>
+                                        <th>Chuẩn đoán</th>
 
                                         <th></th>
                                     </tr>
@@ -72,13 +75,16 @@
                                     @foreach (var item in Model)
                                     {
                                         <tr>
-                                            <td>@item.TEN_NSX</td>
                                             
+                                            <td>@item.LOI_DAN</td>
+                                            <td>@Html.FormatValue(@item.NGAY_LAP, "{0:d}")</td>
+                                            <td>@item.CHI_DINH</td>
+                                            <td>@item.CHUAN_DOAN</td>
 
                                             <td>
-                                                
-                                                <a href="@Url.Action("Edit","NHA_SAN_XUATsAdmin", new { id = item.ID })"><i class="ti-pencil"></i></a>
-                                                <a href="@Url.Action("Delete","NHA_SAN_XUATsAdmin", new { id = item.ID })"><i class="ti-trash"></i></a>
+                                                <a href="@Url.Action("Details","DON_THUOCsAdmin", new { id = item.ID_DON_THUOC })"><i class="ti-eye"></i></a>
+                                                <a href="@Url.Action("Edit","DON_THUOCsAdmin", new { id = item.ID_DON_THUOC })"><i class="ti-pencil"></i></a>
+                                                <a href="@Url.Action("Delete","DON_THUOCsAdmin", new { id = item.ID_DON_THUOC })"><i class="ti-trash"></i></a>
                                             </td>
                                         </tr>
                                     }

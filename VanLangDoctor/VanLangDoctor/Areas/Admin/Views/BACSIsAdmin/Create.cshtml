@@ -1,156 +1,161 @@
 ﻿@model VanLangDoctor.Models.BACSI
 
 @{
-    ViewBag.Title = "Create";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Thêm mới bác sĩ";
 }
-<link rel="stylesheet" type="text/css">
-<script type="text/javascript" src="~/Areas/js/jquery-3.3.1.min.js"> </script> 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer">
 <br />
 <br />
 <br />
-<br />
-<h2>TẠO MỚI BÁC SĨ</h2>
+<!DOCTYPE html>
 
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/formcrud.css" rel="stylesheet" />
+</head>
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-
-    <div class="form-horizontal">
-
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.TEN_BACSI, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.TEN_BACSI, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TEN_BACSI, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.NGAYSINH_BS, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NGAYSINH_BS, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NGAYSINH_BS, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.GIOI_TINH, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.GIOI_TINH, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.GIOI_TINH, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            SỐ ĐIỆN THOẠI
-
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.SDT, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.SDT, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ID_Email, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ID_Email, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ID_Email, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="container" >
-            <form id="AddNewDoc" method="post" action="" enctype="multipart/form-data" onsubmit="return AjaxPost(this)">
-                <label>Hình Ảnh</label>
-                <div class="preview">
-                    <img  src="" id="imgUpdate" width='100' height="100" />
-                    
-                        <input type="file" id="ImageUpload" name="ImageUpload" class="form-control"/>
-                       
-                    
-                </div>
-            </form>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.NGHE_NGHIEP, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NGHE_NGHIEP, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NGHE_NGHIEP, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ID_KHOA, "ID_KHOA", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("ID_KHOA", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.ID_KHOA, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group ">
-            @Html.LabelFor(model => model.KINH_NGHIEM, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.KINH_NGHIEM, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.KINH_NGHIEM, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group is-invalid">
-            @Html.LabelFor(model => model.NGAY_TRUC, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NGAY_TRUC, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NGAY_TRUC, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-body">
-                <h4 class="card-title">Input Type Date Time</h4>
-                <h6 class="card-subtitle">Using <code>input type="datetime-local"</code></h6>
-                <form class="mt-4">
-                    <div class="form-group" width="0">
-                        <input type="datetime-local" class="form-control" value="2008-05-13T22:33:00">
+<body>
+    <div class="page-wrapper" style="display: block;">
+        <div class="page-breadcrumb">
+            <div class="row">
+                <div class="col-7 align-self-center">
+                    <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">@ViewBag.Title</h4>
+                    <div class="d-flex align-items-center">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb m-0 p-0">
+                                <li class="breadcrumb-item">Trang chủ</li>
+                                <li class="breadcrumb-item">Bác sĩ</li>
+                                <li class="breadcrumb-item text-muted active" aria-current="page">@ViewBag.Title</li>
+                            </ol>
+                        </nav>
                     </div>
-                </form>
+                </div>
+                <div class="col-5 align-self-center">
+                    <div class="customize-input float-right">
+                        <a class="button-back" href="~/Admin/BACSIsAdmin/Index">
+                            <span-back>Trở về</span-back>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
+        <hr />
+        <form action="@Url.Action("Create","BACSIsAdmin")" method="post" enctype="multipart/form-data" id="basic-form">
+            @Html.AntiForgeryToken()
+            <div class="container">
+                <div class="form-horizontal">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-        <div class="form-group is-invalid">
-            <div class="control">
+                    <div class="row">
+                        <div class="col-7">
+                            <div class="form-group">
+                                <label><b>Tên bác sĩ</b></label>
+                                <div class="col-12">
+                                    @Html.EditorFor(model => model.TEN_BACSI, new { htmlAttributes = new { @class = "form-control", @placeholder = "VD: Nguyễn Đức H " } })
+                                    @Html.ValidationMessageFor(model => model.TEN_BACSI, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
 
-                <button type="submit" value="Create" class="success">TẠO MỚI BÁC SĨ</button>
+                            <div class="form-group">
+                                <label><b>Số điện thoại</b></label>
+                                <div class="col-10">
+                                    @Html.EditorFor(model => model.SDT, new { htmlAttributes = new { @class = "form-control", @placeholder = "VD: 0914060***" } })
+                                    @Html.ValidationMessageFor(model => model.SDT, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label><b>Giới tính</b></label>
+                                <div class="col-10">
+                                    <div class="checkbox">
+                                        @Html.EditorFor(model => model.GIOI_TINH, new { htmlAttributes = new { @class = "form-control", @placeholder = "VD: Nam" } })
+                                        @Html.ValidationMessageFor(model => model.GIOI_TINH, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label><b>Email</b></label>
+                                <div class="col-12">
+                                    @Html.DropDownList("ID_Email", null, htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.ID_Email, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <h4 class="card-title">Hình đại diện</h4>
+                                <input class="form-control" type="file" name="Picture" id="IMG" onchange="readPicture(this)" accept="image/jpeg,image/gif,image/png" />
+                                <br />
+                                <img id="Picture" style="height: 250px; width: 250px; object-fit: contain; border-radius: 50%; border: 3px solid #0af; background-color: #000000" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label><b>Nghề nghiệp</b></label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.NGHE_NGHIEP, new { htmlAttributes = new { @class = "form-control", @placeholder = "VD: Bác sĩ" } })
+                            @Html.ValidationMessageFor(model => model.NGHE_NGHIEP, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label><b>Ngày sinh</b></label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.NGAYSINH_BS, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+                            @Html.ValidationMessageFor(model => model.NGAYSINH_BS, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label><b>Kinh nghiệm</b></label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.KINH_NGHIEM, new { htmlAttributes = new { @class = "form-control", @placeholder = "VD: 4 tháng " } })
+                            @Html.ValidationMessageFor(model => model.KINH_NGHIEM, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label><b>Ngày trực</b></label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.NGAY_TRUC, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+                            @Html.ValidationMessageFor(model => model.NGAY_TRUC, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label><b>Chuyên khoa</b></label>
+                        <div class="col-md-10">
+                            @Html.DropDownList("ID_KHOA", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.ID_KHOA, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <br />
+                    <div class="col-md-5">
+                        <button type="submit" class="button" style="vertical-align:middle"><span>Thêm mới </span></button>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div id="toasts"></div>
-
-
-
+        </form>
     </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
-
+</body>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryval")
+</html>
 <script>
-    function AjaxPost(formData) {
-        var ajaxConfig = {
-            type: "post",
-            url: "~/Admin/BACSIsAdmin/SaveData",
-            data: new FormData(formData),
-            success: function (result) {
-                alert(result);
-                window.location.href ="/BACSIsAdmin/AddNewDoc"
-            }
-        }
-        if ($(formData).attr('enctype') == "multipart/form-data") {
-            ajaxConfig["contentType"] = false;
-            ajaxConfig["processData"] = false;
-        }
-        $.ajax(ajaxConfig);
-        return false;
+    tinymce.init({
+        selector: 'textarea#MotaSP',
+        menubar: false
+    });
+    function readPicture(input) {
+        if (input.files && input.files[0])
+            var reader = new FileReader();
+        reader.onload = function (e) {
+            $('img#Picture').attr('src', e.target.result)
+        };
+        reader.readAsDataURL(input.files[0])
     }
 </script>
