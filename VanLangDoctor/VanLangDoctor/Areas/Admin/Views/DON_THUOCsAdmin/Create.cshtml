@@ -13,6 +13,16 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <link href="~/Content/formcrud.css" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multilpe Select</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
 </head>
 
 <body>
@@ -58,10 +68,12 @@
                             </div>
                             <div class="form-group">
                                 <label><b>Tên thuốc</b></label>
-                                <div class="col-md-10">
-                                    @Html.DropDownList("ID_THUOC", null, htmlAttributes: new { @class = "form-control" })
-                                    @Html.ValidationMessageFor(model => model.ID_THUOC, "", new { @class = "text-danger" })
-                                </div>
+                                <select class="mul-select" multiple="true">
+                                    <option>
+                                        @Html.DropDownList("ID_THUOC", null, htmlAttributes: new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.ID_THUOC, "", new { @class = "text-danger" })
+                                    </option>
+                                </select>
                             </div>
 
                             <div class="form-group">
@@ -126,4 +138,13 @@
         };
         reader.readAsDataURL(input.files[0])
     }
+</script>
+<script>
+    $(document).ready(function () {
+        $(".mul-select").select2({
+            placeholder: "Chọn Thuốc", //placeholder
+            tags: true,
+            tokenSeparators: ['/', ',', ';', " "]
+        });
+    })
 </script>

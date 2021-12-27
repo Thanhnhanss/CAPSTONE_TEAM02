@@ -68,7 +68,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
                         db.SaveChanges();
 
                         var path = Server.MapPath(PICTURE_PATH);
-                        picture.SaveAs(path + tHUOC.HINH_ANH);
+                        picture.SaveAs(path + tHUOC.ID_THUOC);
 
                         scope.Complete();
                     }
@@ -116,7 +116,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
                         if (picture != null)
                         {
                             var path = Server.MapPath(PICTURE_PATH);
-                            picture.SaveAs(path + tHUOC.HINH_ANH);
+                            picture.SaveAs(path + tHUOC.ID_THUOC);
                         }
 
                         scope.Complete();

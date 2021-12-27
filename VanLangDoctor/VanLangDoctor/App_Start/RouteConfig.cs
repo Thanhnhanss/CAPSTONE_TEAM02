@@ -14,9 +14,14 @@ namespace VanLangDoctor
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                name: "login",
+                url: "dang-nhap",
+                defaults: new { controller = "User", action = "Login", id = UrlParameter.Optional }
+            );
+            routes.MapRoute(
+                name: "search",
+                url: "tim-kiem",
+                defaults: new { controller = "BACSIsAdmin", action = "search", id = UrlParameter.Optional }
             );
         }
     }
