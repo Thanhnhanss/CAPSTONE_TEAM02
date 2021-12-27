@@ -1,5 +1,4 @@
-﻿@model IEnumerable<VanLangDoctor.Models.AspNetRole>
-
+﻿@model VanLangDoctor.Areas.Admin.Controllers.bigViewModel
 @{
     ViewBag.Title = "Phân quyền tài khoản";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -48,15 +47,15 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach (var role in Model)
+                            @foreach (var role in Model.Roles)
                             {
                                 <tr class="bg-info text-white">
                                     <td>@role.Name</td>
                                     <td></td>
-                                    <td >
-                                        <a href="@Url.Action("Edit", new { id = role.Id})" style="color: white" >Chỉnh sửa</a> ||
-                                        <a href="@Url.Action("PhanQuyen", "PhanQuyen", new { roleId = role.Id})" style="color: white" >Thêm tài khoản</a> ||
-                                        <a href="@Url.Action("XoaQuyen","PhanQuyen", new { id = role.Id})" style="color: white" >Xóa quyền</a>
+                                    <td>
+                                        <a href="@Url.Action("Edit", new { id = role.Id})" style="color: white">Chỉnh sửa</a> ||
+                                        <a href="@Url.Action("PhanQuyen", "PhanQuyen", new { roleId = role.Id})" style="color: white">Thêm tài khoản</a> ||
+                                        <a href="@Url.Action("XoaQuyen","PhanQuyen", new { id = role.Id})" style="color: white">Xóa quyền</a>
                                     </td>
                                 </tr>
                                 foreach (var user in role.AspNetUsers)
@@ -66,7 +65,21 @@
                                         <td>@user.UserName</td>
                                         <td><a href="@Url.Action("Delete", new { RoleId = role.Id, UserId = user.Id})">Thu hồi quyền</a></td>
                                     </tr>
+
                                 }
+                            }
+                            <tr class="bg-info text-white">
+                                <td>Tất cả tài khoản</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            @foreach (var acc in Model.Users)
+                            {
+                                <tr>
+                                    <td></td>
+                                    <td>@acc.UserName</td>
+                                    <td></td>
+                                </tr>
                             }
                         </tbody>
                     </table>

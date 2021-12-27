@@ -63,13 +63,13 @@
                                 }
                                 else
                                 {
-                                <a class="acc" href="#" title="USD">@Html.ActionLink("Xin chào! " + User.Identity.GetUserName(), "CapnhatTK", "CapnhatTK", routeValues: null, htmlAttributes: new { type = "Cập nhật thông tin" })</a>
+                                    <a class="acc" href="#" title="USD">@Html.ActionLink("Xin chào! " + User.Identity.GetUserName(), "CapnhatTK", "CapnhatTK", routeValues: null, htmlAttributes: new { type = "Cập nhật thông tin" })</a>
                                     using (Html.BeginForm("LogOff", "../Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
                                     {
                                         @Html.AntiForgeryToken();
                                         <ul class="list-menu" style="text-align: left; border: none; border-radius: 1em; left:20%; top:100%">
                                             <li>
-                                                @Html.ActionLink("  Cập nhật tài khoản", "CapnhatTK", "CapnhatTK", routeValues: null, htmlAttributes: new { @class="icon-edit", @title = "Cập nhật thông tin" })
+                                                @Html.ActionLink("  Cập nhật tài khoản", "CapnhatTK", "CapnhatTK", routeValues: null, htmlAttributes: new { @class = "icon-edit", @title = "Cập nhật thông tin" })
                                             </li>
                                             <li><a href="javascript:document.getElementById('logoutForm').submit()"><i class="icon-sign-out">  Đăng xuất</i></a></li>
                                         </ul>
@@ -101,7 +101,7 @@
                                     <i class="icon"></i>
                                     <span class="cart-count">0</span>
                                 </p>
-                                
+
                             </div>
                             <nav class="mega-menu">
                                 <!-- Brand and toggle get grouped for better mobile display -->
@@ -162,6 +162,34 @@
         </header><!-- /header -->
 
         @RenderBody()
+        <div id="fb-root"></div>
+        <!-- Your Plugin chat code -->
+        <div id="fb-customer-chat" class="fb-customerchat"></div>
+
+        <script>
+            var chatbox = document.getElementById('fb-customer-chat');
+            chatbox.setAttribute("page_id", "109866731562751");
+            chatbox.setAttribute("attribution", "biz_inbox");
+        </script>
+
+        <!-- Your SDK code -->
+        <script>
+            window.fbAsyncInit = function () {
+                FB.init({
+                    xfbml: true,
+                    version: 'v12.0'
+                });
+            };
+
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+
         <footer id="footer" class="footer-v3 align-left">
             <div class="container container-ver2">
                 <div class="footer-inner">

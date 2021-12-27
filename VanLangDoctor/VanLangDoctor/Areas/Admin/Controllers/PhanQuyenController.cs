@@ -37,7 +37,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
 
         public ActionResult phanQuyenTK()
         {
-            return View(db.AspNetRoles.ToList());
+            return View(new bigViewModel { Roles = db.AspNetRoles.Include(b => b.AspNetUsers).ToList(), Users = db.AspNetUsers.ToList() });
         }
 
         // GET: Admin/AspNetRoles/Create
