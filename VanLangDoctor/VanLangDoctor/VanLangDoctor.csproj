@@ -1561,6 +1561,7 @@
     <Content Include="Areas\Admin\Views\THUOCsAdmin\Details.cshtml" />
     <Content Include="Areas\Admin\Views\THUOCsAdmin\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\THUOCsAdmin\Index.cshtml" />
+    <Content Include="Areas\User\Views\Account\Register.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\dataTables.bootstrap4.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -1594,7 +1595,7 @@
     <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
     <Content Include="Views\Account\ForgotPassword.cshtml" />
     <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Areas\User\Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\ResetPassword.cshtml" />
     <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
