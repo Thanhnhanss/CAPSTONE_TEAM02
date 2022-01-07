@@ -192,8 +192,10 @@
     <Compile Include="Areas\Admin\Controllers\HoSo_BenhAnController.cs" />
     <Compile Include="Areas\Admin\Controllers\PhanQuyenController.cs" />
     <Compile Include="Areas\Admin\Controllers\QL_BenhNhanController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SendMailController.cs" />
     <Compile Include="Areas\User\Controllers\AvatarController.cs" />
     <Compile Include="Areas\User\Controllers\CapnhatTKController.cs" />
+    <Compile Include="Areas\User\Controllers\DangKyTuVanController.cs" />
     <Compile Include="Areas\User\Controllers\HomeUserController.cs" />
     <Compile Include="Areas\User\Controllers\ThongtinBacsiController.cs" />
     <Compile Include="Areas\User\UserAreaRegistration.cs" />
@@ -257,6 +259,7 @@
     <Compile Include="Models\NHA_SAN_XUAT.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sendMail.cs" />
     <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -1747,6 +1750,12 @@
     <Content Include="Areas\Admin\Views\PhanQuyen\Create.cshtml" />
     <Content Include="Areas\Admin\Views\PhanQuyen\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\PhanQuyen\XoaQuyen.cshtml" />
+    <Content Include="Areas\Admin\Views\SendMail\Index.cshtml" />
+    <Content Include="Areas\User\Views\DangKyTuVan\Create.cshtml" />
+    <Content Include="Areas\User\Views\DangKyTuVan\Delete.cshtml" />
+    <Content Include="Areas\User\Views\DangKyTuVan\Details.cshtml" />
+    <Content Include="Areas\User\Views\DangKyTuVan\Edit.cshtml" />
+    <Content Include="Areas\User\Views\DangKyTuVan\Index.cshtml" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -1801,6 +1810,7 @@
     <Folder Include="Areas\User\Models\" />
     <Folder Include="Content\assets-ff\css\components\Ecommerce\" />
     <Folder Include="Content\IMG_DOCTOR\" />
+    <Folder Include="Files\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

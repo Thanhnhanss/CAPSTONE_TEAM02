@@ -43,7 +43,6 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                var bs = new BACSI();
                 if (picture != null)
                 {
                     using (var scope = new TransactionScope())

@@ -25,6 +25,8 @@ namespace VanLangDoctor.Models
         public string CHUNG_CHI { get; set; }
         public string SDT { get; set; }
         public Nullable<int> ID_KHOA { get; set; }
+        public string EMAIL { get; set; }
+        public bool TRANG_THAI { get; set; }
     
         public virtual KHOA KHOA { get; set; }
     }
