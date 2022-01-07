@@ -1,0 +1,68 @@
+﻿@model IEnumerable<VanLangDoctor.Models.DANG_KY>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/User/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.HO_TEN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NGAY_SINH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GIOI_TINH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HINH_ANH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SDT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EMAIL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TRANG_THAI)
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.HO_TEN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NGAY_SINH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GIOI_TINH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HINH_ANH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SDT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EMAIL)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -195,7 +195,7 @@
     <Compile Include="Areas\Admin\Controllers\SendMailController.cs" />
     <Compile Include="Areas\User\Controllers\AvatarController.cs" />
     <Compile Include="Areas\User\Controllers\CapnhatTKController.cs" />
-    <Compile Include="Areas\User\Controllers\DangKyTuVanController.cs" />
+    <Compile Include="Areas\User\Controllers\DANG_KYController.cs" />
     <Compile Include="Areas\User\Controllers\HomeUserController.cs" />
     <Compile Include="Areas\User\Controllers\ThongtinBacsiController.cs" />
     <Compile Include="Areas\User\UserAreaRegistration.cs" />
@@ -271,6 +271,7 @@
     </Compile>
     <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="MailHelper.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1161,6 +1162,16 @@
     <Content Include="Content\dist-ad\js\sidebarmenu.js" />
     <Content Include="Content\dist-ad\js\sidebarmenu.min.js" />
     <Content Include="Content\info-dr.css" />
+    <Content Include="Content\template.html" />
+    <Content Include="Content\Template_Email\images\image-1.png" />
+    <Content Include="Content\Template_Email\images\image-2.png" />
+    <Content Include="Content\Template_Email\images\image-3.png" />
+    <Content Include="Content\Template_Email\images\image-4.png" />
+    <Content Include="Content\Template_Email\images\image-5.png" />
+    <Content Include="Content\Template_Email\images\image-6.png" />
+    <Content Include="Content\Template_Email\images\image-7.png" />
+    <Content Include="Content\Template_Email\images\image-8.png" />
+    <Content Include="Content\Template_Email\index.html" />
     <Content Include="Content\uploadavt.css" />
     <Content Include="Content\formcrud.css" />
     <Content Include="favicon.ico" />
@@ -1751,11 +1762,11 @@
     <Content Include="Areas\Admin\Views\PhanQuyen\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\PhanQuyen\XoaQuyen.cshtml" />
     <Content Include="Areas\Admin\Views\SendMail\Index.cshtml" />
-    <Content Include="Areas\User\Views\DangKyTuVan\Create.cshtml" />
-    <Content Include="Areas\User\Views\DangKyTuVan\Delete.cshtml" />
-    <Content Include="Areas\User\Views\DangKyTuVan\Details.cshtml" />
-    <Content Include="Areas\User\Views\DangKyTuVan\Edit.cshtml" />
-    <Content Include="Areas\User\Views\DangKyTuVan\Index.cshtml" />
+    <Content Include="Areas\User\Views\DANG_KY\Create.cshtml" />
+    <Content Include="Areas\User\Views\DANG_KY\Delete.cshtml" />
+    <Content Include="Areas\User\Views\DANG_KY\Details.cshtml" />
+    <Content Include="Areas\User\Views\DANG_KY\Edit.cshtml" />
+    <Content Include="Areas\User\Views\DANG_KY\Index.cshtml" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
