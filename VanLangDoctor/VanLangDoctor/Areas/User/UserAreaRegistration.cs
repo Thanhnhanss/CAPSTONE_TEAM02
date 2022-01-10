@@ -15,6 +15,11 @@ namespace VanLangDoctor.Areas.User
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(
+                  "formdkttvv",
+                  "trang-chu/dang-ky-ung-tuyen",
+                  new { controller = "DANG_KY", action = "Create", id = UrlParameter.Optional }
+              );
+            context.MapRoute(
                   "luutk",
                   "tai-khoan/cap-nhat/{id}",
                   new { controller = "CapnhatTK", action = "Luu", id = UrlParameter.Optional }

@@ -94,6 +94,7 @@
 /* EX: @import url('components/Vendor/owlcarousel/owlcarousel.css'); */
 /** 1.3. Animation **/
 /* effect-v1 */
+
 .effect-v1 {
   background-color: #000;
   overflow: hidden;
@@ -5507,7 +5508,8 @@ ul.tabs.tabs-title li span.count {
 .popup-content-wrapper {
   background: #fff;
   background-size: 100% auto;
-  max-width: 770px;
+  max-width: 850px;
+  max-height:700px;
   margin: 200px auto 0px;
   width: 90%;
   position: relative;
@@ -5603,7 +5605,7 @@ ul.tabs.tabs-title li span.count {
   margin-bottom: 30px;
 }
 
-.popup-content-wrapper input[type="text"] {
+.popup-content-wrapper input[type="text"] input[type="date"] {
   width: 100%;
   max-width: 340px;
   background: #fff;

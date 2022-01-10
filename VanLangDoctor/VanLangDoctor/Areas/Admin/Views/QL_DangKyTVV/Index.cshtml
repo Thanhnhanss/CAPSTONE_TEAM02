@@ -1,0 +1,92 @@
+﻿@model IEnumerable<VanLangDoctor.Models.DANG_KY>
+
+@{
+    ViewBag.Title = "Quản lý hồ sơ đăng ký";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<!-- This page plugin CSS -->
+<link href="~/Content/assets-ad/extra-libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
+<!-- Custom CSS -->
+<link href="~/Content/dist-ad/css/style.min.css" rel="stylesheet">
+<link href="~/Content/formcrud.css" rel="stylesheet" />
+<div class="page-wrapper" style="display: block">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-7 align-self-center">
+                <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">@ViewBag.Title</h4>
+                <div class="d-flex align-items-center">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb m-0 p-0">
+                            <li class="breadcrumb-item"><a href="/trang-chu-quan-ly" class="text-muted">Trang chủ</a></li>
+                            <li class="breadcrumb-item text-muted active" aria-current="page">@ViewBag.Title</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            @if (TempData["Success"] != null)
+                            {
+                                <div class="alert alert-success alert-dismissible bg-success text-white border-0 fade show" role="alert" id="successMessage">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true" style=" float: right; margin-top: -10px">×</span>
+                                    </button>
+                                    <strong>@TempData["Success"]</strong>
+                                </div>
+                            }
+                            <table id="zero_config" class="table table-striped table-bordered no-wrap">
+                                <thead>
+                                    <tr>
+                                        <th>Ảnh đại diện</th>
+                                        <th>Tên ứng viên</th>
+                                        <th>Số điện thoại</th>
+                                        <th>Giới tính</th>
+                                        <th>Ngày sinh</th>
+                                        <th>Email</th>
+                                        <th>Trạng thái đơn</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                    <tr>
+                                        <td><img src="@Url.Action("Picture", new {item.ID})" height="120" width="120"/></td>
+                                        <td>@Html.DisplayFor(modelItem => item.HO_TEN)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.SDT)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.GIOI_TINH)</td>
+                                        <td>@Html.FormatValue(@item.NGAY_SINH, "{0:d}")</td>
+                                        <td>@Html.DisplayFor(modelItem => item.EMAIL)</td>
+                                        <td>@Html.EditorFor(modeItem => item.TRANG_THAI)</td>
+                                        <td>
+                                            @Html.ActionLink("Chi tiết", "Edit", new { id = item.ID }) |
+                                            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                                        </td>
+                                    </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

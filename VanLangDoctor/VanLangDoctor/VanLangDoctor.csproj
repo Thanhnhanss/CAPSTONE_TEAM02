@@ -192,7 +192,7 @@
     <Compile Include="Areas\Admin\Controllers\HoSo_BenhAnController.cs" />
     <Compile Include="Areas\Admin\Controllers\PhanQuyenController.cs" />
     <Compile Include="Areas\Admin\Controllers\QL_BenhNhanController.cs" />
-    <Compile Include="Areas\Admin\Controllers\SendMailController.cs" />
+    <Compile Include="Areas\Admin\Controllers\QL_DangKyTVVController.cs" />
     <Compile Include="Areas\User\Controllers\AvatarController.cs" />
     <Compile Include="Areas\User\Controllers\CapnhatTKController.cs" />
     <Compile Include="Areas\User\Controllers\DANG_KYController.cs" />
@@ -1162,7 +1162,8 @@
     <Content Include="Content\dist-ad\js\sidebarmenu.js" />
     <Content Include="Content\dist-ad\js\sidebarmenu.min.js" />
     <Content Include="Content\info-dr.css" />
-    <Content Include="Content\template.html" />
+    <Content Include="Content\Template_Email\SendMailCF.html" />
+    <Content Include="Content\Template_Email\template.html" />
     <Content Include="Content\Template_Email\images\image-1.png" />
     <Content Include="Content\Template_Email\images\image-2.png" />
     <Content Include="Content\Template_Email\images\image-3.png" />
@@ -1761,12 +1762,10 @@
     <Content Include="Areas\Admin\Views\PhanQuyen\Create.cshtml" />
     <Content Include="Areas\Admin\Views\PhanQuyen\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\PhanQuyen\XoaQuyen.cshtml" />
-    <Content Include="Areas\Admin\Views\SendMail\Index.cshtml" />
     <Content Include="Areas\User\Views\DANG_KY\Create.cshtml" />
-    <Content Include="Areas\User\Views\DANG_KY\Delete.cshtml" />
-    <Content Include="Areas\User\Views\DANG_KY\Details.cshtml" />
-    <Content Include="Areas\User\Views\DANG_KY\Edit.cshtml" />
-    <Content Include="Areas\User\Views\DANG_KY\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_DangKyTVV\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_DangKyTVV\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_DangKyTVV\Index.cshtml" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -1820,8 +1819,8 @@
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\User\Models\" />
     <Folder Include="Content\assets-ff\css\components\Ecommerce\" />
+    <Folder Include="Content\IMG_CERTIFICATE\" />
     <Folder Include="Content\IMG_DOCTOR\" />
-    <Folder Include="Files\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
