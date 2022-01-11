@@ -73,7 +73,26 @@
                                         <td>@Html.DisplayFor(modelItem => item.GIOI_TINH)</td>
                                         <td>@Html.FormatValue(@item.NGAY_SINH, "{0:d}")</td>
                                         <td>@Html.DisplayFor(modelItem => item.EMAIL)</td>
-                                        <td>@Html.EditorFor(modeItem => item.TRANG_THAI)</td>
+                                        <td>
+                                            @if (item.TRANG_THAI == true)
+                                            {
+                                                <label class="btn btn-info active">
+                                                    <div class="custom-control custom-checkbox mr-sm-2">
+                                                        <input type="checkbox" class="custom-control-input" id="checkbox0" checked disabled>
+                                                        <label class="custom-control-label text-white" for="checkbox0">Đã duyệt</label>
+                                                    </div>
+                                                </label>
+                                            }
+                                            @if (item.TRANG_THAI == false)
+                                            {
+                                                <label class="btn btn-info active">
+                                                    <div class="custom-control custom-checkbox mr-sm-2">
+                                                        <input type="checkbox" class="custom-control-input" id="checkbox0" disabled>
+                                                        <label class="custom-control-label text-white" for="checkbox0">Đã duyệt</label>
+                                                    </div>
+                                                </label>
+                                            }
+                                        </td>
                                         <td>
                                             @Html.ActionLink("Chi tiết", "Edit", new { id = item.ID }) |
                                             @Html.ActionLink("Delete", "Delete", new { id = item.ID })

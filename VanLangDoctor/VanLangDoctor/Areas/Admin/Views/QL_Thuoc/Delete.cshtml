@@ -1,10 +1,9 @@
-﻿@model VanLangDoctor.Models.BACSI
+﻿@model VanLangDoctor.Models.THUOC
 
 @{
+    ViewBag.Title = "Xóa thuốc";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = "Xác nhận xóa";
 }
-
 <!DOCTYPE html>
 
 <html>
@@ -22,7 +21,6 @@
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb m-0 p-0">
                                 <li class="breadcrumb-item"><a href="~/trang-chu-quan-ly" class="text-muted">Trang chủ</a></li>
-                                <li class="breadcrumb-item"><a href="~/trang-chu-quan-ly/bac-si/danh-sach" class="text-muted">Danh sách bác sĩ</a></li>
                                 <li class="breadcrumb-item text-muted active" aria-current="page">@ViewBag.Title</li>
                             </ol>
                         </nav>
@@ -30,7 +28,7 @@
                 </div>
                 <div class="col-5 align-self-center">
                     <div class="customize-input float-right">
-                        <a class="button-back" href="~/trang-chu-quan-ly/bac-si/danh-sach">
+                        <a class="button-back" href="@Url.Action("Index")">
                             <span-back>Trở về</span-back>
                         </a>
                     </div>
@@ -39,50 +37,50 @@
         </div>
         <div class="container">
             <div class="row">
-                <div class="card card-body">
-                    <h3 class="card-title">Bạn chắc chắn muốn xóa bác sĩ @Html.DisplayFor(model => model.TEN_BACSI) ?</h3>
+                <div class="card card-body col-md-9">
+                    <h3 class="card-title">Bạn chắc chắn muốn xóa thuốc @Html.DisplayFor(model => model.TEN_THUOC) ?</h3>
                     <p class="text-muted font-14 mb-3">
-                        Sau khi xác nhận xóa, bác sĩ @Model.TEN_BACSI sẽ không còn trên hệ thống!
+                        Sau khi xác nhận xóa, Thuốc @Model.TEN_THUOC sẽ không còn trên hệ thống!
                     </p>
                     <div class="alert alert-success">
                         <div class="dl-horizontal">
                             <div class="row">
-                                <h4 class="col-md-3">Số điện thoại: </h4>
-                                <span class="col-md-4">@Html.DisplayFor(model => model.SDT)</span>
-                            </div>
-                            
-                            <div class="row">
-                                <h4 class="col-md-3">Ngày sinh: </h4>
-                                <span class="col-md-4">@Html.FormatValue(Model.NGAYSINH_BS, "{0:d}")</span>
+                                <h4 class="col-md-3">Tên thuốc: </h4>
+                                <span class="col-md-4">@Html.DisplayFor(model => model.TEN_THUOC)</span>
                             </div>
 
                             <div class="row">
-                                <h4 class="col-md-3">Email: </h4>
-                                <span class="col-md-5">@Html.DisplayFor(model => model.AspNetUser.Email)</span>
+                                <h4 class="col-md-3">Liều lượng </h4>
+                                <span class="col-md-4">@Html.DisplayFor(model => model.LIEU_LUONG)</span>
                             </div>
 
                             <div class="row">
-                                <h4 class="col-md-3">Chuyên khoa: </h4>
-                                <span class="col-md-4">@Html.DisplayFor(model => model.KHOA.TEN_KHOA)</span>
+                                <h4 class="col-md-3">Mô tả </h4>
+                                <span class="col-md-9">@Model.MO_TA</span>
                             </div>
-                            
+
+                            <div class="row">
+                                <h4 class="col-md-3">Nhà sản xuất: </h4>
+                                <span class="col-md-9">@Html.DisplayFor(model => model.NHA_SAN_XUAT.TEN_NSX)</span>
+                            </div>
+
                         </div>
                     </div>
                     @using (Html.BeginForm())
                     {
                         @Html.AntiForgeryToken()
 
-                            <button type="submit" class="button" style="position: relative; background-color: #FF0000 "><span>Xóa </span></button>
+                        <button type="submit" class="button" style="position: relative; background-color: #FF0000 "><span>Xóa </span></button>
                     }
                 </div>
                 <div class="col-md-3">
                     <div class="card">
                         <div class="card-body" style="text-align:center">
-                            <h4 class="card-title">Hình đại diện</h4>
+                            <h4 class="card-title">Hình ảnh</h4>
                             <link href="~/Content/uploadavt.css" rel="stylesheet" />
                             <main>
                                 <div id="preview">
-                                    <div id="view-img"><img src="@Url.Action("Picture", new {Model.ID_BACSI})" style="height: 200px; width: 200px; object-fit:contain; border-radius: 50%; border: 3px solid #0af; background-color:#000000" /></div>
+                                    <div id="view-img"><img src="@Url.Action("Picture", new {Model.ID_THUOC})" style="height: 200px; width: 200px; object-fit:contain; border-radius: 50%; border: 3px solid #0af; background-color:#000000" /></div>
                                 </div>
                             </main>
                             <script src="~/Scripts/uploadavt.js"></script>
@@ -91,7 +89,7 @@
                 </div>
             </div>
         </div>
-        
+
     </div>
 </body>
 </html>

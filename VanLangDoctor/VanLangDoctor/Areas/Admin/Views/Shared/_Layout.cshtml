@@ -17,6 +17,9 @@
     <link href="@Url.Content("~/Content/assets-ad/extra-libs/jvector/jquery-jvectormap-2.0.2.css")" rel="stylesheet" />
     <!-- Custom CSS -->
     <link href="@Url.Content("~/Content/dist-ad/css/style.min.css")" rel="stylesheet">
+    <link href="~/Content/assets-ad/extra-libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
+
+    <link href="~/Content/formcrud.css" rel="stylesheet" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -192,7 +195,7 @@
                                 <a class="dropdown-item" href="#">Something else here</a>
                             </div>
                         </li>
-                        
+
                     </ul>
                     <!-- ============================================================== -->
                     <!-- Right side toggle and nav items -->
@@ -375,21 +378,14 @@
                                 <li class="sidebar-item">
                                     <a href="chart-morris.html" class="sidebar-link">
                                         <span class="hide-menu">
-                                            Morris Chart
+                                            Lịch sử tư vấn
                                         </span>
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
                                     <a href="chart-chart-js.html" class="sidebar-link">
                                         <span class="hide-menu">
-                                            ChartJs
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="chart-knob.html" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            Knob Chart
+                                            Lịch sử kê đơn
                                         </span>
                                     </a>
                                 </li>
@@ -402,93 +398,10 @@
                             </a>
                             <ul aria-expanded="false" class="collapse  first-level base-level-line">
                                 <li class="sidebar-item">
-                                    <a href="ui-buttons.html" class="sidebar-link">
+                                    <a href="@Url.Action("Index","QL_Thuoc") " class="sidebar-link">
                                         <span class="hide-menu">
-                                            Buttons
+                                            Danh sách thuốc
                                         </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-modals.html" class="sidebar-link">
-                                        <span class="hide-menu"> Modals </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-tab.html" class="sidebar-link">
-                                        <span class="hide-menu"> Tabs </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-tooltip-popover.html" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            Tooltip &
-                                            Popover
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-notification.html" class="sidebar-link">
-                                        <span class="hide-menu">Notification</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-progressbar.html" class="sidebar-link">
-                                        <span class="hide-menu">Progressbar</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-typography.html" class="sidebar-link">
-                                        <span class="hide-menu">Typography</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-bootstrap.html" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            Bootstrap
-                                            UI
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-breadcrumb.html" class="sidebar-link">
-                                        <span class="hide-menu">Breadcrumb</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-list-media.html" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            List
-                                            Media
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-grid.html" class="sidebar-link">
-                                        <span class="hide-menu"> Grid </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-carousel.html" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            Carousel
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-scrollspy.html" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            Scrollspy
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-toasts.html" class="sidebar-link">
-                                        <span class="hide-menu"> Toasts</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-spinner.html" class="sidebar-link">
-                                        <span class="hide-menu"> Spinner </span>
                                     </a>
                                 </li>
                             </ul>
@@ -637,10 +550,21 @@
     @RenderSection("scripts", required: false)
     <script src="@Url.Content("~/Content/assets-ad/libs/jquery/dist/jquery.min.js")"></script>
     <script src="@Url.Content("~/Content/dist-ad/js/feather.min.js")"></script>
-    @*<script src="@Url.Content("~/Content/assets-ad/assets/extra-libs/c3/d3.min.js")"></script>*@
-    @*<script src="@Url.Content("~/Content/assets-ad/libs/chartist/dist/chartist.min.js")"></script>*@
-    @*<script src="@Url.Content("~/Content/assets-ad/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js")"></script>*@
-    @*<script src="@Url.Content("~/Content/assets-ad/assets/libs/popper.js/dist/umd/popper.min.js")"></script>*@
+    <script src="@Url.Content("~/Content/assets-ad/assets/extra-libs/c3/d3.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets-ad/libs/chartist/dist/chartist.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets-ad/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets-ad/assets/libs/popper.js/dist/umd/popper.min.js")"></script>
+
+    <script src="~/Content/assets-ad/libs/jquery/dist/jquery.min.js"></script>
+    <script src="~/Content/assets-ad/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/Content/dist-ad/js/app-style-switcher.js"></script>
+    <script src="~/Content/dist-ad/js/feather.min.js"></script>
+    <script src="~/Content/assets-ad/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+    <script src="~/Content/assets-ad/extra-libs/sparkline/sparkline.js"></script>
+    <script src="~/Content/dist-ad/js/custom.min.js"></script>
+    <script src="~/Content/assets-ad/extra-libs/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="~/Content/dist-ad/js/pages/datatable/datatable-basic.init.js"></script>
+
     <script src="@Url.Content("~/Content/assets-ad/libs/bootstrap/dist/js/bootstrap.min.js")"></script>
     <script src="@Url.Content("~/Content/dist-ad/js/app-style-switcher.js")"></script>
     <script src="@Url.Content("~/Content/assets-ad/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js")"></script>

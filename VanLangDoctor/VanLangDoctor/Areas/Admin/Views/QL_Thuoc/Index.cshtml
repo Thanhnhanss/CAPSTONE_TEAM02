@@ -1,9 +1,10 @@
-﻿@model IEnumerable<VanLangDoctor.Models.BACSI>
+﻿@model IEnumerable<VanLangDoctor.Models.THUOC>
 
 @{
-    ViewBag.Title = "Danh sách bác sĩ";
+    ViewBag.Title = "Thuốc";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
+
 <!-- This page plugin CSS -->
 <link href="~/Content/dist-ad/css/style.min.css" rel="stylesheet">
 <!-- Custom CSS -->
@@ -23,8 +24,8 @@
             </div>
             <div class="col-5 align-self-center">
                 <div class="customize-input float-right">
-                    <a class="button-plus" href="~/trang-chu-quan-ly/bac-si/them-moi">
-                        <span>Thêm bác sĩ</span>
+                    <a class="button-plus" href="@Url.Action("Create", "QL_Thuoc")">
+                        <span>Thêm thuốc</span>
                     </a>
                 </div>
             </div>
@@ -54,15 +55,11 @@
                             <table id="zero_config" class="table table-striped table-bordered no-wrap">
                                 <thead>
                                     <tr>
-                                        <th>Tên bác sĩ</th>
-                                        <th>Số điện thoại</th>
-                                        <th>Ngày sinh</th>
-                                        <th>Email</th>
-                                        <th>Giới tính</th>
-                                        <th>Nghề nghiệp</th>
-                                        <th>Kinh nghiệm</th>
-                                        <th>Ngày trực</th>
-                                        <th>Hình đại diện</th>
+                                        <th>Tên thuốc</th>
+                                        <th>Liều lượng</th>
+                                        <th>Mô tả</th>
+                                        <th>Hình ảnh</th>
+                                        <th>Nhà sản xuất</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -70,37 +67,34 @@
                                     @foreach (var item in Model)
                                     {
                                         <tr>
-                                            <td><a href="javascript:void(0)" class="font-weight-medium link">@item.TEN_BACSI</a></td>
-                                            <td>@item.SDT</td>
-                                            <td class="font-bold link">@Html.FormatValue(@item.NGAYSINH_BS, "{0:d}")</td>
-                                            <td>@Html.DisplayFor(modelItem => item.AspNetUser.Email)</td>
-                                            <td>@item.GIOI_TINH</td>
-                                            <td>@item.NGHE_NGHIEP</td>
-                                            <td>@item.KINH_NGHIEM Năm</td>
-                                            <td>@Html.FormatValue(@item.NGAY_TRUC, "{0:d}")</td>
-                                            <td style="text-align:center"><img src="@Url.Action("Picture", new {item.ID_BACSI})" width="55" height="55" style="border-radius: 50%" /></td>
                                             <td>
-                                                <a href="@Url.Action("Edit","QL_BacSi", new { id = item.ID_BACSI })"><i class="ti-pencil"></i></a>
-                                                <a href="@Url.Action("Delete","QL_BacSi", new { id = item.ID_BACSI })"><i class="ti-trash"></i></a>
+                                                @Html.DisplayFor(modelItem => item.TEN_THUOC)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.LIEU_LUONG)
+                                            </td>
+                                            <td>
+                                                @if (item.MO_TA != null && item.MO_TA.Length > 50)
+                                                {
+                                                    @item.MO_TA.Substring(0, 50)<span>...</span>
+                                                }
+                                                else
+                                                {
+                                                    @item.MO_TA
+                                                }
+                                            </td>
+                                            <td style="text-align:center"><img src="@Url.Action("Picture", new {item.ID_THUOC})" width="55" height="55" /></td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.NHA_SAN_XUAT.TEN_NSX)
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Action("Details", new { id = item.ID_THUOC})"><i class="ti-eye"></i></a>
+                                                <a href="@Url.Action("Edit", new { id = item.ID_THUOC})"><i class="ti-pencil"></i></a>
+                                                <a href="@Url.Action("Delete", new { id = item.ID_THUOC})"><i class="ti-trash"></i></a>
                                             </td>
                                         </tr>
                                     }
-
                                 </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th>Tên bác sĩ</th>
-                                        <th>Số điện thoại</th>
-                                        <th>Ngày sinh</th>
-                                        <th>Email</th>
-                                        <th>Giới tính</th>
-                                        <th>Nghề nghiệp</th>
-                                        <th>Kinh nghiệm</th>
-                                        <th>Ngày trực</th>
-                                        <th>Hình đại diện</th>
-                                        <th></th>
-                                    </tr>
-                                </tfoot>
                             </table>
                         </div>
                     </div>
@@ -109,3 +103,4 @@
         </div>
     </div>
 </div>
+

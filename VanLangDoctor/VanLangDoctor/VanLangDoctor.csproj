@@ -193,6 +193,7 @@
     <Compile Include="Areas\Admin\Controllers\PhanQuyenController.cs" />
     <Compile Include="Areas\Admin\Controllers\QL_BenhNhanController.cs" />
     <Compile Include="Areas\Admin\Controllers\QL_DangKyTVVController.cs" />
+    <Compile Include="Areas\Admin\Controllers\QL_ThuocController.cs" />
     <Compile Include="Areas\User\Controllers\AvatarController.cs" />
     <Compile Include="Areas\User\Controllers\CapnhatTKController.cs" />
     <Compile Include="Areas\User\Controllers\DANG_KYController.cs" />
@@ -1766,6 +1767,11 @@
     <Content Include="Areas\Admin\Views\QL_DangKyTVV\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\QL_DangKyTVV\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\QL_DangKyTVV\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_Thuoc\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_Thuoc\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_Thuoc\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_Thuoc\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_Thuoc\Index.cshtml" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -1821,6 +1827,7 @@
     <Folder Include="Content\assets-ff\css\components\Ecommerce\" />
     <Folder Include="Content\IMG_CERTIFICATE\" />
     <Folder Include="Content\IMG_DOCTOR\" />
+    <Folder Include="Content\IMG_MEDICINE\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
