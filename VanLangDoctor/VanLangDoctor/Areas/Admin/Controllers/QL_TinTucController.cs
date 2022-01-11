@@ -55,6 +55,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [ValidateInput(false)]
         [ValidateAntiForgeryToken]
         public ActionResult Create_TT([Bind(Include = "ID_TIN_TUC,TEN_BAI_VIET,NGAY_DANG,NOI_DUNG,TAC_GIA,SEO_TITLE,HINH_ANH")] TIN_TUC tIN_TUC, HttpPostedFileBase picture)
         {
@@ -97,6 +98,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [ValidateInput(false)]
         [ValidateAntiForgeryToken]
         public ActionResult Edit_TT([Bind(Include = "ID_TIN_TUC,TEN_BAI_VIET,NGAY_DANG,NOI_DUNG,TAC_GIA,SEO_TITLE,HINH_ANH")] TIN_TUC tIN_TUC, HttpPostedFileBase picture)
         {

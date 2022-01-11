@@ -7,13 +7,13 @@
       <Diagram DiagramId="98091af259314eb6b1cde9ad0fbffd38" Name="Diagram1" ZoomLevel="72">
         <EntityTypeShape EntityType="CP24Team02Model.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="2" />
         <EntityTypeShape EntityType="CP24Team02Model.AspNetRole" Width="1.5" PointX="0.75" PointY="6.25" />
-        <EntityTypeShape EntityType="CP24Team02Model.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="11.75" />
-        <EntityTypeShape EntityType="CP24Team02Model.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="4.75" />
+        <EntityTypeShape EntityType="CP24Team02Model.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="4.75" />
+        <EntityTypeShape EntityType="CP24Team02Model.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="12" />
         <EntityTypeShape EntityType="CP24Team02Model.AspNetUser" Width="1.5" PointX="3" PointY="4.875" />
         <EntityTypeShape EntityType="CP24Team02Model.BACSI" Width="1.5" PointX="8.25" PointY="5.125" />
-        <EntityTypeShape EntityType="CP24Team02Model.BENH_AN" Width="1.5" PointX="12.75" PointY="5.75" />
+        <EntityTypeShape EntityType="CP24Team02Model.BENH_AN" Width="1.5" PointX="12.75" PointY="5.5" />
         <EntityTypeShape EntityType="CP24Team02Model.BENH_NHAN" Width="1.5" PointX="15" PointY="5.5" />
-        <EntityTypeShape EntityType="CP24Team02Model.DANG_KY" Width="1.5" PointX="8.25" PointY="10.375" />
+        <EntityTypeShape EntityType="CP24Team02Model.DANG_KY" Width="1.5" PointX="8.25" PointY="10.125" />
         <EntityTypeShape EntityType="CP24Team02Model.DON_THUOC" Width="1.5" PointX="10.5" PointY="5.5" />
         <EntityTypeShape EntityType="CP24Team02Model.KHOA" Width="1.5" PointX="6" PointY="8.125" />
         <EntityTypeShape EntityType="CP24Team02Model.NHA_SAN_XUAT" Width="1.5" PointX="6" PointY="2.375" />
@@ -27,6 +27,7 @@
         <AssociationConnector Association="CP24Team02Model.FK_BACSI_DT" />
         <AssociationConnector Association="CP24Team02Model.FK_KHOA" />
         <AssociationConnector Association="CP24Team02Model.FK_BENH_AN" />
+        <AssociationConnector Association="CP24Team02Model.FK_BENH_AN_BENH_NHAN" />
         <AssociationConnector Association="CP24Team02Model.FK_BENH_NHAN" />
         <AssociationConnector Association="CP24Team02Model.FK_KHOA_DK" />
         <AssociationConnector Association="CP24Team02Model.FK_THUOC_DT" />
