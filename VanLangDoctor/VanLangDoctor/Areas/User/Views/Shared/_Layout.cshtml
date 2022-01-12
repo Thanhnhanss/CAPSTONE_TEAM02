@@ -1,4 +1,5 @@
 ﻿<!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -17,7 +18,7 @@
     <div class="awe-page-loading">
         <div class="awe-loading-wrapper">
             <div class="awe-loading-icon">
-                <img src="@Url.Content("~/Content/assets-ff/images/logoVLDnobrw.png")" alt="images">
+                <img src="@Url.Content("~/Content/assets-ff/images/logoVLDnobrw.png")" alt="LogoVLU" />
             </div>
             <div class="progress">
                 <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
@@ -51,11 +52,30 @@
                         </div>
                         <div class="float-right align-right">
                             <div class="hover-menu">
-                                <a class="acc" href="#" title="USD"><img src="@Url.Content("~/Content/assets-ff/images/icon-user-header.png")" alt="icon">Tài Khoản</a>
-                                <ul class="list-menu">
-                                    <li><a href="#" title="USD">Đăng nhập</a></li>
-                                    <li><a href="#" title="VND">Đăng ký</a></li>
-                                </ul>
+                                @using Microsoft.AspNet.Identity
+                                @if (!User.Identity.IsAuthenticated)
+                                {
+                                    <a class="acc" href="#" title="USD"><img src="@Url.Content("~/Content/assets-ff/images/icon-user-header.png")" alt="icon">Tài Khoản</a>
+                                    <ul class="list-menu" style="text-align: left; border: none; border-radius: 0.5em; padding: 0em ">
+                                        <li style="margin:5px">@Html.ActionLink("Đăng ký", "Register", "../Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                                        <li style="margin:5px">@Html.ActionLink("Đăng nhập", "Login", "../Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+                                    </ul>
+                                }
+                                else
+                                {
+                                    <a class="acc" href="#" title="USD">@Html.ActionLink("Xin chào! " + User.Identity.GetUserName(), "CapnhatTK", "CapnhatTK", routeValues: null, htmlAttributes: new { type = "Cập nhật thông tin" })</a>
+                                    using (Html.BeginForm("LogOff", "../Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                                    {
+                                        @Html.AntiForgeryToken();
+                                        <ul class="list-menu" style="text-align: left; border: none; border-radius: 1em; left:20%; top:100%">
+                                            <li>
+                                                @Html.ActionLink("  Cập nhật tài khoản", "CapnhatTK", "CapnhatTK", routeValues: null, htmlAttributes: new { @class = "icon-edit", @title = "Cập nhật thông tin" })
+                                            </li>
+                                            <li><a href="javascript:document.getElementById('logoutForm').submit()"><i class="icon-sign-out">  Đăng xuất</i></a></li>
+                                        </ul>
+                                    }
+                                }
+
                             </div>
                             <!-- End hover-menu -->
                         </div>
@@ -69,11 +89,11 @@
                     <div class="box">
                         <p class="icon-menu-mobile"><i class="fa fa-bars"></i></p>
                         <div class="logo">
-                            <a href="#" title="Uno">
+                            <a href="~/trang-chu" title="LogoVLUDoctor">
                                 <img height="60" width="145" src="@Url.Content("~/Content/assets-ff/images/logoVLDnobrr.png")" alt="images">
                             </a>
                         </div>
-                        <div class="logo-mobile"><a href="#" title="Xanadu"><img src="@Url.Content("~/Content/assets-ff/images/logo-v2.png")" alt="Xanadu-Logo"></a></div>
+                        <div class="logo-mobile"><a href="/trang-chu" title="LogoVLUDoctor"><img src="@Url.Content("~/Content/assets-ff/images/logoVLDnobrw.png")" alt="LogoVLU"></a></div>
 
                         <div class="box-right">
                             <div class="cart hover-menu">
@@ -81,166 +101,95 @@
                                     <i class="icon"></i>
                                     <span class="cart-count">0</span>
                                 </p>
-                                @*<div class="cart-list list-menu">
-                                    <ul class="list">
-                                        <li>
-                                            <a href="#" title="" class="cart-product-image"><img src="@Url.Content("~/Content/assets-ff/images/products/1.jpg")" alt="Đơn thuốc"></a>
-                                            <div class="text">
-                                                <p class="product-name">Union Bed</p>
-                                                <p class="product-price"><span class="price-old">Paradol</span><span class="price">Aspirin</span></p>
-                                                <p class="qty">QTY:01</p>
-                                            </div>
-                                            <a class="close" href="#" title="close"><i class="fa fa-times-circle"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="" class="cart-product-image"><img src="@Url.Content("~/Content/assets-ff/images/products/1.jpg")" alt="Product"></a>
-                                            <div class="text">
-                                                <p class="product-name">Union Bed</p>
-                                                <p class="product-price"><span class="price-old">$700.00</span><span class="price">$350.00</span></p>
-                                                <p class="qty">QTY:01</p>
-                                            </div>
-                                            <a class="close" href="#" title="close"><i class="fa fa-times-circle"></i></a>
-                                        </li>
-                                    </ul>
-                                    <p class="total"><span class="left">Total:</span> <span class="right">$1121.98</span></p>
-                                    <div class="bottom">
-                                        <a class="link-v1" href="#" title="viewcart">View Cart</a>
-                                        <a class="link-v1 rt" href="#" title="checkout">Check out</a>
-                                    </div>
-                                </div>
+
                             </div>
-                            <div class="search dropdown" data-toggle="modal" data-target=".bs-example-modal-lg">
-                                <i class="icon"></i>
-                            </div>*@
-                        </div>
-                        <nav class="mega-menu">
-                            <!-- Brand and toggle get grouped for better mobile display -->
-                            <ul class="nav navbar-nav" id="navbar">
-                                @*<li class="level1 active dropdown">
-            <a href="#" title="Home">Trang chủ</a>
-            <ul class="menu-level-1 dropdown-menu">
-                <li class="level2"><a href="home_v1.html" title="Home 1">Home 1</a></li>
-                <li class="level2"><a href="home_v2.html" title="Home 2">Home 2</a></li>
-                <li class="level2"><a href="home_v3.html" title="Home 3">Home 3</a></li>
-                <li class="level2"><a href="home_v4.html" title="Home 4">Home 4</a></li>
-            </ul>
-        </li>*@
-                                <li class="level1"><a href="about.html" title="Home">Trang chủ</a></li>
-                                <li class="level1"><a href="about.html" title="About us">Giới thiệu</a></li>
-                                <li class="level1 dropdown">
-                                    <a href="#" title="men">Bác sĩ</a>
-                                    <div class="sub-menu sub-menu-v2 dropdown-menu">
-                                        <div class="top-sub-menu">
-                                            <img src="@Url.Content("~/Content/assets-ff/images/top-submenu1.jpg")" alt="images">
+                            <nav class="mega-menu">
+                                <!-- Brand and toggle get grouped for better mobile display -->
+                                <ul class="nav navbar-nav" id="navbar">
+                                    <li class="level1"><a href="~/trang-chu" title="Home">Trang chủ</a></li>
+                                    <li class="level1"><a href="about.html" title="About us">Giới thiệu</a></li>
+                                    <li class="level1">
+                                        <a href="~/trang-chu/bac-si" title="men">Bác sĩ</a>
+                                    </li>
+                                    <li class="level1 dropdown">
+                                        <a href="#" title="Page">Thuốc</a>
+                                        <div class="sub-menu dropdown-menu">
+                                            <ul class="menu-level-1">
+                                                <li class="level2">
+                                                    <a href="#">Shop Page</a>
+                                                    <ul class="menu-level-2">
+                                                        <li class="level3"><a href="order.html" title="Order">Order</a></li>
+                                                        <li class="level3"><a href="shopping_cart.html" title="Shopping Cart">Shopping Cart</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="level2">
+                                                    <a href="#">Tin tức</a>
+                                                    <ul class="menu-level-2">
+                                                        <li class="level3"><a href="faq.html" title="faq">faq</a></li>
+                                                        <li class="level3"><a href="page_404.html" title="page 404">page 404</a></li>
+                                                        <li class="level3"><a href="popup.html" title="newsletter">newsletter</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="level2">
+                                                    <a href="#">Blog Page</a>
+                                                    <ul class="menu-level-2">
+                                                        <li class="level3"><a href="blog_2_columns.html" title="Blog 2 Columns">Blog 2 Columns</a></li>
+                                                        <li class="level3"><a href="blog_3_columns.html" title="Blog 3 Columns">Blog 3 Columns</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="level2">
+                                                    <a href="#">Signle Page</a>
+                                                    <ul class="menu-level-2">
+                                                        <li class="level3"><a href="product_detail.html" title="Version 1">Product Detail Version 1</a></li>
+                                                        <li class="level3"><a href="product_detail2.html" title="Version 2">Product Detail Version 2</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                            <!-- End RightSubMenu -->
                                         </div>
-                                        <ul class="menu-level-1">
-                                            <li class="level2">
-                                                <a href="#">Living Room</a>
-                                                <ul class="menu-level-2">
-                                                    <li class="level3"><a href="#" title="Seatings">Seatings</a></li>
-                                                    <li class="level3"><a href="#" title="Tables">Tables</a></li>
-                                                    <li class="level3"><a href="#" title="Accessories">Accessories</a></li>
-                                                    <li class="level3"><a href="#" title="Series">Series</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="level2">
-                                                <a href="#">BATH Room</a>
-                                                <ul class="menu-level-2">
-                                                    <li class="level3"><a href="#" title="Lighting">Lighting</a></li>
-                                                    <li class="level3"><a href="#" title="Storage">Storage</a></li>
-                                                    <li class="level3"><a href="#" title="Accessories">Accessories</a></li>
-                                                    <li class="level3"><a href="#" title="Beds">Beds</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="level2">
-                                                <a href="#">KITCHEN Room</a>
-                                                <ul class="menu-level-2">
-                                                    <li class="level3"><a href="#" title="Cleaning Tools">Cleaning Tools</a></li>
-                                                    <li class="level3"><a href="#" title="Waste Bins">Waste Bins</a></li>
-                                                    <li class="level3"><a href="#" title="Pots & Pans">Pots & Pans</a></li>
-                                                    <li class="level3"><a href="#" title="Beds">Beds</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="level2">
-                                                <a href="#">Living Room</a>
-                                                <ul class="menu-level-2">
-                                                    <li class="level3"><a href="#" title="Seatings">Seatings</a></li>
-                                                    <li class="level3"><a href="#" title="Tables">Tables</a></li>
-                                                    <li class="level3"><a href="#" title="Accessories">Accessories</a></li>
-                                                    <li class="level3"><a href="#" title="Series">Series</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                        <!-- End RightSubMenu -->
-                                    </div>
-                                    <!-- End Dropdow Menu -->
-                                </li>
-                                <li class="level1 dropdown">
-                                    <a href="#" title="Page">Thuốc</a>
-                                    <div class="sub-menu dropdown-menu">
-                                        <ul class="menu-level-1">
-                                            <li class="level2">
-                                                <a href="#">Shop Page</a>
-                                                <ul class="menu-level-2">
-                                                    <li class="level3"><a href="order.html" title="Order">Order</a></li>
-                                                    <li class="level3"><a href="shopping_cart.html" title="Shopping Cart">Shopping Cart</a></li>
-                                                    <li class="level3"><a href="checkout.html" title="Check Out">Check Out</a></li>
-                                                    <li class="level3"><a href="wishlist.html" title="Wish List">Wish List</a></li>
-                                                    <li class="level3"><a href="checkout.html" title="Check Out">Check Out</a></li>
-                                                    <li class="level3"><a href="catalog_fullwidth.html" title="Shop Grid Full">Shop Full</a></li>
-                                                    <li class="level3"><a href="catalog_sidebar.html" title="Shop Left Sidebar">Shop Left Sidebar </a></li>
-                                                    <li class="level3"><a href="catalog_sidebar_right.html" title="Shop Right Sidebar">Shop Right Sidebar</a></li>
-
-                                                </ul>
-                                            </li>
-                                            <li class="level2">
-                                                <a href="#">Tin tức</a>
-                                                <ul class="menu-level-2">
-                                                    <li class="level3"><a href="faq.html" title="faq">faq</a></li>
-                                                    <li class="level3"><a href="page_404.html" title="page 404">page 404</a></li>
-                                                    <li class="level3"><a href="popup.html" title="newsletter">newsletter</a></li>
-                                                    <li class="level3"><a href="quick_view.html" title="quick view">quick view</a></li>
-                                                    <li class="level3"><a href="login_register.html" title="login registers">login register</a></li>
-                                                    <li class="level3"><a href="tracking.html" title="tracking">tracking</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="level2">
-                                                <a href="#">Blog Page</a>
-                                                <ul class="menu-level-2">
-                                                    <li class="level3"><a href="blog_2_columns.html" title="Blog 2 Columns">Blog 2 Columns</a></li>
-                                                    <li class="level3"><a href="blog_3_columns.html" title="Blog 3 Columns">Blog 3 Columns</a></li>
-                                                    <li class="level3"><a href="blog_3_columns_masonry.html" title="Blog 3 Columns Masonry">Blog 3 Columns Masonry</a></li>
-                                                    <li class="level3"><a href="blog_details.html" title="Blog Details">Blog Details</a></li>
-                                                    <li class="level3"><a href="blog_list_width.html" title="Blog List Width">Blog List Width</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="level2">
-                                                <a href="#">Signle Page</a>
-                                                <ul class="menu-level-2">
-                                                    <li class="level3"><a href="product_detail.html" title="Version 1">Product Detail Version 1</a></li>
-                                                    <li class="level3"><a href="product_detail2.html" title="Version 2">Product Detail Version 2</a></li>
-                                                    <li class="level3"><a href="product_detail3.html" title="Version 3">Product Detail Version 3</a></li>
-                                                    <li class="level3"><a href="product_detail4.html" title="Version 4">Product Detail Version 4</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                        <!-- End RightSubMenu -->
-                                    </div>
-                                    <!-- End Dropdow Menu -->
-                                </li>
-                                <li class="level1"><a href="blog_details.html" title="collections">Hồ sơ</a></li>
-                                <li class="level1"><a href="contact.html" title="Contact us">Nhắn tin</a></li>
-                            </ul>
-                        </nav>
+                                        <!-- End Dropdow Menu -->
+                                    </li>
+                                    <li class="level1"><a href="blog_details.html" title="collections">Hồ sơ</a></li>
+                                    <li class="level1"><a href="~/trang-chu/dang-ky-ung-tuyen" title="Ứng tuyển làm tư vấn viên">Ứng tuyển</a></li>
+                                </ul>
+                            </nav>
+                        </div>
                     </div>
+                    <!-- End container -->
                 </div>
-                <!-- End container -->
+                <!-- End header-top -->
             </div>
-            <!-- End header-top -->
-
         </header><!-- /header -->
-        
+
         @RenderBody()
+        <div id="fb-root"></div>
+        <!-- Your Plugin chat code -->
+        <div id="fb-customer-chat" class="fb-customerchat"></div>
+
+        <script>
+            var chatbox = document.getElementById('fb-customer-chat');
+            chatbox.setAttribute("page_id", "109866731562751");
+            chatbox.setAttribute("attribution", "biz_inbox");
+        </script>
+
+        <!-- Your SDK code -->
+        <script>
+            window.fbAsyncInit = function () {
+                FB.init({
+                    xfbml: true,
+                    version: 'v12.0'
+                });
+            };
+
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+
         <footer id="footer" class="footer-v3 align-left">
             <div class="container container-ver2">
                 <div class="footer-inner">
@@ -258,7 +207,6 @@
                                 <li><a href="#" title="title">Chính sách hoạt động</a></li>
                                 <li><a href="#" title="title">Chính sách bảo mật</a></li>
                                 <li><a href="#" title="title">Thông tin chung</a></li>
-                                @*<li><a href="#" title="title">Our Stores</a></li>*@
                             </ul>
                         </div>
                         <div class="col-md-3 col-sm-6">
@@ -272,17 +220,6 @@
                             <h3 class="title-footer">Đơn vị hợp tác</h3>
                             <a href="#" title="paypal"><img src="@Url.Content("~/Content/assets-ff/images/paypal-footer.png")" alt="images"></a>
                         </div>
-                        <!--<div class="col-md-4 col-sm-6">
-                            <h3 class="title-footer">Get Newsletter</h3>
-                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium</p>
-                            <div class="subscribe">
-                                <form action="#" method="get" accept-charset="utf-8">
-                                    <input type="text" onblur="if (this.value == '') {this.value = 'Enter Your Email Address';}" onfocus="if(this.value != '') {this.value = '';}" value="Enter Your Email Address" class="input-text required-entry validate-email" title="Sign up for our newsletter" id="newsletter" name="email">
-                                    <button class="button button1 hover-white" title="Subscribe" type="submit">Subscribe<i class="fa fa-long-arrow-right"></i></button>
-                                </form>
-                            </div>-->
-                            <!-- End subscribe -->
-                        <!--</div>-->
                     </div>
                     <!-- End row -->
                 </div>
@@ -311,16 +248,6 @@
                                         </ul>
                                     </div>
                                 </div>
-                                @*<span>Price:</span>
-                                <div class="hover-menu">
-                                    <p>USD <i class="fa fa-angle-down"></i></p>
-                                    <div class="list-menu">
-                                        <ul>
-                                            <li><a href="#" title="USD">USD</a></li>
-                                            <li><a href="#" title="VND">VND</a></li>
-                                        </ul>
-                                    </div>
-                                </div>*@
                             </div>
                             <!-- End language -->
                         </div>
@@ -336,7 +263,6 @@
     <script type="text/javascript" src="@Url.Content("~/Content/assets-ff/js/jquery.themepunch.revolution.min.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Content/assets-ff/js/jquery.themepunch.plugins.min.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Content/assets-ff/js/engo-plugins.js")"></script>
-
     <script type="text/javascript" src="@Url.Content("~/Content/assets-ff/js/slick.min.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Content/assets-ff/js/store.js")"></script>
 </body>

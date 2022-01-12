@@ -1,0 +1,106 @@
+﻿@model VanLangDoctor.Models.BENH_AN
+
+@{
+    ViewBag.Title = "Tạo bệnh án";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/formcrud.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="page-wrapper" style="display: block;">
+        <div class="page-breadcrumb">
+            <div class="row">
+                <div class="col-7 align-self-center">
+                    <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">@ViewBag.Title</h4>
+                    <div class="d-flex align-items-center">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb m-0 p-0">
+                                <li class="breadcrumb-item"><a href="~/trang-chu-quan-ly" class="text-muted">Trang chủ</a></li>
+                                <li class="breadcrumb-item"><a href="@Url.Action("HS_BenhAn", "HoSo_BenhAn")" class="text-muted">Bệnh Án</a></li>
+                                <li class="breadcrumb-item text-muted active" aria-current="page">@ViewBag.Title</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-5 align-self-center">
+                    <div class="customize-input float-right">
+                        <a class="button-back" href="@Url.Action("HS_BenhAn", "HoSo_BenhAn")">
+                            <span-back>Trở về</span-back>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr />
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="container">
+                <div class="form-horizontal">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        <label><b>Kết quả: </b></label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.KET_QUA, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.KET_QUA, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label><b>Chuẩn đoán: </b></label>
+                        <div class="col-md-10">
+                            <textarea cols="70" htmlattributes="{ class = form-control }" id="CHUAN_DOAN" name="CHUAN_DOAN" rows="4" style="margin-top: 0px;margin-bottom: 0px;height: auto;border-color: white;box-shadow: 2px 2px 9px -3px;border-radius: 1em 1em 0em;"></textarea>
+                            @Html.ValidationMessageFor(model => model.CHUAN_DOAN, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label><b>Tiền sử bệnh: </b></label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.TIEN_SU_BENH, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.TIEN_SU_BENH, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label><b>Ghi chú: </b></label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.GHI_CHU, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.GHI_CHU, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label><b>Mã đơn thuốc: </b></label>
+                        <div class="col-md-10">
+                            @Html.DropDownList("ID_DON_THUOC", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.ID_DON_THUOC, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="col-md-5">
+                        <button type="submit" class="button" style="vertical-align:middle"><span>Thêm mới </span></button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</body>
+</html>
+<script src="https://cdn.tiny.cloud/1/o05xhozlmzmedqkqoy70dh2cmo8boru7rhmjurcxygwd5a0h/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+    tinymce.init({
+        selector: '#CHUAN_DOAN',
+        plugins: 'a11ychecker advcode casechange export formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinymcespellchecker',
+        toolbar: 'a11ycheck casechange checklist code export formatpainter pageembed permanentpen table',
+        toolbar_mode: 'floating',
+        tinycomments_mode: 'embedded',
+        tinycomments_author: 'Vanlangdoctor',
+    });
+</script>

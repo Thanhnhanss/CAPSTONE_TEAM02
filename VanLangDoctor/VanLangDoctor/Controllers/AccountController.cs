@@ -333,6 +333,9 @@ namespace VanLangDoctor.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
+                    //var signedInUserId = (await UserManager.FindByEmailAsync(loginInfo.Email)).Id;
+                    //if (returnUrl.StartsWith("/User/CapnhatTK/CapnhatTK"))
+                    //    return RedirectToLocal($"/User/CapnhatTK/CapnhatTK/{signedInUserId}");
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
@@ -343,7 +346,25 @@ namespace VanLangDoctor.Controllers
                     // If the user does not have an account, then prompt the user to create an account
                     ViewBag.ReturnUrl = returnUrl;
                     ViewBag.LoginProvider = loginInfo.Login.LoginProvider;
-                    return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { Email = loginInfo.Email });
+                    //return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { Email = loginInfo.Email });
+                    var info = await AuthenticationManager.GetExternalLoginInfoAsync();
+                    if (info == null)
+                    {
+                        return View("ExternalLoginFailure");
+                    }
+                    var user = new ApplicationUser { UserName = loginInfo.Email, Email = loginInfo.Email };
+                    var result2 = await UserManager.CreateAsync(user);
+                    if (result2.Succeeded)
+                    {
+                        result2 = await UserManager.AddLoginAsync(user.Id, info.Login);
+                        if (result2.Succeeded)
+                        {
+                            await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                        }
+                    }
+                    //if (returnUrl.StartsWith("/User/CapnhatTK/CapnhatTK"))
+                    //    return RedirectToLocal($"/User/CapnhatTK/CapnhatTK/{user.Id}");
+                    return RedirectToLocal(returnUrl);
             }
         }
 

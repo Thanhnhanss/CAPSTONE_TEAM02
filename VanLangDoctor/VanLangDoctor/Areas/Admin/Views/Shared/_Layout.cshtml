@@ -17,6 +17,9 @@
     <link href="@Url.Content("~/Content/assets-ad/extra-libs/jvector/jquery-jvectormap-2.0.2.css")" rel="stylesheet" />
     <!-- Custom CSS -->
     <link href="@Url.Content("~/Content/dist-ad/css/style.min.css")" rel="stylesheet">
+    <link href="~/Content/assets-ad/extra-libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
+
+    <link href="~/Content/formcrud.css" rel="stylesheet" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -55,7 +58,7 @@
                     <!-- ============================================================== -->
                     <div class="navbar-brand">
                         <!-- Logo icon -->
-                        <a href="index.html">
+                        <a href="~/trang-chu-quan-ly">
                             <b class="logo-icon">
                                 <!-- Dark Logo icon -->
                                 <img src="@Url.Content("~/Content/assets-ad/images/logoVLDnobri.png")" alt="homepage" class="dark-logo" />
@@ -192,18 +195,7 @@
                                 <a class="dropdown-item" href="#">Something else here</a>
                             </div>
                         </li>
-                        @*<li class="nav-item d-none d-md-block">
-                            <a class="nav-link" href="javascript:void(0)">
-                                <div class="customize-input">
-                                    <select class="custom-select form-control bg-white custom-radius custom-shadow border-0">
-                                        <option selected>VN</option>
-                                        <option value="1">EN</option>
-                                        <option value="2">AK</option>
-                                        <option value="3">BE</option>
-                                    </select>
-                                </div>
-                            </a>
-                        </li>*@
+
                     </ul>
                     <!-- ============================================================== -->
                     <!-- Right side toggle and nav items -->
@@ -227,51 +219,60 @@
                         <!-- User profile and search -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false">
-                                <img src="@Url.Content("~/Content/assets-ad/images/users/profile-pic.jpg")" alt="user" class="rounded-circle"
-                                     width="40">
-                                <span class="ml-2 d-none d-lg-inline-block">
-                                    <span>Hello,</span> <span class="text-dark">Jason Doe</span> <i data-feather="chevron-down"
-                                                                                                    class="svg-icon"></i>
-                                </span>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
-                                <a class="dropdown-item" href="javascript:void(0)">
-                                    <i data-feather="user"
-                                       class="svg-icon mr-2 ml-1"></i>
-                                    My Profile
+                            <!--------------------------------------->
+                            @using Microsoft.AspNet.Identity
+                            @if (!User.Identity.IsAuthenticated)
+                            {
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <div style="padding: 0.5em">
+                                        <a href="@Url.Action("Login","../Account")" style="color: black">
+                                            <i data-feather="user" class="svg-icon"></i>
+                                            <span style="font-size: 13px">Đăng nhập</span> <span class="text-dark"></span>
+                                        </a>
+                                    </div>
                                 </a>
-                                <a class="dropdown-item" href="javascript:void(0)">
-                                    <i data-feather="credit-card"
-                                       class="svg-icon mr-2 ml-1"></i>
-                                    My Balance
-                                </a>
-                                <a class="dropdown-item" href="javascript:void(0)">
-                                    <i data-feather="mail"
-                                       class="svg-icon mr-2 ml-1"></i>
-                                    Inbox
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="javascript:void(0)">
-                                    <i data-feather="settings"
-                                       class="svg-icon mr-2 ml-1"></i>
-                                    Account Setting
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="javascript:void(0)">
-                                    <i data-feather="power"
-                                       class="svg-icon mr-2 ml-1"></i>
-                                    Logout
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <div class="pl-4 p-3">
-                                    <a href="javascript:void(0)" class="btn btn-sm btn-info">
-                                        View
-                                        Profile
-                                    </a>
+                            }
+                            else
+                            {
+                                <div style="padding: 0.5em">
+                                    @using (Html.BeginForm("LogOff", "../Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                                    {
+                                        @Html.AntiForgeryToken();
+
+                                        <a class="nav-link dropdown-toggle" href="" data-toggle="dropdown"
+                                           aria-haspopup="true" aria-expanded="false">
+                                            <img src="@Url.Content("~/Content/assets-ad/images/users/profile-pic.jpg")" alt="user" class="rounded-circle"
+                                                 width="40">
+                                            <span class="ml-2 d-none d-lg-inline-block">
+                                                <span>Hello,</span> <span class="text-dark">@Html.FormatValue(User.Identity.GetUserName(), "")</span>
+                                                <i data-feather="chevron-down" class="svg-icon"></i>
+                                            </span>
+                                        </a>
+
+                                        <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
+                                            <a class="dropdown-item" href="javascript:void(0)">
+                                                <i data-feather="user"
+                                                   class="svg-icon mr-2 ml-1"></i>
+                                                My Profile
+                                            </a>
+                                            <a class="dropdown-item" href="javascript:void(0)">
+                                                <i data-feather="mail"
+                                                   class="svg-icon mr-2 ml-1"></i>
+                                                Inbox
+                                            </a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="javascript:document.getElementById('logoutForm').submit()">
+                                                <i data-feather="power"
+                                                   class="svg-icon mr-2 ml-1"></i>
+                                                Đăng xuất
+                                            </a>
+                                        </div>
+                                    }
                                 </div>
-                            </div>
+
+                            }
+                            <!--------------------------------------->
+
                         </li>
                         <!-- ============================================================== -->
                         <!-- User profile and search -->
@@ -280,12 +281,6 @@
                 </div>
             </nav>
         </header>
-        <!-- ============================================================== -->
-        <!-- End Topbar header -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
         <aside class="left-sidebar" data-sidebarbg="skin6">
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar" data-sidebarbg="skin6">
@@ -293,7 +288,7 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link" href="~/Areas/Admin/Views/HomeAdmin/HomeAdmin.cshtml"
+                            <a class="sidebar-link sidebar-link" href="~/trang-chu-quan-ly"
                                aria-expanded="false">
                                 <i data-feather="home" class="feather-icon"></i><span class="hide-menu">Trang chủ</span>
                             </a>
@@ -321,34 +316,32 @@
                                 <i data-feather="calendar" class="feather-icon"></i><span class="hide-menu">Thông báo</span>
                             </a>
                         </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link sidebar-link" href="@Url.Action("phanQuyenTK", "PhanQuyen")"
+                               aria-expanded="false">
+                                <i data-feather="user" class="feather-icon"></i><span class="hide-menu">Tài khoản</span>
+                            </a>
+                        </li>
 
                         <li class="list-divider"></li>
-                        <li class="nav-small-cap"><span class="hide-menu">Bệnh nhân</span></li>
+                        <li class="nav-small-cap"><span class="hide-menu">Người dùng</span></li>
                         <li class="sidebar-item">
                             <a class="sidebar-link has-arrow" href="javascript:void(0)"
                                aria-expanded="false">
-                                <i data-feather="file-text" class="feather-icon"></i><span class="hide-menu">Forms </span>
+                                <i data-feather="file-text" class="feather-icon"></i><span class="hide-menu">Bệnh nhân </span>
                             </a>
                             <ul aria-expanded="false" class="collapse  first-level base-level-line">
                                 <li class="sidebar-item">
-                                    <a href="form-inputs.html" class="sidebar-link">
+                                    <a href="@Url.Action("DanhSach_BN","QL_BenhNhan")" class="sidebar-link">
                                         <span class="hide-menu">
-                                            Form Inputs
+                                            Danh sách bệnh nhân
                                         </span>
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
-                                    <a href="form-input-grid.html" class="sidebar-link">
+                                    <a href="@Url.Action("HS_BenhAn","HoSo_BenhAn")" class="sidebar-link">
                                         <span class="hide-menu">
-                                            Form Grids
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="form-checkbox-radio.html" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            Checkboxes &
-                                            Radios
+                                            Hồ sơ bệnh án
                                         </span>
                                     </a>
                                 </li>
@@ -361,40 +354,16 @@
                             </a>
                             <ul aria-expanded="false" class="collapse  first-level base-level-line">
                                 <li class="sidebar-item">
-                                    <a href="table-basic.html" class="sidebar-link">
+                                    <a href="~/trang-chu-quan-ly/bac-si/danh-sach" class="sidebar-link">
                                         <span class="hide-menu">
-                                            Basic Table
+                                            Danh sách bác sĩ
                                         </span>
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
-                                    <a href="table-dark-basic.html" class="sidebar-link">
+                                    <a href="~/trang-chu-quan-ly/bac-si/them-moi" class="sidebar-link">
                                         <span class="hide-menu">
-                                            Dark Basic Table
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="table-sizing.html" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            Sizing Table
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="table-layout-coloured.html" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            Coloured
-                                            Table Layout
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="table-datatable-basic.html" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            Basic
-                                            Datatables
-                                            Layout
+                                            Thêm bác sĩ
                                         </span>
                                     </a>
                                 </li>
@@ -409,21 +378,14 @@
                                 <li class="sidebar-item">
                                     <a href="chart-morris.html" class="sidebar-link">
                                         <span class="hide-menu">
-                                            Morris Chart
+                                            Lịch sử tư vấn
                                         </span>
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
                                     <a href="chart-chart-js.html" class="sidebar-link">
                                         <span class="hide-menu">
-                                            ChartJs
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="chart-knob.html" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            Knob Chart
+                                            Lịch sử kê đơn
                                         </span>
                                     </a>
                                 </li>
@@ -436,102 +398,19 @@
                             </a>
                             <ul aria-expanded="false" class="collapse  first-level base-level-line">
                                 <li class="sidebar-item">
-                                    <a href="ui-buttons.html" class="sidebar-link">
+                                    <a href="@Url.Action("Index","QL_Thuoc") " class="sidebar-link">
                                         <span class="hide-menu">
-                                            Buttons
+                                            Danh sách thuốc
                                         </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-modals.html" class="sidebar-link">
-                                        <span class="hide-menu"> Modals </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-tab.html" class="sidebar-link">
-                                        <span class="hide-menu"> Tabs </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-tooltip-popover.html" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            Tooltip &
-                                            Popover
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-notification.html" class="sidebar-link">
-                                        <span class="hide-menu">Notification</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-progressbar.html" class="sidebar-link">
-                                        <span class="hide-menu">Progressbar</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-typography.html" class="sidebar-link">
-                                        <span class="hide-menu">Typography</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-bootstrap.html" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            Bootstrap
-                                            UI
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-breadcrumb.html" class="sidebar-link">
-                                        <span class="hide-menu">Breadcrumb</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-list-media.html" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            List
-                                            Media
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-grid.html" class="sidebar-link">
-                                        <span class="hide-menu"> Grid </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-carousel.html" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            Carousel
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-scrollspy.html" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            Scrollspy
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-toasts.html" class="sidebar-link">
-                                        <span class="hide-menu"> Toasts</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-spinner.html" class="sidebar-link">
-                                        <span class="hide-menu"> Spinner </span>
                                     </a>
                                 </li>
                             </ul>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link" href="ui-cards.html"
+                            <a class="sidebar-link sidebar-link" href="@Url.Action("Index","QL_DangKyTVV")"
                                aria-expanded="false">
                                 <i data-feather="sidebar" class="feather-icon"></i><span class="hide-menu">
-                                    Cards
+                                    Hồ sơ đăng ký
                                 </span>
                             </a>
                         </li>
@@ -666,38 +545,36 @@
             </div>
             <!-- End Sidebar scroll-->
         </aside>
-        <!-- ============================================================== -->
-        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
-
+        @RenderBody()
     </div>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    @RenderBody()
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
+    @RenderSection("scripts", required: false)
     <script src="@Url.Content("~/Content/assets-ad/libs/jquery/dist/jquery.min.js")"></script>
-    <script src="@Url.Content("~/Content/assets-ad/assets/libs/popper.js/dist/umd/popper.min.js")"></script>
-    <script src="@Url.Content("~/Content/assets-ad/libs/bootstrap/dist/js/bootstrap.min.js")"></script>
-    <!-- apps -->
-    <!-- apps -->
-    <script src="@Url.Content("~/Content/dist-ad/js/app-style-switcher.js")"></script>
     <script src="@Url.Content("~/Content/dist-ad/js/feather.min.js")"></script>
-    <script src="@Url.Content("~/Content/assets-ad/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js")"></script>
-    <script src="@Url.Content("~/Content/dist-ad/js/sidebarmenu.js")"></script>
-    <!--Custom JavaScript -->
-    <script src="@Url.Content("~/Content/dist-ad/js/custom.min.js")"></script>
-    <!--This page JavaScript -->
     <script src="@Url.Content("~/Content/assets-ad/assets/extra-libs/c3/d3.min.js")"></script>
-    <script src="@Url.Content("~/Content/assets-ad/extra-libs/c3/c3.min.js")"></script>
     <script src="@Url.Content("~/Content/assets-ad/libs/chartist/dist/chartist.min.js")"></script>
     <script src="@Url.Content("~/Content/assets-ad/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets-ad/assets/libs/popper.js/dist/umd/popper.min.js")"></script>
+
+    <script src="~/Content/assets-ad/libs/jquery/dist/jquery.min.js"></script>
+    <script src="~/Content/assets-ad/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/Content/dist-ad/js/app-style-switcher.js"></script>
+    <script src="~/Content/dist-ad/js/feather.min.js"></script>
+    <script src="~/Content/assets-ad/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+    <script src="~/Content/assets-ad/extra-libs/sparkline/sparkline.js"></script>
+    <script src="~/Content/dist-ad/js/custom.min.js"></script>
+    <script src="~/Content/assets-ad/extra-libs/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="~/Content/dist-ad/js/pages/datatable/datatable-basic.init.js"></script>
+
+    <script src="@Url.Content("~/Content/assets-ad/libs/bootstrap/dist/js/bootstrap.min.js")"></script>
+    <script src="@Url.Content("~/Content/dist-ad/js/app-style-switcher.js")"></script>
+    <script src="@Url.Content("~/Content/assets-ad/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js")"></script>
+    <script src="@Url.Content("~/Content/dist-ad/js/sidebarmenu.js")"></script>
+    <script src="@Url.Content("~/Content/dist-ad/js/custom.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets-ad/extra-libs/c3/c3.min.js")"></script>
     <script src="@Url.Content("~/Content/assets-ad/extra-libs/jvector/jquery-jvectormap-2.0.2.min.js")"></script>
     <script src="@Url.Content("~/Content/assets-ad/extra-libs/jvector/jquery-jvectormap-world-mill-en.js")"></script>
     <script src="@Url.Content("~/Content/dist-ad/js/pages/dashboards/dashboard1.min.js")"></script>
-    
+
 </body>
 
 </html>

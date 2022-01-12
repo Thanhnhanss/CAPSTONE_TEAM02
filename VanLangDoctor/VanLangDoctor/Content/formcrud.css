@@ -1,0 +1,193 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+h1, h2, h4, label {
+    color: DodgerBlue;
+}
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    width: 100%;
+    resize: vertical;
+    padding: 15px;
+    border-radius: 15px;
+    border: 0;
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.2);
+}
+
+    input[type=text]:focus, input[type=password]:focus {
+        outline: none;
+    }
+
+hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+
+/* Set a style for all buttons */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+    button:hover {
+        opacity: 1;
+    }
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    padding: 14px 20px;
+    background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.signupbtn {
+    float: left;
+    width: 100%;
+    border-radius: 15px;
+    border: 0;
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Add padding to container elements */
+.container {
+    padding: 16px;
+}
+
+/* Clear floats */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+.button {
+    display: inline-block;
+    border-radius: 4em;
+    background-color: #f4511e;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 13px;
+    padding: 10px;
+    width: 150px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px
+}
+
+    .button span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s
+    }
+
+        .button span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s
+        }
+
+    .button:hover span {
+        padding-right: 25px
+    }
+
+        .button:hover span:after {
+            opacity: 1;
+            right: 0
+        }
+
+.button-back {
+    display: inline-block;
+    border-radius: 4em;
+    background-color: #f4511e;
+    border: none;
+    color: #ffffff;
+    text-align: center;
+    font-size: 13px;
+    padding: 10px;
+    width: 150px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px
+}
+
+    .button-back span-back {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s
+    }
+
+        .button-back span-back:after {
+            content: "\00ab";
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s
+        }
+
+    .button-back:hover span-back {
+        padding-right: 25px
+    }
+
+        .button-back:hover span-back:after {
+            opacity: 1;
+            right: 0
+        }
+.button-plus {
+    display: inline-block;
+    border-radius: 4em;
+    background-color: #f4511e;
+    border: none;
+    color: #ffffff;
+    text-align: center;
+    font-size: 13px;
+    padding: 10px;
+    width: 150px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px
+}
+
+    .button-plus:after {
+        content: "";
+        background: #f1f1f1;
+        display: block;
+        position: absolute;
+        padding-top: 300%;
+        padding-left: 350%;
+        margin-left: -20px !important;
+        margin-top: -120%;
+        opacity: 0;
+        transition: all 0.8s
+    }
+
+    .button-plus:active:after {
+        padding: 0;
+        margin: 0;
+        opacity: 1;
+        transition: 0s
+    }

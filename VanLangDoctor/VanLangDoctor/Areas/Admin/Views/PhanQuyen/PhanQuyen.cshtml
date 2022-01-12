@@ -1,0 +1,57 @@
+﻿@using VanLangDoctor.Models
+@{
+    ViewBag.Title = "Phân Quyền";
+    var Role = ViewBag.Role as AspNetRole;
+    var Users = ViewBag.Users as SelectList;
+}
+<link href="~/Content/formcrud.css" rel="stylesheet" />
+
+
+<div class="page-wrapper" style="display: block">
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-7 align-self-center">
+                <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">@ViewBag.Title</h4>
+                <div class="d-flex align-items-center">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb m-0 p-0">
+                            <li class="breadcrumb-item"><a href="/trang-chu-quan-ly" class="text-muted">Trang chủ</a></li>
+                            <li class="breadcrumb-item text-muted active" aria-current="page">@ViewBag.Title</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+            <div class="col-5 align-self-center">
+                <div class="customize-input float-right">
+                    <a class="button-plus" href="@Url.Action("phanQuyenTK","PhanQuyen")">
+                        <span>Trở về</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="container">
+            <div class="form-horizontal">
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <h4>Thêm tài khoản vào quyền <strong>@Role.Name.ToLower()</strong> </h4>
+                    <div class="col-md-10">
+                        @Html.DropDownList("UserId", Users, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <button type="submit" class="button" style="vertical-align:middle"><span>Thêm</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
+
