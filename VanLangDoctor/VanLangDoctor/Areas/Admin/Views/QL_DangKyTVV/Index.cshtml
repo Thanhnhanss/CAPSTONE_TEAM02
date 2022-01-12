@@ -94,8 +94,8 @@
                                             }
                                         </td>
                                         <td>
-                                            @Html.ActionLink("Chi tiết", "Edit", new { id = item.ID }) |
-                                            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                                            <a href="@Url.Action("Edit", new { id = item.ID})"><i class="ti-eye"></i></a>
+                                            <a href="@Url.Action("Delete", new { id = item.ID})"><i class="ti-trash"></i></a>
                                         </td>
                                     </tr>
                                     }

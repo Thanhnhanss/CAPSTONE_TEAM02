@@ -65,7 +65,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
                 substance = substance.Replace("{{Role}}", "Tư vấn viên");
                 substance = substance.Replace("{{LinkDR}}", "http://cntttest.vanlanguni.edu.vn:18080/CP24Team02/trang-chu-quan-ly");
                 new MailHelper().SendMail(dANG_KY.EMAIL, "Đơn đã được duyệt", substance);
-                TempData["Success"] = "Email xác nhận đã được gửi cho khách hàng "+dANG_KY.HO_TEN.ToUpper();
+                TempData["Success"] = "Email xác nhận đã được gửi cho ứng viên "+dANG_KY.HO_TEN.ToUpper();
                 return RedirectToAction("Index");
             }
             ViewBag.ID_KHOA = new SelectList(db.KHOAs, "ID_KHOA", "TEN_KHOA", dANG_KY.ID_KHOA);
