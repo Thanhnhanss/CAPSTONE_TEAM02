@@ -38,7 +38,7 @@
                         <br />
                         <input type="text" value="@Model.HOC_VAN" placeholder="Trình độ học vấn" id="HOC_VAN" name="HOC_VAN" class="form-control" readonly><br />
                         <input type="text" value="@Model.NGHE_NGHIEP" placeholder="Công việc hiện tại" id="NGHE_NGHIEP" name="NGHE_NGHIEP" class="form-control" readonly><br />
-                        <textarea type="text" placeholder="Mục tiêu nghề nghiệp" id="MUC_TIEU" name="MUC_TIEU" class="form-control" disabled>@Model.MUC_TIEU</textarea><br />
+                        @Html.TextAreaFor(model=>model.MUC_TIEU, htmlAttributes: new { @class="form-control", @readonly = true})<br />
                         <div class="form-group">
                             <h4>Ứng tuyển vào khoa:</h4>
                             <div class="col-sm-offset-1 col-md-10">
