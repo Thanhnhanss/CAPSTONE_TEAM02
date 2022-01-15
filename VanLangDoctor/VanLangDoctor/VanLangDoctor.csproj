@@ -193,6 +193,7 @@
     <Compile Include="Areas\Admin\Controllers\PhanQuyenController.cs" />
     <Compile Include="Areas\Admin\Controllers\QL_BenhNhanController.cs" />
     <Compile Include="Areas\Admin\Controllers\QL_DangKyTVVController.cs" />
+    <Compile Include="Areas\Admin\Controllers\QL_DonThuocController.cs" />
     <Compile Include="Areas\Admin\Controllers\QL_ThuocController.cs" />
     <Compile Include="Areas\User\Controllers\AvatarController.cs" />
     <Compile Include="Areas\User\Controllers\CapnhatTKController.cs" />
@@ -1772,6 +1773,9 @@
     <Content Include="Areas\Admin\Views\QL_Thuoc\Details.cshtml" />
     <Content Include="Areas\Admin\Views\QL_Thuoc\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\QL_Thuoc\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_DonThuoc\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_DonThuoc\ThemDonThuoc.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_DonThuoc\DS_DonThuoc.cshtml" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

@@ -68,7 +68,7 @@
                                     {
                                         <tr>
                                             <td>
-                                                @Html.DisplayFor(modelItem => item.TEN_THUOC)
+                                                <a href="@Url.Action("Details", new { id = item.ID_THUOC})">@Html.DisplayFor(modelItem => item.TEN_THUOC)</a>
                                             </td>
                                             <td>
                                                 @Html.DisplayFor(modelItem => item.LIEU_LUONG)
@@ -83,7 +83,11 @@
                                                     @item.MO_TA
                                                 }
                                             </td>
-                                            <td style="text-align:center"><img src="@Url.Action("Picture", new {item.ID_THUOC})" width="55" height="55" /></td>
+                                            <td style="text-align:center">
+                                                <a href="@Url.Action("Details", new { id = item.ID_THUOC})">
+                                                    <img src="@Url.Action("Picture", new {item.ID_THUOC})" width="55" height="55" />
+                                                </a>
+                                            </td>
                                             <td>
                                                 @Html.DisplayFor(modelItem => item.NHA_SAN_XUAT.TEN_NSX)
                                             </td>

@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using VanLangDoctor.Models
+<!DOCTYPE html>
 <html dir="ltr" lang="en">
 
 <head>
@@ -402,6 +403,14 @@
                                         <span class="hide-menu">
                                             Danh sách thuốc
                                         </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="@Url.Action("Index","QL_DonThuoc") " class="sidebar-link">
+                                        <span class="hide-menu">
+                                             Đơn thuốc
+                                        </span>
+                                        @*@(Session["DonThuoc"] as List<DON_THUOC>?.Count)*@
                                     </a>
                                 </li>
                             </ul>
