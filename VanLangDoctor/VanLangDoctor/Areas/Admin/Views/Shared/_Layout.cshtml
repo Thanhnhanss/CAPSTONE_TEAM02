@@ -408,9 +408,15 @@
                                 <li class="sidebar-item">
                                     <a href="@Url.Action("Index","QL_DonThuoc") " class="sidebar-link">
                                         <span class="hide-menu">
-                                             Đơn thuốc
+                                            Đơn thuốc đang kê
                                         </span>
-                                        @*@(Session["DonThuoc"] as List<DON_THUOC>?.Count)*@
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="@Url.Action("DS_DonThuoc","QL_DonThuoc") " class="sidebar-link">
+                                        <span class="hide-menu">
+                                            Đơn thuốc đã kê
+                                        </span>
                                     </a>
                                 </li>
                             </ul>
