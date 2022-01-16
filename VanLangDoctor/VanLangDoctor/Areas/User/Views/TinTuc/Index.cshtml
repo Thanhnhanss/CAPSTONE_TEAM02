@@ -30,7 +30,7 @@
         @foreach (var item in Model)
         {
             <div class="row">
-                @if ((item.ID_TIN_TUC % 2 == 0))
+                @if ((item.ID_TIN_TUC % 2 != 0))
                 {
                     <div class="blog-post-item left">
                         <div class="blog-post-image hover-images">
