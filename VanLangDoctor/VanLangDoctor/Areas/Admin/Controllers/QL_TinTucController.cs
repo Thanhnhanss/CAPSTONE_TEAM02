@@ -11,7 +11,6 @@ using System.Transactions;
 
 namespace VanLangDoctor.Areas.Admin.Controllers
 {
-    [Authorize]
     public class QL_TinTucController : Controller
     {
         private CP24Team02Entities db = new CP24Team02Entities();
@@ -65,6 +64,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
                 {
                     using (var scope = new TransactionScope())
                     {
+                        tIN_TUC.NGAY_DANG = DateTime.Now;
                         db.TIN_TUC.Add(tIN_TUC);
                         db.SaveChanges();
 

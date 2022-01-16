@@ -19,7 +19,6 @@
         <EntityTypeShape EntityType="CP24Team02Model.NHA_SAN_XUAT" Width="1.5" PointX="6" PointY="2.375" />
         <EntityTypeShape EntityType="CP24Team02Model.sysdiagram" Width="1.5" PointX="2.75" PointY="2" />
         <EntityTypeShape EntityType="CP24Team02Model.THUOC" Width="1.5" PointX="8.25" PointY="0.75" />
-        <EntityTypeShape EntityType="CP24Team02Model.TIN_TUC" Width="1.5" PointX="0.75" PointY="10" />
         <AssociationConnector Association="CP24Team02Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
         <AssociationConnector Association="CP24Team02Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
         <AssociationConnector Association="CP24Team02Model.FK_BAC_SI" />
@@ -33,6 +32,7 @@
         <AssociationConnector Association="CP24Team02Model.FK_THUOC_DT" />
         <AssociationConnector Association="CP24Team02Model.FK_THUOC_NSX" />
         <AssociationConnector Association="CP24Team02Model.AspNetUserRoles" />
+        <EntityTypeShape EntityType="CP24Team02Model.TIN_TUC" Width="1.5" PointX="10.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

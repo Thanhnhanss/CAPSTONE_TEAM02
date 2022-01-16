@@ -182,6 +182,7 @@
     <Compile Include="Areas\Admin\Controllers\QL_TinTucController.cs" />
     <Compile Include="Areas\User\Controllers\BacSiController.cs" />
     <Compile Include="Areas\User\Controllers\HomeUserController.cs" />
+    <Compile Include="Areas\User\Controllers\TinTucController.cs" />
     <Compile Include="Areas\User\UserAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -1554,6 +1555,8 @@
     <Content Include="Areas\Admin\Views\QL_BacSi\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\QL_BacSi\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\QL_BacSi\Index.cshtml" />
+    <Content Include="Areas\User\Views\TinTuc\Details.cshtml" />
+    <Content Include="Areas\User\Views\TinTuc\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

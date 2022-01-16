@@ -183,6 +183,7 @@
           <Property Name="TAC_GIA" Type="nvarchar(max)" />
           <Property Name="SEO_TITLE" Type="nvarchar(max)" />
           <Property Name="HINH_ANH" Type="nvarchar(max)" />
+          <Property Name="CountViews" Type="int" />
         </EntityType>
         <Association Name="FK_BAC_SI">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
@@ -453,7 +454,6 @@
           <EntitySet Name="NHA_SAN_XUAT" EntityType="CP24Team02Model.NHA_SAN_XUAT" />
           <EntitySet Name="sysdiagrams" EntityType="CP24Team02Model.sysdiagram" />
           <EntitySet Name="THUOCs" EntityType="CP24Team02Model.THUOC" />
-          <EntitySet Name="TIN_TUC" EntityType="CP24Team02Model.TIN_TUC" />
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="CP24Team02Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUser" EntitySet="AspNetUsers" />
             <End Role="AspNetUserClaim" EntitySet="AspNetUserClaims" />
@@ -506,6 +506,7 @@
             <End Role="AspNetRole" EntitySet="AspNetRoles" />
             <End Role="AspNetUser" EntitySet="AspNetUsers" />
           </AssociationSet>
+          <EntitySet Name="TIN_TUC" EntityType="CP24Team02Model.TIN_TUC" />
         </EntityContainer>
         <EntityType Name="C__MigrationHistory">
           <Key>
@@ -692,18 +693,6 @@
           <NavigationProperty Name="DON_THUOC" Relationship="CP24Team02Model.FK_THUOC_DT" FromRole="THUOC" ToRole="DON_THUOC" />
           <NavigationProperty Name="NHA_SAN_XUAT" Relationship="CP24Team02Model.FK_THUOC_NSX" FromRole="THUOC" ToRole="NHA_SAN_XUAT" />
         </EntityType>
-        <EntityType Name="TIN_TUC">
-          <Key>
-            <PropertyRef Name="ID_TIN_TUC" />
-          </Key>
-          <Property Name="ID_TIN_TUC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TEN_BAI_VIET" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="NGAY_DANG" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="NOI_DUNG" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="TAC_GIA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="SEO_TITLE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="HINH_ANH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Type="CP24Team02Model.AspNetUser" Role="AspNetUser" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -856,6 +845,19 @@
           <End Type="CP24Team02Model.AspNetRole" Role="AspNetRole" Multiplicity="*" />
           <End Type="CP24Team02Model.AspNetUser" Role="AspNetUser" Multiplicity="*" />
         </Association>
+        <EntityType Name="TIN_TUC">
+          <Key>
+            <PropertyRef Name="ID_TIN_TUC" />
+          </Key>
+          <Property Name="ID_TIN_TUC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TEN_BAI_VIET" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NGAY_DANG" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="NOI_DUNG" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TAC_GIA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SEO_TITLE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HINH_ANH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CountViews" Type="Int32" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1032,9 +1034,18 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="CP24Team02Model.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetUser">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+            <EndProperty Name="AspNetRole">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+          </AssociationSetMapping>
           <EntitySetMapping Name="TIN_TUC">
             <EntityTypeMapping TypeName="CP24Team02Model.TIN_TUC">
               <MappingFragment StoreEntitySet="TIN_TUC">
+                <ScalarProperty Name="CountViews" ColumnName="CountViews" />
                 <ScalarProperty Name="HINH_ANH" ColumnName="HINH_ANH" />
                 <ScalarProperty Name="SEO_TITLE" ColumnName="SEO_TITLE" />
                 <ScalarProperty Name="TAC_GIA" ColumnName="TAC_GIA" />
@@ -1045,14 +1056,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="AspNetUserRoles" TypeName="CP24Team02Model.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
-            <EndProperty Name="AspNetUser">
-              <ScalarProperty Name="Id" ColumnName="UserId" />
-            </EndProperty>
-            <EndProperty Name="AspNetRole">
-              <ScalarProperty Name="Id" ColumnName="RoleId" />
-            </EndProperty>
-          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

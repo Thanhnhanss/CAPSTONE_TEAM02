@@ -1,0 +1,366 @@
+﻿@model VanLangDoctor.Models.TIN_TUC
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/User/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container container-ver2">
+    <div class="blog-post-container blog-page blog-classic">
+        <div id="primary" class="col-xs-12 col-md-9 float-left center">
+            <div class="blog-post-container box single-post">
+                <div class="blog-post-item">
+                    <div class="head">
+                        <h3>@Model.TEN_BAI_VIET</h3>
+                        <p class="post-by"><span>@Html.FormatValue(Model.NGAY_DANG, "{0:d}")</span><span><i class="fa fa-pencil-square-o"></i> @Model.TAC_GIA</span><span><i class="fa fa-comment-o"></i> 36 Comments</span></p>
+                    </div>
+                    <!-- End head -->
+                    <div class="blog-post-image hover-images">
+                        <a href="#" title="Post"><img class="img-responsive" src="assets/images/blog-details.jpg" alt=""></a>
+                    </div>
+                    <div class="text align-left">
+                        @Html.Raw(Model.NOI_DUNG)
+                        <div class="social box">
+                            <h3>Share this :</h3>
+                            <a class="twitter" href="#" title="social"><i class="fa fa-twitter-square"></i></a>
+                            <a class="dribbble" href="#" title="social"><i class="fa fa-dribbble"></i></a>
+                            <a class="skype" href="#" title="social"><i class="fa fa-skype"></i></a>
+                            <a class="pinterest" href="#" title="social"><i class="fa fa-pinterest"></i></a>
+                            <a class="facebook" href="#" title="social"><i class="fa fa-facebook-square"></i></a>
+                        </div>
+                        <!-- End share -->
+                        <div class="box">
+                            <h3 class="title-v1 space-30">Related Posts</h3>
+                            <div class="blog-post-inner blog-related owl-nav-hidden center owl-carousel">
+                                <div class="blog-post-item">
+                                    <div class="blog-post-image hover-images">
+                                        <a href="#" title="Post"><img src="assets/images/products/1.jpg" alt=""></a>
+                                    </div>
+                                    <div class="text">
+                                        <h3><a href="#" title="Integer scelerisque diam vitae aliquam fringilla.">The new Brand Identity last the Bahamas</a></h3>
+                                        <p class="post-by"><span><i class="fa fa-pencil-square-o"></i> Admin</span><span><i class="fa fa-comment-o"></i> 36 Comments</span></p>
+                                    </div>
+                                    <!-- End text -->
+                                </div>
+                                <!-- End item -->
+                                <div class="blog-post-item">
+                                    <div class="blog-post-image hover-images">
+                                        <a href="#" title="Post"><img src="assets/images/products/1.jpg" alt=""></a>
+                                    </div>
+                                    <div class="text">
+                                        <h3><a href="#" title="Integer scelerisque diam vitae aliquam fringilla.">The new Brand Identity last the Bahamas</a></h3>
+                                        <p class="post-by"><span><i class="fa fa-pencil-square-o"></i> Admin</span><span><i class="fa fa-comment-o"></i> 36 Comments</span></p>
+                                    </div>
+                                    <!-- End text -->
+                                </div>
+                                <!-- End item -->
+                                <div class="blog-post-item">
+                                    <div class="blog-post-image hover-images">
+                                        <a href="#" title="Post"><img src="assets/images/products/1.jpg" alt=""></a>
+                                    </div>
+                                    <div class="text">
+                                        <h3><a href="#" title="Integer scelerisque diam vitae aliquam fringilla.">The new Brand Identity last the Bahamas</a></h3>
+                                        <p class="post-by"><span><i class="fa fa-pencil-square-o"></i> Admin</span><span><i class="fa fa-comment-o"></i> 36 Comments</span></p>
+                                    </div>
+                                    <!-- End text -->
+                                </div>
+                                <!-- End item -->
+                            </div>
+                            <!-- End Blog3ItemSlider -->
+                        </div>
+                    </div>
+                    <!-- End text -->
+                </div>
+                <!-- End item -->
+            </div>
+            <!-- End blog-post-container -->
+            <div class="blog-post-container single-post comments align-left box space-30">
+                <h3 class="title">Comments</h3>
+                <div class="panel" id="media-object">
+                    <div class="panel-body">
+                        <ul class="media-list">
+                            <li class="media">
+                                <a class="pull-left" href="#">
+                                    <img class="media-object img-circle" src="assets/images/avatar-1.jpg" alt="images">
+                                </a>
+                                <div class="media-body">
+                                    <div class="text">
+                                        <h3>ERRIC CATONA</h3>
+                                        <p class="date">1 days ago</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidiunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                                        <a class="reply" href="#" title="reply"><i class="fa fa-long-arrow-left"></i> Reply</a>
+                                    </div>
+                                    <!-- End text -->
+
+                                    <div class="media">
+                                        <a class="pull-left" href="#">
+                                            <img class="media-object img-circle" src="assets/images/avatar-1.jpg" alt="images">
+                                        </a>
+                                        <div class="media-body">
+                                            <div class="text">
+                                                <h3>ERRIC CATONA</h3>
+                                                <p class="date">5 days ago</p>
+                                                <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque. </p>
+                                                <!-- Nested media object -->
+                                                <a class="reply" href="#" title="reply"><i class="fa fa-long-arrow-left"></i> Reply</a>
+                                            </div>
+                                            <!-- End text -->
+                                        </div>
+                                        <!-- Nested media object -->
+                                    </div>
+                                    <!-- End media-body -->
+                                </div>
+                                <!-- End media body -->
+                            </li>
+                            <li class="media">
+                                <a class="pull-left" href="#">
+                                    <img class="media-object img-circle" src="assets/images/avatar-1.jpg" alt="images">
+                                </a>
+                                <div class="media-body">
+                                    <div class="text">
+                                        <h3>ERRIC CATONA</h3>
+                                        <p class="date">1 days ago</p>
+                                        <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque. </p>
+                                        <!-- Nested media object -->
+                                        <a class="reply" href="#" title="reply"><i class="fa fa-long-arrow-left"></i> Reply</a>
+                                    </div>
+                                    <!-- End text -->
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- End panel -->
+                <h3 class="title">LEAVE A COMMENT</h3>
+                <form class="form-horizontal space-50">
+                    <div class="form-group col-md-6">
+                        <input type="text" placeholder="Name*" id="inputName" class="form-control">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input type="text" placeholder="Email*" id="inputsumary" class="form-control">
+                    </div>
+                    <div class="form-group col-md-12">
+                        <input type="text" placeholder="Website" id="inputemail" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Comment" name="Comment" id="message" class="form-control"></textarea>
+                    </div>
+                    <a title="add tags" href="#" class="link-v1 rt">Send review</a>
+                </form>
+                <!-- End form -->
+            </div>
+        </div>
+        <!-- End Primary -->
+        <div id="secondary" class="widget-area col-xs-12 col-md-3 float-right">
+            <div class="wrap-sidebar">
+                <aside class="widget widget_search">
+                    <div class="search-form">
+                        <form action="#" method="get">
+                            <input type="text" autocomplete="off" placeholder="Search..." value="" class="ajax_autosuggest_input ac_input" name="s">
+                            <button type="submit" class="icon-search">
+                                <i class="icons icon-magnifier"></i>
+                            </button>
+                        </form>
+                    </div>
+                </aside>
+                <aside class="widget blog-categories">
+                    <h3 class="widget-title">BLOG CATEGORIES</h3>
+                    <ul>
+                        <li><a href="#" title="Design">Design</a><span class="count">(08)</span></li>
+                        <li><a href="#" title="LOOKBOOK">LOOKBOOK</a><span class="count">(12)</span></li>
+                        <li><a href="#" title="FASHION">FASHION</a><span class="count">(06)</span></li>
+                        <li><a href="#" title="LIFE & STYLE">LIFE & STYLE</a><span class="count">(09)</span></li>
+                        <li><a href="#" title="IDEAS">IDEAS</a><span class="count">(24)</span></li>
+                    </ul>
+                </aside>
+                <aside class="widget recent-post">
+                    <h3 class="widget-title">RENCENT POSTS</h3>
+                    <ul>
+                        <li><a href="#" title="title">Interor Tips For Your Home</a></li>
+                        <li><a href="#" title="title">A Contemporary Washington Park Home</a></li>
+                        <li><a href="#" title="title">Way To Wear: Cover Up!</a></li>
+                        <li><a href="#" title="title">Penthouse with Skyline Views</a></li>
+                        <li><a href="#" title="title">A Modern Corona del Mar </a></li>
+                        <li><a href="#" title="title">Living in a Mansion Block</a></li>
+                    </ul>
+                </aside>
+                <aside class="widget widget_feature blog">
+                    <h3 class="widget-title">SALE PRODUCTS</h3>
+                    <ul class="box space-40">
+                        <li>
+                            <a class="images" href="#" title="images">
+                                <img class="img-responsive" src="assets/images/products/furniture/1.jpg" alt="images">
+                            </a>
+                            <div class="text">
+                                <h2>
+                                    <a href="#" title="Butterfly Bar Stool">Butterfly Bar Stool</a>
+                                </h2>
+                                <p><span class="price-old">$700</span><span>$350</span></p>
+                            </div>
+                        </li>
+                        <li>
+                            <a class="images" href="#" title="images">
+                                <img class="img-responsive" src="assets/images/products/furniture/1.jpg" alt="">
+                            </a>
+                            <div class="text">
+                                <h2>
+                                    <a href="#" title="Butterfly Bar Stool">Butterfly Bar Stool</a>
+                                </h2>
+                                <p><span class="price-old">$700</span><span>$350</span></p>
+                            </div>
+                        </li>
+                        <li>
+                            <a class="images" href="#" title="images">
+                                <img class="img-responsive" src="assets/images/products/furniture/1.jpg" alt="">
+                            </a>
+                            <div class="text">
+                                <h2>
+                                    <a href="#" title="Butterfly Bar Stool">Butterfly Bar Stool</a>
+                                </h2>
+                                <p><span class="price-old">$700</span><span>$350</span></p>
+                            </div>
+                        </li>
+                        <li>
+                            <a class="images" href="#" title="images">
+                                <img class="img-responsive" src="assets/images/products/furniture/1.jpg" alt="">
+                            </a>
+                            <div class="text">
+                                <h2>
+                                    <a href="#" title="Butterfly Bar Stool">Butterfly Bar Stool</a>
+                                </h2>
+                                <p><span class="price-old">$700</span><span>$350</span></p>
+                            </div>
+                        </li>
+                    </ul>
+                </aside>
+                <aside class="widget tags-cloud">
+                    <h3 class="widget-title">Blog Tags</h3>
+                    <div class="content">
+                        <a href="#" title="Armchair">Armchair</a>
+                        <a href="#" title="Sofa">Sofa</a>
+                        <a href="#" title="Table">Table</a>
+                        <a href="#" title="Decor">Decor</a>
+                        <a href="#" title="Storage">Storage</a>
+                        <a href="#" title="Rugs">Rugs</a>
+                        <a href="#" title="Gift">Gift</a>
+                        <a href="#" title="Lamp">Lamp</a>
+                        <a href="#" title="Outdoor">Outdoor</a>
+                    </div>
+                </aside>
+                <aside class="widget flick-photo">
+                    <h3 class="widget-title">Flick Photo</h3>
+                    <ul>
+                        <li class="hover-images">
+                            <a href="#" title="images">
+                                <img src="assets/images/ImgBlog/7.jpg" alt="images">
+                            </a>
+                        </li>
+                        <li class="hover-images">
+                            <a href="#" title="images">
+                                <img src="assets/images/ImgBlog/7.jpg" alt="images">
+                            </a>
+                        </li>
+                        <li class="hover-images">
+                            <a href="#" title="images">
+                                <img src="assets/images/ImgBlog/7.jpg" alt="images">
+                            </a>
+                        </li>
+                        <li class="hover-images">
+                            <a href="#" title="images">
+                                <img src="assets/images/ImgBlog/7.jpg" alt="images">
+                            </a>
+                        </li>
+                        <li class="hover-images">
+                            <a href="#" title="images">
+                                <img src="assets/images/ImgBlog/7.jpg" alt="images">
+                            </a>
+                        </li>
+                        <li class="hover-images">
+                            <a href="#" title="images">
+                                <img src="assets/images/ImgBlog/7.jpg" alt="images">
+                            </a>
+                        </li>
+                        <li class="hover-images">
+                            <a href="#" title="images">
+                                <img src="assets/images/ImgBlog/7.jpg" alt="images">
+                            </a>
+                        </li>
+                        <li class="hover-images">
+                            <a href="#" title="images">
+                                <img src="assets/images/ImgBlog/7.jpg" alt="images">
+                            </a>
+                        </li>
+                        <li class="hover-images">
+                            <a href="#" title="images">
+                                <img src="assets/images/ImgBlog/7.jpg" alt="images">
+                            </a>
+                        </li>
+                    </ul>
+                </aside>
+            </div>
+            <!-- End wrap-sidebar -->
+        </div>
+        <!-- End Secondary -->
+    </div>
+    <!-- end product sidebar -->
+</div>
+<!-- End cat-box-container -->
+
+<div>
+    <h4>TIN_TUC</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TEN_BAI_VIET)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TEN_BAI_VIET)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAY_DANG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAY_DANG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOI_DUNG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOI_DUNG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TAC_GIA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TAC_GIA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SEO_TITLE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SEO_TITLE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HINH_ANH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HINH_ANH)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_TIN_TUC }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

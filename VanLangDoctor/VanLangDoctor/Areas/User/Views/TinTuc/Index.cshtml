@@ -1,0 +1,104 @@
+﻿@model IEnumerable<VanLangDoctor.Models.TIN_TUC>
+
+@{
+    ViewBag.Title = "Tin tức";
+    Layout = "~/Areas/User/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" type="text/css" href="~/Content/assets-ff/css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/assets-ff/css/style.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/assets-ff/vendor/owl-slider.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/assets-ff/vendor/settings.css" />
+<link rel="shortcut icon" href="~/Content/assets-ff/images/favicon.png" />
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,500,700,300' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="~/Content/assets-ff/js/jquery-3.2.0.min.js"></script>
+
+
+<div class="container">
+    <div class="banner-header banner-lbook3 space-30">
+        <img src="~/Content/assets-ff/images/banner-blog.jpg" alt="Banner-header" />
+        <div class="text">
+            <h3>Blog List</h3>
+            <p><a href="#" title="Home">Home</a><i class="fa fa-caret-right"></i>Blog List</p>
+        </div>
+    </div>
+</div>
+<!-- End container -->
+
+<div class="blog-post-container blog-page blog-list-width">
+    <div class="container container-ver2">
+        @foreach (var item in Model)
+        {
+            <div class="row">
+                @if ((item.ID_TIN_TUC % 2 == 0))
+                {
+                    <div class="blog-post-item left">
+                        <div class="blog-post-image hover-images">
+                            <a href="#" title="Post"><img src="@Url.Action("Picture", new {item.ID_TIN_TUC})" style="width:400px; height:345px" alt=""></a>
+                        </div>
+                        <div class="text">
+                            <h3><a href="#" title="Integer scelerisque diam vitae aliquam fringilla.">@item.TEN_BAI_VIET</a></h3>
+                            <p class="post-by"><span><i class="fa fa-pencil-square-o"></i> @item.TAC_GIA</span><span><i class="fa fa-comment-o"></i> 36 Comments</span></p>
+                            <p class="content">
+                                @if (item.NOI_DUNG.Length < 100)
+                                {
+                                    @Html.Raw(item.NOI_DUNG);
+                                }
+                                else
+                                {
+                                    @Html.Raw(item.NOI_DUNG.Substring(0, 100).ToString());
+                                }
+                            </p>
+                            <a class="link-v1 color-brand" href="@Url.Action("Details", "TinTuc", new {id = item.ID_TIN_TUC})" title="readmore">Read More</a>
+                        </div>
+                        <!-- End text -->
+                    </div>
+                }
+                else
+                {
+                    <div class="blog-post-item right">
+                        <div class="blog-post-image hover-images">
+                            <a href="#" title="Post"><img src="@Url.Action("Picture", new {item.ID_TIN_TUC})" style="width:400px; height:345px" alt=""></a>
+                        </div>
+                        <div class="text">
+                            <h3><a href="#" title="Integer scelerisque diam vitae aliquam fringilla.">@item.TEN_BAI_VIET</a></h3>
+                            <p class="post-by"><span><i class="fa fa-pencil-square-o"></i> Admin</span><span><i class="fa fa-comment-o"></i> 36 Comments</span></p>
+                            <p class="content">
+                                @if (item.NOI_DUNG.Length < 100)
+                                {
+                                    @Html.Raw(item.NOI_DUNG);
+                                }
+                                else
+                                {
+                                    @Html.Raw(item.NOI_DUNG.Substring(0, 100).ToString());
+                                }
+                            </p>
+                            <a class="link-v1 color-brand" href="@Url.Action("Details", "TinTuc", new {id = item.ID_TIN_TUC})" title="readmore">Read More</a>
+                        </div>
+                        <!-- End text -->
+                    </div>
+                }
+
+            </div>
+        }
+    </div>
+    <div class="pagination-container pagination-blog">
+        <nav class="pagination">
+            <a class="prev page-numbers" href="#"><i class="fa fa-angle-left"></i></a>
+            <span class="page-numbers current">1</span>
+            <a class="page-numbers" href="#">2</a>
+            <a class="page-numbers" href="#">3</a>
+            <a class="next page-numbers" href="#"><i class="fa fa-angle-right"></i></a>
+        </nav>
+    </div>
+</div>
+<!-- End container -->
+
+<script type="text/javascript" src="~/Content/assets-ff/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="~/Content/assets-ff/js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="~/Content/assets-ff/js/engo-plugins.js"></script>
+
+<script type="text/javascript" src="~/Content/assets-ff/js/jquery.mousewheel.min.js"></script>
+<script type="text/javascript" src="~/Content/assets-ff/js/slick.min.js"></script>
+<script type="text/javascript" src="~/Content/assets-ff/js/jquery.zoom.js"></script>
+<script type="text/javascript" src="~/Content/assets-ff/js/store.js"></script>
