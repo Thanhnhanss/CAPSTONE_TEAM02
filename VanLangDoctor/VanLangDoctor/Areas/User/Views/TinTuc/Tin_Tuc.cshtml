@@ -5,13 +5,6 @@
     Layout = "~/Areas/User/Views/Shared/_Layout.cshtml";
 }
 
-<link rel="stylesheet" type="text/css" href="~/Content/assets-ff/css/bootstrap.css" />
-<link rel="stylesheet" type="text/css" href="~/Content/assets-ff/css/style.css" />
-<link rel="stylesheet" type="text/css" href="~/Content/assets-ff/vendor/owl-slider.css" />
-<link rel="stylesheet" type="text/css" href="~/Content/assets-ff/vendor/settings.css" />
-<link rel="shortcut icon" href="~/Content/assets-ff/images/favicon.png" />
-<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,500,700,300' rel='stylesheet' type='text/css'>
-<script type="text/javascript" src="~/Content/assets-ff/js/jquery-3.2.0.min.js"></script>
 
 
 <div class="container">
@@ -34,10 +27,10 @@
                 {
                     <div class="blog-post-item left">
                         <div class="blog-post-image hover-images">
-                            <a href="#" title="Post"><img src="@Url.Action("Picture", new {item.ID_TIN_TUC})" style="width:400px; height:345px" alt=""></a>
+                            <a href="@Url.Action("Details", "TinTuc", new {id = item.ID_TIN_TUC})" title="Post"><img src="@Url.Action("Picture", new {item.ID_TIN_TUC})" style="width:400px; height:345px" alt=""></a>
                         </div>
                         <div class="text">
-                            <h3><a href="#" title="Integer scelerisque diam vitae aliquam fringilla.">@item.TEN_BAI_VIET</a></h3>
+                            <h3><a href="@Url.Action("Details", "TinTuc", new {id = item.ID_TIN_TUC})" title="Integer scelerisque diam vitae aliquam fringilla.">@item.TEN_BAI_VIET</a></h3>
                             <p class="post-by"><span><i class="fa fa-pencil-square-o"></i> @item.TAC_GIA</span><span><i class="fa fa-comment-o"></i> 36 Comments</span></p>
                             <p class="content">
                                 @if (item.NOI_DUNG.Length < 100)
@@ -46,7 +39,7 @@
                                 }
                                 else
                                 {
-                                    @Html.Raw(item.NOI_DUNG.Substring(0, 100).ToString());
+                                    @Html.Raw(item.NOI_DUNG.Substring(0, 100).ToString() + "...");
                                 }
                             </p>
                             <a class="link-v1 color-brand" href="@Url.Action("Details", "TinTuc", new {id = item.ID_TIN_TUC})" title="readmore">Read More</a>
@@ -58,11 +51,11 @@
                 {
                     <div class="blog-post-item right">
                         <div class="blog-post-image hover-images">
-                            <a href="#" title="Post"><img src="@Url.Action("Picture", new {item.ID_TIN_TUC})" style="width:400px; height:345px" alt=""></a>
+                            <a href="@Url.Action("Details", "TinTuc", new {id = item.ID_TIN_TUC})" title="Post"><img src="@Url.Action("Picture", new {item.ID_TIN_TUC})" style="width:400px; height:345px" alt=""></a>
                         </div>
                         <div class="text">
-                            <h3><a href="#" title="Integer scelerisque diam vitae aliquam fringilla.">@item.TEN_BAI_VIET</a></h3>
-                            <p class="post-by"><span><i class="fa fa-pencil-square-o"></i> Admin</span><span><i class="fa fa-comment-o"></i> 36 Comments</span></p>
+                            <h3><a href="@Url.Action("Details", "TinTuc", new {id = item.ID_TIN_TUC})" title="Integer scelerisque diam vitae aliquam fringilla.">@item.TEN_BAI_VIET</a></h3>
+                            <p class="post-by"><span><i class="fa fa-pencil-square-o"></i> @item.TAC_GIA</span><span><i class="fa fa-comment-o"></i> 36 Comments</span></p>
                             <p class="content">
                                 @if (item.NOI_DUNG.Length < 100)
                                 {
@@ -70,7 +63,7 @@
                                 }
                                 else
                                 {
-                                    @Html.Raw(item.NOI_DUNG.Substring(0, 100).ToString());
+                                    @Html.Raw(item.NOI_DUNG.Substring(0, 100).ToString() + "...");
                                 }
                             </p>
                             <a class="link-v1 color-brand" href="@Url.Action("Details", "TinTuc", new {id = item.ID_TIN_TUC})" title="readmore">Read More</a>
@@ -93,12 +86,3 @@
     </div>
 </div>
 <!-- End container -->
-
-<script type="text/javascript" src="~/Content/assets-ff/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="~/Content/assets-ff/js/owl.carousel.min.js"></script>
-<script type="text/javascript" src="~/Content/assets-ff/js/engo-plugins.js"></script>
-
-<script type="text/javascript" src="~/Content/assets-ff/js/jquery.mousewheel.min.js"></script>
-<script type="text/javascript" src="~/Content/assets-ff/js/slick.min.js"></script>
-<script type="text/javascript" src="~/Content/assets-ff/js/jquery.zoom.js"></script>
-<script type="text/javascript" src="~/Content/assets-ff/js/store.js"></script>

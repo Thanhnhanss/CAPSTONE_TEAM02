@@ -73,7 +73,14 @@
                                                 @Html.FormatValue(item.NGAY_DANG, "{0:d}")
                                             </td>
                                             <td>
-                                                @item.NOI_DUNG
+                                                @if (item.NOI_DUNG.Length < 50)
+                                                {
+                                                    @item.NOI_DUNG
+                                                }
+                                                else
+                                                {
+                                                    @item.NOI_DUNG.Substring(0, 50).ToString() <span>...</span>
+                                                }
                                             </td>
                                             <td>
                                                 @item.TAC_GIA
