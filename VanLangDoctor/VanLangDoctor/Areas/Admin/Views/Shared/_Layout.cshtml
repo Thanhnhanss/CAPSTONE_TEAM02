@@ -27,6 +27,7 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script src="~/Scripts/nicEdit.js"></script>
 </head>
 
 <body>
@@ -224,14 +225,14 @@
                             @using Microsoft.AspNet.Identity
                             @if (!User.Identity.IsAuthenticated)
                             {
-                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <p class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <div style="padding: 0.5em">
                                         <a href="@Url.Action("Login","../Account")" style="color: black">
                                             <i data-feather="user" class="svg-icon"></i>
                                             <span style="font-size: 13px">Đăng nhập</span> <span class="text-dark"></span>
                                         </a>
                                     </div>
-                                </a>
+                                </p>
                             }
                             else
                             {
@@ -298,9 +299,9 @@
                         <li class="nav-small-cap"><span class="hide-menu">Quản lý</span></li>
 
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="ticket-list.html"
+                            <a class="sidebar-link" href="@Url.Action("Index", "QL_TinTuc")"
                                aria-expanded="false">
-                                <i data-feather="tag" class="feather-icon"></i><span class="hide-menu">
+                                <i class="icon-book-open"></i><span class="hide-menu">
                                     Tin tức
                                 </span>
                             </a>
@@ -308,28 +309,35 @@
                         <li class="sidebar-item">
                             <a class="sidebar-link sidebar-link" href="app-chat.html"
                                aria-expanded="false">
-                                <i data-feather="message-square" class="feather-icon"></i><span class="hide-menu">Chatbot</span>
+                                <i class="icon-bubble"></i><span class="hide-menu">Chatbot</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link sidebar-link" href="app-calendar.html"
                                aria-expanded="false">
-                                <i data-feather="calendar" class="feather-icon"></i><span class="hide-menu">Thông báo</span>
+                                <i class="icon-bell"></i><span class="hide-menu">Thông báo</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link sidebar-link" href="@Url.Action("phanQuyenTK", "PhanQuyen")"
                                aria-expanded="false">
-                                <i data-feather="user" class="feather-icon"></i><span class="hide-menu">Tài khoản</span>
+                                <i data-feather="lock" class="feather-icon"></i><span class="hide-menu">Tài khoản</span>
                             </a>
                         </li>
-
+                        <li class="sidebar-item">
+                            <a class="sidebar-link sidebar-link" href="@Url.Action("Index","QL_DangKyTVV")"
+                               aria-expanded="false">
+                                <i data-feather="file-text" class="feather-icon"></i><span class="hide-menu">
+                                    Hồ sơ đăng ký
+                                </span>
+                            </a>
+                        </li>
                         <li class="list-divider"></li>
                         <li class="nav-small-cap"><span class="hide-menu">Người dùng</span></li>
                         <li class="sidebar-item">
                             <a class="sidebar-link has-arrow" href="javascript:void(0)"
                                aria-expanded="false">
-                                <i data-feather="file-text" class="feather-icon"></i><span class="hide-menu">Bệnh nhân </span>
+                                <i class="icon-people"></i><span class="hide-menu">Bệnh nhân </span>
                             </a>
                             <ul aria-expanded="false" class="collapse  first-level base-level-line">
                                 <li class="sidebar-item">
@@ -351,7 +359,7 @@
                         <li class="sidebar-item">
                             <a class="sidebar-link has-arrow" href="javascript:void(0)"
                                aria-expanded="false">
-                                <i data-feather="grid" class="feather-icon"></i><span class="hide-menu">Bác sĩ </span>
+                                <i class="icon-graduation"></i><span class="hide-menu">Bác sĩ </span>
                             </a>
                             <ul aria-expanded="false" class="collapse  first-level base-level-line">
                                 <li class="sidebar-item">
@@ -373,7 +381,7 @@
                         <li class="sidebar-item">
                             <a class="sidebar-link has-arrow" href="javascript:void(0)"
                                aria-expanded="false">
-                                <i data-feather="bar-chart" class="feather-icon"></i><span class="hide-menu">Thống kê </span>
+                                <i data-feather="pie-chart" class="feather-icon"></i><span class="hide-menu">Thống kê </span>
                             </a>
                             <ul aria-expanded="false" class="collapse  first-level base-level-line">
                                 <li class="sidebar-item">
@@ -395,7 +403,7 @@
                         <li class="sidebar-item">
                             <a class="sidebar-link has-arrow" href="javascript:void(0)"
                                aria-expanded="false">
-                                <i data-feather="box" class="feather-icon"></i><span class="hide-menu">Thuốc </span>
+                                <i class="icon-chemistry"></i><span class="hide-menu">Thuốc </span>
                             </a>
                             <ul aria-expanded="false" class="collapse  first-level base-level-line">
                                 <li class="sidebar-item">
@@ -421,139 +429,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link" href="@Url.Action("Index","QL_DangKyTVV")"
-                               aria-expanded="false">
-                                <i data-feather="sidebar" class="feather-icon"></i><span class="hide-menu">
-                                    Hồ sơ đăng ký
-                                </span>
-                            </a>
-                        </li>
-                        <li class="list-divider"></li>
-                        <li class="nav-small-cap"><span class="hide-menu">Authentication</span></li>
 
-                        <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link" href="authentication-login1.html"
-                               aria-expanded="false">
-                                <i data-feather="lock" class="feather-icon"></i><span class="hide-menu">
-                                    Login
-                                </span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link"
-                               href="authentication-register1.html" aria-expanded="false">
-                                <i data-feather="lock"
-                                   class="feather-icon"></i><span class="hide-menu">
-                                    Register
-                                </span>
-                            </a>
-                        </li>
-
-                        <li class="sidebar-item">
-                            <a class="sidebar-link has-arrow" href="javascript:void(0)"
-                               aria-expanded="false">
-                                <i data-feather="feather" class="feather-icon"></i><span class="hide-menu">
-                                    Icons
-                                </span>
-                            </a>
-                            <ul aria-expanded="false" class="collapse first-level base-level-line">
-                                <li class="sidebar-item">
-                                    <a href="icon-fontawesome.html" class="sidebar-link">
-                                        <span class="hide-menu"> Fontawesome Icons </span>
-                                    </a>
-                                </li>
-
-                                <li class="sidebar-item">
-                                    <a href="icon-simple-lineicon.html" class="sidebar-link">
-                                        <span class="hide-menu"> Simple Line Icons </span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li class="sidebar-item">
-                            <a class="sidebar-link has-arrow" href="javascript:void(0)"
-                               aria-expanded="false">
-                                <i data-feather="crosshair" class="feather-icon"></i><span class="hide-menu">
-                                    Multi
-                                    level
-                                    dd
-                                </span>
-                            </a>
-                            <ul aria-expanded="false" class="collapse first-level base-level-line">
-                                <li class="sidebar-item">
-                                    <a href="javascript:void(0)" class="sidebar-link">
-                                        <span class="hide-menu"> item 1.1</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="javascript:void(0)" class="sidebar-link">
-                                        <span class="hide-menu"> item 1.2</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a class="has-arrow sidebar-link" href="javascript:void(0)"
-                                       aria-expanded="false"><span class="hide-menu">Menu 1.3</span></a>
-                                    <ul aria-expanded="false" class="collapse second-level base-level-line">
-                                        <li class="sidebar-item">
-                                            <a href="javascript:void(0)" class="sidebar-link">
-                                                <span class="hide-menu">
-                                                    item
-                                                    1.3.1
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li class="sidebar-item">
-                                            <a href="javascript:void(0)" class="sidebar-link">
-                                                <span class="hide-menu">
-                                                    item
-                                                    1.3.2
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li class="sidebar-item">
-                                            <a href="javascript:void(0)" class="sidebar-link">
-                                                <span class="hide-menu">
-                                                    item
-                                                    1.3.3
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li class="sidebar-item">
-                                            <a href="javascript:void(0)" class="sidebar-link">
-                                                <span class="hide-menu">
-                                                    item
-                                                    1.3.4
-                                                </span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="javascript:void(0)" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            item
-                                            1.4
-                                        </span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="list-divider"></li>
-                        <li class="nav-small-cap"><span class="hide-menu">Extra</span></li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link" href="@Url.Content("~/Content/docs-ad/docs.html")"
-                               aria-expanded="false">
-                                <i data-feather="edit-3" class="feather-icon"></i><span class="hide-menu">Documentation</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link" href="authentication-login1.html"
-                               aria-expanded="false">
-                                <i data-feather="log-out" class="feather-icon"></i><span class="hide-menu">Logout</span>
-                            </a>
-                        </li>
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->

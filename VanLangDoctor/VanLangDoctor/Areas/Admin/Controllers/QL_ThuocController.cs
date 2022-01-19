@@ -121,7 +121,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
 
                         scope.Complete();
                         TempData["Success"] = "Cập nhật thuốc thành công";
-                        return RedirectToAction("index");
+                        return RedirectToAction("Index");
 
                     }
                 }

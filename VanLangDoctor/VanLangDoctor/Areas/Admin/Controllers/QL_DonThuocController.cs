@@ -53,6 +53,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
             });
             ViewBag.ID_BACSI = new SelectList(db.BACSIs, "ID_BACSI", "TEN_BACSI");
             ViewBag.ID_THUOC = new SelectList(db.THUOCs, "ID_THUOC", "TEN_THUOC");
+            TempData["Success"] = "Thêm thành công";
             return RedirectToAction("Index");
         }
 
@@ -60,6 +61,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         {
             DonThuoc.Clear();
             Session["DonThuoc"] = DonThuoc;
+            TempData["Success"] = "Xóa thành công";
             return RedirectToAction("Index");
         }
         /// <summary>
@@ -104,6 +106,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
 
                     scope.Complete();
                     Session["DonThuoc"] = null;
+                    TempData["Success"] = "Kê đơn thuốc thành công";
                     return RedirectToAction("DS_DonThuoc");
                 }
             }

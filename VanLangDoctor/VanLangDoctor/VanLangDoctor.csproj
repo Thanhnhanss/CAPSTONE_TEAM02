@@ -195,6 +195,7 @@
     <Compile Include="Areas\Admin\Controllers\QL_DangKyTVVController.cs" />
     <Compile Include="Areas\Admin\Controllers\QL_DonThuocController.cs" />
     <Compile Include="Areas\Admin\Controllers\QL_ThuocController.cs" />
+    <Compile Include="Areas\Admin\Controllers\QL_TinTucController.cs" />
     <Compile Include="Areas\User\Controllers\AvatarController.cs" />
     <Compile Include="Areas\User\Controllers\CapnhatTKController.cs" />
     <Compile Include="Areas\User\Controllers\DANG_KYController.cs" />
@@ -1776,6 +1777,10 @@
     <Content Include="Areas\Admin\Views\QL_DonThuoc\Index.cshtml" />
     <Content Include="Areas\Admin\Views\QL_DonThuoc\ThemDonThuoc.cshtml" />
     <Content Include="Areas\Admin\Views\QL_DonThuoc\DS_DonThuoc.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_TinTuc\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_TinTuc\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_TinTuc\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_TinTuc\Index.cshtml" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -1788,6 +1793,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\nicEdit.js" />
     <Content Include="Scripts\uploadavt.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -1832,6 +1838,7 @@
     <Folder Include="Content\IMG_CERTIFICATE\" />
     <Folder Include="Content\IMG_DOCTOR\" />
     <Folder Include="Content\IMG_MEDICINE\" />
+    <Folder Include="Content\IMG_NEWS\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
