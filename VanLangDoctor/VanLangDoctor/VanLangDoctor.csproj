@@ -201,6 +201,7 @@
     <Compile Include="Areas\User\Controllers\DANG_KYController.cs" />
     <Compile Include="Areas\User\Controllers\HomeUserController.cs" />
     <Compile Include="Areas\User\Controllers\ThongtinBacsiController.cs" />
+    <Compile Include="Areas\User\Controllers\TinTucController.cs" />
     <Compile Include="Areas\User\UserAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -1780,6 +1781,8 @@
     <Content Include="Areas\Admin\Views\QL_TinTuc\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\QL_TinTuc\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\QL_TinTuc\Index.cshtml" />
+    <Content Include="Areas\User\Views\TinTuc\Tin_Tuc.cshtml" />
+    <Content Include="Areas\User\Views\TinTuc\Details.cshtml" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

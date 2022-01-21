@@ -1,0 +1,41 @@
+﻿@model IEnumerable<VanLangDoctor.Models.TIN_TUC>
+
+@{
+    ViewBag.Title = "Tin tức";
+    Layout = "~/Areas/User/Views/Shared/_Layout.cshtml";
+}
+
+<div class="wrappage">
+    <div class="blog-post-container blog-page blog-post-columns-3 center">
+        <h2>Tin Tức</h2>
+        <p>Các tin nổi bật</p>
+        <hr />
+        <div class="container container-ver2">
+            <div class="row">
+                @foreach (var i in Model)
+                {
+                    <div class="blog-post-item">
+                        <div class="blog-post-image hover-images">
+                            <a href="~/trang-chu/tin-tuc/@i.TEN_BAI_VIET.ToLower().Replace(" ","-")-@i.ID_TIN_TUC" style="width:500px;height:320px" title="Post"><img src="@Url.Action("Picture", new {i.ID_TIN_TUC})" alt=""></a>
+                        </div>
+                        <div class="text">
+                            <h3><a href="~/trang-chu/tin-tuc/@i.TEN_BAI_VIET.ToLower().Replace(" ","-")-@i.ID_TIN_TUC" title="@i.TEN_BAI_VIET">@i.TEN_BAI_VIET</a></h3>
+                            <p class="post-by"><span><i class="fa fa-pencil-square-o"></i> @i.TAC_GIA</span><span><i class="fa fa-comment-o"></i> 36 Comments</span></p>
+                            @*<p class="content">@Html.Raw(i.NOI_DUNG.Substring(0, 50))...</p>*@
+                            <a class="link-v1 color-brand" href="~/trang-chu/tin-tuc/@i.TEN_BAI_VIET.ToLower().Replace(" ","-")-@i.ID_TIN_TUC" title="readmore">Xem thêm</a>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        @*<div class="pagination-container pagination-blog">
+            <nav class="pagination">
+                <a class="prev page-numbers" href="#"><i class="fa fa-angle-left"></i></a>
+                <span class="page-numbers current">1</span>
+                <a class="page-numbers" href="#">2</a>
+                <a class="page-numbers" href="#">3</a>
+                <a class="next page-numbers" href="#"><i class="fa fa-angle-right"></i></a>
+            </nav>
+        </div>*@
+    </div>
+</div>
