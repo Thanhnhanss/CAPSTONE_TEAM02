@@ -164,13 +164,14 @@
                     </div>
                 </aside>
                 <aside class="widget blog-categories">
-                    <h3 class="widget-title">BLOG CATEGORIES</h3>
+                    <h3 class="widget-title">DANH MỤC</h3>
                     <ul>
-                        <li><a href="#" title="Design">Design</a><span class="count">(08)</span></li>
-                        <li><a href="#" title="LOOKBOOK">LOOKBOOK</a><span class="count">(12)</span></li>
-                        <li><a href="#" title="FASHION">FASHION</a><span class="count">(06)</span></li>
-                        <li><a href="#" title="LIFE & STYLE">LIFE & STYLE</a><span class="count">(09)</span></li>
-                        <li><a href="#" title="IDEAS">IDEAS</a><span class="count">(24)</span></li>
+                        <li><a href="#" title="Trang chủ">Trang chủ</a></li>
+                        <li><a href="#" title="Giới thiệu">Giới thiệu</a></li>
+                        <li><a href="#" title="Bác sĩ">Bác sĩ</a></li>
+                        <li><a href="#" title="Thuốc">Thuốc</a></li>
+                        <li><a href="#" title="Ứng tuyển">Ứng tuyển</a></li>
+                        <li><a href="#" title="Tin tức">Tin tức</a></li>
                     </ul>
                 </aside>
                 <aside class="widget recent-post">
@@ -305,62 +306,3 @@
     <!-- end product sidebar -->
 </div>
 <!-- End cat-box-container -->
-
-<div>
-    <h4>TIN_TUC</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.TEN_BAI_VIET)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TEN_BAI_VIET)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NGAY_DANG)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NGAY_DANG)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NOI_DUNG)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NOI_DUNG)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TAC_GIA)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TAC_GIA)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.SEO_TITLE)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SEO_TITLE)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.HINH_ANH)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.HINH_ANH)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_TIN_TUC }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

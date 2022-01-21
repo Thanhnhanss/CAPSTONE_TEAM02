@@ -36,11 +36,6 @@ namespace VanLangDoctor.Areas.User.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             TIN_TUC tIN_TUC = db.TIN_TUC.Find(id);
-            if (tIN_TUC != null)
-            {
-                tIN_TUC.CountViews += 1;
-                db.SaveChanges();
-            }
             if (tIN_TUC == null)
             {
                 return HttpNotFound();
