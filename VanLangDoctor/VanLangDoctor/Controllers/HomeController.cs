@@ -10,9 +10,9 @@ namespace VanLangDoctor.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return Redirect("~/trang-chu");
         }
-
+        [Route("trang-chu/gioi-thieu")]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

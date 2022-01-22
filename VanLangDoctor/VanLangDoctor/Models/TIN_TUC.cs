@@ -20,5 +20,6 @@ namespace VanLangDoctor.Models
         public string NOI_DUNG { get; set; }
         public string TAC_GIA { get; set; }
         public string SEO_TITLE { get; set; }
+        public string HINH_ANH { get; set; }
     }
 }
