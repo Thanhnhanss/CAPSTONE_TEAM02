@@ -16,11 +16,11 @@
                 {
                     <div class="blog-post-item">
                         <div class="blog-post-image hover-images">
-                            <a href="~/trang-chu/tin-tuc/@i.TEN_BAI_VIET.ToLower().Replace(" ","-")-@i.ID_TIN_TUC" style="width:500px;height:320px" title="Post"><img src="@Url.Action("Picture", new {i.ID_TIN_TUC})" alt=""></a>
+                            <a href="~/trang-chu/tin-tuc/@i.TEN_BAI_VIET.ToLower().Replace(" ", "-").-@i.ID_TIN_TUC" style="width:500px;height:320px" title="Post"><img src="@Url.Action("Picture", new {i.ID_TIN_TUC})" alt=""></a>
                         </div>
                         <div class="text">
                             <h3><a href="~/trang-chu/tin-tuc/@i.TEN_BAI_VIET.ToLower().Replace(" ","-")-@i.ID_TIN_TUC" title="@i.TEN_BAI_VIET">@i.TEN_BAI_VIET</a></h3>
-                            <p class="post-by"><span><i class="fa fa-pencil-square-o"></i> @i.TAC_GIA</span><span><i class="fa fa-comment-o"></i> 36 Comments</span></p>
+                            <p class="post-by"><span><i class="fa fa-pencil-square-o"></i> @i.TAC_GIA</span></p>
                             @*<p class="content">@Html.Raw(i.NOI_DUNG.Substring(0, 50))...</p>*@
                             <a class="link-v1 color-brand" href="~/trang-chu/tin-tuc/@i.TEN_BAI_VIET.ToLower().Replace(" ","-")-@i.ID_TIN_TUC" title="readmore">Xem thêm</a>
                         </div>
