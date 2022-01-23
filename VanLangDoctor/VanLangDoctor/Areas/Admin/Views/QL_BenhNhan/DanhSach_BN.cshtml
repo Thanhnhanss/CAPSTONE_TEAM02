@@ -1,0 +1,114 @@
+﻿@model IEnumerable<VanLangDoctor.Models.BENH_NHAN>
+
+@{
+    ViewBag.Title = "Danh sách bệnh nhân";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="~/Content/assets-ad/images/favicon.png">
+    <title>Adminmart Template - The Ultimate Multipurpose admin template</title>
+    <!-- This page plugin CSS -->
+    <link href="~/Content/assets-ad/extra-libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="~/Content/dist-ad/css/style.min.css" rel="stylesheet">
+    <link href="~/Content/formcrud.css" rel="stylesheet" />
+
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <div class="page-breadcrumb">
+            <div class="row">
+                <div class="col-7 align-self-center">
+                    <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">@ViewBag.Title</h4>
+                    <div class="d-flex align-items-center">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb m-0 p-0">
+                                <li class="breadcrumb-item"><a href="/trang-chu-quan-ly" class="text-muted">Trang chủ</a></li>
+                                <li class="breadcrumb-item text-muted active" aria-current="page">@ViewBag.Title</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                @if (TempData["Success"] != null)
+                                {
+                                    <div class="alert alert-success alert-dismissible bg-success text-white border-0 fade show" role="alert" id="successMessage">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true" style=" float: right; margin-top: -10px">×</span>
+                                        </button>
+                                        <strong>@TempData["Success"]</strong>
+                                    </div>
+                                }
+                                <table id="zero_config" class="table table-striped table-bordered no-wrap">
+                                    <thead>
+                                        <tr>
+                                            <th>Tên bệnh nhân</th>
+                                            <th>Email</th>
+                                            <th>Số điện thoại</th>
+                                            <th>Giới tính</th>
+                                            <th>Ngày sinh</th>
+                                            <th>Địa chỉ</th>
+                                            <th>Sổ bệnh án</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td><a href="@Url.Action("ChiTiet_BN", "QL_BenhNhan", new { id = item.ID_BENH_NHAN})">@item.TEN_BN</a></td>
+                                                <td>@Html.DisplayFor(modelItem => item.AspNetUser.Email)</td>
+                                                <td>@item.SDT</td>
+                                                <td>@item.GIOI_TINH</td>
+                                                <td>@Html.FormatValue(item.NGAY_SINH, "{0:d}")</td>
+                                                <td>@item.DIA_CHI</td>
+                                                <td>
+                                                    @if (@item.ID_BENH_AN == null)
+                                                    {<span>Chưa có dữ liệu</span> }
+                                                    else
+                                                    {@item.ID_BENH_AN}
+                                                </td>
+                                                <td>
+                                                    <a href="@Url.Action("Delete", "QL_BenhNhan", new { id = item.ID_BENH_NHAN })"><i class="ti-trash"></i></a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Tên bệnh nhân</th>
+                                            <th>Giới tính</th>
+                                            <th>Ngày sinh</th>
+                                            <th>Email</th>
+                                            <th>Số điện thoại</th>
+                                            <th>Địa chỉ</th>
+                                            <th>Sổ bệnh án</th>
+                                            <th></th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

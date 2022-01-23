@@ -12,6 +12,13 @@ namespace VanLangDoctor
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.MapMvcAttributeRoutes();
+
+            routes.MapRoute(
+                name: "gioi-thieu",
+                url: "trang-chu/gioi-thieu",
+                defaults: new { controller = "Home", action = "About", id = UrlParameter.Optional }
+            );
 
             routes.MapRoute(
                 name: "login",
@@ -23,6 +30,8 @@ namespace VanLangDoctor
                 url: "tim-kiem",
                 defaults: new { controller = "BACSIsAdmin", action = "search", id = UrlParameter.Optional }
             );
+
+            
         }
     }
 }

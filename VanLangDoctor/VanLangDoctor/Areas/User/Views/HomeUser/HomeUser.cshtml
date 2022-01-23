@@ -1,7 +1,7 @@
 ﻿@{
     ViewBag.Title = "Trang chủ";
 }
-
+@ViewBag.Message
 <div class="tp-banner-container hidden-dot ver1">
     <div class="tp-banner">
         <ul>
@@ -77,7 +77,7 @@
                      data-elementdelay="0.1"
                      data-endelementdelay="0.1"
                      style="z-index: 3">
-                  Tất Cả Vì Bạn
+                    Tất Cả Vì Bạn
                 </div>
 
                 <!-- LAYER NR. 3 -->
@@ -140,5 +140,36 @@
             <!--End col-md-4-->
         </div>
     </div>
+    <!-- Messenger Plugin chat Code -->
+    <div id="fb-root"></div>
+
+    <!-- Your Plugin chat code -->
+    <div id="fb-customer-chat" class="fb-customerchat">
+    </div>
+
+    <script>
+      var chatbox = document.getElementById('fb-customer-chat');
+      chatbox.setAttribute("page_id", "109866731562751");
+      chatbox.setAttribute("attribution", "biz_inbox");
+    </script>
+
+    <!-- Your SDK code -->
+    <script>
+        window.fbAsyncInit = function () {
+        FB.init({
+          xfbml            : true,
+          version          : 'v12.0'
+        });
+      };
+
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
 </div>
+
 <!--End Banner Home 2 -->

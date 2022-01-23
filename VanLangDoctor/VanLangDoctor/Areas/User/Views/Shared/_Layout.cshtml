@@ -55,15 +55,15 @@
                                 @using Microsoft.AspNet.Identity
                                 @if (!User.Identity.IsAuthenticated)
                                 {
-                                    <a class="acc" href="#" title="Tài khoản"><img src="@Url.Content("~/Content/assets-ff/images/icon-user-header.png")" alt="icon">Tài Khoản</a>
+                                    <a class="acc" href="#" title="USD"><img src="@Url.Content("~/Content/assets-ff/images/icon-user-header.png")" alt="icon">Tài Khoản</a>
                                     <ul class="list-menu" style="text-align: left; border: none; border-radius: 0.5em; padding: 0em ">
-                                        <li style="margin:5px">@Html.ActionLink("Đăng ký", "Register", "/Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-                                        <li style="margin:5px">@Html.ActionLink("Đăng nhập", "Login", "/Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+                                        <li style="margin:5px">@Html.ActionLink("Đăng ký", "Register", "../Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                                        <li style="margin:5px">@Html.ActionLink("Đăng nhập", "Login", "../Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
                                     </ul>
                                 }
                                 else
                                 {
-                                    <a class="acc" href="#" title="Tài khoản">@Html.ActionLink("Xin chào! " + User.Identity.GetUserName(), "CapnhatTK", "CapnhatTK", routeValues: null, htmlAttributes: new { type = "Cập nhật thông tin" })</a>
+                                    <a class="acc" href="#" title="USD">@Html.ActionLink("Xin chào! " + User.Identity.GetUserName(), "CapnhatTK", "CapnhatTK", routeValues: null, htmlAttributes: new { type = "Cập nhật thông tin" })</a>
                                     using (Html.BeginForm("LogOff", "../Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
                                     {
                                         @Html.AntiForgeryToken();
@@ -96,24 +96,24 @@
                         <div class="logo-mobile"><a href="/trang-chu" title="LogoVLUDoctor"><img src="@Url.Content("~/Content/assets-ff/images/logoVLDnobrw.png")" alt="LogoVLU"></a></div>
 
                         <div class="box-right">
-                            <div class="cart hover-menu">
+                            @*<div class="cart hover-menu">
                                 <p class="icon-cart" title="Đơn thuốc">
                                     <i class="icon"></i>
                                     <span class="cart-count">0</span>
                                 </p>
 
-                            </div>
+                            </div>*@
                             <nav class="mega-menu">
                                 <!-- Brand and toggle get grouped for better mobile display -->
                                 <ul class="nav navbar-nav" id="navbar">
-                                    <li class="level1"><a href="~/trang-chu" title="Home">Trang chủ</a></li>
-                                    <li class="level1"><a href="about.html" title="About us">Giới thiệu</a></li>
+                                    <li class="level1"><a href="~/trang-chu" title="trang chủ">Trang chủ</a></li>
+                                    <li class="level1"><a href="about.html" title="giới thiệu">Giới thiệu</a></li>
                                     <li class="level1">
-                                        <a href="~/trang-chu/bac-si" title="men">Bác sĩ</a>
+                                        <a href="~/trang-chu/bac-si" title="danh sách bác sĩ">Bác sĩ</a>
                                     </li>
-                                    <li class="level1 dropdown">
-                                        <a href="#" title="Page">Thuốc</a>
-                                        <div class="sub-menu dropdown-menu">
+                                    <li class="level1">
+                                        <a href="#" title="thuốc">Thuốc</a>
+                                        <!--<div class="sub-menu dropdown-menu">
                                             <ul class="menu-level-1">
                                                 <li class="level2">
                                                     <a href="#">Shop Page</a>
@@ -144,13 +144,13 @@
                                                         <li class="level3"><a href="product_detail2.html" title="Version 2">Product Detail Version 2</a></li>
                                                     </ul>
                                                 </li>
-                                            </ul>
+                                            </ul>-->
                                             <!-- End RightSubMenu -->
-                                        </div>
+                                        <!--</div>-->
                                         <!-- End Dropdow Menu -->
                                     </li>
-                                    <li class="level1"><a href="blog_details.html" title="collections">Hồ sơ</a></li>
-                                    <li class="level1"><a href="contact.html" title="Contact us">Nhắn tin</a></li>
+                                    <li class="level1"><a href="~/trang-chu/tin-tuc" title="tin tức">Tin Tức</a></li>
+                                    <li class="level1"><a href="~/trang-chu/dang-ky-ung-tuyen" title="Ứng tuyển làm tư vấn viên">Ứng tuyển</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -160,8 +160,36 @@
                 <!-- End header-top -->
             </div>
         </header><!-- /header -->
-
+        
         @RenderBody()
+        <div id="fb-root"></div>
+        <!-- Your Plugin chat code -->
+        <div id="fb-customer-chat" class="fb-customerchat"></div>
+
+        <script>
+            var chatbox = document.getElementById('fb-customer-chat');
+            chatbox.setAttribute("page_id", "109866731562751");
+            chatbox.setAttribute("attribution", "biz_inbox");
+        </script>
+
+        <!-- Your SDK code -->
+        <script>
+            window.fbAsyncInit = function () {
+                FB.init({
+                    xfbml: true,
+                    version: 'v12.0'
+                });
+            };
+
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+
         <footer id="footer" class="footer-v3 align-left">
             <div class="container container-ver2">
                 <div class="footer-inner">

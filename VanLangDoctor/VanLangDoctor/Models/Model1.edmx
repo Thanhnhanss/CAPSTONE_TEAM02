@@ -120,7 +120,9 @@
           <Property Name="MUC_TIEU" Type="nvarchar(max)" />
           <Property Name="HOC_VAN" Type="nvarchar(max)" />
           <Property Name="CHUNG_CHI" Type="nvarchar(max)" />
+          <Property Name="EMAIL" Type="nvarchar" MaxLength="256" Nullable="false" />
           <Property Name="SDT" Type="varchar" MaxLength="10" />
+          <Property Name="TRANG_THAI" Type="bit" Nullable="false" />
           <Property Name="ID_KHOA" Type="int" />
         </EntityType>
         <EntityType Name="DON_THUOC">
@@ -632,6 +634,8 @@
           <Property Name="SDT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="ID_KHOA" Type="Int32" />
           <NavigationProperty Name="KHOA" Relationship="CP24Team02Model.FK_KHOA_DK" FromRole="DANG_KY" ToRole="KHOA" />
+          <Property Name="EMAIL" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="TRANG_THAI" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="DON_THUOC">
           <Key>
@@ -960,6 +964,8 @@
           <EntitySetMapping Name="DANG_KY">
             <EntityTypeMapping TypeName="CP24Team02Model.DANG_KY">
               <MappingFragment StoreEntitySet="DANG_KY">
+                <ScalarProperty Name="TRANG_THAI" ColumnName="TRANG_THAI" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
                 <ScalarProperty Name="ID_KHOA" ColumnName="ID_KHOA" />
                 <ScalarProperty Name="SDT" ColumnName="SDT" />
                 <ScalarProperty Name="CHUNG_CHI" ColumnName="CHUNG_CHI" />
