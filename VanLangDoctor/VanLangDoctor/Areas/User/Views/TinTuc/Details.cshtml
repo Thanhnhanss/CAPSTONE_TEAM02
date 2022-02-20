@@ -18,6 +18,7 @@
                     <div class="blog-post-image hover-images">
                         <a href="#" title="Post"><img class="img-responsive" src="assets/images/blog-details.jpg" alt=""></a>
                     </div>
+                    <div>Lượt xem: @Model.CountViews</div>
                     <div class="text align-left">
                         @Html.Raw(Model.NOI_DUNG)
                         <div class="social box">
@@ -31,42 +32,23 @@
                         <!-- End share -->
                         <div class="box">
                             <h3 class="title-v1 space-30">Related Posts</h3>
-                            <div class="blog-post-inner blog-related owl-nav-hidden center owl-carousel">
-                                <div class="blog-post-item">
-                                    <div class="blog-post-image hover-images">
-                                        <a href="#" title="Post"><img src="assets/images/products/1.jpg" alt=""></a>
+                            @foreach (var i in ViewBag.Top)
+                            {
+                                <div class="blog-post-inner blog-related owl-nav-hidden center owl-carousel">
+                                    <div class="blog-post-item">
+                                        <div class="blog-post-image hover-images">
+                                            <a href="#" title="Post"><img src="assets/images/products/1.jpg" alt=""></a>
+                                        </div>
+                                        <div class="text">
+                                            <h3><a href="#" title="Integer scelerisque diam vitae aliquam fringilla.">@i.TEN_BAI_VIET</a></h3>
+                                            <p class="post-by"><span><i class="fa fa-pencil-square-o"></i> Admin</span><span><i class="fa fa-comment-o"></i> @i.CountViews</span></p>
+                                        </div>
+                                        <!-- End text -->
                                     </div>
-                                    <div class="text">
-                                        <h3><a href="#" title="Integer scelerisque diam vitae aliquam fringilla.">The new Brand Identity last the Bahamas</a></h3>
-                                        <p class="post-by"><span><i class="fa fa-pencil-square-o"></i> Admin</span><span><i class="fa fa-comment-o"></i> 36 Comments</span></p>
-                                    </div>
-                                    <!-- End text -->
+                                    <!-- End item -->
                                 </div>
-                                <!-- End item -->
-                                <div class="blog-post-item">
-                                    <div class="blog-post-image hover-images">
-                                        <a href="#" title="Post"><img src="assets/images/products/1.jpg" alt=""></a>
-                                    </div>
-                                    <div class="text">
-                                        <h3><a href="#" title="Integer scelerisque diam vitae aliquam fringilla.">The new Brand Identity last the Bahamas</a></h3>
-                                        <p class="post-by"><span><i class="fa fa-pencil-square-o"></i> Admin</span><span><i class="fa fa-comment-o"></i> 36 Comments</span></p>
-                                    </div>
-                                    <!-- End text -->
-                                </div>
-                                <!-- End item -->
-                                <div class="blog-post-item">
-                                    <div class="blog-post-image hover-images">
-                                        <a href="#" title="Post"><img src="assets/images/products/1.jpg" alt=""></a>
-                                    </div>
-                                    <div class="text">
-                                        <h3><a href="#" title="Integer scelerisque diam vitae aliquam fringilla.">The new Brand Identity last the Bahamas</a></h3>
-                                        <p class="post-by"><span><i class="fa fa-pencil-square-o"></i> Admin</span><span><i class="fa fa-comment-o"></i> 36 Comments</span></p>
-                                    </div>
-                                    <!-- End text -->
-                                </div>
-                                <!-- End item -->
-                            </div>
-                            <!-- End Blog3ItemSlider -->
+                                <!-- End Blog3ItemSlider -->
+                            }
                         </div>
                     </div>
                     <!-- End text -->
@@ -111,21 +93,6 @@
                                     <!-- End media-body -->
                                 </div>
                                 <!-- End media body -->
-                            </li>
-                            <li class="media">
-                                <a class="pull-left" href="#">
-                                    <img class="media-object img-circle" src="assets/images/avatar-1.jpg" alt="images">
-                                </a>
-                                <div class="media-body">
-                                    <div class="text">
-                                        <h3>ERRIC CATONA</h3>
-                                        <p class="date">1 days ago</p>
-                                        <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque. </p>
-                                        <!-- Nested media object -->
-                                        <a class="reply" href="#" title="reply"><i class="fa fa-long-arrow-left"></i> Reply</a>
-                                    </div>
-                                    <!-- End text -->
-                                </div>
                             </li>
                         </ul>
                     </div>
