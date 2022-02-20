@@ -183,6 +183,7 @@
           <Property Name="TAC_GIA" Type="nvarchar(max)" />
           <Property Name="SEO_TITLE" Type="nvarchar(max)" />
           <Property Name="HINH_ANH" Type="nvarchar(max)" />
+          <Property Name="CountViews" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_BAC_SI">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
@@ -631,11 +632,11 @@
           <Property Name="MUC_TIEU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="HOC_VAN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="CHUNG_CHI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EMAIL" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="SDT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="TRANG_THAI" Type="Boolean" Nullable="false" />
           <Property Name="ID_KHOA" Type="Int32" />
           <NavigationProperty Name="KHOA" Relationship="CP24Team02Model.FK_KHOA_DK" FromRole="DANG_KY" ToRole="KHOA" />
-          <Property Name="EMAIL" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="TRANG_THAI" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="DON_THUOC">
           <Key>
@@ -703,6 +704,7 @@
           <Property Name="TAC_GIA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="SEO_TITLE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="HINH_ANH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CountViews" Type="Int32" Nullable="false" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Type="CP24Team02Model.AspNetUser" Role="AspNetUser" Multiplicity="1">
@@ -964,10 +966,10 @@
           <EntitySetMapping Name="DANG_KY">
             <EntityTypeMapping TypeName="CP24Team02Model.DANG_KY">
               <MappingFragment StoreEntitySet="DANG_KY">
-                <ScalarProperty Name="TRANG_THAI" ColumnName="TRANG_THAI" />
-                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
                 <ScalarProperty Name="ID_KHOA" ColumnName="ID_KHOA" />
+                <ScalarProperty Name="TRANG_THAI" ColumnName="TRANG_THAI" />
                 <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
                 <ScalarProperty Name="CHUNG_CHI" ColumnName="CHUNG_CHI" />
                 <ScalarProperty Name="HOC_VAN" ColumnName="HOC_VAN" />
                 <ScalarProperty Name="MUC_TIEU" ColumnName="MUC_TIEU" />
@@ -1035,6 +1037,7 @@
           <EntitySetMapping Name="TIN_TUC">
             <EntityTypeMapping TypeName="CP24Team02Model.TIN_TUC">
               <MappingFragment StoreEntitySet="TIN_TUC">
+                <ScalarProperty Name="CountViews" ColumnName="CountViews" />
                 <ScalarProperty Name="HINH_ANH" ColumnName="HINH_ANH" />
                 <ScalarProperty Name="SEO_TITLE" ColumnName="SEO_TITLE" />
                 <ScalarProperty Name="TAC_GIA" ColumnName="TAC_GIA" />
