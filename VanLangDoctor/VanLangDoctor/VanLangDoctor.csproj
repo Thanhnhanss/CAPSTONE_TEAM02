@@ -196,7 +196,6 @@
     <Compile Include="Areas\Admin\Controllers\QL_DonThuocController.cs" />
     <Compile Include="Areas\Admin\Controllers\QL_ThuocController.cs" />
     <Compile Include="Areas\Admin\Controllers\QL_TinTucController.cs" />
-    <Compile Include="Areas\User\Controllers\AvatarController.cs" />
     <Compile Include="Areas\User\Controllers\CapnhatTKController.cs" />
     <Compile Include="Areas\User\Controllers\DANG_KYController.cs" />
     <Compile Include="Areas\User\Controllers\HomeUserController.cs" />
@@ -225,9 +224,6 @@
     <Compile Include="Models\BACSI.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\BENH_AN.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\BENH_NHAN.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -235,6 +231,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DANG_KY.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DANH_MUC_THUOC.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DON_THUOC.cs">
@@ -264,6 +263,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sendMail.cs" />
+    <Compile Include="Models\SO_KHAM_BENH.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -1601,7 +1603,6 @@
     <Content Include="Areas\Admin\Views\QL_BacSi\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\QL_BacSi\DanhSach_BS.cshtml" />
     <Content Include="fonts\BebasNeue-Regular.ttf" />
-    <Content Include="Areas\User\Views\Avatar\Index.cshtml" />
     <Content Include="Areas\User\Views\ThongtinBacsi\DanhSachBacsi.cshtml" />
     <Content Include="Content\assets-dr\css\.DS_Store" />
     <Content Include="Content\assets-dr\css\bootstrap\.DS_Store" />
