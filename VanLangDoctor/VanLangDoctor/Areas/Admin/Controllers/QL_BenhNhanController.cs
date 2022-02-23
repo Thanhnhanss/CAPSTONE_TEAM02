@@ -17,7 +17,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         // GET: Admin/QL_BenhNhan
         public ActionResult DanhSach_BN()
         {
-            var bENH_NHAN = db.BENH_NHAN.Include(b => b.AspNetUser).Include(b => b.BENH_AN);
+            var bENH_NHAN = db.BENH_NHAN.Include(b => b.AspNetUser).Include(b => b.SO_KHAM_BENH);
             return View(bENH_NHAN.ToList());
         }
 
@@ -40,7 +40,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         public ActionResult Create()
         {
             ViewBag.ID_EMAIL = new SelectList(db.AspNetUsers, "Id", "Email");
-            ViewBag.ID_BENH_AN = new SelectList(db.BENH_AN, "ID_BENH_AN", "KET_QUA");
+            ViewBag.ID_SOKHAMBENH = new SelectList(db.SO_KHAM_BENH, "ID_SOKHAMBENH", "KET_QUA");
             return View();
         }
 
@@ -49,7 +49,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         // more ChiTiet_BN see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID_BENH_NHAN,TEN_BN,GIOI_TINH,NGAY_SINH,SDT,CHUAN_DOAN,ID_BENH_AN,ID_EMAIL")] BENH_NHAN bENH_NHAN)
+        public ActionResult Create([Bind(Include = "ID_BENH_NHAN,TEN_BN,GIOI_TINH,NGAY_SINH,SDT,CHUAN_DOAN,ID_SOKHAMBENH,ID_EMAIL")] BENH_NHAN bENH_NHAN)
         {
             if (ModelState.IsValid)
             {
@@ -59,7 +59,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
             }
 
             ViewBag.ID_EMAIL = new SelectList(db.AspNetUsers, "Id", "Email", bENH_NHAN.ID_EMAIL);
-            ViewBag.ID_BENH_AN = new SelectList(db.BENH_AN, "ID_BENH_AN", "KET_QUA", bENH_NHAN.ID_BENH_AN);
+            ViewBag.ID_SOKHAMBENH = new SelectList(db.SO_KHAM_BENH, "ID_SOKHAMBENH", "KET_QUA", bENH_NHAN.ID_SOKHAMBENH);
             return View(bENH_NHAN);
         }
 
@@ -76,7 +76,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
                 return HttpNotFound();
             }
             ViewBag.ID_EMAIL = new SelectList(db.AspNetUsers, "Id", "Email", bENH_NHAN.ID_EMAIL);
-            ViewBag.ID_BENH_AN = new SelectList(db.BENH_AN, "ID_BENH_AN", "KET_QUA", bENH_NHAN.ID_BENH_AN);
+            ViewBag.ID_SOKHAMBENH = new SelectList(db.SO_KHAM_BENH, "ID_SOKHAMBENH", "KET_QUA", bENH_NHAN.ID_SOKHAMBENH);
             return View(bENH_NHAN);
         }
 
@@ -85,7 +85,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         // more ChiTiet_BN see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID_BENH_NHAN,TEN_BN,GIOI_TINH,NGAY_SINH,SDT,CHUAN_DOAN,ID_BENH_AN,ID_EMAIL")] BENH_NHAN bENH_NHAN)
+        public ActionResult Edit([Bind(Include = "ID_BENH_NHAN,TEN_BN,GIOI_TINH,NGAY_SINH,SDT,CHUAN_DOAN,ID_SOKHAMBENH,ID_EMAIL")] BENH_NHAN bENH_NHAN)
         {
             if (ModelState.IsValid)
             {
@@ -94,7 +94,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
                 return RedirectToAction("DanhSach_BN");
             }
             ViewBag.ID_EMAIL = new SelectList(db.AspNetUsers, "Id", "Email", bENH_NHAN.ID_EMAIL);
-            ViewBag.ID_BENH_AN = new SelectList(db.BENH_AN, "ID_BENH_AN", "KET_QUA", bENH_NHAN.ID_BENH_AN);
+            ViewBag.ID_SOKHAMBENH = new SelectList(db.SO_KHAM_BENH, "ID_SOKHAMBENH", "KET_QUA", bENH_NHAN.ID_SOKHAMBENH);
             return View(bENH_NHAN);
         }
 

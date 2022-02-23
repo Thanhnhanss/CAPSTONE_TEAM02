@@ -17,8 +17,8 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         // GET: Admin/HoSo_BenhAn
         public ActionResult HS_BenhAn()
         {
-            var bENH_AN = db.BENH_AN.Include(b => b.DON_THUOC);
-            return View(bENH_AN.ToList());
+            var SO_KHAM_BENH = db.SO_KHAM_BENH.Include(b => b.DON_THUOC);
+            return View(SO_KHAM_BENH.ToList());
         }
 
         // GET: Admin/HoSo_BenhAn/Details/5
@@ -28,12 +28,12 @@ namespace VanLangDoctor.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BENH_AN bENH_AN = db.BENH_AN.Find(id);
-            if (bENH_AN == null)
+            SO_KHAM_BENH SO_KHAM_BENH = db.SO_KHAM_BENH.Find(id);
+            if (SO_KHAM_BENH == null)
             {
                 return HttpNotFound();
             }
-            return View(bENH_AN);
+            return View(SO_KHAM_BENH);
         }
 
         // GET: Admin/HoSo_BenhAn/Create
@@ -48,17 +48,17 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost, ValidateInput(false)]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID_BENH_AN,KET_QUA,CHUAN_DOAN,TIEN_SU_BENH,GHI_CHU,ID_DON_THUOC")] BENH_AN bENH_AN)
+        public ActionResult Create([Bind(Include = "ID_SO_KHAM_BENH,KET_QUA,CHUAN_DOAN,TIEN_SU_BENH,GHI_CHU,ID_DON_THUOC")] SO_KHAM_BENH SO_KHAM_BENH)
         {
             if (ModelState.IsValid)
             {
-                db.BENH_AN.Add(bENH_AN);
+                db.SO_KHAM_BENH.Add(SO_KHAM_BENH);
                 db.SaveChanges();
                 return RedirectToAction("HS_BenhAn");
             }
 
-            ViewBag.ID_DON_THUOC = new SelectList(db.DON_THUOC, "ID_DON_THUOC", "CHUAN_DOAN", bENH_AN.ID_DON_THUOC);
-            return View(bENH_AN);
+            ViewBag.ID_DON_THUOC = new SelectList(db.DON_THUOC, "ID_DON_THUOC", "CHUAN_DOAN", SO_KHAM_BENH.ID_DON_THUOC);
+            return View(SO_KHAM_BENH);
         }
 
         // GET: Admin/HoSo_BenhAn/Edit/5
@@ -68,13 +68,13 @@ namespace VanLangDoctor.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BENH_AN bENH_AN = db.BENH_AN.Find(id);
-            if (bENH_AN == null)
+            SO_KHAM_BENH SO_KHAM_BENH = db.SO_KHAM_BENH.Find(id);
+            if (SO_KHAM_BENH == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.ID_DON_THUOC = new SelectList(db.DON_THUOC, "ID_DON_THUOC", "CHUAN_DOAN", bENH_AN.ID_DON_THUOC);
-            return View(bENH_AN);
+            ViewBag.ID_DON_THUOC = new SelectList(db.DON_THUOC, "ID_DON_THUOC", "CHUAN_DOAN", SO_KHAM_BENH.ID_DON_THUOC);
+            return View(SO_KHAM_BENH);
         }
 
         // POST: Admin/HoSo_BenhAn/Edit/5
@@ -82,16 +82,16 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID_BENH_AN,KET_QUA,CHUAN_DOAN,TIEN_SU_BENH,GHI_CHU,ID_DON_THUOC")] BENH_AN bENH_AN)
+        public ActionResult Edit([Bind(Include = "ID_SO_KHAM_BENH,KET_QUA,CHUAN_DOAN,TIEN_SU_BENH,GHI_CHU,ID_DON_THUOC")] SO_KHAM_BENH SO_KHAM_BENH)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(bENH_AN).State = EntityState.Modified;
+                db.Entry(SO_KHAM_BENH).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("HS_BenhAn");
             }
-            ViewBag.ID_DON_THUOC = new SelectList(db.DON_THUOC, "ID_DON_THUOC", "CHUAN_DOAN", bENH_AN.ID_DON_THUOC);
-            return View(bENH_AN);
+            ViewBag.ID_DON_THUOC = new SelectList(db.DON_THUOC, "ID_DON_THUOC", "CHUAN_DOAN", SO_KHAM_BENH.ID_DON_THUOC);
+            return View(SO_KHAM_BENH);
         }
 
         // GET: Admin/HoSo_BenhAn/Delete/5
@@ -101,12 +101,12 @@ namespace VanLangDoctor.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BENH_AN bENH_AN = db.BENH_AN.Find(id);
-            if (bENH_AN == null)
+            SO_KHAM_BENH SO_KHAM_BENH = db.SO_KHAM_BENH.Find(id);
+            if (SO_KHAM_BENH == null)
             {
                 return HttpNotFound();
             }
-            return View(bENH_AN);
+            return View(SO_KHAM_BENH);
         }
 
         // POST: Admin/HoSo_BenhAn/Delete/5
@@ -114,8 +114,8 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            BENH_AN bENH_AN = db.BENH_AN.Find(id);
-            db.BENH_AN.Remove(bENH_AN);
+            SO_KHAM_BENH SO_KHAM_BENH = db.SO_KHAM_BENH.Find(id);
+            db.SO_KHAM_BENH.Remove(SO_KHAM_BENH);
             db.SaveChanges();
             return RedirectToAction("HS_BenhAn");
         }

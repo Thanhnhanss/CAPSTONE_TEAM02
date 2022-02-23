@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace VanLangDoctor.Areas.Admin.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Administrator")]
     public class HomeAdminController : Controller
     {
         // GET: Admin/HomeAdmin
