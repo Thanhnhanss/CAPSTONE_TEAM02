@@ -6,40 +6,48 @@
 }
 
 
-
-<div class="wrappage">
-    <div class="blog-post-container blog-page blog-post-columns-3 center">
-        <div class="container container-ver2">
+<div class="page-about">
+    <div class="our-team">
+        <div class="container container-ver2 center">
+            <div class="choose-us">
+                <div class="title-choose align-center about">
+                    <h4>Tin tức</h4>
+                    <h3>FRESH FOOD’S FARMERS</h3>
+                    <div class="align-center border-choose">
+                        <div class="images">
+                            <img src="~/Content/assets-ff/images/bg-border-center.png" alt="icon" />
+                        </div>
+                        <!--End images-->
+                    </div>
+                    <!--End border-->
+                </div>
+            </div>
+            <!--End choose-us-->
             <div class="row">
                 @foreach (var i in Model)
                 {
-                    <div class="blog-post-item">
-                        <div class="blog-post-image hover-images">
-                            <a href="@Url.Action("Details","TinTuc", new { id = i.ID_TIN_TUC })" style="width:500px;height:320px" title="Post"><img src="@Url.Action("Picture", new {i.ID_TIN_TUC})" alt=""></a>
+                    <div class="col-md-4 col-sm-4 space-30">
+                        <div class="interactive-banner interactive-banner-v1 center">
+                            <div class="interactive-banner-body">
+                                <img class="img-responsive" src="@Url.Action("Picture", new { i.ID_TIN_TUC })" style="width:255px;height:255px" alt="images">
+                            </div>
                         </div>
-                        <div class="text">
-                            <h3><a href="@Url.Action("Details","TinTuc", new { id = i.ID_TIN_TUC })" title="@i.TEN_BAI_VIET">@i.TEN_BAI_VIET</a></h3>
-                            <p class="post-by"><span><i class="fa fa-pencil-square-o"></i> @i.TAC_GIA</span><span><i class="fa fa-comment-o"></i> 36 Comments</span></p>
-                            @*<p class="content">@Html.Raw(i.NOI_DUNG.Substring(0, 50))...</p>*@
-                            <a class="link-v1 color-brand" href="@Url.Action("Details","TinTuc", new { id = i.ID_TIN_TUC })" title="readmore">Xem thêm</a>
+                        <div class="banner-title">
+                            <h3>@i.TEN_BAI_VIET</h3>
+                            <p>@i.NOI_DUNG.Length.ToString()</p>
+                            <div class="interactive-banner-profile text-center">
+                                <div class="action light-style">
+                                    <a href="#">Lượt xem: @i.CountViews</a>
+                                </div>
+                            </div>
                         </div>
-                        <!-- End text -->
                     </div>
-                    <!-- End item -->
+                    <!-- End col-md-4 -->
                 }
             </div>
+            <!-- End row -->
         </div>
-        <div class="pagination-container pagination-blog">
-            <nav class="pagination">
-                <a class="prev page-numbers" href="#"><i class="fa fa-angle-left"></i></a>
-                <span class="page-numbers current">1</span>
-                <a class="page-numbers" href="#">2</a>
-                <a class="page-numbers" href="#">3</a>
-                <a class="next page-numbers" href="#"><i class="fa fa-angle-right"></i></a>
-            </nav>
-        </div>
-        <!-- End pagination-container -->
+        <!-- End container-ver2 -->
     </div>
-    <!-- End container -->
+    <!-- End our team -->
 </div>
-<!-- End blog -->

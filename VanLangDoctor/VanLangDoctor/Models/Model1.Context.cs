@@ -31,12 +31,13 @@ namespace VanLangDoctor.Models
         public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
         public virtual DbSet<BACSI> BACSIs { get; set; }
-        public virtual DbSet<BENH_AN> BENH_AN { get; set; }
         public virtual DbSet<BENH_NHAN> BENH_NHAN { get; set; }
         public virtual DbSet<DANG_KY> DANG_KY { get; set; }
+        public virtual DbSet<DANH_MUC_THUOC> DANH_MUC_THUOC { get; set; }
         public virtual DbSet<DON_THUOC> DON_THUOC { get; set; }
         public virtual DbSet<KHOA> KHOAs { get; set; }
         public virtual DbSet<NHA_SAN_XUAT> NHA_SAN_XUAT { get; set; }
+        public virtual DbSet<SO_KHAM_BENH> SO_KHAM_BENH { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<THUOC> THUOCs { get; set; }
         public virtual DbSet<TIN_TUC> TIN_TUC { get; set; }

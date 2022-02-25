@@ -21,10 +21,9 @@ namespace VanLangDoctor.Models
         public string SDT { get; set; }
         public string DIA_CHI { get; set; }
         public string ID_EMAIL { get; set; }
-        public Nullable<int> ID_BENH_AN { get; set; }
+        public int ID_SOKHAMBENH { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }
-        public virtual BENH_AN BENH_AN { get; set; }
-        public virtual BENH_AN BENH_AN1 { get; set; }
+        public virtual SO_KHAM_BENH SO_KHAM_BENH { get; set; }
     }
 }
