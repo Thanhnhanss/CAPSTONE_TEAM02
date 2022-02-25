@@ -23,10 +23,10 @@ namespace VanLangDoctor.Models
         public string MUC_TIEU { get; set; }
         public string HOC_VAN { get; set; }
         public string CHUNG_CHI { get; set; }
-        public string SDT { get; set; }
-        public Nullable<int> ID_KHOA { get; set; }
         public string EMAIL { get; set; }
+        public string SDT { get; set; }
         public bool TRANG_THAI { get; set; }
+        public Nullable<int> ID_KHOA { get; set; }
     
         public virtual KHOA KHOA { get; set; }
     }

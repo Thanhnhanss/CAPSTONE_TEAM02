@@ -107,47 +107,12 @@
                                 <!-- Brand and toggle get grouped for better mobile display -->
                                 <ul class="nav navbar-nav" id="navbar">
                                     <li class="level1"><a href="~/trang-chu" title="Home">Trang chủ</a></li>
-                                    <li class="level1"><a href="about.html" title="About us">Giới thiệu</a></li>
+                                    <li class="level1"><a href="@Url.Action("About", "AboutUs")" title="About us">Giới thiệu</a></li>
                                     <li class="level1">
                                         <a href="~/trang-chu/bac-si" title="men">Bác sĩ</a>
                                     </li>
-                                    <li class="level1 dropdown">
-                                        <a href="#" title="Page">Thuốc</a>
-                                        <div class="sub-menu dropdown-menu">
-                                            <ul class="menu-level-1">
-                                                <li class="level2">
-                                                    <a href="#">Shop Page</a>
-                                                    <ul class="menu-level-2">
-                                                        <li class="level3"><a href="order.html" title="Order">Order</a></li>
-                                                        <li class="level3"><a href="shopping_cart.html" title="Shopping Cart">Shopping Cart</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="level2">
-                                                    <a href="#">Tin tức</a>
-                                                    <ul class="menu-level-2">
-                                                        <li class="level3"><a href="faq.html" title="faq">faq</a></li>
-                                                        <li class="level3"><a href="page_404.html" title="page 404">page 404</a></li>
-                                                        <li class="level3"><a href="popup.html" title="newsletter">newsletter</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="level2">
-                                                    <a href="#">Blog Page</a>
-                                                    <ul class="menu-level-2">
-                                                        <li class="level3"><a href="blog_2_columns.html" title="Blog 2 Columns">Blog 2 Columns</a></li>
-                                                        <li class="level3"><a href="blog_3_columns.html" title="Blog 3 Columns">Blog 3 Columns</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="level2">
-                                                    <a href="#">Signle Page</a>
-                                                    <ul class="menu-level-2">
-                                                        <li class="level3"><a href="product_detail.html" title="Version 1">Product Detail Version 1</a></li>
-                                                        <li class="level3"><a href="product_detail2.html" title="Version 2">Product Detail Version 2</a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                            <!-- End RightSubMenu -->
-                                        </div>
-                                        <!-- End Dropdow Menu -->
+                                    <li class="level1">
+                                        <a href="@Url.Action("Medicine", "Thuoc")" title="Page">Thuốc</a>
                                     </li>
                                     <li class="level1"><a href="blog_details.html" title="collections">Hồ sơ</a></li>
                                     <li class="level1"><a href="~/trang-chu/dang-ky-ung-tuyen" title="Ứng tuyển làm tư vấn viên">Ứng tuyển</a></li>

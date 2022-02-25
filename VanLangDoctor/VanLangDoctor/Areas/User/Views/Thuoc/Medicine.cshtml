@@ -1,0 +1,30 @@
+﻿@model IEnumerable<VanLangDoctor.Models.THUOC>
+
+@{ 
+    Layout = "~/Areas/User/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="~/Content/assets_Medicine/nicepage.css" media="screen">
+<link rel="stylesheet" href="~/Content/assets_Medicine/ProductList.css" media="screen">
+
+
+<section class="u-clearfix u-section-1" id="carousel_df7d">
+    <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-expanded-width u-list u-list-1">
+            <div class="u-repeater u-repeater-1">
+                @foreach(var a in Model)
+            {
+                <div class="u-align-center u-container-style u-list-item u-repeater-item">
+                    <div class="u-container-layout u-similar-container u-valign-top u-container-layout-1">
+                        <img src="@Url.Action("Picture", new {id = a.ID_THUOC})" alt="" class="u-expanded-width u-image u-image-default u-image-1" data-image-width="1000" data-image-height="1500">
+                        <a href="@Url.Action("Details", "Thuoc", new { id = a.ID_THUOC})" class="u-btn u-button-style u-palette-4-base u-btn-1">Xem Chi Tiết</a>
+                        <p class="u-text u-text-1">Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
+                    </div>
+                </div>
+            }
+            </div>
+        </div>
+    </div>
+</section>
+<script class="u-script" type="text/javascript" src="~/Content/assets_Medicine/jquery.js" defer=""></script>
+<script class="u-script" type="text/javascript" src="~/Content/assets_Medicine/nicepage.js" defer=""></script>

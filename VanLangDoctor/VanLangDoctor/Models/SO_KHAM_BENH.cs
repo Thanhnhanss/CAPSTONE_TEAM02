@@ -12,25 +12,23 @@ namespace VanLangDoctor.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class DON_THUOC
+    public partial class SO_KHAM_BENH
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public DON_THUOC()
+        public SO_KHAM_BENH()
         {
-            this.SO_KHAM_BENH = new HashSet<SO_KHAM_BENH>();
+            this.BENH_NHAN = new HashSet<BENH_NHAN>();
         }
     
-        public int ID_DON_THUOC { get; set; }
+        public int ID_SOKHAMBENH { get; set; }
+        public string KET_QUA { get; set; }
         public string CHUAN_DOAN { get; set; }
-        public string CHI_DINH { get; set; }
-        public string LOI_DAN { get; set; }
-        public Nullable<System.DateTime> NGAY_LAP { get; set; }
-        public Nullable<int> ID_THUOC { get; set; }
-        public Nullable<int> ID_BACSI { get; set; }
+        public string TIEN_SU_BENH { get; set; }
+        public string GHI_CHU { get; set; }
+        public Nullable<int> ID_DON_THUOC { get; set; }
     
-        public virtual BACSI BACSI { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SO_KHAM_BENH> SO_KHAM_BENH { get; set; }
-        public virtual THUOC THUOC { get; set; }
+        public virtual ICollection<BENH_NHAN> BENH_NHAN { get; set; }
+        public virtual DON_THUOC DON_THUOC { get; set; }
     }
 }

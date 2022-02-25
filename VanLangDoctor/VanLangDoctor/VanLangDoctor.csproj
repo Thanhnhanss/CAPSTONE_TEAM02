@@ -186,19 +186,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\bigViewModel.cs" />
-    <Compile Include="Areas\Admin\Controllers\QL_BacSiController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
-    <Compile Include="Areas\Admin\Controllers\HoSo_BenhAnController.cs" />
-    <Compile Include="Areas\Admin\Controllers\PhanQuyenController.cs" />
-    <Compile Include="Areas\Admin\Controllers\QL_BenhNhanController.cs" />
-    <Compile Include="Areas\Admin\Controllers\QL_DangKyTVVController.cs" />
-    <Compile Include="Areas\Admin\Controllers\QL_ThuocController.cs" />
-    <Compile Include="Areas\User\Controllers\AvatarController.cs" />
-    <Compile Include="Areas\User\Controllers\CapnhatTKController.cs" />
-    <Compile Include="Areas\User\Controllers\DANG_KYController.cs" />
+    <Compile Include="Areas\User\Controllers\AboutUsController.cs" />
     <Compile Include="Areas\User\Controllers\HomeUserController.cs" />
-    <Compile Include="Areas\User\Controllers\ThongtinBacsiController.cs" />
+    <Compile Include="Areas\User\Controllers\ThuocController.cs" />
     <Compile Include="Areas\User\UserAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -222,9 +213,6 @@
     <Compile Include="Models\BACSI.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\BENH_AN.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\BENH_NHAN.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -232,6 +220,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DANG_KY.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DANH_MUC_THUOC.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DON_THUOC.cs">
@@ -261,6 +252,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sendMail.cs" />
+    <Compile Include="Models\SO_KHAM_BENH.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -414,6 +408,38 @@
     <Content Include="Content\assets-login\assets\css\login.css" />
     <Content Include="Content\assets-login\assets\images\login.jpg" />
     <Content Include="Content\assets-login\assets\images\logo.svg" />
+    <Content Include="Content\assets_Medicine\Blog-Template.css" />
+    <Content Include="Content\assets_Medicine\images\1828859.png" />
+    <Content Include="Content\assets_Medicine\images\4.jpeg" />
+    <Content Include="Content\assets_Medicine\images\5.jpeg" />
+    <Content Include="Content\assets_Medicine\images\56763.png" />
+    <Content Include="Content\assets_Medicine\images\6.jpeg" />
+    <Content Include="Content\assets_Medicine\images\default-logo.png" />
+    <Content Include="Content\assets_Medicine\images\pexelsphoto37827861.jpeg" />
+    <Content Include="Content\assets_Medicine\images\pexelsphoto37827881.jpeg" />
+    <Content Include="Content\assets_Medicine\images\pexelsphoto37827891.jpeg" />
+    <Content Include="Content\assets_Medicine\jquery.js" />
+    <Content Include="Content\assets_Medicine\nicepage.css" />
+    <Content Include="Content\assets_Medicine\nicepage.js" />
+    <Content Include="Content\assets_Medicine\Post-Template.css" />
+    <Content Include="Content\assets_Medicine\ProductList.css" />
+    <Content Include="Content\asset_About\About-Us.css" />
+    <Content Include="Content\asset_About\Blog-Template.css" />
+    <Content Include="Content\asset_About\images\1.jpeg" />
+    <Content Include="Content\asset_About\images\126509.png" />
+    <Content Include="Content\asset_About\images\2.jpeg" />
+    <Content Include="Content\asset_About\images\26w-min.jpg" />
+    <Content Include="Content\asset_About\images\3.jpeg" />
+    <Content Include="Content\asset_About\images\69026271.png" />
+    <Content Include="Content\asset_About\images\bac-si-thu-y-tu-van-online-2.jpg" />
+    <Content Include="Content\asset_About\images\cc0cbee6-5c91-9a56-37d1-8b6f5cc1ca10.png" />
+    <Content Include="Content\asset_About\images\cf.jpg" />
+    <Content Include="Content\asset_About\images\csvc-011.jpg" />
+    <Content Include="Content\asset_About\images\logoVLDnobrr.png" />
+    <Content Include="Content\asset_About\jquery.js" />
+    <Content Include="Content\asset_About\nicepage.css" />
+    <Content Include="Content\asset_About\nicepage.js" />
+    <Content Include="Content\asset_About\Post-Template.css" />
     <Content Include="Content\docs-ad\docs-custom-chart-chartjs.html" />
     <Content Include="Content\docs-ad\docs-custom-datatables.html" />
     <Content Include="Content\docs-ad\docs-custom-widgets.html" />
@@ -1593,14 +1619,7 @@
     <Content Include="Content\dist-ad\js\pages\datatable\data.json" />
     <Content Include="Content\assets-login\assets\css\login.css.map" />
     <Content Include="Content\assets-login\assets\scss\login.scss" />
-    <Content Include="Areas\Admin\Views\PhanQuyen\PhanQuyen.cshtml" />
-    <Content Include="Areas\Admin\Views\QL_BacSi\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\QL_BacSi\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\QL_BacSi\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\QL_BacSi\DanhSach_BS.cshtml" />
     <Content Include="fonts\BebasNeue-Regular.ttf" />
-    <Content Include="Areas\User\Views\Avatar\Index.cshtml" />
-    <Content Include="Areas\User\Views\ThongtinBacsi\DanhSachBacsi.cshtml" />
     <Content Include="Content\assets-dr\css\.DS_Store" />
     <Content Include="Content\assets-dr\css\bootstrap\.DS_Store" />
     <Content Include="Content\assets-dr\css\css\.DS_Store" />
@@ -1711,7 +1730,6 @@
     <Content Include="Content\assets-dr\scss\bootstrap\_utilities.scss" />
     <Content Include="Content\assets-dr\scss\bootstrap\_variables.scss" />
     <Content Include="Content\assets-dr\scss\style.scss" />
-    <Content Include="Areas\User\Views\ThongtinBacsi\thongtinbacsi.cshtml" />
     <Content Include="Content\asset-dr-inf\css\maps\style.css.map" />
     <Content Include="Content\asset-dr-inf\plugins\icofont\fonts\icofont.eot" />
     <Content Include="Content\asset-dr-inf\plugins\icofont\fonts\icofont.ttf" />
@@ -1750,28 +1768,9 @@
     <Content Include="Content\asset-dr-inf\scss\_mixins.scss" />
     <Content Include="Content\asset-dr-inf\scss\_typography.scss" />
     <Content Include="Content\asset-dr-inf\scss\_variables.scss" />
-    <Content Include="Areas\Admin\Views\HoSo_BenhAn\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\HoSo_BenhAn\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\HoSo_BenhAn\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\HoSo_BenhAn\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\HoSo_BenhAn\HS_BenhAn.cshtml" />
-    <Content Include="Areas\User\Views\CapnhatTK\CapnhatTK.cshtml" />
-    <Content Include="Areas\Admin\Views\QL_BenhNhan\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\QL_BenhNhan\ChiTiet_BN.cshtml" />
-    <Content Include="Areas\Admin\Views\QL_BenhNhan\DanhSach_BN.cshtml" />
-    <Content Include="Areas\Admin\Views\PhanQuyen\phanQuyenTK.cshtml" />
-    <Content Include="Areas\Admin\Views\PhanQuyen\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\PhanQuyen\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\PhanQuyen\XoaQuyen.cshtml" />
-    <Content Include="Areas\User\Views\DANG_KY\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\QL_DangKyTVV\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\QL_DangKyTVV\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\QL_DangKyTVV\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\QL_Thuoc\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\QL_Thuoc\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\QL_Thuoc\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\QL_Thuoc\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\QL_Thuoc\Index.cshtml" />
+    <Content Include="Areas\User\Views\AboutUs\About.cshtml" />
+    <Content Include="Areas\User\Views\Thuoc\Details.cshtml" />
+    <Content Include="Areas\User\Views\Thuoc\Medicine.cshtml" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
