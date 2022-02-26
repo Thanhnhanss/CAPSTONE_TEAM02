@@ -240,6 +240,37 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\assets-HomeUser\Blog-Template.css" />
+    <Content Include="Content\assets-HomeUser\Home.css" />
+    <Content Include="Content\assets-HomeUser\images\1.jpeg" />
+    <Content Include="Content\assets-HomeUser\images\10.png" />
+    <Content Include="Content\assets-HomeUser\images\11.png" />
+    <Content Include="Content\assets-HomeUser\images\heart.png" />
+    <Content Include="Content\assets-HomeUser\images\120731607-0.jpeg" />
+    <Content Include="Content\assets-HomeUser\images\13.png" />
+    <Content Include="Content\assets-HomeUser\images\14.svg" />
+    <Content Include="Content\assets-HomeUser\images\1632686.png" />
+    <Content Include="Content\assets-HomeUser\images\2.jpeg" />
+    <Content Include="Content\assets-HomeUser\images\3.jpeg" />
+    <Content Include="Content\assets-HomeUser\images\3063106.png" />
+    <Content Include="Content\assets-HomeUser\images\4.png" />
+    <Content Include="Content\assets-HomeUser\images\4706771.png" />
+    <Content Include="Content\assets-HomeUser\images\5.png" />
+    <Content Include="Content\assets-HomeUser\images\6.png" />
+    <Content Include="Content\assets-HomeUser\images\7.png" />
+    <Content Include="Content\assets-HomeUser\images\8.png" />
+    <Content Include="Content\assets-HomeUser\images\9.png" />
+    <Content Include="Content\assets-HomeUser\images\942802.png" />
+    <Content Include="Content\assets-HomeUser\images\9d04a3dc8bfe6edf29ca355af8f2b294b82e9f26532c7dd72ea235cd55d9c1f8a1d384a5b4d6fe43fd4d42e0e2742d1bb22df98a2214d9da4188a5_1280.png" />
+    <Content Include="Content\assets-HomeUser\images\a4fd60d5dd56393a5b19c905587f36091.png" />
+    <Content Include="Content\assets-HomeUser\images\cbdcdba2c3d2a70b362554a6b4fd749a.jpeg" />
+    <Content Include="Content\assets-HomeUser\images\cc0cbee6-5c91-9a56-37d1-8b6f5cc1ca10.png" />
+    <Content Include="Content\assets-HomeUser\images\d0f2409a14bb07103fd5e5f4164e09b31.png" />
+    <Content Include="Content\assets-HomeUser\images\f125ed13efc1086414c8efe253447cc31.png" />
+    <Content Include="Content\assets-HomeUser\jquery.js" />
+    <Content Include="Content\assets-HomeUser\nicepage.css" />
+    <Content Include="Content\assets-HomeUser\nicepage.js" />
+    <Content Include="Content\assets-HomeUser\Post-Template.css" />
     <Content Include="Content\docs-ad\docs-custom-chart-chartjs.html" />
     <Content Include="Content\docs-ad\docs-custom-datatables.html" />
     <Content Include="Content\docs-ad\docs-custom-widgets.html" />
