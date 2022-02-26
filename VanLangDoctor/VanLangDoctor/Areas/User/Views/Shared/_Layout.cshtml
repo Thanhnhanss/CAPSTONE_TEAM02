@@ -1,4 +1,5 @@
 ﻿<!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -17,7 +18,7 @@
     <div class="awe-page-loading">
         <div class="awe-loading-wrapper">
             <div class="awe-loading-icon">
-                <img src="@Url.Content("~/Content/assets-ff/images/logoVLDnobrw.png")" alt="images">
+                <img src="@Url.Content("~/Content/assets-ff/images/logoVLDnobrw.png")" alt="LogoVLU" />
             </div>
             <div class="progress">
                 <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
@@ -51,11 +52,30 @@
                         </div>
                         <div class="float-right align-right">
                             <div class="hover-menu">
-                                <a class="acc" href="#" title="USD"><img src="@Url.Content("~/Content/assets-ff/images/icon-user-header.png")" alt="icon">Tài Khoản</a>
-                                <ul class="list-menu">
-                                    <li><a href="#" title="USD">Đăng nhập</a></li>
-                                    <li><a href="#" title="VND">Đăng ký</a></li>
-                                </ul>
+                                @using Microsoft.AspNet.Identity
+                                @if (!User.Identity.IsAuthenticated)
+                                {
+                                    <a class="acc" href="#" title="USD"><img src="@Url.Content("~/Content/assets-ff/images/icon-user-header.png")" alt="icon">Tài Khoản</a>
+                                    <ul class="list-menu" style="text-align: left; border: none; border-radius: 0.5em; padding: 0em ">
+                                        <li style="margin:5px">@Html.ActionLink("Đăng ký", "Register", "../Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                                        <li style="margin:5px">@Html.ActionLink("Đăng nhập", "Login", "../Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+                                    </ul>
+                                }
+                                else
+                                {
+                                    <a class="acc" href="#" title="USD">@Html.ActionLink("Xin chào! " + User.Identity.GetUserName(), "CapnhatTK", "CapnhatTK", routeValues: null, htmlAttributes: new { type = "Cập nhật thông tin" })</a>
+                                    using (Html.BeginForm("LogOff", "../Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                                    {
+                                        @Html.AntiForgeryToken();
+                                        <ul class="list-menu" style="text-align: left; border: none; border-radius: 1em; left:20%; top:100%">
+                                            <li>
+                                                @Html.ActionLink("  Cập nhật tài khoản", "CapnhatTK", "CapnhatTK", routeValues: null, htmlAttributes: new { @class = "icon-edit", @title = "Cập nhật thông tin" })
+                                            </li>
+                                            <li><a href="javascript:document.getElementById('logoutForm').submit()"><i class="icon-sign-out">  Đăng xuất</i></a></li>
+                                        </ul>
+                                    }
+                                }
+
                             </div>
                             <!-- End hover-menu -->
                         </div>
@@ -69,14 +89,14 @@
                     <div class="box">
                         <p class="icon-menu-mobile"><i class="fa fa-bars"></i></p>
                         <div class="logo">
-                            <a href="#" title="Uno">
+                            <a href="~/trang-chu" title="LogoVLUDoctor">
                                 <img height="60" width="145" src="@Url.Content("~/Content/assets-ff/images/logoVLDnobrr.png")" alt="images">
                             </a>
                         </div>
-                        <div class="logo-mobile"><a href="#" title="Xanadu"><img src="@Url.Content("~/Content/assets-ff/images/logo-v2.png")" alt="Xanadu-Logo"></a></div>
+                        <div class="logo-mobile"><a href="/trang-chu" title="LogoVLUDoctor"><img src="@Url.Content("~/Content/assets-ff/images/logoVLDnobrw.png")" alt="LogoVLU"></a></div>
 
                         <div class="box-right">
-                            <div class="cart hover-menu">
+                            @*<div class="cart hover-menu">
                                 <p class="icon-cart" title="Đơn thuốc">
                                     <i class="icon"></i>
                                     <span class="cart-count">0</span>
@@ -181,7 +201,6 @@
     <script type="text/javascript" src="@Url.Content("~/Content/assets-ff/js/jquery.themepunch.revolution.min.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Content/assets-ff/js/jquery.themepunch.plugins.min.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Content/assets-ff/js/engo-plugins.js")"></script>
-
     <script type="text/javascript" src="@Url.Content("~/Content/assets-ff/js/slick.min.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Content/assets-ff/js/store.js")"></script>
 </body>

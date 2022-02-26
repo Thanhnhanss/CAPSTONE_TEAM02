@@ -17,13 +17,16 @@ namespace VanLangDoctor.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public KHOA()
         {
-            this.BENH_AN = new HashSet<BENH_AN>();
+            this.BACSIs = new HashSet<BACSI>();
+            this.DANG_KY = new HashSet<DANG_KY>();
         }
     
         public int ID_KHOA { get; set; }
         public string TEN_KHOA { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BENH_AN> BENH_AN { get; set; }
+        public virtual ICollection<BACSI> BACSIs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DANG_KY> DANG_KY { get; set; }
     }
 }

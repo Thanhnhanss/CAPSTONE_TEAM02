@@ -1,0 +1,103 @@
+﻿@model VanLangDoctor.Models.TIN_TUC
+
+@{
+    ViewBag.Title = "Xóa bài viết";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/up.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="page-wrapper" style="display: block;">
+        <div class="page-breadcrumb">
+            <div class="row">
+                <div class="col-7 align-self-center">
+                    <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">@ViewBag.Title</h4>
+                    <div class="d-flex align-items-center">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb m-0 p-0">
+                                <li class="breadcrumb-item"><a href="~/trang-chu-quan-ly" class="text-muted">Trang chủ</a></li>
+                                <li class="breadcrumb-item"><a href="@Url.Action("Index")" class="text-muted">Tin tức</a></li>
+                                <li class="breadcrumb-item text-muted active" aria-current="page">@ViewBag.Title</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-5 align-self-center">
+                    <div class="customize-input float-right">
+                        <a class="button-back" href="@Url.Action("Index")">
+                            <span-back>Trở về</span-back>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="card card-body col-md-9">
+                    <h3 class="card-title">Bạn chắc chắn muốn xóa thuốc @Html.DisplayFor(model => model.TEN_BAI_VIET) ?</h3>
+                    <p class="text-muted font-14 mb-3">
+                    </p>
+                    <div class="alert alert-success">
+                        <div class="dl-horizontal">
+                            <div class="row">
+                                <h4 class="col-md-3">Tên bài viết: </h4>
+                                <span class="col-md-9">@Html.DisplayFor(model => model.TEN_BAI_VIET)</span>
+                            </div>
+
+                            <div class="row">
+                                <h4 class="col-md-3">Ngày đăng: </h4>
+                                <span class="col-md-4">@Html.DisplayFor(model => model.NGAY_DANG)</span>
+                            </div>
+
+                            <div class="row">
+                                <h4 class="col-md-3">Tác giả: </h4>
+                                <span class="col-md-9">@Model.TAC_GIA</span>
+                            </div>
+
+                            <div class="row">
+                                <h4 class="col-md-3">Keyword: </h4>
+                                <span class="col-md-9">@Model.SEO_TITLE</span>
+                            </div>
+
+                            <div class="row">
+                                <h4 class="col-md-3">Nội dung: </h4>
+                                <span style="width: 500px; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;" class="col-md-9">@MvcHtmlString.Create(Model.NOI_DUNG).ToString()</span>
+                            </div>
+
+                        </div>
+
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-actions no-color">
+                                <button type="submit" class="button" style="position: relative; background-color: #FF0000 "><span>Xóa </span></button>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body" style="text-align:center">
+                            <h4 class="card-title">Hình ảnh</h4>
+                            <link href="~/Content/uploadavt.css" rel="stylesheet" />
+                            <main>
+                                <div id="preview">
+                                    <div id="view-img"><img src="@Url.Action("Picture", new {Model.ID_TIN_TUC})" style="height: 200px; width: 200px; object-fit:contain; border-radius: 50%; border: 3px solid #0af; background-color:#000000" /></div>
+                                </div>
+                            </main>
+                            <script src="~/Scripts/uploadavt.js"></script>
+                        </div> <!-- end card-body-->
+                    </div> <!-- end card-->
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

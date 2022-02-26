@@ -22,12 +22,13 @@ namespace VanLangDoctor.Models
     
         public int ID_THUOC { get; set; }
         public string TEN_THUOC { get; set; }
-        public int LIEU_LUONG { get; set; }
-        public string HANG_SX { get; set; }
-        public string DANH_MUC { get; set; }
+        public string LIEU_LUONG { get; set; }
         public string MO_TA { get; set; }
+        public string HINH_ANH { get; set; }
+        public Nullable<int> ID_NSX { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DON_THUOC> DON_THUOC { get; set; }
+        public virtual NHA_SAN_XUAT NHA_SAN_XUAT { get; set; }
     }
 }

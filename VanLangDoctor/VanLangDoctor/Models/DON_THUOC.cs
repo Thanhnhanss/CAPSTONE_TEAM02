@@ -14,17 +14,23 @@ namespace VanLangDoctor.Models
     
     public partial class DON_THUOC
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public DON_THUOC()
+        {
+            this.BENH_AN = new HashSet<BENH_AN>();
+        }
+    
         public int ID_DON_THUOC { get; set; }
         public string CHUAN_DOAN { get; set; }
         public string CHI_DINH { get; set; }
         public string LOI_DAN { get; set; }
         public Nullable<System.DateTime> NGAY_LAP { get; set; }
-        public int ID_THUOC { get; set; }
-        public int ID_BENH_NHAN { get; set; }
-        public int ID_BACSI { get; set; }
+        public Nullable<int> ID_THUOC { get; set; }
+        public Nullable<int> ID_BACSI { get; set; }
     
         public virtual BACSI BACSI { get; set; }
-        public virtual BENH_NHAN BENH_NHAN { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BENH_AN> BENH_AN { get; set; }
         public virtual THUOC THUOC { get; set; }
     }
 }

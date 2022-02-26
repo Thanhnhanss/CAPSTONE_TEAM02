@@ -1,0 +1,130 @@
+﻿@model VanLangDoctor.Models.TIN_TUC
+
+@{
+    ViewBag.Title = "Thêm tin mới";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+     data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
+
+    <div class="page-wrapper">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="page-breadcrumb">
+            <div class="row">
+                <div class="col-7 align-self-center">
+                    <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">@ViewBag.Title</h3>
+                    <div class="d-flex align-items-center">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb m-0 p-0">
+                                <li class="breadcrumb-item"><a href="~/trang-chu-quan-ly" class="text-muted">Trang chủ</a></li>
+                                <li class="breadcrumb-item"><a href="@Url.Action("Index")" class="text-muted">Tin tức</a></li>
+                                <li class="breadcrumb-item text-muted active" aria-current="page">@ViewBag.Title</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-5 align-self-center">
+                    <div class="customize-input float-right">
+                        <a class="button-back" href="@Url.Action("Index")">
+                            <span-back>Trở về</span-back>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="container-fluid">
+            <div class="container">
+                @using (Html.BeginForm("Create", "QL_TinTuc", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        <label for="ten_bai_viet"><b>Tiêu đề bài viết</b></label>
+                        <div class="form-actions no-color">
+                            @Html.EditorFor(model => model.TEN_BAI_VIET, new { htmlAttributes = new { @class = "form-control", @maxlength = "50", @placeholder = "Tiêu đề chứa tối đa 50 ký tự"} })
+                            @Html.ValidationMessageFor(model => model.TEN_BAI_VIET, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="noi_dung"><b>Nội dung</b></label>
+                        <div class="form-actions no-color">
+                            @Html.TextAreaFor(m => m.NOI_DUNG, new { @class = "form-control", @id = "area1", @name = "noidung"})
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tac_gia"><b>Tác giả</b></label>
+                        <div class="form-actions no-color">
+                            @Html.EditorFor(model => model.TAC_GIA, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.TAC_GIA, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="seo_title"><b>Keyword</b></label>
+                        <div class="form-actions no-color">
+                            @Html.EditorFor(model => model.SEO_TITLE, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.SEO_TITLE, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="hinh_anh"><b>Hình ảnh</b></label>
+                        <div class="col-md-4">
+                            <input class="form-control" type="file" name="Picture" id="IMG" onchange="readPicture(this)" accept="image/jpeg,image/gif,image/png" />
+                            <br />
+                            <img id="Picture" style="height: 250px; width: 250px; object-fit: contain; border: 3px solid #0af; background-color: #000000" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2">
+                            <button type="submit" class="button" style="vertical-align:middle"><span>Thêm mới</span></button>
+                        </div>
+                        <div class="col-md-4">
+                            <a class="button" style="background-color: rgb(157 154 154 / 44%); color: black" href="@Url.Action("Index")">Quay lại</a>
+
+                        </div>
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Page wrapper  -->
+    <!-- ============================================================== -->
+</div>
+
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+<script>
+    tinymce.init({
+        selector: 'textarea#MotaSP',
+        menubar: false
+    });
+    function readPicture(input) {
+        if (input.files && input.files[0])
+            var reader = new FileReader();
+        reader.onload = function (e) {
+            $('img#Picture').attr('src', e.target.result)
+        };
+        reader.readAsDataURL(input.files[0])
+    }
+</script>
+<script src="@Url.Content("~/Content/assets-ad/libs/jquery/dist/jquery.min.js")"></script>
+<script type="text/javascript">
+    $(document).ready(() => {
+        new nicEditor().panelInstance('area1')
+    })
+</script>

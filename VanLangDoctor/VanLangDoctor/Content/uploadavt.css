@@ -1,0 +1,49 @@
+﻿/*body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+*/
+#avatar {
+  background-color: antiquewhite;
+  height: 200px;
+  width: 200px;
+  border: 3px solid #0af;
+  border-radius: 50%;
+  transition: background ease-out 200ms;
+}
+
+#preview {
+  position: relative;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+button {
+  padding: 18px;
+  border-radius: 650%;
+  border: none;
+  cursor: pointer;
+  background-color: #08f;
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+    0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+  transition: background-color ease-out 120ms;
+  position: absolute;
+  right: -5%;
+  bottom: 0%;
+}
+
+button:hover {
+  background-color: #45a;
+}
+.circle {
+    padding: 10px 10px 10px 10px;
+    background: #008000;
+    clip-path: circle(50%);
+    height: 1px;
+    width: 1px;
+    left: 80%
+}
