@@ -4,23 +4,24 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="98091af259314eb6b1cde9ad0fbffd38" Name="Diagram1">
-        <EntityTypeShape EntityType="CP24Team02Model.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="2.25" />
-        <EntityTypeShape EntityType="CP24Team02Model.AspNetRole" Width="1.5" PointX="0.75" PointY="6.375" />
-        <EntityTypeShape EntityType="CP24Team02Model.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="5" />
-        <EntityTypeShape EntityType="CP24Team02Model.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="12.125" />
-        <EntityTypeShape EntityType="CP24Team02Model.AspNetUser" Width="1.5" PointX="3" PointY="5.125" />
-        <EntityTypeShape EntityType="CP24Team02Model.BACSI" Width="1.5" PointX="8.25" PointY="5.375" />
-        <EntityTypeShape EntityType="CP24Team02Model.BENH_NHAN" Width="1.5" PointX="15" PointY="5.75" />
-        <EntityTypeShape EntityType="CP24Team02Model.DANG_KY" Width="1.5" PointX="8.25" PointY="10.375" />
-        <EntityTypeShape EntityType="CP24Team02Model.DANH_MUC_THUOC" Width="1.5" PointX="6" PointY="14.875" />
-        <EntityTypeShape EntityType="CP24Team02Model.DON_THUOC" Width="1.5" PointX="10.5" PointY="5.75" />
-        <EntityTypeShape EntityType="CP24Team02Model.KHOA" Width="1.5" PointX="6" PointY="8.375" />
-        <EntityTypeShape EntityType="CP24Team02Model.NHA_SAN_XUAT" Width="1.5" PointX="6" PointY="2.625" />
-        <EntityTypeShape EntityType="CP24Team02Model.SO_KHAM_BENH" Width="1.5" PointX="12.75" PointY="6" />
-        <EntityTypeShape EntityType="CP24Team02Model.sysdiagram" Width="1.5" PointX="2.75" PointY="2.25" />
-        <EntityTypeShape EntityType="CP24Team02Model.THUOC" Width="1.5" PointX="8.25" PointY="0.75" />
-        <EntityTypeShape EntityType="CP24Team02Model.TIN_TUC" Width="1.5" PointX="0.75" PointY="10.25" />
+      <Diagram DiagramId="98091af259314eb6b1cde9ad0fbffd38" Name="Diagram1" ZoomLevel="97">
+        <EntityTypeShape EntityType="CP24Team02Model.C__MigrationHistory" Width="1.5" PointX="7.75" PointY="3.25" />
+        <EntityTypeShape EntityType="CP24Team02Model.AspNetRole" Width="1.5" PointX="0.75" PointY="7.5" />
+        <EntityTypeShape EntityType="CP24Team02Model.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="13" />
+        <EntityTypeShape EntityType="CP24Team02Model.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="10.5" />
+        <EntityTypeShape EntityType="CP24Team02Model.AspNetUser" Width="1.5" PointX="3" PointY="6.125" />
+        <EntityTypeShape EntityType="CP24Team02Model.BACSI" Width="1.5" PointX="5.25" PointY="5.375" />
+        <EntityTypeShape EntityType="CP24Team02Model.BENH_NHAN" Width="1.5" PointX="12" PointY="6.75" />
+        <EntityTypeShape EntityType="CP24Team02Model.DANG_KY" Width="1.5" PointX="5.25" PointY="0.75" />
+        <EntityTypeShape EntityType="CP24Team02Model.DANH_MUC_THUOC" Width="1.5" PointX="3" PointY="16.375" />
+        <EntityTypeShape EntityType="CP24Team02Model.DANH_MUC_TIN" Width="1.5" PointX="7.75" PointY="12.125" />
+        <EntityTypeShape EntityType="CP24Team02Model.DON_THUOC" Width="1.5" PointX="7.5" PointY="5.875" />
+        <EntityTypeShape EntityType="CP24Team02Model.KHOA" Width="1.5" PointX="3" PointY="3.375" />
+        <EntityTypeShape EntityType="CP24Team02Model.NHA_SAN_XUAT" Width="1.5" PointX="3" PointY="18.625" />
+        <EntityTypeShape EntityType="CP24Team02Model.SO_KHAM_BENH" Width="1.5" PointX="9.75" PointY="6" />
+        <EntityTypeShape EntityType="CP24Team02Model.sysdiagram" Width="1.5" PointX="0.75" PointY="11.25" />
+        <EntityTypeShape EntityType="CP24Team02Model.THUOC" Width="1.5" PointX="5.25" PointY="16.875" />
+        <EntityTypeShape EntityType="CP24Team02Model.TIN_TUC" Width="1.5" PointX="10" PointY="11.5" />
         <AssociationConnector Association="CP24Team02Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
         <AssociationConnector Association="CP24Team02Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
         <AssociationConnector Association="CP24Team02Model.FK_BAC_SI" />
@@ -30,6 +31,7 @@
         <AssociationConnector Association="CP24Team02Model.FK_BENH_NHAN_SO_KHAM_BENH" />
         <AssociationConnector Association="CP24Team02Model.FK_DANG_KY_KHOA" />
         <AssociationConnector Association="CP24Team02Model.FK_THUOC_DANH_MUC_THUOC" />
+        <AssociationConnector Association="CP24Team02Model.FK_TIN_TUC_DANH_MUC_TIN" />
         <AssociationConnector Association="CP24Team02Model.FK_BENH_AN" />
         <AssociationConnector Association="CP24Team02Model.FK_THUOC_DT" />
         <AssociationConnector Association="CP24Team02Model.FK_THUOC_NHA_SAN_XUAT" />

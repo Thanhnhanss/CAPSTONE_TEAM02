@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "Phân Quyền";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-md-4">
+    <ul class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="#"> <i class="fa fa-home"></i> </a>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="~/Admin/QL_TaiKhoan/PhanQuyen">Phân quyền</a>
+        </li>
+    </ul>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <!-- Basic Form Inputs card start -->
+        <div class="card">
+            <div class="card-header">
+                <h5>Phân Quyền</h5>
+                @*<span>Add class of <code>.form-control</code> with <code>&lt;input&gt;</code> tag</span>*@
+            </div>
+            <div class="card-block">
+                <h4 class="sub-title">Phân Quyền</h4>
+                <form method="post">
+                    @Html.AntiForgeryToken()
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Email</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" placeholder="" readonly="" value="@ViewBag.user" name="username">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Quyền</label>
+                        <div class="col-sm-10">
+                            <select name="role" class="form-control fill">
+                                @foreach (var role in Model)
+                                {
+                                    if (role.Id == ViewBag.role)
+                                    {
+                                        <option value="@role.Id" selected>@role.Name</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@role.Id">@role.Name</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <button class="btn btn-danger waves-effect waves-light right">Lưu</button>
+                </form>
+            </div>
+        </div>
+        <!-- Basic Form Inputs card end -->
+    </div>
+</div>

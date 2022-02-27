@@ -99,13 +99,13 @@
                             <nav class="mega-menu">
                                 <!-- Brand and toggle get grouped for better mobile display -->
                                 <ul class="nav navbar-nav" id="navbar">
-                                    <li class="level1"><a href="#" title="Home">Trang chủ</a></li>
-                                    <li class="level1"><a href="#" title="About us">Giới thiệu</a></li>
+                                    <li class="level1"><a href="@Url.Action("HomeUser", "HomeUser")" title="Home">Trang chủ</a></li>
+                                    <li class="level1"><a href="@Url.Action("About", "AboutUs")" title="About us">Giới thiệu</a></li>
                                     <li class="level1">
-                                        <a href="#" title="men">Bác sĩ</a>
+                                        <a href="@Url.Action("DanhSachBacsi", "ThongtinBacsi")" title="men">Bác sĩ</a>
                                     </li>
                                     <li class="level1">
-                                        <a href="#" title="Page">Thuốc</a>
+                                        <a href="@Url.Action("Medicine", "Thuoc")" title="Page">Thuốc</a>
                                     </li>
                                     <li class="level1"><a href="blog_details.html" title="collections">Hồ sơ</a></li>
                                     <li class="level1"><a href="contact.html" title="Contact us">Nhắn tin</a></li>
@@ -123,12 +123,12 @@
 
         <footer id="footer" class="footer-v3 align-left">
             <div class="container container-ver2">
-                <div class="footer-inner">
+                <div>
                     <div class="row">
                         <div class="col-md-3 col-sm-6">
                             <h3 class="title-footer">Về chúng tôi</h3>
                             <p>Đại học Văn Lang với tuổi đời 25 năm trong ngành giáo dục, chúng tôi tự tin mang lại cho mọi người những sản phẩm mà sinh viên chúng tôi đào tạo mang lại cho mọi người.</p>
-                            <a class="link-footer" href="#" title="footer">Đọc thêm <i class="fa fa-long-arrow-right"></i></a>
+                            <a class="link-footer" href="@Url.Action("About", "AboutUs")" title="footer">Đọc thêm <i class="fa fa-long-arrow-right"></i></a>
                         </div>
                         <div class="col-md-2 col-sm-6">
                             <h3 class="title-footer">Thông tin</h3>
