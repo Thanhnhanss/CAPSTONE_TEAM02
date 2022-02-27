@@ -1,0 +1,59 @@
+﻿@model VanLangDoctor.Models.THUOC
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/User/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>THUOC</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TEN_THUOC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TEN_THUOC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LIEU_LUONG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LIEU_LUONG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MO_TA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MO_TA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HINH_ANH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HINH_ANH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NHA_SAN_XUAT.TEN_NSX)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NHA_SAN_XUAT.TEN_NSX)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_THUOC }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
