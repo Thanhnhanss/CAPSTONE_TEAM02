@@ -1,0 +1,170 @@
+﻿@model VanLangDoctor.Models.BACSI
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Cập nhật bác sĩ";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+    <div class="page-wrapper" style="display: block;">
+        <div class="page-breadcrumb">
+            <div class="row">
+                <div class="col-7 align-self-center">
+                    <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">@ViewBag.Title</h4>
+                    <div class="d-flex align-items-center">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb m-0 p-0">
+                                <li class="breadcrumb-item"><a href="~/trang-chu-quan-ly" class="text-muted">Trang chủ</a></li>
+                                <li class="breadcrumb-item"><a href="~/trang-chu-quan-ly/bac-si/danh-sach" class="text-muted">Danh sách bác sĩ</a></li>
+                                <li class="breadcrumb-item text-muted active" aria-current="page">@ViewBag.Title</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-5 align-self-center">
+                    <div class="customize-input float-right">
+                        <a class="button-back" href="~/trang-chu-quan-ly/bac-si/danh-sach">
+                            <span-back>Trở về</span-back>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr />
+
+        @using (Html.BeginForm("Edit", "QL_BacSi", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="container">
+                <div class="form-horizontal">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model => model.ID_BACSI)
+                    <div class="row">
+                        <div class="col-7">
+                            <div class="form-group">
+                                <label><b>Tên bác sĩ</b></label>
+                                <div class="col-12">
+                                    @Html.EditorFor(model => model.TEN_BACSI, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.TEN_BACSI, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label><b>Số điện thoại</b></label>
+                                <div class="col-10">
+                                    @Html.EditorFor(model => model.SDT, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.SDT, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label><b>Giới tính</b></label>
+                                <div class="col-10">
+                                    @Html.EditorFor(model => model.GIOI_TINH, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.GIOI_TINH, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label><b>Email</b></label>
+                                <div class="col-12">
+                                    @Html.DropDownList("ID_Email", null, htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.ID_Email, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <h4 class="card-title">Hình đại diện</h4>
+                                <input class="form-control" type="file" name="Picture" id="IMG" onchange="readPicture(this)" accept="image/jpeg,image/gif,image/png" />
+                                <br />
+                                <img id="Picture" style="height: 250px; width: 250px; object-fit: contain; border-radius: 50%; border: 3px solid #0af; background-color: #000000"
+                                     src="@Url.Action("Picture", new {Model.ID_BACSI})" />
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label><b>Nghề nghiệp</b></label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.NGHE_NGHIEP, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.NGHE_NGHIEP, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label><b>Ngày sinh</b></label>
+                        <div class="col-md-10">
+                            @if (Model.NGAYSINH_BS == null)
+                            {
+
+                                @Html.EditorFor(model => model.NGAYSINH_BS, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+                            }
+                            else
+                            {
+                                @Html.EditorFor(model => model.NGAYSINH_BS, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.NGAYSINH_BS, "", new { @class = "text-danger" })
+                            }
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label><b>Kinh nghiệm</b></label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.KINH_NGHIEM, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.KINH_NGHIEM, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label><b>Ngày trực</b></label>
+                        <div class="col-md-10">
+                            @if (Model.NGAY_TRUC == null)
+                            {
+
+                                @Html.EditorFor(model => model.NGAY_TRUC, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+                            }
+                            else
+                            {
+                                @Html.EditorFor(model => model.NGAY_TRUC, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.NGAY_TRUC, "", new { @class = "text-danger" })
+                            }
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label><b>Chuyên khoa</b></label>
+                        <div class="col-md-10">
+                            @Html.DropDownList("ID_KHOA", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.ID_KHOA, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="col-md-push-12 col-md-5">
+                        <button type="submit" class="button" style="vertical-align:middle"><span>Xác nhận </span></button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</body>
+</html>
+<script>
+    function readPicture(input) {
+        if (input.files && input.files[0])
+            var reader = new FileReader();
+        reader.onload = function (e) {
+            $('img#Picture').attr('src', e.target.result)
+        };
+        reader.readAsDataURL(input.files[0])
+    }
+</script>
