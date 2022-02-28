@@ -26,6 +26,7 @@ body {
         height: 100%;
         object-fit: cover;
     }
+
     .card-body {
         padding: 85px 60px 60px;
 
@@ -61,7 +62,7 @@ body {
 
     .login-btn {
         padding: 13px 20px 12px;
-        background-color: #000;
+        background-color: #7e9deb;
         border-radius: 4px;
         font-size: 17px;
         font-weight: bold;
@@ -70,7 +71,7 @@ body {
         margin-bottom: 24px;
 
         &:hover {
-            border: 1px solid #000;
+            border: 1px solid #7e9deb;
             background-color: transparent;
             color: #000;
         }

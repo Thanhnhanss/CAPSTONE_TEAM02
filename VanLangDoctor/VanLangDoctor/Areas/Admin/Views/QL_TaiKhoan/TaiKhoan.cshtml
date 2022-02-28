@@ -1,0 +1,81 @@
+﻿@model IEnumerable<VanLangDoctor.Models.AspNetUser>
+
+@{
+    ViewBag.Title = "Tài khoản";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-wrapper" style="display: block">
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-7 align-self-center">
+                <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">@ViewBag.Title</h4>
+                <div class="d-flex align-items-center">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb m-0 p-0">
+                            <li class="breadcrumb-item"><a href="/trang-chu-quan-ly" class="text-muted">Trang chủ</a></li>
+                            <li class="breadcrumb-item text-muted active" aria-current="page">@ViewBag.Title</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            @if (TempData["Success"] != null)
+                            {
+                                <div class="alert alert-success alert-dismissible bg-success text-white border-0 fade show" role="alert" id="successMessage">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true" style=" float: right; margin-top: -10px">×</span>
+                                    </button>
+                                    <strong>@TempData["Success"]</strong>
+                                </div>
+                            }
+                            <table id="zero_config" class="table table-striped table-bordered no-wrap">
+                                 <thead>
+                                     <tr>
+                                         <th>Email</th>
+                                         <th>Quyền</th>
+                                         <th></th>
+                                     </tr>
+                                </thead>
+                                 <tbody>
+                                     @foreach (var item in Model)
+                                     {
+                                         <tr>
+                                             <td>
+                                                 @item.Email
+                                             </td>
+                                             @if (item.AspNetRoles.ToList().Count == 0)
+                                             {
+                                                 <td>Sinh Viên</td>
+                                             }
+                                             else
+                                             {
+                                                 <td>@item.AspNetRoles.ToList()[0].Name</td>
+                                             }
+                                             <td>
+                                                 <a href="~/Admin/QL_TaiKhoan/PhanQuyen?username=@item.Email"><i class="ti-pencil"></i>Phân quyền</a>
+                                             </td>
+                                         </tr>
+                                     }
+                                 </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

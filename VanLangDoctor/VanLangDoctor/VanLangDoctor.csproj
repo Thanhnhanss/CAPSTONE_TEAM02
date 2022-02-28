@@ -194,6 +194,7 @@
     <Compile Include="Areas\Admin\Controllers\QL_BenhNhanController.cs" />
     <Compile Include="Areas\Admin\Controllers\QL_DangKyTVVController.cs" />
     <Compile Include="Areas\Admin\Controllers\QL_DonThuocController.cs" />
+    <Compile Include="Areas\Admin\Controllers\QL_TaiKhoanController.cs" />
     <Compile Include="Areas\Admin\Controllers\QL_ThuocController.cs" />
     <Compile Include="Areas\Admin\Controllers\QL_TinTucController.cs" />
     <Compile Include="Areas\User\Controllers\CapnhatTKController.cs" />
@@ -1167,6 +1168,10 @@
     <Content Include="Content\dist-ad\js\sidebarmenu.js" />
     <Content Include="Content\dist-ad\js\sidebarmenu.min.js" />
     <Content Include="Content\info-dr.css" />
+    <Content Include="Content\assets-ff\images\banner\login_bg1.jpg" />
+    <Content Include="Content\assets-ff\images\banner\login_bg2.jpg" />
+    <Content Include="Content\assets-ff\images\banner\login_bg3.jpg" />
+    <Content Include="Content\assets-ff\images\banner\login_bg4.jpg" />
     <Content Include="Content\Template_Email\SendMailCF.html" />
     <Content Include="Content\Template_Email\template.html" />
     <Content Include="Content\Template_Email\images\image-1.png" />
@@ -1784,6 +1789,8 @@
     <Content Include="Areas\Admin\Views\QL_TinTuc\Index.cshtml" />
     <Content Include="Areas\User\Views\TinTuc\Tin_Tuc.cshtml" />
     <Content Include="Areas\User\Views\TinTuc\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_TaiKhoan\PhanQuyen.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_TaiKhoan\TaiKhoan.cshtml" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

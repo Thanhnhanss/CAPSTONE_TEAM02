@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "Phân quyền";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-wrapper" style="display: block">
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-7 align-self-center">
+                <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">@ViewBag.Title</h4>
+                <div class="d-flex align-items-center">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb m-0 p-0">
+                            <li class="breadcrumb-item"><a href="/trang-chu-quan-ly" class="text-muted">Trang chủ</a></li>
+                            <li class="breadcrumb-item text-muted active" aria-current="page">@ViewBag.Title</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <form method="post">
+                            @Html.AntiForgeryToken()
+                            <div class="row">
+                                <div class="col-6">
+                                    <label>Email</label>
+                                    <input type="text" class="form-control" placeholder="" readonly="" value="@ViewBag.user" name="username">
+                                </div>
+
+                                <div class="col-6">
+                                    <label>Quyền</label>
+                                    <select name="role" class="form-control fill">
+                                        @foreach (var role in Model)
+                                        {
+                                            if (role.Id == ViewBag.role)
+                                            {
+                                                <option value="@role.Id" selected>@role.Name</option>
+                                            }
+                                            else
+                                            {
+                                                <option value="@role.Id">@role.Name</option>
+                                            }
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="button" style="vertical-align:middle"><span>Lưu</span></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
