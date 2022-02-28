@@ -34,6 +34,8 @@
         <AssociationConnector Association="CP24Team02Model.FK_THUOC_DT" />
         <AssociationConnector Association="CP24Team02Model.FK_THUOC_NHA_SAN_XUAT" />
         <AssociationConnector Association="CP24Team02Model.AspNetUserRoles" />
+        <EntityTypeShape EntityType="CP24Team02Model.DANH_MUC_TIN" Width="1.5" PointX="0.75" PointY="14.875" />
+        <AssociationConnector Association="CP24Team02Model.FK_TIN_TUC_DANH_MUC_TIN" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

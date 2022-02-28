@@ -41,5 +41,6 @@ namespace VanLangDoctor.Models
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<THUOC> THUOCs { get; set; }
         public virtual DbSet<TIN_TUC> TIN_TUC { get; set; }
+        public virtual DbSet<DANH_MUC_TIN> DANH_MUC_TIN { get; set; }
     }
 }

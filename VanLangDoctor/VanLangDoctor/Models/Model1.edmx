@@ -120,6 +120,13 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DanhMuc" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
+        <EntityType Name="DANH_MUC_TIN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Danhmuc_tin" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="DON_THUOC">
           <Key>
             <PropertyRef Name="ID_DON_THUOC" />
@@ -191,6 +198,7 @@
           <Property Name="SEO_TITLE" Type="nvarchar(max)" />
           <Property Name="HINH_ANH" Type="nvarchar(max)" />
           <Property Name="CountViews" Type="int" Nullable="false" />
+          <Property Name="ID_Danhmuc_tin" Type="int" />
         </EntityType>
         <Association Name="FK_BAC_SI">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
@@ -368,6 +376,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_TIN_TUC_DANH_MUC_TIN">
+          <End Role="DANH_MUC_TIN" Type="Self.DANH_MUC_TIN" Multiplicity="0..1" />
+          <End Role="TIN_TUC" Type="Self.TIN_TUC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DANH_MUC_TIN">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TIN_TUC">
+              <PropertyRef Name="ID_Danhmuc_tin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="CP24Team02ModelStoreContainer">
           <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
@@ -379,6 +399,7 @@
           <EntitySet Name="BENH_NHAN" EntityType="Self.BENH_NHAN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DANG_KY" EntityType="Self.DANG_KY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DANH_MUC_THUOC" EntityType="Self.DANH_MUC_THUOC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DANH_MUC_TIN" EntityType="Self.DANH_MUC_TIN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DON_THUOC" EntityType="Self.DON_THUOC" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="KHOA" EntityType="Self.KHOA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NHA_SAN_XUAT" EntityType="Self.NHA_SAN_XUAT" Schema="dbo" store:Type="Tables" />
@@ -441,6 +462,10 @@
           <AssociationSet Name="FK_THUOC_NHA_SAN_XUAT" Association="Self.FK_THUOC_NHA_SAN_XUAT">
             <End Role="NHA_SAN_XUAT" EntitySet="NHA_SAN_XUAT" />
             <End Role="THUOC" EntitySet="THUOC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TIN_TUC_DANH_MUC_TIN" Association="Self.FK_TIN_TUC_DANH_MUC_TIN">
+            <End Role="DANH_MUC_TIN" EntitySet="DANH_MUC_TIN" />
+            <End Role="TIN_TUC" EntitySet="TIN_TUC" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -515,6 +540,11 @@
           <AssociationSet Name="AspNetUserRoles" Association="CP24Team02Model.AspNetUserRoles">
             <End Role="AspNetRole" EntitySet="AspNetRoles" />
             <End Role="AspNetUser" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <EntitySet Name="DANH_MUC_TIN" EntityType="CP24Team02Model.DANH_MUC_TIN" />
+          <AssociationSet Name="FK_TIN_TUC_DANH_MUC_TIN" Association="CP24Team02Model.FK_TIN_TUC_DANH_MUC_TIN">
+            <End Role="DANH_MUC_TIN" EntitySet="DANH_MUC_TIN" />
+            <End Role="TIN_TUC" EntitySet="TIN_TUC" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="C__MigrationHistory">
@@ -721,6 +751,8 @@
           <Property Name="SEO_TITLE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="HINH_ANH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="CountViews" Type="Int32" Nullable="false" />
+          <Property Name="ID_Danhmuc_tin" Type="Int32" />
+          <NavigationProperty Name="DANH_MUC_TIN" Relationship="CP24Team02Model.FK_TIN_TUC_DANH_MUC_TIN" FromRole="TIN_TUC" ToRole="DANH_MUC_TIN" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Type="CP24Team02Model.AspNetUser" Role="AspNetUser" Multiplicity="1">
@@ -873,6 +905,26 @@
         <Association Name="AspNetUserRoles">
           <End Type="CP24Team02Model.AspNetRole" Role="AspNetRole" Multiplicity="*" />
           <End Type="CP24Team02Model.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+        </Association>
+        <EntityType Name="DANH_MUC_TIN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Danhmuc_tin" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TIN_TUC" Relationship="CP24Team02Model.FK_TIN_TUC_DANH_MUC_TIN" FromRole="DANH_MUC_TIN" ToRole="TIN_TUC" />
+        </EntityType>
+        <Association Name="FK_TIN_TUC_DANH_MUC_TIN">
+          <End Type="CP24Team02Model.DANH_MUC_TIN" Role="DANH_MUC_TIN" Multiplicity="0..1" />
+          <End Type="CP24Team02Model.TIN_TUC" Role="TIN_TUC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DANH_MUC_TIN">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TIN_TUC">
+              <PropertyRef Name="ID_Danhmuc_tin" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
       </Schema>
     </edmx:ConceptualModels>
@@ -1061,6 +1113,7 @@
           <EntitySetMapping Name="TIN_TUC">
             <EntityTypeMapping TypeName="CP24Team02Model.TIN_TUC">
               <MappingFragment StoreEntitySet="TIN_TUC">
+                <ScalarProperty Name="ID_Danhmuc_tin" ColumnName="ID_Danhmuc_tin" />
                 <ScalarProperty Name="CountViews" ColumnName="CountViews" />
                 <ScalarProperty Name="HINH_ANH" ColumnName="HINH_ANH" />
                 <ScalarProperty Name="SEO_TITLE" ColumnName="SEO_TITLE" />
@@ -1080,6 +1133,14 @@
               <ScalarProperty Name="Id" ColumnName="RoleId" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="DANH_MUC_TIN">
+            <EntityTypeMapping TypeName="CP24Team02Model.DANH_MUC_TIN">
+              <MappingFragment StoreEntitySet="DANH_MUC_TIN">
+                <ScalarProperty Name="Danhmuc_tin" ColumnName="Danhmuc_tin" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

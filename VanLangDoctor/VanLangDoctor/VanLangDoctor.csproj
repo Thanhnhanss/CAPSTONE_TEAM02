@@ -237,6 +237,9 @@
     <Compile Include="Models\DANH_MUC_THUOC.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DANH_MUC_TIN.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DON_THUOC.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

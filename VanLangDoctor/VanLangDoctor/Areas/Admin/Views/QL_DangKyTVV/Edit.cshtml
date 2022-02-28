@@ -86,7 +86,7 @@
                             @Html.TextAreaFor(model => model.MUC_TIEU, htmlAttributes: new { @class = "form-control", @readonly = true })<br />
                             <div class="form-group">
                                 <h4>Ứng tuyển vào khoa:</h4>
-                                <div class="col-sm-offset-1 col-md-10">
+                                <div class="col-sm-offset-1 col-md-12">
                                     @Html.DropDownList("ID_KHOA", null, htmlAttributes: new { @class = "form-control", @readonly = true })
                                     @Html.ValidationMessageFor(model => model.ID_KHOA, "", new { @class = "text-danger" })
                                 </div>

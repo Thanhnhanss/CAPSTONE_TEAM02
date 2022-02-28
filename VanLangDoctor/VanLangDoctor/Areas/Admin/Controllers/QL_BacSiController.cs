@@ -56,9 +56,13 @@ namespace VanLangDoctor.Areas.Admin.Controllers
                         scope.Complete();
                     }
                 }
-                else ModelState.AddModelError("", "Hình ảnh không được tìm thấy");
+                else if(picture == null)
+                {
+                    ModelState.AddModelError("", "Hình ảnh không được tìm thấy");
+                    TempData["Failed"] = "Không tìm thấy hình ảnh";
+                    return RedirectToAction("Create");
+                }
             }
-
             ViewBag.ID_Email = new SelectList(db.AspNetUsers, "Id", "Email", bACSI.ID_Email);
             ViewBag.ID_KHOA = new SelectList(db.KHOAs, "ID_KHOA", "TEN_KHOA", bACSI.ID_KHOA);
             TempData["Success"] = "Thêm bác sĩ thành công";
@@ -102,7 +106,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
                             var path = Server.MapPath(PICTURE_PATH);
                             picture.SaveAs(path + bACSI.ID_BACSI);
                         }
-
+                        
                         scope.Complete();
                         TempData["Success"] = "Cập nhật bác sĩ thành công";
                         return RedirectToAction("DanhSach_BS");
