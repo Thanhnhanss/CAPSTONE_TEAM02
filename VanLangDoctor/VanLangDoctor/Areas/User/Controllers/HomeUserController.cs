@@ -14,5 +14,9 @@ namespace VanLangDoctor.Areas.User.Controllers
         {
             return View();
         }
+        public ActionResult GioiThieu()
+        {
+            return View();
+        }
     }
 }
