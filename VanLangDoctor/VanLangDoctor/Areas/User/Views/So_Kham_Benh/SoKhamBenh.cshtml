@@ -1,0 +1,34 @@
+﻿@model IEnumerable<VanLangDoctor.Models.SO_KHAM_BENH>
+
+@{
+    ViewBag.Title = "SoKhamBenh";
+    Layout = "~/Areas/User/Views/Shared/_Layout.cshtml";
+}
+
+<h2>SoKhamBenh</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BENH_NHAN.TEN_BN)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BENH_NHAN.TEN_BN)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID_SOKHAMBENH }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID_SOKHAMBENH }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_SOKHAMBENH })
+        </td>
+    </tr>
+}
+
+</table>

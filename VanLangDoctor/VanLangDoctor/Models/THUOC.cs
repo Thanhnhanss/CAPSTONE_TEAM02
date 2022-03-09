@@ -29,8 +29,8 @@ namespace VanLangDoctor.Models
         public Nullable<int> ID_DANHMUC { get; set; }
     
         public virtual DANH_MUC_THUOC DANH_MUC_THUOC { get; set; }
+        public virtual NHA_SAN_XUAT NHA_SAN_XUAT { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DON_THUOC> DON_THUOC { get; set; }
-        public virtual NHA_SAN_XUAT NHA_SAN_XUAT { get; set; }
     }
 }

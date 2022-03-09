@@ -68,31 +68,40 @@
                                     {
                                         <tr>
                                             <td>
-                                                <a href="@Url.Action("Edit", new { id = item.ID_THUOC})">@Html.DisplayFor(modelItem => item.TEN_THUOC)</a>
+                                                <a href="@Url.Action("Edit", new { id = item.ID_THUOC})" title="@item.TEN_THUOC">
+                                                    @if (item.TEN_THUOC != null && item.TEN_THUOC.Length > 20)
+                                                    {
+                                                        @item.TEN_THUOC.Substring(0, 20)<span>...</span>
+                                                    }
+                                                    else
+                                                    {
+                                                        @item.TEN_THUOC
+                                                    }
+                                                </a>
                                             </td>
                                             <td>
                                                 @Html.DisplayFor(modelItem => item.LIEU_LUONG)
                                             </td>
                                             <td>
-                                                @if (item.MO_TA != null && item.MO_TA.Length > 50)
+                                                @if (item.MO_TA != null && item.MO_TA.Length > 25)
                                                 {
-                                                    @item.MO_TA.Substring(0, 50)<span>...</span>
+                                                    <span title="@item.MO_TA">@item.MO_TA.Substring(0, 25)</span><span>...</span>
                                                 }
                                                 else
                                                 {
-                                                    @item.MO_TA
+                                                    <span title="@item.MO_TA">@item.MO_TA</span>
                                                 }
                                             </td>
                                             <td style="text-align:center">
                                                 <a href="@Url.Action("Details", new { id = item.ID_THUOC})">
-                                                    <img src="@Url.Action("Picture", new {item.ID_THUOC})" width="55" height="55" />
+                                                    <img src="@Url.Action("Picture", new {item.ID_THUOC})" title="@item.TEN_THUOC" width="55" height="55" />
                                                 </a>
                                             </td>
+                                           
                                             <td>
                                                 @Html.DisplayFor(modelItem => item.NHA_SAN_XUAT.TEN_NSX)
                                             </td>
                                             <td>
-                                                <a href="@Url.Action("Details", new { id = item.ID_THUOC})"><i class="ti-eye"></i></a>
                                                 <a href="@Url.Action("Edit", new { id = item.ID_THUOC})"><i class="ti-pencil"></i></a>
                                                 <a href="@Url.Action("Delete", new { id = item.ID_THUOC})"><i class="ti-trash"></i></a>
                                             </td>

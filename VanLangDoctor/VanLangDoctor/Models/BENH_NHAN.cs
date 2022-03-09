@@ -12,9 +12,14 @@ namespace VanLangDoctor.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-
     public partial class BENH_NHAN
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public BENH_NHAN()
+        {
+            this.SO_KHAM_BENH = new HashSet<SO_KHAM_BENH>();
+        }
+
         public int ID_BENH_NHAN { get; set; }
         [Required(ErrorMessage = "Hãy nhập tên")]
         public string TEN_BN { get; set; }
@@ -29,9 +34,9 @@ namespace VanLangDoctor.Models
         [Required(ErrorMessage = "Hãy nhập địa chỉ hiện tại")]
         public string DIA_CHI { get; set; }
         public string ID_EMAIL { get; set; }
-        public int ID_SOKHAMBENH { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }
-        public virtual SO_KHAM_BENH SO_KHAM_BENH { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SO_KHAM_BENH> SO_KHAM_BENH { get; set; }
     }
 }

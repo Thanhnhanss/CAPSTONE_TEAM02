@@ -1,0 +1,64 @@
+﻿@model IEnumerable<VanLangDoctor.Models.THUOC>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/User/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TEN_THUOC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LIEU_LUONG)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MO_TA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HINH_ANH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DANH_MUC_THUOC.DanhMuc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NHA_SAN_XUAT.TEN_NSX)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TEN_THUOC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LIEU_LUONG)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MO_TA)
+        </td>
+        <td>
+            <img src="@Url.Action("Picture", new {item.ID_THUOC})" width="55" height="55" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DANH_MUC_THUOC.DanhMuc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NHA_SAN_XUAT.TEN_NSX)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID_THUOC }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID_THUOC }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_THUOC })
+        </td>
+    </tr>
+}
+
+</table>

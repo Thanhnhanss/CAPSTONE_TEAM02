@@ -36,62 +36,83 @@
             </div>
         </div>
         <hr />
-        <form action="@Url.Action("Edit")" method="post" enctype="multipart/form-data">
-            @Html.AntiForgeryToken()
-            <div class="container">
-                <div class="form-horizontal">
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-body">
+                    <form action="@Url.Action("Edit")" method="post" enctype="multipart/form-data">
+                        @Html.AntiForgeryToken()
+                        <div class="container">
+                            <div class="form-horizontal">
 
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                    @Html.HiddenFor(model => model.ID_THUOC)
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                @Html.HiddenFor(model => model.ID_THUOC)
+                                <div class="form-group">
+                                    <label><b>Danh mục thuốc</b></label>
+                                    <div class="col-md-12">
+                                        @Html.DropDownList("ID_DANHMUC", null, htmlAttributes: new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.ID_DANHMUC, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
 
-                    <div class="form-group">
-                        <label><b>Tên thuốc</b></label>
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.TEN_THUOC, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.TEN_THUOC, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
+                                <div class="row">
+                                    <div class="col-8">
+                                        <div class="form-group">
+                                            <label><b>Tên thuốc</b></label>
+                                            <div class="col-md-12">
+                                                @Html.EditorFor(model => model.TEN_THUOC, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.TEN_THUOC, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
 
-                    <div class="form-group">
-                        <label><b>Liều lượng</b></label>
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.LIEU_LUONG, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.LIEU_LUONG, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
+                                        <div class="form-group">
+                                            <label><b>Liều lượng</b></label>
+                                            <div class="col-md-12">
+                                                @Html.EditorFor(model => model.LIEU_LUONG, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.LIEU_LUONG, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
 
-                    <div class="form-group">
-                        <label><b>Mô tả</b></label>
-                        <div class="col-md-10">
-                            <textarea cols="120" rows="10" name="MO_TA">@Model.MO_TA</textarea>
-                            @Html.ValidationMessageFor(model => model.MO_TA, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
+                                        <div class="form-group">
+                                            <label><b>Nhà sản xuất</b></label>
+                                            <div class="col-12">
+                                                @Html.DropDownList("ID_NSX", null, htmlAttributes: new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.ID_NSX, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
 
-                    <div class="form-group">
-                        <label><b>Nhà sản xuất</b></label>
-                        <div class="col-md-10">
-                            @Html.DropDownList("ID_NSX", null, htmlAttributes: new { @class = "form-control" })
-                            @Html.ValidationMessageFor(model => model.ID_NSX, "", new { @class = "text-danger" })
+                                    <div class="col-4">
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label><b>Hình ảnh</b></label>
+                                                <input class="form-control" type="file" name="Picture" id="IMG" onchange="readPicture(this)" accept="image/jpeg,image/gif,image/png" />
+                                                <br />
+                                                <img id="Picture" style="height: 250px; width: 250px; object-fit: contain; border-radius: 50%; border: 3px solid #0af; background-color: #000000"
+                                                     src="@Url.Action("Picture", new {Model.ID_THUOC})" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-12">
+                                    <label><b>Mô tả</b></label>
+                                    <div class="col-12">
+                                        <textarea cols="140" rows="3" name="MO_TA">@Model.MO_TA</textarea>
+                                        @Html.ValidationMessageFor(model => model.MO_TA, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="form-group float-right">
+                                    <div class="col-10">
+                                        <button type="submit" class="button" style="vertical-align:middle"><span>Cập nhật </span></button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label><b>Hình ảnh</b></label>
-                            <input class="form-control" type="file" name="Picture" id="IMG" onchange="readPicture(this)" accept="image/jpeg,image/gif,image/png" />
-                            <br />
-                            <img id="Picture" style="height: 250px; width: 250px; object-fit: contain; border-radius: 50%; border: 3px solid #0af; background-color: #000000"
-                                 src="@Url.Action("Picture", new {Model.ID_THUOC})" />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <button type="submit" class="button" style="vertical-align:middle"><span>Cập nhật </span></button>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
-        </form>
+        </div>
     </div>
 </body>
 </html>

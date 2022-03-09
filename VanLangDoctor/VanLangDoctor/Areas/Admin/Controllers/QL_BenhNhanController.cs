@@ -59,7 +59,6 @@ namespace VanLangDoctor.Areas.Admin.Controllers
             }
 
             ViewBag.ID_EMAIL = new SelectList(db.AspNetUsers, "Id", "Email", bENH_NHAN.ID_EMAIL);
-            ViewBag.ID_SOKHAMBENH = new SelectList(db.SO_KHAM_BENH, "ID_SOKHAMBENH", "KET_QUA", bENH_NHAN.ID_SOKHAMBENH);
             return View(bENH_NHAN);
         }
 
@@ -76,7 +75,6 @@ namespace VanLangDoctor.Areas.Admin.Controllers
                 return HttpNotFound();
             }
             ViewBag.ID_EMAIL = new SelectList(db.AspNetUsers, "Id", "Email", bENH_NHAN.ID_EMAIL);
-            ViewBag.ID_SOKHAMBENH = new SelectList(db.SO_KHAM_BENH, "ID_SOKHAMBENH", "KET_QUA", bENH_NHAN.ID_SOKHAMBENH);
             return View(bENH_NHAN);
         }
 
@@ -94,7 +92,6 @@ namespace VanLangDoctor.Areas.Admin.Controllers
                 return RedirectToAction("DanhSach_BN");
             }
             ViewBag.ID_EMAIL = new SelectList(db.AspNetUsers, "Id", "Email", bENH_NHAN.ID_EMAIL);
-            ViewBag.ID_SOKHAMBENH = new SelectList(db.SO_KHAM_BENH, "ID_SOKHAMBENH", "KET_QUA", bENH_NHAN.ID_SOKHAMBENH);
             return View(bENH_NHAN);
         }
 

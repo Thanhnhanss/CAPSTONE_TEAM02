@@ -64,7 +64,7 @@
                                             <th>Giới tính</th>
                                             <th>Ngày sinh</th>
                                             <th>Địa chỉ</th>
-                                            <th>Sổ bệnh án</th>
+                                            <th>Sổ khám bệnh</th>
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -78,11 +78,13 @@
                                                 <td>@item.GIOI_TINH</td>
                                                 <td>@Html.FormatValue(item.NGAY_SINH, "{0:d}")</td>
                                                 <td>@item.DIA_CHI</td>
-                                                <td>
-                                                    @if (@item.ID_BENH_AN == null)
+                                                <td style="text-align:center">
+                                                    @if (@item.SO_KHAM_BENH == null)
                                                     {<span>Chưa có dữ liệu</span> }
                                                     else
-                                                    {@item.ID_BENH_AN}
+                                                    {
+                                                        <a href="@Url.Action("Details", "QL_DonThuoc", new { id = item.ID_BENH_NHAN})"><i class="icon-book-open" title="Chi tiết sổ khám bệnh"></i></a>
+                                                    }
                                                 </td>
                                                 <td>
                                                     <a href="@Url.Action("Delete", "QL_BenhNhan", new { id = item.ID_BENH_NHAN })"><i class="ti-trash"></i></a>
@@ -98,7 +100,7 @@
                                             <th>Email</th>
                                             <th>Số điện thoại</th>
                                             <th>Địa chỉ</th>
-                                            <th>Sổ bệnh án</th>
+                                            <th>Sổ khám bệnh</th>
                                             <th></th>
                                         </tr>
                                     </tfoot>

@@ -46,21 +46,21 @@
                             <div class="card-body">
                                 <h4 class="card-title mb-3">Thông tin chi tiết</h4>
                                 <ul class="nav nav-tabs mb-3">
-                                    <li class="nav-item">
-                                        <a href="#chitiet" data-toggle="tab" aria-expanded="true" class="nav-link">
+                                    <li class="nav-item active">
+                                        <a href="#chitiet" data-toggle="tab" aria-expanded="true" class="nav-link active">
                                             <i class="mdi mdi-home-variant d-lg-none d-block mr-1"></i>
                                             <span class="d-none d-lg-block">Chi tiết</span>
                                         </a>
                                     </li>
-                                    <li class="nav-item active">
-                                        <a href="#mota" data-toggle="tab" aria-expanded="true" class="nav-link active">
+                                    <li class="nav-item ">
+                                        <a href="#mota" data-toggle="tab" aria-expanded="true" class="nav-link ">
                                             <i class="mdi mdi-account-circle d-lg-none d-block mr-1"></i>
                                             <span class="d-none d-lg-block">Mô tả</span>
                                         </a>
                                     </li>
                                 </ul>
                                 <div class="tab-content">
-                                    <div class="tab-pane show" id="chitiet">
+                                    <div class="tab-pane active" id="chitiet">
                                         <p>
                                             <strong>Tên thuốc: </strong> @Model.TEN_THUOC
                                         </p>
@@ -70,8 +70,11 @@
                                         <p>
                                             <strong>Nhà sản xuất: </strong> @Html.DisplayFor(model => model.NHA_SAN_XUAT.TEN_NSX)
                                         </p>
+                                        <p>
+                                            <strong>Danh mục thuốc: </strong>@Html.DisplayFor(model => model.DANH_MUC_THUOC.DanhMuc)
+                                        </p>
                                     </div>
-                                    <div class="tab-pane active" id="mota">
+                                    <div class="tab-pane show" id="mota">
                                         <p>
                                             <strong>@Model.MO_TA</strong>
                                         </p>

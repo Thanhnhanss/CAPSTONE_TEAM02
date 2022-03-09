@@ -38,60 +38,92 @@
             </div>
         </div>
         <hr />
-        <form action="@Url.Action("Create")" method="post" enctype="multipart/form-data">
-            @Html.AntiForgeryToken()
-            <div class="container">
-                <div class="form-horizontal">
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                    <div class="form-group">
-                        <label><b>Tên thuốc</b></label>
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.TEN_THUOC, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.TEN_THUOC, "", new { @class = "text-danger" })
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-body">
+                    @if (TempData["Failed"] != null)
+                    {
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true" style=" float: right; margin-top: -10px">×</span>
+                            </button>
+                            <span><strong>@TempData["Failed"]</strong></span>
                         </div>
-                    </div>
+                    }
+                    <form action="@Url.Action("Create")" method="post" enctype="multipart/form-data">
+                        @Html.AntiForgeryToken()
+                        <div class="container">
+                            <div class="form-horizontal">
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="form-group">
+                                    <label><b>Danh mục thuốc</b></label>
+                                    <div class="col-md-12">
+                                        @Html.DropDownList("ID_DANHMUC", null, htmlAttributes: new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.ID_DANHMUC, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
 
-                    <div class="form-group">
-                        <label><b>Liều lượng</b></label>
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.LIEU_LUONG, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.LIEU_LUONG, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
+                                <div class="row">
+                                    <div class="col-8">
+                                        <div class="form-group">
+                                            <label><b>Tên thuốc</b></label>
+                                            <div class="col-md-12">
+                                                @Html.EditorFor(model => model.TEN_THUOC, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.TEN_THUOC, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
 
-                    <div class="form-group">
-                        <label><b>Mô tả</b></label>
-                        <div class="col-md-10">
-                            <textarea cols="120" rows="10" name="MO_TA"></textarea>
-                            @Html.ValidationMessageFor(model => model.MO_TA, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
+                                        <div class="form-group">
+                                            <label><b>Liều lượng</b></label>
+                                            <div class="col-md-12">
+                                                @Html.EditorFor(model => model.LIEU_LUONG, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.LIEU_LUONG, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
 
-                    <div class="form-group">
-                        <label><b>Nhà sản xuất</b></label>
-                        <div class="col-md-10">
-                            @Html.DropDownList("ID_NSX", null, htmlAttributes: new { @class = "form-control" })
-                            @Html.ValidationMessageFor(model => model.ID_NSX, "", new { @class = "text-danger" })
+                                        <div class="form-group">
+                                            <label><b>Nhà sản xuất</b></label>
+                                            <div class="col-12">
+                                                @Html.DropDownList("ID_NSX", null, htmlAttributes: new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.ID_NSX, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-4">
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label><b>Hình ảnh</b></label>
+                                                <input class="form-control" type="file" name="Picture" id="IMG" onchange="readPicture(this)" accept="image/jpeg,image/gif,image/png" />
+                                                <br />
+                                                <img id="Picture" style="height: 250px; width: 250px; object-fit: contain; border-radius: 50%; border: 3px solid #0af; background-color: #000000 " />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-12">
+                                    <label><b>Mô tả</b></label>
+                                    <div class="col-12">
+                                        <textarea cols="140" rows="3" name="MO_TA"></textarea>
+                                        @Html.ValidationMessageFor(model => model.MO_TA, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <button type="submit" class="button" style="vertical-align:middle"><span>Thêm mới </span></button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label><b>Hình ảnh</b></label>
-                            <input class="form-control" type="file" name="Picture" id="IMG" onchange="readPicture(this)" accept="image/jpeg,image/gif,image/png" />
-                            <br />
-                            <img id="Picture" style="height: 250px; width: 250px; object-fit: contain; border-radius: 50%; border: 3px solid #0af; background-color: #000000" />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <button type="submit" class="button" style="vertical-align:middle"><span>Thêm mới </span></button>
-                        </div>
-                    </div>
+                    </form>
+
                 </div>
             </div>
-        </form>
         </div>
-    </body>
+    </div>
+</body>
 </html>
 <script>
     tinymce.init({

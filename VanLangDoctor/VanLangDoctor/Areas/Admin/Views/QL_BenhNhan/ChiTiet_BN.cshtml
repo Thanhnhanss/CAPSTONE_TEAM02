@@ -101,11 +101,11 @@
                                     <div class="form-group">
                                         <label><b>Kết quả:</b></label>
                                         <div class="col-md-10">
-                                            @if (Model.ID_BENH_AN == null)
+                                            @if (Model.SO_KHAM_BENH == null)
                                             {<span>Chưa có dữ liệu</span>}
                                             else
                                             {
-                                                @Html.EditorFor(model => model.ID_BENH_AN, new { htmlAttributes = new { @readonly = true } })
+                                                @Html.EditorFor(model => model.SO_KHAM_BENH, new { htmlAttributes = new { @readonly = true } })
                                             }
                                         </div>
                                     </div>
