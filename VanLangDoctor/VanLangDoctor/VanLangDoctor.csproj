@@ -182,6 +182,7 @@
     <Compile Include="Areas\Admin\Controllers\QL_TinTucController.cs" />
     <Compile Include="Areas\User\Controllers\BacSiController.cs" />
     <Compile Include="Areas\User\Controllers\HomeUserController.cs" />
+    <Compile Include="Areas\User\Controllers\SoKhamBenhController.cs" />
     <Compile Include="Areas\User\Controllers\TinTucController.cs" />
     <Compile Include="Areas\User\UserAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -216,6 +217,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DANH_MUC_THUOC.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DANH_MUC_TIN.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DON_THUOC.cs">
@@ -930,6 +934,18 @@
     <Content Include="Content\assets-ff\vendor\range-price.css" />
     <Content Include="Content\assets-ff\vendor\settings.css" />
     <Content Include="Content\assets-ff\vendor\slick.css" />
+    <Content Include="Content\assets-news\Home.css" />
+    <Content Include="Content\assets-news\images\1.jpeg" />
+    <Content Include="Content\assets-news\images\2.jpeg" />
+    <Content Include="Content\assets-news\images\3.jpeg" />
+    <Content Include="Content\assets-news\images\billionphotos-1656913.jpg" />
+    <Content Include="Content\assets-news\images\billionphotos-1669933.jpg" />
+    <Content Include="Content\assets-news\images\billionphotos-3671911.jpg" />
+    <Content Include="Content\assets-news\images\default-image.jpg" />
+    <Content Include="Content\assets-news\images\default-logo.png" />
+    <Content Include="Content\assets-news\jquery.js" />
+    <Content Include="Content\assets-news\nicepage.css" />
+    <Content Include="Content\assets-news\nicepage.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -1038,13 +1054,6 @@
     <Content Include="Scripts\assets_Login\js\popper.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Content>
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\User\Views\web.config" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
@@ -1560,6 +1569,15 @@
     <Content Include="Areas\Admin\Views\QL_BacSi\Index.cshtml" />
     <Content Include="Areas\User\Views\TinTuc\Details.cshtml" />
     <Content Include="Areas\User\Views\TinTuc\Tin_Tuc.cshtml" />
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="Areas\User\Views\SoKhamBenh\SoKhamBenh.cshtml" />
+    <Content Include="Areas\User\Views\SoKhamBenh\DangKy.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

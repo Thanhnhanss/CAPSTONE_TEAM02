@@ -12,19 +12,18 @@ namespace VanLangDoctor.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class SO_KHAM_BENH
+    public partial class DANH_MUC_TIN
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public SO_KHAM_BENH()
+        public DANH_MUC_TIN()
         {
-            this.DON_THUOC = new HashSet<DON_THUOC>();
+            this.TIN_TUC = new HashSet<TIN_TUC>();
         }
     
-        public int ID_SOKHAMBENH { get; set; }
-        public Nullable<int> ID_BENH_NHAN { get; set; }
+        public int ID { get; set; }
+        public string Danhmuc_tin { get; set; }
     
-        public virtual BENH_NHAN BENH_NHAN { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DON_THUOC> DON_THUOC { get; set; }
+        public virtual ICollection<TIN_TUC> TIN_TUC { get; set; }
     }
 }

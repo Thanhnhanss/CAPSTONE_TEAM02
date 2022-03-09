@@ -17,6 +17,7 @@ namespace VanLangDoctor.Areas.User.Controllers
         // GET: User/TinTuc
         public ActionResult Tin_Tuc(TIN_TUC tIN_TUC)
         {
+            ViewBag.Top = GetTopViews();
             return View(db.TIN_TUC.ToList());
         }
 
