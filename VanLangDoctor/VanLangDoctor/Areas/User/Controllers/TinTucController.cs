@@ -15,7 +15,7 @@ namespace VanLangDoctor.Areas.User.Controllers
         private CP24Team02Entities db = new CP24Team02Entities();
 
         // GET: User/TinTuc
-        public ActionResult Tin_Tuc(TIN_TUC tIN_TUC)
+        public ActionResult Tin_Tuc()
         {
             ViewBag.Top = GetTopViews();
             return View(db.TIN_TUC.ToList());

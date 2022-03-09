@@ -45,14 +45,14 @@
             
             <div id="left" class="u-blog u-blog-1">
                 <div class="u-repeater u-repeater-1">
-                    @foreach (var n in Model)
+                    @foreach (var n in Model.Take(3))
                     {
                         <!--blog_post-->
                         <div class="u-blog-post u-container-style u-repeater-item">
                             <div class="u-container-layout u-similar-container u-valign-top u-container-layout-3">
                                 <a class="u-post-header-link" href="@Url.Action("Details", "TinTuc", new { id = n.ID_TIN_TUC })">
                                     <!--blog_post_image-->
-                                    <img src="~/Content/assets-news/images/default-image.jpg" alt="" class="u-blog-control u-image u-image-default u-image-1"><!--/blog_post_image-->
+                                    <img src="@Url.Action("Picture", new {n.ID_TIN_TUC})" alt="" class="u-blog-control u-image u-image-default u-image-1"><!--/blog_post_image-->
                                 </a><!--blog_post_header-->
                                 <h2 class="u-blog-control u-text u-text-4">
                                     <a class="u-post-header-link" href="@Url.Action("Details", "TinTuc", new { id = n.ID_TIN_TUC })">
@@ -98,7 +98,7 @@
                     {
                         <div class="u-container-style u-custom-item u-list-item u-palette-2-light-1 u-repeater-item u-list-item-1">
                             <div class="u-container-layout u-similar-container u-container-layout-1">
-                                <img alt="" class="u-expanded-width u-image u-image-default u-image-1" data-image-width="500" data-image-height="333" src="~/Content/assets-news/images/billionphotos-1656913.jpg">
+                                <img alt="" class="u-expanded-width u-image u-image-default u-image-1" data-image-width="500" data-image-height="333" src="@Url.Action("Picture", new {a.ID_TIN_TUC})">
                                 <h3 class="u-text u-text-default u-text-2">@a.TEN_BAI_VIET</h3>
                                 <p class="u-text u-text-3">Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
                                 <a href="@Url.Action("Details", "TinTuc", new { id = a.ID_TIN_TUC })" class="u-active-none u-border-2 u-border-active-white u-border-hover-white u-border-white u-btn u-button-style u-custom-item u-hover-none u-none u-text-body-alt-color u-btn-1">
