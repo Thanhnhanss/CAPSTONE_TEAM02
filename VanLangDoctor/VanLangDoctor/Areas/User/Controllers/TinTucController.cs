@@ -15,8 +15,9 @@ namespace VanLangDoctor.Areas.User.Controllers
         private CP24Team02Entities db = new CP24Team02Entities();
 
         // GET: User/TinTuc
-        public ActionResult Tin_Tuc(TIN_TUC tIN_TUC)
+        public ActionResult Tin_Tuc()
         {
+            ViewBag.Top = GetTopViews();
             return View(db.TIN_TUC.ToList());
         }
 
@@ -40,9 +41,18 @@ namespace VanLangDoctor.Areas.User.Controllers
             {
                 return HttpNotFound();
             }
+            tIN_TUC.CountViews += 1;
+            db.SaveChanges();
+            ViewBag.Top = GetTopViews();
             return View(tIN_TUC);
         }
-        
+
+        //GET: Top Views
+        private List<TIN_TUC> GetTopViews()
+        {
+            return db.TIN_TUC.OrderByDescending(t => t.CountViews).Take(3).ToList();
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
