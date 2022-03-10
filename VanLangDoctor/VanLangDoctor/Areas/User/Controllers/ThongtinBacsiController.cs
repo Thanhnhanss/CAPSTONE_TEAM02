@@ -24,12 +24,12 @@ namespace VanLangDoctor.Areas.User.Controllers
 
         // GET: Admin/BACSIs/Details/5
         
-        public ActionResult thongtinbacsi(int id)
+        public ActionResult thongtinbacsi(int? id)
         {
-            //if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             BACSI bACSI = db.BACSIs.Find(id);
             if (bACSI == null)
             {

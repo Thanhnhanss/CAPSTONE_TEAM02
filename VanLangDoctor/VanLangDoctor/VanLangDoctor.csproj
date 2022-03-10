@@ -199,7 +199,6 @@
     <Compile Include="Areas\User\Controllers\CapnhatTKController.cs" />
     <Compile Include="Areas\User\Controllers\DANG_KYController.cs" />
     <Compile Include="Areas\User\Controllers\HomeUserController.cs" />
-    <Compile Include="Areas\User\Controllers\SKBController.cs" />
     <Compile Include="Areas\User\Controllers\So_Kham_BenhController.cs" />
     <Compile Include="Areas\User\Controllers\ThongtinBacsiController.cs" />
     <Compile Include="Areas\User\Controllers\ThuocController.cs" />
@@ -288,7 +287,16 @@
   <ItemGroup>
     <Content Include="bin\VanLangDoctor.dll" />
     <Content Include="bin\VanLangDoctor.pdb" />
+    <Content Include="Content\asset-dr-inf\css\nicepage.css" />
     <Content Include="Content\asset-dr-inf\css\style.css" />
+    <Content Include="Content\asset-dr-inf\css\ViewDetailDoctor.css" />
+    <Content Include="Content\asset-dr-inf\images\1.jpeg" />
+    <Content Include="Content\asset-dr-inf\images\2.jpeg" />
+    <Content Include="Content\asset-dr-inf\images\3.jpeg" />
+    <Content Include="Content\asset-dr-inf\images\5.png" />
+    <Content Include="Content\asset-dr-inf\images\6.png" />
+    <Content Include="Content\asset-dr-inf\images\7.png" />
+    <Content Include="Content\asset-dr-inf\images\839ca099-1e2b-1220-d705-f157a9c6f43b1.jpg" />
     <Content Include="Content\asset-dr-inf\images\about\05.png" />
     <Content Include="Content\asset-dr-inf\images\about\1.png" />
     <Content Include="Content\asset-dr-inf\images\about\2.png" />
@@ -317,6 +325,8 @@
     <Content Include="Content\asset-dr-inf\images\blog\blog-8.jpg" />
     <Content Include="Content\asset-dr-inf\images\blog\testimonial1.jpg" />
     <Content Include="Content\asset-dr-inf\images\blog\testimonial2.jpg" />
+    <Content Include="Content\asset-dr-inf\images\default-logo.png" />
+    <Content Include="Content\asset-dr-inf\images\fggf1.jpg" />
     <Content Include="Content\asset-dr-inf\images\logo.png" />
     <Content Include="Content\asset-dr-inf\images\service\bg-1.jpg" />
     <Content Include="Content\asset-dr-inf\images\service\service-1.jpg" />
@@ -334,6 +344,8 @@
     <Content Include="Content\asset-dr-inf\images\team\test-thumb3.jpg" />
     <Content Include="Content\asset-dr-inf\images\team\test-thumb4.jpg" />
     <Content Include="Content\asset-dr-inf\js\contact.js" />
+    <Content Include="Content\asset-dr-inf\js\jquery.js" />
+    <Content Include="Content\asset-dr-inf\js\nicepage.js" />
     <Content Include="Content\asset-dr-inf\js\script.js" />
     <Content Include="Content\asset-dr-inf\plugins\bootstrap\css\bootstrap.min.css" />
     <Content Include="Content\asset-dr-inf\plugins\bootstrap\js\bootstrap.js" />
@@ -1823,11 +1835,6 @@
     <Content Include="Areas\User\Views\Thuoc\Details.cshtml" />
     <Content Include="Areas\User\Views\Thuoc\Edit.cshtml" />
     <Content Include="Areas\User\Views\Thuoc\Index.cshtml" />
-    <Content Include="Areas\User\Views\SKB\Create.cshtml" />
-    <Content Include="Areas\User\Views\SKB\Delete.cshtml" />
-    <Content Include="Areas\User\Views\SKB\Details.cshtml" />
-    <Content Include="Areas\User\Views\SKB\Edit.cshtml" />
-    <Content Include="Areas\User\Views\SKB\Index.cshtml" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

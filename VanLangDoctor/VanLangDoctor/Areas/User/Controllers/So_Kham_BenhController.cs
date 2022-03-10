@@ -39,7 +39,6 @@ namespace VanLangDoctor.Areas.User.Controllers
             var skb = db.SO_KHAM_BENH.FirstOrDefault(s => s.ID_BENH_NHAN == sO_KHAM_BENH.ID_BENH_NHAN);
             if (ModelState.IsValid)
             {
-                skb = db.SO_KHAM_BENH.Find(id)
                 db.SO_KHAM_BENH.Add(sO_KHAM_BENH);
                 db.SaveChanges();
                 return RedirectToAction("SoKhamBenh");
