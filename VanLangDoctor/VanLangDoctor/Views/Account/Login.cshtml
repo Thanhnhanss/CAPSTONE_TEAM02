@@ -1,193 +1,73 @@
 ﻿@using VanLangDoctor.Models
 @model LoginViewModel
 @{
-    ViewBag.Title = "Log in";
-    Layout = null;
+    ViewBag.Title = "Đăng nhập";
 }
 
-<style>
-    body {
-        background-color: #1cbb9b;
-    }
-
-    .login-box {
-        position: relative;
-        margin: 10px auto;
-        width: 500px;
-        height: 380px;
-        background-color: #fff;
-        padding: 10px;
-        border-radius: 3px;
-        -webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
-        -moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
-        box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
-    }
-
-    .lb-header {
-        position: relative;
-        color: #00415d;
-        margin: 5px 5px 10px 5px;
-        padding-bottom: 10px;
-        border-bottom: 1px solid #eee;
-        text-align: center;
-        height: 28px;
-    }
-
-        .lb-header a {
-            margin: 0 25px;
-            padding: 0 20px;
-            text-decoration: none;
-            color: #666;
-            font-weight: bold;
-            font-size: 15px;
-            -webkit-transition: all 0.1s linear;
-            -moz-transition: all 0.1s linear;
-            transition: all 0.1s linear;
-        }
-
-        .lb-header .active {
-            color: #029f5b;
-            font-size: 18px;
-        }
-
-    .social-login {
-        position: relative;
-        float: left;
-        width: 100%;
-        height: auto;
-        padding: 10px 0 15px 0;
-        border-bottom: 1px solid #eee;
-    }
-
-        .social-login a {
-            position: relative;
-            float: left;
-            width: calc(40% - 8px);
-            text-decoration: none;
-            color: #fff;
-            border: 1px solid rgba(0,0,0,0.05);
-            padding: 12px;
-            border-radius: 2px;
-            font-size: 12px;
-            text-transform: uppercase;
-            margin: 0 3%;
-            text-align: center;
-        }
-
-            .social-login a i {
-                position: relative;
-                float: left;
-                width: 20px;
-                top: 2px;
-            }
-
-            .social-login a:first-child {
-                background-color: #49639F;
-            }
-
-            .social-login a:last-child {
-                background-color: #DF4A32;
-            }
-
-    .email-login, .email-signup {
-        position: relative;
-        float: left;
-        width: 100%;
-        height: auto;
-        margin-top: 20px;
-        text-align: center;
-    }
-
-    .u-form-group {
-        width: 100%;
-        margin-bottom: 10px;
-    }
-
-        .u-form-group input[type="email"],
-        .u-form-group input[type="password"] {
-            width: calc(50% - 22px);
-            height: 45px;
-            outline: none;
-            border: 1px solid #ddd;
-            padding: 0 10px;
-            border-radius: 2px;
-            color: #333;
-            font-size: 0.8rem;
-            -webkit-transition: all 0.1s linear;
-            -moz-transition: all 0.1s linear;
-            transition: all 0.1s linear;
-        }
-
-        .u-form-group input:focus {
-            border-color: #358efb;
-        }
-
-        .u-form-group button {
-            width: 50%;
-            background-color: #1CB94E;
-            border: none;
-            outline: none;
-            color: #fff;
-            font-size: 14px;
-            font-weight: normal;
-            padding: 14px 0;
-            border-radius: 2px;
-            text-transform: uppercase;
-        }
-
-    .forgot-password {
-        width: 50%;
-        text-align: left;
-        text-decoration: underline;
-        color: #888;
-        font-size: 0.75rem;
-    }
-</style>
-<div class="login-box">
-    <div class="lb-header">
-        <a href="#" class="active" id="login-box-link">Login</a>
-        <a href="#" id="signup-box-link">Sign Up</a>
-    </div>
-    <div class="social-login">
-        <a href="#">
-            <i class="fa fa-facebook fa-lg"></i>
-            Login in with facebook
-        </a>
-        <a href="#">
-            <i class="fa fa-google-plus fa-lg"></i>
-            @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
-        </a>
-    </div>
-    <form class="email-login">
-        <div class="u-form-group">
-            <input type="email" placeholder="Email" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login Template</title>
+    <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link href="~/Content/assets-login/assets/css/login.css" rel="stylesheet" />
+</head>
+<body>
+    <main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
+        <div class="container">
+            <div class="card login-card">
+                <div class="row no-gutters">
+                    <div class="col-md-5">
+                        <img src="~/Content/assets-ff/images/banner/login_bg2.jpg" alt="login" class="login-card-img" />
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <div class="brand-wrapper">
+                                <img src="~/Content/assets-ad/images/logoVLDnobrr.png" />
+                            </div>
+                            <p class="login-card-description">Bạn đã có tài khoản?</p>
+                            <form action="@Url.Action("Login","Account")" method="post">
+                                @Html.AntiForgeryToken()
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="form-group">
+                                    <label for="email" class="sr-only">Email</label>
+                                    <input type="email" name="email" id="email" class="form-control" placeholder="Email address">
+                                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group mb-4">
+                                    <label for="password" class="sr-only">Password</label>
+                                    <input type="password" name="password" id="password" class="form-control" placeholder="***********">
+                                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                                </div>
+                                <input name="login" id="login" class="btn btn-block login-btn mb-4" type="submit" value="Đăng nhập">
+                            </form>
+                            <p class="login-card-footer-text" style="margin-bottom: 5px">
+                                Bạn chưa có tài khoản ?
+                                <a class="text-reset">@Html.ActionLink("Đăng ký", "Register")</a>
+                                <hr />
+                                <h4>Đăng nhập bằng tài khoản khác</h4>
+                                @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+                            </p>
+                            <nav class="login-card-footer-nav">
+                                <a href="#!">Terms of use.</a>
+                                <a href="#!">Privacy policy</a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="u-form-group">
-            <input type="password" placeholder="Password" />
-        </div>
-        <div class="u-form-group">
-            <button>Log in</button>
-        </div>
-        <div class="u-form-group">
-            <a href="#" class="forgot-password">Forgot password?</a>
-        </div>
-    </form>
-    
-</div>
-<script>
-    $(".email-signup").hide();
-    $("#signup-box-link").click(function () {
-        $(".email-login").fadeOut(100);
-        $(".email-signup").delay(100).fadeIn(100);
-        $("#login-box-link").removeClass("active");
-        $("#signup-box-link").addClass("active");
-    });
-    $("#login-box-link").click(function () {
-        $(".email-login").delay(100).fadeIn(100);;
-        $(".email-signup").fadeOut(100);
-        $("#login-box-link").addClass("active");
-        $("#signup-box-link").removeClass("active");
-    });
-</script>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>
 
-
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,16 @@
+@model VanLangDoctor.Models.SO_KHAM_BENH
+
+@{
+    ViewBag.Title = "SoKhamBenh";
+    Layout = "~/Areas/User/Views/Shared/_Layout.cshtml";
+}
+
+<h2>SoKhamBenh</h2>
+
+<table class="table">
+    <tr>
+        <td>
+            @Html.DisplayFor(i => i.BENH_NHAN.TEN_BN)
+        </td>
+    </tr>
+</table>

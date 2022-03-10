@@ -5,7 +5,6 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using System.Web.Security;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
@@ -334,6 +333,9 @@ namespace VanLangDoctor.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
+                    //var signedInUserId = (await UserManager.FindByEmailAsync(loginInfo.Email)).Id;
+                    //if (returnUrl.StartsWith("/User/CapnhatTK/CapnhatTK"))
+                    //    return RedirectToLocal($"/User/CapnhatTK/CapnhatTK/{signedInUserId}");
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
@@ -360,6 +362,8 @@ namespace VanLangDoctor.Controllers
                             await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                         }
                     }
+                    //if (returnUrl.StartsWith("/User/CapnhatTK/CapnhatTK"))
+                    //    return RedirectToLocal($"/User/CapnhatTK/CapnhatTK/{user.Id}");
                     return RedirectToLocal(returnUrl);
             }
         }
@@ -409,11 +413,6 @@ namespace VanLangDoctor.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            //FormsAuthentication.SignOut();
-            //Session.Clear();
-            //Session.RemoveAll();
-            //Session.Abandon();
-            //return RedirectToAction("HomeUser", "HomeUser");
             return RedirectToAction("Index", "Home");
         }
 

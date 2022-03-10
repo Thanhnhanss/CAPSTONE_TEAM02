@@ -10,7 +10,7 @@ namespace VanLangDoctor.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return Redirect("~/User/HomeUser/HomeUser");
         }
 
         public ActionResult About()

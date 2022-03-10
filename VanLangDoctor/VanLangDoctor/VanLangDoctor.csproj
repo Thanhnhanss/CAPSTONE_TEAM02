@@ -174,11 +174,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\BACSIsController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
-    <Compile Include="Areas\Admin\Controllers\QL_BENHNHANController.cs" />
-    <Compile Include="Areas\Admin\Controllers\QL_THUOCsController.cs" />
+    <Compile Include="Areas\User\Controllers\ContactUsController.cs" />
     <Compile Include="Areas\User\Controllers\HomeUserController.cs" />
+    <Compile Include="Areas\User\Controllers\UpdateInfoController.cs" />
     <Compile Include="Areas\User\UserAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -202,9 +201,6 @@
     <Compile Include="Models\BACSI.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\BENH_AN.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\BENH_NHAN.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -212,6 +208,12 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DANG_KY.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DANH_MUC_THUOC.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DANH_MUC_TIN.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DON_THUOC.cs">
@@ -237,6 +239,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\NHA_SAN_XUAT.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SO_KHAM_BENH.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -250,6 +258,8 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Areas\User\Controllers\AboutUsController.cs" />
+    <Compile Include="Areas\User\Controllers\DoctorsController.cs" />
     <Content Include="Content\assets-ad\extra-libs\c3\c3.min.css" />
     <Content Include="Content\assets-ad\extra-libs\c3\c3.min.js" />
     <Content Include="Content\assets-ad\extra-libs\c3\d3.min.js" />
@@ -688,6 +698,88 @@
     <Content Include="Content\assets-ad\libs\raphael\license.txt" />
     <Content Include="Content\assets-ad\libs\raphael\raphael.min.js" />
     <Content Include="Content\assets-ad\libs\raphael\raphael.no-deps.min.js" />
+    <Content Include="Content\assets-contact\Contact.css" />
+    <Content Include="Content\assets-contact\images\1.jpeg" />
+    <Content Include="Content\assets-contact\images\2.jpeg" />
+    <Content Include="Content\assets-contact\images\3.jpeg" />
+    <Content Include="Content\assets-contact\images\4.jpeg" />
+    <Content Include="Content\assets-contact\images\5.png" />
+    <Content Include="Content\assets-contact\images\6.png" />
+    <Content Include="Content\assets-contact\images\7.png" />
+    <Content Include="Content\assets-contact\images\8.png" />
+    <Content Include="Content\assets-contact\images\9.png" />
+    <Content Include="Content\assets-contact\images\a24504de51b0a3cc2479f94d634fc6cb3a3b29407288dc2691a299357079f78d8b9da289683640cbed488d78478a717a82b792273a16f5b29547c4_12802.jpg" />
+    <Content Include="Content\assets-contact\images\default-logo.png" />
+    <Content Include="Content\assets-contact\jquery.js" />
+    <Content Include="Content\assets-contact\nicepage.css" />
+    <Content Include="Content\assets-contact\nicepage.js" />
+    <Content Include="Content\assets-dr\css\ajax-loader.gif" />
+    <Content Include="Content\assets-dr\css\animate.css" />
+    <Content Include="Content\assets-dr\css\aos.css" />
+    <Content Include="Content\assets-dr\css\bootstrap-datepicker.css" />
+    <Content Include="Content\assets-dr\css\bootstrap.min.css" />
+    <Content Include="Content\assets-dr\css\bootstrap\bootstrap-grid.css" />
+    <Content Include="Content\assets-dr\css\bootstrap\bootstrap-reboot.css" />
+    <Content Include="Content\assets-dr\css\css\bootstrap-reboot.css" />
+    <Content Include="Content\assets-dr\css\css\mixins\_text-hide.css" />
+    <Content Include="Content\assets-dr\css\flaticon.css" />
+    <Content Include="Content\assets-dr\css\icomoon.css" />
+    <Content Include="Content\assets-dr\css\ionicons.min.css" />
+    <Content Include="Content\assets-dr\css\jquery.timepicker.css" />
+    <Content Include="Content\assets-dr\css\magnific-popup.css" />
+    <Content Include="Content\assets-dr\css\open-iconic-bootstrap.min.css" />
+    <Content Include="Content\assets-dr\css\owl.carousel.min.css" />
+    <Content Include="Content\assets-dr\css\owl.theme.default.min.css" />
+    <Content Include="Content\assets-dr\css\style.css" />
+    <Content Include="Content\assets-dr\fonts\flaticon\backup.txt" />
+    <Content Include="Content\assets-dr\fonts\flaticon\font\flaticon.css" />
+    <Content Include="Content\assets-dr\fonts\flaticon\font\flaticon.html" />
+    <Content Include="Content\assets-dr\fonts\flaticon\font\Flaticon.svg" />
+    <Content Include="Content\assets-dr\fonts\icomoon\icomoon.svg" />
+    <Content Include="Content\assets-dr\fonts\ionicons\css\ionicons.min.css" />
+    <Content Include="Content\assets-dr\fonts\ionicons\fonts\ionicons.svg" />
+    <Content Include="Content\assets-dr\fonts\open-iconic\open-iconic.svg" />
+    <Content Include="Content\assets-dr\images\about-2.jpg" />
+    <Content Include="Content\assets-dr\images\about.jpg" />
+    <Content Include="Content\assets-dr\images\bg_1.jpg" />
+    <Content Include="Content\assets-dr\images\bg_2.jpg" />
+    <Content Include="Content\assets-dr\images\bg_3.jpg" />
+    <Content Include="Content\assets-dr\images\gallery-1.jpg" />
+    <Content Include="Content\assets-dr\images\gallery-2.jpg" />
+    <Content Include="Content\assets-dr\images\gallery-3.jpg" />
+    <Content Include="Content\assets-dr\images\gallery-4.jpg" />
+    <Content Include="Content\assets-dr\images\image_1.jpg" />
+    <Content Include="Content\assets-dr\images\image_2.jpg" />
+    <Content Include="Content\assets-dr\images\image_3.jpg" />
+    <Content Include="Content\assets-dr\images\image_4.jpg" />
+    <Content Include="Content\assets-dr\images\image_5.jpg" />
+    <Content Include="Content\assets-dr\images\image_6.jpg" />
+    <Content Include="Content\assets-dr\images\loc.png" />
+    <Content Include="Content\assets-dr\images\person_1.jpg" />
+    <Content Include="Content\assets-dr\images\person_2.jpg" />
+    <Content Include="Content\assets-dr\images\person_3.jpg" />
+    <Content Include="Content\assets-dr\images\person_4.jpg" />
+    <Content Include="Content\assets-dr\images\person_5.jpg" />
+    <Content Include="Content\assets-dr\images\person_6.jpg" />
+    <Content Include="Content\assets-dr\images\person_7.jpg" />
+    <Content Include="Content\assets-dr\images\person_8.jpg" />
+    <Content Include="Content\assets-dr\js\aos.js" />
+    <Content Include="Content\assets-dr\js\bootstrap-datepicker.js" />
+    <Content Include="Content\assets-dr\js\bootstrap.min.js" />
+    <Content Include="Content\assets-dr\js\google-map.js" />
+    <Content Include="Content\assets-dr\js\jquery-3.2.1.min.js" />
+    <Content Include="Content\assets-dr\js\jquery-migrate-3.0.1.min.js" />
+    <Content Include="Content\assets-dr\js\jquery.animateNumber.min.js" />
+    <Content Include="Content\assets-dr\js\jquery.easing.1.3.js" />
+    <Content Include="Content\assets-dr\js\jquery.magnific-popup.min.js" />
+    <Content Include="Content\assets-dr\js\jquery.min.js" />
+    <Content Include="Content\assets-dr\js\jquery.stellar.min.js" />
+    <Content Include="Content\assets-dr\js\jquery.timepicker.min.js" />
+    <Content Include="Content\assets-dr\js\jquery.waypoints.min.js" />
+    <Content Include="Content\assets-dr\js\main.js" />
+    <Content Include="Content\assets-dr\js\owl.carousel.min.js" />
+    <Content Include="Content\assets-dr\js\popper.min.js" />
+    <Content Include="Content\assets-dr\js\scrollax.min.js" />
     <Content Include="Content\assets-ff\css\bootstrap.css" />
     <Content Include="Content\assets-ff\css\bootstrap\_theme.css" />
     <Content Include="Content\assets-ff\css\components\Elements\_blog.css" />
@@ -922,6 +1014,57 @@
     <Content Include="Content\assets-ff\vendor\range-price.css" />
     <Content Include="Content\assets-ff\vendor\settings.css" />
     <Content Include="Content\assets-ff\vendor\slick.css" />
+    <Content Include="Content\assets-HomeUser\Blog-Template.css" />
+    <Content Include="Content\assets-HomeUser\Home.css" />
+    <Content Include="Content\assets-HomeUser\images\1.jpeg" />
+    <Content Include="Content\assets-HomeUser\images\10.png" />
+    <Content Include="Content\assets-HomeUser\images\11.png" />
+    <Content Include="Content\assets-HomeUser\images\120731607-0.jpeg" />
+    <Content Include="Content\assets-HomeUser\images\13.png" />
+    <Content Include="Content\assets-HomeUser\images\14.svg" />
+    <Content Include="Content\assets-HomeUser\images\1632686.png" />
+    <Content Include="Content\assets-HomeUser\images\2.jpeg" />
+    <Content Include="Content\assets-HomeUser\images\3.jpeg" />
+    <Content Include="Content\assets-HomeUser\images\3063106.png" />
+    <Content Include="Content\assets-HomeUser\images\4.png" />
+    <Content Include="Content\assets-HomeUser\images\4706771.png" />
+    <Content Include="Content\assets-HomeUser\images\5.png" />
+    <Content Include="Content\assets-HomeUser\images\6.png" />
+    <Content Include="Content\assets-HomeUser\images\7.png" />
+    <Content Include="Content\assets-HomeUser\images\8.png" />
+    <Content Include="Content\assets-HomeUser\images\9.png" />
+    <Content Include="Content\assets-HomeUser\images\942802.png" />
+    <Content Include="Content\assets-HomeUser\images\9d04a3dc8bfe6edf29ca355af8f2b294b82e9f26532c7dd72ea235cd55d9c1f8a1d384a5b4d6fe43fd4d42e0e2742d1bb22df98a2214d9da4188a5_1280.png" />
+    <Content Include="Content\assets-HomeUser\images\a4fd60d5dd56393a5b19c905587f36091.png" />
+    <Content Include="Content\assets-HomeUser\images\cbdcdba2c3d2a70b362554a6b4fd749a.jpeg" />
+    <Content Include="Content\assets-HomeUser\images\cc0cbee6-5c91-9a56-37d1-8b6f5cc1ca10.png" />
+    <Content Include="Content\assets-HomeUser\images\d0f2409a14bb07103fd5e5f4164e09b31.png" />
+    <Content Include="Content\assets-HomeUser\images\f125ed13efc1086414c8efe253447cc31.png" />
+    <Content Include="Content\assets-HomeUser\images\heart.png" />
+    <Content Include="Content\assets-HomeUser\jquery.js" />
+    <Content Include="Content\assets-HomeUser\nicepage.css" />
+    <Content Include="Content\assets-HomeUser\nicepage.js" />
+    <Content Include="Content\assets-HomeUser\Post-Template.css" />
+    <Content Include="Content\assets-login\assets\css\login.css" />
+    <Content Include="Content\assets-login\assets\images\login.jpg" />
+    <Content Include="Content\assets-login\assets\images\logo.svg" />
+    <Content Include="Content\asset_About\About-Us.css" />
+    <Content Include="Content\asset_About\Blog-Template.css" />
+    <Content Include="Content\asset_About\images\1.jpeg" />
+    <Content Include="Content\asset_About\images\126509.png" />
+    <Content Include="Content\asset_About\images\2.jpeg" />
+    <Content Include="Content\asset_About\images\26w-min.jpg" />
+    <Content Include="Content\asset_About\images\3.jpeg" />
+    <Content Include="Content\asset_About\images\69026271.png" />
+    <Content Include="Content\asset_About\images\bac-si-thu-y-tu-van-online-2.jpg" />
+    <Content Include="Content\asset_About\images\cc0cbee6-5c91-9a56-37d1-8b6f5cc1ca10.png" />
+    <Content Include="Content\asset_About\images\cf.jpg" />
+    <Content Include="Content\asset_About\images\csvc-011.jpg" />
+    <Content Include="Content\asset_About\images\logoVLDnobrr.png" />
+    <Content Include="Content\asset_About\jquery.js" />
+    <Content Include="Content\asset_About\nicepage.css" />
+    <Content Include="Content\asset_About\nicepage.js" />
+    <Content Include="Content\asset_About\Post-Template.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -1191,11 +1334,6 @@
     <Content Include="Content\assets-ff\sass\components\_vendor.scss" />
     <Content Include="Content\assets-ff\sass\style.scss" />
     <Content Include="Content\assets-ff\sass\_bootstrap.scss" />
-    <Content Include="Areas\Admin\Views\QL_Bacsi\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\QL_Bacsi\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\QL_Bacsi\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\QL_Bacsi\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\QL_Bacsi\Bac_Si.cshtml" />
     <Content Include="Content\dist-ad\css\fonts\Gilmer-Bold.eot" />
     <Content Include="Content\dist-ad\css\fonts\Gilmer-Bold.otf" />
     <Content Include="Content\dist-ad\css\fonts\Gilmer-Bold.ttf" />
@@ -1418,16 +1556,124 @@
     <Content Include="Content\assets-ad\libs\bootstrap\dist\js\bootstrap.min.js.map" />
     <Content Include="Content\assets-ad\libs\morris.js\bower.travis.json" />
     <Content Include="Content\assets-ad\libs\popper.js\dist\umd\poppper.js.flow" />
-    <Content Include="Areas\Admin\Views\QL_BenhNhan\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\QL_BenhNhan\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\QL_BenhNhan\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\QL_BenhNhan\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\QL_BenhNhan\Benh_Nhan.cshtml" />
-    <Content Include="Areas\Admin\Views\QL_THUOCs\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\QL_THUOCs\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\QL_THUOCs\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\QL_THUOCs\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\QL_THUOCs\Thuoc.cshtml" />
+    <Content Include="Areas\User\Views\ContactUs\Contact.cshtml" />
+    <Content Include="Areas\User\Views\AboutUs\About.cshtml" />
+    <Content Include="Content\assets-login\assets\css\login.css.map" />
+    <Content Include="Content\assets-login\assets\scss\login.scss" />
+    <Content Include="Areas\User\Views\UpdateInfo\UpdateInfo.cshtml" />
+    <Content Include="Areas\User\Views\Doctors\Doctor.cshtml" />
+    <Content Include="Content\assets-dr\css\.DS_Store" />
+    <Content Include="Content\assets-dr\css\bootstrap\.DS_Store" />
+    <Content Include="Content\assets-dr\css\css\.DS_Store" />
+    <Content Include="Content\assets-dr\fonts\.DS_Store" />
+    <Content Include="Content\assets-dr\fonts\flaticon\.DS_Store" />
+    <Content Include="Content\assets-dr\fonts\flaticon\font\Flaticon.eot" />
+    <Content Include="Content\assets-dr\fonts\flaticon\font\Flaticon.ttf" />
+    <Content Include="Content\assets-dr\fonts\flaticon\font\Flaticon.woff" />
+    <Content Include="Content\assets-dr\fonts\flaticon\font\_flaticon.scss" />
+    <Content Include="Content\assets-dr\fonts\flaticon\license\license.pdf" />
+    <Content Include="Content\assets-dr\fonts\icomoon\icomoon.eot" />
+    <Content Include="Content\assets-dr\fonts\icomoon\icomoon.ttf" />
+    <Content Include="Content\assets-dr\fonts\icomoon\icomoon.woff" />
+    <Content Include="Content\assets-dr\fonts\ionicons\css\_ionicons.scss" />
+    <Content Include="Content\assets-dr\fonts\ionicons\fonts\.DS_Store" />
+    <Content Include="Content\assets-dr\fonts\ionicons\fonts\ionicons.eot" />
+    <Content Include="Content\assets-dr\fonts\ionicons\fonts\ionicons.ttf" />
+    <Content Include="Content\assets-dr\fonts\ionicons\fonts\ionicons.woff" />
+    <Content Include="Content\assets-dr\fonts\ionicons\fonts\ionicons.woff2" />
+    <Content Include="Content\assets-dr\fonts\open-iconic\open-iconic.eot" />
+    <Content Include="Content\assets-dr\fonts\open-iconic\open-iconic.otf" />
+    <Content Include="Content\assets-dr\fonts\open-iconic\open-iconic.ttf" />
+    <Content Include="Content\assets-dr\fonts\open-iconic\open-iconic.woff" />
+    <Content Include="Content\assets-dr\images\.DS_Store" />
+    <Content Include="Content\assets-dr\js\.DS_Store" />
+    <Content Include="Content\assets-dr\scss\.DS_Store" />
+    <Content Include="Content\assets-dr\scss\bootstrap\bootstrap-grid.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\bootstrap-reboot.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\bootstrap.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\mixins\_alert.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\mixins\_background-variant.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\mixins\_badge.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\mixins\_border-radius.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\mixins\_box-shadow.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\mixins\_breakpoints.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\mixins\_buttons.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\mixins\_caret.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\mixins\_clearfix.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\mixins\_float.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\mixins\_forms.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\mixins\_gradients.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\mixins\_grid-framework.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\mixins\_grid.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\mixins\_hover.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\mixins\_image.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\mixins\_list-group.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\mixins\_lists.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\mixins\_nav-divider.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\mixins\_pagination.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\mixins\_reset-text.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\mixins\_resize.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\mixins\_screen-reader.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\mixins\_size.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\mixins\_table-row.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\mixins\_text-emphasis.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\mixins\_text-hide.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\mixins\_text-truncate.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\mixins\_transition.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\mixins\_visibility.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\utilities\_align.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\utilities\_background.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\utilities\_borders.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\utilities\_clearfix.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\utilities\_display.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\utilities\_embed.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\utilities\_flex.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\utilities\_float.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\utilities\_position.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\utilities\_screenreaders.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\utilities\_shadows.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\utilities\_sizing.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\utilities\_spacing.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\utilities\_text.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\utilities\_visibility.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\_alert.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\_badge.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\_breadcrumb.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\_button-group.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\_buttons.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\_card.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\_carousel.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\_close.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\_code.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\_custom-forms.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\_dropdown.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\_forms.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\_functions.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\_grid.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\_images.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\_input-group.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\_jumbotron.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\_list-group.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\_media.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\_mixins.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\_modal.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\_nav.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\_navbar.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\_pagination.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\_popover.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\_print.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\_progress.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\_reboot.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\_root.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\_tables.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\_tooltip.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\_transitions.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\_type.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\_utilities.scss" />
+    <Content Include="Content\assets-dr\scss\bootstrap\_variables.scss" />
+    <Content Include="Content\assets-dr\scss\style.scss" />
+    <Compile Include="Areas\User\Controllers\HealthRecordController.cs" />
+    <Content Include="Areas\User\Views\HealthRecord\HealthRecord.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -1479,7 +1725,7 @@
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\User\Models\" />
     <Folder Include="Content\assets-ff\css\components\Ecommerce\" />
-    <Folder Include="Content\IMG_Doctor\" />
+    <Folder Include="Image\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
