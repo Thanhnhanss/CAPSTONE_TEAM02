@@ -55,6 +55,12 @@
     <Reference Include="Microsoft.Owin.Security.VanLang, Version=2.0.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Capstone.Owin.Security.VanLang.2.0.0.1\lib\net452\Microsoft.Owin.Security.VanLang.dll</HintPath>
     </Reference>
+    <Reference Include="SendGrid, Version=9.26.0.0, Culture=neutral, PublicKeyToken=4f047e93159395ca, processorArchitecture=MSIL">
+      <HintPath>..\packages\SendGrid.9.26.0\lib\net452\SendGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="StarkbankEcdsa, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b2e6337a5d77bfbc, processorArchitecture=MSIL">
+      <HintPath>..\packages\starkbank-ecdsa.1.3.3\lib\net452\StarkbankEcdsa.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -177,6 +183,7 @@
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
     <Compile Include="Areas\User\Controllers\ContactUsController.cs" />
     <Compile Include="Areas\User\Controllers\HomeUserController.cs" />
+    <Compile Include="Areas\User\Controllers\NewsController.cs" />
     <Compile Include="Areas\User\Controllers\UpdateInfoController.cs" />
     <Compile Include="Areas\User\UserAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -185,6 +192,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="MailHelper.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AspNetRole.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -242,6 +250,7 @@
     <Compile Include="Models\NHA_SAN_XUAT.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sendMail.cs" />
     <Compile Include="Models\SO_KHAM_BENH.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -1014,6 +1023,16 @@
     <Content Include="Content\assets-ff\vendor\range-price.css" />
     <Content Include="Content\assets-ff\vendor\settings.css" />
     <Content Include="Content\assets-ff\vendor\slick.css" />
+    <Content Include="Content\assets-HealthRecord\images\1.jpeg" />
+    <Content Include="Content\assets-HealthRecord\images\1db315228240eb2ed1a3432ab564f4f6.png" />
+    <Content Include="Content\assets-HealthRecord\images\2.jpeg" />
+    <Content Include="Content\assets-HealthRecord\images\3.jpeg" />
+    <Content Include="Content\assets-HealthRecord\images\6158b984e0fd04ce18f390ab2b6eab25.png" />
+    <Content Include="Content\assets-HealthRecord\images\default-logo.png" />
+    <Content Include="Content\assets-HealthRecord\jquery.js" />
+    <Content Include="Content\assets-HealthRecord\nicepage.css" />
+    <Content Include="Content\assets-HealthRecord\nicepage.js" />
+    <Content Include="Content\assets-HealthRecord\skb.css" />
     <Content Include="Content\assets-HomeUser\Blog-Template.css" />
     <Content Include="Content\assets-HomeUser\Home.css" />
     <Content Include="Content\assets-HomeUser\images\1.jpeg" />
@@ -1048,6 +1067,18 @@
     <Content Include="Content\assets-login\assets\css\login.css" />
     <Content Include="Content\assets-login\assets\images\login.jpg" />
     <Content Include="Content\assets-login\assets\images\logo.svg" />
+    <Content Include="Content\assets-news\Home.css" />
+    <Content Include="Content\assets-news\images\1.jpeg" />
+    <Content Include="Content\assets-news\images\2.jpeg" />
+    <Content Include="Content\assets-news\images\3.jpeg" />
+    <Content Include="Content\assets-news\images\billionphotos-1656913.jpg" />
+    <Content Include="Content\assets-news\images\billionphotos-1669933.jpg" />
+    <Content Include="Content\assets-news\images\billionphotos-3671911.jpg" />
+    <Content Include="Content\assets-news\images\default-image.jpg" />
+    <Content Include="Content\assets-news\images\default-logo.png" />
+    <Content Include="Content\assets-news\jquery.js" />
+    <Content Include="Content\assets-news\nicepage.css" />
+    <Content Include="Content\assets-news\nicepage.js" />
     <Content Include="Content\asset_About\About-Us.css" />
     <Content Include="Content\asset_About\Blog-Template.css" />
     <Content Include="Content\asset_About\images\1.jpeg" />
@@ -1674,6 +1705,10 @@
     <Content Include="Content\assets-dr\scss\style.scss" />
     <Compile Include="Areas\User\Controllers\HealthRecordController.cs" />
     <Content Include="Areas\User\Views\HealthRecord\HealthRecord.cshtml" />
+    <Compile Include="Areas\User\Controllers\RegisterConsultationController.cs" />
+    <Content Include="Areas\User\Views\RegisterConsultation\RegisterConsultation.cshtml" />
+    <Content Include="Areas\User\Views\News\News.cshtml" />
+    <Content Include="Areas\User\Views\News\NewsDetail.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
