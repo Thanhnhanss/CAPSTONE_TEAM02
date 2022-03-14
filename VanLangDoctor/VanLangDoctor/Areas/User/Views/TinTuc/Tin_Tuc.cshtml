@@ -5,37 +5,119 @@
     Layout = "~/Areas/User/Views/Shared/_Layout.cshtml";
 }
 
-<div class="wrappage">
-    <div class="blog-post-container blog-page blog-post-columns-3 center">
-        <h2>Tin Tức</h2>
-        <p>Các tin nổi bật</p>
-        <hr />
-        <div class="container container-ver2">
-            <div class="row">
-                @foreach (var i in Model)
-                {
-                    <div class="blog-post-item">
-                        <div class="blog-post-image hover-images">
-                            <a href="~/trang-chu/tin-tuc/@i.TEN_BAI_VIET.ToLower().Replace(" ", "-").-@i.ID_TIN_TUC" style="width:500px;height:320px" title="Post"><img src="@Url.Action("Picture", new {i.ID_TIN_TUC})" alt=""></a>
+
+<link rel="stylesheet" href="~/Content/assets-news/nicepage.css" media="screen">
+<link rel="stylesheet" href="~/Content/assets-news/Home.css" media="screen">
+<script class="u-script" type="text/javascript" src="~/Content/assets-news/jquery.js" defer=""></script>
+<script class="u-script" type="text/javascript" src="~/Content/assets-news/nicepage.js" defer=""></script>
+
+<link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+<link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700">
+
+
+<body data-home-page="Home.html" data-home-page-title="Home" class="u-body u-xl-mode">
+    <section class="u-align-left u-clearfix u-white u-section-1" id="carousel_7823">
+        <div class="u-clearfix u-sheet u-sheet-1">
+            <h1 class="u-custom-font u-font-oswald u-text u-text-default u-title u-text-1">Danh sách tin tức</h1>
+            <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+                <div class="u-layout">
+                    <div class="u-layout-row">
+                        <div class="u-container-style u-layout-cell u-size-44 u-layout-cell-1">
+                            <div class="u-container-layout u-container-layout-1"></div>
                         </div>
-                        <div class="text">
-                            <h3><a href="~/trang-chu/tin-tuc/@i.TEN_BAI_VIET.ToLower().Replace(" ","-")-@i.ID_TIN_TUC" title="@i.TEN_BAI_VIET">@i.TEN_BAI_VIET</a></h3>
-                            <p class="post-by"><span><i class="fa fa-pencil-square-o"></i> @i.TAC_GIA</span></p>
-                            @*<p class="content">@Html.Raw(i.NOI_DUNG.Substring(0, 50))...</p>*@
-                            <a class="link-v1 color-brand" href="~/trang-chu/tin-tuc/@i.TEN_BAI_VIET.ToLower().Replace(" ","-")-@i.ID_TIN_TUC" title="readmore">Xem thêm</a>
+                        <div class="u-container-style u-layout-cell u-size-16 u-layout-cell-2" data-animation-name="" data-animation-duration="0" data-animation-direction="">
+                            <div class="u-border-3 u-border-palette-1-light-1 u-container-layout u-container-layout-2">
+                                <h1 class="u-align-center u-custom-font u-font-oswald u-text u-text-default u-text-2">Danh mục</h1>
+                                @foreach (var i in ViewBag.danhmuc)
+                                {
+                                    <ul class="u-align-center u-text u-text-3">
+                                        <li>
+                                            <span style="font-size: 1.3em;">@i.Danhmuc_tin</span>
+                                        </li>
+                                    </ul>
+                                }
+                            </div>
                         </div>
                     </div>
-                }
+                </div>
+            </div>
+
+            <div id="left" class="u-blog u-blog-1">
+                <div class="u-repeater u-repeater-1">
+                    @foreach (var n in Model.Take(4))
+                    {
+                        <div class="u-blog-post u-container-style u-repeater-item">
+                            <div class="u-container-layout u-similar-container u-valign-top u-container-layout-3">
+                                <a class="u-post-header-link" href="@Url.Action("Details", "TinTuc", new { id = n.ID_TIN_TUC })">
+                                    <img src="@Url.Action("Picture", new {n.ID_TIN_TUC})" alt="" class="u-blog-control u-image u-image-default u-image-1">
+                                </a>
+                                <h2 class="u-blog-control u-text u-text-4">
+                                    <a class="u-post-header-link" href="@Url.Action("Details", "TinTuc", new { id = n.ID_TIN_TUC })">
+                                       @n.TEN_BAI_VIET
+                                    </a>
+                                </h2>
+                                
+                                <div class="u-blog-control u-metadata u-metadata-1">
+                                    <span class="u-meta-date u-meta-icon">Đăng ngày: @Html.FormatValue(n.NGAY_DANG,"{0:dd/MM/yyyy HH:mm:ss }")</span>
+                                </div>
+                                <a href="@Url.Action("Details", "TinTuc", new { id=n.ID_TIN_TUC })" class="u-blog-control u-border-2 u-border-grey-dark-1 u-btn u-btn-rectangle u-button-style u-none u-btn-1">
+                                    Xem thêm
+                                </a>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <a id="show_more" href="#" class="u-border-1 u-border-palette-1-light-1 u-btn u-btn-round u-button-style u-palette-1-light-3 u-radius-3 u-text-palette-1-dark-2 u-btn-4">
+                Xem thêm&nbsp;<span class="u-icon u-text-palette-1-dark-2 u-icon-1"><svg class="u-svg-content" viewBox="0 0 490.677 490.677" x="0px" y="0px" style="width: 1em; height: 1em;"><path d="M489.272,37.339c-1.92-3.307-5.44-5.333-9.259-5.333H10.68c-3.819,0-7.339,2.027-9.259,5.333    c-1.899,3.307-1.899,7.36,0.021,10.667l234.667,405.333c1.899,3.307,5.419,5.333,9.237,5.333s7.339-2.027,9.237-5.333 L489.251,48.005C491.149,44.72,491.149,40.645,489.272,37.339z"></path></svg><img></span>
+            </a>
+        </div>
+    </section>
+
+    <!--Hot NEWS-->
+    <section class="u-align-center u-clearfix u-section-2" id="carousel_ace7">
+        <div class="u-clearfix u-sheet u-sheet-1">
+            <h2 class="u-custom-font u-font-oswald u-text u-text-default u-text-1">Tin tức nổi bật</h2>
+            <div class="u-border-3 u-border-grey-dark-1 u-line u-line-horizontal u-line-1"></div>
+            <div class="u-border-3 u-border-grey-dark-1 u-line u-line-horizontal u-line-2"></div>
+            <div class="u-expanded-width u-list u-list-1">
+                <div class="u-repeater u-repeater-1">
+                    @foreach (var a in ViewBag.Top)
+                    {
+                        <div class="u-container-style u-custom-item u-list-item u-palette-2-light-1 u-repeater-item u-list-item-1">
+                            <div class="u-container-layout u-similar-container u-container-layout-1">
+                                <img alt="" class="u-expanded-width u-image u-image-default u-image-1" data-image-width="500" data-image-height="333" src="@Url.Action("Picture", new {a.ID_TIN_TUC})">
+                                <h3 class="u-text u-text-default u-text-2">@a.TEN_BAI_VIET.</h3>
+                                @if (a.TEN_BAI_VIET.ToString().Length < 10)
+                                {
+                                    <p class="u-text u-text-3"><br /><br /></p>
+                                }
+                                else if (a.TEN_BAI_VIET.ToString().Length < 30)
+                                { 
+                                    <p class="u-text u-text-3"><br /></p>
+                                }
+                                <a href="@Url.Action("Details", "TinTuc", new { id = a.ID_TIN_TUC })" class="u-active-none u-border-2 u-border-active-white u-border-hover-white u-border-white u-btn u-button-style u-custom-item u-hover-none u-none u-text-body-alt-color u-btn-1">
+                                    Xem chi tiết
+                                </a>
+                            </div>
+                        </div>
+                    }
+                </div>
             </div>
         </div>
-        @*<div class="pagination-container pagination-blog">
-            <nav class="pagination">
-                <a class="prev page-numbers" href="#"><i class="fa fa-angle-left"></i></a>
-                <span class="page-numbers current">1</span>
-                <a class="page-numbers" href="#">2</a>
-                <a class="page-numbers" href="#">3</a>
-                <a class="next page-numbers" href="#"><i class="fa fa-angle-right"></i></a>
-            </nav>
-        </div>*@
-    </div>
-</div>
+    </section>
+
+
+    <script>
+        $(document).ready(function () {
+            if ($('u-container-layout u-similar-container u-valign-top u-container-layout-3').length > 3) {
+                $('u-container-layout u-similar-container u-valign-top u-container-layout-3:gt(2)').hide();
+                $('#show_more').show();
+            }
+
+            $('#show_more').on('click', function () {
+                $('u-container-layout u-similar-container u-valign-top u-container-layout-3:gt(2)').toggle();
+            });
+        });</script>
+
+</body>

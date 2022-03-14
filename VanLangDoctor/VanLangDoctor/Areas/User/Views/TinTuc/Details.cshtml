@@ -21,130 +21,27 @@
                     </div>
                     <div class="text align-left">
                         @Html.Raw(Model.NOI_DUNG)
-                        <div class="social box">
-                            <h3>Share this :</h3>
-                            <a class="twitter" href="#" title="social"><i class="fa fa-twitter-square"></i></a>
-                            <a class="dribbble" href="#" title="social"><i class="fa fa-dribbble"></i></a>
-                            <a class="skype" href="#" title="social"><i class="fa fa-skype"></i></a>
-                            <a class="pinterest" href="#" title="social"><i class="fa fa-pinterest"></i></a>
-                            <a class="facebook" href="#" title="social"><i class="fa fa-facebook-square"></i></a>
-                        </div>
-                        
                         <div class="box">
-                            <h3 class="title-v1 space-30">Related Posts</h3>
+                            <h3 class="title-v1 space-30">Bài viết nổi bật</h3>
                             <div class="blog-post-inner blog-related owl-nav-hidden center owl-carousel">
-                                <div class="blog-post-item">
-                                    <div class="blog-post-image hover-images">
-                                        <a href="#" title="Post"><img src="assets/images/products/1.jpg" alt=""></a>
+                                @foreach (var tnb in ViewBag.Top)
+                                {
+                                    <div class="blog-post-item" style="text-align:center">
+                                        <div class="blog-post-image hover-images">
+                                            <a href="#" title="Post"><img src="@Url.Action("Picture", new {tnb.ID_TIN_TUC})" alt="" data-image-width="145" data-image-height="113"></a>
+                                        </div>
+                                        <div class="text" style="text-align:center">
+                                            <h3><a href="#" style="text-align:center" title="@tnb.TEN_BAI_VIET.ToLower()">@tnb.TEN_BAI_VIET.ToLower()</a></h3>
+                                            <p class="post-by"><span><i class="fa fa-pencil-square-o"></i> @tnb.TAC_GIA</span><span><i class="fa fa-comment-o"></i> @tnb.CountViews Lượt xem</span></p>
+                                        </div>
                                     </div>
-                                    <div class="text">
-                                        <h3><a href="#" title="Integer scelerisque diam vitae aliquam fringilla.">The new Brand Identity last the Bahamas</a></h3>
-                                        <p class="post-by"><span><i class="fa fa-pencil-square-o"></i> Admin</span><span><i class="fa fa-comment-o"></i> 36 Comments</span></p>
-                                    </div>
-                                    <!-- End text -->
-                                </div>
-                                <!-- End item -->
-                                <div class="blog-post-item">
-                                    <div class="blog-post-image hover-images">
-                                        <a href="#" title="Post"><img src="assets/images/products/1.jpg" alt=""></a>
-                                    </div>
-                                    <div class="text">
-                                        <h3><a href="#" title="Integer scelerisque diam vitae aliquam fringilla.">The new Brand Identity last the Bahamas</a></h3>
-                                        <p class="post-by"><span><i class="fa fa-pencil-square-o"></i> Admin</span><span><i class="fa fa-comment-o"></i> 36 Comments</span></p>
-                                    </div>
-                                </div>
-                                <div class="blog-post-item">
-                                    <div class="blog-post-image hover-images">
-                                        <a href="#" title="Post"><img src="assets/images/products/1.jpg" alt=""></a>
-                                    </div>
-                                    <div class="text">
-                                        <h3><a href="#" title="Integer scelerisque diam vitae aliquam fringilla.">The new Brand Identity last the Bahamas</a></h3>
-                                        <p class="post-by"><span><i class="fa fa-pencil-square-o"></i> Admin</span><span><i class="fa fa-comment-o"></i> 36 Comments</span></p>
-                                    </div>
-                                </div>
+                                }
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <!--<div class="blog-post-container single-post comments align-left box space-30">
-                <h3 class="title">Comments</h3>
-                <div class="panel" id="media-object">
-                    <div class="panel-body">
-                        <ul class="media-list">
-                            <li class="media">
-                                <a class="pull-left" href="#">
-                                    <img class="media-object img-circle" src="assets/images/avatar-1.jpg" alt="images">
-                                </a>
-                                <div class="media-body">
-                                    <div class="text">
-                                        <h3>ERRIC CATONA</h3>
-                                        <p class="date">1 days ago</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidiunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                                        <a class="reply" href="#" title="reply"><i class="fa fa-long-arrow-left"></i> Reply</a>
-                                    </div>-->
-                                    <!-- End text -->
-
-                                    <!--<div class="media">
-                                        <a class="pull-left" href="#">
-                                            <img class="media-object img-circle" src="assets/images/avatar-1.jpg" alt="images">
-                                        </a>
-                                        <div class="media-body">
-                                            <div class="text">
-                                                <h3>ERRIC CATONA</h3>
-                                                <p class="date">5 days ago</p>
-                                                <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque. </p>-->
-                                                <!-- Nested media object -->
-                                                <!--<a class="reply" href="#" title="reply"><i class="fa fa-long-arrow-left"></i> Reply</a>
-                                            </div>-->
-                                            <!-- End text -->
-                                        <!--</div>-->
-                                        <!-- Nested media object -->
-                                    <!--</div>-->
-                                    <!-- End media-body -->
-                                <!--</div>-->
-                                <!-- End media body -->
-                            <!--</li>
-                            <li class="media">
-                                <a class="pull-left" href="#">
-                                    <img class="media-object img-circle" src="assets/images/avatar-1.jpg" alt="images">
-                                </a>
-                                <div class="media-body">
-                                    <div class="text">
-                                        <h3>ERRIC CATONA</h3>
-                                        <p class="date">1 days ago</p>
-                                        <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque. </p>-->
-                                        <!-- Nested media object -->
-                                        <!--<a class="reply" href="#" title="reply"><i class="fa fa-long-arrow-left"></i> Reply</a>
-                                    </div>-->
-                                    <!-- End text -->
-                                <!--</div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>-->
-                <!-- End panel -->
-                <!--<h3 class="title">LEAVE A COMMENT</h3>
-                <form class="form-horizontal space-50">
-                    <div class="form-group col-md-6">
-                        <input type="text" placeholder="Name*" id="inputName" class="form-control">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <input type="text" placeholder="Email*" id="inputsumary" class="form-control">
-                    </div>
-                    <div class="form-group col-md-12">
-                        <input type="text" placeholder="Website" id="inputemail" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <textarea placeholder="Comment" name="Comment" id="message" class="form-control"></textarea>
-                    </div>
-                    <a title="add tags" href="#" class="link-v1 rt">Send review</a>
-                </form>-->
-                <!-- End form -->
-            <!--</div>-->
         </div>
-        <!-- End Primary -->
         <div id="secondary" class="widget-area col-xs-12 col-md-3 float-right">
             <div class="wrap-sidebar">
                 <aside class="widget widget_search">
@@ -152,23 +49,19 @@
                 <aside class="widget blog-categories">
                     <h3 class="widget-title">DANH MỤC</h3>
                     <ul>
-                        <li><a href="~/trang-chu" title="Trang chủ">Trang chủ</a></li>
-                        <li><a href="#" title="Giới thiệu">Giới thiệu</a></li>
-                        <li><a href="~/trang-chu/bac-si" title="Bác sĩ">Bác sĩ</a></li>
-                        <li><a href="#" title="Thuốc">Thuốc</a></li>
-                        <li><a href="~/trang-chu/dang-ky-ung-tuyen" title="Ứng tuyển">Ứng tuyển</a></li>
-                        <li><a href="~/trang-chu/tin-tuc" title="Tin tức">Tin tức</a></li>
+                        @foreach (var item in ViewBag.danhmuc)
+                        {
+                            <li><a href="#" title="@item.Danhmuc_tin">@item.Danhmuc_tin</a></li>
+                        }
                     </ul>
                 </aside>
                 <aside class="widget recent-post">
-                    <h3 class="widget-title">RENCENT POSTS</h3>
+                    <h3 class="widget-title">Các tin nổi bật</h3>
                     <ul>
-                        <li><a href="#" title="title">Interor Tips For Your Home</a></li>
-                        <li><a href="#" title="title">A Contemporary Washington Park Home</a></li>
-                        <li><a href="#" title="title">Way To Wear: Cover Up!</a></li>
-                        <li><a href="#" title="title">Penthouse with Skyline Views</a></li>
-                        <li><a href="#" title="title">A Modern Corona del Mar </a></li>
-                        <li><a href="#" title="title">Living in a Mansion Block</a></li>
+                        @foreach (var top in ViewBag.Top)
+                        {
+                            <li><a href="#" title="@top.TEN_BAI_VIET">@top.TEN_BAI_VIET.ToLower()</a></li>
+                        }
                     </ul>
                 </aside>
             </div>

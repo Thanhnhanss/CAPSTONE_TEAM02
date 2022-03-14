@@ -51,57 +51,65 @@
                                 </div>
                             }
                             <table id="zero_config" class="table table-striped table-bordered no-wrap">
-                                <tr>
-                                    <th>Hình ảnh</th>
-
-                                    <th>Tên bài viết</th>
-
-                                    <th>Ngày đăng</th>
-
-                                    <th>Nội dung</th>
-
-                                    <th>Tác giả</th>
-
-                                    <th>SEO TITLE</th>
-
-                                    <th></th>
-                                </tr>
-
-                                @foreach (var item in Model)
-                                {
+                                <thead>
                                     <tr>
-                                        <td>
-                                            <img src="@Url.Action("Picture", new {item.ID_TIN_TUC})" width="50" height="48" />
-                                        </td>
-                                        <td>
-                                            @item.TEN_BAI_VIET
-                                        </td>
-                                        <td>
-                                            @Html.FormatValue(item.NGAY_DANG, "{0:d}")
-                                        </td>
-                                        <td>
-                                            @if (item.NOI_DUNG.Length < 50)
-                                            {
-                                                @item.NOI_DUNG
-                                            }
-                                            else
-                                            {
-                                                @item.NOI_DUNG.Substring(0, 50).ToString() <span>...</span>
-                                            }
-                                        </td>
-                                        <td>
-                                            @item.TAC_GIA
-                                        </td>
-                                        <td>
-                                            @item.SEO_TITLE
-                                        </td>
-                                        <td>
-                                            <a href="@Url.Action("Edit","QL_TinTuc", new { id = item.ID_TIN_TUC })"><i class="ti-pencil"></i></a>
-                                            <a href="@Url.Action("Delete","QL_TinTuc", new { id = item.ID_TIN_TUC })"><i class="ti-trash"></i></a>
-                                        </td>
+                                        <th>Hình ảnh</th>
+                                        <th>Tên bài viết</th>
+                                        <th>Ngày đăng</th>
+                                        <th>Nội dung</th>
+                                        <th>Tác giả</th>
+                                        <th>Danh mục tin</th>
+                                        <th></th>
                                     </tr>
-                                }
-
+                                </thead>
+                                
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <a href="@Url.Action("Edit", new { id = item.ID_TIN_TUC})">
+                                                    <img src="@Url.Action("Picture", new {item.ID_TIN_TUC})" width="50" height="48" />
+                                                </a>
+                                            </td>
+                                            <td>
+                                                @if (item.TEN_BAI_VIET.Length < 25)
+                                                {
+                                                    <a href="@Url.Action("Edit", new {id=item.ID_TIN_TUC})" title="@item.TEN_BAI_VIET">@item.TEN_BAI_VIET</a>
+                                                }
+                                                else
+                                                {
+                                                    <a href="@Url.Action("Edit", new { id=item.ID_TIN_TUC})" title="@item.TEN_BAI_VIET">
+                                                        @item.TEN_BAI_VIET.Substring(0, 25)
+                                                    </a> <span>...</span>
+                                                }
+                                            </td>
+                                            <td>
+                                                @Html.FormatValue(item.NGAY_DANG, "{0:d}")
+                                            </td>
+                                            <td>
+                                                @if (item.NOI_DUNG.Length < 15)
+                                                {
+                                                    @item.NOI_DUNG
+                                                }
+                                                else
+                                                {
+                                                    @item.NOI_DUNG.Substring(0, 15).ToString()<span>...</span>
+                                                }
+                                            </td>
+                                            <td>
+                                                @item.TAC_GIA
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.DANH_MUC_TIN.Danhmuc_tin)
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Action("Edit","QL_TinTuc", new { id = item.ID_TIN_TUC })"><i class="ti-pencil" title="Chỉnh sửa tin"></i></a>
+                                                <a href="@Url.Action("Delete","QL_TinTuc", new { id = item.ID_TIN_TUC })"><i class="ti-trash" title="Xóa tin"></i></a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
                             </table>
                         </div>
                     </div>

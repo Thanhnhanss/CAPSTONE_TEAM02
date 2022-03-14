@@ -18,6 +18,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         // GET: Admin/QL_TinTuc
         public ActionResult Index()
         {
+            var tIN_TUC = db.TIN_TUC.Include(t => t.DANH_MUC_TIN);
             return View(db.TIN_TUC.ToList());
         }
 
@@ -47,6 +48,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         // GET: Admin/QL_TinTuc/Create
         public ActionResult Create()
         {
+            ViewBag.ID_Danhmuc_tin = new SelectList(db.DANH_MUC_TIN, "ID", "Danhmuc_tin");
             return View();
         }
 
@@ -76,6 +78,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
                 }
                 else ModelState.AddModelError("", "Hình ảnh không được tìm thấy.");
             }
+            ViewBag.ID_Danhmuc_tin = new SelectList(db.DANH_MUC_TIN, "ID", "Danhmuc_tin", tIN_TUC.ID_Danhmuc_tin);
             TempData["Success"] = "Thêm tin mới thành công";
             return RedirectToAction("Index");
         }
@@ -92,6 +95,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.ID_Danhmuc_tin = new SelectList(db.DANH_MUC_TIN, "ID", "Danhmuc_tin", tIN_TUC.ID_Danhmuc_tin);
             return View(tIN_TUC);
         }
 
@@ -122,6 +126,8 @@ namespace VanLangDoctor.Areas.Admin.Controllers
                 }
                 db.Entry(tIN_TUC).State = EntityState.Modified;
             }
+            ViewBag.ID_Danhmuc_tin = new SelectList(db.DANH_MUC_TIN, "ID", "Danhmuc_tin", tIN_TUC.ID_Danhmuc_tin);
+
             return View(tIN_TUC);
         }
 

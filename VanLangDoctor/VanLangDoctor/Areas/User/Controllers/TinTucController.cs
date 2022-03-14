@@ -15,9 +15,11 @@ namespace VanLangDoctor.Areas.User.Controllers
         private CP24Team02Entities db = new CP24Team02Entities();
 
         // GET: User/TinTuc
-        public ActionResult Tin_Tuc(TIN_TUC tIN_TUC)
+        public ActionResult Tin_Tuc()
         {
-            return View(db.TIN_TUC.ToList());
+            ViewBag.Top = GetTopViews();
+            ViewBag.danhmuc = GetDanhMucTin();
+            return View(db.TIN_TUC.OrderByDescending(t => t.NGAY_DANG).ToList());
         }
 
         private const string PICTURE_PATH = "~/Content/IMG_NEWS/";
@@ -40,9 +42,23 @@ namespace VanLangDoctor.Areas.User.Controllers
             {
                 return HttpNotFound();
             }
+            tIN_TUC.CountViews += 1;
+            db.SaveChanges();
+            ViewBag.Top = GetTopViews();
+            ViewBag.danhmuc = GetDanhMucTin();
             return View(tIN_TUC);
         }
-        
+
+        //GET: Top Views
+        private List<TIN_TUC> GetTopViews()
+        {
+            return db.TIN_TUC.OrderByDescending(t => t.CountViews).Take(3).ToList();
+        }
+        private List<DANH_MUC_TIN> GetDanhMucTin()
+        {
+            return db.DANH_MUC_TIN.OrderByDescending(t => t.Danhmuc_tin).ToList();
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
