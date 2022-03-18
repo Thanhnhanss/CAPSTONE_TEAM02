@@ -52,25 +52,25 @@ namespace VanLangDoctor.Areas.User.Controllers
                         dANG_KY.CHUNG_CHI = "ctc-" + dANG_KY.HO_TEN.ToLower().Trim() + "-" + dANG_KY.SDT + "-" + dANG_KY.ID;
 
                         db.SaveChanges();
+
+                        //gửi cho admin
+                        string content = System.IO.File.ReadAllText(Server.MapPath("~/Content/Template_Email/template.html"));
+                        content = content.Replace("{{CustomerName}}", dANG_KY.HO_TEN.ToUpper());
+                        content = content.Replace("{{Email}}", dANG_KY.EMAIL);
+                        content = content.Replace("{{Job}}", dANG_KY.NGHE_NGHIEP);
+                        var toEmail = ConfigurationManager.AppSettings["toEmail"].ToString();
+                        new MailHelper().SendMail(toEmail, "Đơn đăng ký mới", content);
+
+                        //gửi cho khách hàng
+                        string substance = System.IO.File.ReadAllText(Server.MapPath("~/Content/Template_Email/index.html"));
+                        substance = substance.Replace("{{CustomerName}}", dANG_KY.HO_TEN.ToUpper());
+                        new MailHelper().SendMail(dANG_KY.EMAIL, "Đơn đăng ký làm tư vấn viên cho VLDoctor", substance);
+
+                        ViewBag.Message = "Hồ sơ đã được gửi. Vui lòng kiểm tra Email để biết thêm thông tin";
                         scope.Complete();
                     }
                 }
                 else ModelState.AddModelError("", "Hình ảnh không được tìm thấy");
-
-                //gửi cho admin
-                string content = System.IO.File.ReadAllText(Server.MapPath("~/Content/Template_Email/template.html"));
-                content = content.Replace("{{CustomerName}}", dANG_KY.HO_TEN.ToUpper());
-                content = content.Replace("{{Email}}", dANG_KY.EMAIL);
-                content = content.Replace("{{Job}}", dANG_KY.NGHE_NGHIEP);
-                var toEmail = ConfigurationManager.AppSettings["toEmail"].ToString();
-                new MailHelper().SendMail(toEmail, "Đơn đăng ký mới", content);
-
-                //gửi cho khách hàng
-                string substance = System.IO.File.ReadAllText(Server.MapPath("~/Content/Template_Email/index.html"));
-                substance = substance.Replace("{{CustomerName}}", dANG_KY.HO_TEN.ToUpper());
-                new MailHelper().SendMail(dANG_KY.EMAIL, "Đơn đăng ký làm tư vấn viên cho VLDoctor", substance);
-
-                ViewBag.Message = "Hồ sơ đã được gửi. Vui lòng kiểm tra Email để biết thêm thông tin";
                 return RedirectToAction("HomeUser", "HomeUser");
             }
             ViewBag.ID_KHOA = new SelectList(db.KHOAs, "ID_KHOA", "TEN_KHOA", dANG_KY.ID_KHOA);

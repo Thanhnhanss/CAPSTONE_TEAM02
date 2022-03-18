@@ -57,10 +57,10 @@
                                             :
                                             @if (Model.GIOI_TINH.ToString().ToLower() == "nam")
                                             {
-                                                <span style="font-weight: 400;">Ông. @Model.TEN_BACSI</span>
+                                                <span style="font-weight: 400;">BS. @Model.TEN_BACSI</span>
                                             }
                                             else
-                                            { <span style="font-weight: 400;">Bà. @Model.TEN_BACSI</span>}
+                                            { <span style="font-weight: 400;">BS. @Model.TEN_BACSI</span>}
 
                                         </span>
                                     </span>
@@ -103,11 +103,11 @@
                                 <div class="u-image u-image-circle u-preserve-proportions u-image-1" style="background-image: url(@Url.Action("Picture", new {Model.ID_BACSI}))" alt="" data-image-width="700" data-image-height="774"></div>
                                 @if (Model.GIOI_TINH.ToString().ToLower() == "nam")
                                 {
-                                    <h3 class="u-align-center u-custom-font u-text u-text-6">Ông. @Model.TEN_BACSI</h3>
+                                    <h3 class="u-align-center u-custom-font u-text u-text-6">BS. @Model.TEN_BACSI</h3>
                                 }
                                 else
                                 {
-                                    <h3 class="u-align-center u-custom-font u-text u-text-6">Bà. @Model.TEN_BACSI</h3>
+                                    <h3 class="u-align-center u-custom-font u-text u-text-6">BS. @Model.TEN_BACSI</h3>
                                 }
                                 <p class="u-align-left u-custom-font u-font-pt-sans u-text u-text-7">
                                     Thông tin liên hệ<br>&nbsp;
