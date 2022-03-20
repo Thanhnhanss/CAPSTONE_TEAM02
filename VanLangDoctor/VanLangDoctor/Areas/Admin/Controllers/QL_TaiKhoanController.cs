@@ -25,7 +25,8 @@ namespace VanLangDoctor.Areas.Admin.Controllers
                 return new HttpStatusCodeResult(404);
             }
             ViewBag.user = username;
-            ViewBag.role = user.AspNetRoles.ToList()[0].Id;
+            var userRoles = user.AspNetRoles.ToList();
+            ViewBag.role = userRoles.Count > 0 ? userRoles[0].Id : string.Empty;
             var phanQuyen = db.AspNetRoles.ToList();
             return View(phanQuyen);
         }
@@ -39,8 +40,8 @@ namespace VanLangDoctor.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(404);
             }
-            var roleObj = user.AspNetRoles.ToList()[0];
-            user.AspNetRoles.Remove(roleObj);
+            if (user.AspNetRoles.Count > 0)
+                user.AspNetRoles.Remove(user.AspNetRoles.ToList()[0]);
             user.AspNetRoles.Add(db.AspNetRoles.Find(role));
             db.SaveChanges();
             TempData["Success"] = "Phân quyền thành công";

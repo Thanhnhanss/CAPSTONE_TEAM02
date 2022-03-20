@@ -394,7 +394,7 @@
     <Content Include="Content\assets-dr\fonts\open-iconic\open-iconic.svg" />
     <Content Include="Content\assets-dr\images\about-2.jpg" />
     <Content Include="Content\assets-dr\images\about.jpg" />
-    <Content Include="Content\assets-dr\images\bg_1.jpg" />
+    <Content Include="Content\assets-dr\images\bg1.jpg" />
     <Content Include="Content\assets-dr\images\bg_2.jpg" />
     <Content Include="Content\assets-dr\images\bg_3.jpg" />
     <Content Include="Content\assets-dr\images\gallery-1.jpg" />
@@ -1853,7 +1853,6 @@
     <Content Include="Areas\Admin\Views\PhanQuyen\Create.cshtml" />
     <Content Include="Areas\Admin\Views\PhanQuyen\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\PhanQuyen\XoaQuyen.cshtml" />
-    <Content Include="Areas\User\Views\DANG_KY\Createbk.cshtml" />
     <Content Include="Areas\Admin\Views\QL_DangKyTVV\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\QL_DangKyTVV\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\QL_DangKyTVV\Index.cshtml" />

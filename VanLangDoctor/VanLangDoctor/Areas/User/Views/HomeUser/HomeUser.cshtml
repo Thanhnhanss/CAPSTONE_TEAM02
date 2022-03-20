@@ -1,12 +1,26 @@
-﻿
+﻿@{
+    ViewBag.Title = "Trang chủ";
+}
+<link href="~/Content/assets-HomeUser/menu_section.css" rel="stylesheet" />
 <link href="~/Content/assets-HomeUser/nicepage.css" rel="stylesheet" />
 <script class="u-script" type="text/javascript" src="~/Content/assets-HomeUser/jquery.js" defer=""></script>
 <script class="u-script" type="text/javascript" src="~/Content/assets-HomeUser/nicepage.js" defer=""></script>
 <link href="~/Content/assets-HomeUser/Home.css" rel="stylesheet" />
+<title>@ViewBag.Title</title>
+
+<div style="vertical-align:central">
+    <ul style="position:fixed; z-index: 1; padding-top:7%">
+        <li><a href="#home" title="Trang chủ">🔘</a></li>
+        <li><a href="#tienich" title="Tiện ích">🔘</a></li>
+        <li><a href="#khoa" title="Các chuyên khoa">🔘</a></li>
+        <li><a href="#gioithieu" title="Giới thiệu">🔘</a></li>
+        <li><a href="#tintuc" title="Tin tức">🔘</a>
+        <li><a href="#bacsi" title="Bác sĩ">🔘</a></li>
+    </ul>
+</div>
 
 <body data-home-page="Home.html" data-home-page-title="Home" class="u-body u-xl-mode">
-    <section class="u-clearfix u-image u-section-1" id="sec-bc13">
-
+    <section class="u-clearfix u-image u-section-1" id="home">
         @ViewBag.Message
         <div class="u-clearfix u-sheet u-sheet-1">
             <div class="u-container-style u-expanded-width-xs u-group u-group-1">
@@ -17,7 +31,7 @@
             </div>
         </div>
     </section>
-    <section class="u-clearfix u-section-2" id="sec-9670">
+    <section class="u-clearfix u-section-2" id="">
         <div class="u-clearfix u-sheet u-sheet-1">
             <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
                 <div class="u-layout">
@@ -48,7 +62,7 @@
             </div>
         </div>
     </section>
-    <section class="u-clearfix u-section-3" id="sec-9ea6">
+    <section class="u-clearfix u-section-3" id="tienich">
         <div class="u-clearfix u-sheet u-sheet-1">
             <div class="u-align-center u-container-style u-expanded-width-md u-expanded-width-xs u-group u-group-1">
                 <div class="u-container-layout u-container-layout-1">
@@ -97,7 +111,7 @@
             </div>
         </div>
     </section>
-    <section class="u-clearfix u-palette-1-light-1 u-section-4" id="sec-6618">
+    <section class="u-clearfix u-palette-1-light-1 u-section-4" id="khoa">
         <div class="u-clearfix u-sheet u-sheet-1">
             <div class="u-align-center u-container-style u-group u-group-1">
                 <div class="u-container-layout u-container-layout-1">
@@ -148,7 +162,7 @@
             </div>
         </div>
     </section>
-    <section class="u-clearfix u-white u-section-5" id="sec-781b">
+    <section class="u-clearfix u-white u-section-5" id="gioithieu">
         <div class="u-clearfix u-sheet u-sheet-1">
             <div class="u-clearfix u-expanded-width u-gutter-50 u-layout-wrap u-layout-wrap-1">
                 <div class="u-layout">
@@ -162,7 +176,10 @@
                         <div class="u-container-style u-layout-cell u-right-cell u-size-24 u-white u-layout-cell-2">
                             <div class="u-container-layout">
                                 <h2 class="u-custom-font u-font-oswald u-text u-text-1">Về chúng tôi</h2>
-                                <p class="u-text u-text-2"> Đại học Văn Lang với tuổi đời 25 năm trong ngành giáo dục, chúng tôi tự tin mang lại cho mọi người những sản phẩm mà sinh viên chúng tôi đào tạo mang lại cho mọi người.</p>
+                                <p class="u-text u-text-2">
+                                    VanLangDoctor là một website tư vấn sức khoẻ online của trường đại học Văn Lang nhằm mục đích giúp cho sinh viên Văn Lang và mọi người có thể nhận được sự tư vấn về sức khoẻ một cách nhanh chóng và an toàn.
+                                    Website mang lại sự khác biệt với các đối thủ trên thị trường là sự tiện lợi, nhanh chóng, an toàn, với sự tư vấn của các bác sĩ, dược sĩ có chuyên môn được đào tạo bài bản.
+                                </p>
                                 <a href="~/gioi-thieu" class="u-align-center u-btn u-button-style u-none u-text-hover-palette-1-base u-text-palette-1-light-1 u-btn-1">
                                     Xem thêm&nbsp;<span class="u-file-icon u-icon u-text-palette-1-light-1 u-icon-1"><img src="~/Content/assets-HomeUser/images/13.png" alt=""></span>
                                 </a>
@@ -173,7 +190,7 @@
             </div>
         </div>
     </section>
-    <section class="u-clearfix u-palette-1-light-3 u-section-6" id="sec-c5f3">
+    <section class="u-clearfix u-palette-1-light-3 u-section-6" id="tintuc">
         <div class="u-clearfix u-sheet u-sheet-1">
             <h1 class="u-custom-font u-font-oswald u-text u-text-default u-title u-text-1">Tin tức nổi bật</h1>
             <div class="u-expanded-width u-list u-list-1">
@@ -186,25 +203,29 @@
                                     <img alt="" class="u-expanded-width u-image u-image-default u-image-1" data-image-width="2000" data-image-height="1333" src="@Url.Action("Picture","TinTuc", new { n.ID_TIN_TUC})">
                                 </a>
                                 <a href="@Url.Action("Details", "TinTuc", new {id = n.ID_TIN_TUC})">
-                                    <h3 class="u-text u-text-default u-text-2">@n.TEN_BAI_VIET</h3>
+                                    <h5 class="u-text u-text-default u-text-2">@n.TEN_BAI_VIET</h5>
                                 </a>
-                                <a href="@Url.Action("Details", "TinTuc", new {id = n.ID_TIN_TUC})" class="u-active-none u-border-2 u-border-hover-palette-2-base u-border-palette-2-light-1 u-btn u-button-style u-hover-none u-none u-text-body-color u-btn-1">Xem thêm</a>
+                                <a href="@Url.Action("Details", "TinTuc", new {id = n.ID_TIN_TUC})" class="u-active-none u-border-2 u-border-hover-palette-2-base u-border-palette-2-light-1 u-btn u-button-style u-hover-none u-none u-text-body-color u-btn-1">Xem chi tiết</a>
                             </div>
                         </div>
                     }
                 </div>
             </div>
+            <div class="u-container-layout" style="text-align: center">
+                <a href="~/trang-chu/tin-tuc" style="display: inline-flex; font-size:20px" class="u-align-center u-btn u-button-style u-none u-text-hover-palette-1-base u-text-palette-1-light-1 u-btn-1">
+                    Xem thêm&nbsp;<span class="u-file-icon u-icon u-text-palette-1-light-1 u-icon-1"><img src="~/Content/assets-HomeUser/images/13.png" alt=""></span>
+                </a>
+            </div>
         </div>
     </section>
-
-    <section class="u-clearfix u-section-7" id="sec-fe17">
+    <section class="u-clearfix u-section-7" id="bacsi">
         <div class="u-clearfix u-sheet u-sheet-1">
             <span class="u-file-icon u-icon u-icon-1"><img src="~/Content/assets-HomeUser/images/1632686.png" alt=""></span>
             <div class="u-border-3 u-border-custom-color-1 u-line u-line-horizontal u-line-1"></div>
             <div class="u-border-3 u-border-custom-color-1 u-line u-line-horizontal u-line-2"></div>
             <div class="u-align-center u-container-style u-group u-group-1">
                 <div class="u-container-layout u-container-layout-1">
-                    <h2 class="u-custom-font u-font-oswald u-text u-text-1">Danh sách bác sĩ</h2>
+                    <h2 class="u-custom-font u-font-oswald u-text u-text-1">Đội ngũ bác sĩ</h2>
                 </div>
             </div>
             <div class="u-layout-horizontal u-list u-list-1">
@@ -215,8 +236,8 @@
                             <div class="u-container-layout u-similar-container u-container-layout-2">
                                 <a href="@Url.Action("thongtinbacsi","ThongtinBacsi", new { id = i.ID_BACSI})">
                                     <img class="u-expanded-width u-image u-image-default u-image-1" alt="" data-image-width="719" data-image-height="1080" src="@Url.Action("Picture","ThongtinBacsi", new { i.ID_BACSI})">
-                                    <h4 class="u-text u-text-2">@i.TEN_BACSI</h4>
-                                    <p class="u-text u-text-3">@i.KHOA.TEN_KHOA với @i.KINH_NGHIEM năm kinh nghiệm trong ngành</p>
+                                    <h5 class="u-text u-text-2" style="text-align:center">@i.TEN_BACSI</h5>
+                                    <p class="u-text u-text-3" style="text-align:center">@i.KHOA.TEN_KHOA với @i.KINH_NGHIEM năm kinh nghiệm trong ngành</p>
                                 </a>
                             </div>
                         </div>
@@ -255,7 +276,7 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
                     </span>
                 </a>
             </div>
-            <a href="https://nicepage.com/c/slider-website-templates" class="u-border-none u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-1">xem thêm</a>
+            <a href="~/trang-chu/bac-si" class="u-border-none u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-1">xem thêm</a>
         </div>
     </section>
 </body>
