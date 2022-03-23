@@ -1,0 +1,145 @@
+ .u-section-1 {
+  background-image: none;
+  min-height: 1120px;
+}
+
+.u-section-1 .u-image-1 {
+  height: 575px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.u-section-1 .u-group-1 {
+  width: 946px;
+  min-height: 427px;
+  background-image: none;
+  margin: -48px auto 56px;
+}
+
+.u-section-1 .u-container-layout-1 {
+  padding: 50px 30px 30px;
+}
+
+.u-section-1 .u-text-1 {
+  text-transform: none;
+  font-weight: 700;
+  font-size: 1.875rem;
+  margin: 0 auto;
+}
+
+.u-section-1 .u-form-1 {
+  height: 401px;
+  width: 866px;
+  margin: 20px auto 0;
+}
+
+.u-section-1 .u-form-group-1 {
+  margin-left: auto;
+}
+
+.u-section-1 .u-form-group-2 {
+  margin-left: auto;
+}
+
+.u-section-1 .u-form-group-3 {
+  margin-left: auto;
+}
+
+.u-section-1 .u-form-group-4 {
+  margin-left: auto;
+}
+
+.u-section-1 .u-form-group-5 {
+  margin-left: auto;
+}
+
+.u-section-1 .u-form-group-6 {
+  margin-left: auto;
+}
+
+.u-section-1 .u-btn-1 {
+  margin-left: auto;
+  width: 100%;
+  border-style: none;
+  font-weight: 700;
+  font-size: 1.125rem;
+  letter-spacing: 2px;
+  background-image: none;
+  text-transform: none;
+}
+
+@media (max-width: 1199px) {
+  .u-section-1 .u-group-1 {
+    width: 940px;
+  }
+
+  .u-section-1 .u-text-1 {
+    font-size: 2.25rem;
+  }
+}
+
+@media (max-width: 991px) {
+   .u-section-1 {
+    min-height: 1038px;
+  }
+
+  .u-section-1 .u-image-1 {
+    height: 505px;
+    margin-top: 1px;
+  }
+
+  .u-section-1 .u-group-1 {
+    width: 720px;
+    margin-top: -68px;
+    margin-bottom: 55px;
+  }
+
+  .u-section-1 .u-container-layout-1 {
+    padding-top: 30px;
+  }
+
+  .u-section-1 .u-form-1 {
+    width: 660px;
+  }
+}
+
+@media (max-width: 767px) {
+   .u-section-1 {
+    min-height: 1048px;
+  }
+
+  .u-section-1 .u-group-1 {
+    width: 540px;
+    margin-bottom: 56px;
+  }
+
+  .u-section-1 .u-text-1 {
+    width: auto;
+    font-size: 1.875rem;
+    margin-left: 38px;
+    margin-right: 38px;
+  }
+
+  .u-section-1 .u-form-1 {
+    width: 465px;
+  }
+}
+
+@media (max-width: 575px) {
+  .u-section-1 .u-group-1 {
+    width: 340px;
+  }
+
+  .u-section-1 .u-container-layout-1 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .u-section-1 .u-text-1 {
+    font-size: 1.5rem;
+  }
+
+  .u-section-1 .u-form-1 {
+    width: 320px;
+  }
+}
