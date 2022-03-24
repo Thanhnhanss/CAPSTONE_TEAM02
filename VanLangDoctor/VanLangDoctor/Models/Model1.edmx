@@ -152,8 +152,10 @@
             <PropertyRef Name="ID_FEEDBACK" />
           </Key>
           <Property Name="ID_FEEDBACK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TEN_NDG" Type="nvarchar" MaxLength="256" />
+          <Property Name="SDT" Type="varchar" MaxLength="10" />
           <Property Name="GOP_Y" Type="nvarchar(max)" />
-          <Property Name="DANH_GIA" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="DANH_GIA" Type="nvarchar" MaxLength="128" Nullable="false" />
           <Property Name="ID_USER" Type="nvarchar" MaxLength="128" />
         </EntityType>
         <EntityType Name="KHOA">
@@ -750,8 +752,10 @@
             <PropertyRef Name="ID_FEEDBACK" />
           </Key>
           <Property Name="ID_FEEDBACK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TEN_NDG" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="SDT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="GOP_Y" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="DANH_GIA" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="DANH_GIA" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="ID_USER" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="AspNetUser" Relationship="CP24Team02Model.FK_FEEDBACK_AspNetUsers" FromRole="FEEDBACK" ToRole="AspNetUser" />
         </EntityType>
@@ -1135,6 +1139,8 @@
                 <ScalarProperty Name="ID_USER" ColumnName="ID_USER" />
                 <ScalarProperty Name="DANH_GIA" ColumnName="DANH_GIA" />
                 <ScalarProperty Name="GOP_Y" ColumnName="GOP_Y" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="TEN_NDG" ColumnName="TEN_NDG" />
                 <ScalarProperty Name="ID_FEEDBACK" ColumnName="ID_FEEDBACK" />
               </MappingFragment>
             </EntityTypeMapping>

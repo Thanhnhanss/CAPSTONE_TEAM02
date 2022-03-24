@@ -15,6 +15,8 @@ namespace VanLangDoctor.Models
     public partial class FEEDBACK
     {
         public int ID_FEEDBACK { get; set; }
+        public string TEN_NDG { get; set; }
+        public string SDT { get; set; }
         public string GOP_Y { get; set; }
         public string DANH_GIA { get; set; }
         public string ID_USER { get; set; }

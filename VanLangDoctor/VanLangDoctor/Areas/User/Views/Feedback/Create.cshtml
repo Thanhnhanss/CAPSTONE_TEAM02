@@ -1,0 +1,84 @@
+﻿@model VanLangDoctor.Models.FEEDBACK
+
+@{
+    ViewBag.Title = "Gửi phản ánh";
+    Layout = "~/Areas/User/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html style="font-size: 16px;">
+<head>
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/assets-feedback/nicepage.css" rel="stylesheet" />
+    <link href="~/Content/assets-feedback/FeedBack.css" rel="stylesheet" />
+    <script src="~/Content/assets-feedback/jquery.js"></script>
+    <script src="~/Content/assets-feedback/nicepage.js"></script>
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+</head>
+
+<body data-home-page="FeedBack.html" data-home-page-title="FeedBack" class="u-body u-xl-mode">
+    <section class="u-align-center u-clearfix u-palette-1-light-3 u-section-1" id="carousel_6c7e">
+        <img class="u-expanded-width u-image u-image-default u-image-1" src="~/Content/assets-feedback/images/fa559f2e44a892065a51026f36e5dfa20c6b860fdacc342720c9a171d60e1a52531d711a0b06352906e88e4ba53d269363df2169b783d640d590bd_1280.jpg" alt="" data-image-width="1280" data-image-height="853">
+        <div class="u-align-center u-container-style u-group u-shape-rectangle u-white u-group-1">
+            <div class="u-container-layout u-valign-top u-container-layout-1">
+
+                <div class="alert-danger" id="message" style="transition-duration: 1.2s;">
+                    @ViewBag.message
+                </div>
+                <br />
+                <h3 class="u-text u-text-default u-text-1">Phản hồi</h3>
+                <div class="u-form u-form-1">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="u-clearfix u-form-spacing-20 u-form-vertical u-inner-form" style="padding: 0;" source="email" name="form">
+
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                            <input type="hidden" class="form-control" value="@Model.AspNetUser.Id" name="id" />
+                            <div class="u-form-group u-form-name u-form-partition-factor-3 u-form-group-1">
+                                <label class="u-form-control-hidden u-label">Họ và tên</label>
+                                <input type="text" placeholder="Tên của bạn" id="hovaten" name="hovaten" value="@Model.TEN_NDG" class="u-grey-10 u-input u-input-rectangle" required="">
+                            </div>
+
+                            <div class="u-form-email u-form-group u-form-partition-factor-3 u-form-group-2">
+                                <label class="u-form-control-hidden u-label">Email</label>
+                                <input type="email" placeholder="E-mail" id="Email" name="Email" disabled value="@Model.AspNetUser.Email" class="u-grey-10 u-input u-input-rectangle" required="">
+                            </div>
+
+                            <div class="u-form-email u-form-group u-form-partition-factor-3 u-form-group-2">
+                                <label class="u-form-control-hidden u-label">Số điện thoại</label>
+                                @Html.EditorFor(model => model.SDT, new { htmlAttributes = new { @class = "u-grey-10 u-input u-input-rectangle", @placeholder = "Số điện thoại" } })
+                                @Html.ValidationMessageFor(model => model.SDT, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="u-form-group u-form-message u-form-group-4">
+                                <label class="u-form-control-hidden u-label">Góp ý</label>
+                                <textarea placeholder="Góp ý" rows="4" cols="50" id="gopy" name="gopy" class="u-grey-10 u-input u-input-rectangle" required="">@Model.GOP_Y</textarea>
+                            </div>
+
+                            <div class="u-form-group u-form-select u-form-group-5">
+                                <label class="u-label">Đánh giá</label>
+                                <div class="u-form-select-wrapper">
+                                    <select id="danhgia" name="danhgia" class="u-grey-10 u-input u-input-rectangle">
+                                        <option value="@Model.DANH_GIA">@Model.DANH_GIA</option>
+                                        <option value="Rất hài lòng">Rất hài lòng</option>
+                                        <option value="Hài lòng">Hài lòng</option>
+                                        <option value="Bình thường">Bình thường</option>
+                                        <option value="Chưa hài lòng">Chưa hài lòng</option>
+                                    </select>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
+                                </div>
+                            </div>
+
+                            <div class="u-align-center u-form-group u-form-submit u-form-group-6">
+                                <input type="submit" value="Gửi phản hồi" class="u-active-palette-2-light-1 u-border-none u-btn u-btn-submit u-button-style u-hover-palette-2-light-1 u-palette-1-light-1 u-btn-1" />
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

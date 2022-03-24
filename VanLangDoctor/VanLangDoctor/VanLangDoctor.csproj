@@ -198,6 +198,7 @@
     <Compile Include="Areas\Admin\Controllers\QL_TinTucController.cs" />
     <Compile Include="Areas\User\Controllers\CapnhatTKController.cs" />
     <Compile Include="Areas\User\Controllers\DANG_KYController.cs" />
+    <Compile Include="Areas\User\Controllers\FeedbackController.cs" />
     <Compile Include="Areas\User\Controllers\HomeUserController.cs" />
     <Compile Include="Areas\User\Controllers\So_Kham_BenhController.cs" />
     <Compile Include="Areas\User\Controllers\ThongtinBacsiController.cs" />
@@ -288,8 +289,6 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bin\VanLangDoctor.dll" />
-    <Content Include="bin\VanLangDoctor.pdb" />
     <Content Include="Content\asset-dr-inf\css\nicepage.css" />
     <Content Include="Content\asset-dr-inf\css\style.css" />
     <Content Include="Content\asset-dr-inf\css\ViewDetailDoctor.css" />
@@ -1258,6 +1257,7 @@
     <Content Include="Content\assets-ff\images\banner\login_bg3.jpg" />
     <Content Include="Content\assets-ff\images\banner\login_bg4.jpg" />
     <Content Include="Content\Template_Email\SendMailCF.html" />
+    <Content Include="Content\Template_Email\Feedback.html" />
     <Content Include="Content\Template_Email\template.html" />
     <Content Include="Content\Template_Email\images\image-1.png" />
     <Content Include="Content\Template_Email\images\image-2.png" />
@@ -1886,6 +1886,7 @@
     <Content Include="Areas\User\Views\Thuoc\Edit.cshtml" />
     <Content Include="Areas\User\Views\Thuoc\Index.cshtml" />
     <Content Include="Areas\User\Views\DANG_KY\Create.cshtml" />
+    <Content Include="Areas\User\Views\Feedback\Create.cshtml" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

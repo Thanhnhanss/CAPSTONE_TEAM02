@@ -63,15 +63,15 @@
                                 }
                                 else
                                 {
-                                    <a class="acc" href="#" title="USD">@Html.ActionLink("Xin chào! " + User.Identity.GetUserName(), "CapnhatTK", "CapnhatTK", routeValues: null, htmlAttributes: new { type = "Cập nhật thông tin" })</a>
+                                    <a class="" href="#" title="USD">@Html.ActionLink("Xin chào! " + User.Identity.GetUserName(), "CapnhatTK", "CapnhatTK", routeValues: null, htmlAttributes: new { type = "Cập nhật thông tin" })</a>
                                     using (Html.BeginForm("LogOff", "../Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
                                     {
                                         @Html.AntiForgeryToken();
                                         <ul class="list-menu" style="text-align: left; border: none; border-radius: 1em; left:20%; top:100%">
-                                            <li>
-                                                @Html.ActionLink("  Cập nhật tài khoản", "CapnhatTK", "CapnhatTK", routeValues: null, htmlAttributes: new { @class = "icon-edit", @title = "Cập nhật thông tin" })
-                                            </li>
-                                            <li><a href="javascript:document.getElementById('logoutForm').submit()"><i class="icon-sign-out">  Đăng xuất</i></a></li>
+                                            <li><a href="@Url.Action("CapnhatTK", "CapnhatTK", routeValues: null)" title="Cập nhật thông tin cá nhân"><i class="fa fa-user" aria-hidden="true" style="font-size: 14px"> Cập nhật tài khoản</i></a></li>
+                                            <li><a href="~/trang-chu/dang-ky-ung-tuyen" title="Ứng tuyển làm tư vấn viên"><i class="fa fa-edit" aria-hidden="true" style="font-size: 14px "> Đăng ký ứng tuyển</i></a></li>
+                                            <li><a href="@Url.Action("Create", "Feedback")" title="Đánh giá và phản hồi"><i class="fa fa-comments" aria-hidden="true" style="font-size: 14px"> Đánh giá & phản hồi</i></a></li>
+                                            <li><a href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-sign-out" style="font-size: 14px "> Đăng xuất</i></a></li>
                                         </ul>
                                     }
                                 }
@@ -95,69 +95,19 @@
                         </div>
                         <div class="logo-mobile"><a href="/trang-chu" title="LogoVLUDoctor"><img src="@Url.Content("~/Content/assets-ff/images/logoVLDnobrw.png")" alt="LogoVLU"></a></div>
 
-                        <div class="box-right">
-                            @*<div class="cart hover-menu">
-                                    <p class="icon-cart" title="Đơn thuốc">
-                                        <i class="icon"></i>
-                                        <span class="cart-count">0</span>
-                                    </p>
-
-                                </div>*@
+                        <div class="box">
                             <nav class="mega-menu">
-                                <!-- Brand and toggle get grouped for better mobile display -->
                                 <ul class="nav navbar-nav" id="navbar">
                                     <li class="level1"><a href="~/trang-chu" title="trang chủ">Trang chủ</a></li>
                                     <li class="level1"><a href="~/gioi-thieu" title="giới thiệu">Giới thiệu</a></li>
-                                    <li class="level1">
-                                        <a href="~/trang-chu/bac-si" title="danh sách bác sĩ">Bác sĩ</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="#" title="thuốc">Thuốc</a>
-                                        <!--<div class="sub-menu dropdown-menu">
-                                            <ul class="menu-level-1">
-                                                <li class="level2">
-                                                    <a href="#">Shop Page</a>
-                                                    <ul class="menu-level-2">
-                                                        <li class="level3"><a href="order.html" title="Order">Order</a></li>
-                                                        <li class="level3"><a href="shopping_cart.html" title="Shopping Cart">Shopping Cart</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="level2">
-                                                    <a href="#">Tin tức</a>
-                                                    <ul class="menu-level-2">
-                                                        <li class="level3"><a href="faq.html" title="faq">faq</a></li>
-                                                        <li class="level3"><a href="page_404.html" title="page 404">page 404</a></li>
-                                                        <li class="level3"><a href="popup.html" title="newsletter">newsletter</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="level2">
-                                                    <a href="#">Blog Page</a>
-                                                    <ul class="menu-level-2">
-                                                        <li class="level3"><a href="blog_2_columns.html" title="Blog 2 Columns">Blog 2 Columns</a></li>
-                                                        <li class="level3"><a href="blog_3_columns.html" title="Blog 3 Columns">Blog 3 Columns</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="level2">
-                                                    <a href="#">Signle Page</a>
-                                                    <ul class="menu-level-2">
-                                                        <li class="level3"><a href="product_detail.html" title="Version 1">Product Detail Version 1</a></li>
-                                                        <li class="level3"><a href="product_detail2.html" title="Version 2">Product Detail Version 2</a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>-->
-                                        <!-- End RightSubMenu -->
-                                        <!--</div>-->
-                                        <!-- End Dropdow Menu -->
-                                    </li>
+                                    <li class="level1"><a href="~/trang-chu/bac-si" title="danh sách bác sĩ">Bác sĩ</a></li>
+                                    <li class="level1"><a href="#" title="thuốc">Thuốc</a></li>
                                     <li class="level1"><a href="~/trang-chu/tin-tuc" title="tin tức">Tin Tức</a></li>
-                                    <li class="level1"><a href="~/trang-chu/dang-ky-ung-tuyen" title="Ứng tuyển làm tư vấn viên">Ứng tuyển</a></li>
                                 </ul>
                             </nav>
                         </div>
                     </div>
-                    <!-- End container -->
                 </div>
-                <!-- End header-top -->
             </div>
         </header><!-- /header -->
 
@@ -190,16 +140,19 @@
             }(document, 'script', 'facebook-jssdk'));
         </script>
 
-        <footer id="footer" class="footer-v2 align-left" style="background-image: linear-gradient(to left, #1e83ff80, #15ff5080 ) ">
+
+
+        <footer id="footer" class="footer-v2 align-left" style="background-image: linear-gradient(to left, #1e83ff80, #959595ba ) ">
+
             <div class="container container-ver2">
                 <div class="footer-inner">
                     <div class="row">
-                        <div class="col-md-3 col-sm-6">
+                        <div class="col-md-3 col-sm-5">
                             <h3 class="title-footer" style="color:white">Về chúng tôi</h3>
                             <p>Đại học Văn Lang với tuổi đời 25 năm trong ngành giáo dục, chúng tôi tự tin mang lại cho mọi người những sản phẩm mà sinh viên chúng tôi đào tạo mang lại cho mọi người.</p>
                             <a class="link-footer" href="#" title="footer">Đọc thêm <i class="fa fa-long-arrow-right"></i></a>
                         </div>
-                        <div class="col-md-2 col-sm-6">
+                        <div class="col-sm-offset-1 col-sm-3">
                             <h3 class="title-footer" style="color:white">Thông tin</h3>
                             <ul class="list-footer">
                                 <li><a href="#" title="title">Giới thiệu</a></li>
@@ -220,15 +173,15 @@
                             <h3 class="title-footer" style="color:white">Đơn vị hợp tác</h3>
                             <a href="#" title="paypal"><img src="@Url.Content("~/Content/assets-ff/images/paypal-footer.png")" alt="images"></a>
                         </div>
-                        <div class="float-lg-right bottom">
-                            <div style="text-align:right" title="Về đầu trang">
-                                <a href='#' class="icon" style="font-size: 3em" title="Về đầu trang">🔝</a>
-                            </div>
+                        <div class="col-2">
+                            <ul class="float-lg-right bottom" style="z-index:1">
+                                <li style="text-align:right" title="Về đầu trang">
+                                    <a href='#' class="icon" style="font-size: 3em" title="Về đầu trang">🔝</a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-
-                <!-- End footer-inner -->
             </div>
             <!-- End container -->
             <div class="footer-bottom box">
