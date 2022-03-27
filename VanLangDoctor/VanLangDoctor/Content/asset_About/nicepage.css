@@ -91,10 +91,10 @@
       position: relative;
       content: "\1F4CE";
       font-weight: normal; }
-  .fr-view pre {
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    overflow: visible; }
+    .fr-view pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+    }
 /*  .fr-view[dir="rtl"] blockquote {
     border-left: none;
     border-right: solid 2px #5E35B1;
@@ -219,11 +219,11 @@
     text-align: center;
     position: relative; }
     .fr-view .fr-video.fr-rv {
-      padding-bottom: 56.25%;
-      padding-top: 30px;
-      height: 0;
-      overflow: hidden; }
-      .fr-view .fr-video.fr-rv > iframe, .fr-view .fr-video.fr-rv object, .fr-view .fr-video.fr-rv embed {
+        padding-bottom: 56.25%;
+        padding-top: 30px;
+        height: 0;
+    }
+    .fr-view .fr-video.fr-rv > iframe, .fr-view .fr-video.fr-rv object, .fr-view .fr-video.fr-rv embed {
         position: absolute !important;
         top: 0;
         left: 0;
@@ -449,7 +449,6 @@ img {
   border-style: none;
 }
 svg:not(:root) {
-  overflow: hidden;
 }
 code,
 kbd,
@@ -461,7 +460,6 @@ samp {
 hr {
   box-sizing: content-box;
   height: 0;
-  overflow: visible;
 }
 button,
 input,
@@ -477,7 +475,6 @@ optgroup {
 }
 button,
 input {
-  overflow: visible;
 }
 button,
 select {
@@ -516,7 +513,6 @@ legend {
   white-space: normal;
 }
 textarea {
-  overflow: auto;
 }
 [type="checkbox"],
 [type="radio"] {
@@ -569,7 +565,6 @@ ol {
   height: 100%;
 }
 .u-background-effect {
-  overflow: hidden;
 }
 .u-background-effect ~ .u-container-layout {
   cursor: pointer;
@@ -935,7 +930,6 @@ ol {
   transform: scale(1);
 }
 .u-effect-hover-liftUp > .u-background-effect {
-  overflow: visible;
 }
 .u-effect-hover-liftUp .u-back-slide,
 .u-effect-hover-liftUp .u-background-effect-image {
@@ -2002,8 +1996,6 @@ a {
 }
 html {
   height: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
 }
 body {
   height: auto;
@@ -5676,7 +5668,6 @@ ul.u-text li:last-child {
 }
 img.u-image,
 .u-video-poster {
-  overflow: hidden;
 }
 .u-back-image.u-image-contain,
 .u-image.u-image-contain {
@@ -15454,7 +15445,6 @@ div.u-video,
   height: -webkit-fill-available;
 }
 .u-sidenav-overflow {
-  overflow: auto;
   position: absolute !important;
   top: 0;
   bottom: 0;
@@ -16287,7 +16277,6 @@ blockquote .small:before {
   flex-flow: row;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.3);
-  overflow: auto;
 }
 .pswp__previews img {
   width: 5em;
@@ -18413,7 +18402,6 @@ a.pswp__share--download:hover {
   background-size: contain;
   background-position: 50% 50%;
   cursor: zoom-in;
-  overflow: hidden;
 }
 .u-layout-carousel.u-gallery.u-product-zoom .u-back-slide.hover img,
 .u-layout-thumbnails.u-gallery.u-product-zoom .u-back-slide.hover img {
@@ -18485,7 +18473,6 @@ a.pswp__share--download:hover {
 }
 @media (max-width: 767px) {
   .u-table-responsive {
-    overflow-x: auto;
     overflow-y: hidden;
   }
   .u-table-responsive thead th,
@@ -18777,7 +18764,7 @@ a.pswp__share--download:hover {
   margin: 0;
   list-style: none;
   display: flex;
-  overflow-x: auto;
+  -x: auto;
 }
 .u-layout-thumbnails .u-carousel-thumbnail {
   flex-shrink: 0;
@@ -18792,18 +18779,16 @@ a.pswp__share--download:hover {
 .u-thumbnails-position-bottom {
   flex-direction: column;
 }
-.u-thumbnails-position-bottom .u-carousel-thumbnails {
-  flex-direction: row;
-  order: 10;
-  overflow-x: auto;
-}
+    .u-thumbnails-position-bottom .u-carousel-thumbnails {
+        flex-direction: row;
+        order: 10;
+    }
 .u-thumbnails-position-top {
   flex-direction: column;
 }
 .u-thumbnails-position-top .u-carousel-thumbnails {
   flex-direction: row;
   order: -1;
-  overflow-x: auto;
 }
 .u-thumbnails-position-left {
   flex-direction: row;
@@ -18811,7 +18796,6 @@ a.pswp__share--download:hover {
 .u-thumbnails-position-left .u-carousel-thumbnails {
   flex-direction: column;
   order: -1;
-  overflow-y: auto;
 }
 .u-thumbnails-position-right {
   flex-direction: row;
@@ -18819,7 +18803,6 @@ a.pswp__share--download:hover {
 .u-thumbnails-position-right .u-carousel-thumbnails {
   flex-direction: column;
   order: 10;
-  overflow-y: auto;
 }
 .u-layout-horizontal {
   position: relative;
@@ -18829,7 +18812,6 @@ a.pswp__share--download:hover {
 .u-layout-horizontal .u-gallery-inner {
   width: 100%;
   height: 100%;
-  overflow-x: auto;
   overflow-y: hidden;
   scrollbar-width: none;
 }
