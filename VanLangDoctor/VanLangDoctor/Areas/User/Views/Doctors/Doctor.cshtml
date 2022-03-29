@@ -27,7 +27,20 @@
             <p>Mọi người trả tiền cho “công sức” của bác sĩ, còn sự tử tế của bác sĩ thì vẫn sẽ mãi là món nợ ân tình.</p>
         </div>
     </div>
+
     <hr />
+
+    <div class="form-container">
+        <form action="@Url.Action("Search", "Doctors")" method="get">
+            <div class="input-group-btn">
+                <input type="text" name="Keyword" placeholder="Tìm kiếm" value="@ViewBag.Keyword">
+                <span class="input-sm">
+                    <button type="submit" class="fa fa-search"></button>
+                </span>
+            </div>
+        </form>
+    </div>
+
     <div class="row">
         @foreach (var item in Model)
         {
@@ -68,3 +81,37 @@
         }
     </div>
 </div>
+
+@*<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
+
+    <script>
+
+        $("#select").typeahead({
+            minLength: 1,
+            source: function (request, response) {
+                $.ajax({
+                    url: "/Doctors/GetList/",
+                    data: {
+                        "name": request
+                    },
+                    type: "GET",
+                    contentType: "json",
+                    success: function (data) {
+                        console.log(data);
+                        var items = [];
+                        $.each(data, function (i, item) {
+                            items.push(item);
+                        });
+                        console.log(items);
+                        response(items);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+            }
+        });
+    </script>*@ 

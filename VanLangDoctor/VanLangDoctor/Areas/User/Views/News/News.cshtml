@@ -17,9 +17,18 @@
 
 
 <body data-home-page="Home.html" data-home-page-title="Home" class="u-body u-xl-mode">
+    <form action="#" method="get" class="u-border-2 u-border-palette-1-light-1 u-radius-20 u-search u-search-right u-white u-search-1">
+        <button class="u-search-button" type="submit">
+            <span class="u-file-icon u-search-icon u-spacing-10 u-text-palette-1-base u-search-icon-1">
+                <img src="images/1.png" alt="">
+            </span>
+        </button>
+        <input class="u-search-input" type="search" name="search" value="" placeholder="Search">
+    </form>
+
     <section class="u-align-left u-clearfix u-white u-section-1" id="carousel_7823">
         <div class="u-clearfix u-sheet u-sheet-1">
-            <h1 class="u-custom-font u-font-oswald u-text u-text-default u-title u-text-1">Danh sách tin t?c</h1>
+            <h1 class="u-custom-font u-font-oswald u-text u-text-default u-title u-text-1">Danh sách tin t??c</h1>
             <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
                 <div class="u-layout">
                     <div class="u-layout-row">
@@ -28,7 +37,7 @@
                         </div>
                         <div class="u-container-style u-layout-cell u-size-16 u-layout-cell-2" data-animation-name="" data-animation-duration="0" data-animation-direction="">
                             <div class="u-border-3 u-border-palette-1-light-1 u-container-layout u-container-layout-2">
-                                <h1 class="u-align-center u-custom-font u-font-oswald u-text u-text-default u-text-2">Danh m?c</h1>
+                                <h1 class="u-align-center u-custom-font u-font-oswald u-text u-text-default u-text-2">Danh mu?c</h1>
                                 @foreach (var i in Model)
                                 {
                                     <ul class="u-align-center u-text u-text-3">
@@ -89,7 +98,7 @@
     <!--Hot NEWS-->
     <section class="u-align-center u-clearfix u-section-2" id="carousel_ace7">
         <div class="u-clearfix u-sheet u-sheet-1">
-            <h2 class="u-custom-font u-font-oswald u-text u-text-default u-text-1">Tin t?c n?i b?t</h2>
+            <h2 class="u-custom-font u-font-oswald u-text u-text-default u-text-1">Tin t??c nô?i bâ?t</h2>
             <div class="u-border-3 u-border-grey-dark-1 u-line u-line-horizontal u-line-1"></div>
             <div class="u-border-3 u-border-grey-dark-1 u-line u-line-horizontal u-line-2"></div>
             <div class="u-expanded-width u-list u-list-1">
@@ -113,7 +122,8 @@
     </section>
 
 
-    <script>$(document).ready(function () {
+    <script>
+        $(document).ready(function () {
             if ($('u-container-layout u-similar-container u-valign-top u-container-layout-3').length > 3) {
                 $('u-container-layout u-similar-container u-valign-top u-container-layout-3:gt(2)').hide();
                 $('#show_more').show();

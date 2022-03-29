@@ -33,8 +33,10 @@ namespace VanLangDoctor.Models
         public string ID_Email { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DON_THUOC> DON_THUOC { get; set; }
+        
         public virtual KHOA KHOA { get; set; }
     }
 }

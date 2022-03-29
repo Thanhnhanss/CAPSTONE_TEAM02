@@ -181,6 +181,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\QL_DoctorsController.cs" />
     <Compile Include="Areas\User\Controllers\ContactUsController.cs" />
     <Compile Include="Areas\User\Controllers\HomeUserController.cs" />
     <Compile Include="Areas\User\Controllers\NewsController.cs" />
@@ -1709,6 +1710,10 @@
     <Content Include="Areas\User\Views\RegisterConsultation\RegisterConsultation.cshtml" />
     <Content Include="Areas\User\Views\News\News.cshtml" />
     <Content Include="Areas\User\Views\News\NewsDetail.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_Doctors\GetAllDoctor.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_Doctors\CreateDoctor.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_Doctors\UpdateDoctor.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_Doctors\DeleteDoctor.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

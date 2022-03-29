@@ -38,5 +38,21 @@ namespace VanLangDoctor.Areas.User.Controllers
             var path = Server.MapPath(PICTURE_PATH);
             return File(path + ID_BACSI, "images");
         }
+
+        //public JsonResult GetList(string name)
+        //{
+        //    var list = db.BACSIs.Where(n=>n.TEN_BACSI.StartsWith(name)).Select(i=> i.TEN_BACSI).ToList();
+        //    return Json(list, JsonRequestBehavior.AllowGet);
+        //}
+
+
+        [AllowAnonymous]
+        public ActionResult Search(string keyword)
+        {
+            var model = db.BACSIs.ToList();
+            model = model.Where(p => p.TEN_BACSI.ToLower().Contains(keyword.ToLower())).ToList();
+            ViewBag.Keyword = keyword;
+            return View("Doctor", model);
+        }
     }
 }
