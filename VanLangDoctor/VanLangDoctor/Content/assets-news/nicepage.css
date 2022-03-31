@@ -16,7 +16,6 @@
   height: 1px;
   padding: 0;
   margin: -1px;
-  overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0; }
 
@@ -91,11 +90,12 @@
       position: relative;
       content: "\1F4CE";
       font-weight: normal; }
-  .fr-view pre {
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    overflow: visible; }
-/*  .fr-view[dir="rtl"] blockquote {
+    .fr-view pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+    }
+/*  
+    .fr-view[dir="rtl"] blockquote {
     border-left: none;
     border-right: solid 2px #5E35B1;
     margin-right: 0;
@@ -449,7 +449,6 @@ img {
   border-style: none;
 }
 svg:not(:root) {
-  overflow: hidden;
 }
 code,
 kbd,
@@ -461,7 +460,6 @@ samp {
 hr {
   box-sizing: content-box;
   height: 0;
-  overflow: visible;
 }
 button,
 input,
@@ -2002,8 +2000,6 @@ a {
 }
 html {
   height: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
 }
 body {
   height: auto;
@@ -15453,14 +15449,14 @@ div.u-video,
   height: 100vh;
   height: -webkit-fill-available;
 }
-.u-sidenav-overflow {
+/*.u-sidenav-overflow {
   overflow: auto;
   position: absolute !important;
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
-}
+}*/
 .u-offcanvas-unshifted-left .u-body > *,
 .u-offcanvas-unshifted-left.u-body > * {
   animation: menu-unshift-left 500ms normal forwards ease;
@@ -16287,7 +16283,6 @@ blockquote .small:before {
   flex-flow: row;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.3);
-  overflow: auto;
 }
 .pswp__previews img {
   width: 5em;
@@ -18485,8 +18480,6 @@ a.pswp__share--download:hover {
 }
 @media (max-width: 767px) {
   .u-table-responsive {
-    overflow-x: auto;
-    overflow-y: hidden;
   }
   .u-table-responsive thead th,
   .u-table-responsive tfoot th,
@@ -18777,7 +18770,6 @@ a.pswp__share--download:hover {
   margin: 0;
   list-style: none;
   display: flex;
-  overflow-x: auto;
 }
 .u-layout-thumbnails .u-carousel-thumbnail {
   flex-shrink: 0;
@@ -18795,7 +18787,6 @@ a.pswp__share--download:hover {
 .u-thumbnails-position-bottom .u-carousel-thumbnails {
   flex-direction: row;
   order: 10;
-  overflow-x: auto;
 }
 .u-thumbnails-position-top {
   flex-direction: column;
@@ -18803,7 +18794,6 @@ a.pswp__share--download:hover {
 .u-thumbnails-position-top .u-carousel-thumbnails {
   flex-direction: row;
   order: -1;
-  overflow-x: auto;
 }
 .u-thumbnails-position-left {
   flex-direction: row;
@@ -18811,7 +18801,6 @@ a.pswp__share--download:hover {
 .u-thumbnails-position-left .u-carousel-thumbnails {
   flex-direction: column;
   order: -1;
-  overflow-y: auto;
 }
 .u-thumbnails-position-right {
   flex-direction: row;
@@ -18819,7 +18808,6 @@ a.pswp__share--download:hover {
 .u-thumbnails-position-right .u-carousel-thumbnails {
   flex-direction: column;
   order: 10;
-  overflow-y: auto;
 }
 .u-layout-horizontal {
   position: relative;
@@ -18829,8 +18817,6 @@ a.pswp__share--download:hover {
 .u-layout-horizontal .u-gallery-inner {
   width: 100%;
   height: 100%;
-  overflow-x: auto;
-  overflow-y: hidden;
   scrollbar-width: none;
 }
 .u-layout-horizontal .u-repeater::-webkit-scrollbar,
