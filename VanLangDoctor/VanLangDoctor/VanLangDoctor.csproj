@@ -435,6 +435,11 @@
     <Content Include="Content\assets-dr\js\owl.carousel.min.js" />
     <Content Include="Content\assets-dr\js\popper.min.js" />
     <Content Include="Content\assets-dr\js\scrollax.min.js" />
+    <Content Include="Content\assets-feedback\FeedBack.css" />
+    <Content Include="Content\assets-feedback\images\fa559f2e44a892065a51026f36e5dfa20c6b860fdacc342720c9a171d60e1a52531d711a0b06352906e88e4ba53d269363df2169b783d640d590bd_1280.jpg" />
+    <Content Include="Content\assets-feedback\jquery.js" />
+    <Content Include="Content\assets-feedback\nicepage.css" />
+    <Content Include="Content\assets-feedback\nicepage.js" />
     <Content Include="Content\assets-HomeUser\Home.css" />
     <Content Include="Content\assets-HomeUser\images\1.jpeg" />
     <Content Include="Content\assets-HomeUser\images\10.png" />

@@ -25,7 +25,7 @@
                         <div class="u-container-style u-layout-cell u-size-44 u-layout-cell-1">
                             <div class="u-container-layout u-container-layout-1"></div>
                         </div>
-                        <div class="u-container-style u-layout-cell u-size-16 u-layout-cell-2" data-animation-name="" data-animation-duration="0" data-animation-direction="">
+                        <div class="u-container-style u-layout-cell u-size-16 u-layout-cell-2 fix-hidenews" data-animation-name="" data-animation-duration="0" data-animation-direction="">
                             <div class="u-border-3 u-border-palette-1-light-1 u-container-layout u-container-layout-2">
                                 <h1 class="u-align-center u-custom-font u-font-oswald u-text u-text-default u-text-2">Danh mục</h1>
                                 @foreach (var i in ViewBag.danhmuc)
@@ -42,7 +42,7 @@
                 </div>
             </div>
 
-            <div id="left" class="u-blog u-blog-1">
+            <div id="left" class="u-blog u-blog-1 fix-news">
                 <div class="u-repeater u-repeater-1">
                     @foreach (var n in Model.Take(4))
                     {
@@ -51,16 +51,16 @@
                                 <a class="u-post-header-link" href="@Url.Action("Details", "TinTuc", new { id = n.ID_TIN_TUC })">
                                     <img src="@Url.Action("Picture", new {n.ID_TIN_TUC})" alt="" class="u-blog-control u-image u-image-default u-image-1">
                                 </a>
-                                <h2 class="u-blog-control u-text u-text-4">
+                                <h2 class="u-blog-control u-text u-text-4 fix-font fix-font">
                                     <a class="u-post-header-link" href="@Url.Action("Details", "TinTuc", new { id = n.ID_TIN_TUC })">
                                        @n.TEN_BAI_VIET
                                     </a>
                                 </h2>
                                 
                                 <div class="u-blog-control u-metadata u-metadata-1">
-                                    <span class="u-meta-date u-meta-icon">Đăng ngày: @Html.FormatValue(n.NGAY_DANG,"{0:dd/MM/yyyy HH:mm:ss }")</span>
+                                    <span class="u-meta-date u-meta-icon fix-font">Đăng ngày: @Html.FormatValue(n.NGAY_DANG,"{0:dd/MM/yyyy HH:mm:ss }")</span>
                                 </div>
-                                <a href="@Url.Action("Details", "TinTuc", new { id=n.ID_TIN_TUC })" class="u-blog-control u-border-2 u-border-grey-dark-1 u-btn u-btn-rectangle u-button-style u-none u-btn-1">
+                                <a href="@Url.Action("Details", "TinTuc", new { id=n.ID_TIN_TUC })" class="u-blog-control u-border-2 u-border-grey-dark-1 u-btn u-btn-rectangle u-button-style u-none u-btn-1 fix-font">
                                     Xem thêm
                                 </a>
                             </div>
@@ -80,7 +80,7 @@
             <h2 class="u-custom-font u-font-oswald u-text u-text-default u-text-1">Tin tức nổi bật</h2>
             <div class="u-border-3 u-border-grey-dark-1 u-line u-line-horizontal u-line-1"></div>
             <div class="u-border-3 u-border-grey-dark-1 u-line u-line-horizontal u-line-2"></div>
-            <div class="u-expanded-width u-list u-list-1">
+            <div class="u-expanded-width u-list u-list-1 fix-tablenews">
                 <div class="u-repeater u-repeater-1">
                     @foreach (var a in ViewBag.Top)
                     {
