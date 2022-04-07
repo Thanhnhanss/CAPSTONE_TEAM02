@@ -31,14 +31,7 @@
     <hr />
 
     <div class="form-container">
-        <form action="@Url.Action("Search", "Doctors")" method="get">
-            <div class="input-group-btn">
-                <input type="text" name="Keyword" placeholder="Tìm kiếm" value="@ViewBag.Keyword">
-                <span class="input-sm">
-                    <button type="submit" class="fa fa-search"></button>
-                </span>
-            </div>
-        </form>
+        <input id="searchbar" type="text" name="search" placeholder="Tìm kiếm..">
     </div>
 
     <div class="row">
@@ -50,7 +43,7 @@
                         <div class="img mb-4" style="background-image: url(@Url.Action("Picture", new {item.ID_BACSI}));"></div>
                     </a>
                     <div class="info text-center">
-                        <h3><a href="@Url.Action("thongtinbacsi","ThongtinBacsi", new {id = item.ID_BACSI })">@item.TEN_BACSI</a></h3>
+                        <h3><a href="@Url.Action("thongtinbacsi","ThongtinBacsi", new {id = item.ID_BACSI })" class="name_bs">@item.TEN_BACSI</a></h3>
 
                         <span class="position">@item.KHOA.TEN_KHOA</span>
                         <div class="text">
@@ -82,36 +75,18 @@
     </div>
 </div>
 
-@*<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
-
-    <script>
-
-        $("#select").typeahead({
-            minLength: 1,
-            source: function (request, response) {
-                $.ajax({
-                    url: "/Doctors/GetList/",
-                    data: {
-                        "name": request
-                    },
-                    type: "GET",
-                    contentType: "json",
-                    success: function (data) {
-                        console.log(data);
-                        var items = [];
-                        $.each(data, function (i, item) {
-                            items.push(item);
-                        });
-                        console.log(items);
-                        response(items);
-                    },
-                    error: function (response) {
-                        alert(response.responseText);
-                    },
-                    failure: function (response) {
-                        alert(response.responseText);
-                    }
-                });
+<script>
+    $('input[name=search]').keyup(function () {
+        $(this).change();
+    });
+    $('input[name=search]').change(function () {
+        let val = $(this).val();
+        $('.staff').each(function (_, element) {
+            if (!$(element).find('.name_bs').text().trim().toLowerCase().includes(val.toLowerCase())) {
+                $(element).parent().attr('style', 'display: none !important');
+            } else {
+                $(element).parent().removeAttr('style');
             }
         });
-    </script>*@ 
+    });
+</script>
