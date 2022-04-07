@@ -14033,7 +14033,7 @@ nav.pagination {
     }
 
     #topbar .float-left p span {
-        color: #80b435;
+        color: #13a8a8;
         font: 700 18px/20px "Roboto Slab";
     }
 
@@ -15391,6 +15391,7 @@ nav.pagination {
 
 #header {
     position: relative;
+    margin-bottom:-30px;
 }
 
     #header .mega-menu.menu-v3 {
@@ -16817,6 +16818,7 @@ button.button_search {
 .container.container-ver2 {
     width: 1200px;
     padding: 0 15px;
+    margin-bottom:-15px;
 }
 
 .slider-full-screen2 .col-md-2, .slider-full-screen2 .col-md-10 {

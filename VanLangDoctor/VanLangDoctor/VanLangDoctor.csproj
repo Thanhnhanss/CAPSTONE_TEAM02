@@ -196,6 +196,7 @@
     <Compile Include="Areas\Admin\Controllers\QL_TaiKhoanController.cs" />
     <Compile Include="Areas\Admin\Controllers\QL_ThuocController.cs" />
     <Compile Include="Areas\Admin\Controllers\QL_TinTucController.cs" />
+    <Compile Include="Areas\Admin\Controllers\QL_TKFeedBackController.cs" />
     <Compile Include="Areas\User\Controllers\CapnhatTKController.cs" />
     <Compile Include="Areas\User\Controllers\DANG_KYController.cs" />
     <Compile Include="Areas\User\Controllers\FeedbackController.cs" />
@@ -1892,6 +1893,7 @@
     <Content Include="Areas\User\Views\Thuoc\Index.cshtml" />
     <Content Include="Areas\User\Views\DANG_KY\Create.cshtml" />
     <Content Include="Areas\User\Views\Feedback\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_TKFeedBack\Index.cshtml" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
