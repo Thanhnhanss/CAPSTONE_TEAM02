@@ -177,6 +177,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\QL_BacSiController.cs" />
+    <Compile Include="Areas\Admin\Controllers\QL_DonThuocController.cs" />
     <Compile Include="Areas\Admin\Controllers\QL_KhoaController.cs" />
     <Compile Include="Areas\Admin\Controllers\QL_NhaSanXuatController.cs" />
     <Compile Include="Areas\Admin\Controllers\QL_TinTucController.cs" />
@@ -1578,6 +1579,11 @@
     </Content>
     <Content Include="Areas\User\Views\SoKhamBenh\SoKhamBenh.cshtml" />
     <Content Include="Areas\User\Views\SoKhamBenh\DangKy.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_DonThuoc\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_DonThuoc\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_DonThuoc\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_DonThuoc\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_DonThuoc\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
