@@ -1,64 +1,71 @@
 ﻿@model IEnumerable<VanLangDoctor.Models.THUOC>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Thuốc";
     Layout = "~/Areas/User/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<link rel="stylesheet" href="~/Content/assets_Medicine/nicepage.css" media="screen">
+<link rel="stylesheet" href="~/Content/assets_Medicine/Medicine.css" media="screen">
+   
+<meta name="generator" content="Nicepage 4.8.2, nicepage.com">
+<title>@ViewBag.Title</title>
+<link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+<link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700">
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.TEN_THUOC)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LIEU_LUONG)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MO_TA)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HINH_ANH)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DANH_MUC_THUOC.DanhMuc)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NHA_SAN_XUAT.TEN_NSX)
-        </th>
-        <th></th>
-    </tr>
+<body data-home-page="Medicine.html" data-home-page-title="Medicine" class="u-body u-xl-mode">
+    <section class="u-align-center u-clearfix u-section-2" id="sec-c4b0">
+        <img class="u-expanded-width u-image u-image-default u-image-1" src="~/Content/assets_Medicine/images/idea_sized-kendal-l4ikccachoc-unsplash.jpg" alt="" data-image-width="1280">
+        <div class="u-clearfix u-sheet u-sheet-1 u-group-1">
+            <h4 class="u-custom-font u-font-oswald u-text u-text-default u-text-1">Danh sách thuốc</h4>
+            <div class="form-container" style="text-align:center; margin-left: 6em">
+                <span style="color:black; margin-left: 2em"><i class="fa fa-search"></i></span><input id="searchbar" type="text" name="search" placeholder="Tìm kiếm...">
+            </div>
+            <hr />
+            <div class="card">
+                <div class="card-body">
+                    <div class="u-expanded-width u-products u-products-1">
+                        <div class="u-repeater u-repeater-1">
+                            @foreach (var i in Model)
+                            {
+                                <div class="u-align-center u-container-style u-grey-5 u-products-item u-repeater-item u-repeater-item-1">
+                                    <div class="u-container-layout u-similar-container u-valign-top u-container-layout-1 medicine">
+                                        <a href="~/trang-chu/thuoc/@i.TEN_THUOC.ToLower().Replace(" ","_").Replace("%","")-@i.ID_THUOC">
+                                            <img alt="" class="u-expanded-width u-image u-image-default u-product-control u-image-1" src="@Url.Action("Picture", new {i.ID_THUOC})">
+                                        </a>
+                                        <h4 class="u-align-center u-product-control u-text u-text-2">
+                                            <a class="u-product-title-link name_medicine" href="~/trang-chu/thuoc/chi-tiet-thuoc-@i.ID_THUOC">@i.TEN_THUOC</a>
+                                        </h4>
+                                        <a href="~/trang-chu/thuoc/chi-tiet-thuoc-@i.ID_THUOC" class="u-active-none u-border-2 u-border-active-palette-2-dark-1 u-border-hover-palette-2-base
+                                   u-border-palette-1-base u-btn u-button-style u-hover-none u-none u-product-control
+                                   u-text-hover-palette-2-base u-text-palette-1-base u-btn-1">
+                                            Xem chi tiết
+                                        </a>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.TEN_THUOC)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LIEU_LUONG)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MO_TA)
-        </td>
-        <td>
-            <img src="@Url.Action("Picture", new {item.ID_THUOC})" width="55" height="55" />
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DANH_MUC_THUOC.DanhMuc)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NHA_SAN_XUAT.TEN_NSX)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID_THUOC }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID_THUOC }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID_THUOC })
-        </td>
-    </tr>
-}
-
-</table>
+    <script>
+        $('input[name=search]').keyup(function () {
+            $(this).change();
+        });
+        $('input[name=search]').change(function () {
+            let val = $(this).val();
+            console.log('ok');
+            $('.medicine').each(function (_, element) {
+                if (!$(element).find('.name_medicine').text().trim().toLowerCase().includes(val.toLowerCase())) {
+                    $(element).parent().attr('style', 'display: none !important');
+                }
+                else {
+                    $(element).parent().removeAttr('style');
+                }
+            });
+        });
+    </script>
+</body>

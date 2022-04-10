@@ -21,12 +21,13 @@ namespace VanLangDoctor.Areas.Admin.Controllers
             ViewBag.dg = dg;
             return View(danhgia);
         }
+
         [HttpPost]
-        public JsonResult ChartData(string dg = "")
+        public JsonResult ChartData()
         {
-            var noidung = db.FEEDBACKs.Where(item => item.DANH_GIA == dg)
-                .Select(item => new { name = item.DANH_GIA, count = item.DANH_GIA.Count() }).ToList();
-            return Json(new { dbchart = noidung, code = 200 }, JsonRequestBehavior.AllowGet);
+            var noiDung = db.FEEDBACKs.GroupBy(e => e.DANH_GIA)
+                .Select(e => new { e.Key, Count = e.Count() });
+            return Json(new { dbchart = noiDung, code = 200 }, JsonRequestBehavior.AllowGet);
         }
     }
 }

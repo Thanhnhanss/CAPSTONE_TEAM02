@@ -37,9 +37,9 @@
             </div>
 
             <div class="row">
-                <div class="col-lg-4 col-md-12">
+                <div class="col-12">
                     <div class="card">
-                        <div class="card-body" id="donutchart" style="width: 500px; height: 460px;"></div>
+                        <div class="card-body" id="donutchart" style="width: auto; height: auto; vertical-align:middle"></div>
                     </div>
                     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
                     <script type="text/javascript">
@@ -48,7 +48,7 @@
                         function drawChart() {
                             $.ajax({
                                 type: 'POST',
-                                url: '@Url.Action("ChartData", "QL_TKFeedBack", new { dg = "Rất hài lòng" })',
+                                url: '@Url.Action("ChartData", "QL_TKFeedBack")',
                                 success: function (charts) {
                                     if (charts.code == 404) {
                                         alert("Error loading data! Please try again!.");
@@ -66,10 +66,9 @@
                                     var chart = new google.visualization.BarChart(document.getElementById('donutchart'));
                                     chart.draw(chartdb,
                                         {
-                                            title: "Thống kê mức độ hài lòng @ViewBag.dg",
+                                            title: "Thống kê mức độ hài lòng",
                                         position: "top",
                                         fontsize: "14px",
-                                        pieHole: 0.45,
                                     });
 
                                 },
@@ -96,8 +95,8 @@
                         }
                     </script>
                 </div>
-
-                <div class="col-lg-4 col-md-12">
+                
+                @*<div class="col-lg-4 col-md-12">
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">Total Sales</h4>
@@ -691,7 +690,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>*@
 
         </div>
 

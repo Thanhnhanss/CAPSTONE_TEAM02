@@ -44,15 +44,15 @@
 
             <div id="left" class="u-blog u-blog-1 fix-news">
                 <div class="u-repeater u-repeater-1">
-                    @foreach (var n in Model.Take(4))
+                    @foreach (var n in Model.Take(3))
                     {
                         <div class="u-blog-post u-container-style u-repeater-item">
                             <div class="u-container-layout u-similar-container u-valign-top u-container-layout-3">
-                                <a class="u-post-header-link" href="@Url.Action("Details", "TinTuc", new { id = n.ID_TIN_TUC })">
+                                <a class="u-post-header-link" href="~/trang-chu/tin-tuc/@n.TEN_BAI_VIET.ToLower().Replace(" ","-")-@n.ID_TIN_TUC">
                                     <img src="@Url.Action("Picture", new {n.ID_TIN_TUC})" alt="" class="u-blog-control u-image u-image-default u-image-1">
                                 </a>
                                 <h2 class="u-blog-control u-text u-text-4 fix-font fix-font">
-                                    <a class="u-post-header-link" href="@Url.Action("Details", "TinTuc", new { id = n.ID_TIN_TUC })">
+                                    <a class="u-post-header-link" href="~/trang-chu/tin-tuc/@n.TEN_BAI_VIET.ToLower().Replace(" ","-")-@n.ID_TIN_TUC">
                                        @n.TEN_BAI_VIET
                                     </a>
                                 </h2>
@@ -60,7 +60,7 @@
                                 <div class="u-blog-control u-metadata u-metadata-1">
                                     <span class="u-meta-date u-meta-icon fix-font">Đăng ngày: @Html.FormatValue(n.NGAY_DANG,"{0:dd/MM/yyyy HH:mm:ss }")</span>
                                 </div>
-                                <a href="@Url.Action("Details", "TinTuc", new { id=n.ID_TIN_TUC })" class="u-blog-control u-border-2 u-border-grey-dark-1 u-btn u-btn-rectangle u-button-style u-none u-btn-1 fix-font">
+                                <a href="~/trang-chu/tin-tuc/@n.TEN_BAI_VIET.ToLower().Replace(" ","-")-@n.ID_TIN_TUC" class="u-blog-control u-border-2 u-border-grey-dark-1 u-btn u-btn-rectangle u-button-style u-none u-btn-1 fix-font">
                                     Xem thêm
                                 </a>
                             </div>
@@ -96,7 +96,7 @@
                                 { 
                                     <p class="u-text u-text-3"><br /></p>
                                 }
-                                <a href="@Url.Action("Details", "TinTuc", new { id = a.ID_TIN_TUC })" class="u-active-none u-border-2 u-border-active-white u-border-hover-white u-border-white u-btn u-button-style u-custom-item u-hover-none u-none u-text-body-alt-color u-btn-1">
+                                <a href="~/trang-chu/tin-tuc/tin-noi-bat-@a.ID_TIN_TUC" class="u-active-none u-border-2 u-border-active-white u-border-hover-white u-border-white u-btn u-button-style u-custom-item u-hover-none u-none u-text-body-alt-color u-btn-1">
                                     Xem chi tiết
                                 </a>
                             </div>

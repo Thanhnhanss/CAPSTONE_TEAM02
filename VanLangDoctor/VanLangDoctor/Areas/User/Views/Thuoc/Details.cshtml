@@ -1,67 +1,145 @@
 ﻿@model VanLangDoctor.Models.THUOC
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Chi tiết thuốc";
     Layout = "~/Areas/User/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<link rel="stylesheet" href="~/Content/assets_Medicine/Details_Medicine/nicepage.css" media="screen">
+<link rel="stylesheet" href="~/Content/assets_Medicine/Details_Medicine/Detail-medicine.css" media="screen">
+<script class="u-script" type="text/javascript" src="~/Content/assets_Medicine/Details_Medicine/jquery.js" defer=""></script>
+<script class="u-script" type="text/javascript" src="~/Content/assets_Medicine/Details_Medicine/nicepage.js" defer=""></script>
+<meta name="generator" content="Nicepage 4.8.2, nicepage.com">
+<link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+<link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700">
+<title>@ViewBag.Title</title>
 
-<div>
-    <h4>THUOC</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.TEN_THUOC)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.TEN_THUOC)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.LIEU_LUONG)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LIEU_LUONG)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MO_TA)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MO_TA)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.HINH_ANH)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.HINH_ANH)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DANH_MUC_THUOC.DanhMuc)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DANH_MUC_THUOC.DanhMuc)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NHA_SAN_XUAT.TEN_NSX)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NHA_SAN_XUAT.TEN_NSX)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_THUOC }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<body data-home-page="Detail-medicine.html" data-home-page-title="Detail medicine" class="u-body u-xl-mode">
+    <section class="u-align-center u-clearfix u-white u-section-1" id="sec-f3b0">
+        <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+            <div class="u-expanded-width u-tab-links-align-left u-tabs u-tabs-1">
+                <ul class="u-border-2 u-border-grey-75 u-palette-1-light-3 u-tab-list u-unstyled u-tab-list-1" role="tablist">
+                    <li class="u-tab-item" role="presentation">
+                        <a class="active u-active-palette-1-light-2 u-border-active-grey-75 u-border-hover-grey-75 u-button-style u-hover-white u-tab-link u-text-active-white u-text-body-color u-text-hover-black u-white u-tab-link-1" id="link-tab-0da5" href="#tab-0da5" role="tab" aria-controls="tab-0da5" aria-selected="true">Mô tả</a>
+                    </li>
+                    <li class="u-tab-item" role="presentation">
+                        <a class="u-active-palette-1-light-2 u-border-active-grey-75 u-border-hover-grey-75 u-button-style u-hover-white u-tab-link u-text-active-white u-text-body-color u-text-hover-black u-white u-tab-link-2" id="link-tab-14b7" href="#tab-14b7" role="tab" aria-controls="tab-14b7" aria-selected="false">Thành phần</a>
+                    </li>
+                </ul>
+                <div class="u-tab-content">
+                    <div class="u-container-style u-palette-1-light-3 u-shape-rectangle u-tab-active u-tab-pane u-tab-pane-1" id="tab-0da5" role="tabpanel" aria-labelledby="link-tab-0da5">
+                        <div class="u-container-layout u-container-layout-1">
+                            <img alt="" class="u-expanded-width-xs u-image u-image-contain u-image-default u-image-1" data-image-width="2836" data-image-height="1875" src="@Url.Action("Picture", new { Model.ID_THUOC})">
+                            <h4 class="u-text u-text-1">Mô tả</h4>
+                            <p class="u-text u-text-2">@Model.MO_TA</p>
+                        </div>
+                    </div>
+                    <div class="u-container-style u-palette-1-light-3 u-shape-rectangle u-tab-pane u-tab-pane-2" id="tab-14b7" role="tabpanel" aria-labelledby="link-tab-14b7">
+                        <div class="u-container-layout u-container-layout-1">
+                            <img alt="" class="u-expanded-width-xs u-image u-image-contain u-image-default u-image-1" data-image-width="2836" data-image-height="1875" src="@Url.Action("Picture", new { Model.ID_THUOC})">
+                            <h4 class="u-text u-text-1">Chi tiết về thuốc:</h4>
+                            <p class="u-text u-text-2">
+                                <strong>Tên thuốc: </strong> @Model.TEN_THUOC
+                            </p>
+                            <p class="u-text u-text-2">
+                                <strong>Liều lượng: </strong> @Model.LIEU_LUONG
+                            </p>
+                            <p class="u-text u-text-2">
+                                <strong>Nhà sản xuất: </strong> @Html.DisplayFor(model => model.NHA_SAN_XUAT.TEN_NSX)
+                            </p>
+                            <p class="u-text u-text-2">
+                                <strong>Danh mục thuốc: </strong>@Html.DisplayFor(model => model.DANH_MUC_THUOC.DanhMuc)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="u-align-center u-clearfix u-white u-section-2" id="sec-0b0d">
+        <div class="u-clearfix u-sheet u-sheet-1">
+            <h1 class="u-custom-font u-font-oswald u-text u-text-default u-title u-text-1">Gợi ý</h1><!--products--><!--products_options_json--><!--{"type":"Recent","source":"","tags":"","count":""}--><!--/products_options_json-->
+            <div class="u-expanded-width u-layout-horizontal u-products u-products-1">
+                <div class="u-repeater u-repeater-1">
+                    <!--product_item-->
+                    @foreach (var thuoc in ViewBag.Thuockhac)
+                    {
+                        <div class="u-align-center u-container-style u-palette-1-light-3 u-products-item u-repeater-item u-repeater-item-1">
+                            <div class="u-container-layout u-similar-container u-valign-bottom u-container-layout-1">
+                                <!--product_image-->
+                                <img alt="" class="u-expanded-width u-image u-image-default u-product-control u-image-1" src="@Url.Action("Picture", new {thuoc.ID_THUOC})"><!--/product_image--><!--product_title-->
+                                <h4 class="u-product-control u-text u-text-2">
+                                    <a class="u-product-title-link" href="~/trang-chu/thuoc/@thuoc.TEN_THUOC.ToLower().Replace(" ","_").Replace("%","")-@thuoc.ID_THUOC">@thuoc.TEN_THUOC</a>
+                                </h4>
+                                <a href="~/trang-chu/thuoc/@thuoc.TEN_THUOC.ToLower().Replace(" ","_").Replace("%","")-@thuoc.ID_THUOC" class="u-border-none u-btn u-button-style u-hover-palette-2-light-1 u-palette-1-light-1 u-product-control u-btn-1">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    }
+                    <div class="u-align-center u-container-style u-palette-1-light-3 u-products-item u-repeater-item u-repeater-item-2" data-href="https://nicepage.com">
+                        <div class="u-container-layout u-similar-container u-valign-bottom u-container-layout-2">
+                            <!--product_image-->
+                            <img alt="" class="u-expanded-width u-image u-image-default u-product-control u-image-2" src="~/Content/assets_Medicine/Details_Medicine/images/6.svg"><!--/product_image--><!--product_title-->
+                            <h4 class="u-product-control u-text u-text-3">
+                                <a class="u-product-title-link" href="#"><!--product_title_content-->Product 2 Title<!--/product_title_content--></a>
+                            </h4><!--/product_title--><!--product_button--><!--options_json--><!--{"clickType":"add-to-cart","content":"Xem chi tiết"}--><!--/options_json-->
+                            <a href="" class="u-border-none u-btn u-button-style u-hover-palette-2-light-1 u-palette-1-light-1 u-product-control u-btn-2"><!--product_button_content-->Xem chi tiết<!--/product_button_content--></a><!--/product_button-->
+                        </div>
+                    </div><!--/product_item--><!--product_item-->
+                    <div class="u-align-center u-container-style u-palette-1-light-3 u-products-item u-repeater-item u-repeater-item-3">
+                        <div class="u-container-layout u-similar-container u-valign-bottom u-container-layout-3">
+                            <!--product_image-->
+                            <img alt="" class="u-expanded-width u-image u-image-default u-product-control u-image-3" src="~/Content/assets_Medicine/Details_Medicine/images/7.svg"><!--/product_image--><!--product_title-->
+                            <h4 class="u-product-control u-text u-text-4">
+                                <a class="u-product-title-link" href="#"><!--product_title_content-->Product 3 Title<!--/product_title_content--></a>
+                            </h4><!--/product_title--><!--product_button--><!--options_json--><!--{"clickType":"add-to-cart","content":"Xem chi tiết"}--><!--/options_json-->
+                            <a href="" class="u-border-none u-btn u-button-style u-hover-palette-2-light-1 u-palette-1-light-1 u-product-control u-btn-3"><!--product_button_content-->Xem chi tiết<!--/product_button_content--></a><!--/product_button-->
+                        </div>
+                    </div><!--/product_item--><!--product_item-->
+                    <div class="u-align-center u-container-style u-palette-1-light-3 u-products-item u-repeater-item u-repeater-item-4">
+                        <div class="u-container-layout u-similar-container u-valign-bottom u-container-layout-4">
+                            <!--product_image-->
+                            <img alt="" class="u-expanded-width u-image u-image-default u-product-control u-image-4" src="~/Content/assets_Medicine/Details_Medicine/images/7.svg"><!--/product_image--><!--product_title-->
+                            <h4 class="u-product-control u-text u-text-5">
+                                <a class="u-product-title-link" href="#"><!--product_title_content-->Product 4 Title<!--/product_title_content--></a>
+                            </h4><!--/product_title--><!--product_button--><!--options_json--><!--{"clickType":"add-to-cart","content":"Xem chi tiết"}--><!--/options_json-->
+                            <a href="#" class="u-border-none u-btn u-button-style u-hover-palette-2-light-1 u-palette-1-light-1 u-product-control u-btn-4"><!--product_button_content-->Xem chi tiết<!--/product_button_content--></a><!--/product_button-->
+                        </div>
+                    </div><!--/product_item-->
+                </div>
+                <a class="u-absolute-vcenter u-gallery-nav u-gallery-nav-prev u-grey-70 u-icon-rounded u-opacity u-opacity-70 u-radius-10 u-spacing-10 u-text-white u-gallery-nav-1" href="#" role="button">
+                    <span aria-hidden="true">
+                        <svg viewBox="0 0 451.847 451.847">
+                            <path d="M97.141,225.92c0-8.095,3.091-16.192,9.259-22.366L300.689,9.27c12.359-12.359,32.397-12.359,44.751,0
+c12.354,12.354,12.354,32.388,0,44.748L173.525,225.92l171.903,171.909c12.354,12.354,12.354,32.391,0,44.744
+c-12.354,12.365-32.386,12.365-44.745,0l-194.29-194.281C100.226,242.115,97.141,234.018,97.141,225.92z"></path>
+                        </svg>
+                    </span>
+                    <span class="sr-only">
+                        <svg viewBox="0 0 451.847 451.847">
+                            <path d="M97.141,225.92c0-8.095,3.091-16.192,9.259-22.366L300.689,9.27c12.359-12.359,32.397-12.359,44.751,0
+c12.354,12.354,12.354,32.388,0,44.748L173.525,225.92l171.903,171.909c12.354,12.354,12.354,32.391,0,44.744
+c-12.354,12.365-32.386,12.365-44.745,0l-194.29-194.281C100.226,242.115,97.141,234.018,97.141,225.92z"></path>
+                        </svg>
+                    </span>
+                </a>
+                <a class="u-absolute-vcenter u-gallery-nav u-gallery-nav-next u-grey-70 u-icon-rounded u-opacity u-opacity-70 u-radius-10 u-spacing-10 u-text-white u-gallery-nav-2" href="#" role="button">
+                    <span aria-hidden="true">
+                        <svg viewBox="0 0 451.846 451.847">
+                            <path d="M345.441,248.292L151.154,442.573c-12.359,12.365-32.397,12.365-44.75,0c-12.354-12.354-12.354-32.391,0-44.744
+L278.318,225.92L106.409,54.017c-12.354-12.359-12.354-32.394,0-44.748c12.354-12.359,32.391-12.359,44.75,0l194.287,194.284
+c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,248.292z"></path>
+                        </svg>
+                    </span>
+                    <span class="sr-only">
+                        <svg viewBox="0 0 451.846 451.847">
+                            <path d="M345.441,248.292L151.154,442.573c-12.359,12.365-32.397,12.365-44.75,0c-12.354-12.354-12.354-32.391,0-44.744
+L278.318,225.92L106.409,54.017c-12.354-12.359-12.354-32.394,0-44.748c12.354-12.359,32.391-12.359,44.75,0l194.287,194.284
+c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,248.292z"></path>
+                        </svg>
+                    </span>
+                </a>
+            </div><!--/products-->
+        </div>
+    </section>
+</body>

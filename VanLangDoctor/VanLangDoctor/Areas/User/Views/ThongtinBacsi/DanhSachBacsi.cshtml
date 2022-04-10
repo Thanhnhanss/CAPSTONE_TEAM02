@@ -29,6 +29,12 @@
             <p>Mọi người trả tiền cho “công sức” của bác sĩ, còn sự tử tế của bác sĩ thì vẫn sẽ mãi là món nợ ân tình.</p>
         </div>
     </div>
+
+
+    @*Search*@
+    <div class="form-container" style="text-align:center; margin-left: 6em">
+        <span style="color:black; margin-left: 2em"><i class="fa fa-search"></i></span><input id="searchbar" type="text" name="search" placeholder="Tìm kiếm..." >
+    </div>
     <hr />
     <div class="row">
         @foreach (var item in Model)
@@ -39,12 +45,12 @@
                         <div class="img mb-4" style="background-image: url(@Url.Action("Picture", new {item.ID_BACSI}));"></div>
                     </a>
                     <div class="info text-center">
-                        <h3><a href="@Url.Action("thongtinbacsi","ThongtinBacsi", new {id = item.ID_BACSI })">@item.TEN_BACSI</a></h3>
+                        <h3><a href="@Url.Action("thongtinbacsi","ThongtinBacsi", new {id = item.ID_BACSI })" class="name_bs">@item.TEN_BACSI</a></h3>
 
                         <span class="position">@item.KHOA.TEN_KHOA</span>
                         <div class="text">
                             <p><img src="https://img.icons8.com/external-icongeek26-outline-gradient-icongeek26/64/000000/external-doctor-pregnancy-amp-maternity-icongeek26-outline-gradient-icongeek26-1.png" style="height: 25px" />  @item.NGHE_NGHIEP</p>
-                            
+
                             <p><img src="https://img.icons8.com/dotty/80/000000/internship.png" style="height: 20px" />@item.KINH_NGHIEM năm </p>
                             <ul class="ftco-social">
                                 <li class="ftco-animate fadeInUp ftco-animated"><a href="#"><span class="icon-chat_bubble_outline"></span></a></li>
@@ -73,3 +79,20 @@
 <div class="modal-footer">
     <br /><br /><br />
 </div>
+
+
+<script>
+    $('input[name=search]').keyup(function () {
+        $(this).change();
+    });
+    $('input[name=search]').change(function () {
+        let val = $(this).val();
+        $('.staff').each(function (_, element) {
+            if (!$(element).find('.name_bs').text().trim().toLowerCase().includes(val.toLowerCase())) {
+                $(element).parent().attr('style', 'display: none !important');
+            } else {
+                $(element).parent().removeAttr('style');
+            }
+        });
+    });
+</script>
