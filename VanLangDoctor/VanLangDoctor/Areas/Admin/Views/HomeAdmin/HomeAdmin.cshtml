@@ -4,13 +4,7 @@ ViewBag.Title = "Trang chủ quản lý";
 
 <div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
      data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
-    <!-- ============================================================== -->
-    <!-- Page wrapper  -->
-    <!-- ============================================================== -->
     <div class="page-wrapper">
-        <!-- ============================================================== -->
-        <!-- Bread crumb and right sidebar toggle -->
-        <!-- ============================================================== -->
         <div class="page-breadcrumb">
             <div class="row">
                 <div class="col-7 align-self-center">
@@ -26,46 +20,17 @@ ViewBag.Title = "Trang chủ quản lý";
                     </div>
                 </div>
                 <div class="col-5 align-self-center">
-                    @*<div class="customize-input float-right">
-                        <select class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius">
-                            <option selected>Aug 19</option>
-                            <option value="1">July 19</option>
-                            <option value="2">Jun 19</option>
-                        </select>
-                    </div>*@
                 </div>
             </div>
         </div>
-        <!-- ============================================================== -->
-        <!-- End Bread crumb and right sidebar toggle -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Container fluid  -->
-        <!-- ============================================================== -->
         <div class="container-fluid">
-            <!-- *************************************************************** -->
-            <!-- Start First Cards -->
-            <!-- *************************************************************** -->
-
-            <!-- *************************************************************** -->
-            <!-- End First Cards -->
-            <!-- *************************************************************** -->
-            <!-- *************************************************************** -->
-            <!-- Start Sales Charts Section -->
-            <!-- *************************************************************** -->
-
-            <!-- *************************************************************** -->
-            <!-- End Sales Charts Section -->
-            <!-- *************************************************************** -->
-            <!-- *************************************************************** -->
-            <!-- Start Location and Earnings Charts Section -->
-            <!-- *************************************************************** -->
             <div class="row">
                 <div class="col-md-6 col-lg-8">
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex align-items-start">
                                 <h4 class="card-title mb-0">Thống kê phản hồi</h4>
+
                                 <div class="ml-auto">
                                     <div class="dropdown sub-dropdown">
                                         <button class="btn btn-link text-muted dropdown-toggle" type="button"
@@ -82,7 +47,9 @@ ViewBag.Title = "Trang chủ quản lý";
                                 </div>
                             </div>
                             <div class="pl-4 mb-5">
-                                <div class="stats ct-charts position-relative" style="height: 315px;"></div>
+                                <div class="stats ct-charts position-relative" style="width: 100%; height: 315px; vertical-align: middle">
+                                    <canvas id="chart"></canvas>
+                                </div>
                             </div>
                             <ul class="list-inline text-center mt-4 mb-0">
                                 <li class="list-inline-item text-muted font-italic">Earnings for this month</li>
@@ -149,31 +116,72 @@ ViewBag.Title = "Trang chủ quản lý";
                     </div>
                 </div>
             </div>
-            <!-- *************************************************************** -->
-            <!-- End Location and Earnings Charts Section -->
-            <!-- *************************************************************** -->
-            <!-- *************************************************************** -->
-            <!-- Start Top Leader Table -->
-            <!-- *************************************************************** -->
-     
-            <!-- *************************************************************** -->
-            <!-- End Top Leader Table -->
-            <!-- *************************************************************** -->
         </div>
-        <!-- ============================================================== -->
-        <!-- End Container fluid  -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- footer -->
-        <!-- ============================================================== -->
         <footer class="footer text-center text-muted">
             All Rights Reserved by Adminmart. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
         </footer>
-        <!-- ============================================================== -->
-        <!-- End footer -->
-        <!-- ============================================================== -->
     </div>
-    <!-- ============================================================== -->
-    <!-- End Page wrapper  -->
-    <!-- ============================================================== -->
 </div>
+<script>
+    $(document).ready(() => {
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("ChartData", "QL_TKFeedBack")',
+            success: function (charts) {
+                if (charts.code == 404) {
+                    lert("Error loading data! Please try again!.");
+                    return;
+                }
+                var data = charts.dbchart;
+                var ctx = document.getElementById('chart').getContext('2d');
+                var borderColors = {
+                    'Rất hài lòng': 'rgb(19, 168, 168)',
+                    'Hài lòng': 'rgb(74, 198, 255)',
+                    'Bình thường': 'rgb(180, 74, 255)',
+                    'Chưa hài lòng': 'rgb(232, 16, 49)'
+                };
+                var backgroundColors = {
+                    'Rất hài lòng': 'rgba(19, 168, 168, 0.5)',
+                    'Hài lòng': 'rgb(74, 198, 255, 0.5)',
+                    'Bình thường': 'rgb(180, 74, 255, 0.5)',
+                    'Chưa hài lòng': 'rgb(232, 16, 49, 0.5)'
+                }
+                var chart = new Chart(ctx, {
+                    type: 'bar',
+                    options: {
+                        indexAxis: 'y',
+                        element: {
+                            bar: {
+                                borderWidth: 1
+                            }
+                        },
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                            },
+                            title: {
+                                display: true,
+                                text: 'Biểu đồ mức độ hài lòng',
+                                position: 'bottom'
+                            }
+                        }
+                    },
+                    data: {
+                        labels: [''],
+                        datasets: data.map(item => ({
+                            label: item.Key,
+                            data: [item.Count],
+                            borderColor: borderColors[item.Key],
+                            backgroundColor: backgroundColors[item.Key]
+                        }))
+                    }
+                });
+                console.log(chart);
+            },
+            error: function () {
+                alert("Error loading data! Please try again.");
+            }
+        });
+    });
+</script>
