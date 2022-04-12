@@ -33,5 +33,7 @@ namespace VanLangDoctor.Models
         public virtual SO_KHAM_BENH SO_KHAM_BENH { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<THUOC> THUOCs { get; set; }
+        public Nullable<int> ID_THUOC { get; set; }
+        public virtual THUOC THUOC { get; set; }
     }
 }

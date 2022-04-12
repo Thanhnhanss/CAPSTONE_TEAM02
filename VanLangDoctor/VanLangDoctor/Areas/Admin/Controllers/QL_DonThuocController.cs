@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Transactions;
 using System.Web;
 using System.Web.Mvc;
 using VanLangDoctor.Models;
@@ -13,115 +15,112 @@ namespace VanLangDoctor.Areas.Admin.Controllers
     public class QL_DonThuocController : Controller
     {
         private CP24Team02Entities db = new CP24Team02Entities();
+        private List<DON_THUOC> DonThuoc = null;
+        public QL_DonThuocController()
+        {
+            var session = System.Web.HttpContext.Current.Session;
+            if (session["DonThuoc"] != null)
+                DonThuoc = session["DonThuoc"] as List<DON_THUOC>;
+            else
+            {
+                DonThuoc = new List<DON_THUOC>();
+                session["DonThuoc"] = DonThuoc;
+            }
+        }
 
-        // GET: Admin/QL_DonThuoc
         public ActionResult Index()
         {
-            var dON_THUOC = db.DON_THUOC.Include(d => d.BACSI).Include(d => d.SO_KHAM_BENH);
-            return View(dON_THUOC.ToList());
+            var hashtable = new Hashtable();
+            foreach (var donthuoc in DonThuoc)
+            {
+                if (hashtable[donthuoc.THUOC.ID_THUOC] != null)
+                {
+                    (hashtable[donthuoc.THUOC.ID_THUOC] as DON_THUOC).CHI_DINH += donthuoc.CHI_DINH;
+                }
+                else hashtable[donthuoc.THUOC.ID_THUOC] = donthuoc;
+            }
+            DonThuoc.Clear();
+            foreach (DON_THUOC donthuoc in hashtable.Values)
+                DonThuoc.Add(donthuoc);
+            return View(DonThuoc);
         }
-
-        // GET: Admin/QL_DonThuoc/Details/5
-        public ActionResult Details(int? id)
+        [HttpPost]
+        public ActionResult Create(int ID_Thuoc)
         {
-            if (id == null)
+            var thuoc = db.THUOCs.Find(ID_Thuoc);
+            DonThuoc.Add(new DON_THUOC
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            DON_THUOC dON_THUOC = db.DON_THUOC.Find(id);
-            if (dON_THUOC == null)
-            {
-                return RedirectToAction("DanhSach_BN", "QL_BenhNhan");
-            }
-            return View(dON_THUOC);
+                THUOC = thuoc
+            });
+            ViewBag.ID_BACSI = new SelectList(db.BACSIs, "ID_BACSI", "TEN_BACSI");
+            ViewBag.ID_THUOC = new SelectList(db.THUOCs, "ID_THUOC", "TEN_THUOC");
+            return RedirectToAction("Index");
         }
 
-        // GET: Admin/QL_DonThuoc/Create
-        public ActionResult Create()
+        public ActionResult Delete()
+        {
+            DonThuoc.Clear();
+            Session["DonThuoc"] = DonThuoc;
+            return RedirectToAction("Index");
+        }
+        /// <summary>
+        /// ////////////////////////////////////////////////////////////////////////////////////
+        /// </summary>
+
+        public ActionResult DS_DonThuoc()
+        {
+            var model = db.DON_THUOC.ToList();
+            return View(model);
+        }
+
+        public ActionResult ThemDonThuoc()
         {
             ViewBag.ID_BACSI = new SelectList(db.BACSIs, "ID_BACSI", "TEN_BACSI");
             ViewBag.ID_SO_KHAM_BENH = new SelectList(db.SO_KHAM_BENH, "ID_SOKHAMBENH", "ID_SOKHAMBENH");
+            ViewBag.Cart = DonThuoc;
             return View();
         }
 
-        // POST: Admin/QL_DonThuoc/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID_DON_THUOC,KET_QUA,CHUAN_DOAN,CHI_DINH,LOI_DAN,NGAY_LAP,ID_BACSI,ID_SO_KHAM_BENH")] DON_THUOC dON_THUOC)
+        public ActionResult ThemDonThuoc(DON_THUOC model)
         {
+            ValidateDonThuoc(model);
             if (ModelState.IsValid)
             {
-                db.DON_THUOC.Add(dON_THUOC);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                using (var scope = new TransactionScope())
+                {
+                    model.NGAY_LAP = DateTime.Parse(DateTime.Now.ToString("MM/dd/yyyy HH:mm"));
+                    db.DON_THUOC.Add(model);
+                    db.SaveChanges();
+
+                    foreach (var item in DonThuoc)
+                    {
+                        db.DON_THUOC.Add(new DON_THUOC
+                        {
+                            ID_DON_THUOC = model.ID_DON_THUOC,
+                            ID_THUOC = item.THUOC.ID_THUOC
+                        });
+                    }
+                    db.SaveChanges();
+
+                    scope.Complete();
+                    Session["DonThuoc"] = null;
+                    return RedirectToAction("DS_DonThuoc");
+                }
             }
 
-            ViewBag.ID_BACSI = new SelectList(db.BACSIs, "ID_BACSI", "TEN_BACSI", dON_THUOC.ID_BACSI);
-            ViewBag.ID_SO_KHAM_BENH = new SelectList(db.SO_KHAM_BENH, "ID_SOKHAMBENH", "ID_SOKHAMBENH", dON_THUOC.ID_SO_KHAM_BENH);
-            return View(dON_THUOC);
+            ViewBag.Cart = DonThuoc;
+            ViewBag.ID_BACSI = new SelectList(db.BACSIs, "ID_BACSI", "TEN_BACSI", model.ID_BACSI);
+            ViewBag.ID_SO_KHAM_BENH = new SelectList(db.SO_KHAM_BENH, "ID_SOKHAMBENH", "ID_SOKHAMBENH", model.ID_SO_KHAM_BENH);
+
+            return View(model);
         }
 
-        // GET: Admin/QL_DonThuoc/Edit/5
-        public ActionResult Edit(int? id)
+        private void ValidateDonThuoc(DON_THUOC model)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            DON_THUOC dON_THUOC = db.DON_THUOC.Find(id);
-            if (dON_THUOC == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.ID_BACSI = new SelectList(db.BACSIs, "ID_BACSI", "TEN_BACSI", dON_THUOC.ID_BACSI);
-            ViewBag.ID_SO_KHAM_BENH = new SelectList(db.SO_KHAM_BENH, "ID_SOKHAMBENH", "ID_SOKHAMBENH", dON_THUOC.ID_SO_KHAM_BENH);
-            return View(dON_THUOC);
-        }
-
-        // POST: Admin/QL_DonThuoc/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID_DON_THUOC,KET_QUA,CHUAN_DOAN,CHI_DINH,LOI_DAN,NGAY_LAP,ID_BACSI,ID_SO_KHAM_BENH")] DON_THUOC dON_THUOC)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(dON_THUOC).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            ViewBag.ID_BACSI = new SelectList(db.BACSIs, "ID_BACSI", "TEN_BACSI", dON_THUOC.ID_BACSI);
-            ViewBag.ID_SO_KHAM_BENH = new SelectList(db.SO_KHAM_BENH, "ID_SOKHAMBENH", "ID_SOKHAMBENH", dON_THUOC.ID_SO_KHAM_BENH);
-            return View(dON_THUOC);
-        }
-
-        // GET: Admin/QL_DonThuoc/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            DON_THUOC dON_THUOC = db.DON_THUOC.Find(id);
-            if (dON_THUOC == null)
-            {
-                return HttpNotFound();
-            }
-            return View(dON_THUOC);
-        }
-
-        // POST: Admin/QL_DonThuoc/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            DON_THUOC dON_THUOC = db.DON_THUOC.Find(id);
-            db.DON_THUOC.Remove(dON_THUOC);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (DonThuoc.Count == 0)
+                ModelState.AddModelError("", "Chưa có thuốc trong đơn!");
         }
 
         protected override void Dispose(bool disposing)

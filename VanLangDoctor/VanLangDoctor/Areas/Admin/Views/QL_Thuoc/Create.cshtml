@@ -68,7 +68,7 @@
                                         <div class="form-group">
                                             <label><b>Tên thuốc</b></label>
                                             <div class="col-md-12">
-                                                @Html.EditorFor(model => model.TEN_THUOC, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.EditorFor(model => model.TEN_THUOC, new { htmlAttributes = new { @class = "form-control", @required = true} })
                                                 @Html.ValidationMessageFor(model => model.TEN_THUOC, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
@@ -76,7 +76,7 @@
                                         <div class="form-group">
                                             <label><b>Liều lượng</b></label>
                                             <div class="col-md-12">
-                                                @Html.EditorFor(model => model.LIEU_LUONG, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.EditorFor(model => model.LIEU_LUONG, new { htmlAttributes = new { @class = "form-control", @required = true } })
                                                 @Html.ValidationMessageFor(model => model.LIEU_LUONG, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
@@ -84,7 +84,7 @@
                                         <div class="form-group">
                                             <label><b>Nhà sản xuất</b></label>
                                             <div class="col-12">
-                                                @Html.DropDownList("ID_NSX", null, htmlAttributes: new { @class = "form-control" })
+                                                @Html.DropDownList("ID_NSX", null, htmlAttributes: new { @class = "form-control", @required = true })
                                                 @Html.ValidationMessageFor(model => model.ID_NSX, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
@@ -94,7 +94,7 @@
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label><b>Hình ảnh</b></label>
-                                                <input class="form-control" type="file" name="Picture" id="IMG" onchange="readPicture(this)" accept="image/jpeg,image/gif,image/png" />
+                                                <input class="form-control" type="file" name="Picture" id="IMG" onchange="readPicture(this)" accept="image/jpeg,image/gif,image/png" required/>
                                                 <br />
                                                 <img id="Picture" style="height: 250px; width: 250px; object-fit: contain; border-radius: 50%; border: 3px solid #0af; background-color: #000000 " />
                                             </div>
@@ -105,7 +105,7 @@
                                 <div class="form-group col-12">
                                     <label><b>Mô tả</b></label>
                                     <div class="col-12">
-                                        <textarea cols="140" rows="3" name="MO_TA"></textarea>
+                                        <textarea cols="140" rows="3" name="MO_TA" required></textarea>
                                         @Html.ValidationMessageFor(model => model.MO_TA, "", new { @class = "text-danger" })
                                     </div>
                                 </div>

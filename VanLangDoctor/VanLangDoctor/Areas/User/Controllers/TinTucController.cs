@@ -31,13 +31,13 @@ namespace VanLangDoctor.Areas.User.Controllers
         }
 
         // GET: User/TinTuc/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int? ID_TIN_TUC)
         {
-            if (id == null)
+            if (ID_TIN_TUC == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            TIN_TUC tIN_TUC = db.TIN_TUC.Find(id);
+            TIN_TUC tIN_TUC = db.TIN_TUC.Find(ID_TIN_TUC);
             if (tIN_TUC == null)
             {
                 return HttpNotFound();

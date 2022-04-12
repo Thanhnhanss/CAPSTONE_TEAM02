@@ -80,11 +80,11 @@ namespace VanLangDoctor.Areas.Admin.Controllers
                     TempData["Failed"] = "Không tìm thấy hình ảnh";
                     return RedirectToAction("Create");
                 }
+                TempData["Success"] = "Thêm thuốc thành công";
             }
 
             ViewBag.ID_DANHMUC = new SelectList(db.DANH_MUC_THUOC, "ID", "DanhMuc", tHUOC.ID_DANHMUC);
             ViewBag.ID_NSX = new SelectList(db.NHA_SAN_XUAT, "ID", "TEN_NSX");
-            TempData["Success"] = "Thêm thuốc thành công";
             return RedirectToAction("index");
         }
 

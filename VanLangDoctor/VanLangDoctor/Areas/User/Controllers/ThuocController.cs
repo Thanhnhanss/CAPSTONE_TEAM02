@@ -28,14 +28,14 @@ namespace VanLangDoctor.Areas.User.Controllers
             var path = Server.MapPath(PICTURE_PATH);
             return File(path + ID_Thuoc, "images");
         }
-        public ActionResult Details(int? id)
+        public ActionResult Details(int? ID_THUOC)
         {
             ViewBag.Thuockhac = GetSameMedicine();
-            if (id == null)
+            if (ID_THUOC == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            THUOC tHUOC = db.THUOCs.Find(id);
+            THUOC tHUOC = db.THUOCs.Find(ID_THUOC);
             if (tHUOC == null)
             {
                 return HttpNotFound();

@@ -15,9 +15,24 @@ namespace VanLangDoctor.Areas.User
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(
+                  "feedback",
+                  "tai-khoan/danh-gia-va-phan-hoi/{id}",
+                  new { controller = "FeedBack", action = "Create", id = UrlParameter.Optional }
+              );
+            context.MapRoute(
+                  "luutk",
+                  "tai-khoan/cap-nhat/{id}",
+                  new { controller = "CapnhatTK", action = "Luu", id = UrlParameter.Optional }
+              );
+            context.MapRoute(
+                  "capnhattk",
+                  "tai-khoan/cap-nhat-tai-khoan/{id}",
+                  new { controller = "CapnhatTK", action = "CapnhatTK", id = UrlParameter.Optional }
+              );
+            context.MapRoute(
                   "chitietthuoc",
-                  "trang-chu/thuoc/{tenthuoc}-{id}",
-                  new { controller = "Thuoc", action = "Details", id = UrlParameter.Optional }
+                  "trang-chu/thuoc/{tenthuoc}-{ID_THUOC}",
+                  new { controller = "Thuoc", action = "Details", ID_THUOC = UrlParameter.Optional }
               );
             context.MapRoute(
                   "thuoc",
@@ -31,8 +46,8 @@ namespace VanLangDoctor.Areas.User
             );
             context.MapRoute(
                   "chitiet-tintuc",
-                  "trang-chu/tin-tuc/{tenbaiviet}-{id}",
-                  new { controller = "TinTuc", action = "Details", id = UrlParameter.Optional }
+                  "trang-chu/tin-tuc/{tenbaiviet}-{ID_TIN_TUC}",
+                  new { controller = "TinTuc", action = "Details", ID_TIN_TUC = UrlParameter.Optional }
               );
             context.MapRoute(
                   "tintuc",
@@ -43,16 +58,6 @@ namespace VanLangDoctor.Areas.User
                   "formdkttvv",
                   "trang-chu/dang-ky-ung-tuyen",
                   new { controller = "DANG_KY", action = "Create", id = UrlParameter.Optional }
-              );
-            context.MapRoute(
-                  "luutk",
-                  "tai-khoan/cap-nhat/{id}",
-                  new { controller = "CapnhatTK", action = "Luu", id = UrlParameter.Optional }
-              );
-            context.MapRoute(
-                  "capnhattk",
-                  "tai-khoan/cap-nhat-tai-khoan/{id}",
-                  new { controller = "CapnhatTK", action = "CapnhatTK", id = UrlParameter.Optional }
               );
             context.MapRoute(
                "chitietbacsi",

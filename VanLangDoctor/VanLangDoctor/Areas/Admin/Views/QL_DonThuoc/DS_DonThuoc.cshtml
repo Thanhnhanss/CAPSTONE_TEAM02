@@ -1,10 +1,10 @@
-﻿@model IEnumerable<VanLangDoctor.Models.DON_THUOC>
+﻿@using VanLangDoctor.Models
+@model IEnumerable<VanLangDoctor.Models.DON_THUOC>
 
 @{
-    ViewBag.Title = "Đơn thuốc đang kê";
+    ViewBag.Title = "Danh sách đơn thuốc";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
-
 <!-- This page plugin CSS -->
 <link href="~/Content/dist-ad/css/style.min.css" rel="stylesheet">
 <!-- Custom CSS -->
@@ -56,55 +56,43 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <div style="text-align:center">
-                                            <h3 class="card-title">Thuốc</h3>
+                                            <h3 class="card-title">Đơn thuốc</h3>
                                         </div>
                                         <div class="container">
                                             <div class="table-responsive">
                                                 <table class="table table-bordered">
                                                     <thead>
                                                         <tr class="border-color-red">
-                                                            <th scope="col">Hình ảnh</th>
-                                                            <th scope="col">Tên thuốc</th>
-                                                            <th scope="col">Liều lượng</th>
-                                                            <th scope="col">Mô tả</th>
+                                                            <th scope="col">Chuẩn đoán</th>
+                                                            <th scope="col">Chỉ định</th>
+                                                            <th scope="col">Lời dặn</th>
+                                                            <th scope="col">Ngày lập</th>
+                                                            <th scope="col">Thuốc</th>
                                                         </tr>
                                                     </thead>
-                                                    <tbody>
-                                                        @foreach (var item in Model)
-                                                        {
-                                                            <tr>
-                                                                <td class="border-top-0">
-                                                                    <img src="@Url.Action("Picture", "QL_Thuoc", new { item.THUOC.ID_THUOC })" alt=" @item.THUOC.ID_THUOC" class="" width="45" height="45">
-                                                                </td>
-                                                                <td class="border-top-0 text-center font-weight-medium text-muted">
-                                                                    <a href="@Url.Action("Details","QL_Thuoc", new {id = item.THUOC.ID_THUOC})">
-                                                                        @item.THUOC.TEN_THUOC
-                                                                    </a>
-                                                                </td>
-                                                                <td class="border-top-0">@item.THUOC.LIEU_LUONG</td>
-                                                                <td class="border-top-0 text-muted font-14">
-                                                                    @if (item.THUOC.MO_TA != null && item.THUOC.MO_TA.Length > 75)
-                                                                    {
-                                                                        @item.THUOC.MO_TA.Substring(0, 75)<span>...</span>
-                                                                    }
-                                                                    else
-                                                                    {
-                                                                        @item.THUOC.MO_TA
-                                                                    }
-                                                                </td>
-                                                            </tr>
-                                                        }
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-2">
-                                                    <a class="button" href="@Url.Action("ThemDonThuoc")">Xác nhận</a>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <a class="button" style="background-color: rgb(157 154 154 / 44%); color: black" href="@Url.Action("Delete","QL_DonThuoc")">Xoá đơn thuốc</a>
 
-                                                </div>
+                                                    @foreach (var item in Model)
+                                                    {
+                                                        <tr>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.CHUAN_DOAN)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.CHI_DINH)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.LOI_DAN)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.NGAY_LAP)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.THUOC.TEN_THUOC)
+                                                            </td>
+
+                                                        </tr>
+                                                    }
+                                                </table>
                                             </div>
                                         </div>
                                     </div>

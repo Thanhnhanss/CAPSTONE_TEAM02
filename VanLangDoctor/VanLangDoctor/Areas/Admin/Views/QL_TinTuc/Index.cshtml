@@ -29,12 +29,6 @@
             </div>
         </div>
     </div>
-    <!-- ============================================================== -->
-    <!-- End Bread crumb and right sidebar toggle -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- Container fluid  -->
-    <!-- ============================================================== -->
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
@@ -56,7 +50,7 @@
                                         <th>Hình ảnh</th>
                                         <th>Tên bài viết</th>
                                         <th>Ngày đăng</th>
-                                        <th>Nội dung</th>
+                                        @*<th>Nội dung</th>*@
                                         <th>Tác giả</th>
                                         <th>Danh mục tin</th>
                                         <th></th>
@@ -73,21 +67,21 @@
                                                 </a>
                                             </td>
                                             <td>
-                                                @if (item.TEN_BAI_VIET.Length < 25)
+                                                @if (item.TEN_BAI_VIET.Length < 55)
                                                 {
                                                     <a href="@Url.Action("Edit", new {id=item.ID_TIN_TUC})" title="@item.TEN_BAI_VIET">@item.TEN_BAI_VIET</a>
                                                 }
                                                 else
                                                 {
                                                     <a href="@Url.Action("Edit", new { id=item.ID_TIN_TUC})" title="@item.TEN_BAI_VIET">
-                                                        @item.TEN_BAI_VIET.Substring(0, 25)
+                                                        @item.TEN_BAI_VIET.Substring(0, 55)
                                                     </a> <span>...</span>
                                                 }
                                             </td>
                                             <td>
                                                 @Html.FormatValue(item.NGAY_DANG, "{0:d}")
                                             </td>
-                                            <td>
+                                            @*<td>
                                                 @if (item.NOI_DUNG.Length < 15)
                                                 {
                                                     @item.NOI_DUNG
@@ -96,7 +90,7 @@
                                                 {
                                                     @item.NOI_DUNG.Substring(0, 15).ToString()<span>...</span>
                                                 }
-                                            </td>
+                                            </td>*@
                                             <td>
                                                 @item.TAC_GIA
                                             </td>
