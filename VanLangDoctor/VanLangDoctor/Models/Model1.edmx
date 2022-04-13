@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="CP24Team02Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="CP24Team02Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="__MigrationHistory">
           <Key>
             <PropertyRef Name="MigrationId" />
@@ -146,6 +146,17 @@
           <Property Name="NGAY_LAP" Type="date" />
           <Property Name="ID_BACSI" Type="int" Nullable="false" />
           <Property Name="ID_SO_KHAM_BENH" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FEEDBACK">
+          <Key>
+            <PropertyRef Name="ID_FEEDBACK" />
+          </Key>
+          <Property Name="ID_FEEDBACK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TEN_NDG" Type="nvarchar" MaxLength="256" />
+          <Property Name="SDT" Type="varchar" MaxLength="10" />
+          <Property Name="GOP_Y" Type="nvarchar(max)" />
+          <Property Name="DANH_GIA" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ID_USER" Type="nvarchar" MaxLength="128" />
         </EntityType>
         <EntityType Name="KHOA">
           <Key>
@@ -356,6 +367,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_FEEDBACK_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="FEEDBACK" Type="Self.FEEDBACK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FEEDBACK">
+              <PropertyRef Name="ID_USER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_SO_KHAM_BENH_BENH_NHAN">
           <End Role="BENH_NHAN" Type="Self.BENH_NHAN" Multiplicity="0..1" />
           <End Role="SO_KHAM_BENH" Type="Self.SO_KHAM_BENH" Multiplicity="*" />
@@ -418,6 +441,7 @@
           <EntitySet Name="DANH_MUC_THUOC" EntityType="Self.DANH_MUC_THUOC" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DANH_MUC_TIN" EntityType="Self.DANH_MUC_TIN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DON_THUOC" EntityType="Self.DON_THUOC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FEEDBACK" EntityType="Self.FEEDBACK" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="KHOA" EntityType="Self.KHOA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NHA_SAN_XUAT" EntityType="Self.NHA_SAN_XUAT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SO_KHAM_BENH" EntityType="Self.SO_KHAM_BENH" Schema="dbo" store:Type="Tables" />
@@ -472,6 +496,10 @@
             <End Role="SO_KHAM_BENH" EntitySet="SO_KHAM_BENH" />
             <End Role="DON_THUOC" EntitySet="DON_THUOC" />
           </AssociationSet>
+          <AssociationSet Name="FK_FEEDBACK_AspNetUsers" Association="Self.FK_FEEDBACK_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="FEEDBACK" EntitySet="FEEDBACK" />
+          </AssociationSet>
           <AssociationSet Name="FK_SO_KHAM_BENH_BENH_NHAN" Association="Self.FK_SO_KHAM_BENH_BENH_NHAN">
             <End Role="BENH_NHAN" EntitySet="BENH_NHAN" />
             <End Role="SO_KHAM_BENH" EntitySet="SO_KHAM_BENH" />
@@ -489,38 +517,117 @@
             <End Role="TIN_TUC" EntitySet="TIN_TUC" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CP24Team02Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="CP24Team02Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="CP24Team02Model.C__MigrationHistory" />
+          <EntitySet Name="AspNetRoles" EntityType="CP24Team02Model.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="CP24Team02Model.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="CP24Team02Model.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="CP24Team02Model.AspNetUser" />
+          <EntitySet Name="BACSIs" EntityType="CP24Team02Model.BACSI" />
+          <EntitySet Name="BENH_NHAN" EntityType="CP24Team02Model.BENH_NHAN" />
+          <EntitySet Name="DANG_KY" EntityType="CP24Team02Model.DANG_KY" />
+          <EntitySet Name="DANH_MUC_THUOC" EntityType="CP24Team02Model.DANH_MUC_THUOC" />
+          <EntitySet Name="DANH_MUC_TIN" EntityType="CP24Team02Model.DANH_MUC_TIN" />
+          <EntitySet Name="DON_THUOC" EntityType="CP24Team02Model.DON_THUOC" />
+          <EntitySet Name="FEEDBACKs" EntityType="CP24Team02Model.FEEDBACK" />
+          <EntitySet Name="KHOAs" EntityType="CP24Team02Model.KHOA" />
+          <EntitySet Name="NHA_SAN_XUAT" EntityType="CP24Team02Model.NHA_SAN_XUAT" />
+          <EntitySet Name="SO_KHAM_BENH" EntityType="CP24Team02Model.SO_KHAM_BENH" />
+          <EntitySet Name="sysdiagrams" EntityType="CP24Team02Model.sysdiagram" />
+          <EntitySet Name="THUOCs" EntityType="CP24Team02Model.THUOC" />
+          <EntitySet Name="TIN_TUC" EntityType="CP24Team02Model.TIN_TUC" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="CP24Team02Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaim" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="CP24Team02Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogin" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BAC_SI" Association="CP24Team02Model.FK_BAC_SI">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="BACSI" EntitySet="BACSIs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BENH_NHAN_EMAIL" Association="CP24Team02Model.FK_BENH_NHAN_EMAIL">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="BENH_NHAN" EntitySet="BENH_NHAN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FEEDBACK_AspNetUsers" Association="CP24Team02Model.FK_FEEDBACK_AspNetUsers">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="FEEDBACK" EntitySet="FEEDBACKs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BACSI_DT" Association="CP24Team02Model.FK_BACSI_DT">
+            <End Role="BACSI" EntitySet="BACSIs" />
+            <End Role="DON_THUOC" EntitySet="DON_THUOC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BACSI_KHOA" Association="CP24Team02Model.FK_BACSI_KHOA">
+            <End Role="KHOA" EntitySet="KHOAs" />
+            <End Role="BACSI" EntitySet="BACSIs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SO_KHAM_BENH_BENH_NHAN" Association="CP24Team02Model.FK_SO_KHAM_BENH_BENH_NHAN">
+            <End Role="BENH_NHAN" EntitySet="BENH_NHAN" />
+            <End Role="SO_KHAM_BENH" EntitySet="SO_KHAM_BENH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DANG_KY_KHOA" Association="CP24Team02Model.FK_DANG_KY_KHOA">
+            <End Role="KHOA" EntitySet="KHOAs" />
+            <End Role="DANG_KY" EntitySet="DANG_KY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_THUOC_DANH_MUC_THUOC" Association="CP24Team02Model.FK_THUOC_DANH_MUC_THUOC">
+            <End Role="DANH_MUC_THUOC" EntitySet="DANH_MUC_THUOC" />
+            <End Role="THUOC" EntitySet="THUOCs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TIN_TUC_DANH_MUC_TIN" Association="CP24Team02Model.FK_TIN_TUC_DANH_MUC_TIN">
+            <End Role="DANH_MUC_TIN" EntitySet="DANH_MUC_TIN" />
+            <End Role="TIN_TUC" EntitySet="TIN_TUC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DON_THUOC_SO_KHAM_BENH" Association="CP24Team02Model.FK_DON_THUOC_SO_KHAM_BENH">
+            <End Role="SO_KHAM_BENH" EntitySet="SO_KHAM_BENH" />
+            <End Role="DON_THUOC" EntitySet="DON_THUOC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_THUOC_NHA_SAN_XUAT" Association="CP24Team02Model.FK_THUOC_NHA_SAN_XUAT">
+            <End Role="NHA_SAN_XUAT" EntitySet="NHA_SAN_XUAT" />
+            <End Role="THUOC" EntitySet="THUOCs" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="CP24Team02Model.AspNetUserRoles">
+            <End Role="AspNetRole" EntitySet="AspNetRoles" />
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="CHI_TIET_DON_THUOC" Association="CP24Team02Model.CHI_TIET_DON_THUOC">
+            <End Role="DON_THUOC" EntitySet="DON_THUOC" />
+            <End Role="THUOC" EntitySet="THUOCs" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="C__MigrationHistory">
           <Key>
             <PropertyRef Name="MigrationId" />
             <PropertyRef Name="ContextKey" />
           </Key>
-          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
-          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ContextKey" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="AspNetRole">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="CP24Team02Model.AspNetUserRoles" FromRole="AspNetRole" ToRole="AspNetUser" />
         </EntityType>
         <EntityType Name="AspNetUserClaim">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser" Relationship="CP24Team02Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaim" ToRole="AspNetUser" />
         </EntityType>
         <EntityType Name="AspNetUserLogin">
           <Key>
@@ -528,16 +635,16 @@
             <PropertyRef Name="ProviderKey" />
             <PropertyRef Name="UserId" />
           </Key>
-          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+          <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="CP24Team02Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogin" ToRole="AspNetUser" />
         </EntityType>
         <EntityType Name="AspNetUser">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
           <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -548,12 +655,13 @@
           <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
           <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
           <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
-          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
-          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
-          <NavigationProperty Name="BACSIs" Relationship="Self.FK_BAC_SI" FromRole="AspNetUsers" ToRole="BACSI" />
-          <NavigationProperty Name="BENH_NHAN" Relationship="Self.FK_BENH_NHAN_EMAIL" FromRole="AspNetUsers" ToRole="BENH_NHAN" />
-          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="CP24Team02Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserClaim" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="CP24Team02Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
+          <NavigationProperty Name="BACSIs" Relationship="CP24Team02Model.FK_BAC_SI" FromRole="AspNetUser" ToRole="BACSI" />
+          <NavigationProperty Name="BENH_NHAN" Relationship="CP24Team02Model.FK_BENH_NHAN_EMAIL" FromRole="AspNetUser" ToRole="BENH_NHAN" />
+          <NavigationProperty Name="FEEDBACKs" Relationship="CP24Team02Model.FK_FEEDBACK_AspNetUsers" FromRole="AspNetUser" ToRole="FEEDBACK" />
+          <NavigationProperty Name="AspNetRoles" Relationship="CP24Team02Model.AspNetUserRoles" FromRole="AspNetUser" ToRole="AspNetRole" />
         </EntityType>
         <EntityType Name="BACSI">
           <Key>
@@ -570,9 +678,9 @@
           <Property Name="KINH_NGHIEM" Type="Int32" />
           <Property Name="NGAY_TRUC" Type="DateTime" Precision="0" />
           <Property Name="ID_Email" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_BAC_SI" FromRole="BACSI" ToRole="AspNetUsers" />
-          <NavigationProperty Name="DON_THUOC" Relationship="Self.FK_BACSI_DT" FromRole="BACSI" ToRole="DON_THUOC" />
-          <NavigationProperty Name="KHOA" Relationship="Self.FK_BACSI_KHOA" FromRole="BACSI" ToRole="KHOA" />
+          <NavigationProperty Name="AspNetUser" Relationship="CP24Team02Model.FK_BAC_SI" FromRole="BACSI" ToRole="AspNetUser" />
+          <NavigationProperty Name="DON_THUOC" Relationship="CP24Team02Model.FK_BACSI_DT" FromRole="BACSI" ToRole="DON_THUOC" />
+          <NavigationProperty Name="KHOA" Relationship="CP24Team02Model.FK_BACSI_KHOA" FromRole="BACSI" ToRole="KHOA" />
         </EntityType>
         <EntityType Name="BENH_NHAN">
           <Key>
@@ -585,43 +693,43 @@
           <Property Name="SDT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="DIA_CHI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ID_EMAIL" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_BENH_NHAN_EMAIL" FromRole="BENH_NHAN" ToRole="AspNetUsers" />
-          <NavigationProperty Name="SO_KHAM_BENH" Relationship="Self.FK_SO_KHAM_BENH_BENH_NHAN" FromRole="BENH_NHAN" ToRole="SO_KHAM_BENH" />
+          <NavigationProperty Name="AspNetUser" Relationship="CP24Team02Model.FK_BENH_NHAN_EMAIL" FromRole="BENH_NHAN" ToRole="AspNetUser" />
+          <NavigationProperty Name="SO_KHAM_BENH" Relationship="CP24Team02Model.FK_SO_KHAM_BENH_BENH_NHAN" FromRole="BENH_NHAN" ToRole="SO_KHAM_BENH" />
         </EntityType>
         <EntityType Name="DANG_KY">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="HO_TEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="HO_TEN" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="NGAY_SINH" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="GIOI_TINH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GIOI_TINH" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="NGHE_NGHIEP" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="HINH_ANH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="MUC_TIEU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="HOC_VAN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="CHUNG_CHI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="EMAIL" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EMAIL" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="SDT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="TRANG_THAI" Type="Boolean" Nullable="false" />
           <Property Name="ID_KHOA" Type="Int32" />
-          <NavigationProperty Name="KHOA" Relationship="Self.FK_DANG_KY_KHOA" FromRole="DANG_KY" ToRole="KHOA" />
+          <NavigationProperty Name="KHOA" Relationship="CP24Team02Model.FK_DANG_KY_KHOA" FromRole="DANG_KY" ToRole="KHOA" />
         </EntityType>
         <EntityType Name="DANH_MUC_THUOC">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DanhMuc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="THUOCs" Relationship="Self.FK_THUOC_DANH_MUC_THUOC" FromRole="DANH_MUC_THUOC" ToRole="THUOC" />
+          <Property Name="DanhMuc" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="THUOCs" Relationship="CP24Team02Model.FK_THUOC_DANH_MUC_THUOC" FromRole="DANH_MUC_THUOC" ToRole="THUOC" />
         </EntityType>
         <EntityType Name="DANH_MUC_TIN">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Danhmuc_tin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="TIN_TUC" Relationship="Self.FK_TIN_TUC_DANH_MUC_TIN" FromRole="DANH_MUC_TIN" ToRole="TIN_TUC" />
+          <Property Name="Danhmuc_tin" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TIN_TUC" Relationship="CP24Team02Model.FK_TIN_TUC_DANH_MUC_TIN" FromRole="DANH_MUC_TIN" ToRole="TIN_TUC" />
         </EntityType>
         <EntityType Name="DON_THUOC">
           <Key>
@@ -635,26 +743,38 @@
           <Property Name="NGAY_LAP" Type="DateTime" Precision="0" />
           <Property Name="ID_BACSI" Type="Int32" Nullable="false" />
           <Property Name="ID_SO_KHAM_BENH" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="BACSI" Relationship="Self.FK_BACSI_DT" FromRole="DON_THUOC" ToRole="BACSI" />
-          <NavigationProperty Name="SO_KHAM_BENH" Relationship="Self.FK_DON_THUOC_SO_KHAM_BENH" FromRole="DON_THUOC" ToRole="SO_KHAM_BENH" />
-          <NavigationProperty Name="THUOCs" Relationship="Self.CHI_TIET_DON_THUOC" FromRole="DON_THUOC" ToRole="THUOC" />
+          <NavigationProperty Name="BACSI" Relationship="CP24Team02Model.FK_BACSI_DT" FromRole="DON_THUOC" ToRole="BACSI" />
+          <NavigationProperty Name="SO_KHAM_BENH" Relationship="CP24Team02Model.FK_DON_THUOC_SO_KHAM_BENH" FromRole="DON_THUOC" ToRole="SO_KHAM_BENH" />
+          <NavigationProperty Name="THUOCs" Relationship="CP24Team02Model.CHI_TIET_DON_THUOC" FromRole="DON_THUOC" ToRole="THUOC" />
+        </EntityType>
+        <EntityType Name="FEEDBACK">
+          <Key>
+            <PropertyRef Name="ID_FEEDBACK" />
+          </Key>
+          <Property Name="ID_FEEDBACK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TEN_NDG" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="SDT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="GOP_Y" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DANH_GIA" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ID_USER" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="CP24Team02Model.FK_FEEDBACK_AspNetUsers" FromRole="FEEDBACK" ToRole="AspNetUser" />
         </EntityType>
         <EntityType Name="KHOA">
           <Key>
             <PropertyRef Name="ID_KHOA" />
           </Key>
           <Property Name="ID_KHOA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TEN_KHOA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="BACSIs" Relationship="Self.FK_BACSI_KHOA" FromRole="KHOA" ToRole="BACSI" />
-          <NavigationProperty Name="DANG_KY" Relationship="Self.FK_DANG_KY_KHOA" FromRole="KHOA" ToRole="DANG_KY" />
+          <Property Name="TEN_KHOA" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BACSIs" Relationship="CP24Team02Model.FK_BACSI_KHOA" FromRole="KHOA" ToRole="BACSI" />
+          <NavigationProperty Name="DANG_KY" Relationship="CP24Team02Model.FK_DANG_KY_KHOA" FromRole="KHOA" ToRole="DANG_KY" />
         </EntityType>
         <EntityType Name="NHA_SAN_XUAT">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TEN_NSX" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="THUOCs" Relationship="Self.FK_THUOC_NHA_SAN_XUAT" FromRole="NHA_SAN_XUAT" ToRole="THUOC" />
+          <Property Name="TEN_NSX" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="THUOCs" Relationship="CP24Team02Model.FK_THUOC_NHA_SAN_XUAT" FromRole="NHA_SAN_XUAT" ToRole="THUOC" />
         </EntityType>
         <EntityType Name="SO_KHAM_BENH">
           <Key>
@@ -662,14 +782,14 @@
           </Key>
           <Property Name="ID_SOKHAMBENH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_BENH_NHAN" Type="Int32" />
-          <NavigationProperty Name="BENH_NHAN" Relationship="Self.FK_SO_KHAM_BENH_BENH_NHAN" FromRole="SO_KHAM_BENH" ToRole="BENH_NHAN" />
-          <NavigationProperty Name="DON_THUOC" Relationship="Self.FK_DON_THUOC_SO_KHAM_BENH" FromRole="SO_KHAM_BENH" ToRole="DON_THUOC" />
+          <NavigationProperty Name="BENH_NHAN" Relationship="CP24Team02Model.FK_SO_KHAM_BENH_BENH_NHAN" FromRole="SO_KHAM_BENH" ToRole="BENH_NHAN" />
+          <NavigationProperty Name="DON_THUOC" Relationship="CP24Team02Model.FK_DON_THUOC_SO_KHAM_BENH" FromRole="SO_KHAM_BENH" ToRole="DON_THUOC" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
             <PropertyRef Name="diagram_id" />
           </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="principal_id" Type="Int32" Nullable="false" />
           <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="version" Type="Int32" />
@@ -686,58 +806,58 @@
           <Property Name="HINH_ANH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ID_NSX" Type="Int32" />
           <Property Name="ID_DANHMUC" Type="Int32" />
-          <NavigationProperty Name="DANH_MUC_THUOC" Relationship="Self.FK_THUOC_DANH_MUC_THUOC" FromRole="THUOC" ToRole="DANH_MUC_THUOC" />
-          <NavigationProperty Name="NHA_SAN_XUAT" Relationship="Self.FK_THUOC_NHA_SAN_XUAT" FromRole="THUOC" ToRole="NHA_SAN_XUAT" />
-          <NavigationProperty Name="DON_THUOC" Relationship="Self.CHI_TIET_DON_THUOC" FromRole="THUOC" ToRole="DON_THUOC" />
+          <NavigationProperty Name="DANH_MUC_THUOC" Relationship="CP24Team02Model.FK_THUOC_DANH_MUC_THUOC" FromRole="THUOC" ToRole="DANH_MUC_THUOC" />
+          <NavigationProperty Name="NHA_SAN_XUAT" Relationship="CP24Team02Model.FK_THUOC_NHA_SAN_XUAT" FromRole="THUOC" ToRole="NHA_SAN_XUAT" />
+          <NavigationProperty Name="DON_THUOC" Relationship="CP24Team02Model.CHI_TIET_DON_THUOC" FromRole="THUOC" ToRole="DON_THUOC" />
         </EntityType>
         <EntityType Name="TIN_TUC">
           <Key>
             <PropertyRef Name="ID_TIN_TUC" />
           </Key>
           <Property Name="ID_TIN_TUC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TEN_BAI_VIET" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TEN_BAI_VIET" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="NGAY_DANG" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="NOI_DUNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NOI_DUNG" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="TAC_GIA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="SEO_TITLE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="HINH_ANH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="CountViews" Type="Int32" Nullable="false" />
           <Property Name="ID_Danhmuc_tin" Type="Int32" />
-          <NavigationProperty Name="DANH_MUC_TIN" Relationship="Self.FK_TIN_TUC_DANH_MUC_TIN" FromRole="TIN_TUC" ToRole="DANH_MUC_TIN" />
+          <NavigationProperty Name="DANH_MUC_TIN" Relationship="CP24Team02Model.FK_TIN_TUC_DANH_MUC_TIN" FromRole="TIN_TUC" ToRole="DANH_MUC_TIN" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
-          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+          <End Type="CP24Team02Model.AspNetUser" Role="AspNetUser" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+          <End Type="CP24Team02Model.AspNetUserClaim" Role="AspNetUserClaim" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
+            <Principal Role="AspNetUser">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="AspNetUserClaims">
+            <Dependent Role="AspNetUserClaim">
               <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
-          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+          <End Type="CP24Team02Model.AspNetUser" Role="AspNetUser" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+          <End Type="CP24Team02Model.AspNetUserLogin" Role="AspNetUserLogin" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
+            <Principal Role="AspNetUser">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="AspNetUserLogins">
+            <Dependent Role="AspNetUserLogin">
               <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BAC_SI">
-          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
-          <End Role="BACSI" Type="Self.BACSI" Multiplicity="*" />
+          <End Type="CP24Team02Model.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
+          <End Type="CP24Team02Model.BACSI" Role="BACSI" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
+            <Principal Role="AspNetUser">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="BACSI">
@@ -746,10 +866,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BENH_NHAN_EMAIL">
-          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
-          <End Role="BENH_NHAN" Type="Self.BENH_NHAN" Multiplicity="*" />
+          <End Type="CP24Team02Model.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
+          <End Type="CP24Team02Model.BENH_NHAN" Role="BENH_NHAN" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
+            <Principal Role="AspNetUser">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="BENH_NHAN">
@@ -757,9 +877,21 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_FEEDBACK_AspNetUsers">
+          <End Type="CP24Team02Model.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
+          <End Type="CP24Team02Model.FEEDBACK" Role="FEEDBACK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FEEDBACK">
+              <PropertyRef Name="ID_USER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_BACSI_DT">
-          <End Role="BACSI" Type="Self.BACSI" Multiplicity="1" />
-          <End Role="DON_THUOC" Type="Self.DON_THUOC" Multiplicity="*" />
+          <End Type="CP24Team02Model.BACSI" Role="BACSI" Multiplicity="1" />
+          <End Type="CP24Team02Model.DON_THUOC" Role="DON_THUOC" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="BACSI">
               <PropertyRef Name="ID_BACSI" />
@@ -770,8 +902,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BACSI_KHOA">
-          <End Role="KHOA" Type="Self.KHOA" Multiplicity="0..1" />
-          <End Role="BACSI" Type="Self.BACSI" Multiplicity="*" />
+          <End Type="CP24Team02Model.KHOA" Role="KHOA" Multiplicity="0..1" />
+          <End Type="CP24Team02Model.BACSI" Role="BACSI" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="KHOA">
               <PropertyRef Name="ID_KHOA" />
@@ -782,8 +914,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_SO_KHAM_BENH_BENH_NHAN">
-          <End Role="BENH_NHAN" Type="Self.BENH_NHAN" Multiplicity="0..1" />
-          <End Role="SO_KHAM_BENH" Type="Self.SO_KHAM_BENH" Multiplicity="*" />
+          <End Type="CP24Team02Model.BENH_NHAN" Role="BENH_NHAN" Multiplicity="0..1" />
+          <End Type="CP24Team02Model.SO_KHAM_BENH" Role="SO_KHAM_BENH" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="BENH_NHAN">
               <PropertyRef Name="ID_BENH_NHAN" />
@@ -794,8 +926,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_DANG_KY_KHOA">
-          <End Role="KHOA" Type="Self.KHOA" Multiplicity="0..1" />
-          <End Role="DANG_KY" Type="Self.DANG_KY" Multiplicity="*" />
+          <End Type="CP24Team02Model.KHOA" Role="KHOA" Multiplicity="0..1" />
+          <End Type="CP24Team02Model.DANG_KY" Role="DANG_KY" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="KHOA">
               <PropertyRef Name="ID_KHOA" />
@@ -806,8 +938,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_THUOC_DANH_MUC_THUOC">
-          <End Role="DANH_MUC_THUOC" Type="Self.DANH_MUC_THUOC" Multiplicity="0..1" />
-          <End Role="THUOC" Type="Self.THUOC" Multiplicity="*" />
+          <End Type="CP24Team02Model.DANH_MUC_THUOC" Role="DANH_MUC_THUOC" Multiplicity="0..1" />
+          <End Type="CP24Team02Model.THUOC" Role="THUOC" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="DANH_MUC_THUOC">
               <PropertyRef Name="ID" />
@@ -818,8 +950,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TIN_TUC_DANH_MUC_TIN">
-          <End Role="DANH_MUC_TIN" Type="Self.DANH_MUC_TIN" Multiplicity="0..1" />
-          <End Role="TIN_TUC" Type="Self.TIN_TUC" Multiplicity="*" />
+          <End Type="CP24Team02Model.DANH_MUC_TIN" Role="DANH_MUC_TIN" Multiplicity="0..1" />
+          <End Type="CP24Team02Model.TIN_TUC" Role="TIN_TUC" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="DANH_MUC_TIN">
               <PropertyRef Name="ID" />
@@ -830,8 +962,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_DON_THUOC_SO_KHAM_BENH">
-          <End Role="SO_KHAM_BENH" Type="Self.SO_KHAM_BENH" Multiplicity="1" />
-          <End Role="DON_THUOC" Type="Self.DON_THUOC" Multiplicity="*" />
+          <End Type="CP24Team02Model.SO_KHAM_BENH" Role="SO_KHAM_BENH" Multiplicity="1" />
+          <End Type="CP24Team02Model.DON_THUOC" Role="DON_THUOC" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SO_KHAM_BENH">
               <PropertyRef Name="ID_SOKHAMBENH" />
@@ -842,8 +974,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_THUOC_NHA_SAN_XUAT">
-          <End Role="NHA_SAN_XUAT" Type="Self.NHA_SAN_XUAT" Multiplicity="0..1" />
-          <End Role="THUOC" Type="Self.THUOC" Multiplicity="*" />
+          <End Type="CP24Team02Model.NHA_SAN_XUAT" Role="NHA_SAN_XUAT" Multiplicity="0..1" />
+          <End Type="CP24Team02Model.THUOC" Role="THUOC" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="NHA_SAN_XUAT">
               <PropertyRef Name="ID" />
@@ -854,88 +986,13 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="AspNetUserRoles">
-          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
-          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+          <End Type="CP24Team02Model.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+          <End Type="CP24Team02Model.AspNetUser" Role="AspNetUser" Multiplicity="*" />
         </Association>
         <Association Name="CHI_TIET_DON_THUOC">
-          <End Role="DON_THUOC" Type="Self.DON_THUOC" Multiplicity="*" />
-          <End Role="THUOC" Type="Self.THUOC" Multiplicity="*" />
+          <End Type="CP24Team02Model.DON_THUOC" Role="DON_THUOC" Multiplicity="*" />
+          <End Type="CP24Team02Model.THUOC" Role="THUOC" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="CP24Team02Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
-          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
-          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
-          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
-          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
-          <EntitySet Name="BACSIs" EntityType="Self.BACSI" />
-          <EntitySet Name="BENH_NHAN" EntityType="Self.BENH_NHAN" />
-          <EntitySet Name="DANG_KY" EntityType="Self.DANG_KY" />
-          <EntitySet Name="DANH_MUC_THUOC" EntityType="Self.DANH_MUC_THUOC" />
-          <EntitySet Name="DANH_MUC_TIN" EntityType="Self.DANH_MUC_TIN" />
-          <EntitySet Name="DON_THUOC" EntityType="Self.DON_THUOC" />
-          <EntitySet Name="KHOAs" EntityType="Self.KHOA" />
-          <EntitySet Name="NHA_SAN_XUAT" EntityType="Self.NHA_SAN_XUAT" />
-          <EntitySet Name="SO_KHAM_BENH" EntityType="Self.SO_KHAM_BENH" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-          <EntitySet Name="THUOCs" EntityType="Self.THUOC" />
-          <EntitySet Name="TIN_TUC" EntityType="Self.TIN_TUC" />
-          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
-          </AssociationSet>
-          <AssociationSet Name="FK_BAC_SI" Association="Self.FK_BAC_SI">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="BACSI" EntitySet="BACSIs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_BENH_NHAN_EMAIL" Association="Self.FK_BENH_NHAN_EMAIL">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="BENH_NHAN" EntitySet="BENH_NHAN" />
-          </AssociationSet>
-          <AssociationSet Name="FK_BACSI_DT" Association="Self.FK_BACSI_DT">
-            <End Role="BACSI" EntitySet="BACSIs" />
-            <End Role="DON_THUOC" EntitySet="DON_THUOC" />
-          </AssociationSet>
-          <AssociationSet Name="FK_BACSI_KHOA" Association="Self.FK_BACSI_KHOA">
-            <End Role="KHOA" EntitySet="KHOAs" />
-            <End Role="BACSI" EntitySet="BACSIs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SO_KHAM_BENH_BENH_NHAN" Association="Self.FK_SO_KHAM_BENH_BENH_NHAN">
-            <End Role="BENH_NHAN" EntitySet="BENH_NHAN" />
-            <End Role="SO_KHAM_BENH" EntitySet="SO_KHAM_BENH" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DANG_KY_KHOA" Association="Self.FK_DANG_KY_KHOA">
-            <End Role="KHOA" EntitySet="KHOAs" />
-            <End Role="DANG_KY" EntitySet="DANG_KY" />
-          </AssociationSet>
-          <AssociationSet Name="FK_THUOC_DANH_MUC_THUOC" Association="Self.FK_THUOC_DANH_MUC_THUOC">
-            <End Role="DANH_MUC_THUOC" EntitySet="DANH_MUC_THUOC" />
-            <End Role="THUOC" EntitySet="THUOCs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TIN_TUC_DANH_MUC_TIN" Association="Self.FK_TIN_TUC_DANH_MUC_TIN">
-            <End Role="DANH_MUC_TIN" EntitySet="DANH_MUC_TIN" />
-            <End Role="TIN_TUC" EntitySet="TIN_TUC" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DON_THUOC_SO_KHAM_BENH" Association="Self.FK_DON_THUOC_SO_KHAM_BENH">
-            <End Role="SO_KHAM_BENH" EntitySet="SO_KHAM_BENH" />
-            <End Role="DON_THUOC" EntitySet="DON_THUOC" />
-          </AssociationSet>
-          <AssociationSet Name="FK_THUOC_NHA_SAN_XUAT" Association="Self.FK_THUOC_NHA_SAN_XUAT">
-            <End Role="NHA_SAN_XUAT" EntitySet="NHA_SAN_XUAT" />
-            <End Role="THUOC" EntitySet="THUOCs" />
-          </AssociationSet>
-          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
-            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-          </AssociationSet>
-          <AssociationSet Name="CHI_TIET_DON_THUOC" Association="Self.CHI_TIET_DON_THUOC">
-            <End Role="DON_THUOC" EntitySet="DON_THUOC" />
-            <End Role="THUOC" EntitySet="THUOCs" />
-          </AssociationSet>
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -945,214 +1002,226 @@
           <EntitySetMapping Name="C__MigrationHistory">
             <EntityTypeMapping TypeName="CP24Team02Model.C__MigrationHistory">
               <MappingFragment StoreEntitySet="__MigrationHistory">
-                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
-                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
-                <ScalarProperty Name="Model" ColumnName="Model" />
                 <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AspNetRoles">
             <EntityTypeMapping TypeName="CP24Team02Model.AspNetRole">
               <MappingFragment StoreEntitySet="AspNetRoles">
-                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AspNetUserClaims">
             <EntityTypeMapping TypeName="CP24Team02Model.AspNetUserClaim">
               <MappingFragment StoreEntitySet="AspNetUserClaims">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
                 <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AspNetUserLogins">
             <EntityTypeMapping TypeName="CP24Team02Model.AspNetUserLogin">
               <MappingFragment StoreEntitySet="AspNetUserLogins">
-                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
-                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AspNetUsers">
             <EntityTypeMapping TypeName="CP24Team02Model.AspNetUser">
               <MappingFragment StoreEntitySet="AspNetUsers">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
-                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
-                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
-                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
-                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
-                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
-                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
-                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="BACSIs">
             <EntityTypeMapping TypeName="CP24Team02Model.BACSI">
               <MappingFragment StoreEntitySet="BACSI">
-                <ScalarProperty Name="ID_BACSI" ColumnName="ID_BACSI" />
-                <ScalarProperty Name="TEN_BACSI" ColumnName="TEN_BACSI" />
-                <ScalarProperty Name="NGAYSINH_BS" ColumnName="NGAYSINH_BS" />
-                <ScalarProperty Name="GIOI_TINH" ColumnName="GIOI_TINH" />
-                <ScalarProperty Name="SDT" ColumnName="SDT" />
-                <ScalarProperty Name="HINH_ANH" ColumnName="HINH_ANH" />
-                <ScalarProperty Name="NGHE_NGHIEP" ColumnName="NGHE_NGHIEP" />
-                <ScalarProperty Name="ID_KHOA" ColumnName="ID_KHOA" />
-                <ScalarProperty Name="KINH_NGHIEM" ColumnName="KINH_NGHIEM" />
-                <ScalarProperty Name="NGAY_TRUC" ColumnName="NGAY_TRUC" />
                 <ScalarProperty Name="ID_Email" ColumnName="ID_Email" />
+                <ScalarProperty Name="NGAY_TRUC" ColumnName="NGAY_TRUC" />
+                <ScalarProperty Name="KINH_NGHIEM" ColumnName="KINH_NGHIEM" />
+                <ScalarProperty Name="ID_KHOA" ColumnName="ID_KHOA" />
+                <ScalarProperty Name="NGHE_NGHIEP" ColumnName="NGHE_NGHIEP" />
+                <ScalarProperty Name="HINH_ANH" ColumnName="HINH_ANH" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="GIOI_TINH" ColumnName="GIOI_TINH" />
+                <ScalarProperty Name="NGAYSINH_BS" ColumnName="NGAYSINH_BS" />
+                <ScalarProperty Name="TEN_BACSI" ColumnName="TEN_BACSI" />
+                <ScalarProperty Name="ID_BACSI" ColumnName="ID_BACSI" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="BENH_NHAN">
             <EntityTypeMapping TypeName="CP24Team02Model.BENH_NHAN">
               <MappingFragment StoreEntitySet="BENH_NHAN">
-                <ScalarProperty Name="ID_BENH_NHAN" ColumnName="ID_BENH_NHAN" />
-                <ScalarProperty Name="TEN_BN" ColumnName="TEN_BN" />
-                <ScalarProperty Name="GIOI_TINH" ColumnName="GIOI_TINH" />
-                <ScalarProperty Name="NGAY_SINH" ColumnName="NGAY_SINH" />
-                <ScalarProperty Name="SDT" ColumnName="SDT" />
-                <ScalarProperty Name="DIA_CHI" ColumnName="DIA_CHI" />
                 <ScalarProperty Name="ID_EMAIL" ColumnName="ID_EMAIL" />
+                <ScalarProperty Name="DIA_CHI" ColumnName="DIA_CHI" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="NGAY_SINH" ColumnName="NGAY_SINH" />
+                <ScalarProperty Name="GIOI_TINH" ColumnName="GIOI_TINH" />
+                <ScalarProperty Name="TEN_BN" ColumnName="TEN_BN" />
+                <ScalarProperty Name="ID_BENH_NHAN" ColumnName="ID_BENH_NHAN" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DANG_KY">
             <EntityTypeMapping TypeName="CP24Team02Model.DANG_KY">
               <MappingFragment StoreEntitySet="DANG_KY">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="HO_TEN" ColumnName="HO_TEN" />
-                <ScalarProperty Name="NGAY_SINH" ColumnName="NGAY_SINH" />
-                <ScalarProperty Name="GIOI_TINH" ColumnName="GIOI_TINH" />
-                <ScalarProperty Name="NGHE_NGHIEP" ColumnName="NGHE_NGHIEP" />
-                <ScalarProperty Name="HINH_ANH" ColumnName="HINH_ANH" />
-                <ScalarProperty Name="MUC_TIEU" ColumnName="MUC_TIEU" />
-                <ScalarProperty Name="HOC_VAN" ColumnName="HOC_VAN" />
-                <ScalarProperty Name="CHUNG_CHI" ColumnName="CHUNG_CHI" />
-                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
-                <ScalarProperty Name="SDT" ColumnName="SDT" />
-                <ScalarProperty Name="TRANG_THAI" ColumnName="TRANG_THAI" />
                 <ScalarProperty Name="ID_KHOA" ColumnName="ID_KHOA" />
+                <ScalarProperty Name="TRANG_THAI" ColumnName="TRANG_THAI" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="CHUNG_CHI" ColumnName="CHUNG_CHI" />
+                <ScalarProperty Name="HOC_VAN" ColumnName="HOC_VAN" />
+                <ScalarProperty Name="MUC_TIEU" ColumnName="MUC_TIEU" />
+                <ScalarProperty Name="HINH_ANH" ColumnName="HINH_ANH" />
+                <ScalarProperty Name="NGHE_NGHIEP" ColumnName="NGHE_NGHIEP" />
+                <ScalarProperty Name="GIOI_TINH" ColumnName="GIOI_TINH" />
+                <ScalarProperty Name="NGAY_SINH" ColumnName="NGAY_SINH" />
+                <ScalarProperty Name="HO_TEN" ColumnName="HO_TEN" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DANH_MUC_THUOC">
             <EntityTypeMapping TypeName="CP24Team02Model.DANH_MUC_THUOC">
               <MappingFragment StoreEntitySet="DANH_MUC_THUOC">
-                <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="DanhMuc" ColumnName="DanhMuc" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DANH_MUC_TIN">
             <EntityTypeMapping TypeName="CP24Team02Model.DANH_MUC_TIN">
               <MappingFragment StoreEntitySet="DANH_MUC_TIN">
-                <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Danhmuc_tin" ColumnName="Danhmuc_tin" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DON_THUOC">
             <EntityTypeMapping TypeName="CP24Team02Model.DON_THUOC">
               <MappingFragment StoreEntitySet="DON_THUOC">
-                <ScalarProperty Name="ID_DON_THUOC" ColumnName="ID_DON_THUOC" />
-                <ScalarProperty Name="KET_QUA" ColumnName="KET_QUA" />
-                <ScalarProperty Name="CHUAN_DOAN" ColumnName="CHUAN_DOAN" />
-                <ScalarProperty Name="CHI_DINH" ColumnName="CHI_DINH" />
-                <ScalarProperty Name="LOI_DAN" ColumnName="LOI_DAN" />
-                <ScalarProperty Name="NGAY_LAP" ColumnName="NGAY_LAP" />
-                <ScalarProperty Name="ID_BACSI" ColumnName="ID_BACSI" />
                 <ScalarProperty Name="ID_SO_KHAM_BENH" ColumnName="ID_SO_KHAM_BENH" />
+                <ScalarProperty Name="ID_BACSI" ColumnName="ID_BACSI" />
+                <ScalarProperty Name="NGAY_LAP" ColumnName="NGAY_LAP" />
+                <ScalarProperty Name="LOI_DAN" ColumnName="LOI_DAN" />
+                <ScalarProperty Name="CHI_DINH" ColumnName="CHI_DINH" />
+                <ScalarProperty Name="CHUAN_DOAN" ColumnName="CHUAN_DOAN" />
+                <ScalarProperty Name="KET_QUA" ColumnName="KET_QUA" />
+                <ScalarProperty Name="ID_DON_THUOC" ColumnName="ID_DON_THUOC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FEEDBACKs">
+            <EntityTypeMapping TypeName="CP24Team02Model.FEEDBACK">
+              <MappingFragment StoreEntitySet="FEEDBACK">
+                <ScalarProperty Name="ID_USER" ColumnName="ID_USER" />
+                <ScalarProperty Name="DANH_GIA" ColumnName="DANH_GIA" />
+                <ScalarProperty Name="GOP_Y" ColumnName="GOP_Y" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="TEN_NDG" ColumnName="TEN_NDG" />
+                <ScalarProperty Name="ID_FEEDBACK" ColumnName="ID_FEEDBACK" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="KHOAs">
             <EntityTypeMapping TypeName="CP24Team02Model.KHOA">
               <MappingFragment StoreEntitySet="KHOA">
-                <ScalarProperty Name="ID_KHOA" ColumnName="ID_KHOA" />
                 <ScalarProperty Name="TEN_KHOA" ColumnName="TEN_KHOA" />
+                <ScalarProperty Name="ID_KHOA" ColumnName="ID_KHOA" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="NHA_SAN_XUAT">
             <EntityTypeMapping TypeName="CP24Team02Model.NHA_SAN_XUAT">
               <MappingFragment StoreEntitySet="NHA_SAN_XUAT">
-                <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="TEN_NSX" ColumnName="TEN_NSX" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SO_KHAM_BENH">
             <EntityTypeMapping TypeName="CP24Team02Model.SO_KHAM_BENH">
               <MappingFragment StoreEntitySet="SO_KHAM_BENH">
-                <ScalarProperty Name="ID_SOKHAMBENH" ColumnName="ID_SOKHAMBENH" />
                 <ScalarProperty Name="ID_BENH_NHAN" ColumnName="ID_BENH_NHAN" />
+                <ScalarProperty Name="ID_SOKHAMBENH" ColumnName="ID_SOKHAMBENH" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="CP24Team02Model.sysdiagram">
               <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
                 <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="THUOCs">
             <EntityTypeMapping TypeName="CP24Team02Model.THUOC">
               <MappingFragment StoreEntitySet="THUOC">
-                <ScalarProperty Name="ID_THUOC" ColumnName="ID_THUOC" />
-                <ScalarProperty Name="TEN_THUOC" ColumnName="TEN_THUOC" />
-                <ScalarProperty Name="LIEU_LUONG" ColumnName="LIEU_LUONG" />
-                <ScalarProperty Name="MO_TA" ColumnName="MO_TA" />
-                <ScalarProperty Name="HINH_ANH" ColumnName="HINH_ANH" />
-                <ScalarProperty Name="ID_NSX" ColumnName="ID_NSX" />
                 <ScalarProperty Name="ID_DANHMUC" ColumnName="ID_DANHMUC" />
+                <ScalarProperty Name="ID_NSX" ColumnName="ID_NSX" />
+                <ScalarProperty Name="HINH_ANH" ColumnName="HINH_ANH" />
+                <ScalarProperty Name="MO_TA" ColumnName="MO_TA" />
+                <ScalarProperty Name="LIEU_LUONG" ColumnName="LIEU_LUONG" />
+                <ScalarProperty Name="TEN_THUOC" ColumnName="TEN_THUOC" />
+                <ScalarProperty Name="ID_THUOC" ColumnName="ID_THUOC" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TIN_TUC">
             <EntityTypeMapping TypeName="CP24Team02Model.TIN_TUC">
               <MappingFragment StoreEntitySet="TIN_TUC">
-                <ScalarProperty Name="ID_TIN_TUC" ColumnName="ID_TIN_TUC" />
-                <ScalarProperty Name="TEN_BAI_VIET" ColumnName="TEN_BAI_VIET" />
-                <ScalarProperty Name="NGAY_DANG" ColumnName="NGAY_DANG" />
-                <ScalarProperty Name="NOI_DUNG" ColumnName="NOI_DUNG" />
-                <ScalarProperty Name="TAC_GIA" ColumnName="TAC_GIA" />
-                <ScalarProperty Name="SEO_TITLE" ColumnName="SEO_TITLE" />
-                <ScalarProperty Name="HINH_ANH" ColumnName="HINH_ANH" />
-                <ScalarProperty Name="CountViews" ColumnName="CountViews" />
                 <ScalarProperty Name="ID_Danhmuc_tin" ColumnName="ID_Danhmuc_tin" />
+                <ScalarProperty Name="CountViews" ColumnName="CountViews" />
+                <ScalarProperty Name="HINH_ANH" ColumnName="HINH_ANH" />
+                <ScalarProperty Name="SEO_TITLE" ColumnName="SEO_TITLE" />
+                <ScalarProperty Name="TAC_GIA" ColumnName="TAC_GIA" />
+                <ScalarProperty Name="NOI_DUNG" ColumnName="NOI_DUNG" />
+                <ScalarProperty Name="NGAY_DANG" ColumnName="NGAY_DANG" />
+                <ScalarProperty Name="TEN_BAI_VIET" ColumnName="TEN_BAI_VIET" />
+                <ScalarProperty Name="ID_TIN_TUC" ColumnName="ID_TIN_TUC" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <AssociationSetMapping Name="AspNetUserRoles" TypeName="CP24Team02Model.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
-            <EndProperty Name="AspNetRoles">
-              <ScalarProperty Name="Id" ColumnName="RoleId" />
-            </EndProperty>
-            <EndProperty Name="AspNetUsers">
+            <EndProperty Name="AspNetUser">
               <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+            <EndProperty Name="AspNetRole">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
             </EndProperty>
           </AssociationSetMapping>
           <AssociationSetMapping Name="CHI_TIET_DON_THUOC" TypeName="CP24Team02Model.CHI_TIET_DON_THUOC" StoreEntitySet="CHI_TIET_DON_THUOC">
-            <EndProperty Name="DON_THUOC">
-              <ScalarProperty Name="ID_DON_THUOC" ColumnName="ID_DON_THUOC" />
-            </EndProperty>
             <EndProperty Name="THUOC">
               <ScalarProperty Name="ID_THUOC" ColumnName="ID_THUOC" />
+            </EndProperty>
+            <EndProperty Name="DON_THUOC">
+              <ScalarProperty Name="ID_DON_THUOC" ColumnName="ID_DON_THUOC" />
             </EndProperty>
           </AssociationSetMapping>
         </EntityContainerMapping>

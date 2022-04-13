@@ -8,116 +8,148 @@
 <div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
      data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
 
-    <div class="page-wrapper">
+    <div class="page-wrapper" style="display: block">
         <!-- ============================================================== -->
         <!-- Bread crumb and right sidebar toggle -->
         <!-- ============================================================== -->
         <div class="page-breadcrumb">
-            <div class="row">
-                <div class="col-7 align-self-center">
-                    <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">Xin chào</h3>
-                    <div class="d-flex align-items-center">
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb m-0 p-0">
-                                <li class="breadcrumb-item">
-                                    <a href="@Url.Action("Index_TT", "QL_TinTuc")">Thông tin tin tức</a>
-                                </li>
-                            </ol>
-                        </nav>
+            <h1 class="u-custom-font u-font-oswald u-text u-text-default u-title u-text-1">Tạo đơn thuốc</h1>
+            <br />
+            <form method="post">
+                <div class="form-row">
+                    <label for="name">Họ tên</label>
+                    <select id="FullName" class="form-control">
+                        <option selected>Choose...</option>
+                        @foreach (var i in ViewBag.Patient)
+                        {
+                            <option value="@i.ID_BENH_NHAN">@i.TEN_BN</option>
+                        }
+                    </select>
+                </div>
+                <br />
+                <div class="form-row" id="showInf">
+                    <div class="form-group col-md-3">
+                        <label for="age">Tuổi</label>
+                        <input type="text" class="form-control" id="age" placeholder="Age" readonly>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="gender">Giới tính</label>
+                        <input type="text" class="form-control" id="gender" placeholder="Gender" readonly>
+                    </div>
+                    <div class="form-group col-md-5">
+                        <label for="address">Địa chỉ</label>
+                        <input type="text" class="form-control" id="address" placeholder="Address" readonly>
                     </div>
                 </div>
-            </div>
-        </div>
-        <!-- ============================================================== -->
-        <!-- End Bread crumb and right sidebar toggle -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Container fluid  -->
-        <!-- ============================================================== -->
-        <div class="container-fluid">
-            <div class="container">
-                <h1>Tin Tức</h1>
-                <p>Thông tin chi tiết của tin tức</p>
-                <hr>
-                @using (Html.BeginForm())
-                {
-                    @Html.AntiForgeryToken()
-
-                    <div class="form-horizontal">
-
-
-                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.KET_QUA, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model.KET_QUA, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.KET_QUA, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.CHUAN_DOAN, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model.CHUAN_DOAN, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.CHUAN_DOAN, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.CHI_DINH, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model.CHI_DINH, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.CHI_DINH, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.LOI_DAN, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model.LOI_DAN, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.LOI_DAN, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.NGAY_LAP, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model.NGAY_LAP, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.NGAY_LAP, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.ID_BACSI, "ID_BACSI", htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.DropDownList("ID_BACSI", null, htmlAttributes: new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.ID_BACSI, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.ID_SO_KHAM_BENH, "ID_SO_KHAM_BENH", htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.DropDownList("ID_SO_KHAM_BENH", null, htmlAttributes: new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.ID_SO_KHAM_BENH, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-offset-2 col-md-10">
-                                <input type="submit" value="Create" class="btn btn-default" />
-                            </div>
-                        </div>
-                    </div>
-                }
-
-                <div>
-                    @Html.ActionLink("Back to List", "Index")
+                <div class="form-group">
+                    <label for="diagnose">Chẩn đoán</label>
+                    <textarea id="mytextarea"></textarea>
                 </div>
-            </div>
+                <div class="form-group">
+                    <label for="attribution">Chỉ định</label>
+                    <textarea id="mytextarea"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="advice">Lời dặn</label>
+                    <textarea id="mytextarea"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="result">Kết quả</label>
+                    <textarea id="mytextarea"></textarea>
+                </div>
+                <div class="form-row">
+                    <label for="name">Bác sĩ</label>
+                    <select id="FullName" class="form-control">
+                        <option selected>Choose...</option>
+                        @foreach (var a in ViewBag.ID_BACSI)
+                        {
+                            <option value="@a.ID_BACSI">@a.TEN_BACSI</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="listmedicine">Thuốc</label>
+                        <select id="listMedicine" class="form-control">
+                            <option selected id="choose">Choose...</option>
+                            @foreach (var i in ViewBag.Medicine)
+                            {
+                                <option value="@i.ID_THUOC">@i.TEN_THUOC</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="add">Thêm</label>
+                        <button id="addMedicine" class="btn btn-primary">Thêm</button>
+                    </div>
+                </div>
+                <br />
+                <div class="form-row">
+                    <label for="medicine">Thuốc điều trị</label>
+                    <table id="Medicine" class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Tên thuốc</th>
+                                <th scope="col">Số lượng</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <br />
+                <button type="submit" class="btn btn-primary">Lưu</button>
+            </form>
         </div>
     </div>
-    <!-- ============================================================== -->
-    <!-- End Page wrapper  -->
-    <!-- ============================================================== -->
 </div>
+
+
+@section Scripts {
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: '#mytextarea',
+            plugins: [
+                'a11ychecker', 'advlist', 'advcode', 'advtable', 'autolink', 'checklist', 'export',
+                'lists', 'link', 'image', 'charmap', 'preview', 'anchor', 'searchreplace', 'visualblocks',
+                'powerpaste', 'fullscreen', 'formatpainter', 'insertdatetime', 'media', 'table', 'help', 'wordcount'
+            ],
+            toolbar: 'undo redo | formatpainter casechange blocks | bold italic backcolor | ' +
+                'alignleft aligncenter alignright alignjustify | ' +
+                'bullist numlist checklist outdent indent | removeformat | a11ycheck code table help',
+            height: 200
+        });
+
+        $(document).ready(() => {
+            $('#addMedicine').click(function (e) {
+                e.preventDefault();
+                var thuoc = $('#listMedicine option:selected').html();
+                if (thuoc == 'Choose...')
+                    return;
+                var idThuoc = $('#listMedicine').val();
+                var rowIndex = $('#Medicine tbody tr').length;
+                $(`#listMedicine option[value="${idThuoc}"]`).attr('disabled', 'true');
+                    $('#Medicine tbody').append(`<tr>
+                                                    <td style="display: none">${idThuoc}</td>
+                                                 <th scope="row">${rowIndex + 1}</th>
+                                                 <td>${thuoc}</td>
+                                                 <td><input type="number" value="1" /></td>
+                                                 <td><button class="btn btn-primary">Xoá</button></td>
+                                             </tr>`);
+                $('#listMedicine').val('Choose...');
+            });
+        });
+
+        $('#FullName').change(function () {
+            let id = $(this).val();
+            $.get('/QL_DonThuoc/GetPatient/' + id, function (data) {
+                $('#age').val(data.Tuoi);
+                $('#gender').val(data.GioiTinh);
+                $('#address').val(data.DiaChi);
+            });
+        });
+    </script>
+}

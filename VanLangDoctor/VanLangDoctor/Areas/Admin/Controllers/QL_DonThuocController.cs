@@ -39,6 +39,8 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         // GET: Admin/QL_DonThuoc/Create
         public ActionResult Create()
         {
+            ViewBag.Patient = GetAllPatient();
+            ViewBag.Medicine = GetAllMedicine();
             ViewBag.ID_BACSI = new SelectList(db.BACSIs, "ID_BACSI", "TEN_BACSI");
             ViewBag.ID_SO_KHAM_BENH = new SelectList(db.SO_KHAM_BENH, "ID_SOKHAMBENH", "ID_SOKHAMBENH");
             return View();
@@ -124,6 +126,34 @@ namespace VanLangDoctor.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
+        /// <summary>
+        /// Get All Medicine
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public List<THUOC> GetAllMedicine() => db.THUOCs.ToList();
+
+        /// <summary>
+        /// Get All Patient
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public List<BENH_NHAN> GetAllPatient() => db.BENH_NHAN.ToList();
+
+        [HttpGet]
+        public JsonResult GetPatient(int id)
+        {
+            var benhNhan = db.BENH_NHAN.Find(id);
+            return Json(new BenhNhanModel
+            {
+                ID = benhNhan.ID_BENH_NHAN,
+                Ten = benhNhan.TEN_BN,
+                GioiTinh = benhNhan.GIOI_TINH,
+                Tuoi = DateTime.Now.Year - benhNhan.NGAY_SINH.Value.Year,
+                DiaChi = benhNhan.DIA_CHI
+            }, JsonRequestBehavior.AllowGet);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -131,6 +161,19 @@ namespace VanLangDoctor.Areas.Admin.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public class BenhNhanModel
+        {
+            public int ID { get; set; }
+
+            public string Ten { get; set; }
+
+            public int Tuoi { get; set; }
+
+            public string GioiTinh { get; set; }
+
+            public string DiaChi { get; set; }
         }
     }
 }
