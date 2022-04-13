@@ -181,6 +181,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\QL_PrescriptionController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\QL_DoctorsController.cs" />
     <Compile Include="Areas\User\Controllers\ContactUsController.cs" />
@@ -1743,6 +1744,11 @@
     <Content Include="Areas\Admin\Views\QL_Doctors\DeleteDoctor.cshtml" />
     <Content Include="Areas\User\Views\Medicine\Details.cshtml" />
     <Content Include="Areas\User\Views\Medicine\Medicine.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_Prescription\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_Prescription\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_Prescription\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_Prescription\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_Prescription\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
