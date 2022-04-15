@@ -1583,7 +1583,6 @@
     <Content Include="Areas\User\Views\SoKhamBenh\SoKhamBenh.cshtml" />
     <Content Include="Areas\User\Views\SoKhamBenh\DangKy.cshtml" />
     <Content Include="Areas\Admin\Views\QL_DonThuoc\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\QL_DonThuoc\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\QL_DonThuoc\Details.cshtml" />
     <Content Include="Areas\Admin\Views\QL_DonThuoc\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\QL_DonThuoc\Index.cshtml" />

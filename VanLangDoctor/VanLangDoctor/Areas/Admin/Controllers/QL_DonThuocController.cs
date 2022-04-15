@@ -41,6 +41,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         {
             ViewBag.Patient = GetAllPatient();
             ViewBag.Medicine = GetAllMedicine();
+            ViewBag.Doctor = GetAllDoctor();
             ViewBag.ID_BACSI = new SelectList(db.BACSIs, "ID_BACSI", "TEN_BACSI");
             ViewBag.ID_SO_KHAM_BENH = new SelectList(db.SO_KHAM_BENH, "ID_SOKHAMBENH", "ID_SOKHAMBENH");
             return View();
@@ -51,7 +52,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID_DON_THUOC,KET_QUA,CHUAN_DOAN,CHI_DINH,LOI_DAN,NGAY_LAP,ID_BACSI,ID_SO_KHAM_BENH")] DON_THUOC dON_THUOC)
+        public ActionResult Create(DON_THUOC dON_THUOC)
         {
             if (ModelState.IsValid)
             {
@@ -100,31 +101,31 @@ namespace VanLangDoctor.Areas.Admin.Controllers
             return View(dON_THUOC);
         }
 
-        // GET: Admin/QL_DonThuoc/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            DON_THUOC dON_THUOC = db.DON_THUOC.Find(id);
-            if (dON_THUOC == null)
-            {
-                return HttpNotFound();
-            }
-            return View(dON_THUOC);
-        }
+        //// GET: Admin/QL_DonThuoc/Delete/5
+        //public ActionResult Delete(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    DON_THUOC dON_THUOC = db.DON_THUOC.Find(id);
+        //    if (dON_THUOC == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(dON_THUOC);
+        //}
 
-        // POST: Admin/QL_DonThuoc/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            DON_THUOC dON_THUOC = db.DON_THUOC.Find(id);
-            db.DON_THUOC.Remove(dON_THUOC);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+        //// POST: Admin/QL_DonThuoc/Delete/5
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult DeleteConfirmed(int id)
+        //{
+        //    DON_THUOC dON_THUOC = db.DON_THUOC.Find(id);
+        //    db.DON_THUOC.Remove(dON_THUOC);
+        //    db.SaveChanges();
+        //    return RedirectToAction("Index");
+        //}
 
         /// <summary>
         /// Get All Medicine
@@ -139,6 +140,15 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         /// <returns></returns>
         [HttpGet]
         public List<BENH_NHAN> GetAllPatient() => db.BENH_NHAN.ToList();
+
+        /// <summary>
+        /// Get All Doctor
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public List<BACSI> GetAllDoctor() => db.BACSIs.ToList();
+
 
         [HttpGet]
         public JsonResult GetPatient(int id)

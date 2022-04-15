@@ -15,7 +15,7 @@
         <div class="page-breadcrumb">
             <h1 class="u-custom-font u-font-oswald u-text u-text-default u-title u-text-1">Tạo đơn thuốc</h1>
             <br />
-            <form method="post">
+            <form method="post" action="#">
                 <div class="form-row">
                     <label for="name">Họ tên</label>
                     <select id="FullName" class="form-control">
@@ -41,6 +41,11 @@
                         <input type="text" class="form-control" id="address" placeholder="Address" readonly>
                     </div>
                 </div>
+                <div class="form-row">
+                    <label for="datetime">Ngày tạo</label>
+                    <input type="datetime-local"  class="form-control" placeholder="..."/>
+                </div>
+                <br />
                 <div class="form-group">
                     <label for="diagnose">Chẩn đoán</label>
                     <textarea id="mytextarea"></textarea>
@@ -61,12 +66,13 @@
                     <label for="name">Bác sĩ</label>
                     <select id="FullName" class="form-control">
                         <option selected>Choose...</option>
-                        @foreach (var a in ViewBag.ID_BACSI)
+                        @foreach (var a in ViewBag.Doctor)
                         {
                             <option value="@a.ID_BACSI">@a.TEN_BACSI</option>
                         }
                     </select>
                 </div>
+                <br />
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="listmedicine">Thuốc</label>
@@ -105,6 +111,8 @@
         </div>
     </div>
 </div>
+<br />
+
 
 
 @section Scripts {
