@@ -15,11 +15,12 @@ namespace VanLangDoctor.Areas.User.Controllers
         private CP24Team02Entities db = new CP24Team02Entities();
 
         // GET: User/TinTuc
-        public ActionResult Tin_Tuc()
+        public ActionResult Tin_Tuc(int id_cate = 1)
         {
-            ViewBag.Top = GetTopViews();
+            var danhmuctin = db.TIN_TUC.Where(tk => tk.ID_Danhmuc_tin == id_cate).ToList();
             ViewBag.danhmuc = GetDanhMucTin();
-            return View(db.TIN_TUC.OrderByDescending(t => t.NGAY_DANG).ToList());
+            ViewBag.Top = GetTopViews();
+            return View(danhmuctin.OrderByDescending(t => t.NGAY_DANG).ToList());
         }
 
         private const string PICTURE_PATH = "~/Content/IMG_NEWS/";
