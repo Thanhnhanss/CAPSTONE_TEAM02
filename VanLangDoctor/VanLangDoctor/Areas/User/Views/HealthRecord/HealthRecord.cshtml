@@ -28,7 +28,7 @@
                         </div>
                         <div class="u-align-left u-container-style u-layout-cell u-right-cell u-size-30 u-layout-cell-2">
                             <div class="u-container-layout u-container-layout-2">
-                                <h1 class="u-custom-font u-font-oswald u-text u-text-body-alt-color u-text-1">S? khám b?nh</h1>
+                                <h1 class="u-custom-font u-font-oswald u-text u-text-body-alt-color u-text-1">Sô? kha?m bê?nh</h1>
                                 <p class="u-text u-text-body-alt-color u-text-2">S?c kh?e c?a b?n là ?u tiên hàng ??u c?a chúng tôi</p>
                                 <a href="https://nicepage.com/website-builder" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-1-dark-1 u-palette-1-light-3 u-radius-20 u-btn-1">contact us</a>
                             </div>
@@ -47,31 +47,24 @@
                         <form action="#" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" style="padding: 10px" source="email" name="form">
                             <div class="u-form-group u-form-name">
                                 <label for="name-31bd" class="u-label">H? và tên</label>
-                                <input type="text" id="name-31bd" name="name" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
+                                <input type="text" value="@Model.BENH_NHAN.TEN_BN" id="name-31bd" name="name" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="" readonly>
                             </div>
                             <div class="u-form-email u-form-group u-form-partition-factor-3">
                                 <label for="email-31bd" class="u-label">Ngày sinh</label>
-                                <input type="email" id="email-31bd" name="email" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
+                                <input type="email" value="@Model.BENH_NHAN.NGAY_SINH" id="email-31bd" name="email" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="" readonly>
                             </div>
                             <div class="u-form-group u-form-partition-factor-3 u-form-group-3">
-                                <label for="text-a4cc" class="u-label">Gi?i tính</label>
-                                <input type="text" placeholder="" id="text-a4cc" name="text-1" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+                                <label for="text-a4cc" class="u-label">Gi??i ti?nh</label>
+                                <input type="text" value="@Model.BENH_NHAN.GIOI_TINH" id="text-a4cc" name="text-1" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" readonly>
                             </div>
                             <div class="u-form-group u-form-partition-factor-3 u-form-group-4">
-                                <label for="text-ea5d" class="u-label">?i?n tho?i liên l?c</label>
-                                <input type="text" placeholder="" id="text-ea5d" name="text" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+                                <label for="text-ea5d" class="u-label">Sô? ?iê?n thoa?i</label>
+                                <input type="text" value="@Model.BENH_NHAN.SDT" id="text-ea5d" name="text" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" readonly>
                             </div>
                             <div class="u-form-group u-form-group-5">
                                 <label for="text-a9ab" class="u-label">E-mail</label>
-                                <input type="text" placeholder="" id="text-a9ab" name="text-3" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+                                <input type="text" value="@Model.BENH_NHAN.AspNetUser.Email" id="text-a9ab" name="text-3" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" readonly>
                             </div>
-                            <div class="u-align-right u-form-group u-form-submit">
-                                <a href="#" class="u-btn u-btn-submit u-button-style">In&nbsp;</a>
-                                <input type="submit" value="submit" class="u-form-control-hidden">
-                            </div>
-                            <div class="u-form-send-message u-form-send-success"> Thank you! Your message has been sent. </div>
-                            <div class="u-form-send-error u-form-send-message"> Unable to send your message. Please fix errors then try again. </div>
-                            <input type="hidden" value="" name="recaptchaResponse">
                         </form>
                     </div>
                 </div>
@@ -86,7 +79,7 @@
                     </colgroup>*@
                     <thead class="u-palette-4-base u-table-header u-table-header-1">
                         <tr style="height: 60px;">
-                            <th class="u-palette-1-light-1 u-table-cell u-table-cell-1">Column 1 </th>
+                            <th class="u-palette-1-light-1 u-table-cell u-table-cell-1">Column 1</th>
                             <th class="u-border-1 u-border-palette-4-base u-palette-1-light-1 u-table-cell u-table-cell-2">Column 2 </th>
                             <th class="u-border-1 u-border-palette-1-light-1 u-palette-1-light-1 u-table-cell u-table-cell-3">Column 3 </th>
                             <th class="u-border-1 u-border-palette-4-base u-palette-1-light-1 u-table-cell u-table-cell-4">Column 4 </th>
@@ -126,3 +119,10 @@
         <div class="u-clearfix u-sheet u-sheet-1"></div>
     </section>
 </body>
+
+<form>
+    <div class="form-group">
+        <label for="fullname">Ho? tên</label>
+        <input type="text" value="@Model.BENH_NHAN.TEN_BN" class="form-control" readonly />
+    </div>
+</form>

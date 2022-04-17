@@ -147,6 +147,17 @@
           <Property Name="ID_BACSI" Type="int" Nullable="false" />
           <Property Name="ID_SO_KHAM_BENH" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="FEEDBACK">
+          <Key>
+            <PropertyRef Name="ID_FEEDBACK" />
+          </Key>
+          <Property Name="ID_FEEDBACK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TEN_NDG" Type="nvarchar" MaxLength="256" />
+          <Property Name="SDT" Type="varchar" MaxLength="10" />
+          <Property Name="GOP_Y" Type="nvarchar(max)" />
+          <Property Name="DANH_GIA" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ID_USER" Type="nvarchar" MaxLength="128" />
+        </EntityType>
         <EntityType Name="KHOA">
           <Key>
             <PropertyRef Name="ID_KHOA" />
@@ -356,6 +367,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_FEEDBACK_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="FEEDBACK" Type="Self.FEEDBACK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FEEDBACK">
+              <PropertyRef Name="ID_USER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_SO_KHAM_BENH_BENH_NHAN">
           <End Role="BENH_NHAN" Type="Self.BENH_NHAN" Multiplicity="0..1" />
           <End Role="SO_KHAM_BENH" Type="Self.SO_KHAM_BENH" Multiplicity="*" />
@@ -418,6 +441,7 @@
           <EntitySet Name="DANH_MUC_THUOC" EntityType="Self.DANH_MUC_THUOC" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DANH_MUC_TIN" EntityType="Self.DANH_MUC_TIN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DON_THUOC" EntityType="Self.DON_THUOC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FEEDBACK" EntityType="Self.FEEDBACK" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="KHOA" EntityType="Self.KHOA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NHA_SAN_XUAT" EntityType="Self.NHA_SAN_XUAT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SO_KHAM_BENH" EntityType="Self.SO_KHAM_BENH" Schema="dbo" store:Type="Tables" />
@@ -472,6 +496,10 @@
             <End Role="SO_KHAM_BENH" EntitySet="SO_KHAM_BENH" />
             <End Role="DON_THUOC" EntitySet="DON_THUOC" />
           </AssociationSet>
+          <AssociationSet Name="FK_FEEDBACK_AspNetUsers" Association="Self.FK_FEEDBACK_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="FEEDBACK" EntitySet="FEEDBACK" />
+          </AssociationSet>
           <AssociationSet Name="FK_SO_KHAM_BENH_BENH_NHAN" Association="Self.FK_SO_KHAM_BENH_BENH_NHAN">
             <End Role="BENH_NHAN" EntitySet="BENH_NHAN" />
             <End Role="SO_KHAM_BENH" EntitySet="SO_KHAM_BENH" />
@@ -505,6 +533,7 @@
           <EntitySet Name="DANH_MUC_THUOC" EntityType="CP24Team02Model.DANH_MUC_THUOC" />
           <EntitySet Name="DANH_MUC_TIN" EntityType="CP24Team02Model.DANH_MUC_TIN" />
           <EntitySet Name="DON_THUOC" EntityType="CP24Team02Model.DON_THUOC" />
+          <EntitySet Name="FEEDBACKs" EntityType="CP24Team02Model.FEEDBACK" />
           <EntitySet Name="KHOAs" EntityType="CP24Team02Model.KHOA" />
           <EntitySet Name="NHA_SAN_XUAT" EntityType="CP24Team02Model.NHA_SAN_XUAT" />
           <EntitySet Name="SO_KHAM_BENH" EntityType="CP24Team02Model.SO_KHAM_BENH" />
@@ -526,6 +555,10 @@
           <AssociationSet Name="FK_BENH_NHAN_EMAIL" Association="CP24Team02Model.FK_BENH_NHAN_EMAIL">
             <End Role="AspNetUser" EntitySet="AspNetUsers" />
             <End Role="BENH_NHAN" EntitySet="BENH_NHAN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FEEDBACK_AspNetUsers" Association="CP24Team02Model.FK_FEEDBACK_AspNetUsers">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="FEEDBACK" EntitySet="FEEDBACKs" />
           </AssociationSet>
           <AssociationSet Name="FK_BACSI_DT" Association="CP24Team02Model.FK_BACSI_DT">
             <End Role="BACSI" EntitySet="BACSIs" />
@@ -627,6 +660,7 @@
           <NavigationProperty Name="AspNetUserLogins" Relationship="CP24Team02Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
           <NavigationProperty Name="BACSIs" Relationship="CP24Team02Model.FK_BAC_SI" FromRole="AspNetUser" ToRole="BACSI" />
           <NavigationProperty Name="BENH_NHAN" Relationship="CP24Team02Model.FK_BENH_NHAN_EMAIL" FromRole="AspNetUser" ToRole="BENH_NHAN" />
+          <NavigationProperty Name="FEEDBACKs" Relationship="CP24Team02Model.FK_FEEDBACK_AspNetUsers" FromRole="AspNetUser" ToRole="FEEDBACK" />
           <NavigationProperty Name="AspNetRoles" Relationship="CP24Team02Model.AspNetUserRoles" FromRole="AspNetUser" ToRole="AspNetRole" />
         </EntityType>
         <EntityType Name="BACSI">
@@ -712,6 +746,18 @@
           <NavigationProperty Name="BACSI" Relationship="CP24Team02Model.FK_BACSI_DT" FromRole="DON_THUOC" ToRole="BACSI" />
           <NavigationProperty Name="SO_KHAM_BENH" Relationship="CP24Team02Model.FK_DON_THUOC_SO_KHAM_BENH" FromRole="DON_THUOC" ToRole="SO_KHAM_BENH" />
           <NavigationProperty Name="THUOCs" Relationship="CP24Team02Model.CHI_TIET_DON_THUOC" FromRole="DON_THUOC" ToRole="THUOC" />
+        </EntityType>
+        <EntityType Name="FEEDBACK">
+          <Key>
+            <PropertyRef Name="ID_FEEDBACK" />
+          </Key>
+          <Property Name="ID_FEEDBACK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TEN_NDG" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="SDT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="GOP_Y" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DANH_GIA" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ID_USER" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="CP24Team02Model.FK_FEEDBACK_AspNetUsers" FromRole="FEEDBACK" ToRole="AspNetUser" />
         </EntityType>
         <EntityType Name="KHOA">
           <Key>
@@ -831,6 +877,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_FEEDBACK_AspNetUsers">
+          <End Type="CP24Team02Model.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
+          <End Type="CP24Team02Model.FEEDBACK" Role="FEEDBACK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FEEDBACK">
+              <PropertyRef Name="ID_USER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_BACSI_DT">
           <End Type="CP24Team02Model.BACSI" Role="BACSI" Multiplicity="1" />
           <End Type="CP24Team02Model.DON_THUOC" Role="DON_THUOC" Multiplicity="*" />
@@ -935,7 +993,7 @@
           <End Type="CP24Team02Model.DON_THUOC" Role="DON_THUOC" Multiplicity="*" />
           <End Type="CP24Team02Model.THUOC" Role="THUOC" Multiplicity="*" />
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -1072,6 +1130,18 @@
                 <ScalarProperty Name="CHUAN_DOAN" ColumnName="CHUAN_DOAN" />
                 <ScalarProperty Name="KET_QUA" ColumnName="KET_QUA" />
                 <ScalarProperty Name="ID_DON_THUOC" ColumnName="ID_DON_THUOC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FEEDBACKs">
+            <EntityTypeMapping TypeName="CP24Team02Model.FEEDBACK">
+              <MappingFragment StoreEntitySet="FEEDBACK">
+                <ScalarProperty Name="ID_USER" ColumnName="ID_USER" />
+                <ScalarProperty Name="DANH_GIA" ColumnName="DANH_GIA" />
+                <ScalarProperty Name="GOP_Y" ColumnName="GOP_Y" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="TEN_NDG" ColumnName="TEN_NDG" />
+                <ScalarProperty Name="ID_FEEDBACK" ColumnName="ID_FEEDBACK" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

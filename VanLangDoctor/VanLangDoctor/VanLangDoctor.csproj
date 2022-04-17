@@ -231,6 +231,9 @@
     <Compile Include="Models\DON_THUOC.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\FEEDBACK.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\KHOA.cs">
       <DependentUpon>Model1.tt</DependentUpon>
