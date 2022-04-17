@@ -25,7 +25,7 @@
 </head>
 <body>
     <section class="home-slider owl-carousel">
-        <div class="slider-item bread-item" style="background-image: linear-gradient(to right, purple, red)" >
+        <div class="slider-item bread-item" style="background-image: linear-gradient(to right, purple, red)">
             <div class="overlay"></div>
             <div class="container" data-scrollax-parent="true">
                 <div class="row slider-text align-items-end">
@@ -94,14 +94,22 @@
                         </div>
                         <div class="form-group">
                             <input type="submit" value="Cập nhật" class="btn btn-primary py-3 px-5">
-                            <a class="btn btn-primary py-3 px-5" href="@Url.Action("SoKhamBenh", "So_Kham_Benh", new { id = Model.ID_BENH_NHAN})">Đăng ký sổ khám bệnh</a>
+                            <input class="btn btn-primary py-3 px-5" id="registerRecord" value="Sổ khám bệnh"/>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </section>
-
+    <form method="post" action="~/tai-khoan/ho-so-benh-an-@Model.ID_BENH_NHAN" id="registerRecordForm">
+        @Html.AntiForgeryToken()
+    </form>
+    <script>
+        $('#registerRecord').click(function (e) {
+            e.preventDefault();
+            $('#registerRecordForm').submit();
+        })
+    </script>
     <script src="~/Content/assets-dr/js/jquery.min.js"></script>
     <script src="~/Content/assets-dr/js/jquery-migrate-3.0.1.min.js"></script>
     <script src="~/Content/assets-dr/js/popper.min.js"></script>

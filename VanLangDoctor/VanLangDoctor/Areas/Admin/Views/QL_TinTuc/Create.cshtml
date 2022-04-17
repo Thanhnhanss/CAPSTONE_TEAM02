@@ -49,7 +49,7 @@
                             <div class="form-group">
                                 <label><b>Danh mục tin</b></label>
                                 <div class="col-md-12">
-                                    @Html.DropDownList("ID_Danhmuc_tin", null, htmlAttributes: new { @class = "form-control", @required = true })
+                                    @Html.DropDownList("ID_Danhmuc_tin", null, htmlAttributes: new { @class = "form-control" })
                                     @Html.ValidationMessageFor(model => model.ID_Danhmuc_tin, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -60,7 +60,7 @@
                             <div class="form-group">
                                 <label for="ten_bai_viet"><b>Tiêu đề bài viết</b></label>
                                 <div class="form-actions no-color">
-                                    @Html.EditorFor(model => model.TEN_BAI_VIET, new { htmlAttributes = new { @class = "form-control", @maxlength = "100", @placeholder = "Tiêu đề chứa tối đa 100 ký tự", @required = true } })
+                                    @Html.EditorFor(model => model.TEN_BAI_VIET, new { htmlAttributes = new { @class = "form-control", @maxlength = "100", @placeholder = "Tiêu đề chứa tối đa 100 ký tự", @required = true} })
                                     @Html.ValidationMessageFor(model => model.TEN_BAI_VIET, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -68,8 +68,7 @@
                             <div class="form-group">
                                 <label for="noi_dung"><b>Nội dung</b></label>
                                 <div class="form-actions no-color">
-                                    @Html.TextAreaFor(m => m.NOI_DUNG, new { @class = "form-control", @id = "area1", @name = "noidung", @required = true })
-
+                                    @Html.TextAreaFor(m => m.NOI_DUNG, new { @class = "form-control", @id = "area1", @name = "noidung" })
                                 </div>
                             </div>
 
@@ -92,7 +91,7 @@
                             <div class="form-group">
                                 <label for="hinh_anh"><b>Hình ảnh</b></label>
                                 <div class="col-md-4">
-                                    <input class="form-control" type="file" name="Picture" id="IMG" onchange="readPicture(this)" accept="image/jpeg,image/gif,image/png" required />
+                                    <input class="form-control" type="file" name="Picture" id="IMG" onchange="readPicture(this)" accept="image/jpeg,image/gif,image/png" required/>
                                     <br />
                                     <img id="Picture" style="height: 250px; width: 250px; object-fit: contain; border: 3px solid #0af; background-color: #000000" />
                                 </div>

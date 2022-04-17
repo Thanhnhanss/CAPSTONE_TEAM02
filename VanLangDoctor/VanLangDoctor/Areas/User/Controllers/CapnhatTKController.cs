@@ -12,20 +12,20 @@ namespace VanLangDoctor.Areas.User.Controllers
         CP24Team02Entities db = new CP24Team02Entities();
 
         // GET: SinhVien/CapnhatTaiKhoan
-        public ActionResult CapnhatTK(string id)
+        public ActionResult CapnhatTK(string id_user)
         {
-            if (string.IsNullOrEmpty(id))
-                return RedirectToAction("CapnhatTK", new { id = User.Identity.GetUserId() });
-            if (id != User.Identity.GetUserId())
+            if (string.IsNullOrEmpty(id_user))
+                return RedirectToAction("CapnhatTK", new { id_user = User.Identity.GetUserId() });
+            if (id_user != User.Identity.GetUserId())
                 return new HttpStatusCodeResult(403);
-            var user = db.BENH_NHAN.FirstOrDefault(benh_nhan => benh_nhan.AspNetUser.Id == id) ?? new BENH_NHAN
+            var user = db.BENH_NHAN.FirstOrDefault(benh_nhan => benh_nhan.AspNetUser.Id == id_user) ?? new BENH_NHAN
             {
                 TEN_BN = "",
                 GIOI_TINH ="",
                 NGAY_SINH = null,
                 SDT = "",
                 DIA_CHI = "",
-                AspNetUser = db.AspNetUsers.Find(id)
+                AspNetUser = db.AspNetUsers.Find(id_user)
             };
             return View(user);
         }
