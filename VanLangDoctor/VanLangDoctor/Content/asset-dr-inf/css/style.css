@@ -13,18 +13,18 @@ html {
 }
 
 body {
-  line-height: 1.6;
-  font-family: "Roboto", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  font-size: 16px;
-  color: #6F8BA4;
-  font-weight: 400;
+    line-height: 1.6;
+    font-family: 'Open Sans',sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+    color: #6F8BA4;
+    font-weight: 400;
 }
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
-  font-family: "Exo", sans-serif;
-  font-weight: 700;
-  color: #222;
+    font-family: 'Open Sans',sans-serif;
+    font-weight: 700;
+    color: #222;
 }
 
 h1, .h1 {
@@ -87,17 +87,17 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
 }
 
 .btn {
-  display: inline-block;
-  font-size: 14px;
-  font-size: 0.8125rem;
-  font-weight: 700;
-  letter-spacing: .5px;
-  padding: .75rem 2rem;
-  font-family: "Exo", sans-serif;
-  text-transform: uppercase;
-  border-radius: 5px;
-  border: 2px solid transparent;
-  transition: all .35s ease;
+    display: inline-block;
+    font-size: 14px;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: .5px;
+    padding: .75rem 2rem;
+    font-family: 'Open Sans',sans-serif;
+    text-transform: uppercase;
+    border-radius: 5px;
+    border: 2px solid transparent;
+    transition: all .35s ease;
 }
 
 .btn.btn-icon i {
@@ -382,7 +382,7 @@ a:focus {
   font-weight: 600;
   padding: 10px 15px;
   color: #222;
-  font-family: "Exo", sans-serif;
+  font-family: 'Open Sans',sans-serif;
   text-transform: capitalize;
   font-size: 16px;
   transition: all .25s ease;

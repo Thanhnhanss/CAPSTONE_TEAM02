@@ -1896,11 +1896,6 @@
     <Content Include="Areas\Admin\Views\QL_TaiKhoan\PhanQuyen.cshtml" />
     <Content Include="Areas\Admin\Views\QL_TaiKhoan\TaiKhoan.cshtml" />
     <Content Include="Areas\User\Views\HomeUser\GioiThieu.cshtml" />
-    <Content Include="Areas\Admin\Views\DON_THUOC_DEMO\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\DON_THUOC_DEMO\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\DON_THUOC_DEMO\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\DON_THUOC_DEMO\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\DON_THUOC_DEMO\Index.cshtml" />
     <None Include="Areas\Admin\Views\QL_DonThuoc\ThemDonThuoc.cshtml" />
     <Content Include="Areas\Admin\Views\QL_DonThuoc\DS_DonThuoc.cshtml" />
     <Content Include="Areas\Admin\Views\QL_DonThuoc\Index.cshtml" />

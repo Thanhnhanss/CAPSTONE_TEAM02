@@ -126,7 +126,7 @@ code,
 kbd,
 pre,
 samp {
-  font-family: monospace, monospace;
+  font-family: 'Open Sans',sans-serif;
   font-size: 1em;
 }
 
@@ -314,7 +314,7 @@ html {
 }
 
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Open Sans',sans-serif;
   font-size: 14px;
   line-height: 1.42857;
   color: #333333;
@@ -813,7 +813,7 @@ code,
 kbd,
 pre,
 samp {
-  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-family: 'Open Sans',sans-serif;
 }
 
 code {
@@ -5846,7 +5846,7 @@ button.close {
   position: absolute;
   z-index: 1070;
   display: block;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Open Sans',sans-serif;
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
@@ -5980,7 +5980,7 @@ button.close {
   display: none;
   max-width: 276px;
   padding: 1px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Open Sans',sans-serif;
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;

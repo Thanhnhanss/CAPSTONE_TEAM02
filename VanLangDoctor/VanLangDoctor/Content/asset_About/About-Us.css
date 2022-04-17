@@ -22,7 +22,7 @@
   letter-spacing: normal;
   text-transform: uppercase;
   font-weight: 700;
-  font-family: Oswald, sans-serif;
+  font-family: 'Open Sans',sans-serif;
   line-height: 1.4;
   margin: 0;
 }
@@ -368,8 +368,7 @@
 }
 
 .u-section-3 .u-text-1 {
-  font-weight: 700;
-  font-size: 3rem;
+  font-weight: 600;
   line-height: 1.2;
   letter-spacing: 0px;
   margin: 0;

@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
 using System.Data.Entity;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Transactions;
 using System.Web;
 using System.Web.Mvc;
@@ -9,41 +13,41 @@ using VanLangDoctor.Models;
 
 namespace VanLangDoctor.Areas.User.Controllers
 {
-    public class So_Kham_BenhController : Controller
+    public class RegisterConsultationController : Controller
     {
-        CP24Team02Entities db = new CP24Team02Entities();
+        private CP24Team02Entities db = new CP24Team02Entities();
 
         // GET: User/So_Kham_Benh
         public ActionResult SoKhamBenh(int? id)
         {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(400);
+            }
             var skb = db.SO_KHAM_BENH.FirstOrDefault(s => s.ID_BENH_NHAN == id);
 
             if (skb == null)
             {
-                return RedirectToAction("DangKy_SKB");
+                return HttpNotFound();
             }
             return View(skb);
-
-        }
-        public ActionResult DangKy_SKB()
-        {
-            ViewBag.ID_BENH_NHAN = new SelectList(db.BENH_NHAN, "ID_BENH_NHAN", "TEN_BN");
-            return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         //POST: User/Dang ky So
-        public ActionResult DangKy_SKB(SO_KHAM_BENH sO_KHAM_BENH)
+        public ActionResult RegisterRecord(int id)
         {
-            var skb = db.SO_KHAM_BENH.FirstOrDefault(s => s.ID_BENH_NHAN == sO_KHAM_BENH.ID_BENH_NHAN);
-            if (ModelState.IsValid)
+            var skb = db.SO_KHAM_BENH.FirstOrDefault(s => s.ID_BENH_NHAN == id);
+            if (skb == null)
             {
-                db.SO_KHAM_BENH.Add(sO_KHAM_BENH);
+                db.SO_KHAM_BENH.Add(new SO_KHAM_BENH
+                {
+                    ID_BENH_NHAN = id
+                });
                 db.SaveChanges();
-                return RedirectToAction("SoKhamBenh");
             }
-            return RedirectToAction("SoKhamBenh");
+            return RedirectToAction("HealthRecord", new { id });
         }
     }
 }

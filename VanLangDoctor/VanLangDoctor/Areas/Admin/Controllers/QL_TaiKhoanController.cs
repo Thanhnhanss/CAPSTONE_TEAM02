@@ -7,6 +7,7 @@ using VanLangDoctor.Models;
 
 namespace VanLangDoctor.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Quản trị viên")]
     public class QL_TaiKhoanController : Controller
     {
         CP24Team02Entities db = new CP24Team02Entities();
