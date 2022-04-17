@@ -1,0 +1,147 @@
+﻿@model IEnumerable<VanLangDoctor.Models.FEEDBACK>
+
+@{
+    ViewBag.Title = "Thống kê phản hồi";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<!--<link href="~/Content/assets-ad/libs/chartist/dist/chartist.min.css" rel="stylesheet" />-->
+<!-- Custom CSS -->
+<!--<link href="~/Content/assets-ad/extra-libs/c3/c3.min.css" rel="stylesheet">
+<link href="~/Content/assets-ad/extra-libs/jvector/jquery-jvectormap-2.0.2.css" rel="stylesheet" />-->
+<!-- Custom CSS -->
+<link href="dist/css/style.min.css" rel="stylesheet">
+<div class="page-wrapper" style="display: block">
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-7 align-self-center">
+                <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">@ViewBag.Title</h4>
+                <div class="d-flex align-items-center">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb m-0 p-0">
+                            <li class="breadcrumb-item"><a href="/trang-chu-quan-ly" class="text-muted">Trang chủ</a></li>
+                            <li class="breadcrumb-item text-muted active" aria-current="page">@ViewBag.Title</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="card-body">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body" style="width: 100%; height: auto; vertical-align:middle">
+                        <canvas id="chart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  
+</div>
+<script src="~/Content/assets-ad/libs/jquery/dist/jquery.min.js"></script>
+<script src="~/Content/assets-ad/libs/popper.js/dist/umd/popper.min.js"></script>
+<script src="~/Content/assets-ad/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- apps -->
+<!-- apps -->
+<script src="~/Content/assets-ad/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+<script src="~/Content/assets-ad/extra-libs/c3/d3.min.js"></script>
+<script src="~/Content/assets-ad/extra-libs/c3/c3.min.js"></script>
+<script src="~/Content/assets-ad/libs/chartist/dist/chartist.min.js"></script>
+<script src="~/Content/assets-ad/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
+<script src="~/Content/assets-ad/extra-libs/jvector/jquery-jvectormap-2.0.2.min.js"></script>
+<script src="~/Content/assets-ad/extra-libs/jvector/jquery-jvectormap-world-mill-en.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+@section scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    <script>
+    $(document).ready(() => {
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("ChartData", "QL_TKBookCalendar")',
+            success: function (charts) {
+                if (charts.code == 404) {
+                    lert("Error loading data! Please try again!.");
+                    return;
+                }
+                var data = charts.dbchart;
+                var ctx = document.getElementById('chart').getContext('2d');
+                var chart = new Chart(ctx, {
+                    type: 'bar',
+                    options: {
+                        indexAxis: 'x',
+                        element: {
+                            bar: {
+                                borderWidth: 1
+                            }
+                        },
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                            },
+                            title: {
+                                display: true,
+                                text: 'Biểu đồ mức độ đặt lịch hẹn tư vấn',
+                                position: 'bottom'
+                            }
+                        }
+                    },
+                    data: {
+                        labels: [' '],
+                        datasets: data.map(item => ({
+                            label: item.Key,
+                            data: [item.Count],
+                            borderColor: ['rgb(255, 99, 132)',
+                                'rgb(255, 159, 64)',
+                                'rgb(255, 205, 86)',
+                                'rgb(75, 192, 192)',
+                                'rgb(54, 162, 235)',
+                                'rgb(153, 102, 255)',
+                                'rgb(201, 203, 207)',
+                            ],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(255, 159, 64, 0.2)',
+                                'rgba(255, 205, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(201, 203, 207, 0.2)'
+                            ]
+                        }))
+                    }
+                });
+                console.log(chart);
+                console.log(data.map(item => item.Key));
+                console.log(data.map(item => ({
+                    label: item.Key,
+                    data: [item.Count],
+                    borderColor:[ 'rgb(255, 99, 132)',
+                     'rgb(255, 159, 64)',
+                    'rgb(255, 205, 86)',
+                    'rgb(75, 192, 192)',
+                    'rgb(54, 162, 235)',
+                    'rgb(153, 102, 255)',
+                        'rgb(201, 203, 207)',
+                    ],
+                    backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(255, 159, 64, 0.2)',
+                            'rgba(255, 205, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(201, 203, 207, 0.2)'
+                        ]
+                })));
+            },
+            error: function () {
+                alert("Error loading data! Please try again.");
+            }
+        });
+    });
+    </script>
+}

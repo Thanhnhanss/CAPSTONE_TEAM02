@@ -1,7 +1,6 @@
 ﻿@{
-ViewBag.Title = "Trang chủ quản lý";
+    ViewBag.Title = "Trang chủ quản lý";
 }
-
 <div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
      data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
     <div class="page-wrapper">
@@ -122,11 +121,13 @@ ViewBag.Title = "Trang chủ quản lý";
         </footer>
     </div>
 </div>
-<script>
+@section scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    <script>
     $(document).ready(() => {
         $.ajax({
             type: 'POST',
-            url: '@Url.Action("ChartData", "QL_TKFeedBack")',
+            url: '@Url.Action("ChartData", "HomeAdmin")',
             success: function (charts) {
                 if (charts.code == 404) {
                     lert("Error loading data! Please try again!.");
@@ -135,16 +136,18 @@ ViewBag.Title = "Trang chủ quản lý";
                 var data = charts.dbchart;
                 var ctx = document.getElementById('chart').getContext('2d');
                 var borderColors = {
-                    'Rất hài lòng': 'rgb(19, 168, 168)',
-                    'Hài lòng': 'rgb(74, 198, 255)',
+                    'Rất không hài lòng': 'rgb(232, 16, 49)',
+                    'Chưa hài lòng': 'rgb(250, 5, 209)',
                     'Bình thường': 'rgb(180, 74, 255)',
-                    'Chưa hài lòng': 'rgb(232, 16, 49)'
+                    'Hài lòng': 'rgb(74, 198, 255)',
+                    'Rất hài lòng': 'rgb(19, 168, 168)'
                 };
                 var backgroundColors = {
-                    'Rất hài lòng': 'rgba(19, 168, 168, 0.5)',
-                    'Hài lòng': 'rgb(74, 198, 255, 0.5)',
+                    'Rất không hài lòng': 'rgb(232, 16, 49, 0.5)',
+                    'Chưa hài lòng': 'rgb(250, 5, 209, 0.5)',
                     'Bình thường': 'rgb(180, 74, 255, 0.5)',
-                    'Chưa hài lòng': 'rgb(232, 16, 49, 0.5)'
+                    'Hài lòng': 'rgb(74, 198, 255, 0.5)',
+                    'Rất hài lòng': 'rgb(19, 168, 168, 0.5)'
                 }
                 var chart = new Chart(ctx, {
                     type: 'bar',
@@ -184,4 +187,5 @@ ViewBag.Title = "Trang chủ quản lý";
             }
         });
     });
-</script>
+    </script>
+}

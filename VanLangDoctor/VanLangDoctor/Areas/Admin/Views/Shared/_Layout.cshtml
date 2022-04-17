@@ -391,6 +391,21 @@
                                         </span>
                                     </a>
                                 </li>
+                                <li class="sidebar-item">
+                                    <a href="@Url.Action("BookCalendar", "QL_TKBookCalendar")" class="sidebar-link">
+                                        <span class="hide-menu">
+                                            Lịch sử đặt lịch hẹn
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="@Url.Action("HomeAdmin", "HomeAdmin")" class="sidebar-link">
+                                        <span class="hide-menu">
+                                            Lịch sử đánh giá tư vấn Chatbot
+                                        </span>
+                                    </a>
+
+                                </li>
                             </ul>
                         </li>
                         <li class="sidebar-item">
@@ -431,7 +446,6 @@
         </aside>
         @RenderBody()
     </div>
-    @RenderSection("scripts", required: false)
     <script src="@Url.Content("~/Content/assets-ad/libs/jquery/dist/jquery.min.js")"></script>
     <script src="@Url.Content("~/Content/dist-ad/js/feather.min.js")"></script>
     <script src="@Url.Content("~/Content/assets-ad/assets/extra-libs/c3/d3.min.js")"></script>
@@ -458,6 +472,7 @@
     <script src="@Url.Content("~/Content/assets-ad/extra-libs/jvector/jquery-jvectormap-2.0.2.min.js")"></script>
     <script src="@Url.Content("~/Content/assets-ad/extra-libs/jvector/jquery-jvectormap-world-mill-en.js")"></script>
     <script src="@Url.Content("~/Content/dist-ad/js/pages/dashboards/dashboard1.min.js")"></script>
+    @RenderSection("scripts", required: false)
 
 </body>
 
