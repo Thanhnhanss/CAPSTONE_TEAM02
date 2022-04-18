@@ -663,7 +663,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 14px;
     display: inline-block;
     width: 100%;
@@ -15777,7 +15777,7 @@ button.button_search {
 
 .popup-search {
     position: relative;
-    padding: 90px 0px;
+    padding: 0px 10px;
 }
 
     .popup-search .close {
@@ -18802,11 +18802,16 @@ nav.megamenu-v2 {
         padding-left: 15px;
     }
 }
-
+@media (min-width: 768px) and (max-width: 4499px){
+    #header.header-v2 .box-right {
+        display: none;
+    }
+}
 @media (min-width: 1025px) and (max-width: 1499px) {
     .container .col-md-5 {
         width: 39.5%;
     }
+    
 
     .container .col-md-7 {
         width: 60.5%;
@@ -19052,9 +19057,7 @@ nav.megamenu-v2 {
         display: inline-block;
     }
 
-    #header.header-v2 .box-right {
-        padding-right: 20px;
-    }
+    
 
     #header.header-v4 #topbar .topbar-left {
         width: 100%;

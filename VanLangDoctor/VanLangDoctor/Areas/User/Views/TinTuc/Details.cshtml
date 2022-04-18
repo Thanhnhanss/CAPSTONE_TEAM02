@@ -27,10 +27,10 @@
                                 {
                                     <div class="blog-post-item" style="text-align:center">
                                         <div class="blog-post-image hover-images">
-                                            <a href="#" title="Post"><img src="@Url.Action("Picture", new {tnb.ID_TIN_TUC})" alt="" data-image-width="145" data-image-height="113"></a>
+                                            <a href="~/trang-chu/tin-tuc/@tnb.TEN_BAI_VIET.ToLower().Replace(" ","-")-@tnb.ID_TIN_TUC" title="Post"><img src="@Url.Action("Picture", new {tnb.ID_TIN_TUC})" alt="" data-image-width="145" data-image-height="113"></a>
                                         </div>
                                         <div class="text" style="text-align:center">
-                                            <h3><a href="#" style="text-align:center" title="@tnb.TEN_BAI_VIET.ToLower()">@tnb.TEN_BAI_VIET.ToLower()</a></h3>
+                                            <h3><a href="~/trang-chu/tin-tuc/@tnb.TEN_BAI_VIET.ToLower().Replace(" ","-")-@tnb.ID_TIN_TUC" style="text-align:center" title="@tnb.TEN_BAI_VIET.ToLower()">@tnb.TEN_BAI_VIET.ToLower()</a></h3>
                                             <p class="post-by"><span><i class="fa fa-pencil-square-o"></i> @tnb.TAC_GIA</span><span><i class="fa fa-comment-o"></i> @tnb.CountViews Lượt xem</span></p>
                                         </div>
                                     </div>
@@ -50,7 +50,7 @@
                     <ul>
                         @foreach (var item in ViewBag.danhmuc)
                         {
-                            <li><a href="#" title="@item.Danhmuc_tin">@item.Danhmuc_tin</a></li>
+                            <li><a href="@Url.Action("Tin_Tuc","TinTuc", new { id_cate = item.ID })" title="@item.Danhmuc_tin">@item.Danhmuc_tin</a></li>
                         }
                     </ul>
                 </aside>
@@ -59,7 +59,7 @@
                     <ul>
                         @foreach (var top in ViewBag.Top)
                         {
-                            <li><a href="#" title="@top.TEN_BAI_VIET">@top.TEN_BAI_VIET.ToLower()</a></li>
+                            <li><a href="~/trang-chu/tin-tuc/@top.TEN_BAI_VIET.ToLower().Replace(" ","-")-@top.ID_TIN_TUC" title="@top.TEN_BAI_VIET">@top.TEN_BAI_VIET.ToLower()</a></li>
                         }
                     </ul>
                 </aside>
