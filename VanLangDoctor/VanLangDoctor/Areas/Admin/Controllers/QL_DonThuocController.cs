@@ -15,6 +15,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         private CP24Team02Entities db = new CP24Team02Entities();
 
         // GET: Admin/QL_DonThuoc
+        [HttpGet]
         public ActionResult Index()
         {
             var dON_THUOC = db.DON_THUOC.Include(d => d.BACSI).Include(d => d.SO_KHAM_BENH);

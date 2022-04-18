@@ -16,78 +16,75 @@
         <div class="page-breadcrumb">
             <h1 class="u-custom-font u-font-oswald u-text u-text-default u-title u-text-1">Chi tiết đơn thuốc</h1>
             <br />
-            <form method="get" action="/QL_DonThuoc/Index">
-                <div class="form-row">
-                    <label for="name">Họ tên</label>
-                    <input type="text" value="@Model.SO_KHAM_BENH.BENH_NHAN.TEN_BN" class="form-control" id="name" placeholder="name" readonly />
+            <div class="form-row">
+                <label for="name">Họ tên</label>
+                <input type="text" value="@Model.SO_KHAM_BENH.BENH_NHAN.TEN_BN" class="form-control" id="name" placeholder="name" readonly />
+            </div>
+            <br />
+            <div class="form-row" id="showInf">
+                <div class="form-group col-md-3">
+                    <label for="age">Tuổi</label>
+                    <input type="text" value="@(DateTime.Now.Year - Model.SO_KHAM_BENH.BENH_NHAN.NGAY_SINH.Value.Year)" class="form-control" id="age" placeholder="Age" readonly>
                 </div>
-                <br />
-                <div class="form-row" id="showInf">
-                    <div class="form-group col-md-3">
-                        <label for="age">Tuổi</label>
-                        <input type="text" value="@(DateTime.Now.Year - Model.SO_KHAM_BENH.BENH_NHAN.NGAY_SINH.Value.Year)" class="form-control" id="age" placeholder="Age" readonly>
-                    </div>
-                    <div class="form-group col-md-4">
-                        <label for="gender">Giới tính</label>
-                        <input type="text" value="@Model.SO_KHAM_BENH.BENH_NHAN.GIOI_TINH" class="form-control" id="gender" placeholder="Gender" readonly>
-                    </div>
-                    <div class="form-group col-md-5">
-                        <label for="address">Địa chỉ</label>
-                        <input type="text" value="@Model.SO_KHAM_BENH.BENH_NHAN.DIA_CHI" class="form-control" id="address" placeholder="Address" readonly>
-                    </div>
+                <div class="form-group col-md-4">
+                    <label for="gender">Giới tính</label>
+                    <input type="text" value="@Model.SO_KHAM_BENH.BENH_NHAN.GIOI_TINH" class="form-control" id="gender" placeholder="Gender" readonly>
                 </div>
-                <div class="form-row">
-                    <label for="datetime">Ngày tạo</label>
-                    <input type="text" value="@Html.DisplayFor(model => model.NGAY_LAP)" id="ngaytao" class="form-control" readonly />
+                <div class="form-group col-md-5">
+                    <label for="address">Địa chỉ</label>
+                    <input type="text" value="@Model.SO_KHAM_BENH.BENH_NHAN.DIA_CHI" class="form-control" id="address" placeholder="Address" readonly>
                 </div>
-                <br />
-                <div class="form-group">
-                    <label for="diagnose">Chẩn đoán</label>
-                    <input type="text" value="@Html.DisplayFor(model => model.CHUAN_DOAN)" class="form-control" readonly />
-                </div>
-                <div class="form-group">
-                    <label for="attribution">Chỉ định</label>
-                    <input type="text" value="@Html.DisplayFor(model => model.CHI_DINH)" class="form-control" readonly />
-                </div>
-                <div class="form-group">
-                    <label for="advice">Lời dặn</label>
-                    <input type="text" value="@Html.DisplayFor(model => model.LOI_DAN)" class="form-control" readonly />
-                </div>
-                <div class="form-group">
-                    <label for="result">Kết quả</label>
-                    <input type="text" value="@Html.DisplayFor(model => model.KET_QUA)" class="form-control" readonly />
-                </div>
-                <div class="form-row">
-                    <label for="name">Bác sĩ</label>
-                    <input type="text" value="@Html.DisplayFor(model => model.BACSI.TEN_BACSI)" class="form-control" readonly />
-                </div>
-                <br />
-                <div class="form-row">
-                    <label for="medicine">Thuốc điều trị</label>
-                    <table id="Medicine" class="table table-hover">
-                        <thead>
+            </div>
+            <div class="form-row">
+                <label for="datetime">Ngày tạo</label>
+                <input type="text" value="@Html.DisplayFor(model => model.NGAY_LAP)" id="ngaytao" class="form-control" readonly />
+            </div>
+            <br />
+            <div class="form-group">
+                <label for="diagnose">Chẩn đoán</label>
+                <input type="text" value="@Html.DisplayFor(model => model.CHUAN_DOAN)" class="form-control" readonly />
+            </div>
+            <div class="form-group">
+                <label for="attribution">Chỉ định</label>
+                <input type="text" value="@Html.DisplayFor(model => model.CHI_DINH)" class="form-control" readonly />
+            </div>
+            <div class="form-group">
+                <label for="advice">Lời dặn</label>
+                <input type="text" value="@Html.DisplayFor(model => model.LOI_DAN)" class="form-control" readonly />
+            </div>
+            <div class="form-group">
+                <label for="result">Kết quả</label>
+                <input type="text" value="@Html.DisplayFor(model => model.KET_QUA)" class="form-control" readonly />
+            </div>
+            <div class="form-row">
+                <label for="name">Bác sĩ</label>
+                <input type="text" value="@Html.DisplayFor(model => model.BACSI.TEN_BACSI)" class="form-control" readonly />
+            </div>
+            <br />
+            <div class="form-row">
+                <label for="medicine">Thuốc điều trị</label>
+                <table id="Medicine" class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Tên thuốc</th>
+                            <th scope="col">Số lượng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (var i = 0; i < Model.CHI_TIET_DON_THUOC.Count; i++)
+                        {
                             <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Tên thuốc</th>
-                                <th scope="col">Số lượng</th>
+                                <td>@(i + 1)</td>
+                                <td>@Model.CHI_TIET_DON_THUOC.ElementAt(i).THUOC.TEN_THUOC</td>
+                                <td>@Model.CHI_TIET_DON_THUOC.ElementAt(i).SO_LUONG</td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            @for (var i = 0; i < Model.CHI_TIET_DON_THUOC.Count; i++)
-                            {
-                                <tr>
-                                    <td>@(i + 1)</td>
-                                    <td>@Model.CHI_TIET_DON_THUOC.ElementAt(i).THUOC.TEN_THUOC</td>
-                                    <td>@Model.CHI_TIET_DON_THUOC.ElementAt(i).SO_LUONG</td>
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
-                </div>
-                <br />
-                @Html.ValidationSummary(false, "", new { @class = "text-danger" })
-                <button type="submit" class="btn btn-primary">Quay lại</button>
-            </form>
+                        }
+                    </tbody>
+                </table>
+                <a class="btn btn-primary" href="@Url.Action("Index", "QL_DonThuoc", new { area = "Admin" })">Quay lại</a>
+            </div>
+            <br />
         </div>
     </div>
 </div>
