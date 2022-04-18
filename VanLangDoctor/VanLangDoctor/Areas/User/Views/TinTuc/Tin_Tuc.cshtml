@@ -6,124 +6,258 @@
 }
 
 
-<link rel="stylesheet" href="~/Content/assets-news/nicepage.css" media="screen">
-<link rel="stylesheet" href="~/Content/assets-news/Home.css" media="screen">
+<link rel="manifest" href="site.webmanifest">
+<link rel="shortcut icon" type="image/x-icon" href="~/Content/assets-news/img/favicon.ico">
+<!-- CSS here -->
+@*<link rel="stylesheet" href="~/Content/assets-news/css/bootstrap.min.css">*@
+<link rel="stylesheet" href="~/Content/assets-news/css/owl.carousel.min.css">
+<link rel="stylesheet" href="~/Content/assets-news/css/ticker-style.css">
+<link rel="stylesheet" href="~/Content/assets-news/css/flaticon.css">
+<link rel="stylesheet" href="~/Content/assets-news/css/slicknav.css">
+<link rel="stylesheet" href="~/Content/assets-news/css/animate.min.css">
+<link rel="stylesheet" href="~/Content/assets-news/css/magnific-popup.css">
+<link rel="stylesheet" href="~/Content/assets-news/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="~/Content/assets-news/css/themify-icons.css">
+<link rel="stylesheet" href="~/Content/assets-news/css/slick.css">
+<link rel="stylesheet" href="~/Content/assets-news/css/nice-select.css">
+<link rel="stylesheet" href="~/Content/assets-news/css/style.css">
 
-<script class="u-script" type="text/javascript" src="~/Content/assets-news/jquery.js" defer=""></script>
-<script class="u-script" type="text/javascript" src="~/Content/assets-news/nicepage.js" defer=""></script>
 
-<link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
-<link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700">
+<main>
+    <!-- Trending Area Start -->
+    <div class="trending-area fix">
+        <div class="container">
+            <div class="trending-main">
+                <!-- Trending Tittle -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="trending-tittle">
+                            <strong>Trending now</strong>
+                            <!-- <p>Rem ipsum dolor sit amet, consectetur adipisicing elit.</p> -->
+                            <div class="trending-animated">
+                                <ul id="js-news" class="js-hidden">
+                                    <li class="news-item">Bangladesh dolor sit amet, consectetur adipisicing elit.</li>
+                                    <li class="news-item">Spondon IT sit amet, consectetur.......</li>
+                                    <li class="news-item">Rem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                </ul>
+                            </div>
 
-
-<body data-home-page="Home.html" data-home-page-title="Home" class="u-body u-xl-mode">
-    <section class="u-align-left u-clearfix u-white u-section-1" id="carousel_7823">
-        <div class="u-clearfix u-sheet u-sheet-1">
-            <h1 class="u-custom-font u-font-oswald u-text u-text-default u-title u-text-1">Danh sách tin tức</h1>
-            <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
-                <div class="u-layout">
-                    <div class="u-layout-row">
-                        <div class="u-container-style u-layout-cell u-size-44 u-layout-cell-1">
-                            <div class="u-container-layout u-container-layout-1"></div>
                         </div>
-                        <div class="u-container-style u-layout-cell u-size-16 u-layout-cell-2" data-animation-name="" data-animation-duration="0" data-animation-direction="">
-                            <div class="u-border-3 u-border-palette-1-light-1 u-container-layout u-container-layout-2">
-                                <h1 class="u-align-center u-custom-font u-font-oswald u-text u-text-default u-text-2">Danh mục</h1>
-                                @foreach (var i in Model)
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-auto">
+                        <!-- Trending Top -->
+                        <div class="trending-top mb-30">
+                            <div class="trend-top-img">
+                                <img src="@Url.Action("Picture", new {ViewBag.Top1.ID_TIN_TUC})" alt="">
+                                <div class="trend-top-cap">
+                                    <span>@ViewBag.Top1.DANH_MUC_TIN.Danhmuc_tin</span>
+                                    <h2><a href="@Url.Action("Details", "TinTuc", new { id = ViewBag.Top1.ID_TIN_TUC})"></a>@ViewBag.Top1.TEN_BAI_VIET</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Trending Bottom -->
+                        <div class="trending-bottom">
+                            <div class="row">
+                                @foreach (var t in ViewBag.Top3)
                                 {
-                                    <ul class="u-align-center u-text u-text-3">
-                                        <li>
-                                            <span style="font-size: 1.5rem;">@i.ID_Danhmuc_tin</span>
-                                        </li>
-                                    </ul>
+                                    <div class="col-lg-4">
+                                        <div class="single-bottom mb-35">
+                                            <div class="trend-bottom-img mb-30">
+                                                <img src="@Url.Action("Picture", new {ViewBag.Top1.ID_TIN_TUC})" alt="">
+                                            </div>
+                                            <div class="trend-bottom-cap">
+                                                <span class="color1">@ViewBag.Top1.DANH_MUC_TIN.Danhmuc_tin</span>
+                                                <h4><a href="@Url.Action("Details", "TinTuc", new { id = ViewBag.Top1.ID_TIN_TUC })">@ViewBag.Top1.TEN_BAI_VIET</a></h4>
+                                            </div>
+                                        </div>
+                                    </div>
                                 }
                             </div>
                         </div>
                     </div>
                 </div>
-            </div><!--blog--><!--blog_options_json--><!--{"type":"Recent","source":"","tags":"","count":""}--><!--/blog_options_json-->
-            
-            <div id="left" class="u-blog u-blog-1">
-                <div class="u-repeater u-repeater-1">
-                    @foreach (var n in Model.Take(3))
-                    {
-                        <!--blog_post-->
-                        <div class="u-blog-post u-container-style u-repeater-item">
-                            <div class="u-container-layout u-similar-container u-valign-top u-container-layout-3">
-                                <a class="u-post-header-link" href="@Url.Action("Details", "TinTuc", new { id = n.ID_TIN_TUC })">
-                                    <!--blog_post_image-->
-                                    <img src="@Url.Action("Picture", new {n.ID_TIN_TUC})" alt="" class="u-blog-control u-image u-image-default u-image-1"><!--/blog_post_image-->
-                                </a><!--blog_post_header-->
-                                <h2 class="u-blog-control u-text u-text-4">
-                                    <a class="u-post-header-link" href="@Url.Action("Details", "TinTuc", new { id = n.ID_TIN_TUC })">
-                                        <!--blog_post_header_content-->@n.TEN_BAI_VIET<!--/blog_post_header_content-->
-                                    </a>
-                                </h2><!--/blog_post_header-->
-                                <!--blog_post_content-->
-                                <div class="u-blog-control u-post-content u-text u-text-5">
-                                    <!--blog_post_content_content-->Sample small text. Lorem ipsum dolor sit amet.<!--/blog_post_content_content-->
-                                </div><!--/blog_post_content-->
-                                <!--blog_post_metadata-->
-                                <div class="u-blog-control u-metadata u-metadata-1">
-                                    <!--blog_post_metadata_date-->
-                                    <span class="u-meta-date u-meta-icon"><!--blog_post_metadata_date_content-->@n.NGAY_DANG<!--/blog_post_metadata_date_content--></span><!--/blog_post_metadata_date-->
-                                </div><!--/blog_post_metadata-->
-                                <!--blog_post_readmore-->
-                                <a href="@Url.Action("Details", "TinTuc", new { id=n.ID_TIN_TUC })" class="u-blog-control u-border-2 u-border-grey-dark-1 u-btn u-btn-rectangle u-button-style u-none u-btn-1">
-                                    <!--blog_post_readmore_content--><!--options_json--><!--{"content":"","defaultValue":"Read More"}-->
-                                    <!--/options_json-->Xem thêm<!--/blog_post_readmore_content-->
-                                </a>
-                                <!--/blog_post_readmore-->
-                            </div>
-                        </div><!--/blog_post-->
-                        <!--blog_post-->
-                    }
-                </div>
-            </div><!--/blog-->
-            <a id="show_more" href="#" class="u-border-1 u-border-palette-1-light-1 u-btn u-btn-round u-button-style u-palette-1-light-3 u-radius-3 u-text-palette-1-dark-2 u-btn-4">
-                Xem thêm&nbsp;<span class="u-icon u-text-palette-1-dark-2 u-icon-1"><svg class="u-svg-content" viewBox="0 0 490.677 490.677" x="0px" y="0px" style="width: 1em; height: 1em;"><path d="M489.272,37.339c-1.92-3.307-5.44-5.333-9.259-5.333H10.68c-3.819,0-7.339,2.027-9.259,5.333    c-1.899,3.307-1.899,7.36,0.021,10.667l234.667,405.333c1.899,3.307,5.419,5.333,9.237,5.333s7.339-2.027,9.237-5.333 L489.251,48.005C491.149,44.72,491.149,40.645,489.272,37.339z"></path></svg><img></span>
-            </a>
+            </div>
         </div>
-    </section>
-
-    <!--Hot NEWS-->
-    <section class="u-align-center u-clearfix u-section-2" id="carousel_ace7">
-        <div class="u-clearfix u-sheet u-sheet-1">
-            <h2 class="u-custom-font u-font-oswald u-text u-text-default u-text-1">Tin tức nổi bật</h2>
-            <div class="u-border-3 u-border-grey-dark-1 u-line u-line-horizontal u-line-1"></div>
-            <div class="u-border-3 u-border-grey-dark-1 u-line u-line-horizontal u-line-2"></div>
-            <div class="u-expanded-width u-list u-list-1">
-                <div class="u-repeater u-repeater-1">
-                    @foreach (var a in ViewBag.Top)
-                    {
-                        <div class="u-container-style u-custom-item u-list-item u-palette-2-light-1 u-repeater-item u-list-item-1">
-                            <div class="u-container-layout u-similar-container u-container-layout-1">
-                                <img alt="" class="u-expanded-width u-image u-image-default u-image-1" data-image-width="500" data-image-height="333" src="@Url.Action("Picture", new {a.ID_TIN_TUC})">
-                                <h3 class="u-text u-text-default u-text-2">@a.TEN_BAI_VIET</h3>
-                                <p class="u-text u-text-3">Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
-                                <a href="@Url.Action("Details", "TinTuc", new { id = a.ID_TIN_TUC })" class="u-active-none u-border-2 u-border-active-white u-border-hover-white u-border-white u-btn u-button-style u-custom-item u-hover-none u-none u-text-body-alt-color u-btn-1">
-                                    Xem chi tiết
-                                </a>
+    </div>
+    <!-- Trending Area End -->
+    <br />
+    <!-- Whats New Start -->
+    <section class="whats-news-area pt-50 pb-20">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="row d-flex justify-content-between">
+                        <div class="col-lg-3 col-md-3">
+                            <div class="section-tittle mb-30">
+                                <h3>Tin tức</h3>
                             </div>
                         </div>
-                    }
+                        <div class="col-lg-9 col-md-9">
+                            <div class="properties__button">
+                                <!--Nav Button  -->
+                                <nav>
+                                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                        <a class="nav-item nav-link active" id="all" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Tất cả</a>
+                                        <a class="nav-item nav-link" id="camnang" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Cẩm nang sức khoẻ</a>
+                                        <a class="nav-item nav-link" id="tuyendung" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Tuyển dụng</a>
+                                    </div>
+                                </nav>
+                                <!--End Nav Button  -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="row">
+                                @foreach (var t in Model)
+                                {
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="single-what-news mb-100">
+                                            <div class="what-img">
+                                                <img src="@Url.Action("Picture", new { t.ID_TIN_TUC })" style="width:330px;height:307px;" alt="">
+                                            </div>
+                                            <div class="what-cap">
+                                                <span class="color1">@t.DANH_MUC_TIN.Danhmuc_tin</span>
+                                                <h4><a href="@Url.Action("Details", "TinTuc", new { id = t.ID_TIN_TUC })">@t.TEN_BAI_VIET</a></h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <!-- Section Tittle -->
+                    <div class="section-tittle mb-40">
+                        <h3>Follow Us</h3>
+                    </div>
+                    <!-- Flow Socail -->
+                    <div class="single-follow mb-45">
+                        <div class="single-box">
+                            <div class="follow-us d-flex align-items-center">
+                                <div class="follow-social">
+                                    <a href="#"><img src="~/Content/assets-news/img/news/icon-fb.png" alt=""></a>
+                                </div>
+                                <div class="follow-count">
+                                    <span>8,045</span>
+                                    <p>Fans</p>
+                                </div>
+                            </div>
+                            <div class="follow-us d-flex align-items-center">
+                                <div class="follow-social">
+                                    <a href="#"><img src="~/Content/assets-news/img/news/icon-tw.png" alt=""></a>
+                                </div>
+                                <div class="follow-count">
+                                    <span>8,045</span>
+                                    <p>Fans</p>
+                                </div>
+                            </div>
+                            <div class="follow-us d-flex align-items-center">
+                                <div class="follow-social">
+                                    <a href="#"><img src="~/Content/assets-news/img/news/icon-ins.png" alt=""></a>
+                                </div>
+                                <div class="follow-count">
+                                    <span>8,045</span>
+                                    <p>Fans</p>
+                                </div>
+                            </div>
+                            <div class="follow-us d-flex align-items-center">
+                                <div class="follow-social">
+                                    <a href="#"><img src="~/Content/assets-news/img/news/icon-yo.png" alt=""></a>
+                                </div>
+                                <div class="follow-count">
+                                    <span>8,045</span>
+                                    <p>Fans</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- New Poster -->
+                    <div class="news-poster d-none d-lg-block">
+                        <img src="~/Content/assets-news/img/news/news_card.jpg" alt="">
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+    <!-- Whats New End -->
+    <!--   Weekly2-News start -->
+    <div class="weekly2-news-area  weekly2-pading gray-bg">
+        <div class="container">
+            <div class="weekly2-wrapper">
+                <!-- section Tittle -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-tittle mb-30">
+                            <h3>Bài viết gần đây</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="weekly2-news-active dot-style d-flex dot-style">
+                            @foreach (var t in ViewBag.RecentArticles)
+                            {
+                                <div class="weekly2-single">
+                                    <div class="weekly2-img">
+                                        <img src="@Url.Action("Picture", new { t.ID_TIN_TUC })" alt="">
+                                    </div>
+                                    <div class="weekly2-caption">
+                                        <span class="color1">@t.DANH_MUC_TIN.Danhmuc_tin</span>
+                                        <p>@t.NGAY_DANG</p>
+                                        <h4><a href="@Url.Action("Details", "TinTuc", new { id = t.ID_TIN_TUC })">@t.TEN_BAI_VIET</a></h4>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Weekly-News -->
+</main>
 
+<!-- JS here -->
+<!-- All JS Custom Plugins Link Here here -->
+<script src="~/Content/assets-news//js/vendor/modernizr-3.5.0.min.js"></script>
+<!-- Jquery, Popper, Bootstrap -->
+<script src="~/Content/assets-news//js/vendor/jquery-1.12.4.min.js"></script>
+<script src="~/Content/assets-news//js/popper.min.js"></script>
+<script src="~/Content/assets-news//js/bootstrap.min.js"></script>
+<!-- Jquery Mobile Menu -->
+<script src="~/Content/assets-news//js/jquery.slicknav.min.js"></script>
 
-    <script>
-        $(document).ready(function () {
-            if ($('u-container-layout u-similar-container u-valign-top u-container-layout-3').length > 3) {
-                $('u-container-layout u-similar-container u-valign-top u-container-layout-3:gt(2)').hide();
-                $('#show_more').show();
-            }
+<!-- Jquery Slick , Owl-Carousel Plugins -->
+<script src="~/Content/assets-news/js/owl.carousel.min.js"></script>
+<script src="~/Content/assets-news/js/slick.min.js"></script>
+<!-- Date Picker -->
+<script src="~/Content/assets-news/js/gijgo.min.js"></script>
+<!-- One Page, Animated-HeadLin -->
+<script src="~/Content/assets-news/js/wow.min.js"></script>
+<script src="~/Content/assets-news/js/animated.headline.js"></script>
+<script src="~/Content/assets-news/js/jquery.magnific-popup.js"></script>
 
-            $('#show_more').on('click', function () {
-                $('u-container-layout u-similar-container u-valign-top u-container-layout-3:gt(2)').toggle();
-            });
-        });
-    </script>
+<!-- Breaking New Pluging -->
+<script src="~/Content/assets-news/js/jquery.ticker.js"></script>
+<script src="~/Content/assets-news/js/site.js"></script>
 
-</body>
+<!-- Scrollup, nice-select, sticky -->
+<script src="~/Content/assets-news/js/jquery.scrollUp.min.js"></script>
+<script src="~/Content/assets-news/js/jquery.nice-select.min.js"></script>
+<script src="~/Content/assets-news/js/jquery.sticky.js"></script>
+
+<!-- contact js -->
+<script src="~/Content/assets-news/js/contact.js"></script>
+<script src="~/Content/assets-news/js/jquery.form.js"></script>
+<script src="~/Content/assets-news/js/jquery.validate.min.js"></script>
+<script src="~/Content/assets-news/js/mail-script.js"></script>
+<script src="~/Content/assets-news/js/jquery.ajaxchimp.min.js"></script>
+
+<!-- Jquery Plugins, main Jquery -->
+<script src="~/Content/assets-news/js/plugins.js"></script>
+<script src="~/Content/assets-news/js/main.js"></script>
