@@ -5,87 +5,194 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Edit</h2>
 
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>DON_THUOC</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.ID_DON_THUOC)
+<div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+     data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.KET_QUA, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.KET_QUA, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.KET_QUA, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.CHUAN_DOAN, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CHUAN_DOAN, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CHUAN_DOAN, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.CHI_DINH, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CHI_DINH, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CHI_DINH, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.LOI_DAN, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.LOI_DAN, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.LOI_DAN, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.NGAY_LAP, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NGAY_LAP, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NGAY_LAP, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ID_BACSI, "ID_BACSI", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("ID_BACSI", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.ID_BACSI, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ID_SO_KHAM_BENH, "ID_SO_KHAM_BENH", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("ID_SO_KHAM_BENH", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.ID_SO_KHAM_BENH, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
+    <div class="page-wrapper" style="display: block">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="page-breadcrumb">
+            <h1 class="u-custom-font u-font-oswald u-text u-text-default u-title u-text-1">Tạo đơn thuốc</h1>
+            <br />
+            <form method="post" action="#">
+                @Html.AntiForgeryToken()
+                <input id="FullName" value="@Model.SO_KHAM_BENH.BENH_NHAN.ID_BENH_NHAN" style="display: none" />
+                <input id="bacsi" value="@Model.ID_BACSI" style="display: none" />
+                <div class="form-row">
+                    <label for="name">Họ tên</label>
+                    <input type="text" class="form-control" value="@Model.SO_KHAM_BENH.BENH_NHAN.TEN_BN" readonly />
+                </div>
+                <br />
+                <div class="form-row" id="showInf">
+                    <div class="form-group col-md-3">
+                        <label for="age">Tuổi</label>
+                        <input type="text" value="@(DateTime.Now.Year - Model.SO_KHAM_BENH.BENH_NHAN.NGAY_SINH.Value.Year)" class="form-control" id="age" placeholder="Age" readonly>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="gender">Giới tính</label>
+                        <input type="text" value="@Model.SO_KHAM_BENH.BENH_NHAN.GIOI_TINH" class="form-control" id="gender" placeholder="Gender" readonly>
+                    </div>
+                    <div class="form-group col-md-5">
+                        <label for="address">Địa chỉ</label>
+                        <input type="text" value="@Model.SO_KHAM_BENH.BENH_NHAN.DIA_CHI" class="form-control" id="address" placeholder="Address" readonly>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label for="datetime">Ngày tạo</label>
+                    <input type="text" value="@Model.NGAY_LAP" id="ngaytao" class="form-control" readonly />
+                </div>
+                <br />
+                <div class="form-group">
+                    <label for="diagnose">Chẩn đoán</label>
+                    <textarea id="chandoan" class="myTextEditor">@Model.CHUAN_DOAN</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="attribution">Chỉ định</label>
+                    <textarea id="chidinh" class="myTextEditor">@Model.CHI_DINH</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="advice">Lời dặn</label>
+                    <textarea id="loidan" class="myTextEditor">@Model.LOI_DAN</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="result">Kết quả</label>
+                    <textarea id="ketqua" class="myTextEditor">@Model.KET_QUA</textarea>
+                </div>
+                <div class="form-row">
+                    <label for="name">Bác sĩ</label>
+                    <input type="text" class="form-control" value="@Model.BACSI.TEN_BACSI" readonly />
+                </div>
+                <br />
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="listmedicine">Thuốc</label>
+                        <select id="listMedicine" class="form-control">
+                            <option selected id="choose">Choose...</option>
+                            @foreach (var i in ViewBag.Medicine)
+                            {
+                                <option value="@i.ID_THUOC">@i.TEN_THUOC</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="add">Thêm</label>
+                        <button id="addMedicine" class="btn btn-primary">Thêm</button>
+                    </div>
+                </div>
+                <br />
+                <div class="form-row">
+                    <label for="medicine">Thuốc điều trị</label>
+                    <table id="Medicine" class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Tên thuốc</th>
+                                <th scope="col">Số lượng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (var i = 0; i < Model.CHI_TIET_DON_THUOC.Count; i++)
+                            {
+                                <tr>
+                                    <td>@(i + 1)</td>
+                                    <td>@Model.CHI_TIET_DON_THUOC.ElementAt(i).THUOC.TEN_THUOC</td>
+                                    <td>@Model.CHI_TIET_DON_THUOC.ElementAt(i).SO_LUONG</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <br />
+                @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                <button type="submit" class="btn btn-primary">Lưu</button>
+            </form>
         </div>
     </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
 </div>
+<br />
+
+
 
 @section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: '.myTextEditor',
+            plugins: [
+                'a11ychecker', 'advlist', 'advcode', 'advtable', 'autolink', 'checklist', 'export',
+                'lists', 'link', 'image', 'charmap', 'preview', 'anchor', 'searchreplace', 'visualblocks',
+                'powerpaste', 'fullscreen', 'formatpainter', 'insertdatetime', 'media', 'table', 'help', 'wordcount'
+            ],
+            toolbar: 'undo redo | formatpainter casechange blocks | bold italic backcolor | ' +
+                'alignleft aligncenter alignright alignjustify | ' +
+                'bullist numlist checklist outdent indent | removeformat | a11ycheck code table help',
+            height: 200
+        });
+
+        $(document).ready(() => {
+            $('#addMedicine').click(function (e) {
+                e.preventDefault();
+                var thuoc = $('#listMedicine option:selected').html();
+                if (thuoc == 'Choose...')
+                    return;
+                var idThuoc = $('#listMedicine').val();
+                var rowIndex = $('#Medicine tbody tr').length;
+                $(`#listMedicine option[value="${idThuoc}"]`).attr('disabled', 'true');
+                $('#Medicine tbody').append(`<tr>
+                                                        <td style="display: none">${idThuoc}</td>
+                                                     <th scope="row">${rowIndex + 1}</th>
+                                                     <td>${thuoc}</td>
+                                                     <td><input type="number" value="1" /></td>
+                                                 </tr>`);
+                $('#listMedicine').val('Choose...');
+            });
+        });
+
+        $('#FullName').change(function () {
+            let id = $(this).val();
+            $.get('/QL_DonThuoc/GetPatient/' + id, function (data) {
+                $('#age').val(data.Tuoi);
+                $('#gender').val(data.GioiTinh);
+                $('#address').val(data.DiaChi);
+            });
+        });
+
+        $('form').submit(function (e) {
+            e.preventDefault();
+            var hoten = $('#FullName').val();
+            var tuoi = $('#age').val();
+            var gioitinh = $('#gender').val();
+            var diachi = $('#address').val();
+            var ngaytao = $('#ngaytao').val();
+            var chandoan = tinymce.get(0).getContent({ format: 'text' });
+            var chidinh = tinymce.get(1).getContent({ format: 'text' });
+            var loidan = tinymce.get(2).getContent({ format: 'text' });
+            var ketqua = tinymce.get(3).getContent({ format: 'text' });
+            var bacsi = $('#bacsi').val();
+
+            $('body').append(`<form action="${location.pathname}" method="POST" id="form" style="display: none">
+                                        <input name="HoTen" value="${hoten}" />
+                                        <input name="Tuoi" value="${tuoi}" />
+                                        <input name="GioiTinh" value="${gioitinh}" />
+                                        <input name="DiaChi" value="${diachi}" />
+                                        <input name="NgayKhoiTao" value="${ngaytao}" />
+                                        <input name="ChanDoan" value="${chandoan}" />
+                                        <input name="ChiDinh" value="${chidinh}" />
+                                        <input name="LoiDan" value="${loidan}" />
+                                        <input name="KetQua" value="${ketqua}" />
+                                        <input name="BacSi" value="${bacsi}" />
+                                    </form>`);
+            $('#Medicine tbody').children().each((i, element) => {
+                var idThuoc = $(element).children('td:first-child').html();
+                var soLuong = $(element).find('input').val();
+                $('#form').append(`<input name="Thuocs[${i}].Id" value="${idThuoc}" />
+                                        <input name="Thuocs[${i}].Quantity" value="${soLuong}" />`);
+            });
+
+            $('#form').submit();
+        });
+    </script>
 }

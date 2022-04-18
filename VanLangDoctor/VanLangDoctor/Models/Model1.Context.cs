@@ -32,6 +32,7 @@ namespace VanLangDoctor.Models
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
         public virtual DbSet<BACSI> BACSIs { get; set; }
         public virtual DbSet<BENH_NHAN> BENH_NHAN { get; set; }
+        public virtual DbSet<CHI_TIET_DON_THUOC> CHI_TIET_DON_THUOC { get; set; }
         public virtual DbSet<DANG_KY> DANG_KY { get; set; }
         public virtual DbSet<DANH_MUC_THUOC> DANH_MUC_THUOC { get; set; }
         public virtual DbSet<DANH_MUC_TIN> DANH_MUC_TIN { get; set; }

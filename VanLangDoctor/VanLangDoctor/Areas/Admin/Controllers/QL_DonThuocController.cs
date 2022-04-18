@@ -20,7 +20,6 @@ namespace VanLangDoctor.Areas.Admin.Controllers
             var dON_THUOC = db.DON_THUOC.Include(d => d.BACSI).Include(d => d.SO_KHAM_BENH);
             return View(dON_THUOC.ToList());
         }
-
         // GET: Admin/QL_DonThuoc/Details/5
         public ActionResult Details(int? id)
         {
@@ -51,24 +50,44 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(DON_THUOC dON_THUOC)
+        public ActionResult Create(PatientModel dON_THUOC)
         {
             if (ModelState.IsValid)
             {
-                db.DON_THUOC.Add(dON_THUOC);
+                var benhNhan = db.BENH_NHAN.Find(dON_THUOC.HoTen);
+                if (benhNhan.SO_KHAM_BENH.Count == 0)
+                {
+                    ModelState.AddModelError("Error", "Bệnh nhân chưa có sổ khám bệnh.");
+                    return View();
+                }
+                benhNhan.SO_KHAM_BENH.ElementAt(0).DON_THUOC.Add(new DON_THUOC
+                {
+                    CHUAN_DOAN = dON_THUOC.ChanDoan,
+                    CHI_DINH = dON_THUOC.ChiDinh,
+                    LOI_DAN = dON_THUOC.LoiDan,
+                    KET_QUA = dON_THUOC.KetQua,
+                    NGAY_LAP = dON_THUOC.NgayKhoiTao,
+                    ID_BACSI = dON_THUOC.BacSi,
+                    CHI_TIET_DON_THUOC = dON_THUOC.Thuocs.Select(item => new CHI_TIET_DON_THUOC
+                    {
+                        ID_THUOC = item.Id,
+                        SO_LUONG = item.Quantity
+                    }).ToList()
+                });
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "QL_DonThuoc", new { area = "Admin" });
             }
 
-            ViewBag.ID_BACSI = new SelectList(db.BACSIs, "ID_BACSI", "TEN_BACSI", dON_THUOC.ID_BACSI);
-            ViewBag.ID_SO_KHAM_BENH = new SelectList(db.SO_KHAM_BENH, "ID_SOKHAMBENH", "ID_SOKHAMBENH", dON_THUOC.ID_SO_KHAM_BENH);
+            //ViewBag.ID_BACSI = new SelectList(db.BACSIs, "ID_BACSI", "TEN_BACSI", dON_THUOC.ID_BACSI);
+            //ViewBag.ID_SO_KHAM_BENH = new SelectList(db.SO_KHAM_BENH, "ID_SOKHAMBENH", "ID_SOKHAMBENH", dON_THUOC.ID_SO_KHAM_BENH);
             return View(dON_THUOC);
         }
 
         // GET: Admin/QL_DonThuoc/Edit/5
         public ActionResult Edit(int? id)
         {
+            ViewBag.Medicine = GetAllMedicine();
+            ViewBag.Doctor = GetAllDoctor();
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -87,18 +106,28 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID_DON_THUOC,KET_QUA,CHUAN_DOAN,CHI_DINH,LOI_DAN,NGAY_LAP,ID_BACSI,ID_SO_KHAM_BENH")] DON_THUOC dON_THUOC)
+        public ActionResult Edit(PatientModel dON_THUOC, int id)
         {
+            var donthuoc = db.DON_THUOC.Find(id);
             if (ModelState.IsValid)
             {
-                db.Entry(dON_THUOC).State = EntityState.Modified;
+                donthuoc.CHUAN_DOAN = dON_THUOC.ChanDoan;
+                donthuoc.CHI_DINH = dON_THUOC.ChiDinh;
+                donthuoc.LOI_DAN = dON_THUOC.LoiDan;
+                donthuoc.KET_QUA = dON_THUOC.KetQua;
+                donthuoc.CHI_TIET_DON_THUOC = dON_THUOC.Thuocs.Select(item => new CHI_TIET_DON_THUOC
+                {
+                    ID_THUOC = item.Id,
+                    SO_LUONG = item.Quantity
+                }).ToList();
+                db.Entry(donthuoc).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ID_BACSI = new SelectList(db.BACSIs, "ID_BACSI", "TEN_BACSI", dON_THUOC.ID_BACSI);
-            ViewBag.ID_SO_KHAM_BENH = new SelectList(db.SO_KHAM_BENH, "ID_SOKHAMBENH", "ID_SOKHAMBENH", dON_THUOC.ID_SO_KHAM_BENH);
-            return View(dON_THUOC);
+            ViewBag.Medicine = GetAllMedicine();
+            //ViewBag.ID_BACSI = new SelectList(db.BACSIs, "ID_BACSI", "TEN_BACSI", dON_THUOC.ID_BACSI);
+            //ViewBag.ID_SO_KHAM_BENH = new SelectList(db.SO_KHAM_BENH, "ID_SOKHAMBENH", "ID_SOKHAMBENH", dON_THUOC.ID_SO_KHAM_BENH);
+            return View(donthuoc);
         }
 
         //// GET: Admin/QL_DonThuoc/Delete/5
@@ -139,7 +168,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public List<BENH_NHAN> GetAllPatient() => db.BENH_NHAN.ToList();
+        public List<BENH_NHAN> GetAllPatient() => db.BENH_NHAN.Where(item => item.SO_KHAM_BENH.Count > 0).ToList();
 
         /// <summary>
         /// Get All Doctor
@@ -184,6 +213,38 @@ namespace VanLangDoctor.Areas.Admin.Controllers
             public string GioiTinh { get; set; }
 
             public string DiaChi { get; set; }
+        }
+
+        public class PatientModel
+        {
+            public int HoTen { get; set; }
+
+            public int Tuoi { get; set; }
+
+            public string GioiTinh { get; set; }
+
+            public string DiaChi { get; set; }
+
+            public DateTime NgayKhoiTao { get; set; }
+
+            public string ChanDoan { get; set; }
+
+            public string LoiDan { get; set; }
+
+            public string ChiDinh { get; set; }
+
+            public string KetQua { get; set; }
+
+            public int BacSi { get; set; }
+
+            public ThuocModel[] Thuocs { get; set; }
+        }
+
+        public class ThuocModel
+        {
+            public int Id { get; set; }
+
+            public int Quantity { get; set; }
         }
     }
 }

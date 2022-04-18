@@ -101,6 +101,7 @@
           </Key>
           <Property Name="ID_THUOC" Type="int" Nullable="false" />
           <Property Name="ID_DON_THUOC" Type="int" Nullable="false" />
+          <Property Name="SO_LUONG" Type="int" />
         </EntityType>
         <EntityType Name="DANG_KY">
           <Key>
@@ -529,6 +530,7 @@
           <EntitySet Name="AspNetUsers" EntityType="CP24Team02Model.AspNetUser" />
           <EntitySet Name="BACSIs" EntityType="CP24Team02Model.BACSI" />
           <EntitySet Name="BENH_NHAN" EntityType="CP24Team02Model.BENH_NHAN" />
+          <EntitySet Name="CHI_TIET_DON_THUOC" EntityType="CP24Team02Model.CHI_TIET_DON_THUOC" />
           <EntitySet Name="DANG_KY" EntityType="CP24Team02Model.DANG_KY" />
           <EntitySet Name="DANH_MUC_THUOC" EntityType="CP24Team02Model.DANH_MUC_THUOC" />
           <EntitySet Name="DANH_MUC_TIN" EntityType="CP24Team02Model.DANH_MUC_TIN" />
@@ -572,6 +574,14 @@
             <End Role="BENH_NHAN" EntitySet="BENH_NHAN" />
             <End Role="SO_KHAM_BENH" EntitySet="SO_KHAM_BENH" />
           </AssociationSet>
+          <AssociationSet Name="FK_CHI_TIET_DON_THUOC_DON_THUOC" Association="CP24Team02Model.FK_CHI_TIET_DON_THUOC_DON_THUOC">
+            <End Role="DON_THUOC" EntitySet="DON_THUOC" />
+            <End Role="CHI_TIET_DON_THUOC" EntitySet="CHI_TIET_DON_THUOC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CHI_TIET_DON_THUOC_THUOC" Association="CP24Team02Model.FK_CHI_TIET_DON_THUOC_THUOC">
+            <End Role="THUOC" EntitySet="THUOCs" />
+            <End Role="CHI_TIET_DON_THUOC" EntitySet="CHI_TIET_DON_THUOC" />
+          </AssociationSet>
           <AssociationSet Name="FK_DANG_KY_KHOA" Association="CP24Team02Model.FK_DANG_KY_KHOA">
             <End Role="KHOA" EntitySet="KHOAs" />
             <End Role="DANG_KY" EntitySet="DANG_KY" />
@@ -595,10 +605,6 @@
           <AssociationSet Name="AspNetUserRoles" Association="CP24Team02Model.AspNetUserRoles">
             <End Role="AspNetRole" EntitySet="AspNetRoles" />
             <End Role="AspNetUser" EntitySet="AspNetUsers" />
-          </AssociationSet>
-          <AssociationSet Name="CHI_TIET_DON_THUOC" Association="CP24Team02Model.CHI_TIET_DON_THUOC">
-            <End Role="DON_THUOC" EntitySet="DON_THUOC" />
-            <End Role="THUOC" EntitySet="THUOCs" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="C__MigrationHistory">
@@ -696,6 +702,17 @@
           <NavigationProperty Name="AspNetUser" Relationship="CP24Team02Model.FK_BENH_NHAN_EMAIL" FromRole="BENH_NHAN" ToRole="AspNetUser" />
           <NavigationProperty Name="SO_KHAM_BENH" Relationship="CP24Team02Model.FK_SO_KHAM_BENH_BENH_NHAN" FromRole="BENH_NHAN" ToRole="SO_KHAM_BENH" />
         </EntityType>
+        <EntityType Name="CHI_TIET_DON_THUOC">
+          <Key>
+            <PropertyRef Name="ID_THUOC" />
+            <PropertyRef Name="ID_DON_THUOC" />
+          </Key>
+          <Property Name="ID_THUOC" Type="Int32" Nullable="false" />
+          <Property Name="ID_DON_THUOC" Type="Int32" Nullable="false" />
+          <Property Name="SO_LUONG" Type="Int32" />
+          <NavigationProperty Name="DON_THUOC" Relationship="CP24Team02Model.FK_CHI_TIET_DON_THUOC_DON_THUOC" FromRole="CHI_TIET_DON_THUOC" ToRole="DON_THUOC" />
+          <NavigationProperty Name="THUOC" Relationship="CP24Team02Model.FK_CHI_TIET_DON_THUOC_THUOC" FromRole="CHI_TIET_DON_THUOC" ToRole="THUOC" />
+        </EntityType>
         <EntityType Name="DANG_KY">
           <Key>
             <PropertyRef Name="ID" />
@@ -744,8 +761,8 @@
           <Property Name="ID_BACSI" Type="Int32" Nullable="false" />
           <Property Name="ID_SO_KHAM_BENH" Type="Int32" Nullable="false" />
           <NavigationProperty Name="BACSI" Relationship="CP24Team02Model.FK_BACSI_DT" FromRole="DON_THUOC" ToRole="BACSI" />
+          <NavigationProperty Name="CHI_TIET_DON_THUOC" Relationship="CP24Team02Model.FK_CHI_TIET_DON_THUOC_DON_THUOC" FromRole="DON_THUOC" ToRole="CHI_TIET_DON_THUOC" />
           <NavigationProperty Name="SO_KHAM_BENH" Relationship="CP24Team02Model.FK_DON_THUOC_SO_KHAM_BENH" FromRole="DON_THUOC" ToRole="SO_KHAM_BENH" />
-          <NavigationProperty Name="THUOCs" Relationship="CP24Team02Model.CHI_TIET_DON_THUOC" FromRole="DON_THUOC" ToRole="THUOC" />
         </EntityType>
         <EntityType Name="FEEDBACK">
           <Key>
@@ -806,9 +823,9 @@
           <Property Name="HINH_ANH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ID_NSX" Type="Int32" />
           <Property Name="ID_DANHMUC" Type="Int32" />
+          <NavigationProperty Name="CHI_TIET_DON_THUOC" Relationship="CP24Team02Model.FK_CHI_TIET_DON_THUOC_THUOC" FromRole="THUOC" ToRole="CHI_TIET_DON_THUOC" />
           <NavigationProperty Name="DANH_MUC_THUOC" Relationship="CP24Team02Model.FK_THUOC_DANH_MUC_THUOC" FromRole="THUOC" ToRole="DANH_MUC_THUOC" />
           <NavigationProperty Name="NHA_SAN_XUAT" Relationship="CP24Team02Model.FK_THUOC_NHA_SAN_XUAT" FromRole="THUOC" ToRole="NHA_SAN_XUAT" />
-          <NavigationProperty Name="DON_THUOC" Relationship="CP24Team02Model.CHI_TIET_DON_THUOC" FromRole="THUOC" ToRole="DON_THUOC" />
         </EntityType>
         <EntityType Name="TIN_TUC">
           <Key>
@@ -925,6 +942,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_CHI_TIET_DON_THUOC_DON_THUOC">
+          <End Type="CP24Team02Model.DON_THUOC" Role="DON_THUOC" Multiplicity="1" />
+          <End Type="CP24Team02Model.CHI_TIET_DON_THUOC" Role="CHI_TIET_DON_THUOC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DON_THUOC">
+              <PropertyRef Name="ID_DON_THUOC" />
+            </Principal>
+            <Dependent Role="CHI_TIET_DON_THUOC">
+              <PropertyRef Name="ID_DON_THUOC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CHI_TIET_DON_THUOC_THUOC">
+          <End Type="CP24Team02Model.THUOC" Role="THUOC" Multiplicity="1" />
+          <End Type="CP24Team02Model.CHI_TIET_DON_THUOC" Role="CHI_TIET_DON_THUOC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="THUOC">
+              <PropertyRef Name="ID_THUOC" />
+            </Principal>
+            <Dependent Role="CHI_TIET_DON_THUOC">
+              <PropertyRef Name="ID_THUOC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_DANG_KY_KHOA">
           <End Type="CP24Team02Model.KHOA" Role="KHOA" Multiplicity="0..1" />
           <End Type="CP24Team02Model.DANG_KY" Role="DANG_KY" Multiplicity="*" />
@@ -989,11 +1030,7 @@
           <End Type="CP24Team02Model.AspNetRole" Role="AspNetRole" Multiplicity="*" />
           <End Type="CP24Team02Model.AspNetUser" Role="AspNetUser" Multiplicity="*" />
         </Association>
-        <Association Name="CHI_TIET_DON_THUOC">
-          <End Type="CP24Team02Model.DON_THUOC" Role="DON_THUOC" Multiplicity="*" />
-          <End Type="CP24Team02Model.THUOC" Role="THUOC" Multiplicity="*" />
-        </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -1081,6 +1118,15 @@
                 <ScalarProperty Name="GIOI_TINH" ColumnName="GIOI_TINH" />
                 <ScalarProperty Name="TEN_BN" ColumnName="TEN_BN" />
                 <ScalarProperty Name="ID_BENH_NHAN" ColumnName="ID_BENH_NHAN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CHI_TIET_DON_THUOC">
+            <EntityTypeMapping TypeName="CP24Team02Model.CHI_TIET_DON_THUOC">
+              <MappingFragment StoreEntitySet="CHI_TIET_DON_THUOC">
+                <ScalarProperty Name="SO_LUONG" ColumnName="SO_LUONG" />
+                <ScalarProperty Name="ID_DON_THUOC" ColumnName="ID_DON_THUOC" />
+                <ScalarProperty Name="ID_THUOC" ColumnName="ID_THUOC" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1214,14 +1260,6 @@
             </EndProperty>
             <EndProperty Name="AspNetRole">
               <ScalarProperty Name="Id" ColumnName="RoleId" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="CHI_TIET_DON_THUOC" TypeName="CP24Team02Model.CHI_TIET_DON_THUOC" StoreEntitySet="CHI_TIET_DON_THUOC">
-            <EndProperty Name="THUOC">
-              <ScalarProperty Name="ID_THUOC" ColumnName="ID_THUOC" />
-            </EndProperty>
-            <EndProperty Name="DON_THUOC">
-              <ScalarProperty Name="ID_DON_THUOC" ColumnName="ID_DON_THUOC" />
             </EndProperty>
           </AssociationSetMapping>
         </EntityContainerMapping>
