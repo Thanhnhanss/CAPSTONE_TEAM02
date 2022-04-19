@@ -110,7 +110,7 @@
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <div class="row">
+                            <div class="row staff">
                                 @foreach (var t in Model)
                                 {
                                     <div class="col-lg-6 col-md-6">
@@ -119,7 +119,7 @@
                                                 <img src="@Url.Action("Picture", new { t.ID_TIN_TUC })" style="width:330px;height:307px;" alt="">
                                             </div>
                                             <div class="what-cap">
-                                                <span class="color1">@t.DANH_MUC_TIN.Danhmuc_tin</span>
+                                                <span class="color1 danhmuc">@t.DANH_MUC_TIN.Danhmuc_tin</span>
                                                 <h4><a href="@Url.Action("Details", "TinTuc", new { id = t.ID_TIN_TUC })">@t.TEN_BAI_VIET</a></h4>
                                             </div>
                                         </div>
@@ -222,6 +222,8 @@
     <!-- End Weekly-News -->
 </main>
 
+
+
 <!-- JS here -->
 <!-- All JS Custom Plugins Link Here here -->
 <script src="~/Content/assets-news//js/vendor/modernizr-3.5.0.min.js"></script>
@@ -261,3 +263,18 @@
 <!-- Jquery Plugins, main Jquery -->
 <script src="~/Content/assets-news/js/plugins.js"></script>
 <script src="~/Content/assets-news/js/main.js"></script>
+
+<script>
+    const btn = document.querySelector('#camnang');
+
+    btn.addEventListener('click', function () {
+        $('.staff').each(function (_, element) {
+            if ($(element).find('.danhmuc').text().toLowerCase()) {
+                $(element).parent().children().attr('style', 'display: none !important');
+            }
+            else {
+                $(element).parent().children().removeAttr('style');
+            }
+        });
+    });
+</script>
