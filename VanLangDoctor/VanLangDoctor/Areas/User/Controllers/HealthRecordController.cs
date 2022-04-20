@@ -1,4 +1,10 @@
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
+using System.Web;
 using System.Web.Mvc;
 using VanLangDoctor.Models;
 
@@ -21,6 +27,7 @@ namespace VanLangDoctor.Areas.User.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.Prescriptions = GetAllPrescriptions(id);
             return View(skb);
         }
 
@@ -39,6 +46,27 @@ namespace VanLangDoctor.Areas.User.Controllers
                 db.SaveChanges();
             }
             return RedirectToAction("HealthRecord", new { id });
+        }
+
+        [HttpGet]
+        public List<DON_THUOC> GetAllPrescriptions(int? id)
+        {
+            return db.DON_THUOC.OrderByDescending(t => t.NGAY_LAP).Where(t => t.SO_KHAM_BENH.BENH_NHAN.ID_BENH_NHAN == id).ToList();
+        }
+
+        [HttpGet]
+        public ActionResult Prescriptions(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            DON_THUOC dON_THUOC = db.DON_THUOC.Find(id);
+            if (dON_THUOC == null)
+            {
+                return HttpNotFound();
+            }
+            return View(dON_THUOC);
         }
     }
 }

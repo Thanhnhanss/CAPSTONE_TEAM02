@@ -17,7 +17,7 @@ namespace VanLangDoctor.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public THUOC()
         {
-            this.DON_THUOC = new HashSet<DON_THUOC>();
+            this.CHI_TIET_DON_THUOC = new HashSet<CHI_TIET_DON_THUOC>();
         }
     
         public int ID_THUOC { get; set; }
@@ -28,9 +28,9 @@ namespace VanLangDoctor.Models
         public Nullable<int> ID_NSX { get; set; }
         public Nullable<int> ID_DANHMUC { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CHI_TIET_DON_THUOC> CHI_TIET_DON_THUOC { get; set; }
         public virtual DANH_MUC_THUOC DANH_MUC_THUOC { get; set; }
         public virtual NHA_SAN_XUAT NHA_SAN_XUAT { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DON_THUOC> DON_THUOC { get; set; }
     }
 }

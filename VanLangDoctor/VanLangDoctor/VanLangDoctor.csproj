@@ -216,6 +216,9 @@
     <Compile Include="Models\BENH_NHAN.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CHI_TIET_DON_THUOC.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\C__MigrationHistory.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -1039,7 +1042,7 @@
     <Content Include="Content\assets-HealthRecord\jquery.js" />
     <Content Include="Content\assets-HealthRecord\nicepage.css" />
     <Content Include="Content\assets-HealthRecord\nicepage.js" />
-    <Content Include="Content\assets-HealthRecord\skb.css" />
+    <Content Include="Content\assets-HealthRecord\Sổ-khám-bệnh.css" />
     <Content Include="Content\assets-HomeUser\Blog-Template.css" />
     <Content Include="Content\assets-HomeUser\Home.css" />
     <Content Include="Content\assets-HomeUser\images\1.jpeg" />
@@ -1736,7 +1739,6 @@
     <Content Include="Content\assets-dr\scss\bootstrap\_variables.scss" />
     <Content Include="Content\assets-dr\scss\style.scss" />
     <Compile Include="Areas\User\Controllers\HealthRecordController.cs" />
-    <Content Include="Areas\User\Views\HealthRecord\HealthRecord.cshtml" />
     <Compile Include="Areas\User\Controllers\RegisterConsultationController.cs" />
     <Content Include="Areas\User\Views\RegisterConsultation\RegisterConsultation.cshtml" />
     <Content Include="Areas\User\Views\News\News.cshtml" />
@@ -1752,6 +1754,8 @@
     <Content Include="Areas\Admin\Views\QL_Prescription\Details.cshtml" />
     <Content Include="Areas\Admin\Views\QL_Prescription\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\QL_Prescription\Index.cshtml" />
+    <Content Include="Areas\User\Views\HealthRecord\HealthRecord.cshtml" />
+    <Content Include="Areas\User\Views\HealthRecord\Prescriptions.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

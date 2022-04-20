@@ -1,0 +1,82 @@
+﻿@model VanLangDoctor.Models.DON_THUOC
+
+
+@{
+    ViewBag.Title = "Prescriptions";
+    Layout = "~/Areas/User/Views/Shared/_Layout.cshtml";
+}
+
+
+<section>
+    <form method="post" action="#">
+        <div class="form-row">
+            <label for="name">Họ tên</label>
+            <input type="text" value="@Model.SO_KHAM_BENH.BENH_NHAN.TEN_BN" class="form-control" readonly />
+        </div>
+        <br />
+        <div class="form-row" id="showInf">
+            <div class="form-group col-md-3">
+                <label for="age">Tuổi</label>
+                <input type="text" value="@(DateTime.Now.Year - Model.SO_KHAM_BENH.BENH_NHAN.NGAY_SINH.Value.Year)" class="form-control" id="age" placeholder="Age" readonly>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="gender">Giới tính</label>
+                <input type="text" value="@Model.SO_KHAM_BENH.BENH_NHAN.GIOI_TINH" class="form-control" id="gender" placeholder="Gender" readonly>
+            </div>
+            <div class="form-group col-md-5">
+                <label for="address">Địa chỉ</label>
+                <input type="text" value="@Model.SO_KHAM_BENH.BENH_NHAN.DIA_CHI" class="form-control" id="address" placeholder="Address" readonly>
+            </div>
+        </div>
+        <div class="form-row">
+            <label for="datetime">Ngày tạo</label>
+            <input type="date" value="@Model.NGAY_LAP.Value.ToString("yyyy-MM-dd")" id="ngaytao" class="form-control" placeholder="..." />
+        </div>
+        <br />
+        <div class="form-group">
+            <label for="diagnose">Chẩn đoán</label>
+            <textarea id="chandoan" class="myTextEditor" readonly>@Model.CHUAN_DOAN</textarea>
+        </div>
+        <div class="form-group">
+            <label for="attribution">Chỉ định</label>
+            <textarea id="chidinh" class="myTextEditor" readonly>@Model.CHI_DINH</textarea>
+        </div>
+        <div class="form-group">
+            <label for="advice">Lời dặn</label>
+            <textarea id="loidan" class="myTextEditor" readonly>@Model.LOI_DAN</textarea>
+        </div>
+        <div class="form-group">
+            <label for="result">Kết quả</label>
+            <textarea id="ketqua" class="myTextEditor" readonly>@Model.KET_QUA</textarea>
+        </div>
+        <div class="form-row">
+            <label for="name">Bác sĩ</label>
+            <input type="text" value="@Model.BACSI.TEN_BACSI" class="form-control" />
+        </div>
+        <br />
+        <div class="form-row">
+            <label for="medicine">Thuốc điều trị</label>
+            <table id="Medicine" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Tên thuốc</th>
+                        <th scope="col">Số lượng</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.CHI_TIET_DON_THUOC.Count; i++)
+                    {
+                        <tr>
+                            <td>@(i + 1)</td>
+                            <td>@Model.CHI_TIET_DON_THUOC.ElementAt(i).THUOC.TEN_THUOC</td>
+                            <td>@Model.CHI_TIET_DON_THUOC.ElementAt(i).SO_LUONG</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <br />
+        <button type="submit" class="btn btn-primary">Quay lại</button>
+    </form>
+</section>
