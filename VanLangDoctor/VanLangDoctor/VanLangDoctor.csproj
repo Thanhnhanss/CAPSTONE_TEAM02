@@ -453,7 +453,7 @@
     <Content Include="Content\assets-HealthRecord\jquery.js" />
     <Content Include="Content\assets-HealthRecord\nicepage.css" />
     <Content Include="Content\assets-HealthRecord\nicepage.js" />
-    <Content Include="Content\assets-HealthRecord\skb.css" />
+    <Content Include="Content\assets-HealthRecord\Sổ-khám-bệnh.css" />
     <Content Include="Content\assets-HomeUser\Home.css" />
     <Content Include="Content\assets-HomeUser\images\1.jpeg" />
     <Content Include="Content\assets-HomeUser\images\10.png" />
