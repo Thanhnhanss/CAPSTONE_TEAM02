@@ -17,9 +17,12 @@ namespace VanLangDoctor.Areas.User.Controllers
         // GET: User/TinTuc
         public ActionResult Tin_Tuc(int id_cate = 1)
         {
+            ViewBag.Top1 = GetTop1View();
+            ViewBag.Top3 = GetTop3Views();
+            ViewBag.RecentArticles = GetRecentArticles();
             var danhmuctin = db.TIN_TUC.Where(tk => tk.ID_Danhmuc_tin == id_cate).ToList();
             ViewBag.danhmuc = GetDanhMucTin();
-            ViewBag.Top = GetTopViews();
+            ViewBag.Top = GetTop3Views();
             return View(danhmuctin.OrderByDescending(t => t.NGAY_DANG).ToList());
         }
 
@@ -45,28 +48,32 @@ namespace VanLangDoctor.Areas.User.Controllers
             }
             tIN_TUC.CountViews += 1;
             db.SaveChanges();
-            ViewBag.Top = GetTopViews();
+            ViewBag.Top = GetTop3Views();
             ViewBag.danhmuc = GetDanhMucTin();
             return View(tIN_TUC);
         }
 
-        //GET: Top Views
-        private List<TIN_TUC> GetTopViews()
+        //GET: TOP 1 View
+        public TIN_TUC GetTop1View()
         {
-            return db.TIN_TUC.OrderByDescending(t => t.CountViews).Take(3).ToList();
+            return db.TIN_TUC.OrderByDescending(item => item.CountViews).First();
+        }
+
+
+        //GET: Top Views
+        private List<TIN_TUC> GetTop3Views()
+        {
+            return db.TIN_TUC.OrderByDescending(t => t.CountViews).Skip(1).Take(3).ToList();
+        }
+
+        //GET: Recent Articles
+        public List<TIN_TUC> GetRecentArticles()
+        {
+            return db.TIN_TUC.OrderByDescending(t => t.NGAY_DANG).Take(5).ToList();
         }
         private List<DANH_MUC_TIN> GetDanhMucTin()
         {
             return db.DANH_MUC_TIN.OrderByDescending(t => t.Danhmuc_tin).ToList();
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }
