@@ -90,7 +90,7 @@
                                         <td>@ViewBag.Prescriptions[i].KET_QUA</td>
                                         <td>@ViewBag.Prescriptions[i].NGAY_LAP</td>
                                         <td>@ViewBag.Prescriptions[i].BACSI.TEN_BACSI</td>
-                                        <td><a href="@Url.Action("Prescriptions", "HealthRecord", new { id_skb = ViewBag.Prescriptions[i].ID_DON_THUOC })">Xem chi tiết</a></td>
+                                        <td><a href="@Url.Action("Prescriptions", "HealthRecord", new { id = ViewBag.Prescriptions[i].ID_DON_THUOC })">Xem chi tiết</a></td>
                                     </tr>
                                 }
                             </tbody>
