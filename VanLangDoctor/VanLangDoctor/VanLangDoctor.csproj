@@ -1042,6 +1042,14 @@
     <Content Include="Content\assets-HealthRecord\jquery.js" />
     <Content Include="Content\assets-HealthRecord\nicepage.css" />
     <Content Include="Content\assets-HealthRecord\nicepage.js" />
+    <Content Include="Content\assets-HealthRecord\Prescription\images\1.jpeg" />
+    <Content Include="Content\assets-HealthRecord\Prescription\images\2.jpeg" />
+    <Content Include="Content\assets-HealthRecord\Prescription\images\3.jpeg" />
+    <Content Include="Content\assets-HealthRecord\Prescription\images\D.jpg" />
+    <Content Include="Content\assets-HealthRecord\Prescription\jquery.js" />
+    <Content Include="Content\assets-HealthRecord\Prescription\nicepage.css" />
+    <Content Include="Content\assets-HealthRecord\Prescription\nicepage.js" />
+    <Content Include="Content\assets-HealthRecord\Prescription\Page-1.css" />
     <Content Include="Content\assets-HealthRecord\Sổ-khám-bệnh.css" />
     <Content Include="Content\assets-HomeUser\Blog-Template.css" />
     <Content Include="Content\assets-HomeUser\Home.css" />
