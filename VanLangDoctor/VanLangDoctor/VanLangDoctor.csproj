@@ -197,6 +197,7 @@
     <Compile Include="Areas\Admin\Controllers\QL_ThuocController.cs" />
     <Compile Include="Areas\Admin\Controllers\QL_TinTucController.cs" />
     <Compile Include="Areas\Admin\Controllers\QL_TKBookCalendarController.cs" />
+    <Compile Include="Areas\Admin\Controllers\Ql_TKDonThuocController.cs" />
     <Compile Include="Areas\Admin\Controllers\QL_TKFeedBackController.cs" />
     <Compile Include="Areas\User\Controllers\CapnhatTKController.cs" />
     <Compile Include="Areas\User\Controllers\DANG_KYController.cs" />
@@ -2036,6 +2037,7 @@
     <Content Include="Content\assets-news\scss\_wecky2-new.scss" />
     <Content Include="Content\assets-news\scss\_whats-new.scss" />
     <Content Include="Content\assets-news\scss\_youtube.scss" />
+    <Content Include="Areas\Admin\Views\Ql_TKDonThuoc\Index.cshtml" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

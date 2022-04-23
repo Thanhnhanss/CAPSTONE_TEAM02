@@ -1,0 +1,146 @@
+﻿@model IEnumerable<VanLangDoctor.Models.FEEDBACK>
+
+@{
+    ViewBag.Title = "Thống kê đơn thuốc";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Custom CSS -->
+<link href="dist/css/style.min.css" rel="stylesheet">
+<div class="page-wrapper" style="display: block">
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-7 align-self-center">
+                <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">@ViewBag.Title</h4>
+                <div class="d-flex align-items-center">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb m-0 p-0">
+                            <li class="breadcrumb-item"><a href="/trang-chu-quan-ly" class="text-muted">Trang chủ</a></li>
+                            <li class="breadcrumb-item text-muted active" aria-current="page">@ViewBag.Title</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="card-body">
+        <div class="btn-group dropright">
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Thống kê trong tháng:
+            </button>
+            <div class="dropdown-menu" x-placement="right-start" style="position: absolute; transform: translate3d(110px, 0px, 0px); top: 0px; left: 0px; will-change: transform;">
+                <a class="dropdown-item" href="@Url.Action("Index", "QL_TKDonThuoc", new { month = 1 })">Tháng 1 / @DateTime.Now.Year</a>
+                <a class="dropdown-item" href="@Url.Action("Index", "QL_TKDonThuoc", new { month = 2 })">Tháng 2 / @DateTime.Now.Year</a>
+                <a class="dropdown-item" href="@Url.Action("Index", "QL_TKDonThuoc", new { month = 3 })">Tháng 3 / @DateTime.Now.Year</a>
+                <a class="dropdown-item" href="@Url.Action("Index", "QL_TKDonThuoc", new { month = 4 })">Tháng 4 / @DateTime.Now.Year</a>
+                <a class="dropdown-item" href="@Url.Action("Index", "QL_TKDonThuoc", new { month = 5 })">Tháng 5 / @DateTime.Now.Year</a>
+                <a class="dropdown-item" href="@Url.Action("Index", "QL_TKDonThuoc", new { month = 6 })">Tháng 6 / @DateTime.Now.Year</a>
+                <a class="dropdown-item" href="@Url.Action("Index", "QL_TKDonThuoc", new { month = 7 })">Tháng 7 / @DateTime.Now.Year</a>
+                <a class="dropdown-item" href="@Url.Action("Index", "QL_TKDonThuoc", new { month = 8 })">Tháng 8 / @DateTime.Now.Year</a>
+                <a class="dropdown-item" href="@Url.Action("Index", "QL_TKDonThuoc", new { month = 9 })">Tháng 9 / @DateTime.Now.Year</a>
+                <a class="dropdown-item" href="@Url.Action("Index", "QL_TKDonThuoc", new { month = 10 })">Tháng 10 / @DateTime.Now.Year</a>
+                <a class="dropdown-item" href="@Url.Action("Index", "QL_TKDonThuoc", new { month = 11 })">Tháng 11/ @DateTime.Now.Year</a>
+                <a class="dropdown-item" href="@Url.Action("Index", "QL_TKDonThuoc", new { month = 12 })">Tháng 12 / @DateTime.Now.Year</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body" style="width: 100%; height: auto; vertical-align:middle">
+                        <canvas id="chart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Content/assets-ad/libs/jquery/dist/jquery.min.js"></script>
+<script src="~/Content/assets-ad/libs/popper.js/dist/umd/popper.min.js"></script>
+<script src="~/Content/assets-ad/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- apps -->
+<!-- apps -->
+<script src="~/Content/assets-ad/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+<script src="~/Content/assets-ad/extra-libs/c3/d3.min.js"></script>
+<script src="~/Content/assets-ad/extra-libs/c3/c3.min.js"></script>
+<script src="~/Content/assets-ad/libs/chartist/dist/chartist.min.js"></script>
+<script src="~/Content/assets-ad/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
+<script src="~/Content/assets-ad/extra-libs/jvector/jquery-jvectormap-2.0.2.min.js"></script>
+<script src="~/Content/assets-ad/extra-libs/jvector/jquery-jvectormap-world-mill-en.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+<script>
+    $(document).ready(() => {
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("ChartData", "QL_TKDonThuoc", new { month = ViewBag.month})',
+            success: function (charts) {
+                if (charts.code == 404) {
+                    lert("Error loading data! Please try again!.");
+                    return;
+                }
+                var data = charts.dbchart;
+                //console.log(data);
+                if (data == 0) {
+                    var ctx = document.getElementById('chart').getContext('2d');
+                    var chart = new Chart(ctx, {
+                        options: {
+                            layout: {
+                                padding: {
+                                    top: 250
+                                }
+                            },
+                            responsive: true,
+                            plugins: {
+                                title: {
+                                    display: true,
+                                    text: 'Chưa có đơn thuốc nào đã kê trong tháng @ViewBag.month',
+                                    color: 'red',
+                                    font: {
+                                        size: 20,
+                                    }
+                                }
+                            }
+                        }
+                    });
+                }
+                else {
+                    var ctx = document.getElementById('chart').getContext('2d');
+                    var chart = new Chart(ctx, {
+                        type: 'bar',
+                        options: {
+                            indexAxis: 'x',
+                            element: {
+                                bar: {
+                                    borderWidth: 1
+                                }
+                            },
+                            responsive: true,
+                            plugins: {
+                                legend: {
+                                    position: 'top',
+                                },
+                                title: {
+                                    display: true,
+                                    text: 'Biểu đồ thống kê đơn thuốc tháng @ViewBag.month',
+                                    position: 'bottom'
+                                }
+                            }
+                        },
+                        data: {
+                            labels: [''],
+                            datasets: data.map(item => ({
+                                label: item.Key,
+                                data: [item.Count],
+                                borderColor: 'red',
+                                backgroundColor: 'red'
+                            }))
+                        }
+                    });
+                }
+            },
+            error: function () {
+                alert("Error loading data! Please try again.");
+            }
+        });
+    });
+</script>
