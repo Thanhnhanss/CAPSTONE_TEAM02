@@ -30,7 +30,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
             if (month < 1 || month > 12)
                 throw new ArgumentException();
             var data = db.DON_THUOC
-                .Where(donThuoc => donThuoc.NGAY_LAP.Value.Month == month && donThuoc.NGAY_LAP.Value.Year == DateTime.Now.Year)
+                .Where(donThuoc => donThuoc.NGAY_LAP.Month == month && donThuoc.NGAY_LAP.Year == DateTime.Now.Year)
                 .GroupBy(e => e.BACSI.TEN_BACSI)
                 .Select(e => new { e.Key, Count = e.Count() });
             return Json(new { dbchart = data }, JsonRequestBehavior.AllowGet);

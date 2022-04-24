@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -78,8 +79,9 @@ namespace VanLangDoctor.Areas.Admin.Controllers
                 });
                 db.SaveChanges();
                 TempData["Success"] = "Kê đơn thành công";
-                return RedirectToAction("DS_DonThuoc", "QL_DonThuoc");
+                return RedirectToAction("DS_DonThuoc", "QL_DonThuoc", new { area = "Admin"});
             }
+            
 
             //ViewBag.ID_BACSI = new SelectList(db.BACSIs, "ID_BACSI", "TEN_BACSI", dON_THUOC.ID_BACSI);
             //ViewBag.ID_SO_KHAM_BENH = new SelectList(db.SO_KHAM_BENH, "ID_SOKHAMBENH", "ID_SOKHAMBENH", dON_THUOC.ID_SO_KHAM_BENH);
@@ -135,7 +137,6 @@ namespace VanLangDoctor.Areas.Admin.Controllers
 
         [HttpGet]
         public List<THUOC> GetAllMedicine() => db.THUOCs.ToList();
-
         /// <summary>
         /// Get All Patient
         /// </summary>

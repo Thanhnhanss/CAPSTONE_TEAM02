@@ -144,7 +144,7 @@
           <Property Name="CHUAN_DOAN" Type="nvarchar(max)" />
           <Property Name="CHI_DINH" Type="nvarchar(max)" />
           <Property Name="LOI_DAN" Type="nvarchar(max)" />
-          <Property Name="NGAY_LAP" Type="date" />
+          <Property Name="NGAY_LAP" Type="datetime" Nullable="false" />
           <Property Name="ID_BACSI" Type="int" Nullable="false" />
           <Property Name="ID_SO_KHAM_BENH" Type="int" Nullable="false" />
         </EntityType>
@@ -757,7 +757,7 @@
           <Property Name="CHUAN_DOAN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="CHI_DINH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="LOI_DAN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="NGAY_LAP" Type="DateTime" Precision="0" />
+          <Property Name="NGAY_LAP" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ID_BACSI" Type="Int32" Nullable="false" />
           <Property Name="ID_SO_KHAM_BENH" Type="Int32" Nullable="false" />
           <NavigationProperty Name="BACSI" Relationship="CP24Team02Model.FK_BACSI_DT" FromRole="DON_THUOC" ToRole="BACSI" />

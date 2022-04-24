@@ -25,7 +25,7 @@ namespace VanLangDoctor.Models
         public string CHUAN_DOAN { get; set; }
         public string CHI_DINH { get; set; }
         public string LOI_DAN { get; set; }
-        public Nullable<System.DateTime> NGAY_LAP { get; set; }
+        public System.DateTime NGAY_LAP { get; set; }
         public int ID_BACSI { get; set; }
         public int ID_SO_KHAM_BENH { get; set; }
     
