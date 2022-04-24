@@ -30,7 +30,7 @@
                         </div>
                         <div class="u-form-date u-form-group u-form-partition-factor-2 u-form-group-3">
                             <label class="u-form-control-hidden u-label"></label>
-                            <input type="date" placeholder="MM/DD/YYYY *" id="NGAY_SINH" name="NGAY_SINH" class="u-grey-10 u-input u-input-rectangle" required>
+                            <input type="date" min="@(DateTime.Now.Year-100)-12-31" max="@(DateTime.Now.Year-16)-12-31" placeholder="Ngày sinh *" id="NGAY_SINH" name="NGAY_SINH" class="u-grey-10 u-input u-input-rectangle" required>
                         </div>
                         <div class="u-form-group u-form-partition-factor-2 u-form-phone u-form-group-4">
                             <label class="u-form-control-hidden u-label"></label>
@@ -40,7 +40,7 @@
                             <label class="u-form-control-hidden u-label"></label>
                             <div class="u-form-select-wrapper">
                                 <select name="GIOI_TINH" id="GIOI_TINH" class="u-grey-10 u-input u-input-rectangle">
-                                    <option value="Giới tính">Giới tính *</option>
+                                    <option value="">Giới tính *</option>
                                     <option value="Nam">Nam</option>
                                     <option value="Nữ">Nữ</option>
                                     <option value="Khác">Khác</option>

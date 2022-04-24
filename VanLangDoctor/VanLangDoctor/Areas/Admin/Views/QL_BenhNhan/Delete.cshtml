@@ -80,13 +80,13 @@
                                         </div>
                                         <div class="row">
                                             <h4 class="col-md-4" style="color:red">Kết quả: </h4>
-                                            @if (Html.DisplayFor(model => model.BENH_AN.KET_QUA) != null)
+                                            @if (Html.DisplayFor(model => model.SO_KHAM_BENH.Count) != null)
                                             {
                                                 <span>Chưa có dữ liệu</span>
                                             }
                                             else
                                             {
-                                                <span>@Html.DisplayFor(model => model.BENH_AN.KET_QUA)</span>
+                                                <span>@Html.DisplayFor(model => model.SO_KHAM_BENH)</span>
                                             }
                                         </div>
                                     </div>
