@@ -48,13 +48,11 @@
                                         <tr>
                                             <th scope="col">Tên bệnh nhân</th>
 
-                                            <th>Chẩn đoán</th>
+                                            <th scope="col">Bác sĩ tư vấn</th>
 
-                                            <th>Kết quả</th>
+                                            <th scope="col">Ngày lập</th>
 
-                                            <th>Bác sĩ</th>
-
-                                            <th></th>
+                                            <th scope="col"></th>
                                         </tr>
                                     </thead>
 
@@ -64,16 +62,13 @@
                                             <tr>
                                                 <td>@item.SO_KHAM_BENH.BENH_NHAN.TEN_BN</td>
 
-                                                <td>@item.CHUAN_DOAN</td>
-
-                                                <td>@item.KET_QUA</td>
-
                                                 <td>@item.BACSI.TEN_BACSI</td>
+
+                                                <td>@item.NGAY_LAP.Value.ToString("dd/MM/yyyy")</td>
 
                                                 <td>
                                                     @Html.ActionLink("Edit", "Edit", new { id = item.ID_DON_THUOC }) |
                                                     @Html.ActionLink("Details", "Details", new { id = item.ID_DON_THUOC }) |
-                                                    @*@Html.ActionLink("Delete", "Delete", new { id = item.ID_DON_THUOC })*@
                                                 </td>
                                             </tr>
                                         }

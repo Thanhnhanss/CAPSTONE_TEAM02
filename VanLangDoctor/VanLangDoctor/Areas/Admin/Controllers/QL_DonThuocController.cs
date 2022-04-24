@@ -131,31 +131,6 @@ namespace VanLangDoctor.Areas.Admin.Controllers
             return View(donthuoc);
         }
 
-        //// GET: Admin/QL_DonThuoc/Delete/5
-        //public ActionResult Delete(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    DON_THUOC dON_THUOC = db.DON_THUOC.Find(id);
-        //    if (dON_THUOC == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(dON_THUOC);
-        //}
-
-        //// POST: Admin/QL_DonThuoc/Delete/5
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult DeleteConfirmed(int id)
-        //{
-        //    DON_THUOC dON_THUOC = db.DON_THUOC.Find(id);
-        //    db.DON_THUOC.Remove(dON_THUOC);
-        //    db.SaveChanges();
-        //    return RedirectToAction("Index");
-        //}
 
         /// <summary>
         /// Get All Medicine
