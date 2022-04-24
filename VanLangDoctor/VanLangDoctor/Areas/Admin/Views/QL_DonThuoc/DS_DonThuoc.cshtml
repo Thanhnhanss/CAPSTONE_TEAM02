@@ -63,17 +63,18 @@
                                                 <table class="table table-bordered">
                                                     <thead>
                                                         <tr class="border-color-red">
+                                                            <th scope="col">Bệnh nhân</th>
                                                             <th scope="col">Chuẩn đoán</th>
                                                             <th scope="col">Chỉ định</th>
                                                             <th scope="col">Lời dặn</th>
                                                             <th scope="col">Ngày lập</th>
-                                                            <th scope="col">Thuốc</th>
                                                         </tr>
                                                     </thead>
 
                                                     @foreach (var item in Model)
                                                     {
                                                         <tr>
+                                                            <td>@item.SO_KHAM_BENH.BENH_NHAN.TEN_BN</td>
                                                             <td>
                                                                 @Html.DisplayFor(modelItem => item.CHUAN_DOAN)
                                                             </td>
@@ -85,9 +86,6 @@
                                                             </td>
                                                             <td>
                                                                 @Html.DisplayFor(modelItem => item.NGAY_LAP)
-                                                            </td>
-                                                            <td>
-                                                                @Html.DisplayFor(modelItem => item.THUOC.TEN_THUOC)
                                                             </td>
 
                                                         </tr>

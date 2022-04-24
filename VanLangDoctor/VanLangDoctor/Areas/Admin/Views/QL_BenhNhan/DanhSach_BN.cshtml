@@ -59,7 +59,6 @@
                                     <thead>
                                         <tr>
                                             <th>Tên bệnh nhân</th>
-                                            <th>Email</th>
                                             <th>Số điện thoại</th>
                                             <th>Giới tính</th>
                                             <th>Ngày sinh</th>
@@ -71,16 +70,15 @@
                                         {
                                             <tr>
                                                 <td><a href="@Url.Action("ChiTiet_BN", "QL_BenhNhan", new { id = item.ID_BENH_NHAN})">@item.TEN_BN</a></td>
-                                                <td>@Html.DisplayFor(modelItem => item.AspNetUser.Email)</td>
                                                 <td>@item.SDT</td>
                                                 <td>@item.GIOI_TINH</td>
                                                 <td>@Html.FormatValue(item.NGAY_SINH, "{0:d}")</td>
                                                 <td style="text-align:center">
-                                                    @if (@item.SO_KHAM_BENH == null)
-                                                    {<span>Chưa có dữ liệu</span> }
+                                                    @if (@item.SO_KHAM_BENH.Count == 0)
+                                                    {<a href="#"><i class="icon-book-open" title="Chi tiết sổ khám bệnh"></i></a> }
                                                     else
                                                     {
-                                                        <a href="@Url.Action("Details", "QL_DonThuoc", new { id = item.ID_BENH_NHAN})"><i class="icon-book-open" title="Chi tiết sổ khám bệnh"></i></a>
+                                                        <a href="@Url.Action("So_Kham_Benh", "QL_BenhNhan", new {id = item.ID_BENH_NHAN})" ><i class="icon-book-open" title="Chi tiết sổ khám bệnh"></i></a>
                                                     }
                                                 </td>
                                             </tr>
@@ -91,7 +89,6 @@
                                             <th>Tên bệnh nhân</th>
                                             <th>Giới tính</th>
                                             <th>Ngày sinh</th>
-                                            <th>Email</th>
                                             <th>Số điện thoại</th>
                                             <th>Sổ khám bệnh</th>
                                         </tr>
