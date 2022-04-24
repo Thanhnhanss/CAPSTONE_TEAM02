@@ -40,7 +40,7 @@
                 </div>
                 <div class="col-5 align-self-center">
                     <div class="customize-input float-right">
-                        <a class="button-back" href="@Url.Action("Index","QL_BenhNhan")">
+                        <a class="button-back" href="@Url.Action("DanhSach_BN","QL_BenhNhan")">
                             <span-back>Trở về</span-back>
                         </a>
                     </div>
@@ -58,55 +58,43 @@
                                 <div class="form-horizontal">
                                     <div class="form-group">
                                         <label><b>Tên bệnh nhân:</b></label>
-                                        <div class="col-md-10">
+                                        <div class="col-md-auto">
                                             @Html.EditorFor(model => model.TEN_BN, new { htmlAttributes = new { @readonly = true } })
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label><b>Giới tính:</b></label>
-                                        <div class="col-md-10">
+                                        <div class="col-md-auto">
                                             @Html.EditorFor(model => model.GIOI_TINH, new { htmlAttributes = new { @readonly = true } })
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label><b>Ngày sinh:</b></label>
-                                        <div class="col-md-10">
+                                        <div class="col-md-auto">
                                             <div class="card-header" style=" height: 3em; border-radius: 8pt; box-shadow: 6px 5px 17px -7px;">@Html.FormatValue(Model.NGAY_SINH,"{0:d}")</div>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label><b>Số điện thoại:</b></label>
-                                        <div class="col-md-10">
+                                        <div class="col-md-auto">
                                             @Html.EditorFor(model => model.SDT, new { htmlAttributes = new { @readonly = true } })
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label><b>Địa chỉ hiện tại:</b></label>
-                                        <div class="col-md-10">
+                                        <div class="col-md-auto">
                                             @Html.EditorFor(model => model.DIA_CHI, new { htmlAttributes = new { @readonly = true } })
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label><b>Email:</b></label>
-                                        <div class="col-md-10">
+                                        <div class="col-md-auto">
                                             @Html.EditorFor(model => model.AspNetUser.Email, new { htmlAttributes = new { @readonly = true } })
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label><b>Kết quả:</b></label>
-                                        <div class="col-md-10">
-                                            @if (Model.SO_KHAM_BENH == null)
-                                            {<span>Chưa có dữ liệu</span>}
-                                            else
-                                            {
-                                                @Html.EditorFor(model => model.SO_KHAM_BENH, new { htmlAttributes = new { @readonly = true } })
-                                            }
                                         </div>
                                     </div>
                                 </div>

@@ -96,32 +96,28 @@ namespace VanLangDoctor.Areas.Admin.Controllers
             return View(bENH_NHAN);
         }
 
-        // GET: Admin/QL_BenhNhan/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult So_Kham_Benh(int? id)
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return new HttpStatusCodeResult(400);
             }
-            BENH_NHAN bENH_NHAN = db.BENH_NHAN.Find(id);
-            if (bENH_NHAN == null)
+            var skb = db.SO_KHAM_BENH.FirstOrDefault(s => s.ID_BENH_NHAN == id);
+
+            if (skb == null)
             {
                 return HttpNotFound();
             }
-            return View(bENH_NHAN);
+            ViewBag.Prescriptions = GetAllPrescriptions(id);
+            return View(skb);
         }
 
-        // POST: Admin/QL_BenhNhan/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        [HttpGet]
+        public List<DON_THUOC> GetAllPrescriptions(int? id)
         {
-            BENH_NHAN bENH_NHAN = db.BENH_NHAN.Find(id);
-            db.BENH_NHAN.Remove(bENH_NHAN);
-            db.SaveChanges();
-            TempData["Success"] = "Xóa thành công";
-            return RedirectToAction("DanhSach_BN");
+            return db.DON_THUOC.OrderByDescending(t => t.NGAY_LAP).Where(t => t.SO_KHAM_BENH.BENH_NHAN.ID_BENH_NHAN == id).ToList();
         }
+
 
         protected override void Dispose(bool disposing)
         {
