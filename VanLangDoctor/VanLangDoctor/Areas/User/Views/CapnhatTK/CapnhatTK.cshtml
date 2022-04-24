@@ -61,7 +61,7 @@
 
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="TEN_BN" value="@Model.TEN_BN" name="hovaten" placeholder="Tên của bạn *" required>
+                                    <input type="text" class="form-control" id="TEN_BN" value="@Model.TEN_BN" name="hovaten" pattern="[^#$%&*()!/><\][\\\x22\\\x40\\\x5E\\\x60\\\x3F,.:_+-=~;|]+$" placeholder="Tên của bạn *" required>
                                     @Html.ValidationMessageFor(model => model.TEN_BN, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group">

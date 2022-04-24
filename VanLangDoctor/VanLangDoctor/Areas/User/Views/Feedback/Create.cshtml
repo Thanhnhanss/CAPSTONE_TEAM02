@@ -38,12 +38,12 @@
                             <input type="hidden" class="form-control" value="@Model.AspNetUser.Id" name="id" />
                             <div class="u-form-group u-form-name u-form-partition-factor-3 u-form-group-1">
                                 <label class="u-form-control-hidden u-label">Họ và tên</label>
-                                <input type="text" placeholder="Tên của bạn" id="hovaten" name="hovaten" value="@Model.TEN_NDG" class="u-grey-10 u-input u-input-rectangle" required="">
+                                <input type="text" placeholder="Tên của bạn" id="hovaten" name="hovaten" value="@Model.TEN_NDG" pattern="[^#$%&*()!/><\][\\\x22\\\x40\\\x5E\\\x60\\\x3F,.:_+-=~;|]+$" class="u-grey-10 u-input u-input-rectangle" maxlength="50" required>
                             </div>
 
                             <div class="u-form-email u-form-group u-form-partition-factor-3 u-form-group-2">
                                 <label class="u-form-control-hidden u-label">Email</label>
-                                <input type="email" placeholder="E-mail" id="Email" name="Email" disabled value="@Model.AspNetUser.Email" class="u-grey-10 u-input u-input-rectangle" required="">
+                                <input type="email" placeholder="E-mail" id="Email" name="Email" disabled value="@Model.AspNetUser.Email" class="u-grey-10 u-input u-input-rectangle" required>
                             </div>
 
                             <div class="u-form-email u-form-group u-form-partition-factor-3 u-form-group-2">
@@ -53,7 +53,7 @@
 
                             <div class="u-form-group u-form-message u-form-group-4">
                                 <label class="u-form-control-hidden u-label">Góp ý</label>
-                                <textarea placeholder="Góp ý" rows="4" cols="50" id="gopy" name="gopy" class="u-grey-10 u-input u-input-rectangle" required="">@Model.GOP_Y</textarea>
+                                <textarea placeholder="Góp ý" rows="4" cols="50" id="gopy" name="gopy" class="u-grey-10 u-input u-input-rectangle" pattern="[^#$%&*()!/><\][\\\x22\\\x40\\\x5E\\\x60\\\x3F,.:_+-=~;|]+$" required>@Model.GOP_Y</textarea>
                             </div>
 
                             <div class="u-form-group u-form-select u-form-group-5">
