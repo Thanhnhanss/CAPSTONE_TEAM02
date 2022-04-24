@@ -79,7 +79,7 @@
                                             else if (Model.GIOI_TINH != null)
                                             {
                                                 <option value="@Model.GIOI_TINH">@Model.GIOI_TINH</option>
-}
+                                            }
                                             <option value="Nam">Nam</option>
                                             <option value="Nữ">Nữ</option>
                                             <option value="Khác">Khác</option>
@@ -116,6 +116,7 @@
             </div>
         </div>
     </section>
+
     <form method="post" action="~/tai-khoan/ho-so-benh-an-@Model.ID_BENH_NHAN" id="registerRecordForm">
         @Html.AntiForgeryToken()
     </form>

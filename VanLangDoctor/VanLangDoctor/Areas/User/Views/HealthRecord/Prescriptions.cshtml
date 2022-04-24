@@ -37,13 +37,12 @@
         -moz-border-radius: 20%;
         -webkit-border-radius: 20%;
     }
-
     .cancel {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        border-radius: 40%;
+        background-color: #2f89fc;
     }
+        .cancel::after .cancel:hover {
+            background-color: #2f90fe;
+        }
 </style>
 
 
@@ -84,7 +83,7 @@
                             </div>
                             <div class="u-form-date u-form-group u-form-partition-factor-3">
                                 <label for="email-31bd" class="u-label">Tuổi</label>
-                                <input type="date" value="@(DateTime.Now.Year - Model.SO_KHAM_BENH.BENH_NHAN.NGAY_SINH.Value.Year)" id="email-31bd" name="email" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" readonly>
+                                <input type="number" value="@(DateTime.Now.Year - Model.SO_KHAM_BENH.BENH_NHAN.NGAY_SINH.Value.Year)" id="email-31bd" name="email" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" readonly>
                             </div>
                             <div class="u-form-group u-form-partition-factor-3 u-form-group-3">
                                 <label for="text-a4cc" class="u-label">Giới tính</label>
@@ -125,7 +124,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        <a href="@Url.Action("HealthRecord", "HealthRecord")" type="button" class="btn btn-primary btn-lg btn-block">Quay lại</a>
+                        <a href="~/tai-khoan/ho-so-benh-an-@Model.SO_KHAM_BENH.BENH_NHAN.ID_BENH_NHAN" type="button" class="btn py-3 px-5 cancel">Quay lại</a>
                     </div>
                 </div>
             </div>
@@ -137,7 +136,7 @@
         <dialog class="site-dialog details_prescription_@chiTietDonThuoc.ID_THUOC">
             <form id="details_pre">
                 <div class="form-outline mb-4">
-                    <img src="~/Content/assets-HealthRecord/images/6158b984e0fd04ce18f390ab2b6eab25.png" class="img-circle imgage" width="304" height="236">
+                    <img src="@Url.Action("Picture", "Thuoc", new { chiTietDonThuoc.THUOC.ID_THUOC })" class="img-circle imgage" width="304" height="236">
                 </div>
 
                 <div class="form-outline mb-4">
@@ -151,7 +150,7 @@
                 </div>
                 <br />
                 <div class="form-outline mb-4">
-                    <a href="#" class="btn btn-primary btn-lg active cancel" role="button" aria-pressed="true">Quay lại</a>
+                    <a href="#" class="btn cancel" role="button" aria-pressed="true">Quay lại</a>
                 </div>
             </form>
 

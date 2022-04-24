@@ -933,7 +933,7 @@ body {
         }
 
         .title-text.title-text-v2 h3 {
-            font: 400 36px/40px "Roboto Slab";
+            font: 400 36px/40px 'Open Sans', sans-serif;
             padding: 0;
             color: #2b2b2b;
         }
@@ -1007,14 +1007,14 @@ body {
 }
 
     .title-text-v2 h3 {
-        font: 400 36px/40px "Roboto Slab";
+        font: 400 36px/40px 'Open Sans', sans-serif;
         color: #2b2b2b;
         text-transform: capitalize;
         margin-bottom: 20px;
     }
 
     .title-text-v2 .link {
-        font: 400 12px/20px "Roboto Slab";
+        font: 400 12px/20px 'Open Sans', sans-serif;
         color: #999;
         margin-bottom: 30px;
         text-transform: uppercase;
@@ -1041,7 +1041,7 @@ h3.title-v2 {
 }
 
 h3.title-v3 {
-    font: 700 14px/20px "Oswald";
+    font: 700 14px/20px 'Open Sans', sans-serif;
     letter-spacing: 3px;
     color: #000;
     text-transform: uppercase;
@@ -1053,7 +1053,7 @@ h3.title-v3 {
 
 .title-brand {
     color: #80b435;
-    font: 700 30px "Roboto Slab";
+    font: 700 30px 'Open Sans', sans-serif;
     margin-bottom: 15px;
 }
 
@@ -1071,7 +1071,7 @@ h3.title-v3 {
     }
 
     .tile-lookbook-v2 p {
-        font: 400 24px "Playfair Display";
+        font: 400 24px 'Open Sans', sans-serif;
         color: #000;
         line-height: 30px;
         padding: 20px;
@@ -1177,7 +1177,7 @@ ul.tabs.tabs-title.tabs-title-por li {
     color: #fff;
     display: inline-block;
     text-transform: uppercase;
-    font-family: "Oswald";
+    font-family: 'Open Sans', sans-serif;
     letter-spacing: 2px;
     font-size: 10px;
 }
@@ -1308,7 +1308,7 @@ ul.tabs.tabs-title.tabs-title-por li {
     font-size: 80px;
     display: inline-block;
     width: 100%;
-    font-family: "Playfair Display";
+    font-family: 'Open Sans', sans-serif;
     color: #000;
     text-align: center;
     position: relative;
@@ -1335,7 +1335,7 @@ ul.tabs.tabs-title.tabs-title-por li {
 
 .title-page.size-50 p {
     text-align: center;
-    font: 300 12px/20px "Oswald";
+    font: 300 12px/20px 'Open Sans', sans-serif;
     color: #a5a5a5;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -1386,7 +1386,7 @@ ul.bastian {
         }
 
         ul.bastian li p {
-            font: 300 12px/20px "Oswald";
+            font: 300 12px/20px 'Open Sans', sans-serif;
             color: #7c7c7c;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -1398,7 +1398,7 @@ ul.bastian {
             }
 
 .content-text h3 {
-    font: 400 25px/30px "Playfair Display";
+    font: 400 25px/30px 'Open Sans', sans-serif;
     color: #000;
     text-transform: capitalize;
     padding-bottom: 15px;
@@ -1552,7 +1552,7 @@ ul.bastian {
         }
 
 .link-v1 {
-    font: 700 16px/38px "Roboto Slab";
+    font: 700 16px/38px 'Open Sans', sans-serif;
     color: #333;
     width: 180px;
     text-align: center;
@@ -1613,7 +1613,7 @@ ul.bastian {
 
 .link-footer {
     text-transform: uppercase;
-    font: 700 10px/20px "Roboto Slab";
+    font: 700 10px/20px 'Open Sans', sans-serif;
     margin-top: 30px;
     display: inline-block;
 }
@@ -1693,7 +1693,7 @@ ul.bastian {
 }
 
 .button1 {
-    font-family: "Oswald";
+    font-family: 'Open Sans', sans-serif;
     font-weight: 700;
     color: #000;
     font-size: 10px;
@@ -1852,7 +1852,7 @@ ul.bastian {
 
         .shipping-container .col-md-4 h3 {
             display: inline-block;
-            font-family: "Oswald";
+            font-family: 'Open Sans', sans-serif;
             font-weight: 700;
             font-size: 12px;
             letter-spacing: 3px;
@@ -1939,12 +1939,12 @@ ul.bastian {
     color: #fff;
     font-weight: 700;
     line-height: 20px;
-    font-family: "Roboto Slab";
+    font-family: 'Open Sans', sans-serif;
     margin-top: 10px;
 }
 
 .shipping-v2 p {
-    font-family: "Roboto Slab";
+    font-family: 'Open Sans', sans-serif;
     font-size: 11px;
     font-weight: 400;
     color: #979797;
@@ -2169,7 +2169,7 @@ ul.bastian {
     }
 
     .related-products .product-details h4 {
-        font-family: "Oswald";
+        font-family: 'Open Sans', sans-serif;
         font-size: 14px;
         margin-top: 10px;
         color: #000;
@@ -2192,7 +2192,7 @@ ul.bastian {
         }
 
     .related-products .product-details h3 {
-        font-family: "Playfair Display";
+        font-family: 'Open Sans', sans-serif;
         font-size: 40px;
         line-height: 30px;
         color: #000;
@@ -2201,7 +2201,7 @@ ul.bastian {
     }
 
     .related-products .product-details .category {
-        font-family: "Oswald";
+        font-family: 'Open Sans', sans-serif;
         font-size: 12px;
         color: #9d9d9d;
         text-transform: uppercase;
@@ -2228,7 +2228,7 @@ ul.bastian {
     }
 
     .related-products .product-details a {
-        font-family: "Oswald";
+        font-family: 'Open Sans', sans-serif;
         font-weight: 700;
         letter-spacing: 3px;
         font-size: 10px;
@@ -2249,7 +2249,7 @@ ul.bastian {
 }
 
     .related-products .slider-text h3 {
-        font-family: "Oswald";
+        font-family: 'Open Sans', sans-serif;
         font-weight: 700;
         font-size: 12px;
         color: #000;
@@ -2322,7 +2322,7 @@ ul.bastian {
 }
 
     .featured-product .col-md-7 .products .product-title {
-        font-family: "Playfair Display";
+        font-family: 'Open Sans', sans-serif;
         font-size: 40px;
         color: #000;
         margin-bottom: 15px;
@@ -2416,7 +2416,7 @@ ul.bastian {
                 }
 
             .slider-one-item-home3 .product .text h3 {
-                font-family: "Playfair Display";
+                font-family: 'Open Sans', sans-serif;
                 font-size: 40px;
                 color: #000;
                 line-height: 35px;
@@ -2476,7 +2476,7 @@ ul.tabs.tabs-title {
         text-transform: uppercase;
         padding: 0 17px;
         cursor: pointer;
-        font: 400 16px "Roboto Slab";
+        font: 400 16px 'Open Sans', sans-serif;
         color: #2b2b2b;
     }
 
@@ -2549,7 +2549,7 @@ ul.tabs.tabs-title li span.count {
     }
 
     .slider-slick-home8 .slick-slide h3 {
-        font: 400 40px "Playfair Display";
+        font: 400 40px 'Open Sans', sans-serif;
         color: #000;
         text-transform: capitalize;
         line-height: 40px;
@@ -2751,7 +2751,7 @@ ul.tabs.tabs-title li span.count {
 
         .slider-full-screen2 .slide .text h3 {
             color: #fff;
-            font: 300 14px/20px "Oswald";
+            font: 300 14px/20px 'Open Sans', sans-serif;
             text-transform: uppercase;
             letter-spacing: 3px;
         }
@@ -2765,7 +2765,7 @@ ul.tabs.tabs-title li span.count {
 }
 
     .slider-full-screen2 .slider-one-item .product .text h3 {
-        font-family: "Playfair Display";
+        font-family: 'Open Sans', sans-serif;
         font-size: 40px;
         line-height: 30px;
         color: #000;
@@ -2790,7 +2790,7 @@ ul.tabs.tabs-title li span.count {
     }
 
     .slider-full-screen2 .slider-one-item .product .text a {
-        font-family: "Oswald";
+        font-family: 'Open Sans', sans-serif;
         font-weight: 700;
         letter-spacing: 3px;
         font-size: 10px;
@@ -2939,7 +2939,7 @@ ul.tabs.tabs-title li span.count {
 
 .slider-dot-images p {
     max-width: 810px;
-    font: 400 16px/25px "Roboto Slab";
+    font: 400 16px/25px 'Open Sans', sans-serif;
     color: #fff;
     margin: auto;
     margin-bottom: 30px;
@@ -3065,7 +3065,7 @@ ul.tabs.tabs-title li span.count {
 @media (max-width: 980px) and (min-width: 768px) {
     .featured-products .products.ver2 .product p.product-title {
         margin-top: -60px;
-        font: 400 16px/20px "Roboto Slab";
+        font: 400 16px/20px 'Open Sans', sans-serif;
     }
 }
 
@@ -3166,7 +3166,7 @@ ul.tabs.tabs-title li span.count {
         }
 
         .banner-private.center .text h2 {
-            font: 400 60px/60px "Playfair Display";
+            font: 400 60px/60px 'Open Sans', sans-serif;
             color: #333;
             text-transform: capitalize;
             margin-bottom: 15px;
@@ -3233,7 +3233,7 @@ ul.tabs.tabs-title li span.count {
         }
 
     .banner-home2 .col-md-5 .hover-effect-border .text h3 {
-        font-family: "Playfair Display";
+        font-family: 'Open Sans', sans-serif;
         font-size: 40px;
         color: #000;
         line-height: 35px;
@@ -3287,7 +3287,7 @@ ul.tabs.tabs-title li span.count {
             width: 100%;
             text-transform: uppercase;
             font-size: 65px;
-            font-family: "Playfair Display";
+            font-family: 'Open Sans', sans-serif;
             line-height: 50px;
             letter-spacing: 15px;
             padding-bottom: 15px;
@@ -3333,7 +3333,7 @@ ul.tabs.tabs-title li span.count {
             width: 100%;
             text-transform: capitalize;
             font-size: 65px;
-            font-family: "Roboto Slab";
+            font-family: 'Open Sans', sans-serif;
             line-height: 65px;
             letter-spacing: 5px;
             padding-bottom: 15px;
@@ -3344,7 +3344,7 @@ ul.tabs.tabs-title li span.count {
             text-transform: capitalize;
             font-weight: 400;
             padding-top: 10px;
-            font-family: "Roboto Slab";
+            font-family: 'Open Sans', sans-serif;
             color: #80b435;
         }
 
@@ -3369,7 +3369,7 @@ ul.tabs.tabs-title li span.count {
     }
 
         .banner-header.banner-lbook3.single-post .text h3 {
-            font: 400 50px/50px "Playfair Display";
+            font: 400 50px/50px 'Open Sans', sans-serif;
         }
 
         .banner-header.banner-lbook3.single-post .text p {
@@ -3378,7 +3378,7 @@ ul.tabs.tabs-title li span.count {
         }
 
             .banner-header.banner-lbook3.single-post .text p.cat {
-                font: 300 12px/20px "Oswald";
+                font: 300 12px/20px 'Open Sans', sans-serif;
                 letter-spacing: 2px;
                 color: #9a9a9a;
             }
@@ -3404,7 +3404,7 @@ ul.tabs.tabs-title li span.count {
     }
 
         .banner-top-home3 .items .text h3 {
-            font-family: "Playfair Display";
+            font-family: 'Open Sans', sans-serif;
             font-size: 40px;
             text-transform: capitalize;
             color: #fff;
@@ -3472,7 +3472,7 @@ ul.tabs.tabs-title li span.count {
     }
 
         .banner-home4-top .text h3 {
-            font-family: "Playfair Display";
+            font-family: 'Open Sans', sans-serif;
             font-size: 35px;
             color: #000;
             line-height: 30px;
@@ -3654,7 +3654,7 @@ ul.tabs.tabs-title li span.count {
             }
 
         .banner-private-v2 .text h3 {
-            font-family: "Playfair Display";
+            font-family: 'Open Sans', sans-serif;
             font-size: 40px;
             color: #000;
             line-height: 35px;
@@ -3806,7 +3806,7 @@ ul.tabs.tabs-title li span.count {
     }
 
     .banner-home3 .text h4 {
-        font: 300 24px/30px "Roboto Slab";
+        font: 300 24px/30px 'Open Sans', sans-serif;
         color: #fff;
         position: relative;
         margin-bottom: 35px;
@@ -3827,19 +3827,19 @@ ul.tabs.tabs-title li span.count {
         }
 
     .banner-home3 .text h3 {
-        font: 700 60px/70px "Roboto Slab";
+        font: 700 60px/70px 'Open Sans', sans-serif;
         color: #fff;
         letter-spacing: 3px;
     }
 
     .banner-home3 .text p {
-        font: 300 24px/30px "Roboto Slab";
+        font: 300 24px/30px 'Open Sans', sans-serif;
         color: #fff;
     }
 
 @media (max-width: 1200px) {
     .banner-home3 .text h3 {
-        font: 700 45px/50px "Roboto Slab";
+        font: 700 45px/50px 'Open Sans', sans-serif;
     }
 
     .banner-home3 .text h4 {
@@ -3848,7 +3848,7 @@ ul.tabs.tabs-title li span.count {
     }
 
     .banner-home3 .text p {
-        font: 300 18px/30px "Roboto Slab";
+        font: 300 18px/30px 'Open Sans', sans-serif;
     }
 }
 
@@ -3859,17 +3859,17 @@ ul.tabs.tabs-title li span.count {
     }
 
     .banner-home3 .text h3 {
-        font: 700 20px/25px "Roboto Slab";
+        font: 700 20px/25px 'Open Sans', sans-serif;
     }
 
     .banner-home3 .text h4 {
-        font: 300 14px/16px "Roboto Slab";
+        font: 300 14px/16px 'Open Sans', sans-serif;
         margin-bottom: 5px;
         padding-bottom: 5px;
     }
 
     .banner-home3 .text p {
-        font: 300 12px/16px "Roboto Slab";
+        font: 300 12px/16px 'Open Sans', sans-serif;
     }
 }
 
@@ -3903,7 +3903,7 @@ ul.tabs.tabs-title li span.count {
 }
 
     .banner-home3-lookbook1 .text h3 {
-        font: 400 60px "Oswald";
+        font: 400 60px 'Open Sans', sans-serif;
         letter-spacing: 20px;
         position: relative;
         display: inline-block;
@@ -3920,7 +3920,7 @@ ul.tabs.tabs-title li span.count {
         }
 
     .banner-home3-lookbook1 .text p {
-        font: 400 16px "Oswald";
+        font: 400 16px 'Open Sans', sans-serif;
         letter-spacing: 5px;
         padding-top: 10px;
         position: relative;
@@ -3955,13 +3955,13 @@ ul.tabs.tabs-title li span.count {
     }
 
     .banner-home3-lookbook2 .text h3 {
-        font: 300 35px/40px "Oswald";
+        font: 300 35px/40px 'Open Sans', sans-serif;
         letter-spacing: 10px;
         padding-bottom: 50px;
     }
 
     .banner-home3-lookbook2 .text a {
-        font: 700 10px "Oswald";
+        font: 700 10px 'Open Sans', sans-serif;
         letter-spacing: 3px;
     }
 
@@ -3994,7 +3994,7 @@ ul.tabs.tabs-title li span.count {
         }
 
         .banner-video .text h3 {
-            font: 400 30px/30px "Oswald";
+            font: 400 30px/30px 'Open Sans', sans-serif;
             text-transform: uppercase;
             letter-spacing: 15px;
             margin-top: 50px;
@@ -4043,7 +4043,7 @@ ul.tabs.tabs-title li span.count {
         position: absolute;
         width: 100%;
         text-align: center;
-        font: 400 50px/50px "Oswald";
+        font: 400 50px/50px 'Open Sans', sans-serif;
         color: #fff;
         top: 50%;
         left: 0px;
@@ -4233,16 +4233,16 @@ ul.tabs.tabs-title li span.count {
     }
 
         .special.special-v2 .special-content p {
-            font: 300 24px/30px "Roboto Slab";
+            font: 300 24px/30px 'Open Sans', sans-serif;
             color: #2b2b2b;
         }
 
         .special.special-v2 .special-content h3 {
-            font: 700 60px/70px "Roboto Slab";
+            font: 700 60px/70px 'Open Sans', sans-serif;
         }
 
         .special.special-v2 .special-content h5 {
-            font: 300 24px/30px "Roboto Slab";
+            font: 300 24px/30px 'Open Sans', sans-serif;
             letter-spacing: 4px;
             position: relative;
         }
@@ -4275,11 +4275,11 @@ ul.tabs.tabs-title li span.count {
                 }
 
                 .special.special-v2 .special-content .time .distance .number {
-                    font: 300 32px/35px "Roboto Slab";
+                    font: 300 32px/35px 'Open Sans', sans-serif;
                 }
 
                 .special.special-v2 .special-content .time .distance .text {
-                    font: 400 12px/15px "Roboto Slab";
+                    font: 400 12px/15px 'Open Sans', sans-serif;
                 }
 
         .special.special-v2 .special-content .link-v1 {
@@ -4303,12 +4303,12 @@ ul.tabs.tabs-title li span.count {
         }
 
             .special.home_v1 .special-content .time .distance .number {
-                font: 300 32px/35px "Roboto Slab";
+                font: 300 32px/35px 'Open Sans', sans-serif;
             }
 }
 
 .special-content {
-    font-family: "Playfair Display";
+    font-family: 'Open Sans', sans-serif;
     text-align: left;
     padding-top: 70px;
 }
@@ -4325,7 +4325,7 @@ ul.tabs.tabs-title li span.count {
 }
 
 .special-content h3 {
-    font: 300 42px/50px "Roboto Slab";
+    font: 300 42px/50px 'Open Sans', sans-serif;
     color: #80b435;
     text-transform: uppercase;
     vertical-align: bottom;
@@ -4421,7 +4421,7 @@ ul.tabs.tabs-title li span.count {
         }
 
     .special-content .time .distance .number {
-        font: 400 48px/50px "Roboto Slab";
+        font: 400 48px/50px 'Open Sans', sans-serif;
         color: #80b435;
         display: block;
     }
@@ -4431,7 +4431,7 @@ ul.tabs.tabs-title li span.count {
         }
 
     .special-content .time .distance .text {
-        font: 400 14px/15px "Roboto Slab";
+        font: 400 14px/15px 'Open Sans', sans-serif;
         color: #333;
         display: block;
         text-transform: uppercase;
@@ -4460,7 +4460,7 @@ ul.tabs.tabs-title li span.count {
 }
 
 .home3-latest-news h2 {
-    font: 400 40px "Playfair Display";
+    font: 400 40px 'Open Sans', sans-serif;
     color: #2b2b2b;
     padding-bottom: 10px;
     margin-bottom: 10px;
@@ -4507,7 +4507,7 @@ ul.tabs.tabs-title li span.count {
 
 .home3-latest-news .item .text .title {
     color: #333;
-    font: 400 20px "Playfair Display";
+    font: 400 20px 'Open Sans', sans-serif;
     margin-bottom: 10px;
     display: block;
 }
@@ -4580,13 +4580,13 @@ ul.tabs.tabs-title li span.count {
 }
 
     .choose-us .title-choose h4 {
-        font: 400 30px/35px "Roboto Slab";
+        font: 400 30px/35px 'Open Sans', sans-serif;
         text-transform: capitalize;
         color: #80b435;
     }
 
     .choose-us .title-choose h3 {
-        font: 400 48px/50px "Roboto Slab";
+        font: 400 48px/50px 'Open Sans', sans-serif;
         color: #2b2b2b;
         text-transform: capitalize;
         margin-bottom: 20px;
@@ -4601,7 +4601,7 @@ ul.tabs.tabs-title li span.count {
 
 .choose-us .title-choose p {
     max-width: 760px;
-    font: 400 16px/25px "Roboto Slab";
+    font: 400 16px/25px 'Open Sans', sans-serif;
     color: #666;
     margin: 0 auto;
 }
@@ -4622,7 +4622,7 @@ ul.tabs.tabs-title li span.count {
     .choose-us .title-choose.color-brand h3 {
         color: #80b435;
         text-transform: uppercase;
-        font: 700 48px "Roboto Slab";
+        font: 700 48px 'Open Sans', sans-serif;
         margin-bottom: 10px;
     }
 
@@ -4643,14 +4643,14 @@ ul.tabs.tabs-title li span.count {
         display: inline-block;
         margin-left: 10px;
         color: #80b435;
-        font: 400 24px/30px "Roboto Slab";
+        font: 400 24px/30px 'Open Sans', sans-serif;
         margin-bottom: 20px;
     }
 
     .choose-us .text p {
         display: block;
         color: #666;
-        font: 400 14px/20px "Roboto Slab";
+        font: 400 14px/20px 'Open Sans', sans-serif;
     }
 
 .choose-us .border-choose {
@@ -4693,13 +4693,13 @@ ul.tabs.tabs-title li span.count {
 
 @media (min-width: 768px) and (max-width: 980px) {
     .choose-us.about-choose .items .text h3 {
-        font: 400 16px/30px "Roboto Slab";
+        font: 400 16px/30px 'Open Sans', sans-serif;
     }
 }
 
 @media (min-width: 981px) and (max-width: 1199px) {
     .choose-us.about-choose .items .text h3 {
-        font: 400 16px/30px "Roboto Slab";
+        font: 400 16px/30px 'Open Sans', sans-serif;
     }
 }
 
@@ -4751,7 +4751,7 @@ ul.tabs.tabs-title li span.count {
 }
 
     .choose-us.choose-us-home2 .title-choose h3 {
-        font: 700 48px/50px "Roboto Slab";
+        font: 700 48px/50px 'Open Sans', sans-serif;
         color: #2b2b2b;
         text-transform: inherit;
     }
@@ -4906,7 +4906,7 @@ ul.tabs.tabs-title li span.count {
         }
 
         .newsletter .col-md-5 .col-md-6:first-child h3 {
-            font-family: "Oswald";
+            font-family: 'Open Sans', sans-serif;
             color: #fff;
             font-size: 18px;
             text-transform: uppercase;
@@ -4916,7 +4916,7 @@ ul.tabs.tabs-title li span.count {
 
         .newsletter .col-md-5 .col-md-6:first-child a {
             color: #4c4c4c;
-            font-family: "Oswald";
+            font-family: 'Open Sans', sans-serif;
             text-transform: uppercase;
             font-weight: 700;
             letter-spacing: 2px;
@@ -4958,7 +4958,7 @@ ul.tabs.tabs-title li span.count {
     }
 
     .newsletter-content h3 {
-        font-family: "Oswald";
+        font-family: 'Open Sans', sans-serif;
         letter-spacing: 2px;
         text-transform: uppercase;
         font-size: 18px;
@@ -4980,7 +4980,7 @@ ul.tabs.tabs-title li span.count {
         }
 
     .newsletter-content p {
-        font-family: "Oswald";
+        font-family: 'Open Sans', sans-serif;
         font-size: 12px;
         text-transform: uppercase;
         color: #9a9a9a;
@@ -5186,7 +5186,7 @@ ul.tabs.tabs-title li span.count {
 
     .newsletter-home4 .wrap-center .items .text h3 {
         font-size: 36px;
-        font-family: "Playfair Display";
+        font-family: 'Open Sans', sans-serif;
         font-weight: 400;
         margin-top: 50px;
         text-transform: capitalize;
@@ -5281,7 +5281,7 @@ ul.tabs.tabs-title li span.count {
     }
 
         .newsletter-home4 .items .text h3 {
-            font-family: "Playfair Display";
+            font-family: 'Open Sans', sans-serif;
             font-size: 34.87px;
             position: relative;
             padding-bottom: 10px;
@@ -5383,7 +5383,7 @@ ul.tabs.tabs-title li span.count {
     }
 
     .newsletter-bottom h3 {
-        font: 400 30px/30px "Playfair Display";
+        font: 400 30px/30px 'Open Sans', sans-serif;
         color: #fff;
         text-transform: capitalize;
         margin-bottom: 10px;
@@ -5624,13 +5624,13 @@ ul.tabs.tabs-title li span.count {
         }
 
     .popup-content-wrapper h4 {
-        font: 400 35px/40px "Playfair Display";
+        font: 400 35px/40px 'Open Sans', sans-serif;
         color: #000;
         margin-bottom: 15px;
     }
 
     .popup-content-wrapper p {
-        font: 400 16px/25px "Roboto Slab";
+        font: 400 16px/25px 'Open Sans', sans-serif;
         color: #717171;
         max-width: 560px;
         margin: auto;
@@ -5652,7 +5652,7 @@ ul.tabs.tabs-title li span.count {
         font-size: 14px;
         font-weight: 400;
         color: #666;
-        font-family: "Roboto Slab";
+        font-family: 'Open Sans', sans-serif;
         text-align: center;
         border: none;
         margin-bottom: 10px;
@@ -5672,7 +5672,7 @@ ul.tabs.tabs-title li span.count {
         line-height: 42px;
         margin-top: 25px;
         padding: 0px 30px;
-        font-family: "Roboto Slab";
+        font-family: 'Open Sans', sans-serif;
         font-weight: 400;
         letter-spacing: 0px;
     }
@@ -5685,7 +5685,7 @@ ul.tabs.tabs-title li span.count {
             color: #333;
             margin-left: 10px;
             text-transform: uppercase;
-            font: 700 10px/15px "Oswald";
+            font: 700 10px/15px 'Open Sans', sans-serif;
             letter-spacing: 2px;
             text-decoration: underline;
             cursor: pointer;
@@ -5715,7 +5715,7 @@ ul.tabs.tabs-title li span.count {
         }
 
         .popup-content-wrapper.popup-content-wrapper-v2 h4 {
-            font: 700 14px/20px "Oswald";
+            font: 700 14px/20px 'Open Sans', sans-serif;
             color: #000;
             letter-spacing: 1px;
         }
@@ -5724,19 +5724,19 @@ ul.tabs.tabs-title li span.count {
             margin-top: 20px;
             font-size: 20px;
             font-weight: 400;
-            font-family: "Playfair Display";
+            font-family: 'Open Sans', sans-serif;
             letter-spacing: 0px;
         }
 
         .popup-content-wrapper.popup-content-wrapper-v2 h2 {
-            font: 400 35px/40px "Playfair Display";
+            font: 400 35px/40px 'Open Sans', sans-serif;
             color: #000;
             text-transform: uppercase;
             margin-top: 85px;
         }
 
         .popup-content-wrapper.popup-content-wrapper-v2 h1 {
-            font-family: "Playfair Display";
+            font-family: 'Open Sans', sans-serif;
             font-style: italic;
             font-size: 120px;
             color: #000;
@@ -5748,7 +5748,7 @@ ul.tabs.tabs-title li span.count {
             }
 
         .popup-content-wrapper.popup-content-wrapper-v2 p {
-            font: 400 10px/10px "Oswald";
+            font: 400 10px/10px 'Open Sans', sans-serif;
             color: #a5a5a5;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -5765,7 +5765,7 @@ ul.tabs.tabs-title li span.count {
 }
 
     .home3-newsletter-content h3 {
-        font: 400 36px "Playfair Display";
+        font: 400 36px 'Open Sans', sans-serif;
         color: #333;
         padding-bottom: 15px;
         margin-bottom: 15px;
@@ -5829,7 +5829,7 @@ ul.tabs.tabs-title li span.count {
     }
 
     .quickview-wrapper .product-details-content .product-name h1 {
-        font: 400 36px/40px "Roboto Slab";
+        font: 400 36px/40px 'Open Sans', sans-serif;
         margin-bottom: 0px;
     }
 
@@ -5984,7 +5984,7 @@ ul.tabs.tabs-title li span.count {
     }
 
     .quickview-wrapper .product-details-content .options p {
-        font: 400 14px/25px "Roboto Slab";
+        font: 400 14px/25px 'Open Sans', sans-serif;
         color: #6d6d6d;
         margin-top: 20px;
     }
@@ -6348,7 +6348,7 @@ ul.tabs.tabs-title li span.count {
     height: 47px;
     display: block;
     width: 100%;
-    font: 400 16px "Roboto Slab";
+    font: 400 16px 'Open Sans', sans-serif;
     transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
 }
 
@@ -6798,13 +6798,13 @@ ul.tabs.tabs-title li span.count {
 }
 
 .head-about h3 {
-    font: 400 30px/35px "Roboto Slab";
+    font: 400 30px/35px 'Open Sans', sans-serif;
     color: #2b2b2b;
     margin-bottom: 25px;
 }
 
 .head-about p {
-    font: 400 16px/23px "Roboto Slab";
+    font: 400 16px/23px 'Open Sans', sans-serif;
     color: #666;
     margin-bottom: 20px;
 }
@@ -6882,7 +6882,7 @@ ul.tabs.tabs-title li span.count {
 }
 
     .about-choose h3 {
-        font: 400 48px/50px "Playfair Display";
+        font: 400 48px/50px 'Open Sans', sans-serif;
         color: #80b435;
         margin-bottom: 30px;
     }
@@ -6892,7 +6892,7 @@ ul.tabs.tabs-title li span.count {
     }
 
     .about-choose .border p {
-        font: 400 18px/25px "Playfair Display";
+        font: 400 18px/25px 'Open Sans', sans-serif;
         color: #565656;
         margin: auto;
         margin-bottom: 30px;
@@ -6928,13 +6928,13 @@ ul.tabs.tabs-title li span.count {
 }
 
     .our-team .head h3 {
-        font: 400 48px/50px "Playfair Display";
+        font: 400 48px/50px 'Open Sans', sans-serif;
         color: #80b435;
         margin: 10px 0px;
     }
 
     .our-team .head p {
-        font: 400 14px/30px "Roboto Slab";
+        font: 400 14px/30px 'Open Sans', sans-serif;
         color: #565656;
         text-transform: capitalize;
     }
@@ -6957,13 +6957,13 @@ ul.tabs.tabs-title li span.count {
     }
 
 .our-team .banner-title h3 {
-    font: 700 24px/30px "Roboto Slab";
+    font: 700 24px/30px 'Open Sans', sans-serif;
     text-transform: uppercase;
     margin: 10px 0px;
 }
 
 .our-team .banner-title p {
-    font: 400 16px/25px "Roboto Slab";
+    font: 400 16px/25px 'Open Sans', sans-serif;
     color: #666;
     margin-bottom: 10px;
     margin-top: 20px;
@@ -7204,7 +7204,7 @@ ul.tabs.tabs-title li span.count {
 
         .blog-post-container .blog-post-item h3 a {
             color: #2b2b2b;
-            font: 400 20px "Roboto Slab";
+            font: 400 20px 'Open Sans', sans-serif;
             text-transform: initial;
         }
 
@@ -7218,7 +7218,7 @@ ul.tabs.tabs-title li span.count {
     }
 
     .blog-post-container .blog-post-item .content {
-        font-family: "Roboto Slab";
+        font-family: 'Open Sans', sans-serif;
         line-height: 22px;
         color: #555555;
         margin-top: 10px;
@@ -7535,7 +7535,7 @@ ul.tabs.tabs-title li span.count {
             }
 
         .blog-slider .blog-post-item .blog-post-content .blog-title {
-            font-family: "Playfair Display";
+            font-family: 'Open Sans', sans-serif;
             color: #000;
             font-size: 25px;
             font-weight: 400;
@@ -7572,7 +7572,7 @@ ul.tabs.tabs-title li span.count {
 
 .blog-home1 .blog-content .text h3 {
     color: #242626;
-    font: 400 25px/30px "Roboto Slab";
+    font: 400 25px/30px 'Open Sans', sans-serif;
     margin: 10px 0px;
 }
 
@@ -7581,7 +7581,7 @@ ul.tabs.tabs-title li span.count {
     }
 
 .blog-home1 .blog-content .text-v2 h3 {
-    font: 700 18px/20px "Roboto Slab";
+    font: 700 18px/20px 'Open Sans', sans-serif;
     color: #000;
     margin-top: 22px;
 }
@@ -7591,13 +7591,13 @@ ul.tabs.tabs-title li span.count {
     }
 
 .blog-home1 .blog-content .text-v2 p.by {
-    font: 300 14px/20px "Roboto Slab";
+    font: 300 14px/20px 'Open Sans', sans-serif;
     color: #bbb;
     margin: 20px 0px 30px;
 }
 
 .blog-home1 .blog-content .text-v2 p.des {
-    font: 400 16px/30px "Roboto Slab";
+    font: 400 16px/30px 'Open Sans', sans-serif;
     color: #666;
 }
 
@@ -7676,7 +7676,7 @@ ul.tabs.tabs-title li span.count {
 }
 
 .blog-post-container-v4 .blog-title {
-    font: 400 25px/30px "Playfair Display";
+    font: 400 25px/30px 'Open Sans', sans-serif;
     color: #000;
     margin-bottom: 5px;
 }
@@ -7749,7 +7749,7 @@ ul.tabs.tabs-title li span.count {
     }
 
     .blog-classic .blog-post-container .cat a {
-        font: 300 12px/20px "Oswald";
+        font: 300 12px/20px 'Open Sans', sans-serif;
         letter-spacing: 2px;
         color: #9a9a9a;
         text-transform: uppercase;
@@ -7762,7 +7762,7 @@ ul.tabs.tabs-title li span.count {
         }
 
     .blog-classic .blog-post-container h3 a {
-        font: 400 35px/35px "Playfair Display";
+        font: 400 35px/35px 'Open Sans', sans-serif;
         color: #000;
         text-transform: capitalize;
     }
@@ -7878,7 +7878,7 @@ ul.tabs.tabs-title li span.count {
 
             .blog-classic .blog-post-container.single-post .blog-related .blog-post-item .text h3 a {
                 margin-top: 20px;
-                font: 400 16px/20px "Roboto Slab";
+                font: 400 16px/20px 'Open Sans', sans-serif;
             }
 
         .blog-classic .blog-post-container.single-post .blog-related .blog-post-item .text p {
@@ -7898,14 +7898,14 @@ ul.tabs.tabs-title li span.count {
         }
 
         .blog-classic .blog-post-container.single-post .blog-post-item h3.title-v1 {
-            font: 700 24px/30px "Roboto Slab";
+            font: 700 24px/30px 'Open Sans', sans-serif;
             text-transform: uppercase;
             color: #2b2b2b;
         }
 
         .blog-classic .blog-post-container.single-post .blog-post-item .head h3 {
             margin-top: 20px;
-            font: 700 30px/30px "Roboto Slab";
+            font: 700 30px/30px 'Open Sans', sans-serif;
             text-transform: initial;
             color: #2b2b2b;
         }
@@ -7924,14 +7924,14 @@ ul.tabs.tabs-title li span.count {
 
             .blog-classic .blog-post-container.single-post .blog-post-item .tag-cat a {
                 display: inline-block;
-                font: 300 12px/20px "Oswald";
+                font: 300 12px/20px 'Open Sans', sans-serif;
                 color: #7d7d7d;
                 letter-spacing: 2px;
                 margin-right: 3px;
             }
 
             .blog-classic .blog-post-container.single-post .blog-post-item .tag-cat span {
-                font: 700 12px/30px "Oswald";
+                font: 700 12px/30px 'Open Sans', sans-serif;
                 margin-right: 10px;
                 letter-spacing: 2px;
             }
@@ -7948,7 +7948,7 @@ ul.tabs.tabs-title li span.count {
             }
 
             .blog-classic .blog-post-container.single-post .blog-post-item .text p, .blog-classic .blog-post-container.single-post .blog-post-item .text li {
-                font: 300 16px/25px "Roboto Slab";
+                font: 300 16px/25px 'Open Sans', sans-serif;
                 color: #565656;
                 margin-bottom: 20px;
             }
@@ -8140,7 +8140,7 @@ ul.tabs.tabs-title li span.count {
             border: 2px solid #000;
             font-size: 14px;
             letter-spacing: 2px;
-            font-family: "Oswald";
+            font-family: 'Open Sans', sans-serif;
             width: 120px;
             text-align: center;
             height: 46px;
@@ -8207,13 +8207,13 @@ ul.tabs.tabs-title li span.count {
             }
 
             .blog-masonry .inner-por-masonry .grid-item h3 {
-                font: 400 20px/25px "Playfair Display";
+                font: 400 20px/25px 'Open Sans', sans-serif;
                 color: #fff;
                 margin-bottom: 10px;
             }
 
             .blog-masonry .inner-por-masonry .grid-item h4 {
-                font: 300 12px/20px "Oswald";
+                font: 300 12px/20px 'Open Sans', sans-serif;
                 color: #888;
                 letter-spacing: 2px;
                 text-transform: uppercase;
@@ -8223,7 +8223,7 @@ ul.tabs.tabs-title li span.count {
                 width: 100%;
                 text-align: right;
                 color: #fff;
-                font: 400 12px/20px "Oswald";
+                font: 400 12px/20px 'Open Sans', sans-serif;
                 transition: all 0.4s ease 0s;
                 padding-right: 30px;
             }
@@ -8330,7 +8330,7 @@ a.load-more {
     height: 46px;
     line-height: 46px;
     text-align: center;
-    font: 700 12px/46px "Oswald";
+    font: 700 12px/46px 'Open Sans', sans-serif;
     color: #fff;
     letter-spacing: 2px;
     background: #000;
@@ -8353,7 +8353,7 @@ a.load-more {
 }
 
 .bastian-content .col-md-6 h3 {
-    font: 400 25px/30px "Playfair Display";
+    font: 400 25px/30px 'Open Sans', sans-serif;
     color: #000;
     text-transform: capitalize;
     padding-bottom: 15px;
@@ -8416,7 +8416,7 @@ a.load-more {
         }
 
     .control-page a.title {
-        font: 400 50px/50px "Playfair Display";
+        font: 400 50px/50px 'Open Sans', sans-serif;
         color: #000;
         text-transform: capitalize;
         display: inline-block;
@@ -8426,7 +8426,7 @@ a.load-more {
     }
 
     .control-page a {
-        font: 300 12px/20px "Oswald";
+        font: 300 12px/20px 'Open Sans', sans-serif;
         color: #8e8e8e;
         letter-spacing: 4px;
         display: inline-block;
@@ -8454,7 +8454,7 @@ a.load-more {
     }
 
 .last-news h2 {
-    font: 400 40px "Playfair Display";
+    font: 400 40px 'Open Sans', sans-serif;
     color: #2b2b2b;
     margin-bottom: 20px;
 }
@@ -8486,7 +8486,7 @@ a.load-more {
 }
 
 .last-news .lastest-news h3 {
-    font: 400 20px/25px "Playfair Display";
+    font: 400 20px/25px 'Open Sans', sans-serif;
     color: #2b2b2b;
     margin-bottom: 5px;
 }
@@ -9013,7 +9013,7 @@ label.star:before {
         }
 
     .testimonial p {
-        font-family: "Playfair Display";
+        font-family: 'Open Sans', sans-serif;
         font-size: 22px;
         font-style: italic;
         font-weight: 400;
@@ -9023,7 +9023,7 @@ label.star:before {
     }
 
         .testimonial p.user-name {
-            font-family: "Oswald";
+            font-family: 'Open Sans', sans-serif;
             font-weight: 400;
             font-style: normal;
             text-transform: uppercase;
@@ -9135,7 +9135,7 @@ label.star:before {
     .cat-box-home3 .col-md-6.bg-text:before {
         content: " " attr(bg-text) " ";
         font-size: 100px;
-        font-family: "Playfair Display";
+        font-family: 'Open Sans', sans-serif;
         color: #e9e9e9;
         font-weight: 400;
         text-transform: uppercase;
@@ -9148,7 +9148,7 @@ label.star:before {
     }
 
     .cat-box-home3 .col-md-6.bg-text h1 {
-        font-family: "Playfair Display";
+        font-family: 'Open Sans', sans-serif;
         font-size: 25px;
         text-transform: uppercase;
         font-weight: 400;
@@ -9190,7 +9190,7 @@ label.star:before {
     .cat-box-home3 .text h3 {
         font-size: 40px;
         color: #000;
-        font-family: "Playfair Display";
+        font-family: 'Open Sans', sans-serif;
         position: relative;
         line-height: 40px;
         margin-bottom: 10px;
@@ -9251,7 +9251,7 @@ label.star:before {
 }
 
     .catbox-container .items .text h3 {
-        font: 700 42px/75px "Playfair Display";
+        font: 700 42px/75px 'Open Sans', sans-serif;
         color: #fff;
         background: #80b435;
         display: inline-block;
@@ -9259,7 +9259,7 @@ label.star:before {
     }
 
     .catbox-container .items .text a {
-        font: 400 18px/60px "Roboto Slab";
+        font: 400 18px/60px 'Open Sans', sans-serif;
         color: #000;
         background-color: #fff;
         padding: 0px;
@@ -9270,33 +9270,33 @@ label.star:before {
 
 @media (max-width: 1200px) {
     .catbox-container .items .text h3 {
-        font: 700 25px/60px "Playfair Display";
+        font: 700 25px/60px 'Open Sans', sans-serif;
     }
 
     .catbox-container .items .text a {
-        font: 400 14px/40px "Roboto Slab";
+        font: 400 14px/40px 'Open Sans', sans-serif;
         max-width: 150px;
     }
 }
 
 @media (max-width: 767px) and (min-width: 441px) {
     .catbox-container .items .text h3 {
-        font: 700 16px/50px "Playfair Display";
+        font: 700 16px/50px 'Open Sans', sans-serif;
     }
 }
 
 .catbox-container.home-4 .items .text h3 {
-    font: 700 31px/55px "Playfair Display";
+    font: 700 31px/55px 'Open Sans', sans-serif;
 }
 
 .catbox-container.home-4 .items .text a {
-    font: 400 14px/50px "Roboto Slab";
+    font: 400 14px/50px 'Open Sans', sans-serif;
     max-width: 150px;
 }
 
 @media (max-width: 1200px) {
     .catbox-container.home-4 .items .text h3 {
-        font: 700 21px/45px "Playfair Display";
+        font: 700 21px/45px 'Open Sans', sans-serif;
     }
 }
 
@@ -9350,7 +9350,7 @@ label.star:before {
             font-size: 40px;
             text-transform: capitalize;
             display: inline-block;
-            font-family: "Playfair Display";
+            font-family: 'Open Sans', sans-serif;
             color: #a4a4a4;
             font-weight: 400;
             margin-left: 5px;
@@ -9381,7 +9381,7 @@ label.star:before {
     }
 
     .time.time-v3 .distance .text {
-        font-family: "Oswald";
+        font-family: 'Open Sans', sans-serif;
         font-size: 20px;
         color: #e95252;
         letter-spacing: 3px;
@@ -9464,7 +9464,7 @@ label.star:before {
 
     .title-box h3 {
         text-transform: uppercase;
-        font: 700 14px "Oswald";
+        font: 700 14px 'Open Sans', sans-serif;
         letter-spacing: 2px;
         line-height: 20px;
         padding-bottom: 10px;
@@ -9553,7 +9553,7 @@ label.star:before {
 }
 
     .boxed-content h2 {
-        font: 700 12px/20px "Oswald";
+        font: 700 12px/20px 'Open Sans', sans-serif;
         color: #fff;
         letter-spacing: 2px;
         position: relative;
@@ -9758,14 +9758,14 @@ label.star:before {
 }
 
     .tab-v1 .custom-content h1 {
-        font: 400 50px/50px "Playfair Display";
+        font: 400 50px/50px 'Open Sans', sans-serif;
         color: #000;
         text-transform: capitalize;
         padding-bottom: 15px;
     }
 
     .tab-v1 .custom-content h3 {
-        font: 300 14px/20px "Oswald";
+        font: 300 14px/20px 'Open Sans', sans-serif;
         color: #9d9d9d;
         letter-spacing: 3px;
         padding-bottom: 20px;
@@ -9800,7 +9800,7 @@ label.star:before {
 }
 
 .btn {
-    font: 400 14px "Oswald";
+    font: 400 14px 'Open Sans', sans-serif;
     letter-spacing: 2px;
     text-transform: uppercase;
     width: 215px;
@@ -9937,7 +9937,7 @@ label.star:before {
 }
 
 .feature-box h4 {
-    font: 700 14px/20px "Oswald";
+    font: 700 14px/20px 'Open Sans', sans-serif;
     color: #000;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -9957,7 +9957,7 @@ label.star:before {
 }
 
 .icon-box-v1 .feature-box h4 {
-    font: 700 14px "Oswald";
+    font: 700 14px 'Open Sans', sans-serif;
     letter-spacing: 3px;
 }
 
@@ -10379,7 +10379,7 @@ nav.pagination {
 
         .products.grid_full.list-item .item-inner .product .product-title {
             color: #000;
-            font: 400 48px/50px "Roboto Slab";
+            font: 400 48px/50px 'Open Sans', sans-serif;
             margin-bottom: 20px;
         }
 
@@ -10397,7 +10397,7 @@ nav.pagination {
 
         .products.grid_full.list-item .item-inner .product .description {
             margin: 20px 0px 40px;
-            font: 400 18px/30px "Roboto Slab";
+            font: 400 18px/30px 'Open Sans', sans-serif;
             color: #666;
         }
 
@@ -10461,7 +10461,7 @@ nav.pagination {
         .products.grid_full.list-item .item-inner .product .action a.add-cart:after {
             content: "Add To Cart";
             text-transform: uppercase;
-            font: 700 14px/50px "Roboto Slab";
+            font: 700 14px/50px 'Open Sans', sans-serif;
             color: #fff;
             background: #80b435;
             left: 0px;
@@ -10696,7 +10696,7 @@ nav.pagination {
     }
 
     .products .product p.product-title {
-        font: 400 20px/34px "Roboto Slab";
+        font: 400 20px/34px 'Open Sans', sans-serif;
         color: #000;
     }
 
@@ -11069,13 +11069,13 @@ nav.pagination {
             top: 0px;
             opacity: 1;
             color: #333;
-            font: 400 20px/30px "Playfair Display";
+            font: 400 20px/30px 'Open Sans', sans-serif;
             text-align: left;
         }
 
         .tab-product-all.tab-por .products .item-inner .product-brand {
             text-align: left;
-            font: 300 12px/20px "Oswald";
+            font: 300 12px/20px 'Open Sans', sans-serif;
             color: #979797;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -11085,7 +11085,7 @@ nav.pagination {
             display: inline-block;
             float: right;
             margin-top: -22px;
-            font: 300 12px/20px "Oswald";
+            font: 300 12px/20px 'Open Sans', sans-serif;
             color: #000;
         }
 
@@ -11165,7 +11165,7 @@ nav.pagination {
 /** 5.3. Shop Widget **/
 .widget ul.product-categories ul li a, .widget ul li a {
     color: #666;
-    font: 400 18px "Roboto Slab";
+    font: 400 18px 'Open Sans', sans-serif;
     text-transform: capitalize;
 }
 
@@ -11201,7 +11201,7 @@ nav.pagination {
         padding-bottom: 10px;
         margin-bottom: 20px;
         position: relative;
-        font: 700 24px "Roboto Slab";
+        font: 700 24px 'Open Sans', sans-serif;
     }
 
         .widget .widget-title:after {
@@ -11253,7 +11253,7 @@ nav.pagination {
             .widget ul.product-categories li a {
                 text-transform: uppercase;
                 color: #000;
-                font: 400 18px "Roboto Slab";
+                font: 400 18px 'Open Sans', sans-serif;
             }
 
                 .widget ul.product-categories li a:hover {
@@ -11343,7 +11343,7 @@ nav.pagination {
     }
 
     .widget.widget_feature .text h2 a {
-        font: 400 16px/20px "Roboto Slab";
+        font: 400 16px/20px 'Open Sans', sans-serif;
         color: #2b2b2b;
     }
 
@@ -11522,7 +11522,7 @@ nav.pagination {
 
     .widget .related-post h3 a {
         text-transform: uppercase;
-        font: 300 12px/20px "Oswald";
+        font: 300 12px/20px 'Open Sans', sans-serif;
         letter-spacing: 3px;
         color: #000;
         display: inline-block;
@@ -11591,7 +11591,7 @@ nav.pagination {
 
     .widget.tags-cloud a {
         display: inline-block;
-        font: 400 18px/40px "Roboto Slab";
+        font: 400 18px/40px 'Open Sans', sans-serif;
         height: 42px;
         padding: 0 12px;
         color: #000;
@@ -11674,7 +11674,7 @@ nav.pagination {
 }
 
 .widget.recent-post ul li a {
-    font: 400 16px/20px "Roboto Slab";
+    font: 400 16px/20px 'Open Sans', sans-serif;
     color: #2b2b2b;
 }
 
@@ -11808,7 +11808,7 @@ nav.pagination {
 }
 
 .page-login h3 {
-    font: 700 16px/20px "Roboto Slab";
+    font: 700 16px/20px 'Open Sans', sans-serif;
     text-transform: uppercase;
     padding-bottom: 10px;
     margin-bottom: 20px;
@@ -11826,7 +11826,7 @@ nav.pagination {
     }
 
 .page-login p {
-    font: 300 14px/20px "Roboto Slab";
+    font: 300 14px/20px 'Open Sans', sans-serif;
     color: #888;
     margin-bottom: 20px;
 }
@@ -11880,7 +11880,7 @@ nav.pagination {
     padding-left: 30px;
     float: left;
     margin: 10px 0px;
-    font: 400 14px "Roboto Slab";
+    font: 400 14px 'Open Sans', sans-serif;
     color: #373737;
 }
 
@@ -11915,7 +11915,7 @@ nav.pagination {
 
     .page-login .remember .help {
         float: right;
-        font: 300 14px/20px "Roboto Slab";
+        font: 300 14px/20px 'Open Sans', sans-serif;
         vertical-align: bottom;
         margin-top: 12px;
     }
@@ -12082,7 +12082,7 @@ nav.pagination {
         border: 1px solid #cdcdcd;
         height: 50px;
         line-height: 50px;
-        font: 700 14px/48px "Roboto Slab";
+        font: 700 14px/48px 'Open Sans', sans-serif;
         width: 50px;
         transition: all 0.3s ease 0s;
     }
@@ -12127,7 +12127,7 @@ nav.pagination {
 
 .product-details-content .product-name h1 {
     color: #2b2b2b;
-    font-family: "Roboto Slab";
+    font-family: 'Open Sans', sans-serif;
     font-size: 48px;
     margin-bottom: 10px;
     line-height: 50px;
@@ -12401,7 +12401,7 @@ nav.pagination {
     .hoz-tab-container .tabs li {
         display: block;
         border-bottom: 1px solid #e6e6e6;
-        font: 400 24px/60px "Roboto Slab";
+        font: 400 24px/60px 'Open Sans', sans-serif;
         color: #2b2b2b;
         text-transform: capitalize;
         cursor: pointer;
@@ -12418,7 +12418,7 @@ nav.pagination {
 }
 
     .hoz-tab-container .tab-container .tab-content h3 {
-        font: 700 24px/30px "Roboto Slab";
+        font: 700 24px/30px 'Open Sans', sans-serif;
         text-transform: capitalize;
         margin-bottom: 20px;
         color: #2b2b2b;
@@ -12466,7 +12466,7 @@ nav.pagination {
 
 .hoz-tab-container #product-tags .button-v2 {
     margin-top: 20px;
-    font: 700 12px "Oswald";
+    font: 700 12px 'Open Sans', sans-serif;
 }
 
 .hoz-tab-container #product-tags p {
@@ -12477,7 +12477,7 @@ nav.pagination {
 }
 
     .hoz-tab-container #product-tags p span {
-        font: 400 16px/60px "Roboto Slab";
+        font: 400 16px/60px 'Open Sans', sans-serif;
         float: right;
     }
 
@@ -12642,13 +12642,13 @@ nav.pagination {
 }
 
     .product-details-content .description-lits h3 {
-        font: 700 18px/30px "Roboto Slab";
+        font: 700 18px/30px 'Open Sans', sans-serif;
         color: #2b2b2b;
         margin-bottom: 10px;
     }
 
     .product-details-content .description-lits li {
-        font: 400 18px/30px "Roboto Slab";
+        font: 400 18px/30px 'Open Sans', sans-serif;
         color: #666;
     }
 
@@ -12677,7 +12677,7 @@ nav.pagination {
         margin: 0px;
         height: 100%;
         border-right: 1px solid #dcdcdc;
-        font-family: "Oswald";
+        font-family: 'Open Sans', sans-serif;
         font-size: 12px;
         letter-spacing: 2px;
         text-transform: uppercase;
@@ -12725,7 +12725,7 @@ nav.pagination {
 }
 
     .cart-box-container .text-price h3 {
-        font-family: "Oswald";
+        font-family: 'Open Sans', sans-serif;
         font-size: 12px;
         font-weight: 700;
         letter-spacing: 2px;
@@ -12855,7 +12855,7 @@ nav.pagination {
 }
 
     .head-cart .item .icon {
-        font: 400 22px/64px "Roboto Slab";
+        font: 400 22px/64px 'Open Sans', sans-serif;
         display: inline-block;
         width: 66px;
         height: 66px;
@@ -12872,7 +12872,7 @@ nav.pagination {
     }
 
     .head-cart .item h3 {
-        font: 400 24px/30px "Roboto Slab";
+        font: 400 24px/30px 'Open Sans', sans-serif;
         color: #565656;
         text-transform: uppercase;
         margin-top: 25px;
@@ -12900,7 +12900,7 @@ table.table.cart-table thead {
 
     table.table.cart-table thead th {
         color: #fff;
-        font: 700 18px "Roboto Slab";
+        font: 700 18px 'Open Sans', sans-serif;
         padding: 12px 0px;
         letter-spacing: 0px;
     }
@@ -12932,7 +12932,7 @@ table.table.cart-table td.product-photo {
     }
 
 table.table.cart-table td.produc-name a {
-    font: 400 18px "Roboto Slab";
+    font: 400 18px 'Open Sans', sans-serif;
     color: #2b2b2b;
 }
 
@@ -12952,7 +12952,7 @@ table.table.cart-table td.produc-price, table.table.cart-table td.product-quanti
 
 table.table.cart-table td.produc-price input {
     border: none;
-    font: 400 18px "Roboto Slab";
+    font: 400 18px 'Open Sans', sans-serif;
     color: #666;
 }
 
@@ -12961,7 +12961,7 @@ table.table.cart-table td.product-quantity input {
     height: 50px;
     width: 130px;
     text-align: center;
-    font: 700 20px "Roboto Slab";
+    font: 700 20px 'Open Sans', sans-serif;
     color: #565656;
 }
 
@@ -13017,20 +13017,20 @@ table.table.cart-table td.add-cart {
 }
 
     .cart-total .item h3.title {
-        font: 700 18px "Roboto Slab";
+        font: 700 18px 'Open Sans', sans-serif;
         color: #565656;
         text-transform: uppercase;
         margin-bottom: 20px;
     }
 
     .cart-total .item p {
-        font: 400 14px/20px "Roboto Slab";
+        font: 400 14px/20px 'Open Sans', sans-serif;
         color: #565656;
         margin-bottom: 10px;
     }
 
 .cart-total label {
-    font: 700 14px/20px "Roboto Slab";
+    font: 700 14px/20px 'Open Sans', sans-serif;
     text-transform: uppercase;
 }
 
@@ -13059,7 +13059,7 @@ table.table.cart-table td.add-cart {
 }
 
     .row-total h3 {
-        font: 700 18px/20px "Roboto Slab";
+        font: 700 18px/20px 'Open Sans', sans-serif;
         color: #333;
         text-transform: uppercase;
         padding-left: 45px;
@@ -13067,7 +13067,7 @@ table.table.cart-table td.add-cart {
 
     .row-total .float-right p {
         color: #80b435;
-        font: 700 18px/20px "Roboto Slab";
+        font: 700 18px/20px 'Open Sans', sans-serif;
         padding-right: 45px;
     }
 
@@ -13114,7 +13114,7 @@ table.table.cart-table td.add-cart {
         }
 
 .check-out .form-horizontal label.control-label {
-    font: 700 16px/20px "Roboto Slab";
+    font: 700 16px/20px 'Open Sans', sans-serif;
     color: #2b2b2b;
     text-transform: uppercase;
 }
@@ -13627,17 +13627,17 @@ table.table.cart-table td {
             outline: none;
             color: #80b435;
             text-transform: capitalize;
-            font: 400 16px "Roboto Slab";
+            font: 400 16px 'Open Sans', sans-serif;
         }
 
             .ordering form select option {
-                font: 400 16px "Roboto Slab";
+                font: 400 16px 'Open Sans', sans-serif;
             }
 
 p.result-count {
     padding-bottom: 3px;
     display: inline-block;
-    font: 400 16px/20px "Roboto Slab";
+    font: 400 16px/20px 'Open Sans', sans-serif;
     color: #2b2b2b;
     margin-left: 20px;
     margin-bottom: 13px;
@@ -13695,7 +13695,7 @@ p.result-count {
             }
 
 nav.pagination {
-    font-family: "Oswald";
+    font-family: 'Open Sans', sans-serif;
     width: 100%;
     padding: 5px;
     margin-bottom: 30px;
@@ -13749,7 +13749,7 @@ nav.pagination {
     .order-tracking p {
         max-width: 900px;
         padding: 0 20px;
-        font: 400 16px/30px "Roboto Slab";
+        font: 400 16px/30px 'Open Sans', sans-serif;
         margin: auto;
         margin-top: 40px;
         color: #565656;
@@ -13769,7 +13769,7 @@ nav.pagination {
         }
 
         .order-tracking .tracking-content .form-horizontal label.control-label {
-            font: 400 18px/20px "Roboto Slab";
+            font: 400 18px/20px 'Open Sans', sans-serif;
             color: #000;
             text-align: center;
             text-transform: uppercase;
@@ -13996,13 +13996,13 @@ nav.pagination {
     }
 
     #topbar.topbar-ver2 .float-left p {
-        font: 300 13px/20px "Roboto Slab";
+        font: 300 13px/20px 'Open Sans', sans-serif;
         color: #231f20;
         margin-top: 4px;
     }
 
         #topbar.topbar-ver2 .float-left p span {
-            font: 700 13px/20px "Roboto Slab";
+            font: 700 13px/20px 'Open Sans', sans-serif;
             color: #80b435;
         }
 
@@ -14023,7 +14023,7 @@ nav.pagination {
 
 #topbar .float-left p {
     display: block;
-    font: 300 13px/20px "Roboto Slab";
+    font: 300 13px/20px 'Open Sans', sans-serif;
     text-align: left;
     margin: 3px 0px;
 }
@@ -14034,7 +14034,7 @@ nav.pagination {
 
     #topbar .float-left p span {
         color: #13a8a8;
-        font: 700 18px/20px "Roboto Slab";
+        font: 700 18px/20px 'Open Sans', sans-serif;
     }
 
     #topbar .float-left p.phone {
@@ -14373,7 +14373,7 @@ nav.pagination {
 }
 
     #topbar .float-right .list-menu.cart-list .bottom a {
-        font: 700 14px/40px "Roboto Slab";
+        font: 700 14px/40px 'Open Sans', sans-serif;
     }
 
         #topbar .float-right .list-menu.cart-list .bottom a:hover {
@@ -14432,7 +14432,7 @@ nav.pagination {
             }
 
         .cart-list li .text .product-name {
-            font: 400 18px/20px "Roboto Slab";
+            font: 400 18px/20px 'Open Sans', sans-serif;
             color: #2b2b2b;
         }
 
@@ -14469,7 +14469,7 @@ nav.pagination {
             .cart-list .total span.right {
                 float: right;
                 color: #80b435;
-                font: 700 18px/34px "Roboto Slab";
+                font: 700 18px/34px 'Open Sans', sans-serif;
             }
 
     .cart-list .qty {
@@ -15001,7 +15001,7 @@ nav.pagination {
     color: #2b2b2b;
     height: 40px;
     padding: 0px;
-    font: 700 18px/40px "Roboto Slab";
+    font: 700 18px/40px 'Open Sans', sans-serif;
 }
 
     .mega-menu ul.navbar-nav li a:after {
@@ -15081,7 +15081,7 @@ nav.pagination {
     -webkit-transition: all 0.4s ease 0s;
     -o-transition: all 0.4s ease 0s;
     transition: all 0.4s ease 0s;
-    font: 400 14px/40px "Roboto Slab";
+    font: 400 14px/40px 'Open Sans', sans-serif;
     padding-left: 15px;
     position: relative;
     letter-spacing: 0px;
@@ -15261,7 +15261,7 @@ nav.pagination {
             background: none !important;
             padding: 0px;
             text-transform: uppercase;
-            font: 700 16px/30px "Roboto Slab";
+            font: 700 16px/30px 'Open Sans', sans-serif;
             color: #333;
             border: none;
         }
@@ -15289,7 +15289,7 @@ nav.pagination {
         .mega-menu ul.navbar-nav .sub-menu ul.menu-level-1 li.level3 a {
             color: #666;
             text-transform: capitalize;
-            font: 400 14px/40px "Roboto Slab";
+            font: 400 14px/40px 'Open Sans', sans-serif;
             -webkit-transition: all 0.5s ease 0s;
             -o-transition: all 0.5s ease 0s;
             transition: all 0.5s ease 0s;
@@ -15518,13 +15518,13 @@ nav.pagination {
 }
 
 .categories-home3 h3 {
-    font: 700 24px/60px "Roboto Slab";
+    font: 700 24px/60px 'Open Sans', sans-serif;
     color: #2b2b2b;
     text-transform: uppercase;
 }
 
 .categories-home3 ul li {
-    font: 400 18px/60px "Roboto Slab";
+    font: 400 18px/60px 'Open Sans', sans-serif;
     color: #666;
     text-transform: capitalize;
     border-top: 1px dotted #cdcdcd;
@@ -15554,23 +15554,23 @@ nav.pagination {
         }
 
         .box-cat-home3 h3 {
-            font: 700 20px/30px "Roboto Slab";
+            font: 700 20px/30px 'Open Sans', sans-serif;
             padding-bottom: 8px;
             margin-top: -10px;
         }
 
         .box-cat-home3 ul li {
-            font: 400 16px/38px "Roboto Slab";
+            font: 400 16px/38px 'Open Sans', sans-serif;
         }
 }
 
 @media (max-width: 1200px) and (min-width: 980px) {
     .box-cat-home3 h3 {
-        font: 700 20px/40px "Roboto Slab";
+        font: 700 20px/40px 'Open Sans', sans-serif;
     }
 
     .box-cat-home3 ul li {
-        font: 400 16px/45px "Roboto Slab";
+        font: 400 16px/45px 'Open Sans', sans-serif;
     }
 }
 
@@ -15689,7 +15689,7 @@ nav.pagination {
 }
 
 .icon-pushmenu {
-    font: 700 14px/20px "Oswald";
+    font: 700 14px/20px 'Open Sans', sans-serif;
     color: #000;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -15882,7 +15882,7 @@ button.button_search {
 
 #footer.footer-v3 p {
     color: #666;
-    font: 400 14px/24px "Roboto Slab";
+    font: 400 14px/24px 'Open Sans', sans-serif;
 }
 
 #footer.footer-v3 .bottom {
@@ -15946,7 +15946,7 @@ button.button_search {
         }
 
 #footer .title-footer {
-    font: 400 20px "Roboto Slab";
+    font: 400 20px 'Open Sans', sans-serif;
     color: #80b435;
     padding-bottom: 10px;
     margin-bottom: 20px;
@@ -15956,7 +15956,7 @@ button.button_search {
 
 #footer .list-footer li {
     color: #666;
-    font: 400 14px/20px "Roboto Slab";
+    font: 400 14px/20px 'Open Sans', sans-serif;
     padding: 5px 0px;
 }
 
@@ -15966,7 +15966,7 @@ button.button_search {
 
     #footer .list-footer li a {
         color: #666;
-        font: 400 14px/20px "Roboto Slab";
+        font: 400 14px/20px 'Open Sans', sans-serif;
     }
 
         #footer .list-footer li a:hover {
@@ -16018,7 +16018,7 @@ button.button_search {
         color: #fff;
         border: 1px solid #80b435;
         transiton: all 0.3s ease 0s;
-        font: 700 12px/35px "Roboto Slab";
+        font: 700 12px/35px 'Open Sans', sans-serif;
         text-transform: uppercase;
         letter-spacing: 0px;
         width: 140px;
@@ -16105,7 +16105,7 @@ button.button_search {
     }
 
         #footer .footer-bottom .language span, #footer .footer-bottom .language p, #footer .footer-bottom .language a {
-            font: 400 12px/20px "Roboto Slab";
+            font: 400 12px/20px 'Open Sans', sans-serif;
             color: #666;
         }
 
@@ -16144,7 +16144,7 @@ button.button_search {
 
         #footer .footer-bottom .menu-bottom-footer a {
             color: #666;
-            font: 400 12px/20px "Roboto Slab";
+            font: 400 12px/20px 'Open Sans', sans-serif;
         }
 
             #footer .footer-bottom .menu-bottom-footer a:hover {
@@ -17462,11 +17462,11 @@ nav.megamenu-v2 {
     }
 
 .tp-banner-container .font-os {
-    font-family: "Oswald";
+    font-family: 'Open Sans', sans-serif;
 }
 
 .tp-banner-container .font-play {
-    font-family: "Playfair Display";
+    font-family: 'Open Sans', sans-serif;
 }
 
 .tp-banner-container .font-pop {
@@ -17499,7 +17499,7 @@ nav.megamenu-v2 {
 }
 
 .tp-banner-container .font-ros {
-    font-family: "Roboto Slab";
+    font-family: 'Open Sans', sans-serif;
 }
 
 .tp-banner-container .font-300 {
@@ -18098,14 +18098,14 @@ nav.megamenu-v2 {
     }
 
         .page-404 .text h3 {
-            font: 700 36px/40px "Roboto Slab";
+            font: 700 36px/40px 'Open Sans', sans-serif;
             color: #2b2b2b;
             text-transform: uppercase;
             margin-bottom: 30px;
         }
 
         .page-404 .text p {
-            font: 300 18px "Roboto Slab";
+            font: 300 18px 'Open Sans', sans-serif;
             color: #2b2b2b;
             margin-bottom: 30px;
         }
@@ -18292,7 +18292,7 @@ nav.megamenu-v2 {
 
     .page-faq .content-text h2 {
         color: #80b435;
-        font: 400 30px/30px "Roboto Slab";
+        font: 400 30px/30px 'Open Sans', sans-serif;
         margin-bottom: 50px;
     }
 
@@ -18307,7 +18307,7 @@ nav.megamenu-v2 {
         }
 
     .page-faq .content-text p {
-        font: 400 16px/25px "Roboto Slab";
+        font: 400 16px/25px 'Open Sans', sans-serif;
         color: #949494;
     }
 
@@ -18365,7 +18365,7 @@ nav.megamenu-v2 {
 
     .page-contact .content-text h3 {
         color: #80b435;
-        font: 400 48px/50px "Roboto Slab";
+        font: 400 48px/50px 'Open Sans', sans-serif;
         margin-bottom: 0px;
     }
 
@@ -18374,7 +18374,7 @@ nav.megamenu-v2 {
         }
 
     .page-contact .content-text p {
-        font: 400 24px/30px "Roboto Slab";
+        font: 400 24px/30px 'Open Sans', sans-serif;
         color: #333;
         margin-bottom: 50px;
     }
@@ -18560,7 +18560,7 @@ nav.megamenu-v2 {
     }
 
         .slider-loobook2 .items .text h3 {
-            font: 400 40px "Playfair Display";
+            font: 400 40px 'Open Sans', sans-serif;
             color: #000;
             line-height: 40px;
             margin-bottom: 15px;
@@ -18568,7 +18568,7 @@ nav.megamenu-v2 {
 
         .slider-loobook2 .items .text p {
             font-weight: 300;
-            font-family: "Oswald";
+            font-family: 'Open Sans', sans-serif;
             text-transform: uppercase;
             letter-spacing: 3px;
             color: #9d9d9d;
@@ -18682,7 +18682,7 @@ nav.megamenu-v2 {
 }
 
 .table.wishlist tbody .product-instock a, .table.wishlist tbody .product-instock span {
-    font: 400 10px/20px "Oswald";
+    font: 400 10px/20px 'Open Sans', sans-serif;
     letter-spacing: 2px;
     border: 2px solid #000;
     text-transform: uppercase;
@@ -18932,7 +18932,7 @@ nav.megamenu-v2 {
         }
 
             .slider-full-screen2 .slide .text h3 {
-                font: 300 10px/20px "Oswald";
+                font: 300 10px/20px 'Open Sans', sans-serif;
             }
 
         .slider-full-screen2 .slider-one-item .product .text {
@@ -19249,7 +19249,7 @@ nav.megamenu-v2 {
                         }
 
                             .mega-menu ul.navbar-nav .sub-menu ul.menu-level-1 li.level2 a {
-                                font: 400 14px/40px "Roboto Slab";
+                                font: 400 14px/40px 'Open Sans', sans-serif;
                                 text-transform: capitalize;
                                 letter-spacing: 0px;
                                 padding-left: 15px;
@@ -19714,7 +19714,7 @@ nav.megamenu-v2 {
     }
 
         .banner-home3-lookbook2 .text h3 {
-            font: 300 20px/30px "Oswald";
+            font: 300 20px/30px 'Open Sans', sans-serif;
             padding-bottom: 20px;
         }
 
@@ -19770,7 +19770,7 @@ nav.megamenu-v2 {
     }
 
     .banner-product-details3 h3 {
-        font: 400 30px/30px "Oswald";
+        font: 400 30px/30px 'Open Sans', sans-serif;
     }
 
     .container-ver2 .product-details-content .col-md-6:last-child {
@@ -19885,7 +19885,7 @@ nav.megamenu-v2 {
         }
 
     .control-page a.title {
-        font: 400 30px/30px "Playfair Display";
+        font: 400 30px/30px 'Open Sans', sans-serif;
     }
 
     .popup-content-wrapper {
@@ -20508,7 +20508,7 @@ nav.megamenu-v2 {
     }
 
         .mockup-v2 .col-md-6 .text .box-icons p {
-            font: 300 12px/15px "Oswald";
+            font: 300 12px/15px 'Open Sans', sans-serif;
         }
 
             .mockup-v2 .col-md-6 .text .box-icons p .icons {
@@ -20520,7 +20520,7 @@ nav.megamenu-v2 {
             }
 
     .banner-product-details3 h3 {
-        font: 400 14px/30px "Oswald";
+        font: 400 14px/30px 'Open Sans', sans-serif;
     }
 
     .blog-masonry .grid-sizer, .blog-masonry .grid-item {
@@ -20532,7 +20532,7 @@ nav.megamenu-v2 {
     }
 
     .banner-header.banner-lbook3.single-post .text h3 {
-        font: 400 30px/30px "Playfair Display";
+        font: 400 30px/30px 'Open Sans', sans-serif;
     }
 
     .wrap-googlemap .col-md-6 {
@@ -20562,7 +20562,7 @@ nav.megamenu-v2 {
     }
 
     .control-page a.title {
-        font: 400 20px/20px "Playfair Display";
+        font: 400 20px/20px 'Open Sans', sans-serif;
     }
 
     .control-page .box-icon {
@@ -21258,7 +21258,7 @@ nav.megamenu-v2 {
         }
 
         .banner-video .text h3 {
-            font: 400 15px/20px "Oswald";
+            font: 400 15px/20px 'Open Sans', sans-serif;
             letter-spacing: 10px;
         }
 
@@ -21349,11 +21349,11 @@ nav.megamenu-v2 {
     }
 
         .mockup-v2 .col-md-6 .text h4 {
-            font: 300 12px/15px "Oswald";
+            font: 300 12px/15px 'Open Sans', sans-serif;
         }
 
         .mockup-v2 .col-md-6 .text h3 {
-            font: 400 20px/20px "Playfair Display";
+            font: 400 20px/20px 'Open Sans', sans-serif;
         }
 
         .mockup-v2 .col-md-6 .text .box-icons p {
@@ -21369,7 +21369,7 @@ nav.megamenu-v2 {
     }
 
     .banner-product-details3 h3 {
-        font: 400 12px/20px "Oswald";
+        font: 400 12px/20px 'Open Sans', sans-serif;
     }
 
     .blog-post-container .blog-post-item .blog-post-image iframe {

@@ -118,7 +118,7 @@
         color: #43A047; } */
   .fr-view span.fr-emoticon {
     font-weight: normal;
-    font-family: "Apple Color Emoji","Segoe UI Emoji","NotoColorEmoji","Segoe UI Symbol","Android Emoji","EmojiSymbols";
+    font-family: 'Open Sans', sans-serif;
     display: inline;
     line-height: 0; }
     .fr-view span.fr-emoticon.fr-emoticon-img {
@@ -15792,7 +15792,7 @@ p {
   font-family: 'Source Sans Pro', sans-serif !important;
 }
 .u-font-oswald.u-custom-font {
-  font-family: Oswald, sans-serif !important;
+  font-family: 'Open Sans', sans-serif;
 }
 .u-font-raleway.u-custom-font {
   font-family: Raleway, sans-serif !important;
@@ -15921,7 +15921,7 @@ section.u-opacity:before,
 }
 .u-social-icons .u-social-url,
 .u-social-icons .u-social-url:hover {
-  color: currentColor;
+    color: #2f89fc;
 }
 .u-social-icons a {
   height: 100%;
