@@ -74,7 +74,6 @@
                                             @if (Model.GIOI_TINH == "")
                                             {
                                                 <option hidden>Giới tính *</option>
-
                                             }
                                             else if (Model.GIOI_TINH != null)
                                             {
@@ -91,14 +90,7 @@
 
                             <div class="col-10">
                                 <div class="form-group">
-                                    @if (Model.NGAY_SINH == null)
-                                    {
-                                        <input type="date" min="@(DateTime.Now.Year-100)-12-31" max="@(DateTime.Now.Year-18)-12-31" class="form-control" id="NGAY_SINH" value="@Model.NGAY_SINH" name="ngaysinh">
-                                    }
-                                    else
-                                    {
-                                        <input type="text" min="@(DateTime.Now.Year-100)-12-31" max="@(DateTime.Now.Year-18)-12-31" class="form-control" id="NGAY_SINH" value="@Html.FormatValue(Model.NGAY_SINH,"{0:d}")" name="ngaysinh">
-                                    }
+                                    <input type="date" min="@(DateTime.Now.Year-100)-12-31" max="@(DateTime.Now.Year-18)-12-31" class="form-control" id="NGAY_SINH" value="@Model.NGAY_SINH.Value.ToString("yyyy-MM-dd")" name="ngaysinh">
                                     @Html.ValidationMessageFor(model => model.NGAY_SINH, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group">

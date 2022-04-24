@@ -1,69 +1,85 @@
 ﻿@model VanLangDoctor.Models.SO_KHAM_BENH
 
 @{
-    ViewBag.Title = "So_Kham_Benh";
+    ViewBag.Title = "Sổ khám bệnh";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
 
-<div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
-     data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
-
-    <div class="page-wrapper" style="display: block">
-        <!-- ============================================================== -->
-        <!-- Bread crumb and right sidebar toggle -->
-        <!-- ============================================================== -->
-        <div class="page-breadcrumb">
-            <h1 class="u-custom-font u-font-oswald u-text u-text-default u-title u-text-1">Sổ khám bệnh</h1>
-            <br />
-            <div class="form-row">
-                <label for="name">Họ tên</label>
-                <input type="text" value="@Model.BENH_NHAN.TEN_BN" class="form-control" readonly />
-            </div>
-            <br />
-            <div class="form-row" id="showInf">
-                <div class="form-group col-md-3">
-                    <label for="age">Tuổi</label>
-                    <input type="text" value="@(DateTime.Now.Year - Model.BENH_NHAN.NGAY_SINH.Value.Year)" class="form-control" id="age" placeholder="Age" readonly>
-                </div>
-                <div class="form-group col-md-4">
-                    <label for="gender">Giới tính</label>
-                    <input type="text" value="@Model.BENH_NHAN.GIOI_TINH" class="form-control" id="gender" placeholder="Gender" readonly>
-                </div>
-                <div class="form-group col-md-5">
-                    <label for="address">Địa chỉ</label>
-                    <input type="text" value="@Model.BENH_NHAN.DIA_CHI" class="form-control" id="address" placeholder="Address" readonly>
+<div class="page-wrapper" style="display: block">
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-7 align-self-center">
+                <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">@ViewBag.Title</h4>
+                <div class="d-flex align-items-center">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb m-0 p-0">
+                            <li class="breadcrumb-item"><a href="/trang-chu-quan-ly" class="text-muted">Trang chủ</a></li>
+                            <li class="breadcrumb-item text-muted active" aria-current="page">@ViewBag.Title</li>
+                        </ol>
+                    </nav>
                 </div>
             </div>
-            <br />
-            <div class="form-row">
-                <label for="medicine">Danh sách đơn thuốc</label>
-                <table id="Medicine" class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Chẩn đoán</th>
-                            <th scope="col">Kết quả</th>
-                            <th scope="col">Ngày tạo</th>
-                            <th scope="col">Bác sĩ</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @for (var i = 0; i < ViewBag.Prescriptions.Count; i++)
-                        {
+            <div class="col-5 align-self-center">
+                <div class="customize-input float-right">
+                    <a class="button-plus" href="~/trang-chu-quan-ly/bac-si/them-moi">
+                        <span>Thêm bác sĩ</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body">
+                <div class="form-row">
+                    <label for="name">Họ tên</label>
+                    <input type="text" value="@Model.BENH_NHAN.TEN_BN" class="form-control" readonly />
+                </div>
+                <br />
+                <div class="form-row" id="showInf">
+                    <div class="form-group col-md-3">
+                        <label for="age">Tuổi</label>
+                        <input type="text" value="@(DateTime.Now.Year - Model.BENH_NHAN.NGAY_SINH.Value.Year)" class="form-control" id="age" placeholder="Age" readonly>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="gender">Giới tính</label>
+                        <input type="text" value="@Model.BENH_NHAN.GIOI_TINH" class="form-control" id="gender" placeholder="Gender" readonly>
+                    </div>
+                    <div class="form-group col-md-5">
+                        <label for="address">Địa chỉ</label>
+                        <input type="text" value="@Model.BENH_NHAN.DIA_CHI" class="form-control" id="address" placeholder="Address" readonly>
+                    </div>
+                </div>
+                <br />
+                <div class="form-row">
+                    <label for="medicine">Danh sách đơn thuốc</label>
+                    <table id="Medicine" class="table table-hover">
+                        <thead>
                             <tr>
-                                <td scope="row">@(i + 1)</td>
-                                <td>@ViewBag.Prescriptions[i].CHUAN_DOAN</td>
-                                <td>@ViewBag.Prescriptions[i].KET_QUA</td>
-                                <td>@ViewBag.Prescriptions[i].NGAY_LAP</td>
-                                <td>@ViewBag.Prescriptions[i].BACSI.TEN_BACSI</td>
+                                <th scope="col">#</th>
+                                <th scope="col">Chẩn đoán</th>
+                                <th scope="col">Kết quả</th>
+                                <th scope="col">Ngày tạo</th>
+                                <th scope="col">Bác sĩ</th>
                             </tr>
-                        }
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            @for (var i = 0; i < ViewBag.Prescriptions.Count; i++)
+                            {
+                                <tr>
+                                    <td scope="row">@(i + 1)</td>
+                                    <td>@ViewBag.Prescriptions[i].CHUAN_DOAN</td>
+                                    <td>@ViewBag.Prescriptions[i].KET_QUA</td>
+                                    <td>@ViewBag.Prescriptions[i].NGAY_LAP</td>
+                                    <td>@ViewBag.Prescriptions[i].BACSI.TEN_BACSI</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <a href="@Url.Action("DanhSach_BN", "QL_BenhNhan")" class="btn btn-primary">Quay lại</a>
             </div>
-            <a href="@Url.Action("DanhSach_BN", "QL_BenhNhan")" class="btn btn-primary">Quay lại</a>
-            <br />
         </div>
     </div>
 </div>

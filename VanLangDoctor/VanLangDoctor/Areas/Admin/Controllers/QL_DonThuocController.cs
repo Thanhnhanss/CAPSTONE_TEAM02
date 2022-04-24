@@ -37,7 +37,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         }
 
         // GET: Admin/QL_DonThuoc/Create
-        public ActionResult Create()
+        public ActionResult ThemDonThuoc()
         {
             ViewBag.Patient = GetAllPatient();
             ViewBag.Medicine = GetAllMedicine();
@@ -51,7 +51,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public ActionResult Create(PatientModel dON_THUOC)
+        public ActionResult ThemDonThuoc(PatientModel dON_THUOC)
         {
             if (ModelState.IsValid)
             {
@@ -63,11 +63,12 @@ namespace VanLangDoctor.Areas.Admin.Controllers
                 }
                 benhNhan.SO_KHAM_BENH.ElementAt(0).DON_THUOC.Add(new DON_THUOC
                 {
+
                     CHUAN_DOAN = dON_THUOC.ChanDoan,
                     CHI_DINH = dON_THUOC.ChiDinh,
                     LOI_DAN = dON_THUOC.LoiDan,
                     KET_QUA = dON_THUOC.KetQua,
-                    NGAY_LAP = dON_THUOC.NgayKhoiTao,
+                    NGAY_LAP = DateTime.Now,
                     ID_BACSI = dON_THUOC.BacSi,
                     CHI_TIET_DON_THUOC = dON_THUOC.Thuocs.Select(item => new CHI_TIET_DON_THUOC
                     {
@@ -76,7 +77,8 @@ namespace VanLangDoctor.Areas.Admin.Controllers
                     }).ToList()
                 });
                 db.SaveChanges();
-                return RedirectToAction("Index", "QL_DonThuoc", new { area = "Admin" });
+                TempData["Success"] = "Kê đơn thành công";
+                return RedirectToAction("DS_DonThuoc", "QL_DonThuoc");
             }
 
             //ViewBag.ID_BACSI = new SelectList(db.BACSIs, "ID_BACSI", "TEN_BACSI", dON_THUOC.ID_BACSI);
@@ -123,7 +125,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
                 }).ToList();
                 db.Entry(donthuoc).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("DS_DonThuoc");
             }
             ViewBag.Medicine = GetAllMedicine();
             //ViewBag.ID_BACSI = new SelectList(db.BACSIs, "ID_BACSI", "TEN_BACSI", dON_THUOC.ID_BACSI);
@@ -131,36 +133,6 @@ namespace VanLangDoctor.Areas.Admin.Controllers
             return View(donthuoc);
         }
 
-        //// GET: Admin/QL_DonThuoc/Delete/5
-        //public ActionResult Delete(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    DON_THUOC dON_THUOC = db.DON_THUOC.Find(id);
-        //    if (dON_THUOC == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(dON_THUOC);
-        //}
-
-        //// POST: Admin/QL_DonThuoc/Delete/5
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult DeleteConfirmed(int id)
-        //{
-        //    DON_THUOC dON_THUOC = db.DON_THUOC.Find(id);
-        //    db.DON_THUOC.Remove(dON_THUOC);
-        //    db.SaveChanges();
-        //    return RedirectToAction("Index");
-        //}
-
-        /// <summary>
-        /// Get All Medicine
-        /// </summary>
-        /// <returns></returns>
         [HttpGet]
         public List<THUOC> GetAllMedicine() => db.THUOCs.ToList();
 
@@ -219,14 +191,6 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         public class PatientModel
         {
             public int HoTen { get; set; }
-
-            public int Tuoi { get; set; }
-
-            public string GioiTinh { get; set; }
-
-            public string DiaChi { get; set; }
-
-            public DateTime NgayKhoiTao { get; set; }
 
             public string ChanDoan { get; set; }
 

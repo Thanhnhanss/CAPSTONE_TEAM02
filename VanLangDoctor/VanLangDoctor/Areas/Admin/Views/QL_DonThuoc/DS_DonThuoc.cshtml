@@ -1,13 +1,12 @@
-﻿@using VanLangDoctor.Models
-@model IEnumerable<VanLangDoctor.Models.DON_THUOC>
+﻿@model IEnumerable<VanLangDoctor.Models.DON_THUOC>
 
 @{
     ViewBag.Title = "Danh sách đơn thuốc";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
-<!-- This page plugin CSS -->
+
 <link href="~/Content/dist-ad/css/style.min.css" rel="stylesheet">
-<!-- Custom CSS -->
+
 <div class="page-wrapper" style="display: block">
     <div class="page-breadcrumb">
         <div class="row">
@@ -24,78 +23,52 @@
             </div>
             <div class="col-5 align-self-center">
                 <div class="customize-input float-right">
-                    <a class="button-plus" href="@Url.Action("Index", "QL_Thuoc")">
-                        <span>Trở về</span>
+                    <a class="button-plus" href="@Url.Action("ThemDonThuoc", "QL_DonThuoc")">
+                        <span>Kê đơn thuốc</span>
                     </a>
                 </div>
             </div>
         </div>
     </div>
-    <!-- ============================================================== -->
-    <!-- End Bread crumb and right sidebar toggle -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- Container fluid  -->
-    <!-- ============================================================== -->
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        @if (TempData["Success"] != null)
-                        {
-                            <div class="alert alert-success alert-dismissible bg-success text-white border-0 fade show" role="alert" id="successMessage">
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true" style=" float: right; margin-top: -10px">×</span>
-                                </button>
-                                <strong>@TempData["Success"]</strong>
-                            </div>
-                        }
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div style="text-align:center">
-                                            <h3 class="card-title">Đơn thuốc</h3>
-                                        </div>
-                                        <div class="container">
-                                            <div class="table-responsive">
-                                                <table class="table table-bordered">
-                                                    <thead>
-                                                        <tr class="border-color-red">
-                                                            <th scope="col">Bệnh nhân</th>
-                                                            <th scope="col">Chuẩn đoán</th>
-                                                            <th scope="col">Chỉ định</th>
-                                                            <th scope="col">Lời dặn</th>
-                                                            <th scope="col">Ngày lập</th>
-                                                        </tr>
-                                                    </thead>
-
-                                                    @foreach (var item in Model)
-                                                    {
-                                                        <tr>
-                                                            <td>@item.SO_KHAM_BENH.BENH_NHAN.TEN_BN</td>
-                                                            <td>
-                                                                @Html.DisplayFor(modelItem => item.CHUAN_DOAN)
-                                                            </td>
-                                                            <td>
-                                                                @Html.DisplayFor(modelItem => item.CHI_DINH)
-                                                            </td>
-                                                            <td>
-                                                                @Html.DisplayFor(modelItem => item.LOI_DAN)
-                                                            </td>
-                                                            <td>
-                                                                @Html.DisplayFor(modelItem => item.NGAY_LAP)
-                                                            </td>
-
-                                                        </tr>
-                                                    }
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
+                        <div class="table-responsive">
+                            @if (TempData["Success"] != null)
+                            {
+                                <div class="alert alert-success alert-dismissible bg-success text-white border-0 fade show" role="alert" id="successMessage">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true" style=" float: right; margin-top: -10px">×</span>
+                                    </button>
+                                    <strong>@TempData["Success"]</strong>
                                 </div>
-                            </div>
+                            }
+                            <table id="zero_config" class="table table-striped table-bordered no-wrap">
+                                <thead style="text-align: center;">
+                                    <tr>
+                                        <th scope="col">Tên bệnh nhân</th>
+                                        <th>Bác sĩ</th>
+                                        <th>Ngày lập</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@item.SO_KHAM_BENH.BENH_NHAN.TEN_BN</td>
+                                            <td>@item.BACSI.TEN_BACSI</td>
+                                            <th><a href="@Url.Action("Details", "QL_DonThuoc", new { id = item.ID_DON_THUOC })">@item.NGAY_LAP.Value.ToString("dd/MM/yyyy hh:mm tt")</a></th>
+                                            <td>
+                                                @Html.ActionLink("Details", "Details", new { id = item.ID_DON_THUOC })
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>

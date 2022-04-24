@@ -198,13 +198,13 @@
                     {
                         <div class="u-container-style u-list-item u-repeater-item">
                             <div class="u-container-layout u-similar-container u-container-layout-1">
-                                <a href="@Url.Action("Details", "TinTuc", new {id = n.ID_TIN_TUC})">
+                                <a href="~/trang-chu/tin-tuc/@n.TEN_BAI_VIET.ToLower().Replace(" ","-")-@n.ID_TIN_TUC">
                                     <img alt="" class="u-expanded-width u-image u-image-default u-image-1" data-image-width="2000" data-image-height="1333" src="@Url.Action("Picture","TinTuc", new { n.ID_TIN_TUC})">
                                 </a>
-                                <a href="@Url.Action("Details", "TinTuc", new {id = n.ID_TIN_TUC})">
+                                <a href="~/trang-chu/tin-tuc/@n.TEN_BAI_VIET.ToLower().Replace(" ","-")-@n.ID_TIN_TUC">
                                     <h5 class="u-text u-text-default u-text-2">@n.TEN_BAI_VIET</h5>
                                 </a>
-                                <a href="@Url.Action("Details", "TinTuc", new {id = n.ID_TIN_TUC})" class="u-active-none u-border-2 u-border-hover-palette-2-base u-border-palette-2-light-1 u-btn u-button-style u-hover-none u-none u-text-body-color u-btn-1">Xem chi tiết</a>
+                                <a href="~/trang-chu/tin-tuc/@n.TEN_BAI_VIET.ToLower().Replace(" ","-")-@n.ID_TIN_TUC" class="u-active-none u-border-2 u-border-hover-palette-2-base u-border-palette-2-light-1 u-btn u-button-style u-hover-none u-none u-text-body-color u-btn-1">Xem chi tiết</a>
                             </div>
                         </div>
                     }
