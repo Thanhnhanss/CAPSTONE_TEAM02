@@ -48,8 +48,7 @@
 
                             <div class="u-form-email u-form-group u-form-partition-factor-3 u-form-group-2">
                                 <label class="u-form-control-hidden u-label">Số điện thoại</label>
-                                @Html.EditorFor(model => model.SDT, new { htmlAttributes = new { @class = "u-grey-10 u-input u-input-rectangle", @placeholder = "Số điện thoại" } })
-                                @Html.ValidationMessageFor(model => model.SDT, "", new { @class = "text-danger" })
+                                <input type="tel" pattern="\+?\d{0,3}[\s\(\-]?([0-9]{2,3})[\s\)\-]?([\s\-]?)([0-9]{3})[\s\-]?([0-9]{2})[\s\-]?([0-9]{2})" placeholder="Số điện thoại *" id="SDT" name="SDT" value="@Model.SDT" class="u-grey-10 u-input u-input-rectangle" required >
                             </div>
 
                             <div class="u-form-group u-form-message u-form-group-4">

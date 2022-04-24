@@ -376,6 +376,13 @@
     <Content Include="Content\assets-ad\images\Icon\profile.png" />
     <Content Include="Content\assets-ad\images\Icon\statistics.png" />
     <Content Include="Content\assets-ad\images\Icon\stethoscope.png" />
+    <Content Include="Content\assets-dr\assets-docban\images\docbanner.jpg" />
+    <Content Include="Content\assets-dr\assets-docban\jquery.js" />
+    <Content Include="Content\assets-dr\assets-docban\nicepage.css" />
+    <Content Include="Content\assets-dr\assets-docban\nicepage.js" />
+    <Content Include="Content\assets-dr\assets-docban\Page-1.css" />
+    <Content Include="Content\assets-dr\assets-docban\Page-1.html" />
+    <Content Include="Content\assets-dr\assets-docban\Post-Template.css" />
     <Content Include="Content\assets-dr\css\ajax-loader.gif" />
     <Content Include="Content\assets-dr\css\animate.css" />
     <Content Include="Content\assets-dr\css\aos.css" />
