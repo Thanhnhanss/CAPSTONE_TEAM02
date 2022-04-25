@@ -41,15 +41,12 @@
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control" id="TEN_BN" value="@Model.TEN_BN" name="hovaten" placeholder="Tên của bạn">
-                                @Html.ValidationMessageFor(model => model.TEN_BN, "", new { @class = "text-danger" })
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control" id="SDT" value="@Model.SDT" name="sdt" placeholder="Số điện thoại">
-                                @Html.ValidationMessageFor(model => model.SDT, "", new { @class = "text-danger" })
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control" id="GIOI_TINH" value="@Model.GIOI_TINH" name="gioitinh" placeholder="Giới tính">
-                                @Html.ValidationMessageFor(model => model.GIOI_TINH, "", new { @class = "text-danger" })
                             </div>
                         </div>
 
@@ -63,11 +60,9 @@
                                 {
                                     <input type="text" class="form-control" id="NGAY_SINH" value="@Html.FormatValue(Model.NGAY_SINH,"{0:d}")" name="ngaysinh">
                                 }
-                                @Html.ValidationMessageFor(model => model.NGAY_SINH, "", new { @class = "text-danger" })
                             </div>
                             <div class="form-group">
                                 <textarea name="diachi" id="CHUAN_DOAN" cols="30" rows="5" class="form-control" placeholder="Địa chỉ">@Model.DIA_CHI</textarea>
-                                @Html.ValidationMessageFor(model => model.DIA_CHI, "", new { @class = "text-danger" })
                             </div>
                         </div>
                     </div>
