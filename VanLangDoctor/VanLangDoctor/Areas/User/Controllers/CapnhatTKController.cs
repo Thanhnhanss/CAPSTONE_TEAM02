@@ -62,7 +62,7 @@ namespace VanLangDoctor.Areas.User.Controllers
                 db.Entry(user).State = System.Data.Entity.EntityState.Modified;
             }
             db.SaveChanges();
-            ViewBag.message = "Cập nhật thành công";
+            TempData["Success"] = "Cập nhật thành công";
             return View("CapnhatTK", user);
         }
 

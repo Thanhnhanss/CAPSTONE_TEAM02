@@ -37,18 +37,26 @@
             </div>
         </div>
     </section>
+    
 
     <section class="ftco-section contact-section ftco-degree-bg">
+        <div class="row d-flex mb-5 contact-info">
+            <div class="col-md-12 mb-4">
+                @if (TempData["success"] != null)
+                {
+                    <div class="center green border border-success rounded-pill mb-4" style="background-color:forestgreen">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true" style=" float: right; width:20px; margin-top: 5px">×</span>
+                        </button>
+                        <strong style="color:wheat">@TempData["success"]</strong>
+                    </div>
+                }
+            </div>
+        </div>
         <div class="container">
             <h1 style="text-align:center">@ViewBag.Title</h1>
-            <div class="row d-flex mb-5 contact-info">
-                <div class="col-md-12 mb-4">
-                    @if (ViewBag.message != null)
-                    {
-                        <h3 class="text-danger">@ViewBag.message</h3>
-                    }
-                </div>
-            </div>
+
+
             <div class="col-lg-offset-2">
                 <div class="col-md-12">
                     <form action="@Url.Action("Luu", "CapnhatTK")" method="post">
@@ -100,7 +108,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="submit" value="Cập nhật" class="btn btn-primary py-3 px-5">
+                            <input type="submit" value="Cập nhật" onclick="openPopup()" class="btn btn-primary py-3 px-5">
                             <input class="btn btn-primary py-3 px-5" id="registerRecord" value="Sổ khám bệnh" />
                         </div>
                     </form>
