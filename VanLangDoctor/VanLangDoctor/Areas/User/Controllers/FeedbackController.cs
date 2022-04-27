@@ -70,7 +70,7 @@ namespace VanLangDoctor.Areas.User.Controllers
             var toEmail = ConfigurationManager.AppSettings["toEmail"].ToString();
             new MailHelper().SendMail(toEmail, "Phản hồi của khách hàng", content);
 
-            ViewBag.message = "Đánh giá đã được gửi";
+            TempData["success"] = "Đánh giá đã được gửi";
             return View("Create", feedback);
         }
 

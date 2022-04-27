@@ -22,15 +22,15 @@ namespace VanLangDoctor.Models
         }
     
         public int ID_BENH_NHAN { get; set; }
-        [Required(ErrorMessage = "Hãy nhập tên")]
+        //[Required(ErrorMessage = "Hãy nhập tên")]
         public string TEN_BN { get; set; }
-        [Required(ErrorMessage = "Hãy nhập giới tính")]
+        ////[Required(ErrorMessage = "Hãy nhập giới tính")]
         public string GIOI_TINH { get; set; }
         public Nullable<System.DateTime> NGAY_SINH { get; set; }
-        [Required(ErrorMessage = "Hãy nhập số điện thoại."),
-            StringLength(maximumLength: 10, ErrorMessage = "Số điện thoại tối đa là 10 số."),
-            MinLength(10, ErrorMessage = "Số điện thoại có ít nhất là 10 số."),
-            RegularExpression("^[0-9_]*$", ErrorMessage = "Dữ liệu nhập vào phải có dạng số (0-9)")]
+        //[Required(ErrorMessage = "Hãy nhập số điện thoại."),
+        //    StringLength(maximumLength: 10, ErrorMessage = "Số điện thoại tối đa là 10 số."),
+        //    MinLength(10, ErrorMessage = "Số điện thoại có ít nhất là 10 số."),
+        //    RegularExpression("^[0-9_]*$", ErrorMessage = "Dữ liệu nhập vào phải có dạng số (0-9)")]
         public string SDT { get; set; }
         [Required(ErrorMessage = "Hãy nhập địa chỉ hiện tại")]
         public string DIA_CHI { get; set; }

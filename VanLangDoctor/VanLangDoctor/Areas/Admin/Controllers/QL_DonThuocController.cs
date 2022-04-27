@@ -81,6 +81,11 @@ namespace VanLangDoctor.Areas.Admin.Controllers
                 TempData["Success"] = "Kê đơn thành công";
                 return RedirectToAction("DS_DonThuoc", "QL_DonThuoc", new { area = "Admin"});
             }
+            else
+            {
+                TempData["warn"] = "Không thành công";
+                RedirectToAction("DS_DonThuoc");
+            }
             
 
             //ViewBag.ID_BACSI = new SelectList(db.BACSIs, "ID_BACSI", "TEN_BACSI", dON_THUOC.ID_BACSI);

@@ -59,7 +59,6 @@
                                         <th>Liều lượng</th>
                                         <th>Mô tả</th>
                                         <th>Hình ảnh</th>
-                                        <th>Nhà sản xuất</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -69,9 +68,9 @@
                                         <tr>
                                             <td>
                                                 <a href="@Url.Action("Edit", new { id = item.ID_THUOC})" title="@item.TEN_THUOC">
-                                                    @if (item.TEN_THUOC != null && item.TEN_THUOC.Length > 20)
+                                                    @if (item.TEN_THUOC != null && item.TEN_THUOC.Length > 35)
                                                     {
-                                                        @item.TEN_THUOC.Substring(0, 20)<span>...</span>
+                                                        @item.TEN_THUOC.Substring(0, 35)<span>...</span>
                                                     }
                                                     else
                                                     {
@@ -96,10 +95,6 @@
                                                 <a href="@Url.Action("Details", new { id = item.ID_THUOC})">
                                                     <img src="@Url.Action("Picture", new {item.ID_THUOC})" title="@item.TEN_THUOC" width="55" height="55" />
                                                 </a>
-                                            </td>
-                                           
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.NHA_SAN_XUAT.TEN_NSX)
                                             </td>
                                             <td>
                                                 <a href="@Url.Action("Edit", new { id = item.ID_THUOC})"><i class="ti-pencil"></i></a>

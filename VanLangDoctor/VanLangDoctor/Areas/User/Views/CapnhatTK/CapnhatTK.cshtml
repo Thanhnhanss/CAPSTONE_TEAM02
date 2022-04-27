@@ -37,7 +37,6 @@
             </div>
         </div>
     </section>
-    
 
     <section class="ftco-section contact-section ftco-degree-bg">
         <div class="row d-flex mb-5 contact-info">
@@ -55,8 +54,6 @@
         </div>
         <div class="container">
             <h1 style="text-align:center">@ViewBag.Title</h1>
-
-
             <div class="col-lg-offset-2">
                 <div class="col-md-12">
                     <form action="@Url.Action("Luu", "CapnhatTK")" method="post">
@@ -69,11 +66,11 @@
 
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="TEN_BN" value="@Model.TEN_BN" name="hovaten" pattern="[^#$%&*()!/><\][\\\x22\\\x40\\\x5E\\\x60\\\x3F,.:_+-=~;|]+$" placeholder="Tên của bạn *" required>
+                                    <input type="text" class="form-control" id="TEN_BN" value="@Model.TEN_BN" name="hovaten" pattern="[^#$%&*()!/><\][\\\x22\\\x40\\\x5E\\\x60\\\x3F,.:_+-=~;|]+$" maxlength="50" placeholder="Tên của bạn *" required>
                                     @Html.ValidationMessageFor(model => model.TEN_BN, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="SDT" value="@Model.SDT" name="sdt" pattern="\+?\d{0,3}[\s\(\-]?([0-9]{2,3})[\s\)\-]?([\s\-]?)([0-9]{3})[\s\-]?([0-9]{2})[\s\-]?([0-9]{2})" placeholder="Số điện thoại *" required>
+                                    <input type="text" class="form-control" id="SDT" value="@Model.SDT" name="sdt" pattern="\+?\d{0,3}[\s\(\-]?([0-9]{2,3})[\s\)\-]?([\s\-]?)([0-9]{3})[\s\-]?([0-9]{2})[\s\-]?([0-9]{2})" maxlength="10" placeholder="Số điện thoại *" required>
                                     @Html.ValidationMessageFor(model => model.SDT, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group">
@@ -81,7 +78,8 @@
                                         <select id="gioitinh" name="gioitinh" class="u-grey-10 u-input u-input-rectangle">
                                             @if (Model.GIOI_TINH == "")
                                             {
-                                                <option hidden>Giới tính *</option>
+                                                <option>Giới tính *</option>
+
                                             }
                                             else if (Model.GIOI_TINH != null)
                                             {
@@ -98,7 +96,14 @@
 
                             <div class="col-10">
                                 <div class="form-group">
-                                    <input type="date" min="@(DateTime.Now.Year-100)-12-31" max="@(DateTime.Now.Year-18)-12-31" class="form-control" id="NGAY_SINH" value="@Model.NGAY_SINH.Value.ToString("yyyy-MM-dd")" name="ngaysinh">
+                                    @if (Model.NGAY_SINH == null)
+                                    {
+                                        <input type="date" min="@(DateTime.Now.Year-100)-12-31" max="@(DateTime.Now.Year-18)-12-31" class="form-control" id="NGAY_SINH" value="@Model.NGAY_SINH" name="ngaysinh" required>
+                                    }
+                                    else
+                                    {
+                                        <input type="date" min="@(DateTime.Now.Year-100)-12-31" max="@(DateTime.Now.Year-18)-12-31" class="form-control" id="NGAY_SINH" value="@Model.NGAY_SINH.Value.ToString("yyyy-MM-dd")" name="ngaysinh" required>
+                                    }
                                     @Html.ValidationMessageFor(model => model.NGAY_SINH, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group">
@@ -108,7 +113,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="submit" value="Cập nhật" onclick="openPopup()" class="btn btn-primary py-3 px-5">
+                            <input type="submit" value="Cập nhật" class="btn btn-primary py-3 px-5">
                             <input class="btn btn-primary py-3 px-5" id="registerRecord" value="Sổ khám bệnh" />
                         </div>
                     </form>
@@ -117,7 +122,8 @@
         </div>
     </section>
 
-    <form method="post" action="~/tai-khoan/ho-so-benh-an-@Model.ID_BENH_NHAN" id="registerRecordForm">
+    @*~/tai-khoan/ho-so-benh-an-@Model.ID_BENH_NHAN*@
+    <form method="post" action="@Url.Action("RegisterRecord", "HealthRecord", new { id_skb = Model.ID_BENH_NHAN})" id="registerRecordForm">
         @Html.AntiForgeryToken()
     </form>
     <script>

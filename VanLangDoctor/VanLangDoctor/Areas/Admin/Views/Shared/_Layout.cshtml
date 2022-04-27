@@ -14,7 +14,6 @@
     <title>@ViewBag.Title</title>
     <!-- Custom CSS -->
     <link href="@Url.Content("~/Content/assets-ad/extra-libs/c3/c3.min.css")" rel="stylesheet">
-    <link href="@Url.Content("~/Content/assets-ad/libs/chartist/dist/chartist.min.css")" rel="stylesheet">
     <link href="@Url.Content("~/Content/assets-ad/extra-libs/jvector/jquery-jvectormap-2.0.2.css")" rel="stylesheet" />
     <!-- Custom CSS -->
     <link href="@Url.Content("~/Content/dist-ad/css/style.min.css")" rel="stylesheet">
@@ -55,7 +54,7 @@
                                 <!-- dark Logo text -->
                                 <img height="22" width="140" src="@Url.Content("~/Content/assets-ad/images/logoVLDnobrw.png")" alt="homepage" class="dark-logo" />
                                 <!-- Light Logo text -->
-                                <img src="@Url.Content("~/Content/assets-ad/images/logo-light-text.png")" class="light-logo" alt="homepage" />
+                                <img src="@Url.Content("~/Content/assets-ad/images/logoVLDnobrw.png")" class="light-logo" alt="homepage" />
                             </span>
                         </a>
                     </div>
@@ -219,19 +218,21 @@
                             </a>
                             <ul aria-expanded="false" class="collapse  first-level base-level-line">
                                 <li class="sidebar-item">
-                                    <a href="@Url.Action("Index", "QL_TKFeedBack")" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            Lịch sử tư vấn
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
                                     <a href="@Url.Action("Index", "QL_TKDonThuoc")" class="sidebar-link">
                                         <span class="hide-menu">
                                             Lịch sử đơn thuốc
                                         </span>
                                     </a>
                                 </li>
+
+                                <li class="sidebar-item">
+                                    <a href="@Url.Action("Index", "QL_TKFeedBack")" class="sidebar-link">
+                                        <span class="hide-menu">
+                                            Lịch sử tư vấn
+                                        </span>
+                                    </a>
+                                </li>
+
                                 <li class="sidebar-item">
                                     <a href="@Url.Action("BookCalendar","QL_TKBookCalendar")" class="sidebar-link">
                                         <span class="hide-menu">
@@ -281,10 +282,8 @@
     </div>
     <script src="@Url.Content("~/Content/assets-ad/libs/jquery/dist/jquery.min.js")"></script>
     <script src="@Url.Content("~/Content/dist-ad/js/feather.min.js")"></script>
-    <script src="@Url.Content("~/Content/assets-ad/assets/extra-libs/c3/d3.min.js")"></script>
-    <script src="@Url.Content("~/Content/assets-ad/libs/chartist/dist/chartist.min.js")"></script>
-    <script src="@Url.Content("~/Content/assets-ad/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js")"></script>
-    <script src="@Url.Content("~/Content/assets-ad/assets/libs/popper.js/dist/umd/popper.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets-ad/extra-libs/c3/d3.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets-ad/libs/popper.js/dist/umd/popper.min.js")"></script>
 
     <script src="~/Content/assets-ad/libs/jquery/dist/jquery.min.js"></script>
     <script src="~/Content/assets-ad/libs/bootstrap/dist/js/bootstrap.min.js"></script>

@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<VanLangDoctor.Models.DON_THUOC>
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Kê đơn thuốc";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
@@ -18,7 +18,7 @@
             <form method="post" action="#">
                 @Html.AntiForgeryToken()
                 <div class="form-row">
-                    <label for="name">Họ tên</label>
+                    <label for="name">Họ tên bệnh nhân</label>
                     <select id="FullName" class="form-control">
                         <option selected>Choose...</option>
                         @foreach (var i in ViewBag.Patient)
@@ -114,8 +114,6 @@
 </div>
 <br />
 
-
-
 @section Scripts {
     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
@@ -151,6 +149,7 @@
             });
         });
 
+        /*remove this "/CP24Team02/Admin/" if run in localhost*/
         $('#FullName').change(function () {
             let id = $(this).val();
             $.get('/QL_DonThuoc/GetPatient/' + id, function (data) {
@@ -173,7 +172,7 @@
             var ketqua = tinymce.get(3).getContent({ format: 'text' });
             var bacsi = $('#bacsi').val();
 
-            $('body').append(`<form action="/QL_DonThuoc/ThemDonThuoc" method="POST" id="form" style="display: none">
+            $('body').append(`<form action="@Url.Action("ThemDonThuoc","QL_DonThuoc")" method="POST" id="form" style="display: none">
                                         <input name="HoTen" value="${hoten}"/>
                                         <input name="Tuoi" value="${tuoi}" />
                                         <input name="GioiTinh" value="${gioitinh}" />
