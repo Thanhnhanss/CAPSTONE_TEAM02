@@ -81,7 +81,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
 
             //ViewBag.ID_BACSI = new SelectList(db.BACSIs, "ID_BACSI", "TEN_BACSI", dON_THUOC.ID_BACSI);
             //ViewBag.ID_SO_KHAM_BENH = new SelectList(db.SO_KHAM_BENH, "ID_SOKHAMBENH", "ID_SOKHAMBENH", dON_THUOC.ID_SO_KHAM_BENH);
-            return View(dON_THUOC);
+            return RedirectToAction("Create", "QL_DonThuoc", new {area = "Admin"});
         }
 
         // GET: Admin/QL_DonThuoc/Edit/5
