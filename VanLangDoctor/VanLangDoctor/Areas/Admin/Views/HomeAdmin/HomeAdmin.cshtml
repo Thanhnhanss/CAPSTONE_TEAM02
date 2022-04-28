@@ -54,60 +54,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
+
+                <div class="col-lg-4">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Hoạt động</h4>
-                            <div class="mt-4 activity">
-                                <div class="d-flex align-items-start border-left-line pb-3">
-                                    <div>
-                                        <a href="javascript:void(0)" class="btn btn-info btn-circle mb-2 btn-item">
-                                            <i data-feather="shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                    <div class="ml-3 mt-2">
-                                        <h5 class="text-dark font-weight-medium mb-2">New Product Sold!</h5>
-                                        <p class="font-14 mb-2 text-muted">
-                                            John Musa just purchased <br> Cannon 5M
-                                            Camera.
-                                        </p>
-                                        <span class="font-weight-light font-14 text-muted">10 Minutes Ago</span>
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-start border-left-line pb-3">
-                                    <div>
-                                        <a href="javascript:void(0)"
-                                           class="btn btn-danger btn-circle mb-2 btn-item">
-                                            <i data-feather="message-square"></i>
-                                        </a>
-                                    </div>
-                                    <div class="ml-3 mt-2">
-                                        <h5 class="text-dark font-weight-medium mb-2">New Support Ticket</h5>
-                                        <p class="font-14 mb-2 text-muted">
-                                            Richardson just create support <br>
-                                            ticket
-                                        </p>
-                                        <span class="font-weight-light font-14 text-muted">25 Minutes Ago</span>
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-start border-left-line">
-                                    <div>
-                                        <a href="javascript:void(0)" class="btn btn-cyan btn-circle mb-2 btn-item">
-                                            <i data-feather="bell"></i>
-                                        </a>
-                                    </div>
-                                    <div class="ml-3 mt-2">
-                                        <h5 class="text-dark font-weight-medium mb-2">
-                                            Notification Pending Order!
-                                        </h5>
-                                        <p class="font-14 mb-2 text-muted">One Pending order from Ryne <br> Doe</p>
-                                        <span class="font-weight-light font-14 mb-1 d-block text-muted">
-                                            2 Hours
-                                            Ago
-                                        </span>
-                                        <a href="javascript:void(0)" class="font-14 border-bottom pb-1 border-info">Load More</a>
-                                    </div>
-                                </div>
+                            <h4 class="card-title mb-0">Thống kê đơn thuốc</h4>
+                            <div class="card-body" style="width: 100%; height: 315px; vertical-align:middle">
+                                <canvas id="chartDT"></canvas>
                             </div>
                         </div>
                     </div>
@@ -177,6 +130,86 @@
                     }
                 });
                 console.log(chart);
+            },
+            error: function () {
+                alert("Error loading data! Please try again.");
+            }
+        });
+    });
+    </script>
+    @*thong ke don thuoc*@
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    <script>
+    $(document).ready(() => {
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("ChartDataDT", "HomeAdmin", new { month = DateTime.Now.Month})',
+            success: function (charts) {
+                if (charts.code == 404) {
+                    lert("Error loading data! Please try again!.");
+                    return;
+                }
+                var data = charts.dbchart;
+                //console.log(data);
+                if (data == 0) {
+                    var ctx = document.getElementById('chartDT').getContext('2d');
+                    var chart = new Chart(ctx, {
+                        options: {
+                            layout: {
+                                padding: {
+                                    top: 250
+                                }
+                            },
+                            responsive: true,
+                            plugins: {
+                                title: {
+                                    display: true,
+                                    text: 'Chưa có đơn thuốc nào đã kê trong tháng @ViewBag.month',
+                                    color: 'red',
+                                    font: {
+                                        size: 20,
+                                    }
+                                }
+                            }
+                        }
+                    });
+                }
+                else {
+                    var ctx = document.getElementById('chartDT').getContext('2d');
+                    var chart = new Chart(ctx, {
+                        type: 'bar',
+                        options: {
+                            indexAxis: 'x',
+                            element: {
+                                bar: {
+                                    borderWidth: 1
+                                },
+                                innerHeight:10
+                            },
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                legend: {
+                                    position: 'top',
+                                },
+                                title: {
+                                    display: true,
+                                    text: 'Biểu đồ thống kê đơn thuốc tháng @DateTime.Now.Month',
+                                    position: 'bottom'
+                                }
+                            }
+                        },
+                        data: {
+                            labels: [''],
+                            datasets: data.map(item => ({
+                                label: item.Key,
+                                data: [item.Count],
+                                borderColor: '#33ccff',
+                                backgroundColor: 'red'
+                            }))
+                        }
+                    });
+                }
             },
             error: function () {
                 alert("Error loading data! Please try again.");

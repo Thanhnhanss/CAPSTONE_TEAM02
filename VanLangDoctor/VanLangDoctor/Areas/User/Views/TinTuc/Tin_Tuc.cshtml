@@ -48,7 +48,7 @@
                         <div class="trending-top mb-30">
                             <a href="~/trang-chu/tin-tuc/@ViewBag.Top1.TEN_BAI_VIET.ToLower().Replace(" ","-")-@ViewBag.Top1.ID_TIN_TUC">
                                 <div class="trend-top-img">
-                                    <img src="@Url.Action("Picture", new {ViewBag.Top1.ID_TIN_TUC})" alt="@ViewBag.Top1.TEN_BAI_VIET">
+                                    <img src="@Url.Action("Picture", new {ViewBag.Top1.ID_TIN_TUC})" height="650" alt="@ViewBag.Top1.TEN_BAI_VIET">
 
                                     <div class="trend-top-cap">
                                         <span>@ViewBag.Top1.DANH_MUC_TIN.Danhmuc_tin</span>
@@ -178,12 +178,15 @@
                             {
                                 <div id="itemFilter" class="weekly2-single">
                                     <div class="weekly2-img">
-                                        <img src="@Url.Action("Picture", new { t.ID_TIN_TUC })" alt="@t.TEN_BAI_VIET" height="250">
+                                        <a href="~/trang-chu/tin-tuc/@t.TEN_BAI_VIET.ToLower().Replace(" ","-")-@t.ID_TIN_TUC">
+                                            <img src="@Url.Action("Picture", new { t.ID_TIN_TUC })" alt="@t.TEN_BAI_VIET" style="color:black" height="250">
+                                        </a>
+                                        
                                     </div>
                                     <div id="myTemp" class="weekly2-caption">
                                         <span class="color1">@t.DANH_MUC_TIN.Danhmuc_tin</span>
                                         <p>@t.NGAY_DANG</p>
-                                        <h4><a href="@Url.Action("Details", "TinTuc", new { id = t.ID_TIN_TUC })">@t.TEN_BAI_VIET</a></h4>
+                                        <h4><a href="~/trang-chu/tin-tuc/@t.TEN_BAI_VIET.ToLower().Replace(" ","-")-@t.ID_TIN_TUC">@t.TEN_BAI_VIET</a></h4>
                                     </div>
                                 </div>
                             }
@@ -223,7 +226,7 @@
 <script src="~/Content/assets-news/js/site.js"></script>
 
 <!-- Scrollup, nice-select, sticky -->
-<script src="~/Content/assets-news/js/jquery.scrollUp.min.js"></script>
+@*<script src="~/Content/assets-news/js/jquery.scrollUp.min.js"></script>*@
 <script src="~/Content/assets-news/js/jquery.nice-select.min.js"></script>
 <script src="~/Content/assets-news/js/jquery.sticky.js"></script>
 
