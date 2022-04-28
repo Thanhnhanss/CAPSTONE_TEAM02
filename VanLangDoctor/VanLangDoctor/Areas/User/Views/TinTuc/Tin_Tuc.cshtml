@@ -46,14 +46,15 @@
                     <div class="col-lg-auto">
                         <!-- Trending Top -->
                         <div class="trending-top mb-30">
-                            <div class="trend-top-img">
-                                <a href="~/trang-chu/tin-tuc/@ViewBag.Top1.TEN_BAI_VIET.ToLower().Replace(" ","-")-@ViewBag.Top1.ID_TIN_TUC">
+                            <a href="~/trang-chu/tin-tuc/@ViewBag.Top1.TEN_BAI_VIET.ToLower().Replace(" ","-")-@ViewBag.Top1.ID_TIN_TUC">
+                                <div class="trend-top-img">
                                     <img src="@Url.Action("Picture", new {ViewBag.Top1.ID_TIN_TUC})" alt="@ViewBag.Top1.TEN_BAI_VIET">
-                                </a>
-                                <div class="trend-top-cap">
-                                    <span>@ViewBag.Top1.DANH_MUC_TIN.Danhmuc_tin</span>
+
+                                    <div class="trend-top-cap">
+                                        <span>@ViewBag.Top1.DANH_MUC_TIN.Danhmuc_tin</span>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <!-- Trending Bottom -->
                         <div class="trending-bottom">

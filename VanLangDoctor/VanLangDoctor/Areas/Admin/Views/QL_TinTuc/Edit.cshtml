@@ -107,7 +107,7 @@
                             <div class="form-group">
                                 <label for="hinh_anh"><b>Hình ảnh</b></label>
                                 <div class="col-md-4">
-                                    <input class="form-control" type="file" name="Picture" id="IMG" onchange="readPicture(this)" accept="image/jpeg,image/gif,image/png" required/>
+                                    <input class="form-control" type="file" name="Picture" id="IMG" onchange="readPicture(this)" accept="image/jpeg,image/gif,image/png"/>
                                     <br />
                                     <img id="Picture" src="@Url.Action("Picture","QL_TinTuc", new {Model.ID_TIN_TUC})" style="height: 250px; width: 250px; object-fit: contain; border: 3px solid #0af; background-color: #000000" />
                                 </div>

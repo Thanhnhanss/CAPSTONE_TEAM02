@@ -16,14 +16,13 @@ namespace VanLangDoctor.Models
     public partial class TIN_TUC
     {
         public int ID_TIN_TUC { get; set; }
-        [RegularExpression(@"\|!#$%&/()=?»«@£§€{}.-;'<>_,", ErrorMessage = "Tiêu đề không được chứa ký tự đặc biệt")]
+        //[RegularExpression(@"\|!#$%&/()=?»«@£§€{}.-;'<>_,", ErrorMessage = "Tiêu đề không được chứa ký tự đặc biệt")]
         [StringLength(maximumLength: 100, ErrorMessage = "Tiêu đề chứa tối đa 100 ký tự")]
         [MinLength( 10, ErrorMessage = "Tiêu đề chứa tối thiểu 10 ký tự")]
         [Required(ErrorMessage = "Vui lòng nhập tiêu đề bài viết")]
         public string TEN_BAI_VIET { get; set; }
         public System.DateTime NGAY_DANG { get; set; }
         public string NOI_DUNG { get; set; }
-        [RegularExpression(@"\|!#$%&/()=?»«@£§€{}.-;'<>_,", ErrorMessage = "Tác giả không được chứa ký tự đặc biệt")]
         [Required(ErrorMessage = "Vui lòng nhập tác giả bài viết")]
         public string TAC_GIA { get; set; }
         public string SEO_TITLE { get; set; }
