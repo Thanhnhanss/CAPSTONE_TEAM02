@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
@@ -81,16 +82,9 @@ namespace VanLangDoctor.Areas.Admin.Controllers
                 TempData["Success"] = "Kê đơn thành công";
                 return RedirectToAction("DS_DonThuoc", "QL_DonThuoc", new { area = "Admin"});
             }
-            else
-            {
-                TempData["warn"] = "Không thành công";
-                RedirectToAction("DS_DonThuoc");
-            }
-            
 
-            //ViewBag.ID_BACSI = new SelectList(db.BACSIs, "ID_BACSI", "TEN_BACSI", dON_THUOC.ID_BACSI);
-            //ViewBag.ID_SO_KHAM_BENH = new SelectList(db.SO_KHAM_BENH, "ID_SOKHAMBENH", "ID_SOKHAMBENH", dON_THUOC.ID_SO_KHAM_BENH);
-            return View(dON_THUOC);
+            TempData["warn"] = "Không thành công";
+            return RedirectToAction("ThemDonThuoc", "QL_DonThuoc", new { area = "Admin" }); ;
         }
 
         // GET: Admin/QL_DonThuoc/Edit/5
@@ -196,6 +190,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
 
         public class PatientModel
         {
+            [Required]
             public int HoTen { get; set; }
 
             public string ChanDoan { get; set; }
@@ -206,8 +201,10 @@ namespace VanLangDoctor.Areas.Admin.Controllers
 
             public string KetQua { get; set; }
 
+            [Required]
             public int BacSi { get; set; }
 
+            [Required]
             public ThuocModel[] Thuocs { get; set; }
         }
 

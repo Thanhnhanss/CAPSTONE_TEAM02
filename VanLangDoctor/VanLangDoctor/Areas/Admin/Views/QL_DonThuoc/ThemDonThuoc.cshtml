@@ -1,26 +1,34 @@
-﻿@model IEnumerable<VanLangDoctor.Models.DON_THUOC>
-
+﻿
 @{
     ViewBag.Title = "Kê đơn thuốc";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
+<script src="https://cdn.tiny.cloud/1/afb3a7e94806eec5503b7c97aa0afe18650c2a0dfbc78ad75313fff642b86dc6/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+
+
 <div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
      data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
 
     <div class="page-wrapper" style="display: block">
-        <!-- ============================================================== -->
-        <!-- Bread crumb and right sidebar toggle -->
-        <!-- ============================================================== -->
         <div class="page-breadcrumb">
             <h1 class="u-custom-font u-font-oswald u-text u-text-default u-title u-text-1">Tạo đơn thuốc</h1>
             <br />
+            @if (TempData["warn"] != null)
+            {
+                <div class="alert alert-warning alert-dismissible bg-warning text-white border-0 fade show" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true" style=" float: right; margin-top: -10px">×</span>
+                    </button>
+                    <strong>@TempData["warn"]</strong>
+                </div>
+            }
             <form method="post" action="#">
                 @Html.AntiForgeryToken()
                 <div class="form-row">
                     <label for="name">Họ tên bệnh nhân</label>
-                    <select id="FullName" class="form-control">
-                        <option selected>Choose...</option>
+                    <select id="FullName" class="form-control" required>
+                        <option value="" selected>Choose...</option>
                         @foreach (var i in ViewBag.Patient)
                         {
                             <option value="@i.ID_BENH_NHAN">@i.TEN_BN</option>
@@ -44,7 +52,7 @@
                 </div>
                 <div class="form-row">
                     <label for="datetime">Ngày tạo</label>
-                    <input type="datetime" id="ngaytao" class="form-control" value="@DateTime.Now" readonly/>
+                    <input type="datetime" id="ngaytao" class="form-control" value="@DateTime.Now" readonly />
                 </div>
                 <br />
                 <div class="form-group">
@@ -53,20 +61,20 @@
                 </div>
                 <div class="form-group">
                     <label for="attribution">Chỉ định</label>
-                    <textarea id="chidinh" class="myTextEditor" ></textarea>
+                    <textarea id="chidinh" class="myTextEditor"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="advice">Lời dặn</label>
-                    <textarea id="loidan" class="myTextEditor" ></textarea>
+                    <textarea id="loidan" class="myTextEditor"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="result">Kết quả</label>
-                    <textarea id="ketqua" class="myTextEditor" ></textarea>
+                    <textarea id="ketqua" class="myTextEditor"></textarea>
                 </div>
                 <div class="form-row">
                     <label for="name">Bác sĩ</label>
-                    <select id="bacsi" class="form-control">
-                        <option selected>Choose...</option>
+                    <select id="bacsi" class="form-control" required>
+                        <option value="" selected>Choose...</option>
                         @foreach (var a in ViewBag.Doctor)
                         {
                             <option value="@a.ID_BACSI">@a.TEN_BACSI</option>
@@ -119,14 +127,8 @@
     <script>
         tinymce.init({
             selector: '.myTextEditor',
-            plugins: [
-                'a11ychecker', 'advlist', 'advcode', 'advtable', 'autolink', 'checklist', 'export',
-                'lists', 'link', 'image', 'charmap', 'preview', 'anchor', 'searchreplace', 'visualblocks',
-                'powerpaste', 'fullscreen', 'formatpainter', 'insertdatetime', 'media', 'table', 'help', 'wordcount'
-            ],
-            toolbar: 'undo redo | formatpainter casechange blocks | bold italic backcolor | ' +
-                'alignleft aligncenter alignright alignjustify | ' +
-                'bullist numlist checklist outdent indent | removeformat | a11ycheck code table help',
+            plugins: 'advlist autolink lists link image charmap preview anchor pagebreak',
+            toolbar_mode: 'floating',
             height: 200
         });
 
@@ -152,7 +154,7 @@
         /*remove this "/CP24Team02/Admin/" if run in localhost*/
         $('#FullName').change(function () {
             let id = $(this).val();
-            $.get('/QL_DonThuoc/GetPatient/' + id, function (data) {
+            $.get('/CP24Team02/Admin/QL_DonThuoc/GetPatient/' + id, function (data) {
                 $('#age').val(data.Tuoi);
                 $('#gender').val(data.GioiTinh);
                 $('#address').val(data.DiaChi);
@@ -194,4 +196,5 @@
             $('#form').submit();
         });
     </script>
+
 }
