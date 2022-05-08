@@ -156,7 +156,7 @@
                                                      </select>
                                                  </td>
                                                  <td><input type="number" value="1" /></td>
-                                                 <td><input type="text" value="1" /></td>
+                                                 <td><input id="lieudung" type="text" placeholder="..." /></td>
                                              </tr>`);
                 $('#listMedicine').val('Choose...');
             });
@@ -199,8 +199,8 @@
             $('#Medicine tbody').children().each((i, element) => {
                 var idThuoc = $(element).children('td:first-child').html();
                 var soLuong = $(element).find('input').val();
-                var dvt = $(element).find('option').val();
-                var lieudung = $(element).find('input').val();
+                var dvt = $(element).find('select').val();
+                var lieudung = $(element).find('#lieudung').val();
                 $('#form').append(`<input name="Thuocs[${i}].Id" value="${idThuoc}" />
                                     <input name="Thuocs[${i}].DVT" value="${dvt}" />
                                     <input name="Thuocs[${i}].Quantity" value="${soLuong}" />
