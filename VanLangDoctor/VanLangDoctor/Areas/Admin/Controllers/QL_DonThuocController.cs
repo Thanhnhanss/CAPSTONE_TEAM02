@@ -72,7 +72,9 @@ namespace VanLangDoctor.Areas.Admin.Controllers
                     CHI_TIET_DON_THUOC = dON_THUOC.Thuocs.Select(item => new CHI_TIET_DON_THUOC
                     {
                         ID_THUOC = item.Id,
-                        SO_LUONG = item.Quantity
+                        SO_LUONG = item.Quantity,
+                        DVT = item.DVT,
+                        LIEU_DUNG = item.LieuDung
                     }).ToList()
                 });
                 db.SaveChanges();
@@ -119,7 +121,9 @@ namespace VanLangDoctor.Areas.Admin.Controllers
                 donthuoc.CHI_TIET_DON_THUOC = dON_THUOC.Thuocs.Select(item => new CHI_TIET_DON_THUOC
                 {
                     ID_THUOC = item.Id,
-                    SO_LUONG = item.Quantity
+                    SO_LUONG = item.Quantity,
+                    DVT = item.DVT,
+                    LIEU_DUNG = item.LieuDung
                 }).ToList();
                 db.Entry(donthuoc).State = EntityState.Modified;
                 db.SaveChanges();
@@ -219,6 +223,10 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         public class ThuocModel
         {
             public int Id { get; set; }
+
+            public string DVT { get; set; }
+
+            public string LieuDung { get; set; }
 
             public int Quantity { get; set; }
         }

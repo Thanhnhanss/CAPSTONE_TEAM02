@@ -102,6 +102,8 @@
           <Property Name="ID_THUOC" Type="int" Nullable="false" />
           <Property Name="ID_DON_THUOC" Type="int" Nullable="false" />
           <Property Name="SO_LUONG" Type="int" />
+          <Property Name="LIEU_DUNG" Type="nvarchar" MaxLength="100" />
+          <Property Name="DVT" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="DANG_KY">
           <Key>
@@ -144,7 +146,7 @@
           <Property Name="CHUAN_DOAN" Type="nvarchar(max)" />
           <Property Name="CHI_DINH" Type="nvarchar(max)" />
           <Property Name="LOI_DAN" Type="nvarchar(max)" />
-          <Property Name="NGAY_LAP" Type="date" />
+          <Property Name="NGAY_LAP" Type="datetime" Nullable="false" />
           <Property Name="ID_BACSI" Type="int" Nullable="false" />
           <Property Name="ID_SO_KHAM_BENH" Type="int" Nullable="false" />
         </EntityType>
@@ -710,6 +712,8 @@
           <Property Name="ID_THUOC" Type="Int32" Nullable="false" />
           <Property Name="ID_DON_THUOC" Type="Int32" Nullable="false" />
           <Property Name="SO_LUONG" Type="Int32" />
+          <Property Name="LIEU_DUNG" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DVT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="DON_THUOC" Relationship="CP24Team02Model.FK_CHI_TIET_DON_THUOC_DON_THUOC" FromRole="CHI_TIET_DON_THUOC" ToRole="DON_THUOC" />
           <NavigationProperty Name="THUOC" Relationship="CP24Team02Model.FK_CHI_TIET_DON_THUOC_THUOC" FromRole="CHI_TIET_DON_THUOC" ToRole="THUOC" />
         </EntityType>
@@ -757,7 +761,7 @@
           <Property Name="CHUAN_DOAN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="CHI_DINH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="LOI_DAN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="NGAY_LAP" Type="DateTime" Precision="0" />
+          <Property Name="NGAY_LAP" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ID_BACSI" Type="Int32" Nullable="false" />
           <Property Name="ID_SO_KHAM_BENH" Type="Int32" Nullable="false" />
           <NavigationProperty Name="BACSI" Relationship="CP24Team02Model.FK_BACSI_DT" FromRole="DON_THUOC" ToRole="BACSI" />
@@ -1124,6 +1128,8 @@
           <EntitySetMapping Name="CHI_TIET_DON_THUOC">
             <EntityTypeMapping TypeName="CP24Team02Model.CHI_TIET_DON_THUOC">
               <MappingFragment StoreEntitySet="CHI_TIET_DON_THUOC">
+                <ScalarProperty Name="DVT" ColumnName="DVT" />
+                <ScalarProperty Name="LIEU_DUNG" ColumnName="LIEU_DUNG" />
                 <ScalarProperty Name="SO_LUONG" ColumnName="SO_LUONG" />
                 <ScalarProperty Name="ID_DON_THUOC" ColumnName="ID_DON_THUOC" />
                 <ScalarProperty Name="ID_THUOC" ColumnName="ID_THUOC" />
