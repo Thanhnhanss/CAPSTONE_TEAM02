@@ -106,7 +106,9 @@
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Tên thuốc</th>
+                                <th scope="col">ĐVT</th>
                                 <th scope="col">Số lượng</th>
+                                <th scope="col">Liều dùng</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -142,11 +144,21 @@
                 var rowIndex = $('#Medicine tbody tr').length;
                 $(`#listMedicine option[value="${idThuoc}"]`).attr('disabled', 'true');
                 $('#Medicine tbody').append(`<tr>
-                                                        <td style="display: none">${idThuoc}</td>
-                                                     <th scope="row">${rowIndex + 1}</th>
-                                                     <td>${thuoc}</td>
-                                                     <td><input type="number" value="1" /></td>
-                                                 </tr>`);
+                                                 <td style="display: none">${idThuoc}</td>
+                                                 <th scope="row">${rowIndex + 1}</th>
+                                                 <td>${thuoc}</td>
+                                                 <td>
+                                                     <select class="form-control">
+                                                        <option selected id="choose">Viên</option>
+                                                        <option selected id="choose">Gói</option>
+                                                        <option selected id="choose">Hộp</option>
+                                                        <option selected id="choose">Chai</option>
+                                                        <option selected id="choose">Tuýp</option>
+                                                     </select>
+                                                 </td>
+                                                 <td><input type="number" value="1" class="form-control" /></td>
+                                                 <td><input type="text" id="lieudung" class="form-control" /></td>
+                                              </tr>`);
                 $('#listMedicine').val('Choose...');
             });
         });
@@ -154,7 +166,7 @@
         /*remove this "/CP24Team02/Admin/" if run in localhost*/
         $('#FullName').change(function () {
             let id = $(this).val();
-            $.get('/CP24Team02/Admin/QL_DonThuoc/GetPatient/' + id, function (data) {
+            $.get('/QL_DonThuoc/GetPatient/' + id, function (data) {
                 $('#age').val(data.Tuoi);
                 $('#gender').val(data.GioiTinh);
                 $('#address').val(data.DiaChi);
@@ -189,8 +201,12 @@
             $('#Medicine tbody').children().each((i, element) => {
                 var idThuoc = $(element).children('td:first-child').html();
                 var soLuong = $(element).find('input').val();
+                var dvt = $(element).find('select').val();
+                var lieudung = $(element).find('#lieudung').val();
                 $('#form').append(`<input name="Thuocs[${i}].Id" value="${idThuoc}" />
-                                        <input name="Thuocs[${i}].Quantity" value="${soLuong}" />`);
+                                   <input name="Thuocs[${i}].DVT" value="${dvt}" />
+                                   <input name="Thuocs[${i}].Quantity" value="${soLuong}" />
+                                   <input name="Thuocs[${i}].LieuDung" value="${lieudung}" />`);
             });
 
             $('#form').submit();

@@ -75,7 +75,9 @@ namespace VanLangDoctor.Areas.Admin.Controllers
                     CHI_TIET_DON_THUOC = dON_THUOC.Thuocs.Select(item => new CHI_TIET_DON_THUOC
                     {
                         ID_THUOC = item.Id,
-                        SO_LUONG = item.Quantity
+                        DVT = item.DVT,
+                        SO_LUONG = item.Quantity,
+                        LIEU_DUNG = item.LieuDung
                     }).ToList()
                 });
                 db.SaveChanges();
@@ -85,53 +87,6 @@ namespace VanLangDoctor.Areas.Admin.Controllers
 
             TempData["warn"] = "Không thành công";
             return RedirectToAction("ThemDonThuoc", "QL_DonThuoc", new { area = "Admin" }); ;
-        }
-
-        // GET: Admin/QL_DonThuoc/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            ViewBag.Medicine = GetAllMedicine();
-            ViewBag.Doctor = GetAllDoctor();
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            DON_THUOC dON_THUOC = db.DON_THUOC.Find(id);
-            if (dON_THUOC == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.ID_BACSI = new SelectList(db.BACSIs, "ID_BACSI", "TEN_BACSI", dON_THUOC.ID_BACSI);
-            ViewBag.ID_SO_KHAM_BENH = new SelectList(db.SO_KHAM_BENH, "ID_SOKHAMBENH", "ID_SOKHAMBENH", dON_THUOC.ID_SO_KHAM_BENH);
-            return View(dON_THUOC);
-        }
-
-        // POST: Admin/QL_DonThuoc/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        public ActionResult Edit(PatientModel dON_THUOC, int id)
-        {
-            var donthuoc = db.DON_THUOC.Find(id);
-            if (ModelState.IsValid)
-            {
-                donthuoc.CHUAN_DOAN = dON_THUOC.ChanDoan;
-                donthuoc.CHI_DINH = dON_THUOC.ChiDinh;
-                donthuoc.LOI_DAN = dON_THUOC.LoiDan;
-                donthuoc.KET_QUA = dON_THUOC.KetQua;
-                donthuoc.CHI_TIET_DON_THUOC = dON_THUOC.Thuocs.Select(item => new CHI_TIET_DON_THUOC
-                {
-                    ID_THUOC = item.Id,
-                    SO_LUONG = item.Quantity
-                }).ToList();
-                db.Entry(donthuoc).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("DS_DonThuoc");
-            }
-            ViewBag.Medicine = GetAllMedicine();
-            //ViewBag.ID_BACSI = new SelectList(db.BACSIs, "ID_BACSI", "TEN_BACSI", dON_THUOC.ID_BACSI);
-            //ViewBag.ID_SO_KHAM_BENH = new SelectList(db.SO_KHAM_BENH, "ID_SOKHAMBENH", "ID_SOKHAMBENH", dON_THUOC.ID_SO_KHAM_BENH);
-            return View(donthuoc);
         }
 
         [HttpGet]
@@ -213,6 +168,10 @@ namespace VanLangDoctor.Areas.Admin.Controllers
             public int Id { get; set; }
 
             public int Quantity { get; set; }
+
+            public string DVT { get; set; }
+
+            public string LieuDung { get; set; }
         }
     }
 }
