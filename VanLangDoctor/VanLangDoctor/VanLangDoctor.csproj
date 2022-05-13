@@ -774,10 +774,6 @@
     <Content Include="Content\assets-ff\images\a.jpg" />
     <Content Include="Content\assets-ff\images\AjaxLoader.gif" />
     <Content Include="Content\assets-ff\images\b.jpg" />
-    <Content Include="Content\assets-ff\images\banner\2.jpg" />
-    <Content Include="Content\assets-ff\images\banner\3.jpg" />
-    <Content Include="Content\assets-ff\images\banner\6.jpg" />
-    <Content Include="Content\assets-ff\images\banner\7.jpg" />
     <Content Include="Content\assets-ff\images\bg-footer.jpg" />
     <Content Include="Content\assets-ff\images\c.jpg" />
     <Content Include="Content\assets-ff\images\d.jpg" />
@@ -795,13 +791,6 @@
     <Content Include="Content\assets-ff\images\icon-search-menu.png" />
     <Content Include="Content\assets-ff\images\icon-search.png" />
     <Content Include="Content\assets-ff\images\icon-user-header.png" />
-    <Content Include="Content\assets-ff\images\ImgBlog\1.jpg" />
-    <Content Include="Content\assets-ff\images\ImgBlog\4.jpg" />
-    <Content Include="Content\assets-ff\images\ImgBlog\7.jpg" />
-    <Content Include="Content\assets-ff\images\ImgBlog\details\1.jpg" />
-    <Content Include="Content\assets-ff\images\ImgBlog\masonry\1.jpg" />
-    <Content Include="Content\assets-ff\images\ImgBlog\masonry\2.jpg" />
-    <Content Include="Content\assets-ff\images\ImgBlog\masonry\7.jpg" />
     <Content Include="Content\assets-ff\images\instafeed-icon.png" />
     <Content Include="Content\assets-ff\images\j.jpg" />
     <Content Include="Content\assets-ff\images\k.jpg" />
@@ -811,10 +800,6 @@
     <Content Include="Content\assets-ff\images\logoVLDnobri.png" />
     <Content Include="Content\assets-ff\images\logoVLDnobrr.png" />
     <Content Include="Content\assets-ff\images\logoVLDnobrw.png" />
-    <Content Include="Content\assets-ff\images\products\1.jpg" />
-    <Content Include="Content\assets-ff\images\products\details\1.jpg" />
-    <Content Include="Content\assets-ff\images\products\featured\1.jpg" />
-    <Content Include="Content\assets-ff\images\products\furniture\1.jpg" />
     <Content Include="Content\assets-ff\js\bootstrap.js" />
     <Content Include="Content\assets-ff\js\bootstrap.min.js" />
     <Content Include="Content\assets-ff\js\custombox.min.js" />
@@ -1833,11 +1818,6 @@
     <Content Include="Content\asset-dr-inf\scss\_mixins.scss" />
     <Content Include="Content\asset-dr-inf\scss\_typography.scss" />
     <Content Include="Content\asset-dr-inf\scss\_variables.scss" />
-    <Content Include="Areas\Admin\Views\HoSo_BenhAn\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\HoSo_BenhAn\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\HoSo_BenhAn\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\HoSo_BenhAn\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\HoSo_BenhAn\HS_BenhAn.cshtml" />
     <Content Include="Areas\User\Views\CapnhatTK\CapnhatTK.cshtml" />
     <Content Include="Areas\Admin\Views\QL_BenhNhan\ChiTiet_BN.cshtml" />
     <Content Include="Areas\Admin\Views\QL_BenhNhan\DanhSach_BN.cshtml" />

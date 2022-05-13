@@ -140,12 +140,11 @@
                                             <div class="col-md-10">
                                                 @if (Model.NGAYSINH_BS == null)
                                                 {
-
-                                                    @Html.EditorFor(model => model.NGAYSINH_BS, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+                                                    <input type="date" min="@(DateTime.Now.Year-100)-12-31" max="@(DateTime.Now.Year-22)-12-31" placeholder="Ngày sinh *" name="NGAYSINH_BS" class="form-control" required>
                                                 }
                                                 else
                                                 {
-                                                    @Html.EditorFor(model => model.NGAYSINH_BS, new { htmlAttributes = new { @class = "form-control" } })
+                                                    <input type="date" min="@(DateTime.Now.Year-100)-12-31" max="@(DateTime.Now.Year-22)-12-31" placeholder="Ngày sinh *" name="NGAYSINH_BS"  value="@Model.NGAYSINH_BS" class="form-control" required>
                                                     @Html.ValidationMessageFor(model => model.NGAYSINH_BS, "", new { @class = "text-danger" })
                                                 }
                                             </div>
@@ -159,21 +158,18 @@
                                                 @if (Model.NGAY_TRUC == null)
                                                 {
 
+                                                    <input type="date" min="@DateTime.Now" placeholder="Ngày trực" id="NGAY_TRUC" name="NGAY_TRUC" class="form-control">
                                                     @Html.EditorFor(model => model.NGAY_TRUC, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
                                                 }
                                                 else
                                                 {
-                                                    @Html.EditorFor(model => model.NGAY_TRUC, new { htmlAttributes = new { @class = "form-control" } })
+                                                    <input type="date" min="@DateTime.Now" placeholder="Ngày trực" id="NGAY_TRUC" name="NGAY_TRUC" value="@Model.NGAY_TRUC" class="form-control">
                                                     @Html.ValidationMessageFor(model => model.NGAY_TRUC, "", new { @class = "text-danger" })
                                                 }
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                
-                               
-                                
-
                                 <div class="col-md-push-12 col-md-5">
                                     <button type="submit" class="button" style="vertical-align:middle"><span>Xác nhận </span></button>
                                 </div>

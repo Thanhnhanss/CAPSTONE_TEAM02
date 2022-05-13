@@ -131,7 +131,7 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <h4 class="card-title">Hình đại diện</h4>
-                                            <input class="form-control" type="file" name="Picture" id="IMG" onchange="readPicture(this)" accept="image/jpeg,image/gif,image/png"/>
+                                            <input class="form-control" type="file" name="Picture" id="IMG" onchange="readPicture(this)" accept="image/jpeg,image/gif,image/png" required/>
                                             <br />
                                             <img id="Picture" style="height: 250px; width: 250px; object-fit: contain; border-radius: 50%; border: 3px solid #0af; background-color: #00000000" />
 
@@ -144,7 +144,7 @@
                                         <div class="form-group">
                                             <label><b>Ngày sinh</b></label>
                                             <div class="col-md-10">
-                                                @Html.EditorFor(model => model.NGAYSINH_BS, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+                                                <input type="date" min="@(DateTime.Now.Year-100)-12-31" max="@(DateTime.Now.Year-22)-12-31" placeholder="Ngày sinh *" name="NGAYSINH_BS" class="form-control" required>
                                                 @Html.ValidationMessageFor(model => model.NGAYSINH_BS, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
@@ -154,7 +154,7 @@
                                         <div class="form-group">
                                             <label><b>Ngày trực</b></label>
                                             <div class="col-md-10">
-                                                @Html.EditorFor(model => model.NGAY_TRUC, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+                                                <input type="date" min="@DateTime.Now" placeholder="Ngày trực" id="NGAY_TRUC" name="NGAY_TRUC" class="form-control">
                                                 @Html.ValidationMessageFor(model => model.NGAY_TRUC, "", new { @class = "text-danger" })
                                             </div>
                                         </div>

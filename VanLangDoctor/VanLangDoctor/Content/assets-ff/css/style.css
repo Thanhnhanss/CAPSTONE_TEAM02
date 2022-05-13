@@ -14056,8 +14056,7 @@ nav.pagination {
 
 #topbar .float-right .hover-menu {
     display: inline-block;
-    padding-left: 10px;
-    margin-left: 10px;
+    padding-left: 3em;
     position: relative;
 }
 
