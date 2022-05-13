@@ -17,6 +17,8 @@ namespace VanLangDoctor.Models
         public int ID_THUOC { get; set; }
         public int ID_DON_THUOC { get; set; }
         public Nullable<int> SO_LUONG { get; set; }
+        public string LIEU_DUNG { get; set; }
+        public string DVT { get; set; }
     
         public virtual DON_THUOC DON_THUOC { get; set; }
         public virtual THUOC THUOC { get; set; }

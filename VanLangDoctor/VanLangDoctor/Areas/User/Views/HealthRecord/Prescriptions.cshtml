@@ -105,7 +105,9 @@
                                         <th scope="col" hidden></th>
                                         <th scope="col">#</th>
                                         <th scope="col">Tên thuốc</th>
+                                        <th scope="col">ĐVT</th>
                                         <th scope="col">Số lượng</th>
+                                        <th scope="col">Liều dùng</th>
                                         <th scope="col"></th>
                                     </tr>
                                 </thead>
@@ -116,7 +118,9 @@
                                             <td style="display: none">@Model.CHI_TIET_DON_THUOC.ElementAt(i).ID_THUOC</td>
                                             <td>@(i + 1)</td>
                                             <td>@Model.CHI_TIET_DON_THUOC.ElementAt(i).THUOC.TEN_THUOC</td>
+                                            <td>@Model.CHI_TIET_DON_THUOC.ElementAt(i).DVT</td>
                                             <td>@Model.CHI_TIET_DON_THUOC.ElementAt(i).SO_LUONG</td>
+                                            <td>@Model.CHI_TIET_DON_THUOC.ElementAt(i).LIEU_DUNG</td>
                                             <td><button class="bx bx-detail prescription"></button></td>
                                         </tr>
                                     }
