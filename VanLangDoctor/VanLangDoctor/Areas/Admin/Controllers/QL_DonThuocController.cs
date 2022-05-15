@@ -12,6 +12,7 @@ using VanLangDoctor.Models;
 
 namespace VanLangDoctor.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Bác sĩ, Quản trị viên")]
     public class QL_DonThuocController : Controller
     {
         private CP24Team02Entities db = new CP24Team02Entities();
@@ -82,7 +83,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
                 });
                 db.SaveChanges();
                 TempData["Success"] = "Kê đơn thành công";
-                return RedirectToAction("DS_DonThuoc", "QL_DonThuoc", new { area = "Admin"});
+                return RedirectToAction("DS_DonThuoc", "QL_DonThuoc", new { area = "Admin" });
             }
 
             TempData["warn"] = "Không thành công";

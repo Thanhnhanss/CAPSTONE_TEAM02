@@ -11,7 +11,8 @@ namespace VanLangDoctor.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class DANG_KY
     {
         public int ID { get; set; }
@@ -24,6 +25,8 @@ namespace VanLangDoctor.Models
         public string HOC_VAN { get; set; }
         public string CHUNG_CHI { get; set; }
         public string EMAIL { get; set; }
+        [MaxLength(10, ErrorMessage = "Vui lo?ng nhâ?p la?i sô? ?iê?n thoa?i.")]
+        [RegularExpression("0\\d{9}", ErrorMessage = "Sô? ?iê?n thoa?i pha?i b??t ?â?u b??ng 0")]
         public string SDT { get; set; }
         public bool TRANG_THAI { get; set; }
         public Nullable<int> ID_KHOA { get; set; }
