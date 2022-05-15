@@ -370,9 +370,11 @@
     <Content Include="Content\asset-dr-inf\plugins\slick-carousel\slick\slick.css" />
     <Content Include="Content\asset-dr-inf\plugins\slick-carousel\slick\slick.js" />
     <Content Include="Content\asset-dr-inf\plugins\slick-carousel\slick\slick.min.js" />
+    <Content Include="Content\assets-ad\images\Icon\chatbot.png" />
     <Content Include="Content\assets-ad\images\Icon\drug.png" />
     <Content Include="Content\assets-ad\images\Icon\face-mask.png" />
     <Content Include="Content\assets-ad\images\Icon\home.png" />
+    <Content Include="Content\assets-ad\images\Icon\list.png" />
     <Content Include="Content\assets-ad\images\Icon\medicine.png" />
     <Content Include="Content\assets-ad\images\Icon\newspaper.png" />
     <Content Include="Content\assets-ad\images\Icon\profile.png" />

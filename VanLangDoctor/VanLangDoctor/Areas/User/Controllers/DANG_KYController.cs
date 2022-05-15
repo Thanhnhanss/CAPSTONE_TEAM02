@@ -19,7 +19,7 @@ namespace VanLangDoctor.Areas.User.Controllers
         private const string PICTURE_PATH = "~/Content/IMG_DOCTOR/";
         private const string CTC_PATH = "~/Content/IMG_CERTIFICATE/";
 
-       
+
         // GET: User/DANG_KY/Create
         public ActionResult Create()
         {
@@ -71,7 +71,7 @@ namespace VanLangDoctor.Areas.User.Controllers
                     }
                 }
                 else ModelState.AddModelError("", "Hình ảnh không được tìm thấy");
-                return RedirectToAction("HomeUser", "HomeUser");
+                return RedirectToAction("HomeUser", "HomeUser", new { area = "User" });
             }
             ViewBag.ID_KHOA = new SelectList(db.KHOAs, "ID_KHOA", "TEN_KHOA", dANG_KY.ID_KHOA);
             return View(dANG_KY);
