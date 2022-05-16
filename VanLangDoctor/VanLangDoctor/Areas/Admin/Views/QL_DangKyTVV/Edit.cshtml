@@ -38,7 +38,7 @@
             </div>
         </div>
         <hr />
-        <div class="container container-ver2" >
+        <div class="container container-ver2">
             <div class="card-footer" style="background-color: white; border-radius: 2%">
                 <h2 style="text-align:center">Hồ sơ đăng ký trở thành tư vấn viên</h2>
                 <br />
@@ -82,18 +82,20 @@
                                     <input type="text" value="@Model.NGHE_NGHIEP" placeholder="Công việc hiện tại" id="NGHE_NGHIEP" name="NGHE_NGHIEP" class="form-control" readonly><br />
                                 </div>
                             </div>
-                            <h4>Mục tiêu nghề nghiệp / Slogan</h4>
-                            @Html.TextAreaFor(model => model.MUC_TIEU, htmlAttributes: new { @class = "form-control", @readonly = true })<br />
+                            <div class="form-group">
+                                <h4>Mục tiêu nghề nghiệp / Slogan</h4>
+                                <textarea class="form-control" style="border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%);" readonly>@Model.MUC_TIEU</textarea>
+                                @*@Html.TextAreaFor(model => model.MUC_TIEU, htmlAttributes: new { @class = "form-control", @readonly = true })*@
+                            </div>
                             <div class="form-group">
                                 <h4>Ứng tuyển vào khoa:</h4>
-                                <div class="col-sm-offset-1 col-md-12">
-                                    @Html.DropDownList("ID_KHOA", null, htmlAttributes: new { @class = "form-control", @readonly = true })
-                                    @Html.ValidationMessageFor(model => model.ID_KHOA, "", new { @class = "text-danger" })
-                                </div>
+                                <input type="text" value="@Model.KHOA.TEN_KHOA" class="form-control" readonly />
+                                @*@Html.DropDownList("ID_KHOA", null, htmlAttributes: new { @class = "form-control", @readonly = true })
+                                    @Html.ValidationMessageFor(model => model.ID_KHOA, "", new { @class = "text-danger" })*@
                             </div>
                             <div class="form-group">
                                 <label> Trạng thái:</label>
-                                <div class="col-sm-12">
+                                <div class="col-12">
                                     <div class="checkbox">
                                         @Html.EditorFor(model => model.TRANG_THAI)<span> Đã duyệt</span>
                                         @Html.ValidationMessageFor(model => model.TRANG_THAI, "", new { @class = "text-danger" })
@@ -105,16 +107,14 @@
                             @*images*@
                             <label>Ảnh đại diện</label>
                             <br />
-                            <img id="Picture" style="height: 250px; width: 250px; object-fit: contain; border: 3px solid #0af; background-color: #b0b0b0"
+                            <img id="Picture" style="height: 250px; width: 250px; object-fit: contain; border: 3px solid #0af; background-color: #b0b0b0; border-radius:15px"
                                  src="@Url.Action("Picture", new {Model.ID})" />
                             <label>Bằng cấp - Chứng chỉ</label>
-                            <img id="Picture_CTC" style="height: 250px; width: 250px; object-fit: contain; border: 3px solid #0af; background-color: #b0b0b0"
+                            <img id="Picture_CTC" style="height: 250px; width: 250px; object-fit: contain; border: 3px solid #0af; background-color: #b0b0b0; border-radius: 15px"
                                  src="@Url.Action("Certificate", new {Model.ID})" />
                             @* images *@
                         </div>
                     </div>
-
-                    <br />
                     <div class="box align-left">
                         <div class="col-sm-3">
                             <button type="submit" class="button" style="vertical-align:middle"><span>Cập nhật </span></button>

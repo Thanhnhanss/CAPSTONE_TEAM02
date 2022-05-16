@@ -29,14 +29,12 @@
                         <form method="post">
                             @Html.AntiForgeryToken()
                             <div class="row">
-                                <div class="col-6">
+                                <div class="col-12">
                                     <label>Email</label>
                                     <input type="text" class="form-control" placeholder="" readonly="" value="@ViewBag.user" name="username">
-                                </div>
 
-                                <div class="col-6">
                                     <label>Quyền</label>
-                                    <select name="role" class="form-control fill">
+                                    <select name="role" class="form-control" style="border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%);">
                                         @foreach (var role in Model)
                                         {
                                             if (role.Id == ViewBag.role)
@@ -51,7 +49,7 @@
                                     </select>
                                 </div>
                             </div>
-
+                            <br />
                             <button type="submit" class="button" style="vertical-align:middle"><span>Lưu</span></button>
                         </form>
                     </div>

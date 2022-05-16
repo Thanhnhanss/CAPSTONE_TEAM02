@@ -48,7 +48,7 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label><b>Danh mục tin</b></label>
-                                <div class="col-md-12">
+                                <div class="col-12">
                                     @Html.DropDownList("ID_Danhmuc_tin", null, htmlAttributes: new { @class = "form-control" })
                                     @Html.ValidationMessageFor(model => model.ID_Danhmuc_tin, "", new { @class = "text-danger" })
                                 </div>
@@ -60,7 +60,7 @@
                             <div class="form-group">
                                 <label for="ten_bai_viet"><b>Tiêu đề bài viết</b></label>
                                 <div class="form-actions no-color">
-                                    <input class="form-control" name="TEN_BAI_VIET" pattern="[^#$%&*()!/><\][\\\x22\\\x40\\\x5E\\\x60\\\x3F,.:_+-=~;|]+$" maxlength="100" required />
+                                    <input class="form-control" style="border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%);" name="TEN_BAI_VIET" pattern="[^#$%&*()!/><\][\\\x22\\\x40\\\x5E\\\x60\\\x3F,.:_+-=~;|]+$" maxlength="100" required />
                                     @Html.ValidationMessageFor(model => model.TEN_BAI_VIET, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -75,7 +75,7 @@
                             <div class="form-group">
                                 <label for="tac_gia"><b>Tác giả</b></label>
                                 <div class="form-actions no-color">
-                                    @Html.EditorFor(model => model.TAC_GIA, new { htmlAttributes = new { @class = "form-control", @required = true} })
+                                    @Html.EditorFor(model => model.TAC_GIA, new { htmlAttributes = new { @class = "form-control", @required = true } })
                                     @Html.ValidationMessageFor(model => model.TAC_GIA, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -91,9 +91,9 @@
                             <div class="form-group">
                                 <label for="hinh_anh"><b>Hình ảnh</b></label>
                                 <div class="col-md-4">
-                                    <input class="form-control" type="file" name="Picture" id="IMG" onchange="readPicture(this)" accept="image/jpeg,image/gif,image/png"/>
+                                    <input class="form-control" type="file" style="border-radius:15px" name="Picture" id="IMG" onchange="readPicture(this)" accept="image/jpeg,image/gif,image/png" />
                                     <br />
-                                    <img id="Picture" style="height: 250px; width: 250px; object-fit: contain; border: 3px solid #0af; background-color: #000000" />
+                                    <img id="Picture" style="height: 250px; width: 250px; object-fit: contain; border: 3px solid #0af; background-color: #000000; border-radius:15px" />
                                 </div>
                             </div>
 
