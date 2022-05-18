@@ -375,9 +375,11 @@
     <Content Include="Content\asset-dr-inf\plugins\slick-carousel\slick\slick.css" />
     <Content Include="Content\asset-dr-inf\plugins\slick-carousel\slick\slick.js" />
     <Content Include="Content\asset-dr-inf\plugins\slick-carousel\slick\slick.min.js" />
+    <Content Include="Content\assets-ad\images\Icon\chatbot.png" />
     <Content Include="Content\assets-ad\images\Icon\drug.png" />
     <Content Include="Content\assets-ad\images\Icon\face-mask.png" />
     <Content Include="Content\assets-ad\images\Icon\home.png" />
+    <Content Include="Content\assets-ad\images\Icon\list.png" />
     <Content Include="Content\assets-ad\images\Icon\medicine.png" />
     <Content Include="Content\assets-ad\images\Icon\newspaper.png" />
     <Content Include="Content\assets-ad\images\Icon\profile.png" />
@@ -1693,7 +1695,6 @@
     <Content Include="Content\dist-ad\js\pages\datatable\data.json" />
     <Content Include="Content\assets-login\assets\css\login.css.map" />
     <Content Include="Content\assets-login\assets\scss\login.scss" />
-    <Content Include="Areas\Admin\Views\PhanQuyen\PhanQuyen.cshtml" />
     <Content Include="Areas\Admin\Views\QL_BacSi\Create.cshtml" />
     <Content Include="Areas\Admin\Views\QL_BacSi\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\QL_BacSi\Edit.cshtml" />
@@ -1852,10 +1853,6 @@
     <Content Include="Areas\User\Views\CapnhatTK\CapnhatTK.cshtml" />
     <Content Include="Areas\Admin\Views\QL_BenhNhan\ChiTiet_BN.cshtml" />
     <Content Include="Areas\Admin\Views\QL_BenhNhan\DanhSach_BN.cshtml" />
-    <Content Include="Areas\Admin\Views\PhanQuyen\phanQuyenTK.cshtml" />
-    <Content Include="Areas\Admin\Views\PhanQuyen\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\PhanQuyen\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\PhanQuyen\XoaQuyen.cshtml" />
     <Content Include="Areas\Admin\Views\QL_DangKyTVV\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\QL_DangKyTVV\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\QL_DangKyTVV\Index.cshtml" />
