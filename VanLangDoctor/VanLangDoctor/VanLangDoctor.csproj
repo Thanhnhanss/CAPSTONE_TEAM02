@@ -1857,7 +1857,6 @@
     <Content Include="Areas\Admin\Views\QL_DangKyTVV\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\QL_DangKyTVV\Index.cshtml" />
     <Content Include="Areas\Admin\Views\QL_Thuoc\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\QL_Thuoc\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\QL_Thuoc\Details.cshtml" />
     <Content Include="Areas\Admin\Views\QL_Thuoc\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\QL_Thuoc\Index.cshtml" />
