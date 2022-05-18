@@ -21,7 +21,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult DS_DonThuoc()
         {
-            var dON_THUOC = db.DON_THUOC.Include(d => d.BACSI).Include(d => d.SO_KHAM_BENH);
+            var dON_THUOC = db.DON_THUOC.Include(d => d.BACSI).Include(d => d.SO_KHAM_BENH).OrderByDescending(t => t.NGAY_LAP);
             return View(dON_THUOC.ToList());
         }
         // GET: Admin/QL_DonThuoc/Details/5
