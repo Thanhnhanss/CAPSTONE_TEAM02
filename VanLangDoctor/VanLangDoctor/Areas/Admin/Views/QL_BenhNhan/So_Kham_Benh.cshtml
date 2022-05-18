@@ -1,78 +1,332 @@
-﻿@model VanLangDoctor.Models.SO_KHAM_BENH
+﻿@using VanLangDoctor.Models
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
 
-@{
-    ViewBag.Title = "Sổ khám bệnh";
-    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
-}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="@Url.Content("~/Content/assets-ad/images/logoVLDnobri.png")">
+    <title>@ViewBag.Title</title>
+    <!-- Custom CSS -->
+    <link href="@Url.Content("~/Content/assets-ad/extra-libs/c3/c3.min.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Content/assets-ad/extra-libs/jvector/jquery-jvectormap-2.0.2.css")" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link href="@Url.Content("~/Content/dist-ad/css/style.min.css")" rel="stylesheet">
+    <link href="~/Content/assets-ad/extra-libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
 
+    <link href="~/Content/formcrud.css" rel="stylesheet" />
+    <script src="~/Scripts/nicEdit.js"></script>
+</head>
 
-<div class="page-wrapper" style="display: block">
-    <div class="page-breadcrumb">
-        <div class="row">
-            <div class="col-7 align-self-center">
-                <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">@ViewBag.Title</h4>
-                <div class="d-flex align-items-center">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb m-0 p-0">
-                            <li class="breadcrumb-item"><a href="~/trang-chu-quan-ly" class="text-muted">Trang chủ</a></li>
-                            <li class="breadcrumb-item text-muted active" aria-current="page">@ViewBag.Title</li>
-                        </ol>
-                    </nav>
-                </div>
-            </div>
+<body>
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
         </div>
     </div>
-    <div class="container-fluid">
-        <div class="card">
-            <div class="card-body">
-                <div class="form-row">
-                    <label for="name">Họ tên</label>
-                    <input type="text" value="@Model.BENH_NHAN.TEN_BN" class="form-control" readonly />
+    <div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+         data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
+        <header class="topbar" data-navbarbg="skin6">
+            <nav class="navbar top-navbar navbar-expand-md">
+                <div class="navbar-header" data-logobg="skin6">
+                    <!-- This is for the sidebar toggle which is visible on mobile only -->
+                    <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)">
+                        <i class="ti-menu ti-close"></i>
+                    </a>
+                    <div class="navbar-brand">
+                        <!-- Logo icon -->
+                        <a href="~/trang-chu-quan-ly">
+                            <b class="logo-icon">
+                                <!-- Dark Logo icon -->
+                                <img src="@Url.Content("~/Content/assets-ad/images/logoVLDnobri.png")" alt="homepage" class="dark-logo" />
+                                <!-- Light Logo icon -->
+                                <img src="@Url.Content("~/Content/assets-ad/images/logoVLDnobri.png")" alt="homepage" class="light-logo" />
+                            </b>
+                            <!--End Logo icon -->
+                            <!-- Logo text -->
+                            <span class="logo-text">
+                                <!-- dark Logo text -->
+                                <img height="22" width="140" src="@Url.Content("~/Content/assets-ad/images/logoVLDnobrw.png")" alt="homepage" class="dark-logo" />
+                                <!-- Light Logo text -->
+                                <img src="@Url.Content("~/Content/assets-ad/images/logoVLDnobrw.png")" class="light-logo" alt="homepage" />
+                            </span>
+                        </a>
+                    </div>
+                    <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)"
+                       data-toggle="collapse" data-target="#navbarSupportedContent"
+                       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="ti-more"></i>
+                    </a>
                 </div>
-                <br />
-                <div class="form-row" id="showInf">
-                    <div class="form-group col-md-3">
-                        <label for="age">Tuổi</label>
-                        <input type="text" value="@(DateTime.Now.Year - Model.BENH_NHAN.NGAY_SINH.Value.Year)" class="form-control" id="age" placeholder="Age" readonly>
-                    </div>
-                    <div class="form-group col-md-4">
-                        <label for="gender">Giới tính</label>
-                        <input type="text" value="@Model.BENH_NHAN.GIOI_TINH" class="form-control" id="gender" placeholder="Gender" readonly>
-                    </div>
-                    <div class="form-group col-md-5">
-                        <label for="address">Địa chỉ</label>
-                        <input type="text" value="@Model.BENH_NHAN.DIA_CHI" class="form-control" id="address" placeholder="Address" readonly>
-                    </div>
-                </div>
-                <br />
-                <div class="form-row">
-                    <label for="medicine">Danh sách đơn thuốc</label>
-                    <table id="Medicine" class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Chẩn đoán</th>
-                                <th scope="col">Kết quả</th>
-                                <th scope="col">Ngày tạo</th>
-                                <th scope="col">Bác sĩ</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @for (var i = 0; i < ViewBag.Prescriptions.Count; i++)
+                <div class="navbar-collapse collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav float-left mr-auto ml-3 pl-1">
+                        <!-- Notification -->
+                        <li class="nav-item d-none d-md-block">
+                            <a class="nav-link" href="javascript:void(0)">
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav float-right">
+                        <li class="nav-item dropdown">
+                            <!--------------------------------------->
+                            @using Microsoft.AspNet.Identity
+                            @if (!User.Identity.IsAuthenticated)
                             {
-                                <tr>
-                                    <td scope="row">@(i + 1)</td>
-                                    <td>@ViewBag.Prescriptions[i].CHUAN_DOAN</td>
-                                    <td>@ViewBag.Prescriptions[i].KET_QUA</td>
-                                    <td>@ViewBag.Prescriptions[i].NGAY_LAP</td>
-                                    <td>@ViewBag.Prescriptions[i].BACSI.TEN_BACSI</td>
-                                </tr>
+                                <p class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <div style="padding: 0.5em">
+                                        <a href="@Url.Action("Login","../Account")" style="color: black">
+                                            <i data-feather="user" class="svg-icon"></i>
+                                            <span style="font-size: 13px">Đăng nhập</span> <span class="text-dark"></span>
+                                        </a>
+                                    </div>
+                                </p>
                             }
-                        </tbody>
-                    </table>
+                            else
+                            {
+                                <div style="padding: 0.5em">
+                                    @using (Html.BeginForm("LogOff", "../Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                                    {
+                                        @Html.AntiForgeryToken();
+
+                                        <a class="nav-link dropdown-toggle" href="" data-toggle="dropdown"
+                                           aria-haspopup="true" aria-expanded="false">
+                                            <img src="@Url.Content("~/Content/assets-ad/images/users/1.jpg")" alt="user" class="rounded-circle"
+                                                 width="40">
+                                            <span class="ml-2 d-none d-lg-inline-block">
+                                                <span>Hello,</span> <span class="text-dark">@Html.FormatValue(User.Identity.GetUserName(), "")</span>
+                                                <i data-feather="chevron-down" class="svg-icon"></i>
+                                            </span>
+                                        </a>
+
+                                        <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
+                                            <a class="dropdown-item" href="javascript:void(0)">
+                                                <i data-feather="user"
+                                                   class="svg-icon mr-2 ml-1"></i>
+                                                My Profile
+                                            </a>
+                                            <a class="dropdown-item" href="javascript:void(0)">
+                                                <i data-feather="mail"
+                                                   class="svg-icon mr-2 ml-1"></i>
+                                                Inbox
+                                            </a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="javascript:document.getElementById('logoutForm').submit()">
+                                                <i data-feather="power"
+                                                   class="svg-icon mr-2 ml-1"></i>
+                                                Đăng xuất
+                                            </a>
+                                        </div>
+                                    }
+                                </div>
+                            }
+                        </li>
+                    </ul>
                 </div>
-                <a href="@Url.Action("DanhSach_BN", "QL_BenhNhan")" class="btn btn-primary">Quay lại</a>
+            </nav>
+        </header>
+        <aside class="left-sidebar" data-sidebarbg="skin6">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar" data-sidebarbg="skin6">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <li class="sidebar-item">
+                            <a class="sidebar-link sidebar-link" href="~/trang-chu-quan-ly"
+                               aria-expanded="false">
+                                <img src="~/Content/assets-ad/images/Icon/home.png" width="25" /><span class="hide-menu">&nbsp; Trang chủ</span>
+                            </a>
+                        </li>
+                        <li class="list-divider"></li>
+                        <li class="nav-small-cap"><span class="hide-menu">Quản lý</span></li>
+
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="@Url.Action("Index", "QL_TinTuc")"
+                               aria-expanded="false">
+                                <img src="~/Content/assets-ad/images/Icon/newspaper.png" width="25" /><span class="hide-menu">
+                                    &nbsp; Tin tức
+                                </span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link sidebar-link" href="@Url.Action("TaiKhoan", "QL_TaiKhoan")"
+                               aria-expanded="false">
+                                <img src="~/Content/assets-ad/images/Icon/profile.png" width="25" /><span class="hide-menu">&nbsp; Tài khoản</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link sidebar-link" href="@Url.Action("Index","QL_DangKyTVV")"
+                               aria-expanded="false">
+                                <img src="~/Content/assets-ad/images/Icon/drug.png" width="25" /><span class="hide-menu">&nbsp; Hồ sơ đăng ký</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link sidebar-link" href="
+https://business.facebook.com/latest/inbox/all?nav_ref=pages_classic_isolated_section_inbox_redirect&asset_id=109866731562751&mailbox_id=&selected_item_id=100157039375955" target="_blank"
+                               aria-expanded="false">
+                                <img src="~/Content/assets-ad/images/Icon/chatbot.png" width="25" /><span class="hide-menu">&nbsp; Quản lý chat</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow" href="javascript:void(0)"
+                               aria-expanded="false">
+                                <img src="~/Content/assets-ad/images/Icon/list.png" width="25" /><span class="hide-menu">&nbsp; Danh sách </span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse  first-level base-level-line">
+                                <li class="sidebar-item">
+                                    <a href="https://docs.google.com/spreadsheets/d/15FYYxU58hflxK2rJAa0eO5BN4CxV207-H9DWHE_fRaI/edit#gid=0" target="_blank" class="sidebar-link">
+                                        <span class="hide-menu">
+                                            Danh sách đặt lịch
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="https://docs.google.com/spreadsheets/d/1bifbqwRyduSgxGVl3Cz6TaAOTc5TzoKH52zfaXiaaro/edit#gid=0" target="_blank" class="sidebar-link">
+                                        <span class="hide-menu">
+                                            Danh sách đánh giá
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="list-divider"></li>
+                        <li class="nav-small-cap"><span class="hide-menu">Người dùng</span></li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow" href="javascript:void(0)"
+                               aria-expanded="false">
+                                <img src="~/Content/assets-ad/images/Icon/face-mask.png" width="25" /><span class="hide-menu">&nbsp; Bệnh nhân </span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse  first-level base-level-line">
+                                <li class="sidebar-item">
+                                    <a href="@Url.Action("DanhSach_BN","QL_BenhNhan")" class="sidebar-link">
+                                        <span class="hide-menu">
+                                            Danh sách bệnh nhân
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow" href="javascript:void(0)"
+                               aria-expanded="false">
+                                <img src="~/Content/assets-ad/images/Icon/stethoscope.png" width="25" /><span class="hide-menu"> &nbsp; Bác sĩ </span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse  first-level base-level-line">
+                                <li class="sidebar-item">
+                                    <a href="~/trang-chu-quan-ly/bac-si/danh-sach" class="sidebar-link">
+                                        <span class="hide-menu">
+                                            Danh sách bác sĩ
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="~/trang-chu-quan-ly/bac-si/them-moi" class="sidebar-link">
+                                        <span class="hide-menu">
+                                            Thêm bác sĩ
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
+                                <img src="~/Content/assets-ad/images/Icon/statistics.png" width="25" /><span class="hide-menu">&nbsp; Thống kê </span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse  first-level base-level-line">
+                                <li class="sidebar-item">
+                                    <a href="@Url.Action("Index", "QL_TKDonThuoc")" class="sidebar-link">
+                                        <span class="hide-menu">
+                                            Lịch sử đơn thuốc
+                                        </span>
+                                    </a>
+                                </li>
+
+                                <li class="sidebar-item">
+                                    <a href="@Url.Action("Index", "QL_TKFeedBack")" class="sidebar-link">
+                                        <span class="hide-menu">
+                                            Lịch sử tư vấn
+                                        </span>
+                                    </a>
+                                </li>
+
+                                <li class="sidebar-item">
+                                    <a href="@Url.Action("BookCalendar","QL_TKBookCalendar")" class="sidebar-link">
+                                        <span class="hide-menu">
+                                            Lịch sử đặt lịch
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow" href="javascript:void(0)"
+                               aria-expanded="false">
+                                <img src="~/Content/assets-ad/images/Icon/medicine.png" width="25" /><span class="hide-menu">&nbsp; Thuốc </span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse  first-level base-level-line">
+                                <li class="sidebar-item">
+                                    <a href="@Url.Action("Index","QL_Thuoc") " class="sidebar-link">
+                                        <span class="hide-menu">
+                                            Danh sách thuốc
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="@Url.Action("DS_DonThuoc","QL_DonThuoc") " class="sidebar-link">
+                                        <span class="hide-menu">
+                                            Danh sách đơn thuốc
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="@Url.Action("ThemDonThuoc","QL_DonThuoc") " class="sidebar-link">
+                                        <span class="hide-menu">
+                                            Kê đơn thuốc
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </nav>
+                <!-- End Sidebar navigation -->
             </div>
-        </div>
+            <!-- End Sidebar scroll-->
+        </aside>
+        @RenderBody()
     </div>
-</div>
+    <script src="@Url.Content("~/Content/assets-ad/libs/jquery/dist/jquery.min.js")"></script>
+    <script src="@Url.Content("~/Content/dist-ad/js/feather.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets-ad/extra-libs/c3/d3.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets-ad/libs/popper.js/dist/umd/popper.min.js")"></script>
+
+    <script src="~/Content/assets-ad/libs/jquery/dist/jquery.min.js"></script>
+    <script src="~/Content/assets-ad/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/Content/dist-ad/js/app-style-switcher.js"></script>
+    <script src="~/Content/dist-ad/js/feather.min.js"></script>
+    <script src="~/Content/assets-ad/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+    <script src="~/Content/assets-ad/extra-libs/sparkline/sparkline.js"></script>
+    <script src="~/Content/dist-ad/js/custom.min.js"></script>
+    <script src="~/Content/assets-ad/extra-libs/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="~/Content/dist-ad/js/pages/datatable/datatable-basic.init.js"></script>
+
+    <script src="@Url.Content("~/Content/assets-ad/libs/bootstrap/dist/js/bootstrap.min.js")"></script>
+    <script src="@Url.Content("~/Content/dist-ad/js/app-style-switcher.js")"></script>
+    <script src="@Url.Content("~/Content/assets-ad/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js")"></script>
+    <script src="@Url.Content("~/Content/dist-ad/js/sidebarmenu.js")"></script>
+    <script src="@Url.Content("~/Content/dist-ad/js/custom.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets-ad/extra-libs/c3/c3.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets-ad/extra-libs/jvector/jquery-jvectormap-2.0.2.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets-ad/extra-libs/jvector/jquery-jvectormap-world-mill-en.js")"></script>
+    <script src="@Url.Content("~/Content/dist-ad/js/pages/dashboards/dashboard1.min.js")"></script>
+    @RenderSection("Scripts", required: false)
+
+</body>
+
+</html>

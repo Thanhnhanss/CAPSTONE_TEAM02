@@ -1,4 +1,7 @@
-﻿@model IEnumerable<VanLangDoctor.Models.TIN_TUC>
+﻿@*@model IEnumerable<VanLangDoctor.Models.TIN_TUC>*@
+
+@model PagedList.IPagedList<VanLangDoctor.Models.TIN_TUC>
+@using PagedList.Mvc;
 
 @{
     ViewBag.Title = "Tin tức";
@@ -22,7 +25,6 @@
 <link rel="stylesheet" href="~/Content/assets-news/css/nice-select.css">
 <link rel="stylesheet" href="~/Content/assets-news/css/style.css">
 
-
 <main>
     <!-- Trending Area Start -->
     <div class="trending-area">
@@ -36,7 +38,7 @@
                             <!-- <p>Rem ipsum dolor sit amet, consectetur adipisicing elit.</p> -->
                             <div class="trending-animated">
                                 <ul id="js-news" class="js-hidden">
-                                        <li class="news-item">@ViewBag.Top1.TEN_BAI_VIET</li>
+                                    <li class="news-item">@ViewBag.Top1.TEN_BAI_VIET</li>
                                 </ul>
                             </div>
                         </div>
@@ -130,6 +132,11 @@
                             </div>
                         </div>
                     </div>
+                    <br />
+                    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+                    @Html.PagedListPager(Model, page => Url.Action("Index",
+                        new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
                 </div>
 
                 <div class="col-lg-4">
@@ -181,7 +188,7 @@
                                         <a href="~/trang-chu/tin-tuc/@t.TEN_BAI_VIET.ToLower().Replace(" ","-")-@t.ID_TIN_TUC">
                                             <img src="@Url.Action("Picture", new { t.ID_TIN_TUC })" alt="@t.TEN_BAI_VIET" style="color:black" height="250">
                                         </a>
-                                        
+
                                     </div>
                                     <div id="myTemp" class="weekly2-caption">
                                         <span class="color1">@t.DANH_MUC_TIN.Danhmuc_tin</span>
