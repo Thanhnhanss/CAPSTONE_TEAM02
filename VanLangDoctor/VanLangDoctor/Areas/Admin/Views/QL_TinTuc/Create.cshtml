@@ -34,6 +34,15 @@
     <div class="container-fluid">
         <div class="card">
             <div class="card-body">
+                @if (TempData["Failed"] != null)
+                {
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true" style=" float: right; margin-top: -10px">×</span>
+                        </button>
+                        <span><strong>@TempData["Failed"]</strong></span>
+                    </div>
+                }
                 @using (Html.BeginForm("Create", "QL_TinTuc", FormMethod.Post, new { enctype = "multipart/form-data" }))
                 {
                     @Html.AntiForgeryToken()
@@ -54,7 +63,7 @@
                                 <div class="form-group col-md-12">
                                     <label for="danh_muc">Tiêu đề bài viết</label>
                                     <div>
-                                        <input class="form-control" style="border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%);" name="TEN_BAI_VIET" pattern="[^#$%&*()!/><\][\\\x22\\\x40\\\x5E\\\x60\\\x3F,.:_+-=~;|]+$" maxlength="100" required />
+                                        <input class="form-control" style="border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%);" name="TEN_BAI_VIET" pattern="[^#$%&*><\][\\\x22\\\x40\\\x5E\\\x60\\\x3F.:_+=~;|]+$" maxlength="100" required />
                                         @Html.ValidationMessageFor(model => model.TEN_BAI_VIET, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -62,7 +71,7 @@
                             <div class="form-row">
                                 <div class="form-group col-md-12">
                                     <label for="danh_muc">Nội dung</label>
-                                    <textarea id="noi_dung" class="myTextEditor"></textarea>
+                                    @Html.TextAreaFor(m => m.NOI_DUNG, new { @class = "myTextEditor", @name = "noi_dung" })
                                 </div>
                             </div>
                             <div class="form-row">
@@ -118,7 +127,7 @@
         menubar: false,
         plugins: 'advlist autolink lists link image charmap preview anchor pagebreak',
         toolbar_mode: 'floating',
-        height: 200
+        height: 300
     });
     function readPicture(input) {
         if (input.files && input.files[0])
