@@ -1,7 +1,4 @@
-﻿@*@model IEnumerable<VanLangDoctor.Models.TIN_TUC>*@
-
-@model PagedList.IPagedList<VanLangDoctor.Models.TIN_TUC>
-@using PagedList.Mvc;
+﻿@model IEnumerable<VanLangDoctor.Models.TIN_TUC>
 
 @{
     ViewBag.Title = "Tin tức";
@@ -133,10 +130,6 @@
                         </div>
                     </div>
                     <br />
-                    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
-
-                    @Html.PagedListPager(Model, page => Url.Action("Index",
-                        new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
                 </div>
 
                 <div class="col-lg-4">

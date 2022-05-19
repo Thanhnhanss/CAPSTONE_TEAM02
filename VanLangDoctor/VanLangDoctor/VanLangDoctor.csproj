@@ -464,6 +464,9 @@
     <Content Include="Content\assets-feedback\jquery.js" />
     <Content Include="Content\assets-feedback\nicepage.css" />
     <Content Include="Content\assets-feedback\nicepage.js" />
+    <Content Include="Content\assets-ff\images\icon-menu-home2.png" />
+    <Content Include="Content\assets-ff\images\icon-menu-mobile-active.svg" />
+    <Content Include="Content\assets-ff\images\icon-menu-mobile.svg" />
     <Content Include="Content\assets-ff\images\tick.png" />
     <Content Include="Content\assets-HealthRecord\images\1.jpeg" />
     <Content Include="Content\assets-HealthRecord\images\1db315228240eb2ed1a3432ab564f4f6.png" />

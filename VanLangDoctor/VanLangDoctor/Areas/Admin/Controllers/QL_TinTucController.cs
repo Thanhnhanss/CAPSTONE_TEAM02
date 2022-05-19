@@ -77,7 +77,12 @@ namespace VanLangDoctor.Areas.Admin.Controllers
                         scope.Complete();
                     }
                 }
-                else ModelState.AddModelError("", "Hình ảnh không được tìm thấy.");
+                else if (picture == null)
+                {
+                    ModelState.AddModelError("", "Hình ảnh không được tìm thấy");
+                    TempData["Failed"] = "Không tìm thấy hình ảnh";
+                    return RedirectToAction("Create");
+                }
                 TempData["Success"] = "Thêm tin mới thành công";
             }
             ViewBag.ID_Danhmuc_tin = new SelectList(db.DANH_MUC_TIN, "ID", "Danhmuc_tin", tIN_TUC.ID_Danhmuc_tin);
