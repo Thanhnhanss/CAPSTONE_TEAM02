@@ -145,31 +145,5 @@ namespace VanLangDoctor.Areas.Admin.Controllers
             return View(tHUOC);
         }
 
-        // GET: Admin/THUOCsAdmin/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            THUOC tHUOC = db.THUOCs.Find(id);
-            if (tHUOC == null)
-            {
-                return HttpNotFound();
-            }
-            return View(tHUOC);
-        }
-
-        // POST: Admin/THUOCsAdmin/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            THUOC tHUOC = db.THUOCs.Find(id);
-            db.THUOCs.Remove(tHUOC);
-            db.SaveChanges();
-            TempData["Success"] = "Xóa thành công";
-            return RedirectToAction("Index");
-        }
     }
 }
