@@ -22,19 +22,20 @@
     </div>
     <br />
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-body">
-                        <form method="post">
-                            @Html.AntiForgeryToken()
+        <div class="card">
+            <div class="card-body">
+                <form method="post">
+                    @Html.AntiForgeryToken()
+                    <div class="container">
+                        <div class="form-horizontal">
                             <div class="row">
-                                <div class="col-12">
-                                    <label>Email</label>
-                                    <input type="text" class="form-control" placeholder="" readonly="" value="@ViewBag.user" name="username">
-
+                                <div class="form-group col-md-7">
+                                    <label for="email">Email</label>
+                                    <input type="text" class="form-control" value="@ViewBag.user" name="username" readonly>
+                                </div>
+                                <div class="form-group col-md-5">
                                     <label>Quyền</label>
-                                    <select name="role" class="form-control" style="border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%);">
+                                    <select name="role" class="form-control" style="margin-top: 4px; width:100%; border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%); ">
                                         @foreach (var role in Model)
                                         {
                                             if (role.Id == ViewBag.role)
@@ -49,11 +50,12 @@
                                     </select>
                                 </div>
                             </div>
-                            <br />
+                        </div>
+                        <div class="col-md-5">
                             <button type="submit" class="button" style="vertical-align:middle"><span>Lưu</span></button>
-                        </form>
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>

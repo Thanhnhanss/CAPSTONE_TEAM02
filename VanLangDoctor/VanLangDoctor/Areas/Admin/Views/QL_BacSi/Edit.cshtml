@@ -40,142 +40,118 @@
         <div class="container-fluid">
             <div class="card">
                 <div class="card-body">
-                    @using (Html.BeginForm("Edit", "QL_BacSi", FormMethod.Post, new { enctype = "multipart/form-data" }))
-                    {
+                    <form action="@Url.Action("Edit","QL_BacSi")" method="post" enctype="multipart/form-data">
                         @Html.AntiForgeryToken()
                         <div class="container">
                             <div class="form-horizontal">
                                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                 @Html.HiddenFor(model => model.ID_BACSI)
-                                <div class="row">
-                                    <div class="col-9">
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <div class="col-8">
-                                                    <label><b>Tên bác sĩ</b></label>
-                                                    <div class="col-12">
-                                                        @Html.EditorFor(model => model.TEN_BACSI, new { htmlAttributes = new { @class = "form-control" } })
-                                                        @Html.ValidationMessageFor(model => model.TEN_BACSI, "", new { @class = "text-danger" })
-                                                    </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-9">
+                                        <div class="form-row">
+                                            <div class="form-group col-md-7">
+                                                <label for="ten">Tên bác sĩ</label>
+                                                <div>
+                                                    @Html.EditorFor(model => model.TEN_BACSI, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.TEN_BACSI, "", new { @class = "text-danger" })
                                                 </div>
-
-                                                <div class="col-4">
-                                                    <label><b>Giới tính</b></label>
-                                                    <div class="col-4">
-                                                        <select style="border-radius: 3px; box-shadow: 5px 6px 9px -8px; padding: 0.5em 5em;" class="ui dropdown" name="GIOI_TINH" id="GIOI_TINH" required>
-                                                            <option value="@Model.GIOI_TINH">@Model.GIOI_TINH</option>
-                                                            <option value="Nam">Nam</option>
-                                                            <option value="Nữ">Nữ</option>
-                                                            <option value="Khác">Khác</option>
-                                                        </select>
-                                                    </div>
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label for="gioi_tinh">Giới tính</label>
+                                                <div>
+                                                    <select style="width: 100%; margin-top: 4px; border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%) " class="form-control" name="GIOI_TINH" id="GIOI_TINH" required>
+                                                        <option value="@Model.GIOI_TINH">@Model.GIOI_TINH</option>
+                                                        <option value="Nam">Nam</option>
+                                                        <option value="Nữ">Nữ</option>
+                                                        <option value="Khác">Khác</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
-
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <div class="col-8">
-                                                    <label><b>Số điện thoại</b></label>
-                                                    <div class="col-12">
-                                                        @Html.EditorFor(model => model.SDT, new { htmlAttributes = new { @class = "form-control" } })
-                                                        @Html.ValidationMessageFor(model => model.SDT, "", new { @class = "text-danger" })
-                                                    </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-4">
+                                                <label for="sdt">Số điện thoại</label>
+                                                <div>
+                                                    @Html.EditorFor(model => model.SDT, new { htmlAttributes = new { @class = "form-control", @style = "margin-top:4px;border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%) " } })
+                                                    @Html.ValidationMessageFor(model => model.SDT, "", new { @class = "text-danger" })
                                                 </div>
-
-                                                <div class="col-4">
-                                                    <label><b>Kinh nghiệm</b></label>
-                                                    <div class="col-md-12">
-                                                        @Html.EditorFor(model => model.KINH_NGHIEM, new { htmlAttributes = new { @class = "form-control" } })
-                                                        @Html.ValidationMessageFor(model => model.KINH_NGHIEM, "", new { @class = "text-danger" })
-                                                    </div>
+                                            </div>
+                                            <div class="form-group col-md-7">
+                                                <label for="email">Email</label>
+                                                <div>
+                                                    @Html.DropDownList("ID_Email", null, htmlAttributes: new { @class = "form-control", @style = "margin-top:4px;border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%) " })
+                                                    @Html.ValidationMessageFor(model => model.ID_Email, "", new { @class = "text-danger" })
                                                 </div>
                                             </div>
                                         </div>
-
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <div class="col-6">
-                                                    <label><b>Nghề nghiệp</b></label>
-                                                    <div class="col-12">
-                                                        @Html.EditorFor(model => model.NGHE_NGHIEP, new { htmlAttributes = new { @class = "form-control" } })
-                                                        @Html.ValidationMessageFor(model => model.NGHE_NGHIEP, "", new { @class = "text-danger" })
-                                                    </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-7">
+                                                <label for="nghe_nghiep">Nghề nghiệp</label>
+                                                <div>
+                                                    @Html.EditorFor(model => model.NGHE_NGHIEP, new { htmlAttributes = new { @class = "form-control", @style = "margin-top:4px;border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%) " } })
+                                                    @Html.ValidationMessageFor(model => model.NGHE_NGHIEP, "", new { @class = "text-danger" })
                                                 </div>
-
-                                                <div class="col-6">
-                                                    <label><b>Email</b></label>
-                                                    <div class="col-12">
-                                                        @Html.DropDownList("ID_Email", null, htmlAttributes: new { @class = "form-control" })
-                                                        @Html.ValidationMessageFor(model => model.ID_Email, "", new { @class = "text-danger" })
-                                                    </div>
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label for="kinh_nghiem">Kinh nghiệm</label>
+                                                <div>
+                                                    @Html.EditorFor(model => model.KINH_NGHIEM, new { htmlAttributes = new { @class = "form-control", @style = "margin-top:4px;border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%) " } })
+                                                    @Html.ValidationMessageFor(model => model.KINH_NGHIEM, "", new { @class = "text-danger" })
                                                 </div>
                                             </div>
                                         </div>
-
-                                        <div class="form-group">
-                                            <label><b>Chuyên khoa</b></label>
-                                            <div class="col-12">
-                                                @Html.DropDownList("ID_KHOA", null, htmlAttributes: new { @class = "form-control" })
-                                                @Html.ValidationMessageFor(model => model.ID_KHOA, "", new { @class = "text-danger" })
+                                        <div class="form-row">
+                                            <div class="form-group col-md-11">
+                                                <label for="chuyen_khoa">Chuyên khoa</label>
+                                                <div>
+                                                    @Html.DropDownList("ID_KHOA", null, htmlAttributes: new { @class = "form-control", @style = "margin-top:4px;border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%) " })
+                                                    @Html.ValidationMessageFor(model => model.ID_KHOA, "", new { @class = "text-danger" })
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <h4 class="card-title">Hình đại diện</h4>
-                                            <input class="form-control" type="file" name="Picture" id="IMG" onchange="readPicture(this)" accept="image/jpeg,image/gif,image/png" />
-                                            <br />
-                                            <img id="Picture" style="height: 250px; width: 250px; object-fit: contain; border-radius: 50%; border: 3px solid #0af; background-color: #000000"
-                                                 src="@Url.Action("Picture", new {Model.ID_BACSI})" />
+                                        <br />
+                                        <div class="form-row">
+                                            <div class="form-group col-md-11">
+                                                <label for="ngay_sinh">Ngày sinh</label>
+                                                <div>
+                                                    <input type="date" value="@Model.NGAYSINH_BS.Value.ToString("yyyy-MM-dd")" min="@(DateTime.Now.Year-100)-12-31" max="@(DateTime.Now.Year-22)-12-31" style="border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%) " name="NGAYSINH_BS" class="form-control" required>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
+                                        <br />
+                                        <div class="form-row">
+                                            <div class="form-group col-md-11">
+                                                <label for="ngay_truc">Ngày trực</label>
+                                                <div>
+                                                    @if (Model.NGAY_TRUC == null)
+                                                    {
 
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="form-group">
-                                            <label><b>Ngày sinh</b></label>
-                                            <div class="col-md-10">
-                                                @if (Model.NGAYSINH_BS == null)
-                                                {
-                                                    <input type="date" min="@(DateTime.Now.Year-100)-12-31" max="@(DateTime.Now.Year-22)-12-31" placeholder="Ngày sinh *" name="NGAYSINH_BS" class="form-control" required>
-                                                }
-                                                else
-                                                {
-                                                    <input type="date" min="@(DateTime.Now.Year-100)-12-31" max="@(DateTime.Now.Year-22)-12-31" placeholder="Ngày sinh *" name="NGAYSINH_BS"  value="@Model.NGAYSINH_BS" class="form-control" required>
-                                                    @Html.ValidationMessageFor(model => model.NGAYSINH_BS, "", new { @class = "text-danger" })
-                                                }
+                                                        <input type="date" min="@DateTime.Now" placeholder="Ngày trực" id="NGAY_TRUC" name="NGAY_TRUC" class="form-control" style="border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%) ">
+                                                        @Html.EditorFor(model => model.NGAY_TRUC, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="date" min="@DateTime.Now" placeholder="Ngày trực" id="NGAY_TRUC" name="NGAY_TRUC" value="@Model.NGAY_TRUC" class="form-control" style="border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%) ">
+                                                        @Html.ValidationMessageFor(model => model.NGAY_TRUC, "", new { @class = "text-danger" })
+                                                    }
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-
-                                    <div class="col-6">
-                                        <div class="form-group">
-                                            <label><b>Ngày trực</b></label>
-                                            <div class="col-md-10">
-                                                @if (Model.NGAY_TRUC == null)
-                                                {
-
-                                                    <input type="date" min="@DateTime.Now" placeholder="Ngày trực" id="NGAY_TRUC" name="NGAY_TRUC" class="form-control">
-                                                    @Html.EditorFor(model => model.NGAY_TRUC, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
-                                                }
-                                                else
-                                                {
-                                                    <input type="date" min="@DateTime.Now" placeholder="Ngày trực" id="NGAY_TRUC" name="NGAY_TRUC" value="@Model.NGAY_TRUC" class="form-control">
-                                                    @Html.ValidationMessageFor(model => model.NGAY_TRUC, "", new { @class = "text-danger" })
-                                                }
-                                            </div>
-                                        </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="hinh_anh">Hình ảnh</label>
+                                        <input class="form-control" type="file" name="Picture" id="IMG" style="width:100%;height:45px;border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%) " onchange="readPicture(this)" accept="image/jpeg,image/gif,image/png" required />
+                                        <br />
+                                        <img id="Picture" style="height: 250px; width: 250px; object-fit: contain; border-radius: 50%; border: 3px solid #0af; background-color: #00000000" 
+                                             src="@Url.Action("Picture", new {Model.ID_BACSI})" />
                                     </div>
-                                </div>
-                                <div class="col-md-push-12 col-md-5">
-                                    <button type="submit" class="button" style="vertical-align:middle"><span>Xác nhận </span></button>
                                 </div>
                             </div>
+                            <div class="col-md-5">
+                                <button type="submit" class="button" style="vertical-align:middle"><span>Xác nhận </span></button>
+                            </div>
                         </div>
-                    }
+                    </form>
                 </div>
             </div>
         </div>
