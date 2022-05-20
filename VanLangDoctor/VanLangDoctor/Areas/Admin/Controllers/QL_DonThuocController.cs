@@ -68,8 +68,6 @@ namespace VanLangDoctor.Areas.Admin.Controllers
                 {
 
                     CHUAN_DOAN = dON_THUOC.ChanDoan,
-                    CHI_DINH = dON_THUOC.ChiDinh,
-                    LOI_DAN = dON_THUOC.LoiDan,
                     KET_QUA = dON_THUOC.KetQua,
                     NGAY_LAP = DateTime.Now,
                     ID_BACSI = dON_THUOC.BacSi,
@@ -151,9 +149,6 @@ namespace VanLangDoctor.Areas.Admin.Controllers
 
             public string ChanDoan { get; set; }
 
-            public string LoiDan { get; set; }
-
-            public string ChiDinh { get; set; }
 
             public string KetQua { get; set; }
 

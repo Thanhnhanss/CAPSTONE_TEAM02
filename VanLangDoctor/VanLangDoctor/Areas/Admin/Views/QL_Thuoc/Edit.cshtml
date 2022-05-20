@@ -4,118 +4,113 @@
     ViewBag.Title = "Cập nhật thông tin thuốc";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-</head>
-<body>
-    <div class="page-wrapper" style="display: block;">
-        <div class="page-breadcrumb">
-            <div class="row">
-                <div class="col-7 align-self-center">
-                    <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">@ViewBag.Title</h4>
-                    <div class="d-flex align-items-center">
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb m-0 p-0">
-                                <li class="breadcrumb-item"><a href="~/trang-chu-quan-ly" class="text-muted">Trang chủ</a></li>
-                                <li class="breadcrumb-item"><a href="@Url.Action("Index")" class="text-muted">Danh sách thuốc</a></li>
-                                <li class="breadcrumb-item text-muted active" aria-current="page">@ViewBag.Title</li>
-                            </ol>
-                        </nav>
-                    </div>
-                </div>
-                <div class="col-5 align-self-center">
-                    <div class="customize-input float-right">
-                        <a class="button-back" href="@Url.Action("Index","QL_Thuoc")">
-                            <span-back>Trở về</span-back>
-                        </a>
-                    </div>
+
+<div class="page-wrapper" style="display: block;">
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-7 align-self-center">
+                <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">@ViewBag.Title</h4>
+                <div class="d-flex align-items-center">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb m-0 p-0">
+                            <li class="breadcrumb-item"><a href="~/trang-chu-quan-ly" class="text-muted">Trang chủ</a></li>
+                            <li class="breadcrumb-item"><a href="@Url.Action("Index")" class="text-muted">Danh sách thuốc</a></li>
+                            <li class="breadcrumb-item text-muted active" aria-current="page">@ViewBag.Title</li>
+                        </ol>
+                    </nav>
                 </div>
             </div>
-        </div>
-        <hr />
-        <div class="container-fluid">
-            <div class="card">
-                <div class="card-body">
-                    <form action="@Url.Action("Edit")" method="post" enctype="multipart/form-data">
-                        @Html.AntiForgeryToken()
-                        <div class="container">
-                            <div class="form-horizontal">
-
-                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                                @Html.HiddenFor(model => model.ID_THUOC)
-                                <div class="form-group">
-                                    <label><b>Danh mục thuốc</b></label>
-                                    <div class="col-md-12">
-                                        @Html.DropDownList("ID_DANHMUC", null, htmlAttributes: new { @class = "form-control", @required = true })
-                                        @Html.ValidationMessageFor(model => model.ID_DANHMUC, "", new { @class = "text-danger" })
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-8">
-                                        <div class="form-group">
-                                            <label><b>Tên thuốc</b></label>
-                                            <div class="col-md-12">
-                                                @Html.EditorFor(model => model.TEN_THUOC, new { htmlAttributes = new { @class = "form-control", @required = true } })
-                                                @Html.ValidationMessageFor(model => model.TEN_THUOC, "", new { @class = "text-danger" })
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label><b>Liều lượng</b></label>
-                                            <div class="col-md-12">
-                                                @Html.EditorFor(model => model.LIEU_LUONG, new { htmlAttributes = new { @class = "form-control", @required = true } })
-                                                @Html.ValidationMessageFor(model => model.LIEU_LUONG, "", new { @class = "text-danger" })
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label><b>Nhà sản xuất</b></label>
-                                            <div class="col-12">
-                                                @Html.DropDownList("ID_NSX", null, htmlAttributes: new { @class = "form-control", @required = true })
-                                                @Html.ValidationMessageFor(model => model.ID_NSX, "", new { @class = "text-danger" })
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-4">
-                                        <div class="col-12">
-                                            <div class="form-group">
-                                                <label><b>Hình ảnh</b></label>
-                                                <input class="form-control" type="file" name="Picture" id="IMG" onchange="readPicture(this)" accept="image/jpeg,image/gif,image/png" required/>
-                                                <br />
-                                                <img id="Picture" style="height: 250px; width: 250px; object-fit: contain; border-radius: 50%; border: 3px solid #0af; background-color: #000000"
-                                                     src="@Url.Action("Picture", new {Model.ID_THUOC})" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group col-12">
-                                    <label><b>Mô tả</b></label>
-                                    <div class="col-12">
-                                        <textarea cols="140" rows="3" name="MO_TA" required>@Model.MO_TA</textarea>
-                                        @Html.ValidationMessageFor(model => model.MO_TA, "", new { @class = "text-danger" })
-                                    </div>
-                                </div>
-                                <br />
-                                <div class="form-group float-right">
-                                    <div class="col-10">
-                                        <button type="submit" class="button" style="vertical-align:middle"><span>Cập nhật </span></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
+            <div class="col-5 align-self-center">
+                <div class="customize-input float-right">
+                    <a class="button-back" href="@Url.Action("Index","QL_Thuoc")">
+                        <span-back>Trở về</span-back>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
-</body>
-</html>
+    <hr />
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body">
+                <form action="@Url.Action("Edit")" method="post" enctype="multipart/form-data">
+                    @Html.AntiForgeryToken()
+                    <div class="container">
+                        <div class="form-horizontal">
+
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @Html.HiddenFor(model => model.ID_THUOC)
+                            <div class="form-row">
+                                <div class="form-group col-md-9">
+                                    <div class="form-row">
+                                        <div class="form-group col-md-11">
+                                            <label for="danh_muc">Danh mục</label>
+                                            <div>
+                                                @Html.DropDownList("ID_DANHMUC", null, htmlAttributes: new { @class = "form-control", @required = true, @style = "border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%) " })
+                                                @Html.ValidationMessageFor(model => model.ID_DANHMUC, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-11">
+                                            <label for="ten_thuoc">Tên thuốc</label>
+                                            <div>
+                                                @Html.EditorFor(model => model.TEN_THUOC, new { htmlAttributes = new { @class = "form-control", @required = true, @style = "border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%) " } })
+                                                @Html.ValidationMessageFor(model => model.TEN_THUOC, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-11">
+                                            <label for="lieu_luong">Liều lượng</label>
+                                            <div>
+                                                @Html.EditorFor(model => model.LIEU_LUONG, new { htmlAttributes = new { @class = "form-control", @required = true, @style = "border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%) " } })
+                                                @Html.ValidationMessageFor(model => model.LIEU_LUONG, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-11">
+                                            <label for="lieu_luong">Nhà sản xuất</label>
+                                            <div>
+                                                @Html.DropDownList("ID_NSX", null, htmlAttributes: new { @class = "form-control", @required = true, @style = "border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%) " })
+                                                @Html.ValidationMessageFor(model => model.ID_NSX, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="hinh_anh">Hình ảnh</label>
+                                    <input class="form-control" type="file" name="Picture" id="IMG" style="width:100%;height:45px;border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%) " onchange="readPicture(this)" accept="image/jpeg,image/gif,image/png" required />
+                                    <br />
+                                    <img id="Picture" style="height: 250px; width: 250px; object-fit: contain; border-radius: 50%; border: 3px solid #0af; background-color: #000000 "
+                                         src="@Url.Action("Picture", new {Model.ID_THUOC})" />
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-12">
+                                    <label><b>Mô tả</b></label>
+                                    <div>
+                                        <textarea cols="140" rows="3" name="MO_TA" required>@Model.MO_TA</textarea>
+                                        @Html.ValidationMessageFor(model => model.MO_TA, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <button type="submit" class="button" style="vertical-align:middle"><span>Cập nhật </span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
     function readPicture(input) {
         if (input.files && input.files[0])

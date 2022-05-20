@@ -23,8 +23,6 @@ namespace VanLangDoctor.Models
         public int ID_DON_THUOC { get; set; }
         public string KET_QUA { get; set; }
         public string CHUAN_DOAN { get; set; }
-        public string CHI_DINH { get; set; }
-        public string LOI_DAN { get; set; }
         public System.DateTime NGAY_LAP { get; set; }
         public int ID_BACSI { get; set; }
         public int ID_SO_KHAM_BENH { get; set; }

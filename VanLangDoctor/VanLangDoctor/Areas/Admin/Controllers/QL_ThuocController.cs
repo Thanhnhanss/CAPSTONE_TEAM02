@@ -30,21 +30,6 @@ namespace VanLangDoctor.Areas.Admin.Controllers
             return File(path + ID_THUOC, "images");
         }
 
-        // GET: Admin/THUOCsAdmin/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            THUOC tHUOC = db.THUOCs.Find(id);
-            if (tHUOC == null)
-            {
-                return HttpNotFound();
-            }
-            return View(tHUOC);
-        }
-
         // GET: Admin/THUOCsAdmin/Create
         public ActionResult Create()
         {
@@ -144,6 +129,5 @@ namespace VanLangDoctor.Areas.Admin.Controllers
             TempData["Success"] = "Cập nhật thuốc thành công";
             return View(tHUOC);
         }
-
     }
 }

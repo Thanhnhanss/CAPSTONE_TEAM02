@@ -24,7 +24,6 @@ namespace VanLangDoctor.Areas.User.Controllers
         public ActionResult Create()
         {
             ViewBag.ID_KHOA = new SelectList(db.KHOAs, "ID_KHOA", "TEN_KHOA");
-            ViewBag.ID_User = new SelectList(db.AspNetUsers, "Id", "Email");
             return View();
         }
 
@@ -51,7 +50,7 @@ namespace VanLangDoctor.Areas.User.Controllers
                         var path_CTC = Server.MapPath(CTC_PATH);
                         int i = 0;
                         string[] paths = new string[picture_CTC.Length];
-                        foreach(var c in picture_CTC)
+                        foreach (var c in picture_CTC)
                         {
                             c.SaveAs(path_CTC + dANG_KY.ID + i);
                             paths[i++] = "ctc-" + dANG_KY.HO_TEN.ToLower().Trim() + "-" + dANG_KY.SDT + "-" + dANG_KY.ID + i;
@@ -81,7 +80,6 @@ namespace VanLangDoctor.Areas.User.Controllers
                 return RedirectToAction("HomeUser", "HomeUser", new { area = "User" });
             }
             ViewBag.ID_KHOA = new SelectList(db.KHOAs, "ID_KHOA", "TEN_KHOA", dANG_KY.ID_KHOA);
-            ViewBag.ID_User = new SelectList(db.AspNetUsers, "Id", "Email", dANG_KY.ID_User);
             return View(dANG_KY);
         }
     }

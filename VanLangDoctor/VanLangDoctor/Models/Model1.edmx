@@ -118,11 +118,10 @@
           <Property Name="MUC_TIEU" Type="nvarchar(max)" />
           <Property Name="HOC_VAN" Type="nvarchar(max)" />
           <Property Name="CHUNG_CHI" Type="nvarchar(max)" />
-          <Property Name="EMAIL" Type="nvarchar" MaxLength="256" />
           <Property Name="SDT" Type="varchar" MaxLength="10" />
           <Property Name="TRANG_THAI" Type="bit" Nullable="false" />
           <Property Name="ID_KHOA" Type="int" />
-          <Property Name="ID_User" Type="nvarchar" MaxLength="128" />
+          <Property Name="EMAIL" Type="nvarchar" MaxLength="128" />
         </EntityType>
         <EntityType Name="DANH_MUC_THUOC">
           <Key>
@@ -145,8 +144,6 @@
           <Property Name="ID_DON_THUOC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="KET_QUA" Type="nvarchar(max)" />
           <Property Name="CHUAN_DOAN" Type="nvarchar(max)" />
-          <Property Name="CHI_DINH" Type="nvarchar(max)" />
-          <Property Name="LOI_DAN" Type="nvarchar(max)" />
           <Property Name="NGAY_LAP" Type="datetime" Nullable="false" />
           <Property Name="ID_BACSI" Type="int" Nullable="false" />
           <Property Name="ID_SO_KHAM_BENH" Type="int" Nullable="false" />
@@ -300,18 +297,6 @@
             </Principal>
             <Dependent Role="CHI_TIET_DON_THUOC">
               <PropertyRef Name="ID_THUOC" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_DANG_KY">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
-          <End Role="DANG_KY" Type="Self.DANG_KY" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="DANG_KY">
-              <PropertyRef Name="ID_User" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -512,10 +497,6 @@
             <End Role="THUOC" EntitySet="THUOC" />
             <End Role="CHI_TIET_DON_THUOC" EntitySet="CHI_TIET_DON_THUOC" />
           </AssociationSet>
-          <AssociationSet Name="FK_DANG_KY" Association="Self.FK_DANG_KY">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="DANG_KY" EntitySet="DANG_KY" />
-          </AssociationSet>
           <AssociationSet Name="FK_DANG_KY_KHOA" Association="Self.FK_DANG_KY_KHOA">
             <End Role="KHOA" EntitySet="KHOA" />
             <End Role="DANG_KY" EntitySet="DANG_KY" />
@@ -649,10 +630,6 @@
             <End Role="AspNetRole" EntitySet="AspNetRoles" />
             <End Role="AspNetUser" EntitySet="AspNetUsers" />
           </AssociationSet>
-          <AssociationSet Name="FK_DANG_KY" Association="CP24Team02Model.FK_DANG_KY">
-            <End Role="AspNetUser" EntitySet="AspNetUsers" />
-            <End Role="DANG_KY" EntitySet="DANG_KY" />
-          </AssociationSet>
         </EntityContainer>
         <EntityType Name="C__MigrationHistory">
           <Key>
@@ -715,7 +692,6 @@
           <NavigationProperty Name="BENH_NHAN" Relationship="CP24Team02Model.FK_BENH_NHAN_EMAIL" FromRole="AspNetUser" ToRole="BENH_NHAN" />
           <NavigationProperty Name="FEEDBACKs" Relationship="CP24Team02Model.FK_FEEDBACK_AspNetUsers" FromRole="AspNetUser" ToRole="FEEDBACK" />
           <NavigationProperty Name="AspNetRoles" Relationship="CP24Team02Model.AspNetUserRoles" FromRole="AspNetUser" ToRole="AspNetRole" />
-          <NavigationProperty Name="DANG_KY" Relationship="CP24Team02Model.FK_DANG_KY" FromRole="AspNetUser" ToRole="DANG_KY" />
         </EntityType>
         <EntityType Name="BACSI">
           <Key>
@@ -758,10 +734,10 @@
           <Property Name="ID_THUOC" Type="Int32" Nullable="false" />
           <Property Name="ID_DON_THUOC" Type="Int32" Nullable="false" />
           <Property Name="SO_LUONG" Type="Int32" />
-          <NavigationProperty Name="DON_THUOC" Relationship="CP24Team02Model.FK_CHI_TIET_DON_THUOC_DON_THUOC" FromRole="CHI_TIET_DON_THUOC" ToRole="DON_THUOC" />
-          <NavigationProperty Name="THUOC" Relationship="CP24Team02Model.FK_CHI_TIET_DON_THUOC_THUOC" FromRole="CHI_TIET_DON_THUOC" ToRole="THUOC" />
           <Property Name="LIEU_DUNG" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="DVT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DON_THUOC" Relationship="CP24Team02Model.FK_CHI_TIET_DON_THUOC_DON_THUOC" FromRole="CHI_TIET_DON_THUOC" ToRole="DON_THUOC" />
+          <NavigationProperty Name="THUOC" Relationship="CP24Team02Model.FK_CHI_TIET_DON_THUOC_THUOC" FromRole="CHI_TIET_DON_THUOC" ToRole="THUOC" />
         </EntityType>
         <EntityType Name="DANG_KY">
           <Key>
@@ -776,13 +752,11 @@
           <Property Name="MUC_TIEU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="HOC_VAN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="CHUNG_CHI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="EMAIL" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="SDT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="TRANG_THAI" Type="Boolean" Nullable="false" />
           <Property Name="ID_KHOA" Type="Int32" />
+          <Property Name="EMAIL" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="KHOA" Relationship="CP24Team02Model.FK_DANG_KY_KHOA" FromRole="DANG_KY" ToRole="KHOA" />
-          <Property Name="ID_User" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="AspNetUser" Relationship="CP24Team02Model.FK_DANG_KY" FromRole="DANG_KY" ToRole="AspNetUser" />
         </EntityType>
         <EntityType Name="DANH_MUC_THUOC">
           <Key>
@@ -807,8 +781,6 @@
           <Property Name="ID_DON_THUOC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="KET_QUA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="CHUAN_DOAN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="CHI_DINH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="LOI_DAN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="NGAY_LAP" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ID_BACSI" Type="Int32" Nullable="false" />
           <Property Name="ID_SO_KHAM_BENH" Type="Int32" Nullable="false" />
@@ -923,7 +895,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BAC_SI">
-          <End Type="CP24Team02Model.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
+          <End Type="CP24Team02Model.AspNetUser" Role="AspNetUser" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="CP24Team02Model.BACSI" Role="BACSI" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="AspNetUser">
@@ -935,7 +909,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BENH_NHAN_EMAIL">
-          <End Type="CP24Team02Model.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
+          <End Type="CP24Team02Model.AspNetUser" Role="AspNetUser" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="CP24Team02Model.BENH_NHAN" Role="BENH_NHAN" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="AspNetUser">
@@ -947,7 +923,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_FEEDBACK_AspNetUsers">
-          <End Type="CP24Team02Model.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
+          <End Type="CP24Team02Model.AspNetUser" Role="AspNetUser" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="CP24Team02Model.FEEDBACK" Role="FEEDBACK" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="AspNetUser">
@@ -959,7 +937,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BACSI_DT">
-          <End Type="CP24Team02Model.BACSI" Role="BACSI" Multiplicity="1" />
+          <End Type="CP24Team02Model.BACSI" Role="BACSI" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="CP24Team02Model.DON_THUOC" Role="DON_THUOC" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="BACSI">
@@ -971,7 +951,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BACSI_KHOA">
-          <End Type="CP24Team02Model.KHOA" Role="KHOA" Multiplicity="0..1" />
+          <End Type="CP24Team02Model.KHOA" Role="KHOA" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="CP24Team02Model.BACSI" Role="BACSI" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="KHOA">
@@ -983,7 +965,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_SO_KHAM_BENH_BENH_NHAN">
-          <End Type="CP24Team02Model.BENH_NHAN" Role="BENH_NHAN" Multiplicity="0..1" />
+          <End Type="CP24Team02Model.BENH_NHAN" Role="BENH_NHAN" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="CP24Team02Model.SO_KHAM_BENH" Role="SO_KHAM_BENH" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="BENH_NHAN">
@@ -995,7 +979,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_CHI_TIET_DON_THUOC_DON_THUOC">
-          <End Type="CP24Team02Model.DON_THUOC" Role="DON_THUOC" Multiplicity="1" />
+          <End Type="CP24Team02Model.DON_THUOC" Role="DON_THUOC" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="CP24Team02Model.CHI_TIET_DON_THUOC" Role="CHI_TIET_DON_THUOC" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="DON_THUOC">
@@ -1007,7 +993,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_CHI_TIET_DON_THUOC_THUOC">
-          <End Type="CP24Team02Model.THUOC" Role="THUOC" Multiplicity="1" />
+          <End Type="CP24Team02Model.THUOC" Role="THUOC" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="CP24Team02Model.CHI_TIET_DON_THUOC" Role="CHI_TIET_DON_THUOC" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="THUOC">
@@ -1019,7 +1007,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_DANG_KY_KHOA">
-          <End Type="CP24Team02Model.KHOA" Role="KHOA" Multiplicity="0..1" />
+          <End Type="CP24Team02Model.KHOA" Role="KHOA" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="CP24Team02Model.DANG_KY" Role="DANG_KY" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="KHOA">
@@ -1031,7 +1021,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_THUOC_DANH_MUC_THUOC">
-          <End Type="CP24Team02Model.DANH_MUC_THUOC" Role="DANH_MUC_THUOC" Multiplicity="0..1" />
+          <End Type="CP24Team02Model.DANH_MUC_THUOC" Role="DANH_MUC_THUOC" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="CP24Team02Model.THUOC" Role="THUOC" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="DANH_MUC_THUOC">
@@ -1043,7 +1035,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TIN_TUC_DANH_MUC_TIN">
-          <End Type="CP24Team02Model.DANH_MUC_TIN" Role="DANH_MUC_TIN" Multiplicity="0..1" />
+          <End Type="CP24Team02Model.DANH_MUC_TIN" Role="DANH_MUC_TIN" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="CP24Team02Model.TIN_TUC" Role="TIN_TUC" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="DANH_MUC_TIN">
@@ -1067,7 +1061,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_THUOC_NHA_SAN_XUAT">
-          <End Type="CP24Team02Model.NHA_SAN_XUAT" Role="NHA_SAN_XUAT" Multiplicity="0..1" />
+          <End Type="CP24Team02Model.NHA_SAN_XUAT" Role="NHA_SAN_XUAT" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="CP24Team02Model.THUOC" Role="THUOC" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="NHA_SAN_XUAT">
@@ -1081,18 +1077,6 @@
         <Association Name="AspNetUserRoles">
           <End Type="CP24Team02Model.AspNetRole" Role="AspNetRole" Multiplicity="*" />
           <End Type="CP24Team02Model.AspNetUser" Role="AspNetUser" Multiplicity="*" />
-        </Association>
-        <Association Name="FK_DANG_KY">
-          <End Type="CP24Team02Model.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
-          <End Type="CP24Team02Model.DANG_KY" Role="DANG_KY" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUser">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="DANG_KY">
-              <PropertyRef Name="ID_User" />
-            </Dependent>
-          </ReferentialConstraint>
         </Association>
         </Schema>
     </edmx:ConceptualModels>
@@ -1199,11 +1183,10 @@
           <EntitySetMapping Name="DANG_KY">
             <EntityTypeMapping TypeName="CP24Team02Model.DANG_KY">
               <MappingFragment StoreEntitySet="DANG_KY">
-                <ScalarProperty Name="ID_User" ColumnName="ID_User" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
                 <ScalarProperty Name="ID_KHOA" ColumnName="ID_KHOA" />
                 <ScalarProperty Name="TRANG_THAI" ColumnName="TRANG_THAI" />
                 <ScalarProperty Name="SDT" ColumnName="SDT" />
-                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
                 <ScalarProperty Name="CHUNG_CHI" ColumnName="CHUNG_CHI" />
                 <ScalarProperty Name="HOC_VAN" ColumnName="HOC_VAN" />
                 <ScalarProperty Name="MUC_TIEU" ColumnName="MUC_TIEU" />
@@ -1238,8 +1221,6 @@
                 <ScalarProperty Name="ID_SO_KHAM_BENH" ColumnName="ID_SO_KHAM_BENH" />
                 <ScalarProperty Name="ID_BACSI" ColumnName="ID_BACSI" />
                 <ScalarProperty Name="NGAY_LAP" ColumnName="NGAY_LAP" />
-                <ScalarProperty Name="LOI_DAN" ColumnName="LOI_DAN" />
-                <ScalarProperty Name="CHI_DINH" ColumnName="CHI_DINH" />
                 <ScalarProperty Name="CHUAN_DOAN" ColumnName="CHUAN_DOAN" />
                 <ScalarProperty Name="KET_QUA" ColumnName="KET_QUA" />
                 <ScalarProperty Name="ID_DON_THUOC" ColumnName="ID_DON_THUOC" />
