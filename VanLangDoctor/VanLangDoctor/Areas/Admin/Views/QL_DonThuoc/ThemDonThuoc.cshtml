@@ -193,7 +193,7 @@
             var diachi = $('#address').val();
             var ngaytao = $('#ngaytao').val();
             var chandoan = tinymce.get(0).getContent({ format: 'text' });
-            var ketqua = tinymce.get(3).getContent({ format: 'text' });
+            var ketqua = tinymce.get(1).getContent({ format: 'text' });
             var bacsi = $('#bacsi').val();
 
             $('body').append(`<form action="@Url.Action("ThemDonThuoc","QL_DonThuoc")" method="POST" id="form" style="display: none">
