@@ -40,6 +40,7 @@
         <AssociationConnector Association="CP24Team02Model.FK_DON_THUOC_SO_KHAM_BENH" />
         <AssociationConnector Association="CP24Team02Model.FK_THUOC_NHA_SAN_XUAT" />
         <AssociationConnector Association="CP24Team02Model.AspNetUserRoles" />
+        <AssociationConnector Association="CP24Team02Model.FK_DANG_KY" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

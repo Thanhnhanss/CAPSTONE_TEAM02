@@ -23,6 +23,7 @@ namespace VanLangDoctor.Models
             this.BENH_NHAN = new HashSet<BENH_NHAN>();
             this.FEEDBACKs = new HashSet<FEEDBACK>();
             this.AspNetRoles = new HashSet<AspNetRole>();
+            this.DANG_KY = new HashSet<DANG_KY>();
         }
     
         public string Id { get; set; }
@@ -50,5 +51,7 @@ namespace VanLangDoctor.Models
         public virtual ICollection<FEEDBACK> FEEDBACKs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AspNetRole> AspNetRoles { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DANG_KY> DANG_KY { get; set; }
     }
 }

@@ -24,6 +24,7 @@ namespace VanLangDoctor.Areas.User.Controllers
         public ActionResult Create()
         {
             ViewBag.ID_KHOA = new SelectList(db.KHOAs, "ID_KHOA", "TEN_KHOA");
+            ViewBag.ID_User = new SelectList(db.AspNetUsers, "Id", "Email");
             return View();
         }
 
@@ -80,6 +81,7 @@ namespace VanLangDoctor.Areas.User.Controllers
                 return RedirectToAction("HomeUser", "HomeUser", new { area = "User" });
             }
             ViewBag.ID_KHOA = new SelectList(db.KHOAs, "ID_KHOA", "TEN_KHOA", dANG_KY.ID_KHOA);
+            ViewBag.ID_User = new SelectList(db.AspNetUsers, "Id", "Email", dANG_KY.ID_User);
             return View(dANG_KY);
         }
     }
