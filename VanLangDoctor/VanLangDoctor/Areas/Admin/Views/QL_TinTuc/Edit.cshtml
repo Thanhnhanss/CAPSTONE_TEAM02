@@ -44,7 +44,7 @@
         <div class="container-fluid">
             <div class="card">
                 <div class="card-body">
-                    @using (Html.BeginForm("Edit", "QL_TinTuc", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    @using (Html.BeginForm("Edit", "QL_TinTuc", FormMethod.Post, new { enctype = "multipart/form-data", id= "create_news" }))
                     {
                         @Html.AntiForgeryToken()
                         <div class="container">
@@ -82,7 +82,8 @@
                                 <div class="form-row">
                                     <div class="form-group col-md-12">
                                         <label for="danh_muc">Nội dung</label>
-                                        @Html.TextAreaFor(m => m.NOI_DUNG, new { @class = "myTextEditor", @name = "noi_dung", @required = true })
+                                        <textarea class="myTextEditor" name="noi_dung">@Model.NOI_DUNG</textarea>
+                                        @*@Html.TextAreaFor(m => m.NOI_DUNG, new { @class = "myTextEditor", @name = "noi_dung", @required = true })*@
                                     </div>
                                 </div>
                                 <div class="form-row">
@@ -137,6 +138,26 @@
     </div>
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title col-10" id="exampleModalLabel"><strong>Thông báo từ hệ thống:</strong></h5>
+                <button type="button" class="close col-2" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="text-align: center">
+                Vui lòng nhập nội dung!
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script src="https://cdn.tiny.cloud/1/1b2536ekphkpyobvhepdu93xpk3jv8nzfibsju8wpyg5zh3c/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 <script>
     tinymce.init({
@@ -159,5 +180,16 @@
 <script type="text/javascript">
     $(document).ready(() => {
         new nicEditor().panelInstance('area1')
+    })
+</script>
+<script type="text/javascript">
+    $(document).ready(() => {
+        $('#create_news').off('submit').submit(e => {
+            var noiDung = tinymce.activeEditor.getContent();
+            if (!noiDung) {
+                e.preventDefault();
+                $('#exampleModal').modal();
+            }
+        });
     })
 </script>

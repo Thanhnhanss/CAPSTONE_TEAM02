@@ -24,7 +24,7 @@
             </div>
             <div class="col-5 align-self-center">
                 <div class="customize-input float-right">
-                    <a class="button-back" href="@Url.Action("Index")">
+                    <a class="button-back" href="@Url.Action("Index", "QL_TinTuc")">
                         <span-back>Trở về</span-back>
                     </a>
                 </div>
@@ -43,8 +43,7 @@
                         <span><strong>@TempData["Failed"]</strong></span>
                     </div>
                 }
-                @using (Html.BeginForm("Create", "QL_TinTuc", FormMethod.Post, new { enctype = "multipart/form-data" }))
-                {
+                <form id="create_news" action="@Url.Action("Create","QL_TinTuc")" method="post" enctype="multipart/form-data">
                     @Html.AntiForgeryToken()
                     <div class="container">
                         <div class="form-horizontal">
@@ -71,7 +70,8 @@
                             <div class="form-row">
                                 <div class="form-group col-md-12">
                                     <label for="danh_muc">Nội dung</label>
-                                    @Html.TextAreaFor(m => m.NOI_DUNG, new { @class = "myTextEditor", @name = "noi_dung" })
+                                    <textarea class="myTextEditor" name="noi_dung"></textarea>
+                                    @*@Html.TextAreaFor(m => m.NOI_DUNG, new { @class = "myTextEditor", @name = "noi_dung" })*@
                                 </div>
                             </div>
                             <div class="form-row">
@@ -109,11 +109,31 @@
                                 <button type="submit" class="button" style="vertical-align:middle"><span>Thêm mới</span></button>
                             </div>
                             <div class="form-group col-md-4">
-                                <a class="button" style="background-color: rgb(157 154 154 / 44%); color: black" href="@Url.Action("Index")">Quay lại</a>
+                                <a class="button" style="background-color: rgb(157 154 154 / 44%); color: black" href="@Url.Action("Index", "QL_TinTuc")">Quay lại</a>
                             </div>
                         </div>
                     </div>
-                }
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title col-10" id="exampleModalLabel"><strong>Thông báo từ hệ thống:</strong></h5>
+                <button type="button" class="close col-2" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="text-align: center">
+                Vui lòng nhập nội dung!
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
             </div>
         </div>
     </div>
@@ -141,6 +161,14 @@
 <script src="@Url.Content("~/Content/assets-ad/libs/jquery/dist/jquery.min.js")"></script>
 <script type="text/javascript">
     $(document).ready(() => {
-        new nicEditor().panelInstance('area1')
+        console.log('ok');
+        console.log($('#create_news'));
+        $('#create_news').off('submit').submit(e => {
+            var noiDung = tinymce.activeEditor.getContent();
+            if (!noiDung) {
+                e.preventDefault();
+                $('#exampleModal').modal();
+            }
+        });
     })
 </script>
