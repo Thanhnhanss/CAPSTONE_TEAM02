@@ -6,6 +6,7 @@ using VanLangDoctor.Models;
 
 namespace VanLangDoctor.Areas.User.Controllers
 {
+    [Authorize]
     public class HealthRecordController : Controller
     {
         private CP24Team02Entities db = new CP24Team02Entities();

@@ -55,11 +55,8 @@
                                 <thead>
                                     <tr>
                                         <th>Tên bác sĩ</th>
-                                        <th>Số điện thoại</th>
-                                        <th>Ngày sinh</th>
                                         <th>Email</th>
                                         <th>Giới tính</th>
-                                        <th>Nghề nghiệp</th>
                                         <th>Kinh nghiệm</th>
                                         <th>Ngày trực</th>
                                         <th>Hình đại diện</th>
@@ -71,11 +68,8 @@
                                     {
                                         <tr>
                                             <td><a href="@Url.Action("Edit","QL_BacSi", new { id = item.ID_BACSI })" class="font-weight-medium link">@item.TEN_BACSI</a></td>
-                                            <td>@item.SDT</td>
-                                            <td class="font-bold link">@Html.FormatValue(@item.NGAYSINH_BS, "{0:d}")</td>
                                             <td>@Html.DisplayFor(modelItem => item.AspNetUser.Email)</td>
                                             <td>@item.GIOI_TINH</td>
-                                            <td>@item.NGHE_NGHIEP</td>
                                             <td>@item.KINH_NGHIEM Năm</td>
                                             <td>@Html.FormatValue(@item.NGAY_TRUC, "{0:d}")</td>
                                             <td style="text-align:center"><img src="@Url.Action("Picture", new {item.ID_BACSI})" width="55" height="55" style="border-radius: 50%" /></td>
@@ -87,20 +81,6 @@
                                     }
 
                                 </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th>Tên bác sĩ</th>
-                                        <th>Số điện thoại</th>
-                                        <th>Ngày sinh</th>
-                                        <th>Email</th>
-                                        <th>Giới tính</th>
-                                        <th>Nghề nghiệp</th>
-                                        <th>Kinh nghiệm</th>
-                                        <th>Ngày trực</th>
-                                        <th>Hình đại diện</th>
-                                        <th></th>
-                                    </tr>
-                                </tfoot>
                             </table>
                         </div>
                     </div>

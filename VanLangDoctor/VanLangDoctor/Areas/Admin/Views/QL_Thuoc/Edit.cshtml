@@ -82,7 +82,7 @@
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="hinh_anh">Hình ảnh</label>
-                                    <input class="form-control" type="file" name="Picture" id="IMG" style="width:100%;height:45px;border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%) " onchange="readPicture(this)" accept="image/jpeg,image/gif,image/png" required />
+                                    <input class="form-control" type="file" name="Picture" id="IMG" style="width:100%;height:45px;border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%) " onchange="readPicture(this)" accept="image/jpeg,image/gif,image/png" />
                                     <br />
                                     <img id="Picture" style="height: 250px; width: 250px; object-fit: contain; border-radius: 50%; border: 3px solid #0af; background-color: #000000 "
                                          src="@Url.Action("Picture", new {Model.ID_THUOC})" />
