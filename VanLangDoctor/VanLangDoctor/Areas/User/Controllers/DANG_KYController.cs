@@ -32,7 +32,7 @@ namespace VanLangDoctor.Areas.User.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(DANG_KY dANG_KY, HttpPostedFileBase picture, HttpPostedFileBase[] picture_CTC)
+        public ActionResult Create(DANG_KY dANG_KY, HttpPostedFileBase picture, HttpPostedFileBase picture_CTC)
         {
             if (ModelState.IsValid)
             {
@@ -47,15 +47,20 @@ namespace VanLangDoctor.Areas.User.Controllers
                         picture.SaveAs(path + "ttv" + dANG_KY.ID); ;
                         dANG_KY.HINH_ANH = "avt-" + dANG_KY.HO_TEN.ToLower().Trim() + "-" + dANG_KY.SDT + "-" + dANG_KY.ID;
 
+
                         var path_CTC = Server.MapPath(CTC_PATH);
-                        int i = 0;
-                        string[] paths = new string[picture_CTC.Length];
-                        foreach (var c in picture_CTC)
-                        {
-                            c.SaveAs(path_CTC + dANG_KY.ID + i);
-                            paths[i++] = "ctc-" + dANG_KY.HO_TEN.ToLower().Trim() + "-" + dANG_KY.SDT + "-" + dANG_KY.ID + i;
-                        }
-                        dANG_KY.CHUNG_CHI = string.Join(";", paths);
+                        picture_CTC.SaveAs(path_CTC + dANG_KY.ID);
+                        dANG_KY.CHUNG_CHI = "ctc-" + dANG_KY.HO_TEN.ToLower().Trim() + "-" + dANG_KY.SDT + "-" + dANG_KY.ID;
+
+                        //var path_CTC = Server.MapPath(CTC_PATH);
+                        //int i = 0;
+                        //string[] paths = new string[picture_CTC.Length];
+                        //foreach (var c in picture_CTC)
+                        //{
+                        //    c.SaveAs(path_CTC + dANG_KY.ID + i);
+                        //    paths[i++] = "ctc-" + dANG_KY.HO_TEN.ToLower().Trim() + "-" + dANG_KY.SDT + "-" + dANG_KY.ID + i;
+                        //}
+                        //dANG_KY.CHUNG_CHI = string.Join(";", paths);
 
                         db.SaveChanges();
 
