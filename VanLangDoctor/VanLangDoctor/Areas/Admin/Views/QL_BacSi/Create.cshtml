@@ -124,7 +124,7 @@
                                         <div class="form-group col-md-11">
                                             <label for="ngay_truc">Ngày trực</label>
                                             <div>
-                                                <input type="date" min="@DateTime.Now" placeholder="Ngày trực" id="NGAY_TRUC" name="NGAY_TRUC" class="form-control" style="border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%) " />
+                                                <input type="date" min="@DateTime.Now.ToString("yyyy-MM-dd")" placeholder="Ngày trực" id="NGAY_TRUC" name="NGAY_TRUC" class="form-control" style="border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%) " />
                                                 @Html.ValidationMessageFor(model => model.NGAY_TRUC, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
