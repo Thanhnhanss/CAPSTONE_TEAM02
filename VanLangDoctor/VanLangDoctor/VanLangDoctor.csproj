@@ -199,6 +199,7 @@
     <Compile Include="Areas\Admin\Controllers\PhanQuyenController.cs" />
     <Compile Include="Areas\Admin\Controllers\QL_BenhNhanController.cs" />
     <Compile Include="Areas\Admin\Controllers\QL_DangKyTVVController.cs" />
+    <Compile Include="Areas\Admin\Controllers\QL_DatLichController.cs" />
     <Compile Include="Areas\Admin\Controllers\QL_DonThuocController.cs" />
     <Compile Include="Areas\Admin\Controllers\QL_TaiKhoanController.cs" />
     <Compile Include="Areas\Admin\Controllers\QL_ThuocController.cs" />
@@ -253,6 +254,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DANH_MUC_TIN.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DAT_LICH.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DON_THUOC.cs">
@@ -1874,6 +1878,12 @@
     <Content Include="Areas\User\Views\HomeUser\GioiThieu.cshtml" />
     <Content Include="Areas\Admin\Views\QL_BenhNhan\So_Kham_Benh.cshtml" />
     <Content Include="Areas\Admin\Views\QL_DonThuoc\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_BacSi\ThongTinBacSi.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_DatLich\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_DatLich\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_DatLich\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_DatLich\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_DatLich\Index.cshtml" />
     <None Include="Areas\Admin\Views\QL_DonThuoc\ThemDonThuoc.cshtml" />
     <Content Include="Areas\Admin\Views\QL_DonThuoc\DS_DonThuoc.cshtml" />
     <Content Include="Areas\User\Views\HealthRecord\HealthRecord.cshtml" />

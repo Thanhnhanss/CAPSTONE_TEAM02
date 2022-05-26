@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Transactions;
 using VanLangDoctor.Models;
+using Microsoft.AspNet.Identity;
 
 namespace VanLangDoctor.Areas.Admin.Controllers
 {
@@ -21,6 +22,20 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         {
             var bACSIs = db.BACSIs.Include(b => b.AspNetUser).Include(b => b.KHOA);
             return View(bACSIs.ToList());
+        }
+
+        //[Authorize(Roles = "Bác sĩ")]
+        //GET: Admin/QLBacsi/ThongTinBacSi
+        public ActionResult ThongTinBacSi()
+        {
+            var bacsi = User.Identity.GetUserId();
+            //if (bacsi != User.Identity.GetUserId())
+            //    return new HttpStatusCodeResult(403);
+            if (!string.IsNullOrEmpty(bacsi))
+            {
+                return RedirectToAction("ThongTinBacSi", "QL_BacSi", new { area = "Admin" });
+            }
+            return View();
         }
 
         public ActionResult Picture(int ID_BACSI)
