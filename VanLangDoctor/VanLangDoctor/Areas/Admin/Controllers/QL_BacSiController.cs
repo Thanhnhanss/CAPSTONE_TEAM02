@@ -29,8 +29,8 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         public ActionResult ThongTinBacSi()
         {
             var bacsi = User.Identity.GetUserId();
-            //if (bacsi != User.Identity.GetUserId())
-            //    return new HttpStatusCodeResult(403);
+            if (bacsi != User.Identity.GetUserId())
+                return new HttpStatusCodeResult(403);
             if (!string.IsNullOrEmpty(bacsi))
             {
                 return RedirectToAction("ThongTinBacSi", "QL_BacSi", new { area = "Admin" });

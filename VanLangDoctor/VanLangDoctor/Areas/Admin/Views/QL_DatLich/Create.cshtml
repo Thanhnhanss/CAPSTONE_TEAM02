@@ -1,44 +1,101 @@
 ﻿@model VanLangDoctor.Models.DAT_LICH
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Đăng ký lịch";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Create</h2>
-
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>DAT_LICH</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.NGAY_TRUC, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NGAY_TRUC, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NGAY_TRUC, "", new { @class = "text-danger" })
+<div class="page-wrapper" style="display: block;">
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-7 align-self-center">
+                <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">@ViewBag.Title</h4>
+                <div class="d-flex align-items-center">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb m-0 p-0">
+                            <li class="breadcrumb-item"><a href="~/trang-chu-quan-ly" class="text-muted">Trang chủ</a></li>
+                            <li class="breadcrumb-item"><a href="~/trang-chu-quan-ly/bac-si/danh-sach" class="text-muted">Bác sĩ</a></li>
+                            <li class="breadcrumb-item text-muted active" aria-current="page">@ViewBag.Title</li>
+                        </ol>
+                    </nav>
+                </div>
             </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ID_BACSI, "ID_BACSI", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("ID_BACSI", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.ID_BACSI, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+            <div class="col-5 align-self-center">
+                <div class="customize-input float-right">
+                    <a class="button-back" href="~/trang-chu-quan-ly/bac-si/danh-sach">
+                        <span-back>Trở về</span-back>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body DangKyLich">
+                <div class="form-row">
+                    <div class="form-group col-md-2">
+                        <button class="form-control ThemNgayLamViec">Thêm ngày</button>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="form-horizontal">
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label>Ngày làm việc</label>
+                                <input type="date" min="@DateTime.Now.ToString("yyyy-MM-dd")" name="ngaylamviec" class="form-control" />
+                                <br />
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Giờ làm việc</label>
+                                <input type="time" name="giolamviec" class="form-control giolamviec" />
+                                <br />
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label></label>
+                                <button class="form-control ThemGioLamViec">Thêm</button>
+                            </div>
+                        </div>
+                        <br />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryval")
+<script>
+    $('.ThemNgayLamViec').click(function () {
+        $('.DangKyLich').append(
+            '<div class="container">' +
+                '<div class= "form-horizontal">' +
+                    '<div class="form-row">' +
+                        '<div class="form-group col-md-4">' +
+                            '<label>Ngày làm việc</label>' +
+                            '<input type="date" min="@DateTime.Now.ToString("yyyy-MM-dd")" name="ngay" class="form-control" />' +
+                            '<br />' +
+                        '</div>' +
+                        '<div class="form-group col-md-6">' +
+                            '<label>Giờ làm việc</label>' +
+                            '<input type="time" name="giolamviec" class="form-control giolamviec" />' +
+                            '<br />' +
+                        '</div>' +
+                        '<div class="form-group col-md-2">' +
+                            '<label></label>' +
+                            '<button class="form-control ThemGioLamViec">Thêm</button>' +
+                        '</div>' +
+                    '</div>' +
+                    '<br />' +
+                '</div>' +
+            '</div>');
+        $('.ThemGioLamViec').off('click').click(function () {
+            $(this).parent().parent().find('.giolamviec').parent().append('<input type="time" name="giolamviec" class="form-control giolamviec"  />',
+                '<br />')
+        });
+    });
+
+    $('.ThemGioLamViec').off('click').click(function () {
+        $(this).parent().parent().find('.giolamviec').parent().append('<input type="time" name="giolamviec" class="form-control giolamviec"  />',
+                                          '<br />')
+    });
+</script>
