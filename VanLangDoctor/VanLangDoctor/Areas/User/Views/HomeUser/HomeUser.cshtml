@@ -231,7 +231,7 @@
                     {
                         <div class="u-align-left u-container-style u-list-item u-repeater-item">
                             <div class="u-container-layout u-similar-container u-container-layout-2">
-                                <a href="@Url.Action("thongtinbacsi","ThongtinBacsi", new { id = i.ID_BACSI})">
+                                <a href="~/trang-chu/bac-si/@i.TEN_BACSI.ToLower()-@i.ID_BACSI">
                                     <img class="u-expanded-width u-image u-image-default u-image-1" alt="" data-image-width="719" data-image-height="1080" src="@Url.Action("Picture","ThongtinBacsi", new { i.ID_BACSI})">
                                     <h5 class="u-text u-text-2" style="text-align:center">@i.TEN_BACSI</h5>
                                     <p class="u-text u-text-3" style="text-align:center">@i.KHOA.TEN_KHOA với @i.KINH_NGHIEM năm kinh nghiệm trong ngành</p>
