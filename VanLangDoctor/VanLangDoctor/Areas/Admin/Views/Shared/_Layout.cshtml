@@ -106,10 +106,10 @@
 
                                         <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
                                             @*<a class="dropdown-item" href="javascript:void(0)">
-                                                <i data-feather="user"
-                                                   class="svg-icon mr-2 ml-1"></i>
-                                                My Profile
-                                            </a>*@
+                                                    <i data-feather="user"
+                                                       class="svg-icon mr-2 ml-1"></i>
+                                                    My Profile
+                                                </a>*@
                                             <a class="dropdown-item" target="_blank" href="https://business.facebook.com/latest/inbox/all?nav_ref=pages_classic_isolated_section_inbox_redirect&asset_id=109866731562751&mailbox_id=&selected_item_id=100157039375955">
                                                 <i data-feather="mail"
                                                    class="svg-icon mr-2 ml-1"></i>
@@ -143,7 +143,8 @@
                             </a>
                         </li>
                         <li class="list-divider"></li>
-                        <li class="nav-small-cap"><span class="hide-menu">Quản lý</span></li>
+                        @*Quản lý*@
+                         <li class="nav-small-cap"><span class="hide-menu">Quản lý</span></li>
 
                         <li class="sidebar-item">
                             <a class="sidebar-link" href="@Url.Action("Index", "QL_TinTuc")"
@@ -151,12 +152,6 @@
                                 <img src="~/Content/assets-ad/images/Icon/newspaper.png" width="25" /><span class="hide-menu">
                                     &nbsp; Tin tức
                                 </span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link" href="@Url.Action("TaiKhoan", "QL_TaiKhoan")"
-                               aria-expanded="false">
-                                <img src="~/Content/assets-ad/images/Icon/profile.png" width="25" /><span class="hide-menu">&nbsp; Tài khoản</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
@@ -194,18 +189,30 @@ https://business.facebook.com/latest/inbox/all?nav_ref=pages_classic_isolated_se
                                 </li>
                             </ul>
                         </li>
-                        <li class="list-divider"></li>
-                        <li class="nav-small-cap"><span class="hide-menu">Người dùng</span></li>
                         <li class="sidebar-item">
                             <a class="sidebar-link has-arrow" href="javascript:void(0)"
                                aria-expanded="false">
-                                <img src="~/Content/assets-ad/images/Icon/face-mask.png" width="25" /><span class="hide-menu">&nbsp; Bệnh nhân </span>
+                                <img src="~/Content/assets-ad/images/Icon/medicine.png" width="25" /><span class="hide-menu">&nbsp; Thuốc </span>
                             </a>
                             <ul aria-expanded="false" class="collapse  first-level base-level-line">
                                 <li class="sidebar-item">
-                                    <a href="@Url.Action("DanhSach_BN","QL_BenhNhan")" class="sidebar-link">
+                                    <a href="@Url.Action("Index","QL_Thuoc") " class="sidebar-link">
                                         <span class="hide-menu">
-                                            Danh sách bệnh nhân
+                                            Danh sách thuốc
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="@Url.Action("DS_DonThuoc","QL_DonThuoc") " class="sidebar-link">
+                                        <span class="hide-menu">
+                                            Danh sách đơn thuốc
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="@Url.Action("ThemDonThuoc","QL_DonThuoc") " class="sidebar-link">
+                                        <span class="hide-menu">
+                                            Kê đơn thuốc
                                         </span>
                                     </a>
                                 </li>
@@ -263,36 +270,58 @@ https://business.facebook.com/latest/inbox/all?nav_ref=pages_classic_isolated_se
                                 </li>
                             </ul>
                         </li>
+
+                        <li class="list-divider"></li>
+                        @*Quản trị viên*@
+                        <li class="nav-small-cap"><span class="hide-menu">Quản trị viên</span></li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link has-arrow" href="javascript:void(0)"
+                            <a class="sidebar-link sidebar-link" href="@Url.Action("TaiKhoan", "QL_TaiKhoan")"
                                aria-expanded="false">
-                                <img src="~/Content/assets-ad/images/Icon/medicine.png" width="25" /><span class="hide-menu">&nbsp; Thuốc </span>
+                                <img src="~/Content/assets-ad/images/Icon/profile.png" width="25" /><span class="hide-menu">&nbsp; Tài khoản</span>
+                            </a>
+                        </li>
+
+
+                        <li class="list-divider"></li>
+                        @*Bác sĩ*@
+                        <li class="nav-small-cap"><span class="hide-menu">Bác sĩ</span></li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
+                                <img src="~/Content/assets-ad/images/Icon/statistics.png" width="25" /><span class="hide-menu">&nbsp; Thông tin </span>
                             </a>
                             <ul aria-expanded="false" class="collapse  first-level base-level-line">
                                 <li class="sidebar-item">
-                                    <a href="@Url.Action("Index","QL_Thuoc") " class="sidebar-link">
+                                    <a href="@Url.Action("ThongTinBacSi", "QL_BacSi")" class="sidebar-link">
                                         <span class="hide-menu">
-                                            Danh sách thuốc
+                                            Tài khoản
                                         </span>
                                     </a>
                                 </li>
+
                                 <li class="sidebar-item">
-                                    <a href="@Url.Action("DS_DonThuoc","QL_DonThuoc") " class="sidebar-link">
+                                    <a href="#" class="sidebar-link">
                                         <span class="hide-menu">
-                                            Danh sách đơn thuốc
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="@Url.Action("ThemDonThuoc","QL_DonThuoc") " class="sidebar-link">
-                                        <span class="hide-menu">
-                                            Kê đơn thuốc
+                                            Đặt lịch
                                         </span>
                                     </a>
                                 </li>
                             </ul>
                         </li>
-
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow" href="javascript:void(0)"
+                               aria-expanded="false">
+                                <img src="~/Content/assets-ad/images/Icon/face-mask.png" width="25" /><span class="hide-menu">&nbsp; Bệnh nhân </span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse  first-level base-level-line">
+                                <li class="sidebar-item">
+                                    <a href="@Url.Action("DanhSach_BN","QL_BenhNhan")" class="sidebar-link">
+                                        <span class="hide-menu">
+                                            Danh sách bệnh nhân
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->

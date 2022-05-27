@@ -1,8 +1,8 @@
 ﻿@model VanLangDoctor.Models.BACSI
 
 @{
+    ViewBag.Title = "Thông tin bác sĩ";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = "Thêm mới bác sĩ";
 }
 
 
@@ -42,20 +42,20 @@
                         <span><strong>@TempData["Failed"]</strong></span>
                     </div>
                 }
-                <form action="@Url.Action("Create","QL_BacSi")" method="post" enctype="multipart/form-data">
-                    @Html.AntiForgeryToken()
+                <form action="#" method="post" enctype="multipart/form-data">
+                    @*@Html.AntiForgeryToken()*@
                     <div class="container">
                         <div class="form-horizontal">
-                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })*@
                             <div class="form-row">
                                 <div class="form-group col-md-9">
                                     <div class="form-row">
                                         <div class="form-group col-md-7">
                                             <label for="ten">Tên bác sĩ</label>
-                                            <div>
+                                            @*<div>
                                                 @Html.EditorFor(model => model.TEN_BACSI, new { htmlAttributes = new { @class = "form-control", @placeholder = "ví dụ: Nguyễn Văn A " } })
                                                 @Html.ValidationMessageFor(model => model.TEN_BACSI, "", new { @class = "text-danger" })
-                                            </div>
+                                            </div>*@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="gioi_tinh">Giới tính</label>
@@ -71,64 +71,65 @@
                                     <div class="form-row">
                                         <div class="form-group col-md-4">
                                             <label for="sdt">Số điện thoại</label>
-                                            <div>
+                                            @*<div>
                                                 @Html.EditorFor(model => model.SDT, new { htmlAttributes = new { @class = "form-control", @placeholder = "ví dụ: 0905556***" } })
                                                 @Html.ValidationMessageFor(model => model.SDT, "", new { @class = "text-danger" })
-                                            </div>
+                                            </div>*@
                                         </div>
                                         <div class="form-group col-md-7">
                                             <label for="email">Email</label>
-                                            <div>
+                                            @*<input type="email" value="@Model.ID_Email" name="email" readonly />*@
+                                            @*<div>
                                                 @Html.DropDownList("ID_Email", null, htmlAttributes: new { @class = "form-control", @style = "margin-top:4px;border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%) " })
                                                 @Html.ValidationMessageFor(model => model.ID_Email, "", new { @class = "text-danger" })
-                                            </div>
+                                            </div>*@
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group col-md-7">
                                             <label for="nghe_nghiep">Nghề nghiệp</label>
-                                            <div>
+                                            @*<div>
                                                 @Html.EditorFor(model => model.NGHE_NGHIEP, new { htmlAttributes = new { @class = "form-control", @placeholder = "ví dụ: Dược sĩ" } })
                                                 @Html.ValidationMessageFor(model => model.NGHE_NGHIEP, "", new { @class = "text-danger" })
-                                            </div>
+                                            </div>*@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="kinh_nghiem">Kinh nghiệm</label>
-                                            <div>
+                                            @*<div>
                                                 @Html.EditorFor(model => model.KINH_NGHIEM, new { htmlAttributes = new { @class = "form-control", @style = "margin-top:4px;border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%) ", @placeholder = "ví dụ: 5 năm " } })
                                                 @Html.ValidationMessageFor(model => model.KINH_NGHIEM, "", new { @class = "text-danger" })
-                                            </div>
+                                            </div>*@
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group col-md-11">
                                             <label for="chuyen_khoa">Chuyên khoa</label>
-                                            <div>
+                                            @*<div>
                                                 @Html.DropDownList("ID_KHOA", null, htmlAttributes: new { @class = "form-control", @style = "border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%) " })
                                                 @Html.ValidationMessageFor(model => model.ID_KHOA, "", new { @class = "text-danger" })
-                                            </div>
+                                            </div>*@
                                         </div>
                                     </div>
                                     <br />
                                     <div class="form-row">
                                         <div class="form-group col-md-11">
                                             <label for="ngay_sinh">Ngày sinh</label>
-                                            <div>
+                                            @*<div>
                                                 <input type="date" min="@(DateTime.Now.Year-100)-12-31" max="@(DateTime.Now.Year-22)-12-31" placeholder="Ngày sinh *" style="border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%) " name="NGAYSINH_BS" class="form-control" required>
                                                 @Html.ValidationMessageFor(model => model.NGAYSINH_BS, "", new { @class = "text-danger" })
-                                            </div>
+                                            </div>*@
                                         </div>
                                     </div>
                                     <br />
-                                    @*<div class="form-row">
+                                    <div class="form-row">
                                         <div class="form-group col-md-11">
                                             <label for="ngay_truc">Ngày trực</label>
-                                            <div>
-                                                <input type="date" min="@DateTime.Now.ToString("yyyy-MM-dd")" placeholder="Ngày trực" id="NGAY_TRUC" name="NGAY_TRUC" class="form-control" style="border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%) " />
+                                            @*<div>
+                                                <input type="date" min="@DateTime.Now" placeholder="Ngày trực" id="NGAY_TRUC" name="NGAY_TRUC" class="form-control" style="border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%) " />
                                                 @Html.ValidationMessageFor(model => model.NGAY_TRUC, "", new { @class = "text-danger" })
-                                            </div>
+                                            </div>*@
                                         </div>
-                                    </div>*@
+                                    </div>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="hinh_anh">Hình ảnh</label>
