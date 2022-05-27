@@ -1,9 +1,30 @@
 ﻿@model System.Web.Mvc.HandleErrorInfo
 
 @{
-    ViewBag.Title = "Error";
+    ViewBag.Title = "Không tìm thấy trang!";
 }
 
-<h1 class="text-danger">Error.</h1>
-<h2 class="text-danger">An error occurred while processing your request.</h2>
+<link href="~/Content/404page.css" rel="stylesheet" />
+<link rel="shortcut icon" href="@Url.Content("~/Content/assets-ff/images/icon-page404.png")" />
 
+<title>@ViewBag.Title</title>
+<link href='https://fonts.googleapis.com/css?family=Anton|Passion+One|PT+Sans+Caption' rel='stylesheet' type='text/css'>
+<body>
+
+    <!-- Error Page -->
+    <div class="error">
+        <div class="container-floud">
+            <div class="col-xs-12 ground-color text-center">
+                <div class="container-error-404">
+                    <div class="clip"><div class="shadow"><span class="digit thirdDigit"></span></div></div>
+                    <div class="clip"><div class="shadow"><span class="digit secondDigit"></span></div></div>
+                    <div class="clip"><div class="shadow"><span class="digit firstDigit"></span></div></div>
+                    <div class="msg">OH!<span class="triangle"></span></div>
+                </div>
+                <h2 class="h1">Xin lỗi! Không tìm thấy trang</h2>
+            </div>
+        </div>
+    </div>
+    <!-- Error Page -->
+</body>
+<script src="~/Scripts/404page.js"></script>

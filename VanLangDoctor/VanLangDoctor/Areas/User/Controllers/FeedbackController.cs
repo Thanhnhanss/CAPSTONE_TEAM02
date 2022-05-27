@@ -1,17 +1,13 @@
 ﻿using Microsoft.AspNet.Identity;
-using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Data;
-using System.Data.Entity;
 using System.Linq;
-using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using VanLangDoctor.Models;
 
 namespace VanLangDoctor.Areas.User.Controllers
 {
+    [HandleError]
     public class FeedbackController : Controller
     {
         private CP24Team02Entities db = new CP24Team02Entities();
@@ -21,7 +17,7 @@ namespace VanLangDoctor.Areas.User.Controllers
             if (string.IsNullOrEmpty(id))
                 return RedirectToAction("Create", new { id = User.Identity.GetUserId() });
             if (id != User.Identity.GetUserId())
-                return new HttpStatusCodeResult(403);
+                throw new HttpException(404, "Not Found!");
             var fEEDBACK = db.FEEDBACKs.FirstOrDefault(feed => feed.AspNetUser.Id == id) ?? new FEEDBACK
             {
                 TEN_NDG = "",
@@ -73,6 +69,5 @@ namespace VanLangDoctor.Areas.User.Controllers
             TempData["success"] = "Đánh giá đã được gửi";
             return View("Create", feedback);
         }
-
     }
 }

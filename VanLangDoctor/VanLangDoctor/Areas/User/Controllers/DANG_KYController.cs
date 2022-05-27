@@ -13,6 +13,8 @@ using VanLangDoctor.Models;
 
 namespace VanLangDoctor.Areas.User.Controllers
 {
+    [HandleError]
+    [Authorize]
     public class DANG_KYController : Controller
     {
         private CP24Team02Entities db = new CP24Team02Entities();
@@ -81,7 +83,11 @@ namespace VanLangDoctor.Areas.User.Controllers
                         scope.Complete();
                     }
                 }
-                else ModelState.AddModelError("", "Hình ảnh không được tìm thấy");
+                else
+                {
+                    ModelState.AddModelError("", "Hình ảnh không được tìm thấy");
+                    throw new HttpException(404, "Not Found!");
+                }
                 return RedirectToAction("HomeUser", "HomeUser", new { area = "User" });
             }
             ViewBag.ID_KHOA = new SelectList(db.KHOAs, "ID_KHOA", "TEN_KHOA", dANG_KY.ID_KHOA);

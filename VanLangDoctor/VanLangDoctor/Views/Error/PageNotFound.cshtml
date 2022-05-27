@@ -1,5 +1,11 @@
-﻿<link href="~/Content/404page.css" rel="stylesheet" />
-<title>PageNotFound</title>
+﻿@{
+    ViewBag.Title = "Không tìm thấy trang!";
+}
+
+<link href="~/Content/404page.css" rel="stylesheet" />
+<link rel="shortcut icon" href="@Url.Content("~/Content/assets-ff/images/icon-page404.png")" />
+
+<title>@ViewBag.Title</title>
 <link href='https://fonts.googleapis.com/css?family=Anton|Passion+One|PT+Sans+Caption' rel='stylesheet' type='text/css'>
 <body>
 
@@ -13,7 +19,7 @@
                     <div class="clip"><div class="shadow"><span class="digit firstDigit"></span></div></div>
                     <div class="msg">OH!<span class="triangle"></span></div>
                 </div>
-                <h2 class="h1">Sorry! Page not found</h2>
+                <h2 class="h1">Xin lỗi! Không tìm thấy trang</h2>
             </div>
         </div>
     </div>

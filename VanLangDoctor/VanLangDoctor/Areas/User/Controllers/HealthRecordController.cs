@@ -1,11 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
 using VanLangDoctor.Models;
 
 namespace VanLangDoctor.Areas.User.Controllers
 {
+    [HandleError]
     [Authorize]
     public class HealthRecordController : Controller
     {
@@ -22,7 +24,8 @@ namespace VanLangDoctor.Areas.User.Controllers
 
             if (skb == null)
             {
-                return HttpNotFound();
+                throw new HttpException(404, "Not Found!");
+                //return HttpNotFound();
             }
             ViewBag.Prescriptions = GetAllPrescriptions(id_skb);
             return View(skb);
@@ -61,7 +64,8 @@ namespace VanLangDoctor.Areas.User.Controllers
             DON_THUOC dON_THUOC = db.DON_THUOC.Find(id);
             if (dON_THUOC == null)
             {
-                return HttpNotFound();
+                throw new HttpException(404, "Not Found!");
+                //return HttpNotFound();
             }
             return View(dON_THUOC);
         }

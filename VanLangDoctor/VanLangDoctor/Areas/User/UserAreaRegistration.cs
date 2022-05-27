@@ -66,8 +66,8 @@ namespace VanLangDoctor.Areas.User
               );
             context.MapRoute(
                "chitietbacsi",
-               "trang-chu/bac-si/thong-tin-bac-si-{id}",
-               new { controller = "ThongtinBacsi", action = "thongtinbacsi", id = UrlParameter.Optional }
+               "trang-chu/bac-si/{tenbacsi}-{ID_BACSI}",
+               new { controller = "ThongtinBacsi", action = "thongtinbacsi", ID_BACSI = UrlParameter.Optional }
            );
 
             context.MapRoute(
