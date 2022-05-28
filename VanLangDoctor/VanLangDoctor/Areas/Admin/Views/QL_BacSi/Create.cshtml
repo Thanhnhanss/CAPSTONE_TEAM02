@@ -72,7 +72,7 @@
                                         <div class="form-group col-md-4">
                                             <label for="sdt">Số điện thoại</label>
                                             <div>
-                                                @Html.EditorFor(model => model.SDT, new { htmlAttributes = new { @class = "form-control", @placeholder = "ví dụ: 0905556***" } })
+                                                @Html.EditorFor(model => model.SDT, new { htmlAttributes = new { @class = "form-control", @maxLength = "10", @placeholder = "ví dụ: 0905556***" } })
                                                 @Html.ValidationMessageFor(model => model.SDT, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
@@ -95,7 +95,7 @@
                                         <div class="form-group col-md-4">
                                             <label for="kinh_nghiem">Kinh nghiệm</label>
                                             <div>
-                                                @Html.EditorFor(model => model.KINH_NGHIEM, new { htmlAttributes = new { @class = "form-control", @style = "margin-top:4px;border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%) ", @placeholder = "ví dụ: 5 năm " } })
+                                                @Html.EditorFor(model => model.KINH_NGHIEM, new { htmlAttributes = new { @class = "form-control", @min = "1", @style = "margin-top:4px;border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%) ", @placeholder = "ví dụ: 5 năm " } })
                                                 @Html.ValidationMessageFor(model => model.KINH_NGHIEM, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
