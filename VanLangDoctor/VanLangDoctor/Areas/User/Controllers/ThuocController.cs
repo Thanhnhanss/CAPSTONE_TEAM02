@@ -10,6 +10,7 @@ using VanLangDoctor.Models;
 
 namespace VanLangDoctor.Areas.User.Controllers
 {
+    [HandleError]
     public class ThuocController : Controller
     {
         private CP24Team02Entities db = new CP24Team02Entities();
@@ -38,7 +39,9 @@ namespace VanLangDoctor.Areas.User.Controllers
             THUOC tHUOC = db.THUOCs.Find(ID_THUOC);
             if (tHUOC == null)
             {
-                return HttpNotFound();
+                throw new HttpException(404, "Not Found!");
+
+                //return HttpNotFound();
             }
             return View(tHUOC);
         }

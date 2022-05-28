@@ -8,6 +8,7 @@ namespace VanLangDoctor.Controllers
 {
     public class HomeController : Controller
     {
+        [HandleError]
         public ActionResult Index()
         {
             return Redirect("~/trang-chu");

@@ -10,6 +10,7 @@ using VanLangDoctor.Models;
 
 namespace VanLangDoctor.Areas.User.Controllers
 {
+    [HandleError]
     public class ThongtinBacsiController : Controller
     {
         CP24Team02Entities db = new CP24Team02Entities();
@@ -24,16 +25,17 @@ namespace VanLangDoctor.Areas.User.Controllers
 
         // GET: Admin/BACSIs/Details/5
         
-        public ActionResult thongtinbacsi(int? id)
+        public ActionResult thongtinbacsi(int? ID_BACSI)
         {
-            if (id == null)
+            if (ID_BACSI == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BACSI bACSI = db.BACSIs.Find(id);
+            BACSI bACSI = db.BACSIs.Find(ID_BACSI);
             if (bACSI == null)
             {
-                return HttpNotFound();
+                throw new HttpException(404,"Not Found!");
+                //return HttpNotFound();
             }
             return View(bACSI);
         }

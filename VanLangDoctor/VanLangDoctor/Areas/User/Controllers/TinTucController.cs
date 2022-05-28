@@ -11,6 +11,7 @@ using VanLangDoctor.Models;
 
 namespace VanLangDoctor.Areas.User.Controllers
 {
+    [HandleError]
     public class TinTucController : Controller
     {
         private CP24Team02Entities db = new CP24Team02Entities();
@@ -96,7 +97,8 @@ namespace VanLangDoctor.Areas.User.Controllers
             TIN_TUC tIN_TUC = db.TIN_TUC.Find(ID_TIN_TUC);
             if (tIN_TUC == null)
             {
-                return HttpNotFound();
+                throw new HttpException(404,"Not Found!");
+                //return HttpNotFound();
             }
             tIN_TUC.CountViews += 1;
             db.SaveChanges();

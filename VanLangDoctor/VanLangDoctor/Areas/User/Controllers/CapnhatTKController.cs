@@ -3,11 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
 using VanLangDoctor.Models;
 
 namespace VanLangDoctor.Areas.User.Controllers
 {
+    [HandleError]
     [Authorize]
     public class CapnhatTKController : Controller
     {
@@ -19,7 +21,7 @@ namespace VanLangDoctor.Areas.User.Controllers
             if (string.IsNullOrEmpty(id_user))
                 return RedirectToAction("CapnhatTK", new { id_user = User.Identity.GetUserId() });
             if (id_user != User.Identity.GetUserId())
-                return new HttpStatusCodeResult(403);
+                throw new HttpException(404,"Not Found!");
             var user = db.BENH_NHAN.FirstOrDefault(benh_nhan => benh_nhan.AspNetUser.Id == id_user) ?? new BENH_NHAN
             {
                 TEN_BN = "",

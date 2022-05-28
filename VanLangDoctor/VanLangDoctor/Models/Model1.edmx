@@ -5,16 +5,6 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="CP24Team02Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="__MigrationHistory">
-          <Key>
-            <PropertyRef Name="MigrationId" />
-            <PropertyRef Name="ContextKey" />
-          </Key>
-          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
-          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
-          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
-          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
-        </EntityType>
         <EntityType Name="AspNetRoles">
           <Key>
             <PropertyRef Name="Id" />
@@ -474,7 +464,6 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="CP24Team02ModelStoreContainer">
-          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
@@ -573,7 +562,6 @@
     <edmx:ConceptualModels>
       <Schema Namespace="CP24Team02Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="CP24Team02Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="C__MigrationHistory" EntityType="CP24Team02Model.C__MigrationHistory" />
           <EntitySet Name="AspNetRoles" EntityType="CP24Team02Model.AspNetRole" />
           <EntitySet Name="AspNetUserClaims" EntityType="CP24Team02Model.AspNetUserClaim" />
           <EntitySet Name="AspNetUserLogins" EntityType="CP24Team02Model.AspNetUserLogin" />
@@ -621,6 +609,10 @@
             <End Role="KHOA" EntitySet="KHOAs" />
             <End Role="BACSI" EntitySet="BACSIs" />
           </AssociationSet>
+          <AssociationSet Name="FK_DAT_LICH_BACSI" Association="CP24Team02Model.FK_DAT_LICH_BACSI">
+            <End Role="BACSI" EntitySet="BACSIs" />
+            <End Role="DAT_LICH" EntitySet="DAT_LICH" />
+          </AssociationSet>
           <AssociationSet Name="FK_SO_KHAM_BENH_BENH_NHAN" Association="CP24Team02Model.FK_SO_KHAM_BENH_BENH_NHAN">
             <End Role="BENH_NHAN" EntitySet="BENH_NHAN" />
             <End Role="SO_KHAM_BENH" EntitySet="SO_KHAM_BENH" />
@@ -641,7 +633,7 @@
             <End Role="DANH_MUC_THUOC" EntitySet="DANH_MUC_THUOC" />
             <End Role="THUOC" EntitySet="THUOCs" />
           </AssociationSet>
-          <AssociationSet Name="FK_TIN_TUC_DANH_MUC_TIN" Association="CP24Team02Model.FK_TIN_TUC_DANH_MUC_TIN">
+          <AssociationSet Name="FK_TIN_TUC_DANH_MUC_TIN1" Association="CP24Team02Model.FK_TIN_TUC_DANH_MUC_TIN1">
             <End Role="DANH_MUC_TIN" EntitySet="DANH_MUC_TIN" />
             <End Role="TIN_TUC" EntitySet="TIN_TUC" />
           </AssociationSet>
@@ -657,21 +649,7 @@
             <End Role="AspNetRole" EntitySet="AspNetRoles" />
             <End Role="AspNetUser" EntitySet="AspNetUsers" />
           </AssociationSet>
-          <AssociationSet Name="FK_DAT_LICH_BACSI" Association="CP24Team02Model.FK_DAT_LICH_BACSI">
-            <End Role="BACSI" EntitySet="BACSIs" />
-            <End Role="DAT_LICH" EntitySet="DAT_LICH" />
-          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="C__MigrationHistory">
-          <Key>
-            <PropertyRef Name="MigrationId" />
-            <PropertyRef Name="ContextKey" />
-          </Key>
-          <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="ContextKey" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
-          <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="AspNetRole">
           <Key>
             <PropertyRef Name="Id" />
@@ -803,7 +781,7 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Danhmuc_tin" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="TIN_TUC" Relationship="CP24Team02Model.FK_TIN_TUC_DANH_MUC_TIN" FromRole="DANH_MUC_TIN" ToRole="TIN_TUC" />
+          <NavigationProperty Name="TIN_TUC" Relationship="CP24Team02Model.FK_TIN_TUC_DANH_MUC_TIN1" FromRole="DANH_MUC_TIN" ToRole="TIN_TUC" />
         </EntityType>
         <EntityType Name="DAT_LICH">
           <Key>
@@ -904,7 +882,7 @@
           <Property Name="HINH_ANH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="CountViews" Type="Int32" Nullable="false" />
           <Property Name="ID_Danhmuc_tin" Type="Int32" />
-          <NavigationProperty Name="DANH_MUC_TIN" Relationship="CP24Team02Model.FK_TIN_TUC_DANH_MUC_TIN" FromRole="TIN_TUC" ToRole="DANH_MUC_TIN" />
+          <NavigationProperty Name="DANH_MUC_TIN" Relationship="CP24Team02Model.FK_TIN_TUC_DANH_MUC_TIN1" FromRole="TIN_TUC" ToRole="DANH_MUC_TIN" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Type="CP24Team02Model.AspNetUser" Role="AspNetUser" Multiplicity="1">
@@ -1004,6 +982,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_DAT_LICH_BACSI">
+          <End Type="CP24Team02Model.BACSI" Role="BACSI" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="CP24Team02Model.DAT_LICH" Role="DAT_LICH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BACSI">
+              <PropertyRef Name="ID_BACSI" />
+            </Principal>
+            <Dependent Role="DAT_LICH">
+              <PropertyRef Name="ID_BACSI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_SO_KHAM_BENH_BENH_NHAN">
           <End Type="CP24Team02Model.BENH_NHAN" Role="BENH_NHAN" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
@@ -1074,7 +1066,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TIN_TUC_DANH_MUC_TIN">
+        <Association Name="FK_TIN_TUC_DANH_MUC_TIN1">
           <End Type="CP24Team02Model.DANH_MUC_TIN" Role="DANH_MUC_TIN" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -1118,36 +1110,12 @@
           <End Type="CP24Team02Model.AspNetRole" Role="AspNetRole" Multiplicity="*" />
           <End Type="CP24Team02Model.AspNetUser" Role="AspNetUser" Multiplicity="*" />
         </Association>
-        <Association Name="FK_DAT_LICH_BACSI">
-          <End Type="CP24Team02Model.BACSI" Role="BACSI" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="CP24Team02Model.DAT_LICH" Role="DAT_LICH" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="BACSI">
-              <PropertyRef Name="ID_BACSI" />
-            </Principal>
-            <Dependent Role="DAT_LICH">
-              <PropertyRef Name="ID_BACSI" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="CP24Team02ModelStoreContainer" CdmEntityContainer="CP24Team02Entities">
-          <EntitySetMapping Name="C__MigrationHistory">
-            <EntityTypeMapping TypeName="CP24Team02Model.C__MigrationHistory">
-              <MappingFragment StoreEntitySet="__MigrationHistory">
-                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
-                <ScalarProperty Name="Model" ColumnName="Model" />
-                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
-                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="AspNetRoles">
             <EntityTypeMapping TypeName="CP24Team02Model.AspNetRole">
               <MappingFragment StoreEntitySet="AspNetRoles">

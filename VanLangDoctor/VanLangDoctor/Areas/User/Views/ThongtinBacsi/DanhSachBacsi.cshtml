@@ -45,11 +45,11 @@
             {
                 <div class="col-lg-3 col-md-6 d-flex mb-sm-4 ftco-animate fadeInUp ftco-animated">
                     <div class="staff" style="border-radius:2em">
-                        <a href="@Url.Action("thongtinbacsi","ThongtinBacsi", new {id = item.ID_BACSI })">
+                        <a href="~/trang-chu/bac-si/@item.TEN_BACSI.ToLower()-@item.ID_BACSI">
                             <div class="img mb-4" style="background-image: url(@Url.Action("Picture", new {item.ID_BACSI}));"></div>
                         </a>
                         <div class="info text-center">
-                            <h3><a href="@Url.Action("thongtinbacsi","ThongtinBacsi", new {id = item.ID_BACSI })" class="name_bs">@item.TEN_BACSI</a></h3>
+                            <h3><a href="~/trang-chu/bac-si/@item.TEN_BACSI.ToLower()-@item.ID_BACSI" class="name_bs">@item.TEN_BACSI</a></h3>
 
                             <span class="position">@item.KHOA.TEN_KHOA</span>
                             <div class="text">

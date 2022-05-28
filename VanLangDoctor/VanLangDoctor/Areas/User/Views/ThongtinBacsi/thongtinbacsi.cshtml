@@ -76,20 +76,20 @@
                                     <span style="font-weight: 700;">khoa</span>: @Model.KHOA.TEN_KHOA<br>
                                     <span style="font-weight: 700;">Kinh </span>
                                     <span style="font-weight: 700;">nghiệm </span>: @Model.KINH_NGHIEM năm<br>
-                                    <span style="font-weight: 700;">Ngày </span>
-                                    <span style="font-weight: 700;">trực </span>: @Html.FormatValue(Model.NGAY_TRUC, "{0:d}")
+                                    @*<span style="font-weight: 700;">Ngày </span>
+                                        <span style="font-weight: 700;">trực </span>: @Html.FormatValue(Model.NGAY_TRUC, "{0:d}")*@
                                 </p>
                                 @*<div class="col-lg-offset-4">
-                                    <div class="u-social-icons u-spacing-10 u-social-icons-1">
-                                        <ul class="list-inline mt-4 doctor-social-links">
-                                            <li class="list-inline-item"><a href="#"><i class="icofont-facebook"></i></a></li>
-                                            <li class="list-inline-item"><a href="#"><i class="icofont-twitter"></i></a></li>
-                                            <li class="list-inline-item"><a href="#"><i class="icofont-skype"></i></a></li>
-                                            <li class="list-inline-item"><a href="#"><i class="icofont-linkedin"></i></a></li>
-                                            <li class="list-inline-item"><a href="#"><i class="icofont-pinterest"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>*@
+                                        <div class="u-social-icons u-spacing-10 u-social-icons-1">
+                                            <ul class="list-inline mt-4 doctor-social-links">
+                                                <li class="list-inline-item"><a href="#"><i class="icofont-facebook"></i></a></li>
+                                                <li class="list-inline-item"><a href="#"><i class="icofont-twitter"></i></a></li>
+                                                <li class="list-inline-item"><a href="#"><i class="icofont-skype"></i></a></li>
+                                                <li class="list-inline-item"><a href="#"><i class="icofont-linkedin"></i></a></li>
+                                                <li class="list-inline-item"><a href="#"><i class="icofont-pinterest"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>*@
                             </div>
                         </div>
                         <div class="u-align-center-sm u-align-center-xs u-align-left-lg u-align-left-md u-align-left-xl u-container-style u-layout-cell u-palette-1-light-2 u-size-22 u-layout-cell-2">
@@ -113,14 +113,14 @@
                                     Thông tin liên hệ<br>&nbsp;
                                     <span class="u-file-icon u-icon u-text-white">
                                         <img src="~/Content/asset-dr-inf/images/5.png" alt="">
-                                    </span>&nbsp; : 
+                                    </span>&nbsp; :
                                     <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-hover-palette-2-light-1 u-text-white u-btn-1" href="tel:@Model.SDT">@Model.SDT</a>
                                     <br>&nbsp;
                                     <span class="u-file-icon u-icon u-text-white">
-                                    <img src="~/Content/asset-dr-inf/images/6.png" alt="">
-                                        </span>&nbsp; : 
+                                        <img src="~/Content/asset-dr-inf/images/6.png" alt="">
+                                    </span>&nbsp; :
                                     <a href="mailto:@Model.AspNetUser.Email" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-hover-palette-2-light-1 u-text-white u-btn-1">@Model.AspNetUser.Email</a>
-                                    
+
                                 </p>
                                 <a href="mailto:@Model.AspNetUser.Email" class="u-active-palette-2-light-2 u-border-3 u-border-active-white u-border-hover-white u-border-white u-btn u-btn-round u-button-style u-hover-palette-2-light-2 u-none u-radius-50 u-text-active-white u-text-black u-text-hover-white u-btn-3">Liên hệ</a>
                             </div>

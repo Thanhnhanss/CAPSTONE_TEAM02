@@ -7,6 +7,7 @@ using VanLangDoctor.Models;
 
 namespace VanLangDoctor.Areas.User.Controllers
 {
+    [HandleError]
     public class HomeUserController : Controller
     {
         private CP24Team02Entities db = new CP24Team02Entities();
