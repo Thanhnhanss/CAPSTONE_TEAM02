@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -10,6 +11,7 @@ using VanLangDoctor.Models;
 
 namespace VanLangDoctor.Areas.Admin.Controllers
 {
+    [HandleError]
     public class QL_DatLichController : Controller
     {
         private CP24Team02Entities db = new CP24Team02Entities();
@@ -37,8 +39,11 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         }
 
         // GET: Admin/QL_DatLich/Create
+        [Authorize]
         public ActionResult Create()
         {
+            var bacsi = User.Identity.GetUserId();
+
             ViewBag.ID_BACSI = new SelectList(db.BACSIs, "ID_BACSI", "TEN_BACSI");
             return View();
         }
