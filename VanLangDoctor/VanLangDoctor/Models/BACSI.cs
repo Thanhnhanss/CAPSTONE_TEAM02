@@ -45,8 +45,6 @@ namespace VanLangDoctor.Models
         [Required(ErrorMessage = "Hãy nh?p kinh nghi?m làm vi?c."),
             Range(minimum: 1, maximum: 60, ErrorMessage = "Kinh nghi?m ch? t? {1} n?m ??n {2} n?m.")]
         public Nullable<int> KINH_NGHIEM { get; set; }
-        public Nullable<int> ID_KHOA { get; set; }
-        public Nullable<int> KINH_NGHIEM { get; set; }
         public string ID_Email { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }
