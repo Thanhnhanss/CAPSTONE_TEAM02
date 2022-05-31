@@ -164,8 +164,8 @@
     <script>
         (function ($) {
             'use strict';
-            var $accountDelete = $('.prescription');
-            $accountDelete.on('click', function () {
+            var $pre = $('.prescription');
+            $pre.on('click', function () {
                 let idThuoc = $(this).parent().parent().children('td').eq(0).text();
                 $(`.details_prescription_${idThuoc}`)[0].showModal();
             });

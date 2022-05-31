@@ -25,6 +25,7 @@ namespace VanLangDoctor.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
         public virtual DbSet<AspNetRole> AspNetRoles { get; set; }
         public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
         public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
@@ -33,6 +34,7 @@ namespace VanLangDoctor.Models
         public virtual DbSet<BENH_NHAN> BENH_NHAN { get; set; }
         public virtual DbSet<CHI_TIET_DON_THUOC> CHI_TIET_DON_THUOC { get; set; }
         public virtual DbSet<DANG_KY> DANG_KY { get; set; }
+        public virtual DbSet<DANH_GIA> DANH_GIA { get; set; }
         public virtual DbSet<DANH_MUC_THUOC> DANH_MUC_THUOC { get; set; }
         public virtual DbSet<DANH_MUC_TIN> DANH_MUC_TIN { get; set; }
         public virtual DbSet<DAT_LICH> DAT_LICH { get; set; }
