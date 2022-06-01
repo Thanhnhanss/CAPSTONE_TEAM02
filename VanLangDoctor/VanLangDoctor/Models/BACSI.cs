@@ -11,45 +11,34 @@ namespace VanLangDoctor.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class BACSI
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public BACSI()
         {
             this.DON_THUOC = new HashSet<DON_THUOC>();
+            this.DANH_GIA = new HashSet<DANH_GIA>();
             this.DAT_LICH = new HashSet<DAT_LICH>();
         }
-
+    
         public int ID_BACSI { get; set; }
-        //Tenbacsi//
-        [Required(ErrorMessage = "Hãy nh?p tên bác s?.")]
         public string TEN_BACSI { get; set; }
-        //ngaysinh//
-        [Required(ErrorMessage = "Hãy nh?p ngày sinh.")]
         public Nullable<System.DateTime> NGAYSINH_BS { get; set; }
-        [Required(ErrorMessage = "Hãy nh?p gi?i tính.")]
         public string GIOI_TINH { get; set; }
-        [Required(ErrorMessage = "Hãy nh?p s? ?i?n tho?i."),
-            StringLength(maximumLength: 10, ErrorMessage = "S? ?i?n tho?i t?i ?a là 10 s?."),
-            MinLength(10, ErrorMessage = "S? ?i?n tho?i có ít nh?t là 10 s?."),
-            RegularExpression("^[0-9_]*$", ErrorMessage = "D? li?u nh?p vào ph?i có d?ng s? (0-9)")]
         public string SDT { get; set; }
         public string HINH_ANH { get; set; }
-        [Required(ErrorMessage = "Hãy nh?p ngh? nghi?p.")]
-
         public string NGHE_NGHIEP { get; set; }
         public Nullable<int> ID_KHOA { get; set; }
-        [Required(ErrorMessage = "Hãy nh?p kinh nghi?m làm vi?c."),
-            Range(minimum: 1, maximum: 60, ErrorMessage = "Kinh nghi?m ch? t? {1} n?m ??n {2} n?m.")]
         public Nullable<int> KINH_NGHIEM { get; set; }
         public string ID_Email { get; set; }
-
+    
         public virtual AspNetUser AspNetUser { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DON_THUOC> DON_THUOC { get; set; }
         public virtual KHOA KHOA { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DANH_GIA> DANH_GIA { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DAT_LICH> DAT_LICH { get; set; }
     }

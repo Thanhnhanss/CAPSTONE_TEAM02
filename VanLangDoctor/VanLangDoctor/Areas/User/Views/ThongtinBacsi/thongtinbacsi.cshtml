@@ -2,6 +2,16 @@
 
 @{
     ViewBag.Title = "Thông tin bác sĩ";
+    var comments = (IEnumerable<VanLangDoctor.Models.DANH_GIA>)ViewBag.Comments;
+    var ratingSum = ViewBag.RatingSum;
+    var ratingCount = ViewBag.RatingCount;
+
+    decimal rating = 0;
+    if (ratingCount > 0)
+    {
+        rating = (ratingSum / ratingCount);
+    }
+    var totalRating = decimal.Parse(rating.ToString());
 }
 
 <head>
@@ -11,11 +21,6 @@
     <link href="~/Content/asset-dr-inf/plugins/slick-carousel/slick/slick-theme.css" rel="stylesheet" />
     <link href="~/Content/asset-dr-inf/css/style.css" rel="stylesheet" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
-    <meta name="keywords" content="GradientFill, Thông tin về bác sĩ">
-    <meta name="description" content="">
-    <meta name="page_type" content="np-template-header-footer-from-plugin">
     <title>Thông tin về bác sĩ</title>
     <link href="~/Content/asset-dr-inf/css/nicepage.css" rel="stylesheet" />
     <link href="~/Content/asset-dr-inf/css/ViewDetailDoctor.css" rel="stylesheet" />
@@ -24,13 +29,9 @@
     <meta name="generator" content="Nicepage 4.6.4, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
     <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i|PT+Sans+Caption:400,700">
-
-    <meta name="theme-color" content="#478ac9">
-    <meta property="og:title" content="Thông tin về bác sĩ">
-    <meta property="og:type" content="website">
+    <link href="~/Content/Site.css" rel="stylesheet" />
 </head>
 
-@* body *@
 <body class="u-body u-xl-mode">
     <section class="skrollable skrollable-between u-align-center u-clearfix u-gradient u-section-1" id="sec-f353">
         <div class="u-clearfix u-sheet u-sheet-1">
@@ -79,17 +80,6 @@
                                     @*<span style="font-weight: 700;">Ngày </span>
                                         <span style="font-weight: 700;">trực </span>: @Html.FormatValue(Model.NGAY_TRUC, "{0:d}")*@
                                 </p>
-                                @*<div class="col-lg-offset-4">
-                                        <div class="u-social-icons u-spacing-10 u-social-icons-1">
-                                            <ul class="list-inline mt-4 doctor-social-links">
-                                                <li class="list-inline-item"><a href="#"><i class="icofont-facebook"></i></a></li>
-                                                <li class="list-inline-item"><a href="#"><i class="icofont-twitter"></i></a></li>
-                                                <li class="list-inline-item"><a href="#"><i class="icofont-skype"></i></a></li>
-                                                <li class="list-inline-item"><a href="#"><i class="icofont-linkedin"></i></a></li>
-                                                <li class="list-inline-item"><a href="#"><i class="icofont-pinterest"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>*@
                             </div>
                         </div>
                         <div class="u-align-center-sm u-align-center-xs u-align-left-lg u-align-left-md u-align-left-xl u-container-style u-layout-cell u-palette-1-light-2 u-size-22 u-layout-cell-2">
@@ -130,4 +120,107 @@
             </div>
         </div>
     </section>
+
+    @foreach (var c in comments)
+    {
+        <hr />
+        <div class="row">
+            <div class="col-md-3">
+                <i>@c.AspNetUser.UserName</i>
+                <br />
+                @for (var i = 1; i <= c.RATING; i++)
+                {
+                    <span class="starGlowN"></span>
+                }
+                @for (var i = (c.RATING + 1); i <= 5; i++)
+                {
+                    <span class="starFadeN"></span>
+                }
+            </div>
+            <div class="col-md-9">
+                @Html.Raw(c.NHAN_XET.Replace("\n", "<br />"))
+
+
+            </div>
+        </div>
+    }
+    <hr />
+    <dl class="dl-horizontal">
+        <dd>
+            <div class="commentBox">
+                @using (Html.BeginForm("Create", "ThongtinBacsi", FormMethod.Post, new { onsubmit = "return SubmitComment()" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">
+                                Đánh giá của bạn <span style="font-weight:normal;">(1 sao là rất tệ, 5 sao là rất tốt)</span>
+                            </label>
+                            <div class="col-md-7">
+                                <div onmouseout="CRateSelected()">
+                                    <span class="starFade" id="Rate1" onclick="CRate(1)" onmouseover="CRateOver(1)" onmouseout="CRateOut(1)"></span><span class="starFade" id="Rate2" onclick="CRate(2)" onmouseover="CRateOver(2)" onmouseout="CRateOut(2)"></span><span class="starFade" id="Rate3" onclick="CRate(3)" onmouseover="CRateOver(3)" onmouseout="CRateOut(3)"></span><span class="starFade" id="Rate4" onclick="CRate(4)" onmouseover="CRateOver(4)" onmouseout="CRateOut(4)"></span><span class="starFade" id="Rate5" onclick="CRate(5)" onmouseover="CRateOver(5)" onmouseout="CRateOut(5)"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <textarea name="NHAN_XET" id="Comment" required rows="5" style="width:100%;" class="form-control"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <input type="hidden" name="ID_BENHNHAN" value="33" />
+                                <input type="hidden" name="ID_USER" value="@ViewBag.ID_USER" />
+                                <input type="hidden" name="ID_BACSI" value="@ViewBag.ID_BACSI" />
+                                <input type="hidden" name="RATING" id="Rating" value="0" />
+                                <input type="submit" id="btnRegister" name="btnRegister" value="Submit Comment" class="btn btn-warning" />
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </dd>
+
+    </dl>
+    <script>
+        function SubmitComment() {
+            if ($("#Rating").val() == "0") {
+                alert("Vui lòng chọn mức độ đánh giá về bác sĩ này");
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+
+        function CRate(r) {
+            $("#Rating").val(r);
+            for (var i = 1; i <= r; i++) {
+                $("#Rate" + i).attr('class', 'starGlow');
+            }
+            // unselect remaining
+            for (var i = r + 1; i <= 5; i++) {
+                $("#Rate" + i).attr('class', 'starFade');
+            }
+        }
+
+        function CRateOver(r) {
+            for (var i = 1; i <= r; i++) {
+                $("#Rate" + i).attr('class', 'starGlow');
+            }
+        }
+
+        function CRateOut(r) {
+            for (var i = 1; i <= r; i++) {
+                $("#Rate" + i).attr('class', 'starFade');
+            }
+        }
+
+        function CRateSelected() {
+            var setRating = $("#Rating").val();
+            for (var i = 1; i <= setRating; i++) {
+                $("#Rate" + i).attr('class', 'starGlow');
+            }
+        }
+    </script>
 </body>
