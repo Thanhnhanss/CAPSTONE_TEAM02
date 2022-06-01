@@ -130,6 +130,7 @@
           <Property Name="ID_BACSI" Type="int" Nullable="false" />
           <Property Name="ID_BENHNHAN" Type="int" Nullable="false" />
           <Property Name="RATING" Type="int" Nullable="false" />
+          <Property Name="NHAN_XET" Type="nvarchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="DANH_MUC_THUOC">
           <Key>
@@ -854,6 +855,7 @@
           <Property Name="RATING" Type="Int32" Nullable="false" />
           <NavigationProperty Name="BACSI" Relationship="CP24Team02Model.FK_DANH_GIA_BACSI" FromRole="DANH_GIA" ToRole="BACSI" />
           <NavigationProperty Name="BENH_NHAN" Relationship="CP24Team02Model.FK_DANH_GIA_BENH_NHAN" FromRole="DANH_GIA" ToRole="BENH_NHAN" />
+          <Property Name="NHAN_XET" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="DANH_MUC_THUOC">
           <Key>
@@ -1347,6 +1349,7 @@
           <EntitySetMapping Name="DANH_GIA">
             <EntityTypeMapping TypeName="CP24Team02Model.DANH_GIA">
               <MappingFragment StoreEntitySet="DANH_GIA">
+                <ScalarProperty Name="NHAN_XET" ColumnName="NHAN_XET" />
                 <ScalarProperty Name="RATING" ColumnName="RATING" />
                 <ScalarProperty Name="ID_BENHNHAN" ColumnName="ID_BENHNHAN" />
                 <ScalarProperty Name="ID_BACSI" ColumnName="ID_BACSI" />
