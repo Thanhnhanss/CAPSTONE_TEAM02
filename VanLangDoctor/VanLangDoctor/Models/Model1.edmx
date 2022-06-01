@@ -679,6 +679,10 @@
             <End Role="BACSI" EntitySet="BACSIs" />
             <End Role="DAT_LICH" EntitySet="DAT_LICH" />
           </AssociationSet>
+          <AssociationSet Name="FK_DANH_GIA_BENH_NHAN" Association="CP24Team02Model.FK_DANH_GIA_BENH_NHAN">
+            <End Role="BENH_NHAN" EntitySet="BENH_NHAN" />
+            <End Role="DANH_GIA" EntitySet="DANH_GIA" />
+          </AssociationSet>
           <AssociationSet Name="FK_SO_KHAM_BENH_BENH_NHAN" Association="CP24Team02Model.FK_SO_KHAM_BENH_BENH_NHAN">
             <End Role="BENH_NHAN" EntitySet="BENH_NHAN" />
             <End Role="SO_KHAM_BENH" EntitySet="SO_KHAM_BENH" />
@@ -811,6 +815,7 @@
           <Property Name="DIA_CHI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ID_EMAIL" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="AspNetUser" Relationship="CP24Team02Model.FK_BENH_NHAN_EMAIL" FromRole="BENH_NHAN" ToRole="AspNetUser" />
+          <NavigationProperty Name="DANH_GIA" Relationship="CP24Team02Model.FK_DANH_GIA_BENH_NHAN" FromRole="BENH_NHAN" ToRole="DANH_GIA" />
           <NavigationProperty Name="SO_KHAM_BENH" Relationship="CP24Team02Model.FK_SO_KHAM_BENH_BENH_NHAN" FromRole="BENH_NHAN" ToRole="SO_KHAM_BENH" />
         </EntityType>
         <EntityType Name="CHI_TIET_DON_THUOC">
@@ -1109,6 +1114,18 @@
             </Principal>
             <Dependent Role="DAT_LICH">
               <PropertyRef Name="ID_BACSI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DANH_GIA_BENH_NHAN">
+          <End Type="CP24Team02Model.BENH_NHAN" Role="BENH_NHAN" Multiplicity="1" />
+          <End Type="CP24Team02Model.DANH_GIA" Role="DANH_GIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BENH_NHAN">
+              <PropertyRef Name="ID_BENH_NHAN" />
+            </Principal>
+            <Dependent Role="DANH_GIA">
+              <PropertyRef Name="ID_BENHNHAN" />
             </Dependent>
           </ReferentialConstraint>
         </Association>

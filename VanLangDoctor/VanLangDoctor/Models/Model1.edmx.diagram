@@ -36,6 +36,7 @@
         <AssociationConnector Association="CP24Team02Model.FK_BACSI_KHOA" />
         <AssociationConnector Association="CP24Team02Model.FK_DANH_GIA_BACSI" />
         <AssociationConnector Association="CP24Team02Model.FK_DAT_LICH_BACSI" />
+        <AssociationConnector Association="CP24Team02Model.FK_DANH_GIA_BENH_NHAN" />
         <AssociationConnector Association="CP24Team02Model.FK_SO_KHAM_BENH_BENH_NHAN" />
         <AssociationConnector Association="CP24Team02Model.FK_CHI_TIET_DON_THUOC_DON_THUOC" />
         <AssociationConnector Association="CP24Team02Model.FK_CHI_TIET_DON_THUOC_THUOC" />
