@@ -7,6 +7,7 @@
       <Diagram DiagramId="98091af259314eb6b1cde9ad0fbffd38" Name="Diagram1" ZoomLevel="52">
         <EntityTypeShape EntityType="CP24Team02Model.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="4.75" />
         <EntityTypeShape EntityType="CP24Team02Model.AspNetRole" Width="1.5" PointX="0.75" PointY="11.125" />
+<<<<<<< HEAD
         <EntityTypeShape EntityType="CP24Team02Model.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="9" />
         <EntityTypeShape EntityType="CP24Team02Model.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="6.375" />
         <EntityTypeShape EntityType="CP24Team02Model.AspNetUser" Width="1.5" PointX="3" PointY="9.625" />
@@ -25,6 +26,26 @@
         <EntityTypeShape EntityType="CP24Team02Model.SO_KHAM_BENH" Width="1.5" PointX="7.5" PointY="19.875" />
         <EntityTypeShape EntityType="CP24Team02Model.sysdiagram" Width="1.5" PointX="5.75" PointY="0.75" />
         <EntityTypeShape EntityType="CP24Team02Model.THUOC" Width="1.5" PointX="10.5" PointY="23.375" />
+=======
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; 4b673aace36f928c8d9bf6288f2a3333eb3eda21
         <EntityTypeShape EntityType="CP24Team02Model.TIN_TUC" Width="1.5" PointX="3" PointY="1" />
         <AssociationConnector Association="CP24Team02Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
         <AssociationConnector Association="CP24Team02Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
