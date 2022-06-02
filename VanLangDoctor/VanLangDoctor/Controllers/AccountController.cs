@@ -72,23 +72,31 @@ namespace VanLangDoctor.Controllers
             {
                 return View(model);
             }
-
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
             var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
-            switch (result)
+            var userId = (await UserManager.FindByEmailAsync(model.Email)).Id;
+            var role =  SignInManager.UserManager.GetRoles(userId);
+            if(role.Count > 0)
             {
-                case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
-                case SignInStatus.LockedOut:
-                    return View("Lockout");
-                case SignInStatus.RequiresVerification:
-                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
-                case SignInStatus.Failure:
-                default:
-                    ModelState.AddModelError("", "Invalid login attempt.");
-                    return View(model);
+                var userRole = role.FirstOrDefault().ToString();
+                switch (result)
+                {
+                    case SignInStatus.Success:
+                        if (userRole == "Bác sĩ" || userRole == "Quản trị viên" || userRole == "Quản lý")
+                            return RedirectToAction("HomeAdmin", "HomeAdmin", new { area = "Admin" });
+                        return RedirectToLocal(returnUrl);
+                    case SignInStatus.LockedOut:
+                        return View("Lockout");
+                    case SignInStatus.RequiresVerification:
+                        return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
+                    case SignInStatus.Failure:
+                    default:
+                        ModelState.AddModelError("", "Invalid login attempt.");
+                        return View(model);
+                }
             }
+            return RedirectToLocal(returnUrl);
         }
 
         //
@@ -330,12 +338,18 @@ namespace VanLangDoctor.Controllers
 
             // Sign in the user with this external login provider if the user already has a login
             var result = await SignInManager.ExternalSignInAsync(loginInfo, isPersistent: false);
+
             switch (result)
             {
                 case SignInStatus.Success:
-                    //var signedInUserId = (await UserManager.FindByEmailAsync(loginInfo.Email)).Id;
-                    //if (returnUrl.StartsWith("/User/CapnhatTK/CapnhatTK"))
-                    //    return RedirectToLocal($"/User/CapnhatTK/CapnhatTK/{signedInUserId}");
+                    var userId = (await UserManager.FindByEmailAsync(loginInfo.Email)).Id;
+                    var role = SignInManager.UserManager.GetRoles(userId);
+                    if(role.Count > 0)
+                    {
+                        var userRole = role.FirstOrDefault().ToString();
+                        if (userRole == "Bác sĩ" || userRole == "Quản trị viên" || userRole == "Quản lý")
+                            return RedirectToAction("HomeAdmin", "HomeAdmin", new { area = "Admin" });
+                    }
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");

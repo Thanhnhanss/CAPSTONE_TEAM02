@@ -11,35 +11,24 @@ namespace VanLangDoctor.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class BENH_NHAN
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public BENH_NHAN()
         {
-            this.DANH_GIA = new HashSet<DANH_GIA>();
             this.SO_KHAM_BENH = new HashSet<SO_KHAM_BENH>();
         }
     
         public int ID_BENH_NHAN { get; set; }
-        //[Required(ErrorMessage = "Hãy nh?p tên")]
         public string TEN_BN { get; set; }
-        ////[Required(ErrorMessage = "Hãy nh?p gi?i tính")]
         public string GIOI_TINH { get; set; }
         public Nullable<System.DateTime> NGAY_SINH { get; set; }
-        //[Required(ErrorMessage = "Hãy nh?p s? ?i?n tho?i."),
-        //    StringLength(maximumLength: 10, ErrorMessage = "S? ?i?n tho?i t?i ?a là 10 s?."),
-        //    MinLength(10, ErrorMessage = "S? ?i?n tho?i có ít nh?t là 10 s?."),
-        //    RegularExpression("^[0-9_]*$", ErrorMessage = "D? li?u nh?p vào ph?i có d?ng s? (0-9)")]
         public string SDT { get; set; }
-        [Required(ErrorMessage = "Hãy nh?p ??a ch? hi?n t?i")]
         public string DIA_CHI { get; set; }
         public string ID_EMAIL { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DANH_GIA> DANH_GIA { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SO_KHAM_BENH> SO_KHAM_BENH { get; set; }
     }

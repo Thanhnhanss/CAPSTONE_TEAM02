@@ -11,7 +11,8 @@ using VanLangDoctor.Models;
 
 namespace VanLangDoctor.Areas.User.Controllers
 {
-    //[HandleError]
+    [HandleError]
+    [Authorize]
     public class ThongtinBacsiController : Controller
     {
         CP24Team02Entities db = new CP24Team02Entities();
@@ -76,7 +77,7 @@ namespace VanLangDoctor.Areas.User.Controllers
             return File(path + ID_BACSI, "images");
         }
 
-        public ActionResult Create()
+        public ActionResult DanhGia()
         {
             ViewBag.ID_BACSI = new SelectList(db.BACSIs, "ID_BACSI", "TEN_BACSI");
             ViewBag.ID_USER = new SelectList(db.AspNetUsers, "Id", "Email");
@@ -88,14 +89,14 @@ namespace VanLangDoctor.Areas.User.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,ID_BACSI,ID_BENHNHAN,RATING,NHAN_XET")] DANH_GIA dANH_GIA)
+        public ActionResult DanhGia([Bind(Include = "ID,ID_BACSI,ID_BENHNHAN,RATING,NHAN_XET")] DANH_GIA dANH_GIA)
         {
             if (ModelState.IsValid)
             {
                 dANH_GIA.ID_USER = User.Identity.GetUserId();
                 db.DANH_GIA.Add(dANH_GIA);
                 db.SaveChanges();
-                return RedirectToAction("DanhSachBacsi");
+                return Redirect(Request.UrlReferrer.ToString()); ;
             }
 
             ViewBag.ID_USER = new SelectList(db.AspNetUsers, "Id", "Email", dANH_GIA.ID_USER);

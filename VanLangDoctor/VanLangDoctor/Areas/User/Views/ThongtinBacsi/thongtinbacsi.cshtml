@@ -30,6 +30,7 @@
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
     <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i|PT+Sans+Caption:400,700">
     <link href="~/Content/Site.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/assets-news/css/bootstrap.min.css">
 </head>
 
 <body class="u-body u-xl-mode">
@@ -120,35 +121,52 @@
             </div>
         </div>
     </section>
-
-    @foreach (var c in comments)
-    {
-        <hr />
-        <div class="row">
-            <div class="col-md-3">
-                <i>@c.AspNetUser.UserName</i>
-                <br />
-                @for (var i = 1; i <= c.RATING; i++)
-                {
-                    <span class="starGlowN"></span>
-                }
-                @for (var i = (c.RATING + 1); i <= 5; i++)
-                {
-                    <span class="starFadeN"></span>
-                }
-            </div>
-            <div class="col-md-9">
-                @Html.Raw(c.NHAN_XET.Replace("\n", "<br />"))
-
-
+    <hr />
+    <div class="weekly2-news-area weekly2-pading gray-bg">
+        <div class="container">
+            <div class="weekly2-wrapper">
+                <!-- section Tittle -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-tittle mb-30">
+                            <h3>Đánh giá về bác sĩ</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="weekly2-news-active dot-style d-flex dot-style">
+                            @foreach (var c in comments)
+                            {
+                                <div id="itemFilter" class="weekly2-single">
+                                    <div class="weekly2-img">
+                                        <div class="weekly2-img">
+                                            @c.AspNetUser.UserName
+                                        </div>
+                                        @for (var i = 1; i <= c.RATING; i++)
+                                        {
+                                            <span class="starGlowN"></span>
+                                        }
+                                        @for (var i = (c.RATING + 1); i <= 5; i++)
+                                        {
+                                            <span class="starFadeN"></span>
+                                        }
+                                    </div>
+                                    <div id="myTemp" class="weekly2-caption">
+                                        <h5>@Html.Raw(c.NHAN_XET.Replace("\n", "<br />"))</h5>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    }
-    <hr />
-    <dl class="dl-horizontal">
+    </div>
+    <dl>
         <dd>
             <div class="commentBox">
-                @using (Html.BeginForm("Create", "ThongtinBacsi", FormMethod.Post, new { onsubmit = "return SubmitComment()" }))
+                @using (Html.BeginForm("DanhGia", "ThongtinBacsi", FormMethod.Post, new { onsubmit = "return SubmitComment()" }))
                 {
                     @Html.AntiForgeryToken()
                     <div class="form-horizontal">
@@ -223,4 +241,7 @@
             }
         }
     </script>
+    <!-- Footer auto scroll -->
+    <script src="~/Content/assets-news/js/slick.min.js"></script>
+    <script src="~/Content/assets-news/js/main.js"></script>
 </body>
