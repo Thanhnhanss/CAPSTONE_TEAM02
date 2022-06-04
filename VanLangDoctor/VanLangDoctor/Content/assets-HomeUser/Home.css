@@ -7,6 +7,16 @@
   min-height: 788px;
 }
 
+    .u-section-1 .u-btn-1 {
+        background-image: linear-gradient(to right, #73a3de, #48c8ef);
+        box-shadow: 0px 2px 6px 0 rgba(0,0,0,0.25);
+        font-weight: 700;
+        letter-spacing: 1px;
+        margin: 20px 30px;
+        padding: 15px 20px 15px 25px;
+        border-radius: 5px;
+    }
+
 .u-section-1 .u-group-1 {
   width: 855px;
   min-height: 448px;
@@ -1239,6 +1249,15 @@
   margin: 59px auto 0;
   padding: 12px 20px 13px;
 }
+    .u-section-5 .u-btn-5 {
+        background-image: linear-gradient(to right, #73a3de, #48c8ef);
+        box-shadow: 0px 2px 6px 0 rgba(0,0,0,0.25);
+        font-weight: 700;
+        letter-spacing: 1px;
+        margin: 59px auto;
+        padding: 8px 18px 8px 25px;
+        border-radius: 15px;
+    }
 
 .u-section-5 .u-icon-1 {
   font-size: 1.4em;
@@ -1374,6 +1393,16 @@
   margin: 20px auto 0 0;
   padding: 2px 0;
 }
+
+    .u-section-6 .u-btn-4 {
+        background-image: linear-gradient(to right, #73a3de, #48c8ef);
+        box-shadow: 0px 2px 6px 0 rgba(0,0,0,0.25);
+        font-weight: 700;
+        letter-spacing: 1px;
+        margin: 15px auto;
+        padding: 8px 18px 8px 25px;
+        border-radius: 15px;
+    }
 
 .u-section-6 .u-container-layout-2 {
   padding: 20px 30px;
@@ -1745,15 +1774,13 @@
 }
 
 .u-section-7 .u-btn-1 {
-  background-image: linear-gradient(to right, #73a3de, #48c8ef);
-  border-style: none;
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: 0.9375rem;
-  letter-spacing: 1px;
-  box-shadow: 0px 2px 6px 0 rgba(0,0,0,0.25);
-  margin: 20px auto 60px;
-  padding: 18px 33px 19px 31px;
+    background-image: linear-gradient(to right, #73a3de, #48c8ef);
+    font-weight: 700;
+    font-size: 0.9375rem;
+    letter-spacing: 1px;
+    box-shadow: 0px 2px 6px 0 rgba(0,0,0,0.25);
+    margin: 15px auto 60px;
+    padding: 8px 25px 8px 25px;
 }
 
 @media (max-width: 1199px) {

@@ -113,7 +113,7 @@
                                     <a href="mailto:@Model.AspNetUser.Email" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-hover-palette-2-light-1 u-text-white u-btn-1">@Model.AspNetUser.Email</a>
 
                                 </p>
-                                <a href="mailto:@Model.AspNetUser.Email" class="u-active-palette-2-light-2 u-border-3 u-border-active-white u-border-hover-white u-border-white u-btn u-btn-round u-button-style u-hover-palette-2-light-2 u-none u-radius-50 u-text-active-white u-text-black u-text-hover-white u-btn-3">Liên hệ</a>
+                                <a href="mailto:@Model.AspNetUser.Email" class="u-active-palette-2-light-2 u-btn u-btn-round u-button-style u-btn-3">Liên hệ</a>
                             </div>
                         </div>
                     </div>
@@ -171,7 +171,7 @@
                     @Html.AntiForgeryToken()
                     <div class="form-horizontal">
                         <div class="form-group">
-                            <label class="col-md-4 control-label">
+                            <label class="col-md-2 control-label">
                                 Đánh giá của bạn <span style="font-weight:normal;">(1 sao là rất tệ, 5 sao là rất tốt)</span>
                             </label>
                             <div class="col-md-7">
@@ -191,7 +191,7 @@
                                 <input type="hidden" name="ID_USER" value="@ViewBag.ID_USER" />
                                 <input type="hidden" name="ID_BACSI" value="@ViewBag.ID_BACSI" />
                                 <input type="hidden" name="RATING" id="Rating" value="0" />
-                                <input type="submit" id="btnRegister" name="btnRegister" value="Submit Comment" class="btn btn-warning" />
+                                <input type="submit" id="btnRegister" name="btnRegister" value="Đánh giá" class="btn btn-warning" />
                             </div>
                         </div>
                     </div>
@@ -244,4 +244,5 @@
     <!-- Footer auto scroll -->
     <script src="~/Content/assets-news/js/slick.min.js"></script>
     <script src="~/Content/assets-news/js/main.js"></script>
+
 </body>
