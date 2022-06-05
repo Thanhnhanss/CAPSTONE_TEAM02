@@ -142,7 +142,7 @@
                                 <img src="~/Content/assets-ad/images/Icon/home.png" width="25" /><span class="hide-menu">&nbsp; Trang chủ</span>
                             </a>
                         </li>
-                        @if (User.IsInRole("Quản lý"))
+                        @if (User.IsInRole("Quản lý"))
                         {
                             <li class="list-divider"></li>
                             @*Quản lý*@
@@ -272,7 +272,7 @@ https://business.facebook.com/latest/inbox/all?nav_ref=pages_classic_isolated_se
                                 </ul>
                             </li>
                         }
-                        else if (User.IsInRole("Quản trị viên"))
+                        @if (User.IsInRole("Quản trị viên"))
                         {
                             <li class="list-divider"></li>
                             @*Quản trị viên*@
@@ -284,7 +284,7 @@ https://business.facebook.com/latest/inbox/all?nav_ref=pages_classic_isolated_se
                                 </a>
                             </li>
                         }
-                        else
+                        @if(User.IsInRole("Bác sĩ"))
                         {
                             <li class="list-divider"></li>
                             @*Bác sĩ*@
