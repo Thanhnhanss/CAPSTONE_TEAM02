@@ -51,12 +51,12 @@
                         using (Html.BeginForm("LogOff", "../Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-left" }))
                         {
                             @Html.AntiForgeryToken();
-                            <ul>
-                                <li><a href="@Url.Action("CapnhatTK", "CapnhatTK", routeValues: null)" title="Cập nhật thông tin cá nhân"><i class="fa fa-user" aria-hidden="true" style="font-size: 14px"> Cập nhật tài khoản</i></a></li>
-                                <li><a href="~/trang-chu/dang-ky-ung-tuyen" title="Ứng tuyển làm tư vấn viên"><i class="fa fa-edit" aria-hidden="true" style="font-size: 14px "> Đăng ký ứng tuyển</i></a></li>
-                                <li><a href="@Url.Action("Create", "Feedback")" title="Đánh giá và phản hồi"><i class="fa fa-comments" aria-hidden="true" style="font-size: 14px"> Đánh giá & phản hồi</i></a></li>
-                                <li><a href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-sign-out" style="font-size: 14px "> Đăng xuất</i></a></li>
-                            </ul>
+                <ul>
+                    <li><a href="@Url.Action("CapnhatTK", "CapnhatTK", routeValues: null)" title="Cập nhật thông tin cá nhân"><i class="fa fa-user" aria-hidden="true" style="font-size: 14px"> Cập nhật tài khoản</i></a></li>
+                    <li><a href="~/trang-chu/dang-ky-ung-tuyen" title="Ứng tuyển làm tư vấn viên"><i class="fa fa-edit" aria-hidden="true" style="font-size: 14px "> Đăng ký ứng tuyển</i></a></li>
+                    <li><a href="@Url.Action("Create", "Feedback")" title="Đánh giá và phản hồi"><i class="fa fa-comments" aria-hidden="true" style="font-size: 14px"> Đánh giá & phản hồi</i></a></li>
+                    <li><a href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-sign-out" style="font-size: 14px "> Đăng xuất</i></a></li>
+                </ul>
                         }
                     }
                 </div>
@@ -83,19 +83,22 @@
                                         <li style="margin:5px">@Html.ActionLink("Đăng ký", "Register", "../Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
                                         <li style="margin:5px">@Html.ActionLink("Đăng nhập", "Login", "../Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
                                     </ul>
-                                }
+                                }   
                                 else
                                 {
                                     <a class="" href="#" title="USD">@Html.ActionLink("Xin chào! " + User.Identity.GetUserName(), "CapnhatTK", "CapnhatTK", routeValues: null, htmlAttributes: new { type = "Cập nhật thông tin" })</a>
                                     using (Html.BeginForm("LogOff", "../Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
                                     {
                                         @Html.AntiForgeryToken();
-                                        <ul class="list-menu" style="text-align: left; border: none; border-radius: 1em; left:20%; top:100%">
-                                            <li><a href="@Url.Action("CapnhatTK", "CapnhatTK", routeValues: null)" title="Cập nhật thông tin cá nhân"><i class="fa fa-user" aria-hidden="true" style="font-size: 14px"> Cập nhật tài khoản</i></a></li>
-                                            <li><a href="~/trang-chu/dang-ky-ung-tuyen" title="Ứng tuyển làm tư vấn viên"><i class="fa fa-edit" aria-hidden="true" style="font-size: 14px "> Đăng ký ứng tuyển</i></a></li>
-                                            <li><a href="@Url.Action("Create", "Feedback")" title="Đánh giá và phản hồi"><i class="fa fa-comments" aria-hidden="true" style="font-size: 14px"> Đánh giá & phản hồi</i></a></li>
-                                            <li><a href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-sign-out" style="font-size: 14px "> Đăng xuất</i></a></li>
-                                        </ul>
+                            <ul class="list-menu" style="text-align: left; border: none; border-radius: 1em; left:20%; top:100%">
+                                <li><a href="@Url.Action("CapnhatTK", "CapnhatTK", routeValues: null)" title="Cập nhật thông tin cá nhân"><i class="fa fa-user" aria-hidden="true" style="font-size: 14px"> Cập nhật tài khoản</i></a></li>
+                                <li><a href="~/trang-chu/dang-ky-ung-tuyen" title="Ứng tuyển làm tư vấn viên"><i class="fa fa-edit" aria-hidden="true" style="font-size: 14px "> Đăng ký ứng tuyển</i></a></li>
+                                <li><a href="@Url.Action("Create", "Feedback")" title="Đánh giá và phản hồi"><i class="fa fa-comments" aria-hidden="true" style="font-size: 14px"> Đánh giá & phản hồi</i></a></li>
+                                
+                                <li><a href="~/trang-chu-quan-ly"><i class="fa fa-sign-out" style="font-size: 14px ">Chuyển trang quản lý</i></a></li>
+                                
+                                <li><a href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-sign-out" style="font-size: 14px "> Đăng xuất</i></a></li>
+                            </ul>
                                     }
                                 }
 
@@ -201,6 +204,9 @@
                             <ul class="float-lg-right bottom" style="z-index:1">
                                 <li style="text-align:right" title="Về đầu trang">
                                     <a href='#' class="icon" style="font-size: 2em" title="Về đầu trang">🔝</a>
+                                </li>
+                                <li style="text-align:right" title="Về đầu trang">
+                                    <a href='~/trang-chu-quan-ly' class="icon" style="font-size: 2em" title="Về đầu trang">⭐</a>
                                 </li>
                             </ul>
                         </div>
