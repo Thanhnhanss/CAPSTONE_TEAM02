@@ -84,6 +84,7 @@ namespace VanLangDoctor.Controllers
                 {
                     case SignInStatus.Success:
                         if (userRole == "Bác sĩ" || userRole == "Quản trị viên" || userRole == "Quản lý")
+                            //return Redirect("~/CP24Team02/trang-chu-quan-ly");
                             return RedirectToAction("HomeAdmin", "HomeAdmin", new { area = "Admin" });
                         return RedirectToLocal(returnUrl);
                     case SignInStatus.LockedOut:

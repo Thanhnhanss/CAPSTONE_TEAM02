@@ -208,6 +208,7 @@
     <Compile Include="Areas\Admin\Controllers\QL_TKFeedBackController.cs" />
     <Compile Include="Areas\User\Controllers\CapnhatTKController.cs" />
     <Compile Include="Areas\User\Controllers\DANG_KYController.cs" />
+    <Compile Include="Areas\User\Controllers\DanhGiaController.cs" />
     <Compile Include="Areas\User\Controllers\FeedbackController.cs" />
     <Compile Include="Areas\User\Controllers\HomeUserController.cs" />
     <Compile Include="Areas\User\Controllers\HealthRecordController.cs" />

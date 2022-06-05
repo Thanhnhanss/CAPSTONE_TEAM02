@@ -53,6 +53,11 @@ namespace VanLangDoctor.Areas.User.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            var userid = User.Identity.GetUserId();
+            var ourRating = db.DANH_GIA.Where(d => d.ID_BACSI == ID_BACSI && d.ID_USER == userid && d.TRANG_THAI == true).ToList();
+            ViewBag.OurRating = ourRating;
+            var danhgia = db.DANH_GIA.Where(d => d.ID_BACSI == ID_BACSI && d.TRANG_THAI == true).ToList();
+            ViewBag.DanhGia = danhgia;
             ViewBag.ID_BACSI = ID_BACSI.Value;
             var comments = db.DANH_GIA.Where(d => d.ID_BACSI == bACSI.ID_BACSI).ToList();
             ViewBag.Comments = comments;
@@ -77,31 +82,5 @@ namespace VanLangDoctor.Areas.User.Controllers
             return File(path + ID_BACSI, "images");
         }
 
-        public ActionResult DanhGia()
-        {
-            ViewBag.ID_BACSI = new SelectList(db.BACSIs, "ID_BACSI", "TEN_BACSI");
-            ViewBag.ID_USER = new SelectList(db.AspNetUsers, "Id", "Email");
-            return View();
-        }
-
-        // POST: User/DanhGia/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult DanhGia([Bind(Include = "ID,ID_BACSI,ID_BENHNHAN,RATING,NHAN_XET")] DANH_GIA dANH_GIA)
-        {
-            if (ModelState.IsValid)
-            {
-                dANH_GIA.ID_USER = User.Identity.GetUserId();
-                db.DANH_GIA.Add(dANH_GIA);
-                db.SaveChanges();
-                return Redirect(Request.UrlReferrer.ToString()); ;
-            }
-
-            ViewBag.ID_USER = new SelectList(db.AspNetUsers, "Id", "Email", dANH_GIA.ID_USER);
-            ViewBag.ID_BACSI = new SelectList(db.BACSIs, "ID_BACSI", "TEN_BACSI", dANH_GIA.ID_BACSI);
-            return View(dANH_GIA);
-        }
     }
 }

@@ -19,6 +19,7 @@ namespace VanLangDoctor.Models
         public int RATING { get; set; }
         public string NHAN_XET { get; set; }
         public string ID_USER { get; set; }
+        public bool TRANG_THAI { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }
         public virtual BACSI BACSI { get; set; }

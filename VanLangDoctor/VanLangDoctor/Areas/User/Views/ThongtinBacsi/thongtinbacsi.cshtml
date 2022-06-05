@@ -5,6 +5,8 @@
     var comments = (IEnumerable<VanLangDoctor.Models.DANH_GIA>)ViewBag.Comments;
     var ratingSum = ViewBag.RatingSum;
     var ratingCount = ViewBag.RatingCount;
+    var DanhGia = (IEnumerable<VanLangDoctor.Models.DANH_GIA>)ViewBag.DanhGia;
+    var OurRating = (IEnumerable<VanLangDoctor.Models.DANH_GIA>)ViewBag.OurRating;
 
     decimal rating = 0;
     if (ratingCount > 0)
@@ -30,7 +32,6 @@
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
     <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i|PT+Sans+Caption:400,700">
     <link href="~/Content/Site.css" rel="stylesheet" />
-    <link rel="stylesheet" href="~/Content/assets-news/css/bootstrap.min.css">
 </head>
 
 <body class="u-body u-xl-mode">
@@ -121,85 +122,114 @@
             </div>
         </div>
     </section>
-    <hr />
-    <div class="weekly2-news-area weekly2-pading gray-bg">
-        <div class="container">
-            <div class="weekly2-wrapper">
-                <!-- section Tittle -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="section-tittle mb-30">
-                            <h3>Đánh giá về bác sĩ</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <div class="weekly2-news-active dot-style d-flex dot-style">
-                            @foreach (var c in comments)
-                            {
-                                <div id="itemFilter" class="weekly2-single">
-                                    <div class="weekly2-img">
+
+    <section  class="u-align-center u-clearfix u-image u-section-3">
+        <div class="weekly2-news-area weekly2-pading gray-bg">
+            <div class="container">
+                <div class="weekly2-wrapper">
+                    <!-- section Tittle -->
+                    <h2 class="u-custom-font u-text u-text-font u-text-1">Đánh giá về bác sĩ</h2>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="items">
+                                @foreach (var c in DanhGia)
+                                {
+                                    <div id="itemFilter">
                                         <div class="weekly2-img">
-                                            @c.AspNetUser.UserName
+                                            <div class="weekly2-img">
+                                                @c.AspNetUser.UserName
+                                            </div>
+                                            @for (var i = 1; i <= c.RATING; i++)
+                                            {
+                                                <span class="starGlowN"></span>
+                                            }
+                                            @for (var i = (c.RATING + 1); i <= 5; i++)
+                                            {
+                                                <span class="starFadeN"></span>
+                                            }
                                         </div>
-                                        @for (var i = 1; i <= c.RATING; i++)
-                                        {
-                                            <span class="starGlowN"></span>
-                                        }
-                                        @for (var i = (c.RATING + 1); i <= 5; i++)
-                                        {
-                                            <span class="starFadeN"></span>
-                                        }
+                                        <div id="myTemp" class="weekly2-caption">
+                                            <h5>@Html.Raw(c.NHAN_XET.Replace("\n", "<br />"))</h5>
+                                        </div>
                                     </div>
-                                    <div id="myTemp" class="weekly2-caption">
-                                        <h5>@Html.Raw(c.NHAN_XET.Replace("\n", "<br />"))</h5>
-                                    </div>
-                                </div>
-                            }
+                                }
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <dl>
-        <dd>
-            <div class="commentBox">
-                @using (Html.BeginForm("DanhGia", "ThongtinBacsi", FormMethod.Post, new { onsubmit = "return SubmitComment()" }))
-                {
-                    @Html.AntiForgeryToken()
-                    <div class="form-horizontal">
-                        <div class="form-group">
-                            <label class="col-md-2 control-label">
-                                Đánh giá của bạn <span style="font-weight:normal;">(1 sao là rất tệ, 5 sao là rất tốt)</span>
-                            </label>
-                            <div class="col-md-7">
-                                <div onmouseout="CRateSelected()">
-                                    <span class="starFade" id="Rate1" onclick="CRate(1)" onmouseover="CRateOver(1)" onmouseout="CRateOut(1)"></span><span class="starFade" id="Rate2" onclick="CRate(2)" onmouseover="CRateOver(2)" onmouseout="CRateOut(2)"></span><span class="starFade" id="Rate3" onclick="CRate(3)" onmouseover="CRateOver(3)" onmouseout="CRateOut(3)"></span><span class="starFade" id="Rate4" onclick="CRate(4)" onmouseover="CRateOver(4)" onmouseout="CRateOut(4)"></span><span class="starFade" id="Rate5" onclick="CRate(5)" onmouseover="CRateOver(5)" onmouseout="CRateOut(5)"></span>
+
+        <div class="weekly2-news-area weekly2-pading gray-bg">
+            <div class="container">
+                <div class="weekly2-wrapper">
+                    <!-- section Tittle -->
+                    @if (OurRating != null)
+                    {
+                        <div class="commentBox">
+                            @foreach (var rate in OurRating)
+                            {
+                                <div class="row">
+                                    <div class="col col-lg-2">Đánh giá của bạn</div>
+                                    <div class="col"><textarea rows="1" readonly style="width:100%;">@rate.NHAN_XET.ToString()</textarea></div>
+                                    <div class="col col-lg-3">
+                                        @for (var i = 1; i <= rate.RATING; i++)
+                                        {
+                                            <span class="starGlowN"></span>
+                                        }
+                                        @for (var i = (rate.RATING + 1); i <= 5; i++)
+                                        {
+                                            <span class="starFadeN"></span>
+                                        }
+                                    </div>
+                                    <div class="col-1"><a href="@Url.Action("Delete", "DanhGia", new { id = @rate.ID})"><i class="fa fa-trash"></i></a></div>
+                                </div>
+                            }
+
+                        </div>
+                    }
+                    <div class="commentBox">
+                        @using (Html.BeginForm("Create", "DanhGia", FormMethod.Post, new { onsubmit = "return SubmitComment()" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <div class="form-horizontal">
+                                <div class="row">
+                                    <div class="col col-lg-4">
+                                        <label>
+                                            Đánh giá độ hài lòng của bạn về bác sĩ:
+                                        </label>
+                                    </div>
+
+                                    <div class="col col-lg-4">
+                                        <div onmouseout="CRateSelected()">
+                                            <span class="starFade" id="Rate1" onclick="CRate(1)" onmouseover="CRateOver(1)" onmouseout="CRateOut(1)"></span><span class="starFade" id="Rate2" onclick="CRate(2)" onmouseover="CRateOver(2)" onmouseout="CRateOut(2)"></span><span class="starFade" id="Rate3" onclick="CRate(3)" onmouseover="CRateOver(3)" onmouseout="CRateOut(3)"></span><span class="starFade" id="Rate4" onclick="CRate(4)" onmouseover="CRateOver(4)" onmouseout="CRateOut(4)"></span><span class="starFade" id="Rate5" onclick="CRate(5)" onmouseover="CRateOver(5)" onmouseout="CRateOut(5)"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        <textarea name="nhanxet" id="Comment" required rows="5" style="width:100%;" class="form-control" maxlength="100" placeholder="Cảm nghĩ của bạn về bác sĩ...(100 ký tự)"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        <input type="hidden" name="userid" value="@ViewBag.ID_USER" />
+                                        <input type="hidden" name="ID_BACSI" value="@ViewBag.ID_BACSI" />
+                                        <input type="hidden" name="RATING" id="Rating" value="0" />
+                                        <input type="submit" id="btnRegister" name="btnRegister" value="Đánh giá" class="btn btn-warning" />
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-12">
-                                <textarea name="NHAN_XET" id="Comment" required rows="5" style="width:100%;" class="form-control"></textarea>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-12">
-                                <input type="hidden" name="ID_BENHNHAN" value="33" />
-                                <input type="hidden" name="ID_USER" value="@ViewBag.ID_USER" />
-                                <input type="hidden" name="ID_BACSI" value="@ViewBag.ID_BACSI" />
-                                <input type="hidden" name="RATING" id="Rating" value="0" />
-                                <input type="submit" id="btnRegister" name="btnRegister" value="Đánh giá" class="btn btn-warning" />
-                            </div>
-                        </div>
+                        }
                     </div>
-                }
+                </div>
             </div>
-        </dd>
+            <br />
+        </div>
+    </section>
 
-    </dl>
+
     <script>
         function SubmitComment() {
             if ($("#Rating").val() == "0") {
@@ -243,6 +273,14 @@
     </script>
     <!-- Footer auto scroll -->
     <script src="~/Content/assets-news/js/slick.min.js"></script>
-    <script src="~/Content/assets-news/js/main.js"></script>
+    <script>
+        $(document).ready(function () {
 
+            $('.items').slick({
+                infinite: true,
+                slidesToShow: 3,
+                slidesToScroll: 2
+            });
+        });
+    </script>
 </body>

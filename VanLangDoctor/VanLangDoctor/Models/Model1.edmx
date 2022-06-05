@@ -129,8 +129,9 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_BACSI" Type="int" Nullable="false" />
           <Property Name="RATING" Type="int" Nullable="false" />
-          <Property Name="NHAN_XET" Type="nvarchar" MaxLength="250" />
-          <Property Name="ID_USER" Type="nvarchar" MaxLength="128" />
+          <Property Name="NHAN_XET" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="ID_USER" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="TRANG_THAI" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="DANH_MUC_THUOC">
           <Key>
@@ -332,7 +333,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_DANH_GIA_AspNetUsers">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
           <End Role="DANH_GIA" Type="Self.DANH_GIA" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="AspNetUsers">
@@ -852,8 +853,9 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_BACSI" Type="Int32" Nullable="false" />
           <Property Name="RATING" Type="Int32" Nullable="false" />
-          <Property Name="NHAN_XET" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="ID_USER" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="NHAN_XET" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ID_USER" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="TRANG_THAI" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="AspNetUser" Relationship="CP24Team02Model.FK_DANH_GIA_AspNetUsers" FromRole="DANH_GIA" ToRole="AspNetUser" />
           <NavigationProperty Name="BACSI" Relationship="CP24Team02Model.FK_DANH_GIA_BACSI" FromRole="DANH_GIA" ToRole="BACSI" />
         </EntityType>
@@ -1031,7 +1033,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_DANH_GIA_AspNetUsers">
-          <End Type="CP24Team02Model.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
+          <End Type="CP24Team02Model.AspNetUser" Role="AspNetUser" Multiplicity="1" />
           <End Type="CP24Team02Model.DANH_GIA" Role="DANH_GIA" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="AspNetUser">
@@ -1349,6 +1351,7 @@
           <EntitySetMapping Name="DANH_GIA">
             <EntityTypeMapping TypeName="CP24Team02Model.DANH_GIA">
               <MappingFragment StoreEntitySet="DANH_GIA">
+                <ScalarProperty Name="TRANG_THAI" ColumnName="TRANG_THAI" />
                 <ScalarProperty Name="ID_USER" ColumnName="ID_USER" />
                 <ScalarProperty Name="NHAN_XET" ColumnName="NHAN_XET" />
                 <ScalarProperty Name="RATING" ColumnName="RATING" />
