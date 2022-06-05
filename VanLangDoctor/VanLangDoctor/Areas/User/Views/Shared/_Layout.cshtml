@@ -94,9 +94,9 @@
                                 <li><a href="@Url.Action("CapnhatTK", "CapnhatTK", routeValues: null)" title="Cập nhật thông tin cá nhân"><i class="fa fa-user" aria-hidden="true" style="font-size: 14px"> Cập nhật tài khoản</i></a></li>
                                 <li><a href="~/trang-chu/dang-ky-ung-tuyen" title="Ứng tuyển làm tư vấn viên"><i class="fa fa-edit" aria-hidden="true" style="font-size: 14px "> Đăng ký ứng tuyển</i></a></li>
                                 <li><a href="@Url.Action("Create", "Feedback")" title="Đánh giá và phản hồi"><i class="fa fa-comments" aria-hidden="true" style="font-size: 14px"> Đánh giá & phản hồi</i></a></li>
-                                
+                                @if (User.IsInRole("Quản trị viên") || User.IsInRole("Bác sĩ") || User.IsInRole("Quản lý")) {
                                 <li><a href="~/trang-chu-quan-ly"><i class="fa fa-sign-out" style="font-size: 14px ">Chuyển trang quản lý</i></a></li>
-                                
+                                }
                                 <li><a href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-sign-out" style="font-size: 14px "> Đăng xuất</i></a></li>
                             </ul>
                                     }
