@@ -22,15 +22,15 @@
         <div class="container">
             <div class="card login-card">
                 <div class="row no-gutters">
-                    <div class="col-md-5">
-                        <img src="~/Content/assets-ff/images/banner/login_bg2.jpg" alt="login" class="login-card-img" />
+                    <div class="col-md-8">
+                        <img src="~/Content/assets-ff/images/banner/login_bg5.jpg" alt="login" class="login-card-img" />
                     </div>
-                    <div class="col-md-7">
-                        <div class="card-body">
-                            <div class="brand-wrapper">
+                    <div class="col-md-4">
+                        <div class="card-body"; text-align: center;>
+                            <div class="brand-wrapper"  display: block; margin-left: auto; margin-right: auto>
                                 <img src="~/Content/assets-ad/images/logoVLDnobrr.png" />
                             </div>
-                            <p class="login-card-description">Bạn đã có tài khoản?</p>
+                            @*<p class="login-card-description">Bạn đã có tài khoản?</p>*@
                             <form action="@Url.Action("Login","Account")" method="post">
                                 @Html.AntiForgeryToken()
                                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })

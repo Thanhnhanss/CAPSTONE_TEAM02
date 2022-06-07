@@ -478,6 +478,7 @@
     <Content Include="Content\assets-feedback\jquery.js" />
     <Content Include="Content\assets-feedback\nicepage.css" />
     <Content Include="Content\assets-feedback\nicepage.js" />
+    <Content Include="Content\assets-ff\images\banner\login_bg5.jpg" />
     <Content Include="Content\assets-ff\images\icon-menu-home2.png" />
     <Content Include="Content\assets-ff\images\icon-menu-mobile-active.svg" />
     <Content Include="Content\assets-ff\images\icon-menu-mobile.svg" />
@@ -761,6 +762,7 @@
     <Content Include="Content\assets_SignUp\fonts\poppins\roboto-condensed-v16-latin-italic.svg" />
     <Content Include="Content\assets_SignUp\fonts\poppins\roboto-condensed-v16-latin-regular.svg" />
     <Content Include="Content\assets_SignUp\images\signin-image.jpg" />
+    <Content Include="Content\assets_SignUp\images\signup-image-03.jpg" />
     <Content Include="Content\assets_SignUp\images\signup-image.jpg" />
     <Content Include="Content\assets_SignUp\js\main.js" />
     <Content Include="Content\assets_SignUp\vendor\jquery\jquery-ui.min.js" />

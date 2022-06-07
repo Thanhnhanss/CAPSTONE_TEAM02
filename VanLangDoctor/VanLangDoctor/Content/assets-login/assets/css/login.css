@@ -1,10 +1,12 @@
 body {
-  font-family: "Karla", sans-serif;
-  background-color: #d0d0ce;
+  font-family: "Opens Sans", sans-serif;
+  background-color: #fff;
   min-height: 100vh; }
 
 .brand-wrapper {
-  margin-bottom: 19px; }
+  margin-bottom: 30px; 
+  text-align: center;
+}
   .brand-wrapper .logo {
     height: 37px; }
 
