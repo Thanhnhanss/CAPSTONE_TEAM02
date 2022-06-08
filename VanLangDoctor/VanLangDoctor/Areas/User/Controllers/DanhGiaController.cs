@@ -59,41 +59,7 @@ namespace VanLangDoctor.Areas.User.Controllers
             db.SaveChanges();
             return RedirectToAction("thongtinbacsi", "ThongtinBacsi", new { ID_BACSI });
         }
-        // GET: User/DanhGia/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            DANH_GIA dANH_GIA = db.DANH_GIA.Find(id);
-            if (dANH_GIA == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.ID_USER = new SelectList(db.AspNetUsers, "Id", "Email", dANH_GIA.ID_USER);
-            ViewBag.ID_BACSI = new SelectList(db.BACSIs, "ID_BACSI", "TEN_BACSI", dANH_GIA.ID_BACSI);
-            return View(dANH_GIA);
-        }
-
-        // POST: User/DanhGia/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,ID_BACSI,RATING,NHAN_XET,ID_USER,TRANG_THAI")] DANH_GIA dANH_GIA)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(dANH_GIA).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            ViewBag.ID_USER = new SelectList(db.AspNetUsers, "Id", "Email", dANH_GIA.ID_USER);
-            ViewBag.ID_BACSI = new SelectList(db.BACSIs, "ID_BACSI", "TEN_BACSI", dANH_GIA.ID_BACSI);
-            return View(dANH_GIA);
-        }
-
+        
         // GET: User/DanhGia/Delete/5
         public ActionResult Delete(int id)
         {

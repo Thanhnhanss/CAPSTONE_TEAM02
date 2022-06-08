@@ -75,6 +75,7 @@
                                             <td style="text-align:center"><img src="@Url.Action("Picture", new {item.ID_BACSI})" width="55" height="55" style="border-radius: 50%" /></td>
                                             <td>
                                                 <a href="@Url.Action("Edit","QL_BacSi", new { id = item.ID_BACSI })"><i class="ti-pencil"></i></a>
+                                                <a href="@Url.Action("ApproveRating","QL_BacSi", new { ID_BACSI = item.ID_BACSI })"><i class="ti-eye"></i></a>
                                                 <a href="@Url.Action("Delete","QL_BacSi", new { id = item.ID_BACSI })"><i class="ti-trash"></i></a>
                                             </td>
                                         </tr>

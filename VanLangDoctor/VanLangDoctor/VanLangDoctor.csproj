@@ -1895,6 +1895,7 @@
     <Content Include="Areas\Admin\Views\QL_DatLich\Details.cshtml" />
     <Content Include="Areas\Admin\Views\QL_DatLich\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\QL_DatLich\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_BacSi\ApproveRating.cshtml" />
     <None Include="Areas\Admin\Views\QL_DonThuoc\ThemDonThuoc.cshtml" />
     <Content Include="Areas\Admin\Views\QL_DonThuoc\DS_DonThuoc.cshtml" />
     <Content Include="Areas\User\Views\HealthRecord\HealthRecord.cshtml" />
