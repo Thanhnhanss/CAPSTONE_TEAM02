@@ -38,6 +38,7 @@ namespace VanLangDoctor.Models
         public virtual DbSet<DANH_MUC_THUOC> DANH_MUC_THUOC { get; set; }
         public virtual DbSet<DANH_MUC_TIN> DANH_MUC_TIN { get; set; }
         public virtual DbSet<DAT_LICH> DAT_LICH { get; set; }
+        public virtual DbSet<DAT_LICH_TU_VAN> DAT_LICH_TU_VAN { get; set; }
         public virtual DbSet<DON_THUOC> DON_THUOC { get; set; }
         public virtual DbSet<FEEDBACK> FEEDBACKs { get; set; }
         public virtual DbSet<KHOA> KHOAs { get; set; }

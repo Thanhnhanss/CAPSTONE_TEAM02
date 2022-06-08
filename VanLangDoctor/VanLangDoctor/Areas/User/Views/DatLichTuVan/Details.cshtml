@@ -1,0 +1,59 @@
+﻿@model VanLangDoctor.Models.DAT_LICH_TU_VAN
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/User/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DAT_LICH_TU_VAN</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAY_KHAM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAY_KHAM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LINK_GG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LINK_GG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TRANG_THAI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TRANG_THAI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AspNetUser.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AspNetUser.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BACSI.TEN_BACSI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BACSI.TEN_BACSI)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

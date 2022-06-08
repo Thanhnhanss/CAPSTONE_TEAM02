@@ -20,6 +20,7 @@ namespace VanLangDoctor.Models
             this.DON_THUOC = new HashSet<DON_THUOC>();
             this.DANH_GIA = new HashSet<DANH_GIA>();
             this.DAT_LICH = new HashSet<DAT_LICH>();
+            this.DAT_LICH_TU_VAN = new HashSet<DAT_LICH_TU_VAN>();
         }
     
         public int ID_BACSI { get; set; }
@@ -41,5 +42,7 @@ namespace VanLangDoctor.Models
         public virtual ICollection<DANH_GIA> DANH_GIA { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DAT_LICH> DAT_LICH { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DAT_LICH_TU_VAN> DAT_LICH_TU_VAN { get; set; }
     }
 }
