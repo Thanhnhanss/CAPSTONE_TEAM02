@@ -4,6 +4,8 @@
     ViewBag.Title = "Đăng ký lịch";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
+
+
 <div class="page-wrapper" style="display: block;">
     <div class="page-breadcrumb">
         <div class="row">
@@ -30,13 +32,14 @@
     </div>
     <div class="container-fluid">
         <div class="card">
+            @*<form method="post" action="/QL_DatLich/Create">*@
             <div class="card-body DangKyLich">
                 <div class="form-row">
                     <div class="form-group col-md-2">
                         <button class="form-control ThemNgayLamViec">Thêm ngày</button>
                     </div>
                 </div>
-                <div class="container">
+                @*<div class="container">
                     <div class="form-horizontal">
                         <div class="form-row">
                             <div class="form-group col-md-4">
@@ -44,7 +47,7 @@
                                 <input type="date" min="@DateTime.Now.ToString("yyyy-MM-dd")" name="ngaylamviec" class="form-control" />
                                 <br />
                             </div>
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-4">
                                 <label>Giờ làm việc</label>
                                 <input type="time" name="giolamviec" class="form-control giolamviec" />
                                 <br />
@@ -53,11 +56,16 @@
                                 <label></label>
                                 <button class="form-control ThemGioLamViec">Thêm</button>
                             </div>
+                            <div class="form-group col-md-2">
+                                <label></label>
+                                <button class="form-control XoaGioLamViec">Xoá</button>
+                            </div>
                         </div>
                         <br />
                     </div>
-                </div>
+                </div>*@
             </div>
+            @*</form>*@
         </div>
     </div>
 </div>
@@ -75,7 +83,7 @@
                             '<input type="date" min="@DateTime.Now.ToString("yyyy-MM-dd")" name="ngay" class="form-control" />' +
                             '<br />' +
                         '</div>' +
-                        '<div class="form-group col-md-6">' +
+                        '<div class="form-group col-md-4">' +
                             '<label>Giờ làm việc</label>' +
                             '<input type="time" name="giolamviec" class="form-control giolamviec" />' +
                             '<br />' +
@@ -83,6 +91,10 @@
                         '<div class="form-group col-md-2">' +
                             '<label></label>' +
                             '<button class="form-control ThemGioLamViec">Thêm</button>' +
+                        '</div>' +
+                        '<div class="form-group col-md-2">' +
+                            '<label></label>' +
+                            '<button class="form-control XoaGioLamViec">Xoá</button>' +
                         '</div>' +
                     '</div>' +
                     '<br />' +
@@ -92,10 +104,20 @@
             $(this).parent().parent().find('.giolamviec').parent().append('<input type="time" name="giolamviec" class="form-control giolamviec"  />',
                 '<br />')
         });
+        $('.XoaGioLamViec').on('click', function (e) {
+            e.preventDefault();
+            console.log($(this).parent().parent().children('.col-md-4').eq(1).children(':last-child').remove());
+            $(this).parent().parent().children('.col-md-4').eq(1).children(':last-child').remove();
+        });
     });
 
-    $('.ThemGioLamViec').off('click').click(function () {
-        $(this).parent().parent().find('.giolamviec').parent().append('<input type="time" name="giolamviec" class="form-control giolamviec"  />',
-                                          '<br />')
-    });
+    //$('.ThemGioLamViec').off('click').click(function () {
+    //    $(this).parent().parent().find('.giolamviec').parent().append('<input type="time" name="giolamviec" class="form-control giolamviec"  />',
+    //                                      '<br />')
+    //});
+    //$('.XoaGioLamViec').on('click', function (e) {
+    //    e.preventDefault();
+    //    console.log($(this).parent().parent().children('.col-md-4').eq(1).children(':last-child').remove());
+    //    $(this).parent().parent().children('.col-md-4').eq(1).children(':last-child').remove();
+    //});
 </script>

@@ -22,6 +22,7 @@ namespace VanLangDoctor.Models
             this.BACSIs = new HashSet<BACSI>();
             this.BENH_NHAN = new HashSet<BENH_NHAN>();
             this.DANH_GIA = new HashSet<DANH_GIA>();
+            this.DAT_LICH_TU_VAN = new HashSet<DAT_LICH_TU_VAN>();
             this.FEEDBACKs = new HashSet<FEEDBACK>();
             this.AspNetRoles = new HashSet<AspNetRole>();
         }
@@ -49,6 +50,8 @@ namespace VanLangDoctor.Models
         public virtual ICollection<BENH_NHAN> BENH_NHAN { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DANH_GIA> DANH_GIA { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DAT_LICH_TU_VAN> DAT_LICH_TU_VAN { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<FEEDBACK> FEEDBACKs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
