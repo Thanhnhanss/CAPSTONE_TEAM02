@@ -13,7 +13,7 @@ namespace VanLangDoctor.Areas.User.Controllers
 {
     public class DanhGiaController : Controller
     {
-        private CP24Team02Entities db = new CP24Team02Entities();
+        private readonly CP24Team02Entities db = new CP24Team02Entities();
 
         [Authorize]
         public ActionResult Create(int ID_BACSI)
@@ -29,7 +29,8 @@ namespace VanLangDoctor.Areas.User.Controllers
                 ID_USER = ID_USER,
                 NHAN_XET = "",
                 RATING = 0,
-                TRANG_THAI = false,
+                NGAY_TAO = DateTime.Now,
+                TRANG_THAI = true,
                 AspNetUser = db.AspNetUsers.Find(ID_USER)
             };
             return View(danhgia);
@@ -51,7 +52,8 @@ namespace VanLangDoctor.Areas.User.Controllers
                     ID_BACSI = ID_BACSI,
                     NHAN_XET = nhanxet,
                     RATING = rating,
-                    TRANG_THAI = false,
+                    TRANG_THAI = true,
+                    NGAY_TAO = DateTime.Now,
                     AspNetUser = db.AspNetUsers.Find(userid)
                 };
                 db.DANH_GIA.Add(danhgia);

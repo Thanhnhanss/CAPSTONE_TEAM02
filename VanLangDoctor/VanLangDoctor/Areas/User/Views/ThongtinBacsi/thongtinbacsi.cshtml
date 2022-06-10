@@ -79,9 +79,17 @@
                                     <span style="font-weight: 700;">khoa</span>: @Model.KHOA.TEN_KHOA<br>
                                     <span style="font-weight: 700;">Kinh </span>
                                     <span style="font-weight: 700;">nghiệm </span>: @Model.KINH_NGHIEM năm<br>
-                                    @*<span style="font-weight: 700;">Ngày </span>
-                                        <span style="font-weight: 700;">trực </span>: @Html.FormatValue(Model.NGAY_TRUC, "{0:d}")*@
                                 </p>
+                                <div class="card-footer">
+                                    @for (var i = 1; i <= totalRating; i++)
+                                    {
+                                        <span class="starGlowN"></span>
+                                    }
+                                    @for (var i = (totalRating + 1); i <= 5; i++)
+                                    {
+                                        <span class="starFadeN"></span>
+                                    }
+                                </div>
                             </div>
                         </div>
                         <div class="u-align-center-sm u-align-center-xs u-align-left-lg u-align-left-md u-align-left-xl u-container-style u-layout-cell u-palette-1-light-2 u-size-22 u-layout-cell-2">
@@ -152,6 +160,9 @@
                                         <div id="myTemp" class="weekly2-caption">
                                             <h5>@Html.Raw(c.NHAN_XET.Replace("\n", "<br />"))</h5>
                                         </div>
+                                        <div id="myTemp" class="weekly2-caption">
+                                            Ngày đăng: @c.NGAY_TAO
+                                        </div>
                                     </div>
                                 }
                             </div>
@@ -171,7 +182,7 @@
                             @foreach (var rate in OurRating)
                             {
                                 <div class="row">
-                                    <div class="col col-lg-2">Đánh giá của bạn</div>
+                                    <div class="col col-sm-2">Đánh giá của bạn</div>
                                     <div class="col"><textarea rows="1" readonly style="width:100%;">@rate.NHAN_XET.ToString()</textarea></div>
                                     <div class="col col-lg-3">
                                         @for (var i = 1; i <= rate.RATING; i++)
@@ -183,6 +194,7 @@
                                             <span class="starFadeN"></span>
                                         }
                                     </div>
+                                    <div class="col col-lg-2">Ngày đăng: @rate.NGAY_TAO.Value.ToString("g")</div>
                                     <div class="col-1"><a href="@Url.Action("Delete", "DanhGia", new { id = @rate.ID})"><i class="fa fa-trash"></i></a></div>
                                 </div>
                             }

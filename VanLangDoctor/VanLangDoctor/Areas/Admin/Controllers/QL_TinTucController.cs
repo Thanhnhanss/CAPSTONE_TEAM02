@@ -14,7 +14,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
     [Authorize(Roles = "Quản trị viên, Quản lý")]
     public class QL_TinTucController : Controller
     {
-        private CP24Team02Entities db = new CP24Team02Entities();
+        private readonly CP24Team02Entities db = new CP24Team02Entities();
 
         // GET: Admin/QL_TinTuc
         public ActionResult Index()

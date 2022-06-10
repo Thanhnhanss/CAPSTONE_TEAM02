@@ -25,23 +25,6 @@ namespace VanLangDoctor.Areas.User.Controllers
             return View(bACSIs.ToList());
         }
 
-        // GET: Admin/BACSIs/Details/5
-        
-        //public ActionResult thongtinbacsi(int? ID_BACSI)
-        //{
-        //    if (ID_BACSI == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    BACSI bACSI = db.BACSIs.Find(ID_BACSI);
-        //    if (bACSI == null)
-        //    {
-        //        throw new HttpException(404,"Not Found!");
-        //        //return HttpNotFound();
-        //    }
-        //    return View(bACSI);
-        //}
-
         public ActionResult thongtinbacsi(int? ID_BACSI)
         {
             if (ID_BACSI == null)
@@ -54,14 +37,14 @@ namespace VanLangDoctor.Areas.User.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             var userid = User.Identity.GetUserId();
-            var ourRating = db.DANH_GIA.Where(d => d.ID_BACSI == ID_BACSI && d.ID_USER == userid && d.TRANG_THAI == true).ToList();
+            var ourRating = db.DANH_GIA.Where(d => d.ID_BACSI == ID_BACSI && d.ID_USER == userid).ToList();
             ViewBag.OurRating = ourRating;
             var danhgia = db.DANH_GIA.Where(d => d.ID_BACSI == ID_BACSI && d.TRANG_THAI == true).ToList();
             ViewBag.DanhGia = danhgia;
             ViewBag.ID_BACSI = ID_BACSI.Value;
             var comments = db.DANH_GIA.Where(d => d.ID_BACSI == bACSI.ID_BACSI).ToList();
             ViewBag.Comments = comments;
-            var ratings = db.DANH_GIA.Where(d => d.ID_BACSI == bACSI.ID_BACSI).ToList();
+            var ratings = db.DANH_GIA.Where(d => d.ID_BACSI == bACSI.ID_BACSI && d.TRANG_THAI == true).ToList();
             if (ratings.Count() > 0)
             {
                 var ratingSum = ratings.Sum(d => d.RATING);

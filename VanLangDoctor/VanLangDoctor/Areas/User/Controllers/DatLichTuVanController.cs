@@ -14,7 +14,7 @@ namespace VanLangDoctor.Areas.User.Controllers
     [Authorize]
     public class DatLichTuVanController : Controller
     {
-        private CP24Team02Entities db = new CP24Team02Entities();
+        private readonly CP24Team02Entities db = new CP24Team02Entities();
 
         // GET: User/DatLichTuVan
         public ActionResult Index()

@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="~/Content/assets-dr/css/flaticon.css">
     <link rel="stylesheet" href="~/Content/assets-dr/css/icomoon.css">
     <link rel="stylesheet" href="~/Content/assets-dr/css/style.css">
+    <link href="~/Content/Site.css" rel="stylesheet" />
 
 </head>
 
@@ -105,3 +106,45 @@
         });
     });
 </script>
+<script>
+    function SubmitComment() {
+        if ($("#Rating").val() == "0") {
+            alert("Vui lòng chọn mức độ đánh giá về bác sĩ này");
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+
+    function CRate(r) {
+        $("#Rating").val(r);
+        for (var i = 1; i <= r; i++) {
+            $("#Rate" + i).attr('class', 'starGlow');
+        }
+        // unselect remaining
+        for (var i = r + 1; i <= 5; i++) {
+            $("#Rate" + i).attr('class', 'starFade');
+        }
+    }
+
+    function CRateOver(r) {
+        for (var i = 1; i <= r; i++) {
+            $("#Rate" + i).attr('class', 'starGlow');
+        }
+    }
+
+    function CRateOut(r) {
+        for (var i = 1; i <= r; i++) {
+            $("#Rate" + i).attr('class', 'starFade');
+        }
+    }
+
+    function CRateSelected() {
+        var setRating = $("#Rating").val();
+        for (var i = 1; i <= setRating; i++) {
+            $("#Rate" + i).attr('class', 'starGlow');
+        }
+    }
+</script>
+

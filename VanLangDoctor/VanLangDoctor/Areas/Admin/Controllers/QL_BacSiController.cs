@@ -15,7 +15,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
     [Authorize(Roles = "Quản trị viên, Quản lý")]
     public class QL_BacSiController : Controller
     {
-        private CP24Team02Entities db = new CP24Team02Entities();
+        private readonly CP24Team02Entities db = new CP24Team02Entities();
         private const string PICTURE_PATH = "~/Content/IMG_DOCTOR/";
         // GET: Admin/BACSIs
         public ActionResult DanhSach_BS()
@@ -24,38 +24,21 @@ namespace VanLangDoctor.Areas.Admin.Controllers
             return View(bACSIs.ToList());
         }
 
-        #region Active Rating Of Dr
-        //public ActionResult ApproveRating(int? ID_BACSI)
-        //{
-        //    if (ID_BACSI == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    DANH_GIA dANH_GIA = db.DANH_GIA.Where(d => d.ID_BACSI == ID_BACSI).FirstOrDefault();
-        //    if (dANH_GIA == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    var danhgia = db.DANH_GIA.Where(d => d.ID_BACSI == ID_BACSI).Include(x => x.AspNetUser).ToList();
-        //    ViewBag.DanhGia = danhgia;
-        //    return View(dANH_GIA);
-        //}
-
-        public ActionResult ApproveRating (int ID_BACSI)
+        #region hide Rating Of Dr
+        public ActionResult ApproveRating(int? ID_BACSI)
         {
-            var model = db.DANH_GIA.Where(d => d.ID_BACSI == ID_BACSI).Include(x => x.AspNetUser).FirstOrDefault();
-            var listdanhgia = db.DANH_GIA.Where(d => d.ID_BACSI == ID_BACSI).ToList();
-            ViewBag.DanhGia = listdanhgia;
-            var danhgia = db.DANH_GIA.FirstOrDefault(d => d.ID_BACSI == ID_BACSI) ?? new DANH_GIA
+            if (ID_BACSI == null)
             {
-                ID = model.ID,
-                ID_BACSI = ID_BACSI,
-                ID_USER = model.ID_USER,
-                NHAN_XET = model.NHAN_XET,
-                RATING = model.RATING,
-                TRANG_THAI = model.TRANG_THAI,
-            };
-            return View(danhgia);
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            DANH_GIA dANH_GIA = db.DANH_GIA.Where(d => d.ID_BACSI == ID_BACSI).FirstOrDefault();
+            if (dANH_GIA == null)
+            {
+                return HttpNotFound();
+            }
+            var danhgia = db.DANH_GIA.Where(d => d.ID_BACSI == ID_BACSI).Include(x => x.AspNetUser).ToList();
+            ViewBag.DanhGia = danhgia;
+            return View(dANH_GIA);
         }
 
         // POST: DANH_GIA/Edit/5
@@ -63,20 +46,19 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult ApproveRating(/*string userid, int ID_BACSI, string nhanxet, int rating, bool trangthai*/ DANH_GIA danhgia)
+        public ActionResult ApproveRating(DANH_GIA danhgia)
         {
+            
             if (ModelState.IsValid)
             {
-                //var danhgia = new DANH_GIA
-                //{
-                //    ID_USER = userid,
-                //    ID_BACSI = ID_BACSI,
-                //    NHAN_XET = nhanxet,
-                //    RATING = rating,
-                //    TRANG_THAI = true,
-                //    AspNetUser = db.AspNetUsers.Find(userid)
-                //};
-                danhgia.TRANG_THAI = true;
+                if (danhgia.TRANG_THAI == false)
+                {
+                    danhgia.TRANG_THAI = true;
+                }
+                else
+                {
+                    danhgia.TRANG_THAI = false;
+                }
                 db.Entry(danhgia).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("DanhSach_BS", "QL_BacSi", new { area = "Admin" });

@@ -132,6 +132,7 @@
           <Property Name="NHAN_XET" Type="nvarchar" MaxLength="250" Nullable="false" />
           <Property Name="ID_USER" Type="nvarchar" MaxLength="128" Nullable="false" />
           <Property Name="TRANG_THAI" Type="bit" Nullable="false" />
+          <Property Name="NGAY_TAO" Type="datetime" />
         </EntityType>
         <EntityType Name="DANH_MUC_THUOC">
           <Key>
@@ -913,6 +914,7 @@
           <Property Name="NHAN_XET" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="ID_USER" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="TRANG_THAI" Type="Boolean" Nullable="false" />
+          <Property Name="NGAY_TAO" Type="DateTime" Precision="3" />
           <NavigationProperty Name="AspNetUser" Relationship="CP24Team02Model.FK_DANH_GIA_AspNetUsers" FromRole="DANH_GIA" ToRole="AspNetUser" />
           <NavigationProperty Name="BACSI" Relationship="CP24Team02Model.FK_DANH_GIA_BACSI" FromRole="DANH_GIA" ToRole="BACSI" />
         </EntityType>
@@ -1447,6 +1449,7 @@
           <EntitySetMapping Name="DANH_GIA">
             <EntityTypeMapping TypeName="CP24Team02Model.DANH_GIA">
               <MappingFragment StoreEntitySet="DANH_GIA">
+                <ScalarProperty Name="NGAY_TAO" ColumnName="NGAY_TAO" />
                 <ScalarProperty Name="TRANG_THAI" ColumnName="TRANG_THAI" />
                 <ScalarProperty Name="ID_USER" ColumnName="ID_USER" />
                 <ScalarProperty Name="NHAN_XET" ColumnName="NHAN_XET" />

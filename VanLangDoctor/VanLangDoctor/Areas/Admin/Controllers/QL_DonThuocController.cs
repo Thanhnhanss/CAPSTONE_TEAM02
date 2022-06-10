@@ -15,7 +15,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
     [Authorize(Roles = "Bác sĩ, Quản trị viên")]
     public class QL_DonThuocController : Controller
     {
-        private CP24Team02Entities db = new CP24Team02Entities();
+        private readonly CP24Team02Entities db = new CP24Team02Entities();
 
         // GET: Admin/QL_DonThuoc
         [HttpGet]

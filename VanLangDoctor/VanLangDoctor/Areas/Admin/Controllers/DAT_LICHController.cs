@@ -14,7 +14,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
     [Authorize]
     public class DAT_LICHController : Controller
     {
-        private CP24Team02Entities db = new CP24Team02Entities();
+        private readonly CP24Team02Entities db = new CP24Team02Entities();
 
         // GET: Admin/DAT_LICH
         public ActionResult Index()
