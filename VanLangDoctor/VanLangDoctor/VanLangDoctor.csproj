@@ -788,6 +788,7 @@
     <Content Include="Content\asset_About\jquery.js" />
     <Content Include="Content\asset_About\nicepage.css" />
     <Content Include="Content\asset_About\nicepage.js" />
+    <Content Include="Content\DatLichTuVan.css" />
     <Content Include="Content\docs-ad\docs-custom-chart-chartjs.html" />
     <Content Include="Content\docs-ad\docs-custom-datatables.html" />
     <Content Include="Content\docs-ad\docs-custom-widgets.html" />

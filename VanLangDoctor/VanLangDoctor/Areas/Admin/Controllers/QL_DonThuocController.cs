@@ -42,10 +42,11 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         // GET: Admin/QL_DonThuoc/Create
         public ActionResult ThemDonThuoc()
         {
+            var doctor = User.Identity.GetUserId();
             ViewBag.Patient = GetAllPatient();
             ViewBag.Medicine = GetAllMedicine();
-            ViewBag.Doctor = GetAllDoctor();
-            ViewBag.ID_BACSI = new SelectList(db.BACSIs, "ID_BACSI", "TEN_BACSI");
+            ViewBag.Doctor = db.BACSIs.FirstOrDefault(e => e.ID_Email == doctor).ID_BACSI;
+            //ViewBag.ID_BACSI = new SelectList(db.BACSIs, "ID_BACSI", "TEN_BACSI");
             ViewBag.ID_SO_KHAM_BENH = new SelectList(db.SO_KHAM_BENH, "ID_SOKHAMBENH", "ID_SOKHAMBENH");
             return View();
         }

@@ -10,28 +10,29 @@
         
         
         
-        <EntityTypeShape EntityType="CP24Team02Model.C__MigrationHistory" Width="1.5" PointX="4.0681394562442508" PointY="18.915695974098377" />
-        <EntityTypeShape EntityType="CP24Team02Model.AspNetRole" Width="1.5" PointX="9.8985962448169467" PointY="22.144986103356345" />
-        <EntityTypeShape EntityType="CP24Team02Model.AspNetUserClaim" Width="1.5" PointX="10.853429881321933" PointY="5.5319088723193426" />
-        <EntityTypeShape EntityType="CP24Team02Model.AspNetUserLogin" Width="1.5" PointX="8.9029568885001158" PointY="31.412762984359993" />
-        <EntityTypeShape EntityType="CP24Team02Model.AspNetUser" Width="1.5" PointX="9.2370219031521223" PointY="3.0758602931517456" />
-        <EntityTypeShape EntityType="CP24Team02Model.BACSI" Width="1.5" PointX="11.753876583536098" PointY="6.9725197288079741" />
-        <EntityTypeShape EntityType="CP24Team02Model.BENH_NHAN" Width="1.5" PointX="5.6208946470268515" PointY="30.892580493768946" />
-        <EntityTypeShape EntityType="CP24Team02Model.CHI_TIET_DON_THUOC" Width="1.5" PointX="4.8241368927173953" PointY="16.548150398092414" />
-        <EntityTypeShape EntityType="CP24Team02Model.DANG_KY" Width="1.5" PointX="11.647895525976967" PointY="7.6614504939231329" />
-        <EntityTypeShape EntityType="CP24Team02Model.DANH_GIA" Width="1.5" PointX="4.7780456397580195" PointY="14.103829301010737" />
-        <EntityTypeShape EntityType="CP24Team02Model.DANH_MUC_THUOC" Width="1.5" PointX="2.0887978533696372" PointY="28.1067562532177" />
-        <EntityTypeShape EntityType="CP24Team02Model.DANH_MUC_TIN" Width="1.5" PointX="10.235427427215235" PointY="6.0549686430278085" />
-        <EntityTypeShape EntityType="CP24Team02Model.DAT_LICH" Width="1.5" PointX="8.2713829708618043" PointY="9.606170524659646" />
-        <EntityTypeShape EntityType="CP24Team02Model.DAT_LICH_TU_VAN" Width="1.5" PointX="2.6411459998419256" PointY="14.806068531612897" />
-        <EntityTypeShape EntityType="CP24Team02Model.DON_THUOC" Width="1.5" PointX="9.5246447089708628" PointY="6.6375721723947541" />
-        <EntityTypeShape EntityType="CP24Team02Model.FEEDBACK" Width="1.5" PointX="3.0465291193903092" PointY="14.637317649385574" />
-        <EntityTypeShape EntityType="CP24Team02Model.KHOA" Width="1.5" PointX="6.3258277803314051" PointY="26.824179110501046" />
-        <EntityTypeShape EntityType="CP24Team02Model.NHA_SAN_XUAT" Width="1.5" PointX="8.471342938240312" PointY="23.399169008899094" />
-        <EntityTypeShape EntityType="CP24Team02Model.SO_KHAM_BENH" Width="1.5" PointX="8.6068868956560678" PointY="3.8217529970322515" />
-        <EntityTypeShape EntityType="CP24Team02Model.sysdiagram" Width="1.5" PointX="10.734693522907184" PointY="9.053416688485731" />
-        <EntityTypeShape EntityType="CP24Team02Model.THUOC" Width="1.5" PointX="5.8888954566274281" PointY="20.89515327890178" />
-        <EntityTypeShape EntityType="CP24Team02Model.TIN_TUC" Width="1.5" PointX="6.2263228270347808" PointY="18.302617901145769" />
+        
+        <EntityTypeShape EntityType="CP24Team02Model.C__MigrationHistory" Width="1.5" PointX="6.2025450888101687" PointY="3.239260481316252" />
+        <EntityTypeShape EntityType="CP24Team02Model.AspNetRole" Width="1.5" PointX="3.774005772440697" PointY="1.2748287028050185" />
+        <EntityTypeShape EntityType="CP24Team02Model.AspNetUserClaim" Width="1.5" PointX="2.3869446359513997" PointY="4.0824287105735522" />
+        <EntityTypeShape EntityType="CP24Team02Model.AspNetUserLogin" Width="1.5" PointX="3.0353467664845972" PointY="30.39169150516004" />
+        <EntityTypeShape EntityType="CP24Team02Model.AspNetUser" Width="1.5" PointX="9.6045435804894854" PointY="2.5592193615432919" />
+        <EntityTypeShape EntityType="CP24Team02Model.BACSI" Width="1.5" PointX="9.9718676349017148" PointY="30.8922034049836" />
+        <EntityTypeShape EntityType="CP24Team02Model.BENH_NHAN" Width="1.5" PointX="2.8989718216000924" PointY="22.207563038080728" />
+        <EntityTypeShape EntityType="CP24Team02Model.CHI_TIET_DON_THUOC" Width="1.5" PointX="0.51738563576591456" PointY="20.307599285760709" />
+        <EntityTypeShape EntityType="CP24Team02Model.DANG_KY" Width="1.5" PointX="10.850922010303904" PointY="29.246443717389575" />
+        <EntityTypeShape EntityType="CP24Team02Model.DANH_GIA" Width="1.5" PointX="4.183569511484154" PointY="29.3865733432521" />
+        <EntityTypeShape EntityType="CP24Team02Model.DANH_MUC_THUOC" Width="1.5" PointX="10.787333825038434" PointY="7.2453068826558562" />
+        <EntityTypeShape EntityType="CP24Team02Model.DANH_MUC_TIN" Width="1.5" PointX="7.8683351221812581" PointY="12.864797151118887" />
+        <EntityTypeShape EntityType="CP24Team02Model.DAT_LICH" Width="1.5" PointX="2.4706190575243063" PointY="5.2866035128415581" />
+        <EntityTypeShape EntityType="CP24Team02Model.DAT_LICH_TU_VAN" Width="1.5" PointX="2.95367293197367" PointY="9.8653125659866774" />
+        <EntityTypeShape EntityType="CP24Team02Model.DON_THUOC" Width="1.5" PointX="0.6707618798458771" PointY="26.982260731506283" />
+        <EntityTypeShape EntityType="CP24Team02Model.FEEDBACK" Width="1.5" PointX="7.565207846260261" PointY="5.0067336433598459" />
+        <EntityTypeShape EntityType="CP24Team02Model.KHOA" Width="1.5" PointX="5.5042111563981564" PointY="25.97624022978183" />
+        <EntityTypeShape EntityType="CP24Team02Model.NHA_SAN_XUAT" Width="1.5" PointX="10.37306219449875" PointY="3.3222167954417956" />
+        <EntityTypeShape EntityType="CP24Team02Model.SO_KHAM_BENH" Width="1.5" PointX="2.6110919986903163" PointY="22.078923563509679" />
+        <EntityTypeShape EntityType="CP24Team02Model.sysdiagram" Width="1.5" PointX="6.7020318129575029" PointY="6.0434377966650938" />
+        <EntityTypeShape EntityType="CP24Team02Model.THUOC" Width="1.5" PointX="10.830108895353092" PointY="25.513155472238154" />
+        <EntityTypeShape EntityType="CP24Team02Model.TIN_TUC" Width="1.5" PointX="10.297610202011471" PointY="31.148221015533537" />
         <AssociationConnector Association="CP24Team02Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
         <AssociationConnector Association="CP24Team02Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
         <AssociationConnector Association="CP24Team02Model.FK_BAC_SI" />
@@ -53,6 +54,48 @@
         <AssociationConnector Association="CP24Team02Model.FK_DON_THUOC_SO_KHAM_BENH" />
         <AssociationConnector Association="CP24Team02Model.FK_THUOC_NHA_SAN_XUAT" />
         <AssociationConnector Association="CP24Team02Model.AspNetUserRoles" />
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         

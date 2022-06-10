@@ -20,6 +20,7 @@ namespace VanLangDoctor.Models
         public string NHAN_XET { get; set; }
         public string ID_USER { get; set; }
         public bool TRANG_THAI { get; set; }
+        public Nullable<System.DateTime> NGAY_TAO { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }
         public virtual BACSI BACSI { get; set; }
