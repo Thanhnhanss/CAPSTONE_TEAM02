@@ -38,7 +38,7 @@
                 @Html.LabelFor(model => model.NGAY_KHAM, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @*<input type="datetime" value="" class="form-group" />*@
-                    <select id="Ngay_Truc" class="form-control" style="border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%)" required>
+                    <select id="Ngay_Truc" name="NGAY_KHAM" class="form-control" style="border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%)" required>
                         <option value="" selected> Choose...</option>
                     </select>
                     @*@Html.EditorFor(model => model.NGAY_KHAM, new { htmlAttributes = new { @class = "form-control", @id = "Ngay_Truc" } })
@@ -80,10 +80,14 @@
         let id = $(this).val();
         $.get('/DatLichTuVan/GetDoctor/' + id, function (data) {
             console.log(data);
-            var ngaytruc = $('#Ngay_Truc').val(data.Ngay_Truc);
-            $.each(ngaytruc, function () {
-                $('#Ngay_Truc').append(`<option value="${Ngay_Truc}" selected>${ngaytruc}</option>`);
-            });
+            var ngaytruc = $('#Ngay_Truc');
+            for (var i = 0; i < data.Ngay_Truc.length; i++) {
+                ngaytruc.append(`<option value="${data.Ngay_Truc[i]}" selected>${data.Ngay_Truc[i]}</option>`);
+            }
+            //console.log(ngaytruc);
+            //$.each(ngaytruc, function () {
+            //    $('#Ngay_Truc').append(`<option value="${Ngay_Truc}" selected>${ngaytruc}</option>`);
+            //});
         });
     });
 </script>
