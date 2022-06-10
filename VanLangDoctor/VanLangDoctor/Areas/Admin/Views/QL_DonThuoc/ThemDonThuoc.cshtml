@@ -82,15 +82,16 @@
                     <label for="result">Kết quả</label>
                     <textarea id="ketqua" class="myTextEditor"></textarea>
                 </div>
-                <div class="form-row">
+                <div class="form-row" hidden>
                     <label for="name">Bác sĩ</label>
-                    <select id="bacsi" class="form-control" style="border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%)" required>
+                    <input type="text" value="@ViewBag.Doctor" class="form-control" id="bacsi" readonly />
+                    @*<select id="bacsi" class="form-control" style="border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%)" required>
                         <option value="" selected>Choose...</option>
                         @foreach (var a in ViewBag.Doctor)
                         {
                             <option value="@a.ID_BACSI">@a.TEN_BACSI</option>
                         }
-                    </select>
+                    </select>*@
                 </div>
                 <br />
                 <div class="form-row">
@@ -178,7 +179,7 @@
         /*remove this "/CP24Team02/Admin/" if run in localhost*/
         $('#FullName').change(function () {
             let id = $(this).val();
-            $.get('/CP24Team02/Admin/QL_DonThuoc/GetPatient/' + id, function (data) {
+            $.get('/QL_DonThuoc/GetPatient/' + id, function (data) {
                 $('#age').val(data.Tuoi);
                 $('#gender').val(data.GioiTinh);
                 $('#address').val(data.DiaChi);
