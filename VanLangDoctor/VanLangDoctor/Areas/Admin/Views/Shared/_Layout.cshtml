@@ -142,8 +142,8 @@
                                 <img src="~/Content/assets-ad/images/Icon/home.png" width="25" /><span class="hide-menu">&nbsp; Trang chủ</span>
                             </a>
                         </li>
-                        @if (User.IsInRole("Quản lý"))
-                        {
+                        @*@if (User.IsInRole("Quản lý"))
+                        {*@
                             <li class="list-divider"></li>
                             @*Quản lý*@
                             <li class="nav-small-cap"><span class="hide-menu">Quản lý</span></li>
@@ -264,9 +264,9 @@ https://business.facebook.com/latest/inbox/all?nav_ref=pages_classic_isolated_se
                                     </li>
                                 </ul>
                             </li>
-                        }
+                        @*}
                         @if (User.IsInRole("Quản trị viên"))
-                        {
+                        {*@
                             <li class="list-divider"></li>
                             @*Quản trị viên*@
                             <li class="nav-small-cap"><span class="hide-menu">Quản trị viên</span></li>
@@ -276,9 +276,9 @@ https://business.facebook.com/latest/inbox/all?nav_ref=pages_classic_isolated_se
                                     <img src="~/Content/assets-ad/images/Icon/profile.png" width="25" /><span class="hide-menu">&nbsp; Tài khoản</span>
                                 </a>
                             </li>
-                        }
+                        @*}
                         @if (User.IsInRole("Bác sĩ"))
-                        {
+                        {*@
                             <li class="list-divider"></li>
                             @*Bác sĩ*@
                             <li class="nav-small-cap"><span class="hide-menu">Bác sĩ</span></li>
@@ -329,7 +329,7 @@ https://business.facebook.com/latest/inbox/all?nav_ref=pages_classic_isolated_se
                                     </span>
                                 </a>
                             </li>
-                        }
+                        @*}*@
                     </ul>
 
                     <br />

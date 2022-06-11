@@ -12,7 +12,7 @@ using Microsoft.AspNet.Identity;
 
 namespace VanLangDoctor.Areas.Admin.Controllers
 {
-    [Authorize(Roles = "Quản trị viên, Quản lý")]
+    //[Authorize(Roles = "Quản trị viên, Quản lý")]
     public class QL_BacSiController : Controller
     {
         private readonly CP24Team02Entities db = new CP24Team02Entities();
@@ -48,7 +48,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult ApproveRating(DANH_GIA danhgia)
         {
-            
+
             if (ModelState.IsValid)
             {
                 if (danhgia.TRANG_THAI == false)
@@ -71,14 +71,10 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         //GET: Admin/QLBacsi/ThongTinBacSi
         public ActionResult ThongTinBacSi()
         {
-            var bacsi = User.Identity.GetUserId();
-            if (bacsi != User.Identity.GetUserId())
-                return new HttpStatusCodeResult(403);
-            if (!string.IsNullOrEmpty(bacsi))
-            {
-                return RedirectToAction("ThongTinBacSi", "QL_BacSi", new { area = "Admin" });
-            }
-            return View();
+            var doctor = User.Identity.GetUserId();
+            var thongtin = db.BACSIs.FirstOrDefault(e => e.ID_Email.Equals(doctor));
+            
+            return View(thongtin);
         }
 
         public ActionResult Picture(int ID_BACSI)
@@ -115,7 +111,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
                         scope.Complete();
                     }
                 }
-                else if(picture == null)
+                else if (picture == null)
                 {
                     ModelState.AddModelError("", "Hình ảnh không được tìm thấy");
                     TempData["Failed"] = "Không tìm thấy hình ảnh";
@@ -165,7 +161,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
                             var path = Server.MapPath(PICTURE_PATH);
                             picture.SaveAs(path + bACSI.ID_BACSI);
                         }
-                        
+
                         scope.Complete();
                         TempData["Success"] = "Cập nhật bác sĩ thành công";
                         return RedirectToAction("DanhSach_BS");

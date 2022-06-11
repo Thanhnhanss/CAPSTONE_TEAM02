@@ -12,7 +12,7 @@ using VanLangDoctor.Models;
 
 namespace VanLangDoctor.Areas.Admin.Controllers
 {
-    [Authorize(Roles = "Bác sĩ, Quản trị viên")]
+    //[Authorize(Roles = "Bác sĩ, Quản trị viên")]
     public class QL_DonThuocController : Controller
     {
         private readonly CP24Team02Entities db = new CP24Team02Entities();
