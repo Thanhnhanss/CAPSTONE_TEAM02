@@ -158,7 +158,7 @@
                                             }
                                         </div>
                                         <div id="myTemp" class="weekly2-caption">
-                                            <h5>@Html.Raw(c.NHAN_XET.Replace("\n", "<br />"))</h5>
+                                            <label>@Html.Raw(c.NHAN_XET.Replace("\n", "<br />"))</label>
                                         </div>
                                         <div id="myTemp" class="weekly2-caption">
                                             Ngày đăng: @c.NGAY_TAO
@@ -175,6 +175,7 @@
         <div class="weekly2-news-area weekly2-pading gray-bg">
             <div class="container">
                 <div class="weekly2-wrapper">
+                    <br />
                     <!-- section Tittle -->
                     @if (OurRating != null)
                     {
@@ -290,7 +291,7 @@
 
             $('.items').slick({
                 infinite: true,
-                slidesToShow: 3,
+                slidesToShow: 2,
                 slidesToScroll: 2
             });
         });
