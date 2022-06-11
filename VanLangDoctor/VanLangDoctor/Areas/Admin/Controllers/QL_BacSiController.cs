@@ -61,9 +61,10 @@ namespace VanLangDoctor.Areas.Admin.Controllers
                 }
                 db.Entry(danhgia).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("DanhSach_BS", "QL_BacSi", new { area = "Admin" });
+                TempData["Success"] = "Thành công";
             }
-            return View();
+            return RedirectToAction("ApproveRating", "QL_BacSi", new { danhgia.ID_BACSI });
+
         }
         #endregion
 

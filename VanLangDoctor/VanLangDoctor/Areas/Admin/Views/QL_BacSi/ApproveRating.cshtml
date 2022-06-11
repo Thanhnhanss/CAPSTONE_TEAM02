@@ -33,52 +33,63 @@
     </div>
 
     <div class="container-fluid">
-        <div class="card">
-            <div class="card-body">
-                @foreach (var item in danhgia)
-                {
-                    using (Html.BeginForm("ApproveRating", "QL_BacSi", FormMethod.Post))
-                    {
-                        @Html.AntiForgeryToken()
-
-                        <div class="form-horizontal">
-
-                            <input type="hidden" name="ID_USER" value="@item.ID_USER" />
-                            <input type="hidden" name="ID_BACSI" value="@item.ID_BACSI" />
-                            <input type="hidden" name="NHAN_XET" value="@item.NHAN_XET" />
-                            <input type="hidden" name="rating" value="@item.RATING" />
-                            <input type="hidden" name="NGAY_TAO" value="@item.NGAY_TAO" />
-                            <input type="hidden" name="ID" value="@item.ID" />
-                            <div>Tên bác sĩ:  @item.BACSI.TEN_BACSI</div>
-                            <div>Nhận xét:  @item.NHAN_XET</div>
-                            <div>Rating:  @item.RATING sao</div>
-                            <div>Người đánh giá: @item.AspNetUser.UserName"</div>
-                            <div>Ngày đăng: @item.NGAY_TAO.Value.ToString("g")</div>
-                            <div>
-                                Trạng thái: @if (@item.TRANG_THAI.Equals(true))
-                                {<strong>Hiện</strong>}
-                                else
-                                { <strong>Ẩn</strong>}
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4>Tất cả đánh giá về <strong>@Model.BACSI.TEN_BACSI</strong></h4>
+                        @if (TempData["Success"] != null)
+                        {
+                            <div class="alert alert-success alert-dismissible bg-success text-white border-0 fade show" role="alert" id="successMessage">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true" style=" float: right; margin-top: -10px">×</span>
+                                </button>
+                                <strong>@TempData["Success"]</strong>
                             </div>
-                            <div class="row">
-                                @if (item.TRANG_THAI.Equals(true))
+                        }
+                        <hr />
+                        <div class="container">
+                            @foreach (var item in danhgia)
+                            {
+                                using (Html.BeginForm("ApproveRating", "QL_BacSi", FormMethod.Post))
                                 {
-                                    <div class="col-3"><button class="button" title="Ẩn đánh giá tiêu cực về bác sĩ" style="background-color:#00000050">Ẩn đánh giá</button></div>
-                                }
-                                else
-                                {
-                                    <div class="col-3"><button class="button" title="Hiện đánh giá">Hiện đánh giá</button></div>
-                                }
-                            </div>
-                            <hr />
+                                    @Html.AntiForgeryToken()
 
-                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                            @Html.HiddenFor(model => model.ID)
+                                    <div class="row">
+                                        <input type="hidden" name="ID_USER" value="@item.ID_USER" />
+                                        <input type="hidden" name="ID_BACSI" value="@item.ID_BACSI" />
+                                        <input type="hidden" name="NHAN_XET" value="@item.NHAN_XET" />
+                                        <input type="hidden" name="rating" value="@item.RATING" />
+                                        <input type="hidden" name="NGAY_TAO" value="@item.NGAY_TAO" />
+                                        <input type="hidden" name="TRANG_THAI" value="@item.TRANG_THAI.ToString()" />
+                                        <input type="hidden" name="ID" value="@item.ID" />
 
+                                        <div class="col col-3">@item.AspNetUser.UserName</div>
+                                        <div class="col col-2 wrap-breadcrumb">@item.NHAN_XET</div>
+                                        <div class="col col-1">@item.RATING sao</div>
+                                        <div class="col col-2">@item.NGAY_TAO.Value.ToString("g")</div>
+                                        <div class="col col-2">
+                                            @if (@item.TRANG_THAI.Equals(true))
+                                            {<strong>Đang hiện</strong>}
+                                            else
+                                            { <strong>Đã bị ẩn</strong>}
+                                        </div>
+                                        <div class="col col-1">
+                                            @if (@item.TRANG_THAI.Equals(true))
+                                            {<button class="button" title="Ẩn đánh giá tiêu cực về bác sĩ" style="background-color:#00000050"><i class="fa fa-eye"></i></button>}
+                                            else
+                                            { <button class="button" title="Hiện đánh giá"><i class="fa fa-eye-slash"></i></button>}
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                }
+                            }
                         </div>
-                    }
-                }
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
