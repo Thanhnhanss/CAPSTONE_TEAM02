@@ -135,7 +135,7 @@ namespace VanLangDoctor.Areas.User.Controllers
             {
                 ID = bacsi.ID_BACSI,
                 Name = bacsi.TEN_BACSI,
-                Ngay_Truc = bacsi.DAT_LICH.Select(e => e.NGAY_TRUC.Value).ToList()
+                Ngay_Truc = bacsi.DAT_LICH.Select(e => e.NGAY_TRUC.Value.ToString("yyyy/MM/dd HH:mm")).ToList()
             }, JsonRequestBehavior.AllowGet);
         }
 
@@ -143,7 +143,7 @@ namespace VanLangDoctor.Areas.User.Controllers
         {
             public int ID { get; set; }
             public string Name { get; set; }
-            public List<DateTime> Ngay_Truc { get; set; }
+            public List<string> Ngay_Truc { get; set; }
             
         }
 
