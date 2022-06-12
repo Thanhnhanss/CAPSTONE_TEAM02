@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuickMailer;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -46,38 +47,34 @@ namespace VanLangDoctor.Areas.User.Controllers
                         db.SaveChanges();
 
                         var path = Server.MapPath(PICTURE_PATH);
-                        picture.SaveAs(path + "ttv" + dANG_KY.ID); ;
+                        picture.SaveAs(path + "ttv" + dANG_KY.ID);
                         dANG_KY.HINH_ANH = "avt-" + dANG_KY.HO_TEN.ToLower().Trim() + "-" + dANG_KY.SDT + "-" + dANG_KY.ID;
-
 
                         var path_CTC = Server.MapPath(CTC_PATH);
                         picture_CTC.SaveAs(path_CTC + dANG_KY.ID);
                         dANG_KY.CHUNG_CHI = "ctc-" + dANG_KY.HO_TEN.ToLower().Trim() + "-" + dANG_KY.SDT + "-" + dANG_KY.ID;
 
-                        //var path_CTC = Server.MapPath(CTC_PATH);
-                        //int i = 0;
-                        //string[] paths = new string[picture_CTC.Length];
-                        //foreach (var c in picture_CTC)
-                        //{
-                        //    c.SaveAs(path_CTC + dANG_KY.ID + i);
-                        //    paths[i++] = "ctc-" + dANG_KY.HO_TEN.ToLower().Trim() + "-" + dANG_KY.SDT + "-" + dANG_KY.ID + i;
-                        //}
-                        //dANG_KY.CHUNG_CHI = string.Join(";", paths);
-
                         db.SaveChanges();
 
-                        //gửi cho admin
-                        string content = System.IO.File.ReadAllText(Server.MapPath("~/Content/Template_Email/template.html"));
+                        //content
+                        string content = System.IO.File.ReadAllText(Server.MapPath("~/Content/Template_Email/index.html"));
                         content = content.Replace("{{CustomerName}}", dANG_KY.HO_TEN.ToUpper());
                         content = content.Replace("{{Email}}", dANG_KY.EMAIL);
-                        content = content.Replace("{{Job}}", dANG_KY.NGHE_NGHIEP);
-                        var toEmail = ConfigurationManager.AppSettings["toEmail"].ToString();
-                        new MailHelper().SendMail(toEmail, "Đơn đăng ký mới", content);
+                        content = content.Replace("{{Phone}}", dANG_KY.SDT);
+                        content = content.Replace("{{Gra}}", dANG_KY.HOC_VAN);
+                        content = content.Replace("{{Gender}}", dANG_KY.GIOI_TINH);
+                        content = content.Replace("{{Dob}}", dANG_KY.NGAY_SINH.ToShortDateString());
+                        content = content.Replace("{{Scope}}", dANG_KY.MUC_TIEU);
 
-                        //gửi cho khách hàng
-                        string substance = System.IO.File.ReadAllText(Server.MapPath("~/Content/Template_Email/index.html"));
-                        substance = substance.Replace("{{CustomerName}}", dANG_KY.HO_TEN.ToUpper());
-                        new MailHelper().SendMail(dANG_KY.EMAIL, "Đơn đăng ký làm tư vấn viên cho VLDoctor", substance);
+                        //config sendmail
+                        List<string> toEmail = new List<string>();
+                        toEmail.Add(dANG_KY.EMAIL);
+                        toEmail.Add(ConfigurationManager.AppSettings["toEmail"].ToString());
+                        var fromEmail = ConfigurationManager.AppSettings["fromEmail"].ToString();
+                        var fromEmailPassword = ConfigurationManager.AppSettings["fromEmailPassword"].ToString();
+
+                        Email email = new Email();
+                        email.SendEmail(toEmail, fromEmail, fromEmailPassword, "Đơn đăng ký mới", content);
 
                         ViewBag.Message = "Hồ sơ đã được gửi. Vui lòng kiểm tra Email để biết thêm thông tin";
                         scope.Complete();

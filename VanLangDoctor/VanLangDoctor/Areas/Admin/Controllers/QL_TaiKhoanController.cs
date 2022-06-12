@@ -1,5 +1,7 @@
-﻿using System;
+﻿using QuickMailer;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -46,6 +48,19 @@ namespace VanLangDoctor.Areas.Admin.Controllers
             user.AspNetRoles.Add(db.AspNetRoles.Find(role));
             db.SaveChanges();
             TempData["Success"] = "Phân quyền thành công";
+
+            #region send mail
+            var rolename = db.AspNetRoles.Find(role);
+            string content = System.IO.File.ReadAllText(Server.MapPath("~/Content/Template_Email/SendMailCF.html"));
+            content = content.Replace("{{Role}}", rolename.Name.ToUpper());
+            content = content.Replace("{{LinkDR}}", "http://cntttest.vanlanguni.edu.vn:18080/CP24Team02/trang-chu-quan-ly");
+            var fromEmail = ConfigurationManager.AppSettings["fromEmail"].ToString();
+            var fromEmailPassword = ConfigurationManager.AppSettings["fromEmailPassword"].ToString();
+
+            Email email = new Email();
+            email.SendEmail(username, fromEmail, fromEmailPassword, "Phân quyền thành công", content);
+            #endregion
+
             return Redirect("~/Admin/QL_TaiKhoan/TaiKhoan");
         }
     }

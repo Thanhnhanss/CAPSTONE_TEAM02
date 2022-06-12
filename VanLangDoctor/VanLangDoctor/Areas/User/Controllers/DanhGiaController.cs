@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNet.Identity;
+using QuickMailer;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
@@ -54,11 +56,32 @@ namespace VanLangDoctor.Areas.User.Controllers
                     RATING = rating,
                     TRANG_THAI = true,
                     NGAY_TAO = DateTime.Now,
+                    BACSI = db.BACSIs.Find(ID_BACSI),
                     AspNetUser = db.AspNetUsers.Find(userid)
                 };
                 db.DANH_GIA.Add(danhgia);
             }
             db.SaveChanges();
+
+            #region sendmail
+            string content = System.IO.File.ReadAllText(Server.MapPath("~/Content/Template_Email/Feedback.html"));
+            content = content.Replace("{{CustomerName}}", danhgia.AspNetUser.Email);
+            content = content.Replace("{{Doctor}}", danhgia.BACSI.TEN_BACSI);
+            content = content.Replace("{{Feedback}}", danhgia.NHAN_XET);
+            content = content.Replace("{{Date}}", danhgia.NGAY_TAO.ToString());
+            content = content.Replace("{{Rating}}", danhgia.RATING.ToString());
+
+            var mailBS = db.AspNetUsers.Find(db.BACSIs.Find(ID_BACSI).ID_Email).Email;
+            List<string> toEmail = new List<string>();
+            toEmail.Add(danhgia.AspNetUser.Email);
+            toEmail.Add(mailBS);
+            toEmail.Add(ConfigurationManager.AppSettings["toEmail"].ToString());
+            var fromEmail = ConfigurationManager.AppSettings["fromEmail"].ToString();
+            var fromEmailPassword = ConfigurationManager.AppSettings["fromEmailPassword"].ToString();
+            Email email = new Email();
+            email.SendEmail(toEmail, fromEmail, fromEmailPassword, "Đánh giá về bác sĩ", content);
+            #endregion
+
             return RedirectToAction("thongtinbacsi", "ThongtinBacsi", new { ID_BACSI });
         }
         
