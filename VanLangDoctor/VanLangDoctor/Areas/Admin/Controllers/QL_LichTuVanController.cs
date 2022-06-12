@@ -115,7 +115,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
 
                 db.Entry(dAT_LICH_TU_VAN).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "QL_LichTuVan", new { area = "Admin" });
             }
             ViewBag.ID_USER = new SelectList(db.AspNetUsers, "Id", "Email", dAT_LICH_TU_VAN.ID_USER);
             ViewBag.ID_BAC_SI = new SelectList(db.BACSIs, "ID_BACSI", "TEN_BACSI", dAT_LICH_TU_VAN.ID_BAC_SI);
