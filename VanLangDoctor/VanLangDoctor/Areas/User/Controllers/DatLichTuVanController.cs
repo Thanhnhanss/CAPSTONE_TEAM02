@@ -41,7 +41,7 @@ namespace VanLangDoctor.Areas.User.Controllers
         // GET: User/DatLichTuVan/Create
         public ActionResult Create()
         {
-            ViewBag.ID_BAC_SI = new SelectList(db.BACSIs, "ID_BACSI", "TEN_BACSI");
+            ViewBag.ID_BAC_SI = new SelectList(db.BACSIs.Where(e=>e.DAT_LICH.Count() > 0), "ID_BACSI", "TEN_BACSI");
             return View();
         }
 
@@ -59,6 +59,7 @@ namespace VanLangDoctor.Areas.User.Controllers
                 db.DAT_LICH_TU_VAN.Add(dAT_LICH_TU_VAN);
                 db.SaveChanges();
                 return RedirectToAction("Index");
+
             }
 
             //ViewBag.ID_USER = new SelectList(db.AspNetUsers, "Id", "Email", dAT_LICH_TU_VAN.ID_USER);
@@ -144,7 +145,7 @@ namespace VanLangDoctor.Areas.User.Controllers
             public int ID { get; set; }
             public string Name { get; set; }
             public List<string> Ngay_Truc { get; set; }
-            
+
         }
 
         protected override void Dispose(bool disposing)

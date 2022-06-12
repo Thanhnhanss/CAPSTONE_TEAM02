@@ -29,22 +29,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         public ActionResult Index()
         {
             var dAT_LICH_TU_VAN = db.DAT_LICH_TU_VAN.Include(d => d.AspNetUser).Include(d => d.BACSI);
-            return View(dAT_LICH_TU_VAN.ToList());
-        }
-
-        // GET: Admin/QL_LichTuVan/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            DAT_LICH_TU_VAN dAT_LICH_TU_VAN = db.DAT_LICH_TU_VAN.Find(id);
-            if (dAT_LICH_TU_VAN == null)
-            {
-                return HttpNotFound();
-            }
-            return View(dAT_LICH_TU_VAN);
+            return View(dAT_LICH_TU_VAN.ToList().OrderByDescending(e => e.NGAY_KHAM));
         }
 
         // GET: Admin/QL_LichTuVan/Edit/5
@@ -137,32 +122,6 @@ namespace VanLangDoctor.Areas.Admin.Controllers
             return View(dAT_LICH_TU_VAN);
         }
 
-        // GET: Admin/QL_LichTuVan/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            DAT_LICH_TU_VAN dAT_LICH_TU_VAN = db.DAT_LICH_TU_VAN.Find(id);
-            if (dAT_LICH_TU_VAN == null)
-            {
-                return HttpNotFound();
-            }
-            return View(dAT_LICH_TU_VAN);
-        }
-
-        // POST: Admin/QL_LichTuVan/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            DAT_LICH_TU_VAN dAT_LICH_TU_VAN = db.DAT_LICH_TU_VAN.Find(id);
-            db.DAT_LICH_TU_VAN.Remove(dAT_LICH_TU_VAN);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -170,30 +129,6 @@ namespace VanLangDoctor.Areas.Admin.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
-        }
-
-        private static void CreateEvent(CalendarService _service)
-        {
-            Event body = new Event();
-            EventDateTime start = new EventDateTime();
-            start.DateTime = new DateTime(2022, 6, 11, 15, 0, 0);
-            EventDateTime end = new EventDateTime();
-            end.DateTime = new DateTime(2022, 6, 11, 15, 30, 0);
-            body.Start = start;
-            body.End = end;
-            body.Location = "Test Meeting";
-            body.Summary = "ABC";
-            body.ConferenceData = new ConferenceData();
-            body.ConferenceData.CreateRequest = new CreateConferenceRequest();
-            body.ConferenceData.CreateRequest.RequestId = Guid.NewGuid().ToString();
-            body.ConferenceData.CreateRequest.ConferenceSolutionKey = new ConferenceSolutionKey
-            {
-                Type = "hangoutsMeet"
-            };
-            EventsResource.InsertRequest request = new EventsResource.InsertRequest(_service, body, "hotanminhtam1703@gmail.com");
-            request.ConferenceDataVersion = 1;
-            Event response = request.Execute();
-            Console.WriteLine(response.HangoutLink);
         }
     }
 }

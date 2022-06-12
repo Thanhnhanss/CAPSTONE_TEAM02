@@ -2075,9 +2075,6 @@
     <Content Include="Areas\User\Views\DatLichTuVan\Details.cshtml" />
     <Content Include="Areas\User\Views\DatLichTuVan\Edit.cshtml" />
     <Content Include="Areas\User\Views\DatLichTuVan\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\QL_LichTuVan\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\QL_LichTuVan\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\QL_LichTuVan\Details.cshtml" />
     <Content Include="Areas\Admin\Views\QL_LichTuVan\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\QL_LichTuVan\Index.cshtml" />
     <Content Include="Content\tamhtm.json">
