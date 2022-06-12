@@ -76,9 +76,10 @@
 </div>
 
 <script>
+    /*remove this "/CP24Team02/User/" if run in localhost*/
     $('#BAC_SI').change(function () {
         let id = $(this).val();
-        $.get('/DatLichTuVan/GetDoctor/' + id, function (data) {
+        $.get('/CP24Team02/User/DatLichTuVan/GetDoctor/' + id, function (data) {
             console.log(data);
             var ngaytruc = $('#Ngay_Truc');
             for (var i = 0; i < data.Ngay_Truc.length; i++) {
