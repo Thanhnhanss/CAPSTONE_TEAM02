@@ -42,7 +42,8 @@
             <div class="card-footer" style="background-color: white; border-radius: 2%">
                 <h2 style="text-align:center">Hồ sơ đăng ký trở thành tư vấn viên</h2>
                 <br />
-                <form action="@Url.Action("Edit", "QL_DangKyTVV", new { id = Model.ID})" method="post" , enctype="multipart/form-data">
+                @using (Html.BeginForm())
+                {
                     @Html.AntiForgeryToken()
                     @Html.HiddenFor(model => model.ID)
                     <div class="row">
@@ -111,10 +112,10 @@
                             <label>Ảnh đại diện</label>
                             <br />
                             <img id="Picture" style="height: 250px; width: 250px; object-fit: contain; border: 3px solid #0af; background-color: #b0b0b0; border-radius:15px"
-                                 src="@Url.Action("Picture", new {Model.ID})" />
+                                 src="@Url.Action("Picture", new { Model.ID })" />
                             <label>Bằng cấp - Chứng chỉ</label>
                             <img id="Picture_CTC" style="height: 250px; width: 250px; object-fit: contain; border: 3px solid #0af; background-color: #b0b0b0; border-radius: 15px"
-                                 src="@Url.Action("Certificate", new {Model.ID})" />
+                                 src="@Url.Action("Certificate", new { Model.ID })" />
                             @* images *@
                         </div>
                     </div>
@@ -123,8 +124,8 @@
                             <button type="submit" class="button" style="vertical-align:middle"><span>Cập nhật </span></button>
                         </div>
                     </div>
-                </form>
-            </div>
+                }
+                </div>
         </div>
         <script>
             function readPicture(input) {
