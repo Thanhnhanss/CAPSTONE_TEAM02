@@ -15,6 +15,9 @@ using Google.Apis.Services;
 using Google.Apis.Util.Store;
 using System.IO;
 using System.Threading;
+using Google.Apis.Auth.OAuth2.Flows;
+using Google.Apis.Auth.OAuth2.Mvc;
+using System.Threading.Tasks;
 
 namespace VanLangDoctor.Areas.Admin.Controllers
 {
@@ -106,6 +109,8 @@ namespace VanLangDoctor.Areas.Admin.Controllers
                         request.ConferenceDataVersion = 1;
                         Event response = request.Execute();
                         dAT_LICH_TU_VAN.LINK_GG = response.HangoutLink;
+
+
                     }
                     catch (FileNotFoundException e)
                     {
