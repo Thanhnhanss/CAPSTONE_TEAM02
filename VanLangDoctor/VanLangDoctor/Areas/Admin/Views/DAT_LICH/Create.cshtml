@@ -1,7 +1,7 @@
 ﻿@model VanLangDoctor.Models.DAT_LICH
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Đăng ký lịch trực";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
@@ -23,7 +23,7 @@
             </div>
             <div class="col-5 align-self-center">
                 <div class="customize-input float-right">
-                    <a class="button-back" href="~/trang-chu-quan-ly/bac-si/danh-sach">
+                    <a class="button-back" href="@Url.Action("ThongTinBacSi", "QL_BacSi")">
                         <span-back>Trở về</span-back>
                     </a>
                 </div>
@@ -47,7 +47,7 @@
                     @Html.AntiForgeryToken()
 
                     <div class="form-horizontal">
-                        <h4>DAT_LICH</h4>
+                        <h4>Đăng ký lịch trực</h4>
                         <hr />
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                         <div class="form-group">
@@ -69,16 +69,12 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="col-md-offset-2 col-md-10">
-                                <input type="submit" value="Create" class="btn btn-default" />
+                            <div class="col-md-10">
+                                <button type="submit" class="button" style="vertical-align:middle"><span>Đăng ký </span></button>
                             </div>
                         </div>
                     </div>
                 }
-
-                <div>
-                    @Html.ActionLink("Back to List", "Index")
-                </div>
             </div>
         </div>
     </div>

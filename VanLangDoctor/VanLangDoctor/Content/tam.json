@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "vanlangdoctor-111",
+  "private_key_id": "18e7ab1c4d12337acfe806f390180a16134a9f5a",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCDa7FkWyr1UJSX\nvphpvyud1E4waLXC3XzOfY8w2s2IV7VeCrhIkFdRLBMPmDXV9pj+7wEMtdNLoLu4\nlnVkEg2fMpJq0uVDrkqGU22ZQfFHgQCRNaz3zPvgsZs7HOINIXSWvwQVoNTRClb4\nfMfrP2UcD6yBshQYdWOXPjbU2JvIwqJ6J2kekE1x5wTKCuEGwDgpKcUiwwfQ3Mby\nsi5uspT2I3eR4gY7vkkeS4a4h6CTYbzlzdatLw+Z/9T/AU/JZcvj5TBoeNruv20f\nvgdZxlPB67AUbHuTjXZGyUFyupnjZeu29q1xWStcEuUfTgKD3O7jw94ckHTucIJr\nD6kdJOcxAgMBAAECggEACsb6sRKVOIZfP9LHwB5HBvupiNNBb/BGw06X1Edmj63f\np/gO6kEkrqRZENA9k/ppIWOQuA3eJ3IlitWTMr2/Q7pQ4wqV9gxVkg6b6t5LRCmf\nq14rPSwLI39KeK5y7uWQNdTcJ848vZgl5If5GME7ZbHMXAYc8Jo0ggCTsbXsupR2\nIDVqf1OmIp8YMKNuiw77kC8gNnTDU/g043ir/GipGpfVCaif8q4r+KAA2WjCKNqM\njFYlmcFh5T/DCmmVZLmo75mLjT2jnyDr5g2fw7FD5PeprKk1rg2Jf3stZtR6xoDK\nwa9T3vrkoiHDP9fiBNesFcu8DSfW4ZZf8uPXnhwaxQKBgQC5Qs3dE4cuUKr67f45\nF4GoIBQhDKcmzN9up4L6nM6zyAiPaASi/tFtEkD097o2HZuO5OV1RS/nuAKJpVxL\n2G4cJM5SjrfS5s1xL3EsltyQcBODx/RIAnF3zf3Xs198pBb9zOpWeoh/RUaL7tfB\nJrHY2BzoalpqbvXPsWx4MpZ3HQKBgQC1mgUMTa7nA1uOiM0FfosVVi57iOjk4fRC\n/T/0lkxUlTzb7BnMFGlcebnAzIbkTdkB44xsgmf1DlURe8qlltnkbJf9GqgrY8qr\nb55NysZwXA4WQMPn6bpxauOn7JbURjU7GMi94nGA/ekzKUFOSiA1mZhuVgrWB5cs\nTcxWdx1wJQKBgC95OPu/91IdBdOLjSvgJC+LGN1nOqYstczLTDsgV6+mQNtO0nFa\nTxxeIxsjKCqZ57T0XwBwHFiKxMu0/jPJYF4B6IUrYVvAHUE14RCGEDtLHRUV9jlF\ntwH2XWga5QsxmVqsWhiTCctjWzKcn9k1KzngF3hPWKARkxgH5T3f6MLZAoGAWIeu\nQFI6mroDT1gXgr8u9IbgAC89Qh95IZMuM4F10qIyWhAef2PP/VoGGRxcAj6FNSuG\nEHv+S/PhurU7lEAXFwltiuEM7KIocizm4oug87Oc1nJaTtudnZ77PqjS2scjOh0Z\n95/Fr5mYru1EvfLbAuZO7jMZ8z8eDmYa4GgPPNUCgYAjhFZJeDMaDA9NfQVeCt8v\nawqT18Plwib4vO4t0dX+VroW6b1hdV1Ww+Q6pqYB8KJ/TUSw3RxdU6g6EJ4EN6jn\nJ1nVPYUNuLBv1r7sTP4kGNX0bYCvnkf/7RHDQ3fnJP2QO7qzSqHchzUdAztnD9HD\n0LbU8FDwiijefRCGl7OerQ==\n-----END PRIVATE KEY-----\n",
+  "client_email": "van-lang-doctor@vanlangdoctor-111.iam.gserviceaccount.com",
+  "client_id": "108512446850593588522",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/van-lang-doctor%40vanlangdoctor-111.iam.gserviceaccount.com"
+}

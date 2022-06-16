@@ -223,7 +223,8 @@ namespace VanLangDoctor.Controllers
                 // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                 // Send an email with this link
                 string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
-                var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                var callbackUrl = $"http://cntttest.vanlanguni.edu.vn:18080/CP24Team02/Account/ResetPassword?userId={user.Id}&code={code}";
+                //var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: url);
 
                 #region sendmail
                 var fromEmail = ConfigurationManager.AppSettings["fromEmail"].ToString();
