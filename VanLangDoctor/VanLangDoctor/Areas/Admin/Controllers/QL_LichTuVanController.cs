@@ -23,8 +23,8 @@ namespace VanLangDoctor.Areas.Admin.Controllers
 {
     public class QL_LichTuVanController : Controller
     {
-        //static string[] Scopes = { CalendarService.Scope.Calendar, CalendarService.Scope.CalendarEvents };
-        //static string ApplicationName = "Google Calendar API.NET Quickstart";
+        static string[] Scopes = { CalendarService.Scope.Calendar, CalendarService.Scope.CalendarEvents };
+        static string ApplicationName = "Google Calendar API.NET Quickstart";
 
         private CP24Team02Entities db = new CP24Team02Entities();
 
@@ -65,50 +65,50 @@ namespace VanLangDoctor.Areas.Admin.Controllers
                 {
                     try
                     {
-                        //UserCredential credential;
-                        //var path = Server.MapPath("~/Content/") + "tamhtm.json";
-                        //using (var stream = new FileStream(path, FileMode.Open, FileAccess.Read))
-                        //{
-                        //    /* The file token.json stores the user's access and refresh tokens, and is created
-                        //     automatically when the authorization flow completes for the first time. */
-                        //    string credPath = Server.MapPath("~/Content/") + "token.json";
-                        //    credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
-                        //        GoogleClientSecrets.FromStream(stream).Secrets,
-                        //        Scopes,
-                        //        "user",
-                        //        CancellationToken.None,
-                        //        new FileDataStore(credPath, true)).Result;
-                        //    Console.WriteLine("Credential file saved to: " + credPath);
-                        //}
+                        UserCredential credential;
+                        var path = Server.MapPath("~/Content/") + "tamhtm.json";
+                        using (var stream = new FileStream(path, FileMode.Open, FileAccess.Read))
+                        {
+                            /* The file token.json stores the user's access and refresh tokens, and is created
+                             automatically when the authorization flow completes for the first time. */
+                            string credPath = Server.MapPath("~/Content/") + "token.json";
+                            credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
+                                GoogleClientSecrets.FromStream(stream).Secrets,
+                                Scopes,
+                                "user",
+                                CancellationToken.None,
+                                new FileDataStore(credPath, true)).Result;
+                            Console.WriteLine("Credential file saved to: " + credPath);
+                        }
 
-                        ////Create Google Calendar API service
-                        //var service = new CalendarService(new BaseClientService.Initializer
-                        //{
-                        //    HttpClientInitializer = credential,
-                        //    ApplicationName = ApplicationName
-                        //});
+                        //Create Google Calendar API service
+                        var service = new CalendarService(new BaseClientService.Initializer
+                        {
+                            HttpClientInitializer = credential,
+                            ApplicationName = ApplicationName
+                        });
 
 
-                        //Event body = new Event();
-                        //EventDateTime start = new EventDateTime();
-                        //start.DateTime = dAT_LICH_TU_VAN.NGAY_KHAM;
-                        //EventDateTime end = new EventDateTime();
-                        //end.DateTime = dAT_LICH_TU_VAN.NGAY_KHAM + TimeSpan.FromHours(2);
-                        //body.Start = start;
-                        //body.End = end;
-                        //body.Location = "Online meeting";
-                        //body.Summary = "Tu van kham benh";
-                        //body.ConferenceData = new ConferenceData();
-                        //body.ConferenceData.CreateRequest = new CreateConferenceRequest();
-                        //body.ConferenceData.CreateRequest.RequestId = Guid.NewGuid().ToString();
-                        //body.ConferenceData.CreateRequest.ConferenceSolutionKey = new ConferenceSolutionKey
-                        //{
-                        //    Type = "hangoutsMeet"
-                        //};
-                        //EventsResource.InsertRequest request = new EventsResource.InsertRequest(service, body, "hotanminhtam1703@gmail.com");
-                        //request.ConferenceDataVersion = 1;
-                        //Event response = request.Execute();
-                        //dAT_LICH_TU_VAN.LINK_GG = response.HangoutLink;
+                        Event body = new Event();
+                        EventDateTime start = new EventDateTime();
+                        start.DateTime = dAT_LICH_TU_VAN.NGAY_KHAM;
+                        EventDateTime end = new EventDateTime();
+                        end.DateTime = dAT_LICH_TU_VAN.NGAY_KHAM + TimeSpan.FromHours(2);
+                        body.Start = start;
+                        body.End = end;
+                        body.Location = "Online meeting";
+                        body.Summary = "Tu van kham benh";
+                        body.ConferenceData = new ConferenceData();
+                        body.ConferenceData.CreateRequest = new CreateConferenceRequest();
+                        body.ConferenceData.CreateRequest.RequestId = Guid.NewGuid().ToString();
+                        body.ConferenceData.CreateRequest.ConferenceSolutionKey = new ConferenceSolutionKey
+                        {
+                            Type = "hangoutsMeet"
+                        };
+                        EventsResource.InsertRequest request = new EventsResource.InsertRequest(service, body, "hotanminhtam1703@gmail.com");
+                        request.ConferenceDataVersion = 1;
+                        Event response = request.Execute();
+                        dAT_LICH_TU_VAN.LINK_GG = response.HangoutLink;
 
 
                     }
