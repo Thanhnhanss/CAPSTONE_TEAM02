@@ -1,5 +1,7 @@
-﻿using System;
+﻿using QuickMailer;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
@@ -63,9 +65,12 @@ namespace VanLangDoctor.Areas.Admin.Controllers
                 //gửi cho khách hàng
                 string substance = System.IO.File.ReadAllText(Server.MapPath("~/Content/Template_Email/SendMailCF.html"));
                 substance = substance.Replace("{{CustomerName}}", dANG_KY.HO_TEN.ToUpper());
-                substance = substance.Replace("{{Role}}", "Tư vấn viên");
+                substance = substance.Replace("{{Role}}", "Bác sĩ");
                 substance = substance.Replace("{{LinkDR}}", "http://cntttest.vanlanguni.edu.vn:18080/CP24Team02/trang-chu-quan-ly");
-                new MailHelper().SendMail(dANG_KY.EMAIL, "Đơn đã được duyệt", substance);
+
+                var fromEmail = ConfigurationManager.AppSettings["fromEmail"].ToString();
+                var fromEmailPassword = ConfigurationManager.AppSettings["fromEmailPassword"].ToString();
+                new Email().SendEmail(dANG_KY.EMAIL,fromEmail, fromEmailPassword, "Đơn đã được duyệt", substance);
                 TempData["Success"] = "Email xác nhận đã được gửi cho ứng viên "+dANG_KY.HO_TEN.ToUpper();
                 return RedirectToAction("Index");
             }
