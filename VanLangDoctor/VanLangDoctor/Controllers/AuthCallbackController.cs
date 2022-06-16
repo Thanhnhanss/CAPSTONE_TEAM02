@@ -7,14 +7,14 @@ using VanLangDoctor.Areas.Admin;
 
 namespace VanLangDoctor.Controllers
 {
-    public class AuthCallbackController : Google.Apis.Auth.OAuth2.Mvc.Controllers.AuthCallbackController
-    {
-        protected override FlowMetadata FlowData => new AppFlowMetadata(Server.MapPath("~/Content/") + "token.json");
+    //public class AuthCallbackController : Google.Apis.Auth.OAuth2.Mvc.Controllers.AuthCallbackController
+    //{
+    //    //protected override FlowMetadata FlowData => new AppFlowMetadata(Server.MapPath("~/Content/") + "token.json");
 
-        public override Task<ActionResult> IndexAsync(AuthorizationCodeResponseUrl authorizationCode, CancellationToken taskCancellationToken)
-        {
+    //    public override Task<ActionResult> IndexAsync(AuthorizationCodeResponseUrl authorizationCode, CancellationToken taskCancellationToken)
+    //    {
 
-            return base.IndexAsync(authorizationCode, taskCancellationToken);
-        }
-    }
+    //        return base.IndexAsync(authorizationCode, taskCancellationToken);
+    //    }
+    //}
 }
