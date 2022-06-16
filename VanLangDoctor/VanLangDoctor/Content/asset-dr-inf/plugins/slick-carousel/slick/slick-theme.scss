@@ -81,7 +81,7 @@ $slick-opacity-not-active: 0.25 !default;
     &:hover, &:focus {
         outline: none;
         background: transparent;
-        color: transparent;
+        color: yellowgreen;
         &:before {
             opacity: $slick-opacity-on-hover;
         }
@@ -93,7 +93,7 @@ $slick-opacity-not-active: 0.25 !default;
         font-family: $slick-font-family;
         font-size: 20px;
         line-height: 1;
-        color: $slick-arrow-color;
+        color: yellowgreen;
         opacity: $slick-opacity-default;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;

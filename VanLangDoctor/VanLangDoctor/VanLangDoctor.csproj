@@ -549,6 +549,7 @@
     <Content Include="Content\assets-HomeUser\nicepage.css" />
     <Content Include="Content\assets-HomeUser\nicepage.js" />
     <Content Include="Content\assets-login\assets\css\login.css" />
+    <Content Include="Content\assets-login\assets\images\lock.png" />
     <Content Include="Content\assets-login\assets\images\login.jpg" />
     <Content Include="Content\assets-login\assets\images\logo.svg" />
     <Content Include="Content\assets-news\css\animate.min.css" />

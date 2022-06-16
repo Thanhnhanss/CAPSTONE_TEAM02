@@ -223,7 +223,8 @@ namespace VanLangDoctor.Controllers
                 // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                 // Send an email with this link
                 string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
-                var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                //var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                var callbackUrl = $"http://cntttest.vanlanguni.edu.vn:18080/CP24Team02/Account/ResetPassword?userId={user.Id}&code={code}";
 
                 #region sendmail
                 var fromEmail = ConfigurationManager.AppSettings["fromEmail"].ToString();
@@ -231,8 +232,8 @@ namespace VanLangDoctor.Controllers
                 Email email = new Email();
                 email.SendEmail(model.Email, fromEmail, fromEmailPassword, "Đặt lại mật khẩu", "Đặt lại mật khẩu cho website VanLangDoctor <a href=\"" + callbackUrl + "\">tại đây</a>");
                 #endregion
-
-                return RedirectToAction("ForgotPasswordConfirmation", "Account");
+                TempData["Success"] = "Kiểm tra email để đặt lại mật khẩu của bạn.";
+                return RedirectToAction("ForgotPassword", "Account");
             }
 
             // If we got this far, something failed, redisplay form
@@ -275,7 +276,10 @@ namespace VanLangDoctor.Controllers
             var result = await UserManager.ResetPasswordAsync(user.Id, model.Code, model.Password);
             if (result.Succeeded)
             {
-                return RedirectToAction("ResetPasswordConfirmation", "Account");
+
+                string callbackUrl = "http://cntttest.vanlanguni.edu.vn:18080/CP24Team02/Account/Login";
+                TempData["Success"] = $"Đặt lại mật khẩu thành công!<a href=\"" + callbackUrl + "\">Đăng nhập</a>";
+                return RedirectToAction("ForgotPassword", "Account");
             }
             AddErrors(result);
             return View();

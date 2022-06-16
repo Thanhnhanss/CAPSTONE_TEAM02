@@ -1,7 +1,7 @@
 ﻿@using VanLangDoctor.Models
 @model RegisterViewModel
 @{
-    ViewBag.Title = "Register";
+    ViewBag.Title = "Đăng ký tài khoản";
 }
 
 @*<h2>@ViewBag.Title.</h2>
@@ -45,7 +45,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign Up</title>
+    <title>Đăng ký tài khoản</title>
 
     <!-- Font Icon -->
     <link href="~/Content/assets_SignUp/fonts/material-icon/css/material-design-iconic-font.min.css" rel="stylesheet" />
@@ -60,7 +60,7 @@
             <div class="container">
                 <div class="signup-content">
                     <div class="signup-form">
-                        <h2 class="form-title">Đăng ký</h2>
+                        <h2 class="form-title">Đăng ký tài khoản</h2>
                         <form method="post" action="@Url.Action("Register", "Account")" class="register-form" id="register-form">
                             @Html.AntiForgeryToken()
                             @Html.ValidationSummary("", new { @class = "text-danger" })
@@ -81,7 +81,7 @@
                                 <input type="password" name="ConfirmPassword" id="re_pass" placeholder="Nhập lại mật khẩu" />
                             </div>
                             <div class="form-group form-button">
-                                <input type="submit" name="signup" id="signup" class="form-submit" value="Register" />
+                                <input type="submit" name="signup" id="signup" class="form-submit" value="Đăng ký" />
                             </div>
                         </form>
                     </div>

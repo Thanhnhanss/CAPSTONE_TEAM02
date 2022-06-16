@@ -1,7 +1,8 @@
 body {
-  font-family: "Karla", sans-serif;
-  background-color: #d0d0ce;
-  min-height: 100vh; }
+    font-family: "Karla", sans-serif;
+    background-color: #9abde8;
+    min-height: auto
+}
 
 .brand-wrapper {
   margin-bottom: 19px; }
