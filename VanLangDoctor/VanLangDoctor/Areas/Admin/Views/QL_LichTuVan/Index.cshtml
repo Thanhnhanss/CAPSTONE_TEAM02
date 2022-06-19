@@ -1,56 +1,79 @@
 ﻿@model IEnumerable<VanLangDoctor.Models.DAT_LICH_TU_VAN>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Danh sách lịch tư vấn";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
+<!-- This page plugin CSS -->
+<link href="~/Content/dist-ad/css/style.min.css" rel="stylesheet">
+<!-- Custom CSS -->
+<div class="page-wrapper" style="display: block">
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-7 align-self-center">
+                <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">@ViewBag.Title</h4>
+                <div class="d-flex align-items-center">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb m-0 p-0">
+                            <li class="breadcrumb-item"><a href="~/trang-chu-quan-ly" class="text-muted">Trang chủ</a></li>
+                            <li class="breadcrumb-item text-muted active" aria-current="page">@ViewBag.Title</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            @if (TempData["Success"] != null)
+                            {
+                                <div class="alert alert-success alert-dismissible bg-success text-white border-0 fade show" role="alert" id="successMessage">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true" style=" float: right; margin-top: -10px">×</span>
+                                    </button>
+                                    <strong>@TempData["Success"]</strong>
+                                </div>
+                            }
+                            <table id="zero_config" class="table table-striped table-bordered no-wrap">
+                                <thead>
+                                    <tr>
+                                        <th>Tên bác sĩ</th>
+                                        <th>Địa điểm</th>
+                                        <th>Thời gian</th>
+                                        <th>Bệnh nhân</th>
+                                        <th>Trạng thái</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
 
-
-<div class="page-wrapper" style="display: block;">
-    <h2>Index</h2>
-
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.NGAY_KHAM)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LINK_GG)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TRANG_THAI)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AspNetUser.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BACSI.TEN_BACSI)
-            </th>
-            <th></th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NGAY_KHAM)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LINK_GG)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TRANG_THAI)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.AspNetUser.Email)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.BACSI.TEN_BACSI)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ID })
-                </td>
-            </tr>
-        }
-    </table>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                    <tr>
+                                        <td>@Html.DisplayFor(modelItem => item.BACSI.TEN_BACSI)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.LINK_GG)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.NGAY_KHAM)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.AspNetUser.Email)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.TRANG_THAI)</td>
+                                        <td><a href="@Url.Action("Edit","QL_LichTuVan", new { id = item.ID })"><i class="ti-pencil"></i></a></td>
+                                    </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
