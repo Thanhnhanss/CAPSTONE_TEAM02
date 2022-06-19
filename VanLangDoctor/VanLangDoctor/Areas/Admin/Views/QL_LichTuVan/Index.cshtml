@@ -48,10 +48,10 @@
                                 <thead>
                                     <tr>
                                         <th>Tên bác sĩ</th>
-                                        <th>Địa điểm</th>
                                         <th>Thời gian</th>
-                                        <th>Bệnh nhân</th>
-                                        <th>Trạng thái</th>
+                                        <th>Địa điểm</th>
+                                        @*<th>Bệnh nhân</th>*@
+                                        @*<th>Trạng thái</th>*@
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -61,10 +61,10 @@
                                     {
                                     <tr>
                                         <td>@Html.DisplayFor(modelItem => item.BACSI.TEN_BACSI)</td>
-                                        <td>@Html.DisplayFor(modelItem => item.LINK_GG)</td>
                                         <td>@Html.DisplayFor(modelItem => item.NGAY_KHAM)</td>
-                                        <td>@Html.DisplayFor(modelItem => item.AspNetUser.Email)</td>
-                                        <td>@Html.DisplayFor(modelItem => item.TRANG_THAI)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.LINK_GG)</td>
+                                        @*<td>@Html.DisplayFor(modelItem => item.AspNetUser.Email)</td>*@
+                                        @*<td>@Html.DisplayFor(modelItem => item.TRANG_THAI)</td>*@
                                         <td><a href="@Url.Action("Edit","QL_LichTuVan", new { id = item.ID })"><i class="ti-pencil"></i></a></td>
                                     </tr>
                                     }

@@ -1,8 +1,8 @@
 ﻿@model VanLangDoctor.Models.BACSI
 
 @{
-    ViewBag.Title = "Thông tin bác sĩ";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Cập nhật bác sĩ";
 }
 
 
@@ -15,7 +15,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb m-0 p-0">
                             <li class="breadcrumb-item"><a href="~/trang-chu-quan-ly" class="text-muted">Trang chủ</a></li>
-                            <li class="breadcrumb-item"><a href="~/trang-chu-quan-ly/bac-si/danh-sach" class="text-muted">Bác sĩ</a></li>
+                            <li class="breadcrumb-item"><a href="~/trang-chu-quan-ly/bac-si/danh-sach" class="text-muted">Danh sách bác sĩ</a></li>
                             <li class="breadcrumb-item text-muted active" aria-current="page">@ViewBag.Title</li>
                         </ol>
                     </nav>
@@ -30,38 +30,31 @@
             </div>
         </div>
     </div>
+
     <div class="container-fluid">
         <div class="card">
             <div class="card-body">
-                @if (TempData["Failed"] != null)
-                {
-                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true" style=" float: right; margin-top: -10px">×</span>
-                        </button>
-                        <span><strong>@TempData["Failed"]</strong></span>
-                    </div>
-                }
-                <form action="#" method="post" enctype="multipart/form-data">
-                    @*@Html.AntiForgeryToken()*@
+                <form action="@Url.Action("Edit","QL_BacSi")" method="post" enctype="multipart/form-data">
+                    @Html.AntiForgeryToken()
                     <div class="container">
                         <div class="form-horizontal">
-                            @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })*@
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @Html.HiddenFor(model => model.ID_BACSI)
                             <div class="form-row">
                                 <div class="form-group col-md-9">
                                     <div class="form-row">
                                         <div class="form-group col-md-7">
                                             <label for="ten">Tên bác sĩ</label>
-                                            <input type="text" value="@Model.TEN_BACSI" class="form-control" />
-                                            @*<div>
-                                                @Html.EditorFor(model => model.TEN_BACSI, new { htmlAttributes = new { @class = "form-control", @placeholder = "ví dụ: Nguyễn Văn A " } })
+                                            <div>
+                                                @Html.EditorFor(model => model.TEN_BACSI, new { htmlAttributes = new { @class = "form-control" } })
                                                 @Html.ValidationMessageFor(model => model.TEN_BACSI, "", new { @class = "text-danger" })
-                                            </div>*@
+                                            </div>
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="gioi_tinh">Giới tính</label>
                                             <div>
                                                 <select style="width: 100%; margin-top: 4px; border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%) " class="form-control" name="GIOI_TINH" id="GIOI_TINH" required>
+                                                    <option value="@Model.GIOI_TINH">@Model.GIOI_TINH</option>
                                                     <option value="Nam">Nam</option>
                                                     <option value="Nữ">Nữ</option>
                                                     <option value="Khác">Khác</option>
@@ -70,85 +63,69 @@
                                         </div>
                                     </div>
                                     <div class="form-row">
+                                        <div class="form-group col-md-11">
+                                            <label for="ngay_sinh">Ngày sinh</label>
+                                            <div>
+                                                <input type="date" value="@Model.NGAYSINH_BS.Value.ToString("yyyy-MM-dd")" min="@(DateTime.Now.Year-100)-12-31" max="@(DateTime.Now.Year-22)-12-31" style="border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%) " name="NGAYSINH_BS" class="form-control" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="form-row">
                                         <div class="form-group col-md-4">
                                             <label for="sdt">Số điện thoại</label>
-                                            <input type="text" value="@Model.SDT" class="form-control" />
-                                            @*<div>
-                                                @Html.EditorFor(model => model.SDT, new { htmlAttributes = new { @class = "form-control", @placeholder = "ví dụ: 0905556***" } })
+                                            <div>
+                                                @Html.EditorFor(model => model.SDT, new { htmlAttributes = new { @class = "form-control", @maxLength = "10", @style = "margin-top:4px;border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%) " } })
                                                 @Html.ValidationMessageFor(model => model.SDT, "", new { @class = "text-danger" })
-                                            </div>*@
+                                            </div>
                                         </div>
                                         <div class="form-group col-md-7">
                                             <label for="email">Email</label>
-                                            <input type="email" value="@Model.AspNetUser.Email" name="email" readonly />
-                                            @*<div>
-                                                @Html.DropDownList("ID_Email", null, htmlAttributes: new { @class = "form-control", @style = "margin-top:4px;border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%) " })
+                                            <div>
+                                                <input type="hidden" value="@Model.ID_Email" name="ID_Email" />
+                                                <input type="text" class="form-control" name="ID_Email" value="@Model.AspNetUser.Email" readonly/>
                                                 @Html.ValidationMessageFor(model => model.ID_Email, "", new { @class = "text-danger" })
-                                            </div>*@
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group col-md-7">
                                             <label for="nghe_nghiep">Nghề nghiệp</label>
-                                            <input type="text" value="@Model.NGHE_NGHIEP" class="form-control" />
-                                            @*<div>
-                                                @Html.EditorFor(model => model.NGHE_NGHIEP, new { htmlAttributes = new { @class = "form-control", @placeholder = "ví dụ: Dược sĩ" } })
+                                            <div>
+                                                @Html.EditorFor(model => model.NGHE_NGHIEP, new { htmlAttributes = new { @class = "form-control", @style = "margin-top:4px;border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%) " } })
                                                 @Html.ValidationMessageFor(model => model.NGHE_NGHIEP, "", new { @class = "text-danger" })
-                                            </div>*@
+                                            </div>
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="kinh_nghiem">Kinh nghiệm</label>
-                                            <input type="text" value="@Model.KINH_NGHIEM" class="form-control" />
-                                            @*<div>
-                                                @Html.EditorFor(model => model.KINH_NGHIEM, new { htmlAttributes = new { @class = "form-control", @style = "margin-top:4px;border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%) ", @placeholder = "ví dụ: 5 năm " } })
+                                            <div>
+                                                @Html.EditorFor(model => model.KINH_NGHIEM, new { htmlAttributes = new { @class = "form-control", @min = "1", @style = "margin-top:4px;border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%) " } })
                                                 @Html.ValidationMessageFor(model => model.KINH_NGHIEM, "", new { @class = "text-danger" })
-                                            </div>*@
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group col-md-11">
                                             <label for="chuyen_khoa">Chuyên khoa</label>
-                                            <input type="text" value="@Model.KHOA.TEN_KHOA" class="form-control" />
-                                            @*<div>
-                                                @Html.DropDownList("ID_KHOA", null, htmlAttributes: new { @class = "form-control", @style = "border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%) " })
+                                            <div>
+                                                @Html.DropDownList("ID_KHOA", null, htmlAttributes: new { @class = "form-control", @style = "margin-top:4px;border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%) " })
                                                 @Html.ValidationMessageFor(model => model.ID_KHOA, "", new { @class = "text-danger" })
-                                            </div>*@
+                                            </div>
                                         </div>
                                     </div>
                                     <br />
-                                    <div class="form-row">
-                                        <div class="form-group col-md-11">
-                                            <label for="ngay_sinh">Ngày sinh</label>
-                                            <input type="datetime" value="@Model.NGAYSINH_BS.Value.ToString("yyyy/MM/dd")" class="form-control" />
-                                            @*<div>
-                                                <input type="date" min="@(DateTime.Now.Year-100)-12-31" max="@(DateTime.Now.Year-22)-12-31" placeholder="Ngày sinh *" style="border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%) " name="NGAYSINH_BS" class="form-control" required>
-                                                @Html.ValidationMessageFor(model => model.NGAYSINH_BS, "", new { @class = "text-danger" })
-                                            </div>*@
-                                        </div>
-                                    </div>
-                                    <!--<br />
-                                    <div class="form-row">
-                                        <div class="form-group col-md-11">
-                                            <label for="ngay_truc">Ngày trực</label>-->
-                                            @*<div>
-                                                <input type="date" min="@DateTime.Now" placeholder="Ngày trực" id="NGAY_TRUC" name="NGAY_TRUC" class="form-control" style="border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%) " />
-                                                @Html.ValidationMessageFor(model => model.NGAY_TRUC, "", new { @class = "text-danger" })
-                                            </div>*@
-                                        <!--</div>
-                                    </div>-->
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="hinh_anh">Hình ảnh</label>
-                                    <input class="form-control" type="file" name="Picture" id="IMG" style="width:100%;height:45px;border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%) " onchange="readPicture(this)" accept="image/jpeg,image/gif,image/png" required />
+                                    <input class="form-control" type="file" name="Picture" id="IMG" style="width:100%;height:45px;border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%) " onchange="readPicture(this)" accept="image/jpeg,image/gif,image/png" />
                                     <br />
-                                    <img id="Picture" style="height: 250px; width: 250px; object-fit: contain; border-radius: 50%; border: 3px solid #0af; background-color: #00000000" />
+                                    <img id="Picture" style="height: 250px; width: 250px; object-fit: contain; border-radius: 50%; border: 3px solid #0af; background-color: #00000000"
+                                         src="@Url.Action("Picture", new {Model.ID_BACSI})" />
                                 </div>
                             </div>
                         </div>
-
-                        <br />
                         <div class="col-md-5">
-                            <button type="submit" class="button" style="vertical-align:middle"><span>Thêm mới </span></button>
+                            <button type="submit" class="button" style="vertical-align:middle"><span>Lưu lại </span></button>
                         </div>
                     </div>
                 </form>
@@ -156,13 +133,8 @@
         </div>
     </div>
 </div>
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/jqueryval")
+
 <script>
-    tinymce.init({
-        selector: 'textarea#MotaSP',
-        menubar: false
-    });
     function readPicture(input) {
         if (input.files && input.files[0])
             var reader = new FileReader();
@@ -171,4 +143,4 @@
         };
         reader.readAsDataURL(input.files[0])
     }
-</script>>
+</script>
