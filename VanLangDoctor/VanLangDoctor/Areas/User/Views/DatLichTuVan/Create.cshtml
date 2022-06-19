@@ -1,79 +1,75 @@
 ﻿@model VanLangDoctor.Models.DAT_LICH_TU_VAN
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Đặt lịch tư vấn";
     Layout = "~/Areas/User/Views/Shared/_Layout.cshtml";
 }
+<!DOCTYPE html>
+<html style="font-size: 16px;">
+<head>
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/assets-feedback/nicepage.css" rel="stylesheet" />
+    <link href="~/Content/assets-feedback/FeedBack.css" rel="stylesheet" />
+    <script src="~/Content/assets-feedback/jquery.js"></script>
+    <script src="~/Content/assets-feedback/nicepage.js"></script>
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+</head>
 
-
-
-<h2>Create</h2>
-
-<div class="container">
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-
-        <div class="form-horizontal">
-            <h4>DAT_LICH_TU_VAN</h4>
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            @*<div class="form-group">
-                    @Html.LabelFor(model => model.ID_USER, "ID_USER", htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.DropDownList("ID_USER", null, htmlAttributes: new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.ID_USER, "", new { @class = "text-danger" })
-                    </div>
-                </div>*@
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.ID_BAC_SI, "ID_BAC_SI", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownList("ID_BAC_SI", null, htmlAttributes: new { @class = "form-control", @id = "BAC_SI" })
-                    @Html.ValidationMessageFor(model => model.ID_BAC_SI, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.NGAY_KHAM, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @*<input type="datetime" value="" class="form-group" />*@
-                    <select id="Ngay_Truc" name="NGAY_KHAM" class="form-control" style="border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%)" required>
-                        <option value="" selected> Choose...</option>
-                    </select>
-                    @*@Html.EditorFor(model => model.NGAY_KHAM, new { htmlAttributes = new { @class = "form-control", @id = "Ngay_Truc" } })
-                        @Html.ValidationMessageFor(model => model.NGAY_KHAM, "", new { @class = "text-danger" })*@
-                </div>
-            </div>
-
-            @*<div class="form-group">
-                    @Html.LabelFor(model => model.LINK_GG, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.LINK_GG, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.LINK_GG, "", new { @class = "text-danger" })
+<body data-home-page="FeedBack.html" data-home-page-title="FeedBack" class="u-body u-xl-mode">
+    <section class="u-align-center u-clearfix u-palette-1-light-3 u-section-1" id="carousel_6c7e">
+        <img class="u-expanded-width u-image u-image-default u-image-1" src="~/Content/assets-feedback/images/164847-chuyen-gia-tu-van-tam-ly-online-tu-xa.png" alt="" data-image-width="1280" data-image-height="853">
+        <div class="u-align-center u-container-style u-group u-shape-rectangle u-white u-group-1" style="border-radius: 15px">
+            <div class="u-container-layout u-valign-top u-container-layout-1" >
+                <div class="row d-flex mb-5 contact-info">
+                    <div class="col-md-12 mb-4">
+                        @if (TempData["success"] != null)
+                        {
+                            <div class="center green border border-success rounded-pill mb-4" style="background-color:forestgreen">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true" style=" float: right; width:20px; margin-top: 0px">×</span>
+                                </button>
+                                <strong style="color:wheat">@TempData["success"]</strong>
+                            </div>
+                        }
                     </div>
                 </div>
+                <br />
+                <h3 class="u-text u-text-default u-text-1">@ViewBag.Title</h3>
+                <div class="u-form u-form-1">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="form-horizontal">
+                            <hr />
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.TRANG_THAI, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.TRANG_THAI, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.TRANG_THAI, "", new { @class = "text-danger" })
-                    </div>
-                </div>*@
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label style="float:left">Chọn bác sĩ tư vấn</label>
+                                    @Html.DropDownList("ID_BAC_SI", null, htmlAttributes: new { @class = "form-control", @id = "BAC_SI", @style = "border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%)" })
+                                    @Html.ValidationMessageFor(model => model.ID_BAC_SI, "", new { @class = "text-danger" })
+                                </div>
 
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-default" />
+                                <div class="col-md-6">
+                                    <label style="float:left">Ngày tư vấn</label>
+                                    @*<input type="datetime" value="" class="form-group" />*@
+                                    <select id="Ngay_Truc" name="NGAY_KHAM" class="form-control" style="border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%)" required>
+                                        <option value="" selected> Choose...</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="u-align-right u-form-group u-form-submit u-form-group-10" style="float: right">
+                                <br />
+                                <input type="submit" value="Đăng ký" class="u-align-center u-btn u-button-style u-btn-5" style="border-radius: 12px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%); height: auto; width:auto" />
+                            </div>
+                        </div>
+                    }
                 </div>
             </div>
         </div>
-    }
-
-    <div>
-        @Html.ActionLink("Back to List", "Index")
-    </div>
-</div>
+    </section>
+</body>
+</html>
 
 <script>
     /*remove this "/CP24Team02/User/" if run in localhost*/

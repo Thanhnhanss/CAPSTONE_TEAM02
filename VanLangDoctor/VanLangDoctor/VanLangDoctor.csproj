@@ -504,6 +504,7 @@
     <Content Include="Content\assets-dr\js\popper.min.js" />
     <Content Include="Content\assets-dr\js\scrollax.min.js" />
     <Content Include="Content\assets-feedback\FeedBack.css" />
+    <Content Include="Content\assets-feedback\images\164847-chuyen-gia-tu-van-tam-ly-online-tu-xa.png" />
     <Content Include="Content\assets-feedback\images\fb_banner.jpg" />
     <Content Include="Content\assets-feedback\jquery.js" />
     <Content Include="Content\assets-feedback\nicepage.css" />
@@ -2072,9 +2073,6 @@
     <Content Include="Content\assets_SignUp\scss\layouts\responsive.scss" />
     <Content Include="Content\assets_SignUp\scss\style.scss" />
     <Content Include="Areas\User\Views\DatLichTuVan\Create.cshtml" />
-    <Content Include="Areas\User\Views\DatLichTuVan\Delete.cshtml" />
-    <Content Include="Areas\User\Views\DatLichTuVan\Details.cshtml" />
-    <Content Include="Areas\User\Views\DatLichTuVan\Edit.cshtml" />
     <Content Include="Areas\User\Views\DatLichTuVan\Index.cshtml" />
     <Content Include="Areas\Admin\Views\QL_LichTuVan\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\QL_LichTuVan\Index.cshtml" />

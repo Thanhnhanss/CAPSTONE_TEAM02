@@ -19,23 +19,12 @@ namespace VanLangDoctor.Areas.User.Controllers
         // GET: User/DatLichTuVan
         public ActionResult Index()
         {
-            var dAT_LICH_TU_VAN = db.DAT_LICH_TU_VAN.Include(d => d.AspNetUser).Include(d => d.BACSI);
+            var user = User.Identity.GetUserId();
+            var dAT_LICH_TU_VAN = db.DAT_LICH_TU_VAN
+                .Where(u => u.AspNetUser.Id == user)
+                .Include(d => d.AspNetUser)
+                .Include(d => d.BACSI);
             return View(dAT_LICH_TU_VAN.ToList());
-        }
-
-        // GET: User/DatLichTuVan/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            DAT_LICH_TU_VAN dAT_LICH_TU_VAN = db.DAT_LICH_TU_VAN.Find(id);
-            if (dAT_LICH_TU_VAN == null)
-            {
-                return HttpNotFound();
-            }
-            return View(dAT_LICH_TU_VAN);
         }
 
         // GET: User/DatLichTuVan/Create
@@ -67,67 +56,18 @@ namespace VanLangDoctor.Areas.User.Controllers
             return View(dAT_LICH_TU_VAN);
         }
 
-        // GET: User/DatLichTuVan/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            DAT_LICH_TU_VAN dAT_LICH_TU_VAN = db.DAT_LICH_TU_VAN.Find(id);
-            if (dAT_LICH_TU_VAN == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.ID_USER = new SelectList(db.AspNetUsers, "Id", "Email", dAT_LICH_TU_VAN.ID_USER);
-            ViewBag.ID_BAC_SI = new SelectList(db.BACSIs, "ID_BACSI", "TEN_BACSI", dAT_LICH_TU_VAN.ID_BAC_SI);
-            return View(dAT_LICH_TU_VAN);
-        }
-
-        // POST: User/DatLichTuVan/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,ID_USER,NGAY_KHAM,ID_BAC_SI,LINK_GG,TRANG_THAI")] DAT_LICH_TU_VAN dAT_LICH_TU_VAN)
+        public ActionResult Cancel(int? id)
         {
+            var lichtuvan = db.DAT_LICH_TU_VAN.Find(id);
             if (ModelState.IsValid)
             {
-                db.Entry(dAT_LICH_TU_VAN).State = EntityState.Modified;
+                db.DAT_LICH_TU_VAN.Remove(lichtuvan);
                 db.SaveChanges();
-                return RedirectToAction("Index");
             }
-            ViewBag.ID_USER = new SelectList(db.AspNetUsers, "Id", "Email", dAT_LICH_TU_VAN.ID_USER);
-            ViewBag.ID_BAC_SI = new SelectList(db.BACSIs, "ID_BACSI", "TEN_BACSI", dAT_LICH_TU_VAN.ID_BAC_SI);
-            return View(dAT_LICH_TU_VAN);
-        }
-
-        // GET: User/DatLichTuVan/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            DAT_LICH_TU_VAN dAT_LICH_TU_VAN = db.DAT_LICH_TU_VAN.Find(id);
-            if (dAT_LICH_TU_VAN == null)
-            {
-                return HttpNotFound();
-            }
-            return View(dAT_LICH_TU_VAN);
-        }
-
-        // POST: User/DatLichTuVan/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            DAT_LICH_TU_VAN dAT_LICH_TU_VAN = db.DAT_LICH_TU_VAN.Find(id);
-            db.DAT_LICH_TU_VAN.Remove(dAT_LICH_TU_VAN);
-            db.SaveChanges();
             return RedirectToAction("Index");
         }
-
         [HttpGet]
         public JsonResult GetDoctor(int id)
         {
