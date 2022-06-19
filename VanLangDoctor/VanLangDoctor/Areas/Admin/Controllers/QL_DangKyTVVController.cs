@@ -11,6 +11,7 @@ using VanLangDoctor.Models;
 
 namespace VanLangDoctor.Areas.Admin.Controllers
 {
+    [HandleError]
     [Authorize(Roles = "Quản trị viên, Quản lý")]
     public class QL_DangKyTVVController : Controller
     {
@@ -45,7 +46,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
             DANG_KY dANG_KY = db.DANG_KY.Find(id);
             if (dANG_KY == null)
             {
-                return HttpNotFound();
+                throw new HttpException(404, "Not Found!");
             }
             ViewBag.ID_KHOA = new SelectList(db.KHOAs, "ID_KHOA", "TEN_KHOA", dANG_KY.ID_KHOA);
             return View(dANG_KY);
@@ -62,16 +63,25 @@ namespace VanLangDoctor.Areas.Admin.Controllers
             {
                 db.Entry(dANG_KY).State = EntityState.Modified;
                 db.SaveChanges();
-                //gửi cho khách hàng
-                string substance = System.IO.File.ReadAllText(Server.MapPath("~/Content/Template_Email/SendMailCF.html"));
-                substance = substance.Replace("{{CustomerName}}", dANG_KY.HO_TEN.ToUpper());
-                substance = substance.Replace("{{Role}}", "Bác sĩ");
-                substance = substance.Replace("{{LinkDR}}", "http://cntttest.vanlanguni.edu.vn:18080/CP24Team02/trang-chu-quan-ly");
+                if(dANG_KY.TRANG_THAI == true)
+                {
+                    var role = "e1f05236-baef-454b-a4fd-2d903d533b78";
+                    var user = db.AspNetUsers.SingleOrDefault(item => item.Email == dANG_KY.EMAIL);
+                    if (user.AspNetRoles.Count > 0)
+                        user.AspNetRoles.Remove(user.AspNetRoles.ToList()[0]);
+                    user.AspNetRoles.Add(db.AspNetRoles.Find(role));
+                    db.SaveChanges();
+                    //gửi cho khách hàng
+                    string substance = System.IO.File.ReadAllText(Server.MapPath("~/Content/Template_Email/SendMailCF.html"));
+                    substance = substance.Replace("{{CustomerName}}", dANG_KY.HO_TEN.ToUpper());
+                    substance = substance.Replace("{{Role}}", "Bác sĩ");
+                    substance = substance.Replace("{{LinkDR}}", "http://cntttest.vanlanguni.edu.vn:18080/CP24Team02/trang-chu-quan-ly");
 
-                var fromEmail = ConfigurationManager.AppSettings["fromEmail"].ToString();
-                var fromEmailPassword = ConfigurationManager.AppSettings["fromEmailPassword"].ToString();
-                new Email().SendEmail(dANG_KY.EMAIL,fromEmail, fromEmailPassword, "Đơn đã được duyệt", substance);
-                TempData["Success"] = "Email xác nhận đã được gửi cho ứng viên "+dANG_KY.HO_TEN.ToUpper();
+                    var fromEmail = ConfigurationManager.AppSettings["fromEmail"].ToString();
+                    var fromEmailPassword = ConfigurationManager.AppSettings["fromEmailPassword"].ToString();
+                    new Email().SendEmail(dANG_KY.EMAIL, fromEmail, fromEmailPassword, "Đơn đã được duyệt", substance);
+                    TempData["Success"] = "Email xác nhận đã được gửi cho ứng viên " + dANG_KY.HO_TEN.ToUpper();
+                }
                 return RedirectToAction("Index");
             }
             ViewBag.ID_KHOA = new SelectList(db.KHOAs, "ID_KHOA", "TEN_KHOA", dANG_KY.ID_KHOA);
@@ -88,7 +98,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
             DANG_KY dANG_KY = db.DANG_KY.Find(id);
             if (dANG_KY == null)
             {
-                return HttpNotFound();
+                throw new HttpException(404, "Not Found!");
             }
             return View(dANG_KY);
         }

@@ -62,7 +62,8 @@
                                             <td>@item.BACSI.TEN_BACSI</td>
                                             <th><a href="@Url.Action("Details", "QL_DonThuoc", new { id = item.ID_DON_THUOC })">@item.NGAY_LAP</a></th>
                                             <td>
-                                                @Html.ActionLink("Details", "Details", new { id = item.ID_DON_THUOC })
+                                                @*@Html.ActionLink("Details", "Details", new { id = item.ID_DON_THUOC })*@
+                                                <a href="@Url.Action("Details", new { id = item.ID_DON_THUOC})"><i class="ti-eye"></i></a>
                                             </td>
                                         </tr>
                                     }
