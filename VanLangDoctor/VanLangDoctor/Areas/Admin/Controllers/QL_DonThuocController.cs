@@ -13,7 +13,7 @@ using VanLangDoctor.Models;
 namespace VanLangDoctor.Areas.Admin.Controllers
 {
     [HandleError]
-    [Authorize(Roles = "Bác sĩ, Quản trị viên")]
+    [Authorize]
     public class QL_DonThuocController : Controller
     {
         private readonly CP24Team02Entities db = new CP24Team02Entities();
@@ -44,9 +44,10 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         public ActionResult ThemDonThuoc()
         {
             var doctor = User.Identity.GetUserId();
+            var getCurrentDoctor = db.BACSIs.FirstOrDefault(e => e.ID_Email.Equals(doctor)).ID_BACSI;
             ViewBag.Patient = GetAllPatient();
             ViewBag.Medicine = GetAllMedicine();
-            ViewBag.Doctor = db.BACSIs.FirstOrDefault(e => e.ID_Email == doctor).ID_BACSI;
+            ViewBag.Doctor = getCurrentDoctor;
             //ViewBag.ID_BACSI = new SelectList(db.BACSIs, "ID_BACSI", "TEN_BACSI");
             ViewBag.ID_SO_KHAM_BENH = new SelectList(db.SO_KHAM_BENH, "ID_SOKHAMBENH", "ID_SOKHAMBENH");
             return View();

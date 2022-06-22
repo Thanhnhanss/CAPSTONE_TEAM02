@@ -12,17 +12,6 @@ using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using VanLangDoctor.Models;
-
-using Google.Apis.Auth.OAuth2;
-using Google.Apis.Calendar.v3;
-using Google.Apis.Calendar.v3.Data;
-using Google.Apis.Services;
-using Google.Apis.Util.Store;
-using System.IO;
-using System.Threading;
-using Google.Apis.Auth.OAuth2.Flows;
-using Google.Apis.Auth.OAuth2.Mvc;
-using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 
 namespace VanLangDoctor.Areas.Admin.Controllers
