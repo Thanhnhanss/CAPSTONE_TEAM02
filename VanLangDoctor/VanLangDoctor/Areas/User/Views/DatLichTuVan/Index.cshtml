@@ -64,7 +64,7 @@
                                     <input type="hidden" name="id" value="@item.ID" />
                                     <tr>
                                         <td>@Html.DisplayFor(modelItem => item.BACSI.TEN_BACSI)</td>
-                                        <td>@Html.DisplayFor(modelItem => item.LINK_GG)</td>
+                                        <td><a href="@Html.DisplayFor(modelItem => item.LINK_GG)"><i class="icon-call-in"></i></a></td>
                                         <td>@Html.DisplayFor(modelItem => item.NGAY_KHAM)</td>
                                         <td>@TrangThaiDatLichKham.GetDescription(item.TRANG_THAI)</td>
                                         <td>
