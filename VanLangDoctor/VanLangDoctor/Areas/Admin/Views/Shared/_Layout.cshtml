@@ -169,15 +169,15 @@ https://business.facebook.com/latest/inbox/all?nav_ref=pages_classic_isolated_se
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link has-arrow" href="javascript:void(0)"
+                            <a class="sidebar-link has-arrow" href="@Url.Action("Index", "QL_LichTuVan")"
                                aria-expanded="false">
-                                <img src="~/Content/assets-ad/images/Icon/list.png" width="25" /><span class="hide-menu">&nbsp; Danh sách </span>
+                                <img src="~/Content/assets-ad/images/Icon/list.png" width="25" /><span class="hide-menu">&nbsp; Danh sách đặt lịch</span>
                             </a>
-                            <ul aria-expanded="false" class="collapse  first-level base-level-line">
+                            @*<ul aria-expanded="false" class="collapse  first-level base-level-line">
                                 <li class="sidebar-item">
                                     <a href="https://docs.google.com/spreadsheets/d/15FYYxU58hflxK2rJAa0eO5BN4CxV207-H9DWHE_fRaI/edit#gid=0" target="_blank" class="sidebar-link">
                                         <span class="hide-menu">
-                                            Danh sách đặt lịch
+                                            
                                         </span>
                                     </a>
                                 </li>
@@ -188,7 +188,7 @@ https://business.facebook.com/latest/inbox/all?nav_ref=pages_classic_isolated_se
                                         </span>
                                     </a>
                                 </li>
-                            </ul>
+                            </ul>*@
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link has-arrow" href="javascript:void(0)"
@@ -284,13 +284,13 @@ https://business.facebook.com/latest/inbox/all?nav_ref=pages_classic_isolated_se
                         <li class="nav-small-cap"><span class="hide-menu">Bác sĩ</span></li>
                         <li class="sidebar-item">
                             <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
-                                <img src="~/Content/assets-ad/images/Icon/statistics.png" width="25" /><span class="hide-menu">&nbsp; Thông tin</span>
+                                <img src="~/Content/assets-ad/images/Icon/statistics.png" width="25" /><span class="hide-menu">&nbsp; Thông tin cá nhân</span>
                             </a>
                             <ul aria-expanded="false" class="collapse  first-level base-level-line">
                                 <li class="sidebar-item">
                                     <a href="@Url.Action("ThongTinBacSi", "QL_BacSi")" class="sidebar-link">
                                         <span class="hide-menu">
-                                            Tài khoản
+                                            Thông tin tài khoản
                                         </span>
                                     </a>
                                 </li>
@@ -329,7 +329,7 @@ https://business.facebook.com/latest/inbox/all?nav_ref=pages_classic_isolated_se
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="@Url.Action("Index", "QL_LichTuVan")"
+                            <a class="sidebar-link" href="@Url.Action("DanhSachDatLich", "QL_LichTuVan")"
                                aria-expanded="false">
                                 <img src="~/Content/assets-ad/images/Icon/newspaper.png" width="25" />
                                 <span class="hide-menu">

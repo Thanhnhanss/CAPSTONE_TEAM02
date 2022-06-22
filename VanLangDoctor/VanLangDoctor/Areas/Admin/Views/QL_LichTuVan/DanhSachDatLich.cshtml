@@ -59,14 +59,14 @@
                                 <tbody>
                                     @foreach (var item in Model)
                                     {
-                                    <tr>
-                                        <td>@Html.DisplayFor(modelItem => item.BACSI.TEN_BACSI)</td>
-                                        <td>@Html.DisplayFor(modelItem => item.NGAY_KHAM)</td>
-                                        <td>@Html.DisplayFor(modelItem => item.LINK_GG)</td>
-                                        @*<td>@Html.DisplayFor(modelItem => item.AspNetUser.Email)</td>*@
-                                        @*<td>@Html.DisplayFor(modelItem => item.TRANG_THAI)</td>*@
-                                        @*<td><a href="@Url.Action("Edit","QL_LichTuVan", new { id = item.ID })"><i class="ti-pencil"></i></a></td>*@
-                                    </tr>
+                                        <tr>
+                                            <td>@Html.DisplayFor(modelItem => item.BACSI.TEN_BACSI)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.NGAY_KHAM)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.LINK_GG)</td>
+                                            @*<td>@Html.DisplayFor(modelItem => item.AspNetUser.Email)</td>*@
+                                            @*<td>@Html.DisplayFor(modelItem => item.TRANG_THAI)</td>*@
+                                            <td><a href="@Url.Action("Edit","QL_LichTuVan", new { id = item.ID })"><i class="ti-pencil"></i></a></td>
+                                        </tr>
                                     }
                                 </tbody>
                             </table>
