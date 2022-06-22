@@ -19,10 +19,19 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         // GET: Admin/DAT_LICH
         public ActionResult Index()
         {
+            var userId = User.Identity.GetUserId();
+            var doctor = db.BACSIs.FirstOrDefault(e => e.ID_Email.Equals(userId)).ID_BACSI;
+            var dAT_LICH = db.DAT_LICH
+                .Where(d => d.ID_BACSI == doctor)
+                .Include(d => d.BACSI);
+            return View(dAT_LICH.ToList());
+            
+        }
+        public ActionResult DanhSachLichTruc()
+        {
             var dAT_LICH = db.DAT_LICH.Include(d => d.BACSI);
             return View(dAT_LICH.ToList());
         }
-
         // GET: Admin/DAT_LICH/Details/5
         public ActionResult Details(int? id)
         {

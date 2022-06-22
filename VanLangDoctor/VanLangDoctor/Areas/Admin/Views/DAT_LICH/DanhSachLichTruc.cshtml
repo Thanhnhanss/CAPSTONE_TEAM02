@@ -24,8 +24,8 @@
             </div>
             <div class="col-5 align-self-center">
                 <div class="customize-input float-right">
-                    <a class="button-plus" href="@Url.Action("Create", "DAT_LICH")">
-                        <span>Đăng ký lịch trực</span>
+                    <a class="button-plus" href="~/trang-chu-quan-ly">
+                        <span>Trở về</span>
                     </a>
                 </div>
             </div>
@@ -52,64 +52,34 @@
                                     <strong>@TempData["Success"]</strong>
                                 </div>
                             }
-                            <table  id="zero_config" class="table table-striped table-bordered no-wrap">
+                            <table id="zero_config" class="table table-striped table-bordered no-wrap">
                                 <thead>
                                     <tr>
+                                        <th>
+                                            Bác sĩ
+                                        </th>
                                         <th>
                                             Ngày trực
                                         </th>
                                         <th>
                                             Giờ trực
                                         </th>
-                                        <th>
-                                            Thứ
-                                        </th>
-                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach (var item in Model)
                                     {
-                                        <tr>
-                                             <td>
-                                                @item.NGAY_TRUC.Value.ToShortDateString()
-                                            </td>
-                                            <td>
-                                                @item.NGAY_TRUC.Value.ToLongTimeString()
-                                            </td>
-                                            <td>
-                                                @switch (@item.NGAY_TRUC.Value.DayOfWeek)
-                                                {
-                                                    case DayOfWeek.Monday:
-                                                        <span>Thứ hai</span>
-                                                        break;
-                                                    case DayOfWeek.Tuesday:
-                                                        <span>Thứ ba</span>
-                                                        break;
-                                                    case DayOfWeek.Wednesday:
-                                                        <span>Thứ tư</span>
-                                                        break;
-                                                    case DayOfWeek.Thursday:
-                                                        <span>Thứ năm</span>
-                                                        break;
-                                                    case DayOfWeek.Friday:
-                                                        <span>Thứ sáu</span>
-                                                        break;
-                                                    case DayOfWeek.Saturday:
-                                                        <span>Thứ bảy</span>
-                                                        break;
-                                                    case DayOfWeek.Sunday:
-                                                        <span>Chủ nhật</span>
-                                                        break;
-                                                    default:
-                                                        break;
-                                                    }
-                                            </td>
-                                            <td>
-                                                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                                                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-                                            </td>
-                                        </tr>
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.BACSI.TEN_BACSI)
+                                        </td>
+                                        <td>
+                                            @item.NGAY_TRUC.Value.ToShortDateString()
+                                        </td>
+                                        <td>
+                                            @item.NGAY_TRUC.Value.ToLongTimeString()
+                                        </td>
+                                    </tr>
                                     }
                                 </tbody>
                             </table>
