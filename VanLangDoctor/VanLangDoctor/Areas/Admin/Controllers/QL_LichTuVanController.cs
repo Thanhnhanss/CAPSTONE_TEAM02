@@ -13,6 +13,18 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using VanLangDoctor.Models;
 
+using Google.Apis.Auth.OAuth2;
+using Google.Apis.Calendar.v3;
+using Google.Apis.Calendar.v3.Data;
+using Google.Apis.Services;
+using Google.Apis.Util.Store;
+using System.IO;
+using System.Threading;
+using Google.Apis.Auth.OAuth2.Flows;
+using Google.Apis.Auth.OAuth2.Mvc;
+using System.Threading.Tasks;
+using Microsoft.AspNet.Identity;
+
 namespace VanLangDoctor.Areas.Admin.Controllers
 {
     public class QL_LichTuVanController : Controller
@@ -25,8 +37,21 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         // GET: Admin/QL_LichTuVan
         public ActionResult Index()
         {
-            var dAT_LICH_TU_VAN = db.DAT_LICH_TU_VAN.Include(d => d.AspNetUser).Include(d => d.BACSI);
+            var dAT_LICH_TU_VAN = db.DAT_LICH_TU_VAN
+                .Include(d => d.AspNetUser)
+                .Include(d => d.BACSI);
             return View(dAT_LICH_TU_VAN.ToList().OrderByDescending(e => e.NGAY_KHAM));
+        }
+        [Authorize(Roles = "Bác sĩ, Quản trị viên")]
+        public ActionResult DanhSachDatLich()
+        {
+            var userId = User.Identity.GetUserId();
+            var doctor = db.BACSIs.FirstOrDefault(e => e.ID_Email.Equals(userId)).ID_BACSI;
+            var dAT_LICH_TU_VAN = db.DAT_LICH_TU_VAN
+                .Where(u => u.BACSI.ID_BACSI == doctor)
+                .OrderByDescending(e => e.NGAY_KHAM)
+                .ToList();
+            return View(dAT_LICH_TU_VAN);
         }
 
         // GET: Admin/QL_LichTuVan/Edit/5
@@ -143,7 +168,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
 
                 db.Entry(dAT_LICH_TU_VAN).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index", "QL_LichTuVan", new { area = "Admin" });
+                return RedirectToAction("DanhSachDatLich", "QL_LichTuVan", new { area = "Admin" });
             }
             ViewBag.ID_USER = new SelectList(db.AspNetUsers, "Id", "Email", dAT_LICH_TU_VAN.ID_USER);
             ViewBag.ID_BAC_SI = new SelectList(db.BACSIs, "ID_BACSI", "TEN_BACSI", dAT_LICH_TU_VAN.ID_BAC_SI);
