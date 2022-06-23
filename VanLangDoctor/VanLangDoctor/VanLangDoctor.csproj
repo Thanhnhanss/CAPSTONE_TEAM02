@@ -1938,6 +1938,7 @@
     <Content Include="Areas\Admin\Views\DAT_LICH\Details.cshtml" />
     <Content Include="Areas\Admin\Views\DAT_LICH\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\DAT_LICH\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\DAT_LICH\DanhSachLichTruc.cshtml" />
     <None Include="Areas\Admin\Views\QL_DonThuoc\ThemDonThuoc.cshtml" />
     <Content Include="Areas\Admin\Views\QL_DonThuoc\DS_DonThuoc.cshtml" />
     <Content Include="Areas\User\Views\HealthRecord\HealthRecord.cshtml" />

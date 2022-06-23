@@ -169,26 +169,32 @@ https://business.facebook.com/latest/inbox/all?nav_ref=pages_classic_isolated_se
                                 </a>
                             </li>
                             <li class="sidebar-item">
+                                <a class="sidebar-link sidebar-link" href="@Url.Action("DanhSachLichTruc","DAT_LICH")" 
+                                   aria-expanded="false">
+                                    <img src="~/Content/assets-ad/images/Icon/chatbot.png" width="25" /><span class="hide-menu">&nbsp; Danh sách lịch trực</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
                                 <a class="sidebar-link has-arrow" href="@Url.Action("Index", "QL_LichTuVan")"
                                    aria-expanded="false">
                                     <img src="~/Content/assets-ad/images/Icon/list.png" width="25" /><span class="hide-menu">&nbsp; Danh sách đặt lịch</span>
                                 </a>
                                 @*<ul aria-expanded="false" class="collapse  first-level base-level-line">
-                                        <li class="sidebar-item">
-                                            <a href="https://docs.google.com/spreadsheets/d/15FYYxU58hflxK2rJAa0eO5BN4CxV207-H9DWHE_fRaI/edit#gid=0" target="_blank" class="sidebar-link">
-                                                <span class="hide-menu">
+                    <li class="sidebar-item">
+                        <a href="https://docs.google.com/spreadsheets/d/15FYYxU58hflxK2rJAa0eO5BN4CxV207-H9DWHE_fRaI/edit#gid=0" target="_blank" class="sidebar-link">
+                            <span class="hide-menu">
 
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li class="sidebar-item">
-                                            <a href="https://docs.google.com/spreadsheets/d/1bifbqwRyduSgxGVl3Cz6TaAOTc5TzoKH52zfaXiaaro/edit#gid=0" target="_blank" class="sidebar-link">
-                                                <span class="hide-menu">
-                                                    Danh sách đánh giá
-                                                </span>
-                                            </a>
-                                        </li>
-                                    </ul>*@
+                            </span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="https://docs.google.com/spreadsheets/d/1bifbqwRyduSgxGVl3Cz6TaAOTc5TzoKH52zfaXiaaro/edit#gid=0" target="_blank" class="sidebar-link">
+                            <span class="hide-menu">
+                                Danh sách đánh giá
+                            </span>
+                        </a>
+                    </li>
+                </ul>*@
                             </li>
                             <li class="sidebar-item">
                                 <a class="sidebar-link has-arrow" href="javascript:void(0)"
@@ -296,10 +302,17 @@ https://business.facebook.com/latest/inbox/all?nav_ref=pages_classic_isolated_se
                                     </li>
 
                                     <li class="sidebar-item">
-                                        @*<a href="@Url.Action("Create", "QL_DatLich")" class="sidebar-link">*@
                                         <a href="@Url.Action("Create", "DAT_LICH")" class="sidebar-link">
                                             <span class="hide-menu">
                                                 Đặt lịch
+                                            </span>
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-item">
+                                        <a href="@Url.Action("Index", "DAT_LICH")" class="sidebar-link">
+                                            <span class="hide-menu">
+                                                Lịch trực
                                             </span>
                                         </a>
                                     </li>
