@@ -62,7 +62,14 @@
                                         <tr>
                                             <td>@Html.DisplayFor(modelItem => item.BACSI.TEN_BACSI)</td>
                                             <td>@Html.DisplayFor(modelItem => item.NGAY_KHAM)</td>
-                                            <td>@Html.DisplayFor(modelItem => item.LINK_GG)</td>
+                                            @if (item.LINK_GG != null)
+                                            {
+                                                <td><a href="@Html.DisplayFor(modelItem => item.LINK_GG)" target="_blank"><i class="icon-call-in"></i></a></td>
+                                            }
+                                            else
+                                            {
+                                                <td></td>
+                                            }
                                             @*<td>@Html.DisplayFor(modelItem => item.AspNetUser.Email)</td>*@
                                             @*<td>@Html.DisplayFor(modelItem => item.TRANG_THAI)</td>*@
                                             <td><a href="@Url.Action("Edit","QL_LichTuVan", new { id = item.ID })"><i class="ti-pencil"></i></a></td>

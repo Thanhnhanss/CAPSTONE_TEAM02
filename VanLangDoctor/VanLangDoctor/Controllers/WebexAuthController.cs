@@ -14,7 +14,9 @@ namespace VanLangDoctor.Controllers
 
         private const string SCOPE = "meeting%3Aschedules_read%20meeting%3Aschedules_write";
 
-        private const string POST_REDIRECT_URI = "https://localhost:44311/webex/auth-callback";
+        private const string POST_REDIRECT_URI = "http://cntttest.vanlanguni.edu.vn:18080/CP24Team02/webex/auth-callback";
+        //private const string POST_REDIRECT_URI = "https://localhost:44311/webex/auth-callback";
+
 
         [Route("webex/auth")]
         public ActionResult Auth(string redirectUrl = "/")

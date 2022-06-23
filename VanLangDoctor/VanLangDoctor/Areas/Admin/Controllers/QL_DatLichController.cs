@@ -52,6 +52,11 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(DAT_LICH dAT_LICH)
         {
+            var gioTruc = dAT_LICH.NGAY_TRUC.Value.Hour;
+            if (!(gioTruc >= 8 && gioTruc <= 17))
+            {
+                ModelState.AddModelError("Error", "Giờ trực phải từ 8 giờ đến 17 giờ");
+            }
             if (ModelState.IsValid)
             {
                 var userId = User.Identity.GetUserId();

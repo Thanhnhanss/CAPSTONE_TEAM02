@@ -76,7 +76,9 @@ namespace VanLangDoctor.Areas.User.Controllers
             {
                 ID = bacsi.ID_BACSI,
                 Name = bacsi.TEN_BACSI,
-                Ngay_Truc = bacsi.DAT_LICH.Select(e => e.NGAY_TRUC.Value.ToString("yyyy/MM/dd HH:mm")).ToList()
+                Ngay_Truc = bacsi.DAT_LICH
+                                .Where(e => e.NGAY_TRUC > DateTime.Now)
+                                .Select(e => e.NGAY_TRUC.Value.ToString("yyyy/MM/dd HH:mm")).ToList()
             }, JsonRequestBehavior.AllowGet);
         }
 

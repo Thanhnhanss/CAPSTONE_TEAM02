@@ -77,7 +77,7 @@
         let id = $(this).val();
         $.get('/CP24Team02/User/DatLichTuVan/GetDoctor/' + id, function (data) {
             console.log(data);
-            var ngaytruc = $('#Ngay_Truc');
+            var ngaytruc = $('#Ngay_Truc').empty();
             for (var i = 0; i < data.Ngay_Truc.length; i++) {
                 ngaytruc.append(`<option value="${data.Ngay_Truc[i]}" selected>${data.Ngay_Truc[i]}</option>`);
             }

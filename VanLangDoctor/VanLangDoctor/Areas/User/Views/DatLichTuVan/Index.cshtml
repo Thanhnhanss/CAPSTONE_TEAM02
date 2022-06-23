@@ -61,10 +61,17 @@
                                 using (Html.BeginForm("Cancel", "DatLichTuVan", FormMethod.Post))
                                 {
                                     @Html.AntiForgeryToken()
-                                    <input type="hidden" name="id" value="@item.ID" />
                                     <tr>
+                                        <td><input type="hidden" name="id" value="@item.ID" /></td>
                                         <td>@Html.DisplayFor(modelItem => item.BACSI.TEN_BACSI)</td>
-                                        <td><a href="@Html.DisplayFor(modelItem => item.LINK_GG)"><i class="icon-call-in"></i></a></td>
+                                        @if (item.LINK_GG == null)
+                                        {
+                                            <td></td>
+                                        }
+                                        else
+                                        {
+                                            <td><a href="@Html.DisplayFor(modelItem => item.LINK_GG)" target="_blank"><i class="icon-call-in"></i></a></td>
+                                        }
                                         <td>@Html.DisplayFor(modelItem => item.NGAY_KHAM)</td>
                                         <td>@TrangThaiDatLichKham.GetDescription(item.TRANG_THAI)</td>
                                         <td>

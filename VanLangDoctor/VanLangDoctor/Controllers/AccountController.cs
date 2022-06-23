@@ -2,6 +2,7 @@
 using System.Configuration;
 using System.Globalization;
 using System.Linq;
+using System.Net;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
@@ -223,7 +224,10 @@ namespace VanLangDoctor.Controllers
                 // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                 // Send an email with this link
                 string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
+                code = WebUtility.UrlEncode(code);
                 var callbackUrl = $"http://cntttest.vanlanguni.edu.vn:18080/CP24Team02/Account/ResetPassword?userId={user.Id}&code={code}";
+                //var callbackUrl = $"https://localhost:44311/Account/ResetPassword?userId={user.Id}&code={code}";
+
                 //var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: url);
 
                 #region sendmail
@@ -276,8 +280,8 @@ namespace VanLangDoctor.Controllers
             var result = await UserManager.ResetPasswordAsync(user.Id, model.Code, model.Password);
             if (result.Succeeded)
             {
-
                 string callbackUrl = "http://cntttest.vanlanguni.edu.vn:18080/CP24Team02/Account/Login";
+                //string callbackUrl = "https://localhost:44311/Account/Login";
                 TempData["Success"] = $"Đặt lại mật khẩu thành công!<a href=\"" + callbackUrl + "\">Đăng nhập</a>";
                 return RedirectToAction("ForgotPassword", "Account");
             }

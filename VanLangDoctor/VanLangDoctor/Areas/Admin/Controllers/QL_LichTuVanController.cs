@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using VanLangDoctor.Models;
 using Microsoft.AspNet.Identity;
+using System.Text;
 
 namespace VanLangDoctor.Areas.Admin.Controllers
 {
@@ -74,16 +75,27 @@ namespace VanLangDoctor.Areas.Admin.Controllers
                     var httpClient = HttpClientFactory.Create();
                     var uri = new Uri("https://webexapis.com/v1/meetings");
                     var bacSi = await db.BACSIs.FindAsync(dAT_LICH_TU_VAN.ID_BAC_SI);
+                    var benhNhan = await db.AspNetUsers.FindAsync(dAT_LICH_TU_VAN.ID_USER);
                     var start = dAT_LICH_TU_VAN.NGAY_KHAM.ToString("yyyy-MM-ddTHH\\:mm\\:sszzz", CultureInfo.InvariantCulture);
                     var end = dAT_LICH_TU_VAN.NGAY_KHAM.AddHours(2).ToString("yyyy-MM-ddTHH\\:mm\\:sszzz", CultureInfo.InvariantCulture);
-                    var body = new Dictionary<string, string>
-                        {
-                            { "title", $"Consulting with {bacSi.TEN_BACSI}" },
-                            // ISO 8601 datetime presentation
-                            { "start", start },
-                            { "end", end }
-                        };
-                    var content = new FormUrlEncodedContent(body);
+                    //var body = new Dictionary<string, string>
+                    //    {
+                    //        { "title", $"Consulting with {bacSi.TEN_BACSI}" },
+                    //        // ISO 8601 datetime presentation
+                    //        { "start", start },
+                    //        { "end", end },
+                    //        { "enabledJoinBeforeHost", "true" },
+                    //        { "joinBeforeHostMinutes", "15" },
+                    //        { "invitees", $"[{{\"email\": \"{benhNhan.Email}\"}}]" }
+                    //    };
+                    //var content = new FormUrlEncodedContent(body);
+                    var content = new StringContent($"{{\"title\": \"Consulting with {bacSi.TEN_BACSI}\"," +
+                        $"\"start\": \"{start}\"," +
+                        $"\"end\": \"{end}\"," +
+                        $"\"enabledJoinBeforeHost\": true," +
+                        $"\"joinBeforeHostMinutes\": 15," +
+                        $"\"invitees\": [{{\"email\": \"{benhNhan.Email}\"}}]}}", Encoding.UTF8, "application/json");
+                    var contentMessage = await content.ReadAsStringAsync();
                     var requestMessage = new HttpRequestMessage
                     {
                         RequestUri = uri,
@@ -95,7 +107,8 @@ namespace VanLangDoctor.Areas.Admin.Controllers
                     if (responseMessage.StatusCode == HttpStatusCode.Unauthorized ||
                         responseMessage.StatusCode == HttpStatusCode.Forbidden)
                     {
-                        return Redirect($"/Webex/Auth?redirectUrl=%2FAdmin%2FQL_LichTuVan%2FEdit%2F{dAT_LICH_TU_VAN.ID}");
+                        return Redirect($"/CP24Team02/Webex/Auth?redirectUrl=%2FCP24Team02%2FAdmin%2FQL_LichTuVan%2FEdit%2F{dAT_LICH_TU_VAN.ID}");
+                        //return Redirect($"/Webex/Auth?redirectUrl=%2FAdmin%2FQL_LichTuVan%2FEdit%2F{dAT_LICH_TU_VAN.ID}");
                     }
                     var responseMessageText = await responseMessage.Content.ReadAsStringAsync();
                     var response = JsonConvert.DeserializeObject<WebexMeetingResposne>(responseMessageText);
