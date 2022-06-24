@@ -1,7 +1,7 @@
 ﻿@model VanLangDoctor.Models.DAT_LICH
 
 @{
-    ViewBag.Title = "Đăng ký lịch";
+    ViewBag.Title = "Đăng ký lịch trực";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
@@ -23,7 +23,7 @@
             </div>
             <div class="col-5 align-self-center">
                 <div class="customize-input float-right">
-                    <a class="button-back" href="~/trang-chu-quan-ly/bac-si/danh-sach">
+                    <a class="button-back" href="@Url.Action("ThongTinBacSi", "QL_BacSi")">
                         <span-back>Trở về</span-back>
                     </a>
                 </div>
@@ -32,92 +32,50 @@
     </div>
     <div class="container-fluid">
         <div class="card">
-            @*<form method="post" action="/QL_DatLich/Create">*@
-            <div class="card-body DangKyLich">
-                <div class="form-row">
-                    <div class="form-group col-md-2">
-                        <button class="form-control ThemNgayLamViec">Thêm ngày</button>
+            <div class="card-body">
+                @if (TempData["Failed"] != null)
+                {
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true" style=" float: right; margin-top: -10px">×</span>
+                        </button>
+                        <span><strong>@TempData["Failed"]</strong></span>
                     </div>
-                </div>
-                @*<div class="container">
+                }
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
                     <div class="form-horizontal">
-                        <div class="form-row">
-                            <div class="form-group col-md-4">
-                                <label>Ngày làm việc</label>
-                                <input type="date" min="@DateTime.Now.ToString("yyyy-MM-dd")" name="ngaylamviec" class="form-control" />
-                                <br />
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label>Giờ làm việc</label>
-                                <input type="time" name="giolamviec" class="form-control giolamviec" />
-                                <br />
-                            </div>
-                            <div class="form-group col-md-2">
-                                <label></label>
-                                <button class="form-control ThemGioLamViec">Thêm</button>
-                            </div>
-                            <div class="form-group col-md-2">
-                                <label></label>
-                                <button class="form-control XoaGioLamViec">Xoá</button>
+                        <h4>Đăng ký lịch trực</h4>
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            <label for="ngay_truc">Ngày trực</label>
+                            <input type="datetime-local" class="form-control" name="NGAY_TRUC" min="@DateTime.Now.ToString("yyyy-MM-ddT07:00")" style="border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%) " required />
+                            @*<div class="col-md-10">
+                                    @Html.EditorFor(model => model.NGAY_TRUC, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.NGAY_TRUC, "", new { @class = "text-danger" })
+                                </div>*@
+                        </div>
+
+                        <div class="form-group">
+                            @*@Html.LabelFor(model => model.ID_BACSI, "ID_BACSI", htmlAttributes: new { @class = "control-label col-md-2" })*@
+                            <div class="col-md-10">
+                                <input type="text" hidden class="form-group" />
+                                @*@Html.DropDownList("ID_BACSI", null, htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.ID_BACSI, "", new { @class = "text-danger" })*@
                             </div>
                         </div>
-                        <br />
+
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <button type="submit" class="button" style="vertical-align:middle"><span>Đăng ký </span></button>
+                            </div>
+                        </div>
                     </div>
-                </div>*@
+                }
             </div>
-            @*</form>*@
         </div>
     </div>
 </div>
-
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/jqueryval")
-<script>
-    $('.ThemNgayLamViec').click(function () {
-        $('.DangKyLich').append(
-            '<div class="container">' +
-                '<div class= "form-horizontal">' +
-                    '<div class="form-row">' +
-                        '<div class="form-group col-md-4">' +
-                            '<label>Ngày làm việc</label>' +
-                            '<input type="date" min="@DateTime.Now.ToString("yyyy-MM-dd")" name="ngay" class="form-control" />' +
-                            '<br />' +
-                        '</div>' +
-                        '<div class="form-group col-md-4">' +
-                            '<label>Giờ làm việc</label>' +
-                            '<input type="time" name="giolamviec" class="form-control giolamviec" />' +
-                            '<br />' +
-                        '</div>' +
-                        '<div class="form-group col-md-2">' +
-                            '<label></label>' +
-                            '<button class="form-control ThemGioLamViec">Thêm</button>' +
-                        '</div>' +
-                        '<div class="form-group col-md-2">' +
-                            '<label></label>' +
-                            '<button class="form-control XoaGioLamViec">Xoá</button>' +
-                        '</div>' +
-                    '</div>' +
-                    '<br />' +
-                '</div>' +
-            '</div>');
-        $('.ThemGioLamViec').off('click').click(function () {
-            $(this).parent().parent().find('.giolamviec').parent().append('<input type="time" name="giolamviec" class="form-control giolamviec"  />',
-                '<br />')
-        });
-        $('.XoaGioLamViec').on('click', function (e) {
-            e.preventDefault();
-            console.log($(this).parent().parent().children('.col-md-4').eq(1).children(':last-child').remove());
-            $(this).parent().parent().children('.col-md-4').eq(1).children(':last-child').remove();
-        });
-    });
-
-    //$('.ThemGioLamViec').off('click').click(function () {
-    //    $(this).parent().parent().find('.giolamviec').parent().append('<input type="time" name="giolamviec" class="form-control giolamviec"  />',
-    //                                      '<br />')
-    //});
-    //$('.XoaGioLamViec').on('click', function (e) {
-    //    e.preventDefault();
-    //    console.log($(this).parent().parent().children('.col-md-4').eq(1).children(':last-child').remove());
-    //    $(this).parent().parent().children('.col-md-4').eq(1).children(':last-child').remove();
-    //});
-</script>

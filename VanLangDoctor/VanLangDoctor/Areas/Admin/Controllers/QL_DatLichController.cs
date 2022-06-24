@@ -11,19 +11,28 @@ using VanLangDoctor.Models;
 
 namespace VanLangDoctor.Areas.Admin.Controllers
 {
-    [HandleError]
+    [Authorize]
     public class QL_DatLichController : Controller
     {
-        private CP24Team02Entities db = new CP24Team02Entities();
+        private readonly CP24Team02Entities db = new CP24Team02Entities();
 
-        // GET: Admin/QL_DatLich
+        // GET: Admin/DAT_LICH
         public ActionResult Index()
+        {
+            var userId = User.Identity.GetUserId();
+            var doctor = db.BACSIs.FirstOrDefault(e => e.ID_Email.Equals(userId)).ID_BACSI;
+            var dAT_LICH = db.DAT_LICH
+                .Where(d => d.ID_BACSI == doctor)
+                .Include(d => d.BACSI);
+            return View(dAT_LICH.ToList());
+            
+        }
+        public ActionResult DanhSachLichTruc()
         {
             var dAT_LICH = db.DAT_LICH.Include(d => d.BACSI);
             return View(dAT_LICH.ToList());
         }
-
-        // GET: Admin/QL_DatLich/Details/5
+        // GET: Admin/DAT_LICH/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -38,14 +47,13 @@ namespace VanLangDoctor.Areas.Admin.Controllers
             return View(dAT_LICH);
         }
 
-        // GET: Admin/QL_DatLich/Create
-        [Authorize]
+        // GET: Admin/DAT_LICH/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Admin/QL_DatLich/Create
+        // POST: Admin/DAT_LICH/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -64,12 +72,13 @@ namespace VanLangDoctor.Areas.Admin.Controllers
 
                 db.DAT_LICH.Add(dAT_LICH);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "DAT_LICH", new {area = "Admin"});
             }
+            //ViewBag.ID_BACSI = new SelectList(db.BACSIs, "ID_BACSI", "TEN_BACSI", dAT_LICH.ID_BACSI);
             return View(dAT_LICH);
         }
 
-        // GET: Admin/QL_DatLich/Edit/5
+        // GET: Admin/DAT_LICH/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -85,12 +94,12 @@ namespace VanLangDoctor.Areas.Admin.Controllers
             return View(dAT_LICH);
         }
 
-        // POST: Admin/QL_DatLich/Edit/5
+        // POST: Admin/DAT_LICH/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,NGAY_TRUC,ID_BACSI")] DAT_LICH dAT_LICH)
+        public ActionResult Edit([Bind(Include = "ID,NGAY_TRUC,ID_BACSI,GIO_TRUC")] DAT_LICH dAT_LICH)
         {
             if (ModelState.IsValid)
             {
@@ -102,7 +111,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
             return View(dAT_LICH);
         }
 
-        // GET: Admin/QL_DatLich/Delete/5
+        // GET: Admin/DAT_LICH/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -117,7 +126,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
             return View(dAT_LICH);
         }
 
-        // POST: Admin/QL_DatLich/Delete/5
+        // POST: Admin/DAT_LICH/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
