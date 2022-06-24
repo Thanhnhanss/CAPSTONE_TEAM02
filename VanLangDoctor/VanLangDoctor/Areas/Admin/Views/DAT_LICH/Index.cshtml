@@ -106,8 +106,7 @@
                                                     }
                                             </td>
                                             <td>
-                                                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                                                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                                                <a href="@Url.Action("Edit","DAT_LICH", new { id = item.ID })"><i class="ti-pencil"></i></a>
                                             </td>
                                         </tr>
                                     }

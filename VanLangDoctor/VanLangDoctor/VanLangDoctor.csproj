@@ -424,6 +424,8 @@
     <Content Include="Content\assets-ad\images\Icon\drug.png" />
     <Content Include="Content\assets-ad\images\Icon\face-mask.png" />
     <Content Include="Content\assets-ad\images\Icon\home.png" />
+    <Content Include="Content\assets-ad\images\Icon\icons8-live-video-on.gif" />
+    <Content Include="Content\assets-ad\images\Icon\icons8-no-video-100.png" />
     <Content Include="Content\assets-ad\images\Icon\list.png" />
     <Content Include="Content\assets-ad\images\Icon\medicine.png" />
     <Content Include="Content\assets-ad\images\Icon\newspaper.png" />

@@ -23,14 +23,15 @@ namespace VanLangDoctor.Areas.Admin.Controllers
             var doctor = db.BACSIs.FirstOrDefault(e => e.ID_Email.Equals(userId)).ID_BACSI;
             var dAT_LICH = db.DAT_LICH
                 .Where(d => d.ID_BACSI == doctor)
-                .Include(d => d.BACSI);
+                .Include(d => d.BACSI)
+                .OrderByDescending(t => t.NGAY_TRUC);
             return View(dAT_LICH.ToList());
             
         }
         public ActionResult DanhSachLichTruc()
         {
-            var dAT_LICH = db.DAT_LICH.Include(d => d.BACSI);
-            return View(dAT_LICH.ToList());
+            var dAT_LICH = db.DAT_LICH.Include(d => d.BACSI).OrderByDescending(t => t.NGAY_TRUC).ToList();
+            return View(dAT_LICH);
         }
         // GET: Admin/DAT_LICH/Details/5
         public ActionResult Details(int? id)
