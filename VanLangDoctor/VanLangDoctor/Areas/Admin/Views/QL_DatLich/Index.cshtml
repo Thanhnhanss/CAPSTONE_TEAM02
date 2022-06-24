@@ -24,7 +24,7 @@
             </div>
             <div class="col-5 align-self-center">
                 <div class="customize-input float-right">
-                    <a class="button-plus" href="@Url.Action("Create", "DAT_LICH")">
+                    <a class="button-plus" href="@Url.Action("Create", "QL_DatLich")">
                         <span>Đăng ký lịch trực</span>
                     </a>
                 </div>
@@ -52,7 +52,7 @@
                                     <strong>@TempData["Success"]</strong>
                                 </div>
                             }
-                            <table  id="zero_config" class="table table-striped table-bordered no-wrap">
+                            <table id="zero_config" class="table table-striped table-bordered no-wrap">
                                 <thead>
                                     <tr>
                                         <th>
@@ -71,7 +71,7 @@
                                     @foreach (var item in Model)
                                     {
                                         <tr>
-                                             <td>
+                                            <td>
                                                 @item.NGAY_TRUC.Value.ToShortDateString()
                                             </td>
                                             <td>
@@ -103,11 +103,17 @@
                                                         break;
                                                     default:
                                                         break;
-                                                    }
+                                                }
                                             </td>
                                             <td>
-                                                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                                                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                                                @if (item.NGAY_TRUC > DateTime.Now)
+                                                {
+                                                    <a href="@Url.Action("Edit","QL_DatLich", new { id = item.ID })"><i class="ti-pencil"></i></a>
+                                                }
+                                                else
+                                                {
+                                                    
+                                                }
                                             </td>
                                         </tr>
                                     }

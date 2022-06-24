@@ -25,27 +25,14 @@ namespace VanLangDoctor.Areas.Admin.Controllers
                 .Where(d => d.ID_BACSI == doctor)
                 .Include(d => d.BACSI);
             return View(dAT_LICH.ToList());
-            
+
         }
         public ActionResult DanhSachLichTruc()
         {
             var dAT_LICH = db.DAT_LICH.Include(d => d.BACSI);
             return View(dAT_LICH.ToList());
         }
-        // GET: Admin/DAT_LICH/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            DAT_LICH dAT_LICH = db.DAT_LICH.Find(id);
-            if (dAT_LICH == null)
-            {
-                return HttpNotFound();
-            }
-            return View(dAT_LICH);
-        }
+
 
         // GET: Admin/DAT_LICH/Create
         public ActionResult Create()
@@ -60,21 +47,31 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(DAT_LICH dAT_LICH)
         {
-            var gioTruc = dAT_LICH.NGAY_TRUC.Value.Hour;
-            if (!(gioTruc >= 8 && gioTruc <= 17))
+            var gioTruc = dAT_LICH.NGAY_TRUC.Value;
+            if (gioTruc >= DateTime.Now)
             {
-                ModelState.AddModelError("Error", "Giờ trực phải từ 8 giờ đến 17 giờ");
-            }
-            if (ModelState.IsValid)
-            {
-                var userId = User.Identity.GetUserId();
-                dAT_LICH.ID_BACSI = db.BACSIs.FirstOrDefault(e => e.ID_Email == userId).ID_BACSI;
+                if ((gioTruc.Hour >= 8 && gioTruc.Hour <= 17))
+                {
+                    if (ModelState.IsValid)
+                    {
+                        var userId = User.Identity.GetUserId();
+                        dAT_LICH.ID_BACSI = db.BACSIs.FirstOrDefault(e => e.ID_Email == userId).ID_BACSI;
 
-                db.DAT_LICH.Add(dAT_LICH);
-                db.SaveChanges();
-                return RedirectToAction("Index", "DAT_LICH", new {area = "Admin"});
+                        db.DAT_LICH.Add(dAT_LICH);
+                        db.SaveChanges();
+                        TempData["Success"] = "Bạn đã đăng ký thành công";
+                        return RedirectToAction("Index", "QL_DatLich", new { area = "Admin" });
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("Error", "Giờ trực phải từ 8 giờ đến 17 giờ");
+
+                    TempData["Success"] = "Giờ trực phải từ 8 giờ đến 17 giờ";
+                }
             }
-            //ViewBag.ID_BACSI = new SelectList(db.BACSIs, "ID_BACSI", "TEN_BACSI", dAT_LICH.ID_BACSI);
+            var date = DateTime.Now;
+            TempData["Success"] = $"Giờ trực phải lớn hơn giờ hiện tại: {date}";
             return View(dAT_LICH);
         }
 
@@ -99,12 +96,20 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,NGAY_TRUC,ID_BACSI,GIO_TRUC")] DAT_LICH dAT_LICH)
+        public ActionResult Edit(DAT_LICH dAT_LICH)
         {
+            var gioTruc = dAT_LICH.NGAY_TRUC.Value.Hour;
+            if (!(gioTruc >= DateTime.Now.Hour && gioTruc <= 17))
+            {
+                ModelState.AddModelError("Error", "Giờ trực phải từ 8 giờ đến 17 giờ");
+
+                TempData["Success"] = "Giờ trực phải từ 8 giờ đến 17 giờ";
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(dAT_LICH).State = EntityState.Modified;
                 db.SaveChanges();
+                TempData["Success"] = "Bạn đã cập nhật thành công";
                 return RedirectToAction("Index");
             }
             ViewBag.ID_BACSI = new SelectList(db.BACSIs, "ID_BACSI", "TEN_BACSI", dAT_LICH.ID_BACSI);

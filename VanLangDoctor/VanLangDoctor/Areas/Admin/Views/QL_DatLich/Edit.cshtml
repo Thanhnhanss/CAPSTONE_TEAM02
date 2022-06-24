@@ -1,47 +1,71 @@
 ﻿@model VanLangDoctor.Models.DAT_LICH
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Chỉnh sửa";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Edit</h2>
 <div class="page-wrapper" style="display: block;">
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-
-        <div class="form-horizontal">
-            <h4>DAT_LICH</h4>
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            @Html.HiddenFor(model => model.ID)
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.NGAY_TRUC, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.NGAY_TRUC, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.NGAY_TRUC, "", new { @class = "text-danger" })
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-7 align-self-center">
+                <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">@ViewBag.Title</h4>
+                <div class="d-flex align-items-center">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb m-0 p-0">
+                            <li class="breadcrumb-item"><a href="~/trang-chu-quan-ly" class="text-muted">Trang chủ</a></li>
+                            <li class="breadcrumb-item"><a href="@Url.Action("Index","QL_DatLich")" class="text-muted">Lịch trực</a></li>
+                            <li class="breadcrumb-item text-muted active" aria-current="page">@ViewBag.Title</li>
+                        </ol>
+                    </nav>
                 </div>
             </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.ID_BACSI, "ID_BACSI", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownList("ID_BACSI", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.ID_BACSI, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Save" class="btn btn-default" />
+            <div class="col-5 align-self-center">
+                <div class="customize-input float-right">
+                    <a class="button-back" href="@Url.Action("Index","QL_DatLich")">
+                        <span-back>Trở về</span-back>
+                    </a>
                 </div>
             </div>
         </div>
-    }
+    </div>
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body">
+                @if (TempData["Success"] != null)
+                {
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true" style=" float: right; margin-top: -10px">×</span>
+                        </button>
+                        <span><strong>@TempData["Success"]</strong></span>
+                    </div>
+                }
 
-    <div>
-        @Html.ActionLink("Back to List", "Index")
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+                        <h4>@ViewBag.Title</h4>
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => model.ID)
+                        @Html.HiddenFor(model => model.ID_BACSI)
+
+                        <div class="form-group">
+                            <label for="ngay_truc">Ngày trực</label>
+                            <input type="datetime-local" value="@Model.NGAY_TRUC.Value.ToString("yyyy-MM-dd'T'hh:mm")" class="form-control" name="NGAY_TRUC" min="@DateTime.Now.ToString("yyyy-MM-ddT08:00")" style="border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%) " />
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <button type="submit" class="button" style="vertical-align:middle"><span>Cập nhật </span></button>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
     </div>
 </div>

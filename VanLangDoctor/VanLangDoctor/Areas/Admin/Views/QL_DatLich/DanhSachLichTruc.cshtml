@@ -69,17 +69,17 @@
                                 <tbody>
                                     @foreach (var item in Model)
                                     {
-                                    <tr>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.BACSI.TEN_BACSI)
-                                        </td>
-                                        <td>
-                                            @item.NGAY_TRUC.Value.ToShortDateString()
-                                        </td>
-                                        <td>
-                                            @item.NGAY_TRUC.Value.ToLongTimeString()
-                                        </td>
-                                    </tr>
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.BACSI.TEN_BACSI)
+                                            </td>
+                                            <td>
+                                                @item.NGAY_TRUC.Value.ToShortDateString()
+                                            </td>
+                                            <td>
+                                                @item.NGAY_TRUC.Value.ToLongTimeString()
+                                            </td>
+                                        </tr>
                                     }
                                 </tbody>
                             </table>

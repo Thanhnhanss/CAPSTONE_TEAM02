@@ -168,24 +168,6 @@ https://business.facebook.com/latest/inbox/all?nav_ref=pages_classic_isolated_se
                                     <img src="~/Content/assets-ad/images/Icon/chatbot.png" width="25" /><span class="hide-menu">&nbsp; Quản lý chat</span>
                                 </a>
                             </li>
-<<<<<<< HEAD
-                            <li class="sidebar-item">
-                                <a class="sidebar-link sidebar-link" href="@Url.Action("DanhSachLichTruc","QL_DatLich")" 
-                                   aria-expanded="false">
-                                    <img src="~/Content/assets-ad/images/Icon/chatbot.png" width="25" /><span class="hide-menu">&nbsp; Danh sách lịch trực</span>
-                                </a>
-                            </li>
-                            <li class="sidebar-item">
-                                <a class="sidebar-link has-arrow" href="@Url.Action("Index", "QL_LichTuVan")"
-                                   aria-expanded="false">
-                                    <img src="~/Content/assets-ad/images/Icon/list.png" width="25" /><span class="hide-menu">&nbsp; Danh sách đặt lịch</span>
-                                </a>
-                                @*<ul aria-expanded="false" class="collapse  first-level base-level-line">
-                    <li class="sidebar-item">
-                        <a href="https://docs.google.com/spreadsheets/d/15FYYxU58hflxK2rJAa0eO5BN4CxV207-H9DWHE_fRaI/edit#gid=0" target="_blank" class="sidebar-link">
-                            <span class="hide-menu">
-=======
->>>>>>> 8de4cdfd50b17349dc77f43fce8a3803b2504bf5
 
                             <li class="sidebar-item">
                                 <a class="sidebar-link has-arrow" href="javascript:void(0)"
@@ -200,7 +182,7 @@ https://business.facebook.com/latest/inbox/all?nav_ref=pages_classic_isolated_se
                                         </a>
                                     </li>
                                     <li class="sidebar-item">
-                                        <a class="sidebar-link sidebar-link" href="@Url.Action("DanhSachLichTruc","DAT_LICH", new { area = "Admin" })"
+                                        <a class="sidebar-link sidebar-link" href="@Url.Action("DanhSachLichTruc","QL_DatLich", new { area = "Admin" })"
                                            aria-expanded="false">
                                             <span class="hide-menu">&nbsp; Lịch trực của bác sĩ</span>
                                         </a>
@@ -218,13 +200,6 @@ https://business.facebook.com/latest/inbox/all?nav_ref=pages_classic_isolated_se
                                         <a href="@Url.Action("Index","QL_Thuoc") " class="sidebar-link">
                                             <span class="hide-menu">
                                                 Danh sách thuốc
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li class="sidebar-item">
-                                        <a href="@Url.Action("DS_DonThuoc","QL_DonThuoc") " class="sidebar-link">
-                                            <span class="hide-menu">
-                                                Danh sách đơn thuốc
                                             </span>
                                         </a>
                                     </li>
@@ -274,12 +249,12 @@ https://business.facebook.com/latest/inbox/all?nav_ref=pages_classic_isolated_se
                                     </li>
 
                                     @*<li class="sidebar-item">
-                                            <a href="@Url.Action("BookCalendar","QL_TKBookCalendar")" class="sidebar-link">
-                                                <span class="hide-menu">
-                                                    Lịch sử đặt lịch
-                                                </span>
-                                            </a>
-                                        </li>*@
+                        <a href="@Url.Action("BookCalendar","QL_TKBookCalendar")" class="sidebar-link">
+                            <span class="hide-menu">
+                                Lịch sử đặt lịch
+                            </span>
+                        </a>
+                    </li>*@
                                 </ul>
                             </li>
                         }
@@ -345,14 +320,30 @@ https://business.facebook.com/latest/inbox/all?nav_ref=pages_classic_isolated_se
                                     </li>
                                 </ul>
                             </li>
+
                             <li class="sidebar-item">
-                                <a class="sidebar-link" href="@Url.Action("ThemDonThuoc", "QL_DonThuoc")" aria-expanded="false">
-                                    <img src="~/Content/assets-ad/images/Icon/newspaper.png" width="25" />
-                                    <span class="hide-menu">
-                                        &nbsp; Đơn thuốc
-                                    </span>
+                                <a class="sidebar-link has-arrow" href="javascript:void(0)"
+                                   aria-expanded="false">
+                                    <img src="~/Content/assets-ad/images/Icon/list.png" width="25" /><span class="hide-menu">&nbsp; Đơn thuốc </span>
                                 </a>
+                                <ul aria-expanded="false" class="collapse  first-level base-level-line">
+                                    <li class="sidebar-item">
+                                        <a href="@Url.Action("DS_DonThuoc","QL_DonThuoc") " class="sidebar-link">
+                                            <span class="hide-menu">
+                                                Danh sách đơn thuốc
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-item">
+                                        <a class="sidebar-link" href="@Url.Action("ThemDonThuoc", "QL_DonThuoc")" aria-expanded="false">
+                                            <span class="hide-menu">
+                                                Tạo đơn
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
                             </li>
+
                             <li class="sidebar-item">
                                 <a class="sidebar-link" href="@Url.Action("DanhSachDatLich", "QL_LichTuVan")"
                                    aria-expanded="false">

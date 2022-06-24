@@ -63,13 +63,13 @@
                                     <div class="col-lg-4">
                                         <div class="single-bottom mb-35">
                                             <div class="trend-bottom-img mb-30">
-                                                <a href="~/trang-chu/tin-tuc/@t.TEN_BAI_VIET.ToLower().Replace(" ","-")-@t.ID_TIN_TUC">
+                                                <a href="~/trang-chu/tin-tuc/@t.TEN_BAI_VIET.ToLower().Replace(".", "").Replace(" ","-")-@t.ID_TIN_TUC">
                                                     <img src="@Url.Action("Picture", new {@t.ID_TIN_TUC})" alt="" height="300">
                                                 </a>
                                             </div>
                                             <div class="trend-bottom-cap">
                                                 <span class="color1">@t.DANH_MUC_TIN.Danhmuc_tin</span>
-                                                <h4><a href="~/trang-chu/tin-tuc/@ViewBag.Top1.TEN_BAI_VIET.ToLower().Replace(" ","-")-@ViewBag.Top1.ID_TIN_TUC">@t.TEN_BAI_VIET</a></h4>
+                                                <h4><a href="~/trang-chu/tin-tuc/@t.TEN_BAI_VIET.ToLower().Replace(".", "").Replace(" ","-")-@t.ID_TIN_TUC">@t.TEN_BAI_VIET</a></h4>
                                             </div>
                                         </div>
                                     </div>

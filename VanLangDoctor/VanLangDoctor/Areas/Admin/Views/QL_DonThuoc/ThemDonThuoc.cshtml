@@ -179,7 +179,7 @@
         /*remove this "/CP24Team02/Admin/" if run in localhost*/
         $('#FullName').change(function () {
             let id = $(this).val();
-            $.get('/CP24Team02/Admin/QL_DonThuoc/GetPatient/' + id, function (data) {
+            $.get('/QL_DonThuoc/GetPatient/' + id, function (data) {
                 $('#age').val(data.Tuoi);
                 $('#gender').val(data.GioiTinh);
                 $('#address').val(data.DiaChi);

@@ -1931,7 +1931,6 @@
     <Content Include="Areas\Admin\Views\QL_BacSi\ApproveRating.cshtml" />
     <Content Include="Areas\Admin\Views\QL_DatLich\Create.cshtml" />
     <Content Include="Areas\Admin\Views\QL_DatLich\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\QL_DatLich\Details.cshtml" />
     <Content Include="Areas\Admin\Views\QL_DatLich\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\QL_DatLich\Index.cshtml" />
     <Content Include="Areas\Admin\Views\QL_DatLich\DanhSachLichTruc.cshtml" />
