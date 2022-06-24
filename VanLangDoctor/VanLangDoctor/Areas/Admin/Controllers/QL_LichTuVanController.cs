@@ -113,6 +113,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
                     var responseMessageText = await responseMessage.Content.ReadAsStringAsync();
                     var response = JsonConvert.DeserializeObject<WebexMeetingResposne>(responseMessageText);
                     dAT_LICH_TU_VAN.LINK_GG = response.WebLink;
+                    #region command ggmeet
                     //try
                     //{
                     //    UserCredential credential;
@@ -166,6 +167,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
                     //{
                     //    Console.WriteLine(e.Message);
                     //}
+                    #endregion
                 }
 
                 db.Entry(dAT_LICH_TU_VAN).State = EntityState.Modified;

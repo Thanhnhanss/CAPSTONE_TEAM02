@@ -47,11 +47,11 @@
                             <table id="zero_config" class="table table-striped table-bordered no-wrap">
                                 <thead>
                                     <tr>
-                                        <th>Tên bác sĩ</th>
+                                        @*<th>Tên bác sĩ</th>*@
+                                        <th>Bệnh nhân</th>
                                         <th>Thời gian</th>
                                         <th>Địa điểm</th>
-                                        @*<th>Bệnh nhân</th>*@
-                                        @*<th>Trạng thái</th>*@
+                                        <th>Trạng thái</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -60,18 +60,37 @@
                                     @foreach (var item in Model)
                                     {
                                         <tr>
-                                            <td>@Html.DisplayFor(modelItem => item.BACSI.TEN_BACSI)</td>
+                                            @*<td>@Html.DisplayFor(modelItem => item.BACSI.TEN_BACSI)</td>*@
+                                            <td>@Html.DisplayFor(modelItem => item.AspNetUser.Email)</td>
+
                                             <td>@Html.DisplayFor(modelItem => item.NGAY_KHAM)</td>
                                             @if (item.LINK_GG != null)
                                             {
-                                                <td><a href="@Html.DisplayFor(modelItem => item.LINK_GG)" target="_blank"><i class="icon-call-in"></i></a></td>
+                                                <td align="center">
+                                                    <a href="@Html.DisplayFor(modelItem => item.LINK_GG)" target="_blank">
+                                                        <img src="~/Content/assets-ad/images/Icon/icons8-live-video-on.gif" height="40" />
+                                                    </a>
+                                                </td>
                                             }
                                             else
                                             {
-                                                <td></td>
+                                                <td align="center">
+                                                    <img src="~/Content/assets-ad/images/Icon/icons8-no-video-100.png" height="40" />
+                                                </td>
                                             }
-                                            @*<td>@Html.DisplayFor(modelItem => item.AspNetUser.Email)</td>*@
                                             @*<td>@Html.DisplayFor(modelItem => item.TRANG_THAI)</td>*@
+                                            @if (item.TRANG_THAI == 1)
+                                            {
+                                                <td>Đã duyệt</td>
+                                            }
+                                            else if (item.TRANG_THAI == 0)
+                                            {
+                                                <td>Chờ duyệt</td>
+                                            }
+                                            else
+                                            {
+                                                <td>Bận</td>
+                                            }
                                             <td><a href="@Url.Action("Edit","QL_LichTuVan", new { id = item.ID })"><i class="ti-pencil"></i></a></td>
                                         </tr>
                                     }
