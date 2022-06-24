@@ -27,6 +27,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
             return View(dAT_LICH.ToList());
 
         }
+
         public ActionResult DanhSachLichTruc()
         {
             var dAT_LICH = db.DAT_LICH.Include(d => d.BACSI);
@@ -48,30 +49,22 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         public ActionResult Create(DAT_LICH dAT_LICH)
         {
             var gioTruc = dAT_LICH.NGAY_TRUC.Value;
-            if (gioTruc >= DateTime.Now)
+            if (!(gioTruc.Hour >= 8 && gioTruc.Hour <= 17))
             {
-                if ((gioTruc.Hour >= 8 && gioTruc.Hour <= 17))
-                {
-                    if (ModelState.IsValid)
-                    {
-                        var userId = User.Identity.GetUserId();
-                        dAT_LICH.ID_BACSI = db.BACSIs.FirstOrDefault(e => e.ID_Email == userId).ID_BACSI;
+                ModelState.AddModelError("Error", "Giờ trực phải từ 8 giờ đến 17 giờ");
 
-                        db.DAT_LICH.Add(dAT_LICH);
-                        db.SaveChanges();
-                        TempData["Success"] = "Bạn đã đăng ký thành công";
-                        return RedirectToAction("Index", "QL_DatLich", new { area = "Admin" });
-                    }
-                }
-                else
-                {
-                    ModelState.AddModelError("Error", "Giờ trực phải từ 8 giờ đến 17 giờ");
-
-                    TempData["Success"] = "Giờ trực phải từ 8 giờ đến 17 giờ";
-                }
+                TempData["Success"] = "Giờ trực phải từ 8 giờ đến 17 giờ";
             }
-            var date = DateTime.Now;
-            TempData["Success"] = $"Giờ trực phải lớn hơn giờ hiện tại: {date}";
+            if (ModelState.IsValid)
+            {
+                var userId = User.Identity.GetUserId();
+                dAT_LICH.ID_BACSI = db.BACSIs.FirstOrDefault(e => e.ID_Email == userId).ID_BACSI;
+
+                db.DAT_LICH.Add(dAT_LICH);
+                db.SaveChanges();
+                TempData["Success"] = "Bạn đã đăng ký thành công";
+                return RedirectToAction("Index", "QL_DatLich", new { area = "Admin" });
+            }
             return View(dAT_LICH);
         }
 

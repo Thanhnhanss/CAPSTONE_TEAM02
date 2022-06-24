@@ -74,10 +74,17 @@ namespace VanLangDoctor.Areas.Admin.Controllers
         {
             var doctor = User.Identity.GetUserId();
             var thongtin = db.BACSIs.FirstOrDefault(e => e.ID_Email.Equals(doctor));
-            ViewBag.ID_Email = new SelectList(db.AspNetUsers, "Id", "Email");
+            //ViewBag.ID_Email = new SelectList(db.AspNetUsers, "Id", "Email");
             ViewBag.ID_KHOA = new SelectList(db.KHOAs, "ID_KHOA", "TEN_KHOA");
             return View(thongtin);
         }
+
+        ////POST: Admin/QL_BacSi/ThongTinBacSi
+        //[HttpPost]
+        //public ActionResult ThongTinBacSi()
+        //{
+        //    return View();
+        //}
 
         public ActionResult Picture(int ID_BACSI)
         {

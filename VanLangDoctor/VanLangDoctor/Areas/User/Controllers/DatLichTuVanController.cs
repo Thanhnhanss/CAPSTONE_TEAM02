@@ -30,6 +30,7 @@ namespace VanLangDoctor.Areas.User.Controllers
         // GET: User/DatLichTuVan/Create
         public ActionResult Create()
         {
+            ViewBag.GetDoctor = GetListDoctor();
             ViewBag.ID_BAC_SI = new SelectList(db.BACSIs.Where(e=>e.DAT_LICH.Count() > 0), "ID_BACSI", "TEN_BACSI");
             return View();
         }
@@ -68,6 +69,10 @@ namespace VanLangDoctor.Areas.User.Controllers
             }
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public List<BACSI> GetListDoctor() => db.BACSIs.Where(e => e.DAT_LICH.Count > 0).ToList();
+
         [HttpGet]
         public JsonResult GetDoctor(int id)
         {
@@ -77,6 +82,7 @@ namespace VanLangDoctor.Areas.User.Controllers
                 ID = bacsi.ID_BACSI,
                 Name = bacsi.TEN_BACSI,
                 Ngay_Truc = bacsi.DAT_LICH
+                                .OrderBy(e=>e.NGAY_TRUC.Value.Date)
                                 .Where(e => e.NGAY_TRUC > DateTime.Now)
                                 .Select(e => e.NGAY_TRUC.Value.ToString("yyyy/MM/dd HH:mm")).ToList()
             }, JsonRequestBehavior.AllowGet);

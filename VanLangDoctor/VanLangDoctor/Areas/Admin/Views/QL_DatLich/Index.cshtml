@@ -72,10 +72,10 @@
                                     {
                                         <tr>
                                             <td>
-                                                @item.NGAY_TRUC.Value.ToShortDateString()
+                                                @item.NGAY_TRUC.Value.ToString("dd/MM/yyyy")
                                             </td>
                                             <td>
-                                                @item.NGAY_TRUC.Value.ToLongTimeString()
+                                                @item.NGAY_TRUC.Value.ToString("hh:mm tt")
                                             </td>
                                             <td>
                                                 @switch (@item.NGAY_TRUC.Value.DayOfWeek)

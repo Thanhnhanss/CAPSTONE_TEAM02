@@ -53,7 +53,7 @@
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                         <div class="form-group">
                             <label for="ngay_truc">Ngày trực</label>
-                            <input type="datetime-local" class="form-control" name="NGAY_TRUC" min="@DateTime.Now.ToString("yyyy-MM-ddT08:00")" style="border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%) " required />
+                            <input type="datetime-local" class="form-control" name="NGAY_TRUC" min="@DateTime.Now.AddDays(1).ToString("yyyy-MM-ddT08:00")" style="border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%) " required />
                         </div>
 
                         <div class="form-group">

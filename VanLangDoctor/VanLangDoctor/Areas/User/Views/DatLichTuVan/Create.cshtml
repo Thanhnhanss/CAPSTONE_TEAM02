@@ -46,13 +46,19 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <label style="float:left">Chọn bác sĩ tư vấn</label>
-                                    @Html.DropDownList("ID_BAC_SI", null, htmlAttributes: new { @class = "form-control", @id = "BAC_SI", @style = "border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%)" })
-                                    @Html.ValidationMessageFor(model => model.ID_BAC_SI, "", new { @class = "text-danger" })
+                                    <select id="Name" class="form-control" style="border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%)" required>
+                                        <option value="" selected> Choose...</option>
+                                        @foreach (var i in ViewBag.GetDoctor)
+                                        {
+                                            <option value="@i.ID_BACSI">@i.TEN_BACSI</option>
+                                        }
+                                    </select>
+                                    @*@Html.DropDownList("ID_BAC_SI", null, htmlAttributes: new { @class = "form-control", @id = "BAC_SI", @style = "border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%)" })
+                                    @Html.ValidationMessageFor(model => model.ID_BAC_SI, "", new { @class = "text-danger" })*@
                                 </div>
 
                                 <div class="col-md-6">
                                     <label style="float:left">Ngày tư vấn</label>
-                                    @*<input type="datetime" value="" class="form-group" />*@
                                     <select id="Ngay_Truc" name="NGAY_KHAM" class="form-control" style="border-radius: 15px; box-shadow: 4px 4px 10px rgb(0 0 0 / 20%)" required>
                                         <option value="" selected> Choose...</option>
                                     </select>
@@ -73,7 +79,7 @@
 
 <script>
     /*remove this "/CP24Team02/User/" if run in localhost*/
-    $('#BAC_SI').change(function () {
+    $('#Name').change(function () {
         let id = $(this).val();
         $.get('/CP24Team02/User/DatLichTuVan/GetDoctor/' + id, function (data) {
             console.log(data);

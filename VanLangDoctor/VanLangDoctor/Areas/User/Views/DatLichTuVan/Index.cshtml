@@ -62,7 +62,7 @@
                                 {
                                     @Html.AntiForgeryToken()
                                     <tr>
-                                        <td><input type="hidden" name="id" value="@item.ID" /></td>
+                                        <input type="hidden" name="id" value="@item.ID" />
                                         <td>@Html.DisplayFor(modelItem => item.BACSI.TEN_BACSI)</td>
                                         @if (item.LINK_GG == null)
                                         {
@@ -70,7 +70,11 @@
                                         }
                                         else
                                         {
-                                            <td><a href="@Html.DisplayFor(modelItem => item.LINK_GG)" target="_blank"><i class="icon-call-in"></i></a></td>
+                                            <td>
+                                                <a href="@Html.DisplayFor(modelItem => item.LINK_GG)" target="_blank">
+                                                    <img src="~/Content/assets-ad/images/Icon/icons8-live-video-on.gif" height="35" />
+                                                </a>
+                                            </td>
                                         }
                                         <td>@Html.DisplayFor(modelItem => item.NGAY_KHAM)</td>
                                         <td>@TrangThaiDatLichKham.GetDescription(item.TRANG_THAI)</td>
