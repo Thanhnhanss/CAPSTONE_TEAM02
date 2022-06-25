@@ -173,7 +173,7 @@ namespace VanLangDoctor.Areas.Admin.Controllers
 
                         scope.Complete();
                         TempData["Success"] = "Cập nhật bác sĩ thành công";
-                        return RedirectToAction("DanhSach_BS");
+                        return RedirectToAction("HomeAdmin", "HomeAdmin", new { area = "Admin" });
 
                     }
                 }
