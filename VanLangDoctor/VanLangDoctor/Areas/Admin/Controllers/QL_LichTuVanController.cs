@@ -14,6 +14,8 @@ using System.Web.Mvc;
 using VanLangDoctor.Models;
 using Microsoft.AspNet.Identity;
 using System.Text;
+using QuickMailer;
+using System.Configuration;
 
 namespace VanLangDoctor.Areas.Admin.Controllers
 {
@@ -113,6 +115,8 @@ namespace VanLangDoctor.Areas.Admin.Controllers
                     var responseMessageText = await responseMessage.Content.ReadAsStringAsync();
                     var response = JsonConvert.DeserializeObject<WebexMeetingResposne>(responseMessageText);
                     dAT_LICH_TU_VAN.LINK_GG = response.WebLink;
+
+                    TempData["Success"] = "Duyệt cuộc họp thành công";
                     #region command ggmeet
                     //try
                     //{
@@ -168,6 +172,27 @@ namespace VanLangDoctor.Areas.Admin.Controllers
                     //    Console.WriteLine(e.Message);
                     //}
                     #endregion
+                }
+                if (dAT_LICH_TU_VAN.TRANG_THAI == 2)
+                {
+                    var bacSi = await db.BACSIs.FindAsync(dAT_LICH_TU_VAN.ID_BAC_SI);
+                    var benhNhan = await db.AspNetUsers.FindAsync(dAT_LICH_TU_VAN.ID_USER);
+                    var start = dAT_LICH_TU_VAN.NGAY_KHAM.ToString("dd-MM-yyyy H:mm", CultureInfo.InvariantCulture);
+                    var end = dAT_LICH_TU_VAN.NGAY_KHAM.AddHours(2).ToString("dd-MM-yyyy H:mm", CultureInfo.InvariantCulture);
+
+                    string content = System.IO.File.ReadAllText(Server.MapPath("~/Content/Template_Email/CancelMeeting.html"));
+                    content = content.Replace("{{TenBN}}", benhNhan.Email.ToString());
+                    content = content.Replace("{{Bacsi}}", bacSi.TEN_BACSI);
+                    content = content.Replace("{{Thoigian}}", $"{start} đến {end}");
+                    content = content.Replace("{{LinkDR}}", "http://cntttest.vanlanguni.edu.vn:18080/CP24Team02/trang-chu/dat-lich-tu-van");
+
+                    var fromEmail = ConfigurationManager.AppSettings["fromEmail"].ToString();
+                    var fromEmailPassword = ConfigurationManager.AppSettings["fromEmailPassword"].ToString();
+                    
+                    Email email = new Email();
+                    email.SendEmail(benhNhan.Email, fromEmail, fromEmailPassword, "[QUAN TRỌNG] Lịch tư vấn đã bị hủy", content);
+
+                    TempData["Success"] = "Cuộc họp đã bị hủy. Email thông báo sẽ được gửi cho bệnh nhân";
                 }
 
                 db.Entry(dAT_LICH_TU_VAN).State = EntityState.Modified;

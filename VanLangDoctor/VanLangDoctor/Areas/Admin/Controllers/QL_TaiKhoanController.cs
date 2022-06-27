@@ -2,7 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using VanLangDoctor.Models;
@@ -63,5 +65,42 @@ namespace VanLangDoctor.Areas.Admin.Controllers
 
             return Redirect("~/Admin/QL_TaiKhoan/TaiKhoan");
         }
+
+        public ActionResult Delete(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            AspNetUser aspNetUser = db.AspNetUsers.Find(id);
+            if (aspNetUser == null)
+            {
+                return HttpNotFound();
+            }
+            return View(aspNetUser);
+        }
+        // POST: Admin/AspNetRoles/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(string id)
+        {
+            var user = db.AspNetUsers.SingleOrDefault(item => item.Id == id);
+            
+            if(user.AspNetRoles.Count <= 0)
+            {
+                TempData["Success"] = "Tài khoản chưa được phân quyền";
+                RedirectToAction("Delete");
+            }
+            else
+            {
+                var role = user.AspNetRoles.ToList()[0];
+                user.AspNetRoles.Remove(role);
+                db.SaveChanges();
+                TempData["Success"] = "Thu hồi quyền thành công";
+                return RedirectToAction("TaiKhoan");
+            }
+            return View();
+        }
+        
     }
 }

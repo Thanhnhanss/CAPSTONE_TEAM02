@@ -1323,6 +1323,7 @@
     <Content Include="Content\assets-ff\images\banner\login_bg4.jpg" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\popup.css" />
+    <Content Include="Content\Template_Email\CancelMeeting.html" />
     <Content Include="Content\Template_Email\SendMailCF.html" />
     <Content Include="Content\Template_Email\Feedback.html" />
     <Content Include="Content\Template_Email\template.html" />
@@ -2080,6 +2081,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Areas\Admin\Views\QL_LichTuVan\DanhSachDatLich.cshtml" />
+    <Content Include="Areas\Admin\Views\QL_TaiKhoan\Delete.cshtml" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\fullcalendar.js" />

@@ -43,34 +43,38 @@
                                 </div>
                             }
                             <table id="zero_config" class="table table-striped table-bordered no-wrap">
-                                 <thead>
-                                     <tr>
-                                         <th>Email</th>
-                                         <th>Quyền</th>
-                                         <th></th>
-                                     </tr>
+                                <thead>
+                                    <tr>
+                                        <th>Email</th>
+                                        <th>Quyền</th>
+                                        <th></th>
+                                    </tr>
                                 </thead>
-                                 <tbody>
-                                     @foreach (var item in Model)
-                                     {
-                                         <tr>
-                                             <td>
-                                                 @item.Email
-                                             </td>
-                                             @if (item.AspNetRoles.ToList().Count == 0)
-                                             {
-                                                 <td>Khách</td>
-                                             }
-                                             else
-                                             {
-                                                 <td>@item.AspNetRoles.ToList()[0].Name</td>
-                                             }
-                                             <td>
-                                                 <a href="~/Admin/QL_TaiKhoan/PhanQuyen?username=@item.Email"><i class="ti-pencil"></i>Phân quyền</a>
-                                             </td>
-                                         </tr>
-                                     }
-                                 </tbody>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @item.Email
+                                            </td>
+                                            @if (item.AspNetRoles.ToList().Count == 0)
+                                            {
+                                                <td>Khách</td>
+                                            }
+                                            else
+                                            {
+                                                <td>@item.AspNetRoles.ToList()[0].Name</td>
+                                            }
+                                            <td class="col-1">
+                                                <a href="~/Admin/QL_TaiKhoan/PhanQuyen?username=@item.Email"><i class="ti-pencil" title="Phân quyền tài khoản"></i></a> 
+                                                @if (item.AspNetRoles.ToList().Count != 0)
+                                                {
+                                                    <a href="@Url.Action("Delete","QL_TaiKhoan", new {id = item.Id})"> | <i class="ti-lock" title="Thu hồi quyền"></i></a>
+                                                }
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
                             </table>
                         </div>
                     </div>
